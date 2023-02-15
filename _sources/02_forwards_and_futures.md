@@ -14,7 +14,7 @@ kernelspec:
 :tags: [remove-cell]
 
 import pandas as pd
-import plotly.express as px
+import altair as alt
 ```
 
 # Forwards and Futures
@@ -42,8 +42,12 @@ K = 100
 df = pd.DataFrame()
 df['S'] = pd.Series(range(0,201))
 df['profit'] = df['S'] - K 
-fig = px.line(df, x="S", y="profit", title='Long Forward/Futures, K=100', width=500, height=500)
-fig.show()
+alt.Chart(df).mark_line().encode(
+    x='S',
+    y='profit'
+).properties(
+    title='Long Forward/Futures, K=100'
+)
 ```
 
 ```{code-cell}
@@ -53,8 +57,12 @@ K = 100
 df = pd.DataFrame()
 df['S'] = pd.Series(range(0,201))
 df['profit'] = K - df['S'] 
-fig = px.line(df, x="S", y="profit", title='Short Forward/Futures, K=100', width=500, height=500)
-fig.show()
+alt.Chart(df).mark_line().encode(
+    x='S',
+    y='profit'
+).properties(
+    title='Short Forward/Futures, K=100'
+)
 ```
 
 ## Forward Contracts vs Futures Contracts
