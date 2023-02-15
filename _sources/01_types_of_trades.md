@@ -19,13 +19,9 @@ import plotly.express as px
 
 # Types of Trades
 
-- Hedging
-- Speculation
-- Arbitrage
-
 ## Hedging
 
-- The purpose of hedging is to reduce risk.
+- The purpose of hedging is to **reduce risk**.
 - There is no guarantee that the outcome will be better.
 - Forward contracts are designed to neutralize risk by fixing the price that the hedger will pay or receive for the underlying asset.
 - Option contracts provide insurance.
@@ -38,14 +34,14 @@ Examples:
 
 ## Arbitrage
 
-- In well-functioning markets with low transaction costs and a free flow of information, identical assets must sell for the same price. This is referred to as the **Law of One Price**.
-- If identical assets do not sell at the same price, a trader could buy the cheaper asset and sell it in the more expensive market, earning a riskless profit. This is known as arbitrage (capturing price differences on identical assets to earn a riskless profit). 
+- In well-functioning markets with low transaction costs and a free flow of information, identical assets must sell for the same price $\rightarrow$ **Law of One Price**.
+- If identical assets do not sell at the same price, a trader could buy the cheaper asset and sell it in the more expensive market, earning a riskless profit $\rightarrow$ **arbitrage** (capturing price differences on identical assets to earn a riskless profit). 
 - The combined action of arbitrageurs continues until the prices of identical assets converge.
 - Arbitrage is a relative valuation methodology. It tells us the correct price of one asset or derivative relative to another asset or derivative.
 
 The forces of arbitrage in financial markets assure us that: 
-- the same asset cannot sell for different prices 
-- nor can two equivalent combinations of assets that produce the same results sell for different prices
+- the same asset cannot sell for different prices
+- nor can two equivalent combinations of assets that produce the same results sell for different prices.
 
 - Markets in which arbitrage opportunities are either nonexistent or quickly eliminated are relatively efficient markets. 
 - Efficient markets fairly compensate investors for risk.

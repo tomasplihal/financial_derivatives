@@ -50,6 +50,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
     <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -385,51 +387,6 @@ title="Fullscreen mode"
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/executablebooks/jupyter-book"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F01_types_of_trades.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
 <div class="menu-dropdown menu-dropdown-download-buttons">
   <button class="headerbtn menu-dropdown__trigger"
       aria-label="Download this page">
@@ -575,15 +532,10 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="types-of-trades">
 <h1>Types of Trades<a class="headerlink" href="#types-of-trades" title="Permalink to this headline">#</a></h1>
-<ul class="simple">
-<li><p>Hedging</p></li>
-<li><p>Speculation</p></li>
-<li><p>Arbitrage</p></li>
-</ul>
 <section id="hedging">
 <h2>Hedging<a class="headerlink" href="#hedging" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
-<li><p>The purpose of hedging is to reduce risk.</p></li>
+<li><p>The purpose of hedging is to <strong>reduce risk</strong>.</p></li>
 <li><p>There is no guarantee that the outcome will be better.</p></li>
 <li><p>Forward contracts are designed to neutralize risk by fixing the price that the hedger will pay or receive for the underlying asset.</p></li>
 <li><p>Option contracts provide insurance.</p></li>
@@ -599,15 +551,15 @@ title="Print to PDF"
 <section id="arbitrage">
 <h2>Arbitrage<a class="headerlink" href="#arbitrage" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
-<li><p>In well-functioning markets with low transaction costs and a free flow of information, identical assets must sell for the same price. This is referred to as the <strong>Law of One Price</strong>.</p></li>
-<li><p>If identical assets do not sell at the same price, a trader could buy the cheaper asset and sell it in the more expensive market, earning a riskless profit. This is known as arbitrage (capturing price differences on identical assets to earn a riskless profit).</p></li>
+<li><p>In well-functioning markets with low transaction costs and a free flow of information, identical assets must sell for the same price <span class="math notranslate nohighlight">\(\rightarrow\)</span> <strong>Law of One Price</strong>.</p></li>
+<li><p>If identical assets do not sell at the same price, a trader could buy the cheaper asset and sell it in the more expensive market, earning a riskless profit <span class="math notranslate nohighlight">\(\rightarrow\)</span> <strong>arbitrage</strong> (capturing price differences on identical assets to earn a riskless profit).</p></li>
 <li><p>The combined action of arbitrageurs continues until the prices of identical assets converge.</p></li>
 <li><p>Arbitrage is a relative valuation methodology. It tells us the correct price of one asset or derivative relative to another asset or derivative.</p></li>
 </ul>
 <p>The forces of arbitrage in financial markets assure us that:</p>
 <ul class="simple">
 <li><p>the same asset cannot sell for different prices</p></li>
-<li><p>nor can two equivalent combinations of assets that produce the same results sell for different prices</p></li>
+<li><p>nor can two equivalent combinations of assets that produce the same results sell for different prices.</p></li>
 <li><p>Markets in which arbitrage opportunities are either nonexistent or quickly eliminated are relatively efficient markets.</p></li>
 <li><p>Efficient markets fairly compensate investors for risk.</p></li>
 <li><p>Arbitrage opportunities give investors a return above the risk-free rate without taking risk.</p></li>
@@ -678,9 +630,9 @@ title="Print to PDF"
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By Tomáš Plíhal<br/>
+    By Tomáš Plíhal, Institute of Financial Complex Systems - Department of Finance<br/>
   
-      &copy; Copyright 2022.<br/>
+      &copy; Copyright Masaryk University, 2023.<br/>
 </p>
         </footer>
     </div>

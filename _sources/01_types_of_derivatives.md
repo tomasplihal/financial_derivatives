@@ -19,23 +19,28 @@ import plotly.express as px
 
 # Types of Derivatives
 
-- **Forward Commitments** - Agreements to transact at a later date
-    - Forward Contracts
-    - Futures Contracts
-    - Swaps
-
-+ **Contingent Claims** - Give the holder the right to make a transaction
-    + Options
 
 ## Forward Contracts vs. Contingent Claims 
 
 - Both forward contracts and contingent claims derive their values from the performance of an underlying asset.
-- A **forward contract** represents an **obligation** to trade the agreed upon asset at a future date. The potential loss on a long forward contract can be as great as the full contract price. For a short forward contract, the loss can be infinite.
-- A **contingent claim** grants the holder the **right** to trade, but he/she is not obligated to do so. The most the buyer can lose on a contingent claim is the premium paid for that claim. 
+- **Forward Commitments** - Agreements to transact at a later date
+    - Forward Contracts
+    - Futures Contracts
+    - Swaps
+- **Contingent Claims** - Give the holder the right to make a transaction
+    - Options
+
++ A **forward contract** represents an **obligation** to trade the agreed upon asset at a future date. The potential loss on a long forward contract can be as great as the full contract price. For a short forward contract, the loss can be infinite.
++ A **contingent claim** grants the holder the **right** to trade, but he/she is not obligated to do so. The most the buyer can lose on a contingent claim is the premium paid for that claim. 
 
 ## Forward Contract
 
-- A **forward contract** is an over-the-counter derivative contract in which two parties agree that one party, the buyer, will purchase an underlying asset from the other party, the seller, at a later date at a fixed price they agree on when the contract is signed.
+```{admonition} Forward Contract
+:class: tip
+
+A **forward contract** is an over-the-counter derivative contract in which two parties agree that one party, the buyer, will purchase an underlying asset from the other party, the seller, at a later date at a fixed price they agree on when the contract is signed.
+```
+
 - The party that has agreed to **buy** has what is termed a **long** position.
 - The party that has agreed to **sell** has what is termed a **short** position.
 
@@ -52,6 +57,7 @@ import plotly.express as px
 ## Futures Contract    
 
 - A futures contract is similar to a forward contract but is a **standardized** derivative contract created and traded on a **futures exchanges**. 
+- [CME Group](https://www.cmegroup.com/), [Intercontinental Exchange](https://www.theice.com/about/exchanges-clearing)
 
 ## Forwards vs. Futures
 
@@ -70,13 +76,15 @@ import plotly.express as px
 ## Swap
 
 - A swap is an over-the-counter derivative contract in which two parties agree to exchange a series of cash flows.
-
-A swap is similar to a forward contract:
-However, a Swap is used to hedge multi-period risk, whereas a forward contract
+- A swap is similar to a forward contract, but it is used to hedge multi-period risk (forward is for single-period risk).
 
 ## Options
 
-- An option is a derivative contract in which one party, the buyer, pays a sum of money to the other party, the seller or writer, and receives the right to either buy or sell an underlying asset at a fixed price either on a specific expiration date or at any time prior to the expiration date.
+```{admonition} Option
+:class: tip
+
+An option is a derivative contract in which one party, the buyer, pays a sum of money to the other party, the seller or writer, and receives the right to either buy or sell an underlying asset at a fixed price either on a specific expiration date or at any time prior to the expiration date.
+```
 - A **call** is an option that provides the right to **buy** the underlying.
 - A **put** is an option that provides the right to **sell** the underlying.
 - An **American option** can be exercised at any time during its life.

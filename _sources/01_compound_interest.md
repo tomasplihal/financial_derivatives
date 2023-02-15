@@ -15,7 +15,7 @@ kernelspec:
 # Compound Interest
 
 ```{admonition} References
-:class: info
+:class: note dropdown
 
 This material was originaly published [HERE](https://28left.github.io/110jupyter/ch_Compoundinterest/compoundinterest_.html) by Department of Mathematics, Penn State University Park.
 ```
@@ -143,7 +143,7 @@ the accumulated amount is higher in Example 2.
 
 ### Example 3
 
-Find the interest rate required for an investment of $ \$3000$ to double in
+Find the interest rate required for an investment of $\$3000$ to double in
 value after 5 years if interest is compounded quarterly.
 
 ```{dropdown} **Step 1:** Since interest is compounded quarterly, use the accumulated amount for discrete compound interest.
@@ -171,7 +171,7 @@ $$A=P\left(1+\frac{r}{m}\right)^{mt}$$
 **Method 1**
 
 Divide both sides by 3000
-$$2 = \left(1 + \frac{r}{4} \right)^{20}$$
+$$ 2 = \left(1 + \frac{r}{4} \right)^{20} $$
 
 Take the natural logarithm of both sides.
 

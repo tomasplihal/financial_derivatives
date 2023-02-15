@@ -1,5 +1,7 @@
 # Time Value of Money
 
+## Compounding Frequency
+
 - When we compound $m$ times per year at rate $r$ an amount $P$ grows to $P(1+r/m)^m$ in one year.
 - The compounding frequency used for an interest rate is the unit of measurement.
 - The difference between quarterly and annual compounding is analogous to the
@@ -9,29 +11,28 @@ when the interest rate is 10% per annum.
 
 | Compounding frequency | Value of \$100 at end of year ($) |
 | --------------------- | --------------------------------- |
-| Annually 1m = 12      | 110.00                            |
-| Semiannually 1m = 22  | 110.25                            |
-| Quarterly 1m = 42     | 110.38                            |
-| Monthly 1m = 122      | 110.47                            |
-| Weekly 1m = 522       | 110.51                            |
-| Daily 1m = 3652       | 110.52                            |
+| Annually m = 1        | 110.00                            |
+| Semiannually m = 2    | 110.25                            |
+| Quarterly m = 4       | 110.38                            |
+| Monthly m = 12        | 110.47                            |
+| Weekly m = 52         | 110.51                            |
+| Daily m = 365         | 110.52                            |
 
 ## Continuous Compounding
 
 - **Rates used in option pricing are nearly always expressed with continuous compounding.**
-- In the limit as we compound more and more frequently we obtain continuously
-compounded interest rates.
-- USD 100 grows to USD $100 \times e^{rT}$ when invested at a continuously
-compounded rate $r$ for time $T$.
-- USD 100 received at time $T$ discounts to USD $100 \times e^{-rT}$ at time
-zero when the continuously compounded discount rate is $r$.
+- In the limit as we compound more and more frequently we obtain continuously compounded interest rates.
+- USD 100 grows to USD $$100 \times e^{rT}$$ when invested at a continuously compounded rate $r$ for time $T$.
+- USD 100 received at time $T$ discounts to USD $$100 \times e^{-rT}$$ at time zero when the continuously compounded discount rate is $r$.
 
 ## Conversion Formulas
 
 - $r_c$: continuously compounded rate
 - $r_m$: same rate with compounding $m$ times per year
-$$r_c = m \ln (1+ \frac{r_m}{m})$$
-$$r_m = m(e^{r_c/m} - 1)$$
+
+$$ r_c = m \ln (1+ \frac{r_m}{m}) $$
+
+$$ r_m = m(e^{r_c/m} - 1) $$
 
 Examples:
 

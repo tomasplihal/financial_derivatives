@@ -385,51 +385,6 @@ title="Fullscreen mode"
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/executablebooks/jupyter-book"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F01_types_of_derivatives.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
 <div class="menu-dropdown menu-dropdown-download-buttons">
   <button class="headerbtn menu-dropdown__trigger"
       aria-label="Download this page">
@@ -605,7 +560,10 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="types-of-derivatives">
 <h1>Types of Derivatives<a class="headerlink" href="#types-of-derivatives" title="Permalink to this headline">#</a></h1>
+<section id="forward-contracts-vs-contingent-claims">
+<h2>Forward Contracts vs. Contingent Claims<a class="headerlink" href="#forward-contracts-vs-contingent-claims" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
+<li><p>Both forward contracts and contingent claims derive their values from the performance of an underlying asset.</p></li>
 <li><p><strong>Forward Commitments</strong> - Agreements to transact at a later date</p>
 <ul>
 <li><p>Forward Contracts</p></li>
@@ -613,26 +571,24 @@ title="Print to PDF"
 <li><p>Swaps</p></li>
 </ul>
 </li>
-</ul>
-<ul class="simple">
 <li><p><strong>Contingent Claims</strong> - Give the holder the right to make a transaction</p>
 <ul>
 <li><p>Options</p></li>
 </ul>
 </li>
 </ul>
-<section id="forward-contracts-vs-contingent-claims">
-<h2>Forward Contracts vs. Contingent Claims<a class="headerlink" href="#forward-contracts-vs-contingent-claims" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
-<li><p>Both forward contracts and contingent claims derive their values from the performance of an underlying asset.</p></li>
 <li><p>A <strong>forward contract</strong> represents an <strong>obligation</strong> to trade the agreed upon asset at a future date. The potential loss on a long forward contract can be as great as the full contract price. For a short forward contract, the loss can be infinite.</p></li>
 <li><p>A <strong>contingent claim</strong> grants the holder the <strong>right</strong> to trade, but he/she is not obligated to do so. The most the buyer can lose on a contingent claim is the premium paid for that claim.</p></li>
 </ul>
 </section>
 <section id="forward-contract">
 <h2>Forward Contract<a class="headerlink" href="#forward-contract" title="Permalink to this headline">#</a></h2>
+<div class="tip admonition">
+<p class="admonition-title">Forward Contract</p>
+<p>A <strong>forward contract</strong> is an over-the-counter derivative contract in which two parties agree that one party, the buyer, will purchase an underlying asset from the other party, the seller, at a later date at a fixed price they agree on when the contract is signed.</p>
+</div>
 <ul class="simple">
-<li><p>A <strong>forward contract</strong> is an over-the-counter derivative contract in which two parties agree that one party, the buyer, will purchase an underlying asset from the other party, the seller, at a later date at a fixed price they agree on when the contract is signed.</p></li>
 <li><p>The party that has agreed to <strong>buy</strong> has what is termed a <strong>long</strong> position.</p></li>
 <li><p>The party that has agreed to <strong>sell</strong> has what is termed a <strong>short</strong> position.</p></li>
 </ul>
@@ -656,6 +612,7 @@ title="Print to PDF"
 <h2>Futures Contract<a class="headerlink" href="#futures-contract" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>A futures contract is similar to a forward contract but is a <strong>standardized</strong> derivative contract created and traded on a <strong>futures exchanges</strong>.</p></li>
+<li><p><a class="reference external" href="https://www.cmegroup.com/">CME Group</a>, <a class="reference external" href="https://www.theice.com/about/exchanges-clearing">Intercontinental Exchange</a></p></li>
 </ul>
 </section>
 <section id="forwards-vs-futures">
@@ -685,14 +642,16 @@ title="Print to PDF"
 <h2>Swap<a class="headerlink" href="#swap" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>A swap is an over-the-counter derivative contract in which two parties agree to exchange a series of cash flows.</p></li>
+<li><p>A swap is similar to a forward contract, but it is used to hedge multi-period risk (forward is for single-period risk).</p></li>
 </ul>
-<p>A swap is similar to a forward contract:
-However, a Swap is used to hedge multi-period risk, whereas a forward contract</p>
 </section>
 <section id="options">
 <h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">#</a></h2>
+<div class="tip admonition">
+<p class="admonition-title">Option</p>
+<p>An option is a derivative contract in which one party, the buyer, pays a sum of money to the other party, the seller or writer, and receives the right to either buy or sell an underlying asset at a fixed price either on a specific expiration date or at any time prior to the expiration date.</p>
+</div>
 <ul class="simple">
-<li><p>An option is a derivative contract in which one party, the buyer, pays a sum of money to the other party, the seller or writer, and receives the right to either buy or sell an underlying asset at a fixed price either on a specific expiration date or at any time prior to the expiration date.</p></li>
 <li><p>A <strong>call</strong> is an option that provides the right to <strong>buy</strong> the underlying.</p></li>
 <li><p>A <strong>put</strong> is an option that provides the right to <strong>sell</strong> the underlying.</p></li>
 <li><p>An <strong>American option</strong> can be exercised at any time during its life.</p></li>
@@ -749,9 +708,9 @@ However, a Swap is used to hedge multi-period risk, whereas a forward contract</
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By Tomáš Plíhal<br/>
+    By Tomáš Plíhal, Institute of Financial Complex Systems - Department of Finance<br/>
   
-      &copy; Copyright 2022.<br/>
+      &copy; Copyright Masaryk University, 2023.<br/>
 </p>
         </footer>
     </div>

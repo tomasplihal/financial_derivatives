@@ -25,7 +25,7 @@ import plotly.express as px
 - The underlying asset, called the underlying, trades in the cash or spot market and its price is called the cash or spot price.
 - The underlying assets include stocks, currencies, interest rates, commodities, debt instruments, electricity prices, insurance payouts, the weather, etc.
 
-## Why Derivatives Are Important?
+## Why Derivatives are Important?
 
 Derivatives:
 - play a key role in **transferring risks**,
@@ -66,13 +66,13 @@ Derivatives:
 - Flexibility in expiration date.
 - Greater risk of default (credit risk) for market participants.
 
-+ The OTC Market Prior to 2008
++ The OTC Market Prior to 2008:
     + Largely unregulated.
     + Banks acted as market makers quoting bids and offers.
     + Master agreements usually defined how transactions between two parties would be handled.
     + Some transactions were cleared through central counterparties (CCPs, comparable to clearing house).
 
-- Since 2008
+- Since 2008:
     - OTC market has become regulated.
         - Reduce systemic risk
         - Increase transparency
