@@ -1,0 +1,842 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Interest Rates &#8212; Financial Derivatives</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Time Value of Money" href="01_time_value_of_money.html" />
+    <link rel="prev" title="Criticisms and Misuses of Derivatives" href="01_criticism.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Financial Derivatives</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to the financial derivatives course
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="01_intro.html">
+   Lecture 1
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_introduction.html">
+     Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_types_of_derivatives.html">
+     Types of Derivatives
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_types_of_trades.html">
+     Types of Trades
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_criticism.html">
+     Criticisms and Misuses of Derivatives
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Interest Rates
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_time_value_of_money.html">
+     Time Value of Money
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_compound_interest.html">
+     Compound Interest
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_practice_questions.html">
+     Practice Questions and Problems
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="02_intro.html">
+   Lecture 2
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_forwards_and_futures.html">
+     Forwards and Futures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_futures_markets.html">
+     Mechanics of Forward/Futures Markets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_futures_hedging.html">
+     Hedging Strategies Using Futures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_practice_questions.html">
+     Practice Questions and Problems
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="03_intro.html">
+   Lecture 3
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_lecture_a.html">
+     Determination of Forward and Futures Prices
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_lecture_b.html">
+     FRA ??? Nechat nebo zahodit
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="04_intro.html">
+   Lecture 4
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_swaps.html">
+     Swaps
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="05_intro.html">
+   Lecture 5
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05_option_markets.html">
+     Mechanics of option market and properties of options
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06_intro.html">
+   Lecture 6
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07_intro.html">
+   Lecture 7
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08_intro.html">
+   Lecture 8
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09_intro.html">
+   Lecture 9
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10_intro.html">
+   Lecture 10
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_intro.html">
+   Lecture 11
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="12_intro.html">
+   Lecture 12
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F01_interest_rates.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/01_interest_rates.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#types-of-rates">
+   Types of Rates
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#treasury-rate">
+     Treasury Rate
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-u-s-fed-funds-rate">
+     The U.S. Fed Funds Rate
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#repo-rate">
+     Repo Rate
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#libor-ice-libor">
+     LIBOR (ICE LIBOR)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#alternative-reference-rates">
+   Alternative Reference Rates
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sofr-secured-overnight-financing-rate">
+     SOFR (Secured Overnight Financing Rate)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sonia-sterling-overnight-index-average">
+     SONIA (Sterling Overnight Index Average)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#str-or-ester-euro-short-term-rate">
+     €STR (or ESTER, Euro Short-Term Rate)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ois-rate">
+     OIS Rate
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-risk-free-rate">
+     The Risk-Free Rate
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Interest Rates</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#types-of-rates">
+   Types of Rates
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#treasury-rate">
+     Treasury Rate
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-u-s-fed-funds-rate">
+     The U.S. Fed Funds Rate
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#repo-rate">
+     Repo Rate
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#libor-ice-libor">
+     LIBOR (ICE LIBOR)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#alternative-reference-rates">
+   Alternative Reference Rates
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sofr-secured-overnight-financing-rate">
+     SOFR (Secured Overnight Financing Rate)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sonia-sterling-overnight-index-average">
+     SONIA (Sterling Overnight Index Average)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#str-or-ester-euro-short-term-rate">
+     €STR (or ESTER, Euro Short-Term Rate)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ois-rate">
+     OIS Rate
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-risk-free-rate">
+     The Risk-Free Rate
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="interest-rates">
+<h1>Interest Rates<a class="headerlink" href="#interest-rates" title="Permalink to this headline">#</a></h1>
+<section id="types-of-rates">
+<h2>Types of Rates<a class="headerlink" href="#types-of-rates" title="Permalink to this headline">#</a></h2>
+<section id="treasury-rate">
+<h3>Treasury Rate<a class="headerlink" href="#treasury-rate" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Rate on instrument issued by a government in its own currency.</p></li>
+</ul>
+</section>
+<section id="the-u-s-fed-funds-rate">
+<h3>The U.S. Fed Funds Rate<a class="headerlink" href="#the-u-s-fed-funds-rate" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Unsecured interbank overnight rate of interest.</p></li>
+<li><p>Allows banks to adjust the cash (i.e., reserves) on deposit with the Federal
+Reserve at the end of each day.</p></li>
+<li><p>The effective fed funds rate is the average rate on brokered transactions.</p></li>
+<li><p>The central bank may intervene with its own transactions to raise or lower
+the rate.</p></li>
+<li><p>Similar arrangements in other countries.</p></li>
+</ul>
+</section>
+<section id="repo-rate">
+<h3>Repo Rate<a class="headerlink" href="#repo-rate" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Repurchase agreement is an agreement where a financial institution that owns
+securities agrees to sell them for X and buy them bank in the future (usually
+the next day) for a slightly higher price, Y.</p></li>
+<li><p>The financial institution obtains a loan.</p></li>
+<li><p>The rate of interest is calculated from the difference between X and Y and
+is known as the repo rate.</p></li>
+</ul>
+</section>
+<section id="libor-ice-libor">
+<h3>LIBOR (ICE LIBOR)<a class="headerlink" href="#libor-ice-libor" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Detailed information about LIBOR: <a class="reference external" href="https://www.theice.com/iba/libor">https://www.theice.com/iba/libor</a></p></li>
+<li><p>LIBOR is the rate of interest at which a AA bank can borrow money on an
+<strong>unsecured</strong> basis from another bank.</p></li>
+<li><p>Based on <strong>submissions</strong> from a panel of contributor banks (16 for each of
+USD and GBP).</p></li>
+<li><p>It is calculated daily for 5 currencies and 7 maturities.</p></li>
+<li><p>There have been some suggestions that banks manipulated LIBOR during certain
+periods.</p></li>
+<li><p>Why would they do this? (<em>to seem healthier, profit from interest
+rate swap</em>).</p></li>
+</ul>
+</section>
+</section>
+<section id="alternative-reference-rates">
+<h2>Alternative Reference Rates<a class="headerlink" href="#alternative-reference-rates" title="Permalink to this headline">#</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Country/Currency/CODE</p></th>
+<th class="head"><p>IBOR Rate</p></th>
+<th class="head"><p>New Reference Rate</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>USA/Dollars/USD</p></td>
+<td><p>USD ICE LIBOR</p></td>
+<td><p>SOFR</p></td>
+</tr>
+<tr class="row-odd"><td><p>UK/Pounds Sterling/GBP</p></td>
+<td><p>GBP ICE LIBOR</p></td>
+<td><p>SONIA</p></td>
+</tr>
+<tr class="row-even"><td><p>Switzerland/Swiss Francs/CHF</p></td>
+<td><p>CHF ICE LIBOR</p></td>
+<td><p>SARON</p></td>
+</tr>
+<tr class="row-odd"><td><p>Japan/Yen/JPY</p></td>
+<td><p>JPY ICE LIBOR, Tibor</p></td>
+<td><p>TONAR</p></td>
+</tr>
+<tr class="row-even"><td><p>EU/Euro/EUR</p></td>
+<td><p>Euribor</p></td>
+<td><p>ESTER</p></td>
+</tr>
+</tbody>
+</table>
+<section id="sofr-secured-overnight-financing-rate">
+<h3>SOFR (Secured Overnight Financing Rate)<a class="headerlink" href="#sofr-secured-overnight-financing-rate" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.cmegroup.com/education/courses/introduction-to-sofr/what-is-sofr.html">CME Group Education</a></p></li>
+<li><p>Administered by Federal Reserve Bank of New York
+(<a class="reference external" href="https://apps.newyorkfed.org/markets/autorates/SOFR">link</a>)</p></li>
+<li><p>Transaction-based, calculated from overnight US Treasury repurchase (repo) activity.</p></li>
+<li><p>SOFR is a broad measure of the cost of borrowing USD cash overnight,
+collateralized by U.S. Treasury securities.</p></li>
+<li><p>SOFR is a good representation of general funding conditions in the overnight
+Treasury repo market.</p></li>
+<li><p>As such, it will reflect an economic cost of lending and borrowing relevant to
+the wide array of market participants active in the market.</p></li>
+</ul>
+</section>
+<section id="sonia-sterling-overnight-index-average">
+<h3>SONIA (Sterling Overnight Index Average)<a class="headerlink" href="#sonia-sterling-overnight-index-average" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.cmegroup.com/education/courses/introduction-to-sonia/what-is-sonia.html">CME Group Education</a></p></li>
+<li><p>Administered by Bank of England (<a class="reference external" href="https://www.bankofengland.co.uk/markets/sonia-benchmark">link</a>)</p></li>
+<li><p>Unsecured transaction-based index, wholesale based (beyond Interbank)</p></li>
+<li><p>It has been endorsed by the Sterling Risk-Free Reference Rate Working Group
+(Working Group) as the preferred risk-free reference rate for Sterling Overnight
+Indexed Swaps (OIS).</p></li>
+<li><p>In January 2018, the Working Group added banks, dealers, investment managers,
+non-financial corporates, infrastructure providers, trade associations and
+professional services firms.</p></li>
+<li><p>In April 2018, the BOE introduced a series of reforms of the SONIA benchmark.</p></li>
+</ul>
+</section>
+<section id="str-or-ester-euro-short-term-rate">
+<h3>€STR (or ESTER, Euro Short-Term Rate)<a class="headerlink" href="#str-or-ester-euro-short-term-rate" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Administered by European Central Bank
+(<a class="reference external" href="https://www.ecb.europa.eu/stats/financial_markets_and_interest_rates/euro_short-term_rate/html/index.en.html">link</a>)</p></li>
+<li><p>It is based on the unsecured market segment.</p></li>
+<li><p>The ECB developed an unsecured rate, because it is intended to complement the EONIA.</p></li>
+<li><p>Furthermore, a secured rate would be affected by the type of the collaterals.</p></li>
+<li><p>The money market statistical reporting covers the 50 largest banks in the euro
+area in terms of balance sheet size.</p></li>
+<li><p>While the EONIA (<a class="reference external" href="https://www.euribor-rates.eu/en/">link</a>) reflects the
+interbank market, the €STR extends the scope to money market funds, insurance
+companies and other financial corporations because banks developed significant
+money market activity with those entities.</p></li>
+</ul>
+</section>
+<section id="ois-rate">
+<h3>OIS Rate<a class="headerlink" href="#ois-rate" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>An <strong>overnight indexed swap</strong> is swap where a fixed rate for a period (e.g. 3
+months) is exchanged for the geometric average of overnight rates (or overnight
+rate compounded over the term of the swap).</p></li>
+<li><p>The underlying floating rate is typically the rate for overnight lending
+between banks, either non-secured or secured (SOFR, SONIA, €STR).</p></li>
+<li><p>For maturities up to one year there is a single exchange (swap term is not overnight).</p></li>
+<li><p>For maturities beyond one year there are periodic exchanges, e.g. every quarter.</p></li>
+<li><p>The OIS rate is a continually refreshed overnight rate.</p></li>
+<li><p>The fixed rate of OIS is typically an interest rate considered less risky than
+the corresponding interbank rate (LIBOR) because there is limited counterparty
+risk.</p></li>
+</ul>
+</section>
+<section id="the-risk-free-rate">
+<h3>The Risk-Free Rate<a class="headerlink" href="#the-risk-free-rate" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>The Treasury rate is considered to be artificially low because:</p>
+<ul>
+<li><p>Banks are not required to keep capital for Treasury instruments</p></li>
+<li><p>Treasury instruments are given favorable tax treatment in the US</p></li>
+</ul>
+</li>
+<li><p>OIS rates are now used as a proxy for risk-free rates in derivatives valuation.</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="01_criticism.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Criticisms and Misuses of Derivatives</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="01_time_value_of_money.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Time Value of Money</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Tomáš Plíhal<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

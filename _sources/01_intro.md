@@ -1,0 +1,16 @@
+# Lecture 1
+
+## Learning Outcomes
+
+- Introduction to financial derivatives
+- Interest rates
+- Time value of money
+- Continuous compounding
+
+## References
+
+- HULL, John. Options, futures, and other derivatives. Ninth edition. Harlow: Pearson, 2018. ISBN 978-1-292-21289-0.
+  - Chapter 1 - Introduction
+  - Chapter 4 - Interest Rates
++ PIRIE, Wendy L. Derivatives. Hoboken: Wiley, 2017. CFA institute investment series. ISBN 978-1-119-38181-5.
+  + Chapter 1 - Derivative Markets and Instruments

@@ -1,0 +1,818 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Hedging Strategies Using Futures &#8212; Financial Derivatives</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Practice Questions and Problems" href="02_practice_questions.html" />
+    <link rel="prev" title="Mechanics of Forward/Futures Markets" href="02_futures_markets.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Financial Derivatives</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to the financial derivatives course
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="01_intro.html">
+   Lecture 1
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_introduction.html">
+     Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_types_of_derivatives.html">
+     Types of Derivatives
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_types_of_trades.html">
+     Types of Trades
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_criticism.html">
+     Criticisms and Misuses of Derivatives
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_interest_rates.html">
+     Interest Rates
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_time_value_of_money.html">
+     Time Value of Money
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_compound_interest.html">
+     Compound Interest
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_practice_questions.html">
+     Practice Questions and Problems
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="02_intro.html">
+   Lecture 2
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_forwards_and_futures.html">
+     Forwards and Futures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_futures_markets.html">
+     Mechanics of Forward/Futures Markets
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Hedging Strategies Using Futures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_practice_questions.html">
+     Practice Questions and Problems
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="03_intro.html">
+   Lecture 3
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_lecture_a.html">
+     Determination of Forward and Futures Prices
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_lecture_b.html">
+     FRA ??? Nechat nebo zahodit
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="04_intro.html">
+   Lecture 4
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_swaps.html">
+     Swaps
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="05_intro.html">
+   Lecture 5
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05_option_markets.html">
+     Mechanics of option market and properties of options
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06_intro.html">
+   Lecture 6
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07_intro.html">
+   Lecture 7
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08_intro.html">
+   Lecture 8
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09_intro.html">
+   Lecture 9
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10_intro.html">
+   Lecture 10
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_intro.html">
+   Lecture 11
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="12_intro.html">
+   Lecture 12
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F02_futures_hedging.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/02_futures_hedging.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-principles">
+   Basic Principles
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basis-risk">
+   Basis Risk
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cross-hedging">
+   Cross Hedging
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#daily-settlement">
+     Daily Settlement
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stock-index-futures">
+   Stock Index Futures
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Hedging Strategies Using Futures</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-principles">
+   Basic Principles
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basis-risk">
+   Basis Risk
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cross-hedging">
+   Cross Hedging
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#daily-settlement">
+     Daily Settlement
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stock-index-futures">
+   Stock Index Futures
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="hedging-strategies-using-futures">
+<h1>Hedging Strategies Using Futures<a class="headerlink" href="#hedging-strategies-using-futures" title="Permalink to this headline">#</a></h1>
+<section id="basic-principles">
+<h2>Basic Principles<a class="headerlink" href="#basic-principles" title="Permalink to this headline">#</a></h2>
+<p>Long &amp; Short Hedges</p>
+<ul class="simple">
+<li><p>A <strong>long</strong> futures hedge is appropriate when you know you will
+<strong>purchase</strong> an asset in the future and want to lock in the
+price.</p></li>
+<li><p>A <strong>short</strong> futures hedge is appropriate when you know you will <strong>sell</strong> an
+asset in the future and want to lock in the price.</p></li>
+</ul>
+<p>Arguments in Favor of Hedging</p>
+<ul class="simple">
+<li><p>Companies should focus on the main business they are in and take steps to
+<strong>minimize risks</strong> arising from interest rates, exchange rates, and other market
+variables.</p></li>
+</ul>
+<p>Arguments against Hedging</p>
+<ul class="simple">
+<li><p>Shareholders are usually well diversified and can make their own hedging
+decisions.</p></li>
+<li><p>It may increase risk to hedge when competitors do not.</p></li>
+<li><p>Explaining a situation where there is a loss on the hedge and a gain on the
+underlying can be difficult.</p></li>
+</ul>
+</section>
+<section id="basis-risk">
+<h2>Basis Risk<a class="headerlink" href="#basis-risk" title="Permalink to this headline">#</a></h2>
+<p>Basis Risk Hedging in practice is usually more complex than our simplified
+examples:</p>
+<ol class="simple">
+<li><p>The asset whose price is to be hedged may not be exactly the same as the
+asset underlying the futures contract.</p></li>
+<li><p>There may be uncertainty as to the exact date when the asset will be bought
+or sold.</p></li>
+<li><p>The hedge may require the futures contract to be closed out before its
+delivery month.</p></li>
+</ol>
+<p>The Basis</p>
+<ul class="simple">
+<li><p>Basis is usually defined as the spot price minus the futures price.</p></li>
+<li><p>Basis risk arises because of the uncertainty about the basis when the hedge is
+closed out.</p></li>
+</ul>
+<p>Long Hedge for Purchase of an Asset Define:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(F_1\)</span>: Futures price at time hedge is set up <em>(88.0)</em></p></li>
+<li><p><span class="math notranslate nohighlight">\(F_2\)</span>: Futures price at time asset is purchased <em>(89.1)</em></p></li>
+<li><p><span class="math notranslate nohighlight">\(S_2\)</span>: Asset price at time of purchase <em>(90.0)</em></p></li>
+<li><p><span class="math notranslate nohighlight">\(b_2\)</span>: Basis at time of purchase <em>(90.0 - 89.1 = 0.9)</em></p></li>
+</ul>
+<ul class="simple">
+<li><p>Cost of asset = <span class="math notranslate nohighlight">\(S_2\)</span></p></li>
+<li><p>Gain on Futures = <span class="math notranslate nohighlight">\(F_2 - F_1\)</span> <em>( = 89.1 - 88.0 = 1.1)</em></p></li>
+<li><p>Net amount paid = <span class="math notranslate nohighlight">\(S_2 - (F_2 - F_1) = F_1 + b_2\)</span> <em>( = 90.0 - 1.1 = 88.0 + 0.9
+= 88.9)</em></p></li>
+</ul>
+<p>Short Hedge for Sale of an Asset Define:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(F_1\)</span>: Futures price at time hedge is set up <em>(0.98)</em></p></li>
+<li><p><span class="math notranslate nohighlight">\(F_2\)</span>: Futures price at time asset is sold <em>(0.925)</em></p></li>
+<li><p><span class="math notranslate nohighlight">\(S_2\)</span>: Asset price at time of sale <em>(0.92)</em></p></li>
+<li><p><span class="math notranslate nohighlight">\(b_2\)</span>: Basis at time of sale <em>( = 0.92 - 0.925 = -0.005)</em></p></li>
+</ul>
+<ul class="simple">
+<li><p>Price of asset = <span class="math notranslate nohighlight">\(S_2\)</span></p></li>
+<li><p>Gain on Futures = <span class="math notranslate nohighlight">\(F_1 - F_2\)</span> <em>( = 0.98 - 0.925 = 0.055)</em></p></li>
+<li><p>Net amount received = <span class="math notranslate nohighlight">\(S_2 + (F_1 - F_2) = F_1 + b_2\)</span> <em>( = 0.92 + 0.055 = 0.98 - 0.005 = 0.975)</em></p></li>
+</ul>
+<p>Choice of Contract</p>
+<ul class="simple">
+<li><p>Choose a delivery month that is as close as possible to, but later than, the
+end of the life of the hedge.</p></li>
+<li><p>When there is no futures contract on the asset being hedged, choose the
+contract whose futures price is most highly correlated with the asset price.
+This is known as cross hedging.</p></li>
+</ul>
+</section>
+<section id="cross-hedging">
+<h2>Cross Hedging<a class="headerlink" href="#cross-hedging" title="Permalink to this headline">#</a></h2>
+<p>Proportion of the exposure that should optimally be hedged is $<span class="math notranslate nohighlight">\(h^{*} = \rho \frac{\sigma_S}{\sigma_F}\)</span>$ where</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\sigma_S\)</span> is the standard deviation of <span class="math notranslate nohighlight">\(\Delta S\)</span>, the change in the spot
+price during the hedging period,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\sigma_F\)</span> is the standard deviation of <span class="math notranslate nohighlight">\(\Delta F\)</span>, the change in the futures
+price during the hedging period</p></li>
+<li><p><span class="math notranslate nohighlight">\(\rho\)</span> is the coefficient of correlation between <span class="math notranslate nohighlight">\(\Delta S\)</span> and <span class="math notranslate nohighlight">\(\Delta F\)</span>.</p></li>
+</ul>
+<p>Optimal Number of Contracts</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(Q_A\)</span> = Size of position being hedged (units)</p></li>
+<li><p><span class="math notranslate nohighlight">\(Q_F\)</span> = Size of one futures contract (units)</p></li>
+</ul>
+<p>Optimal number of contracts if not adjusted for daily settlement:
+$<span class="math notranslate nohighlight">\(N^{*} = h^{*} \times \frac{Q_A}{Q_F}\)</span>$</p>
+<p>Example:</p>
+<ul class="simple">
+<li><p>Airline will purchase 2 million gallons of jet fuel in one month and hedges
+using heating oil futures.</p></li>
+<li><p>From historical data <span class="math notranslate nohighlight">\(\sigma_F = 0.0313\)</span>, <span class="math notranslate nohighlight">\(\sigma_S = 0.0263\)</span>, and <span class="math notranslate nohighlight">\(\rho = 0.928\)</span></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[h^{*} = 0.928 \times \frac{0.0263}{0.0313} = 0.78\]</div>
+<ul class="simple">
+<li><p>The size of one heating oil contract is 42,000 gallons</p></li>
+<li><p>Optimal number of contracts is</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[0.78 \times \frac{2,000,000}{42,000} = 37\]</div>
+<section id="daily-settlement">
+<h3>Daily Settlement<a class="headerlink" href="#daily-settlement" title="Permalink to this headline">#</a></h3>
+<p>Optimal hedge ratio is
+$<span class="math notranslate nohighlight">\(\hat{h} = \hat{\rho} \frac{\hat{\sigma_S}}{\hat{\sigma_F}}\)</span>$</p>
+<p>where variables are defined as follows</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\hat{\rho}\)</span> = Correlation between percentage daily changes for spot and
+futures</p></li>
+<li><p><span class="math notranslate nohighlight">\(\hat{\sigma_S}\)</span> = SD of percentage daily changes in spot</p></li>
+<li><p><span class="math notranslate nohighlight">\(\hat{\sigma_F}\)</span> = SD of percentage daily changes in futures</p></li>
+</ul>
+<p>Optimal Number of Contracts</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(V_A\)</span> = Value of position being hedged = spot price <span class="math notranslate nohighlight">\(\times\)</span> <span class="math notranslate nohighlight">\(Q_A\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(V_F\)</span> = Value of one futures contract = futures price <span class="math notranslate nohighlight">\(\times\)</span> <span class="math notranslate nohighlight">\(Q_F\)</span></p></li>
+</ul>
+<p>Optimal number of contracts after ‘tailing adjustment’ to allow for
+daily settlement of futures $<span class="math notranslate nohighlight">\(N^{*} = \hat{h} \times \frac{V_A}{V_F}\)</span>$</p>
+</section>
+</section>
+<section id="stock-index-futures">
+<h2>Stock Index Futures<a class="headerlink" href="#stock-index-futures" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>To hedge the risk in a portfolio the number of contracts that should be
+shorted is</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\beta \times \frac{V_A}{V_F}\]</div>
+<ul class="simple">
+<li><p>where <span class="math notranslate nohighlight">\(V_A\)</span> is the value of the portfolio,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\beta\)</span> is its beta, and</p></li>
+<li><p><span class="math notranslate nohighlight">\(V_F\)</span> is the value of one futures contract</p></li>
+</ul>
+<p>Example:</p>
+<ul class="simple">
+<li><p>S&amp;P 500 futures price is 1,000</p></li>
+<li><p>Value of Portfolio is USD 5 million</p></li>
+<li><p>Beta of portfolio is 1.5</p></li>
+<li><p>Each future contract is on $250 times the index</p></li>
+</ul>
+<p>What position in futures contracts on the S&amp;P 500 is necessary to hedge
+the portfolio?</p>
+<div class="math notranslate nohighlight">
+\[1.5 \times \frac{5~000~000}{250~000} = 30\]</div>
+<p>Changing Beta</p>
+<ul class="simple">
+<li><p>What position is necessary to reduce the beta of the portfolio to 0.75?</p></li>
+<li><p>What position is necessary to increase the beta of the portfolio to 2.0?</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[(\beta^{*} - \beta) \times \frac{V_A}{V_F}\]</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\beta^{*}\)</span> = new beta</p></li>
+<li><p><span class="math notranslate nohighlight">\(\beta\)</span> = initial beta</p></li>
+<li><p>negative value means short futures, positive value means long futures</p></li>
+</ul>
+<p>Why Hedge Equity Returns</p>
+<ul class="simple">
+<li><p>May want to be out of the market for a while. Hedging avoids the costs of
+selling and repurchasing the portfolio.</p></li>
+<li><p>Suppose stocks in your portfolio have an average beta of 1.0, but you feel
+they have been chosen well and will outperform the market in both good and bad
+times. Hedging ensures that the return you earn is the risk-free return plus the
+excess return of your portfolio over the market.</p></li>
+</ul>
+<p>Stack and Roll</p>
+<ul class="simple">
+<li><p>We can roll futures contracts forward to hedge future exposures</p></li>
+<li><p>Initially we enter into futures contracts to hedge exposures up to a time
+horizon</p></li>
+<li><p>Just before maturity we close them out an replace them with new contract
+reflect the new exposure</p></li>
+<li><p>etc.</p></li>
+</ul>
+<p>Liquidity Issues</p>
+<ul class="simple">
+<li><p>In any hedging situation there is a danger that losses will be realized on the
+hedge while the gains on the underlying exposure are unrealized</p></li>
+<li><p>This can create liquidity problems</p></li>
+<li><p>One example is Metallgesellschaft which sold long term fixed-price contracts
+on heating oil and gasoline and hedged using stack and roll</p></li>
+<li><p>The price of oil fell…</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="02_futures_markets.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Mechanics of Forward/Futures Markets</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="02_practice_questions.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Practice Questions and Problems</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Tomáš Plíhal<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
