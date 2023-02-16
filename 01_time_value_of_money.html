@@ -529,8 +529,21 @@ when the interest rate is 10% per annum.</p></li>
 <ul class="simple">
 <li><p><strong>Rates used in option pricing are nearly always expressed with continuous compounding.</strong></p></li>
 <li><p>In the limit as we compound more and more frequently we obtain continuously compounded interest rates.</p></li>
-<li><p>USD 100 grows to USD $<span class="math notranslate nohighlight">\(100 \times e^{rT}\)</span><span class="math notranslate nohighlight">\( when invested at a continuously compounded rate \)</span>r<span class="math notranslate nohighlight">\( for time \)</span>T$.</p></li>
-<li><p>USD 100 received at time <span class="math notranslate nohighlight">\(T\)</span> discounts to USD $<span class="math notranslate nohighlight">\(100 \times e^{-rT}\)</span><span class="math notranslate nohighlight">\( at time zero when the continuously compounded discount rate is \)</span>r$.</p></li>
+</ul>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(r\)</span>: continuously compounded annual interest rate</p></li>
+<li><p><span class="math notranslate nohighlight">\(T\)</span>: time to maturity in years</p></li>
+<li><p><span class="math notranslate nohighlight">\(e\)</span>: Euler’s number (mathematical constant)</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ \text{Future value} = P \times e^{rT} \]</div>
+<div class="math notranslate nohighlight">
+\[ \text{Present value} = P \times e^{-rT} \]</div>
+<ul class="simple">
+<li><p>USD 100 grows to <span class="math notranslate nohighlight">\( 100 \times e^{rT} \)</span> when invested at a continuously
+compounded rate <span class="math notranslate nohighlight">\(r\)</span> for time <span class="math notranslate nohighlight">\(T\)</span>.</p></li>
+<li><p>USD 100 received at time <span class="math notranslate nohighlight">\(T\)</span> discounts to <span class="math notranslate nohighlight">\(100 \times e^{-rT}\)</span> at time zero
+when the continuously compounded discount rate is <span class="math notranslate nohighlight">\(r\)</span>.</p></li>
 </ul>
 </section>
 <section id="conversion-formulas">

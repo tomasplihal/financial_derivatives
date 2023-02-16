@@ -9,7 +9,7 @@ difference between miles and kilometers.
 - Effect of the compounding frequency on the value of \$100 at the end of 1 year
 when the interest rate is 10% per annum.
 
-| Compounding frequency | Value of \$100 at end of year ($) |
+| Compounding frequency | Value of \$100 at end of year (\$) |
 | --------------------- | --------------------------------- |
 | Annually m = 1        | 110.00                            |
 | Semiannually m = 2    | 110.25                            |
@@ -22,8 +22,19 @@ when the interest rate is 10% per annum.
 
 - **Rates used in option pricing are nearly always expressed with continuous compounding.**
 - In the limit as we compound more and more frequently we obtain continuously compounded interest rates.
-- USD 100 grows to USD $$100 \times e^{rT}$$ when invested at a continuously compounded rate $r$ for time $T$.
-- USD 100 received at time $T$ discounts to USD $$100 \times e^{-rT}$$ at time zero when the continuously compounded discount rate is $r$.
+
++ $r$: continuously compounded annual interest rate
++ $T$: time to maturity in years
++ $e$: Euler's number (mathematical constant)
+
+$$ \text{Future value} = P \times e^{rT} $$
+
+$$ \text{Present value} = P \times e^{-rT} $$
+
+- USD 100 grows to $ 100 \times e^{rT} $ when invested at a continuously
+compounded rate $r$ for time $T$.
+- USD 100 received at time $T$ discounts to $100 \times e^{-rT}$ at time zero
+when the continuously compounded discount rate is $r$.
 
 ## Conversion Formulas
 
