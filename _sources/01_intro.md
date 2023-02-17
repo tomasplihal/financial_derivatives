@@ -2,10 +2,8 @@
 
 ## Learning Outcomes
 
-- Introduction to financial derivatives
-- Interest rates
-- Time value of money
-- Continuous compounding
+```{tableofcontents}
+```
 
 ## References
 

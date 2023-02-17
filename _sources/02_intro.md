@@ -2,9 +2,8 @@
 
 ## Learning Outcomes
 
-- Forwards and Futures
-- Mechanics of Forward/Futures Markets
-- Hedging Strategies Using Futures
+```{tableofcontents}
+```
 
 ## References
 

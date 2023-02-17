@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Lecture 1 &#8212; Financial Derivatives</title>
+    <title>Other Types of Swaps &#8212; Financial Derivatives</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -54,8 +54,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Introduction" href="01_introduction.html" />
-    <link rel="prev" title="Welcome to the financial derivatives course" href="intro.html" />
+    <link rel="next" title="Lecture 5" href="05_intro.html" />
+    <link rel="prev" title="Currency Swaps" href="04_currency_swaps.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -116,11 +116,11 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="01_intro.html">
    Lecture 1
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
@@ -232,16 +232,16 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="04_intro.html">
    Lecture 4
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
   <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="04_nature_of_swaps.html">
      Nature of Swaps
@@ -257,8 +257,8 @@ const thebe_selector_output = ".output, .cell_output"
      Currency Swaps
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="04_other_swaps.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Other Types of Swaps
     </a>
    </li>
@@ -367,6 +367,35 @@ title="Toggle navigation"
         
     </div>
     <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/04_other_swaps.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
 <button onclick="toggleFullScreen()"
   class="headerbtn"
   data-toggle="tooltip"
@@ -389,7 +418,24 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/01_intro.md"
+        <a href="_sources/04_other_swaps.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="_sources/04_other_swaps.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -426,70 +472,23 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#learning-outcomes">
-   Learning Outcomes
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#references">
-   References
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Lecture 1</h1>
+                <h1>Other Types of Swaps</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#learning-outcomes">
-   Learning Outcomes
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#references">
-   References
-  </a>
- </li>
-</ul>
-
-                        </nav>
                     </div>
                 </div>
             </div>
@@ -497,41 +496,21 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="lecture-1">
-<h1>Lecture 1<a class="headerlink" href="#lecture-1" title="Permalink to this headline">#</a></h1>
-<section id="learning-outcomes">
-<h2>Learning Outcomes<a class="headerlink" href="#learning-outcomes" title="Permalink to this headline">#</a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="01_introduction.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="01_types_of_derivatives.html">Types of Derivatives</a></li>
-<li class="toctree-l1"><a class="reference internal" href="01_types_of_trades.html">Types of Trades</a></li>
-<li class="toctree-l1"><a class="reference internal" href="01_criticism.html">Criticisms and Misuses of Derivatives</a></li>
-<li class="toctree-l1"><a class="reference internal" href="01_interest_rates.html">Interest Rates</a></li>
-<li class="toctree-l1"><a class="reference internal" href="01_time_value_of_money.html">Time Value of Money</a></li>
-<li class="toctree-l1"><a class="reference internal" href="01_compound_interest.html">Compound Interest</a></li>
-<li class="toctree-l1"><a class="reference internal" href="01_practice_questions.html">Practice Questions and Problems</a></li>
-</ul>
-</div>
-</section>
-<section id="references">
-<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">#</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="other-types-of-swaps">
+<h1>Other Types of Swaps<a class="headerlink" href="#other-types-of-swaps" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
-<li><p>HULL, John. Options, futures, and other derivatives. Ninth edition. Harlow: Pearson, 2018. ISBN 978-1-292-21289-0.</p>
-<ul>
-<li><p>Chapter 1 - Introduction</p></li>
-<li><p>Chapter 4 - Interest Rates</p></li>
+<li><p>Amortizing/step up</p></li>
+<li><p>Compounding swap</p></li>
+<li><p>Constant maturity swap</p></li>
+<li><p>LIBOR-in-arrears swap</p></li>
+<li><p>Accrual swap</p></li>
+<li><p>Equity swap</p></li>
+<li><p>Cross currency interest rate swap</p></li>
+<li><p>Floating-for-floating currency swap</p></li>
+<li><p>Diff swap</p></li>
+<li><p>Commodity swap</p></li>
+<li><p>Variance swap</p></li>
 </ul>
-</li>
-</ul>
-<ul class="simple">
-<li><p>PIRIE, Wendy L. Derivatives. Hoboken: Wiley, 2017. CFA institute investment series. ISBN 978-1-119-38181-5.</p>
-<ul>
-<li><p>Chapter 1 - Derivative Markets and Instruments</p></li>
-</ul>
-</li>
-</ul>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -561,17 +540,17 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="04_currency_swaps.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Welcome to the financial derivatives course</p>
+            <p class="prev-next-title">Currency Swaps</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="01_introduction.html" title="next page">
+    <a class='right-next' id="next-link" href="05_intro.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Introduction</p>
+        <p class="prev-next-title">Lecture 5</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

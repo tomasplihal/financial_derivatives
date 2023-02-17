@@ -2,8 +2,8 @@
 
 ## Learning Outcomes
 
-- Determination of forward and futures prices
-- Interest rate futures
+```{tableofcontents}
+```
 
 ## References
 

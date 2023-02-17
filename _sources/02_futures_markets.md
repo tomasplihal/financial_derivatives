@@ -14,8 +14,8 @@ kernelspec:
 
 ## Exchange Markets
 
-- Futures Contracts.
-- Specification of a futures contract [Gold Futures Trading](https://www.cmegroup.com/markets/metals/precious/gold.quotes.html])
+- Trading of futures contracts.
+- Specification of a futures contract [Gold Futures Quotes](https://www.cmegroup.com/markets/metals/precious/gold.quotes.html])
 - In the US, the regulation of futures markets is primarily the responsibility
 of the Commodity Futures and Trading Commission (CFTC).
 - Regulators try to protect the public interest and prevent questionable trading
@@ -23,22 +23,22 @@ practices.
 
 ### Delivery
 
-+ Most contracts are closed out before maturity (no delivery occurs).
++ Most contracts are **closed out before maturity** (no delivery occurs).
 + Closing out a futures position involves entering into an offsetting trade.
 
 - If a futures contract is not closed out before maturity, it is usually settled
 by delivering the assets underlying the contract.
-- When there are alternatives about what is delivered, where it is delivered,
-and when it is delivered, the party with the short position chooses.
+- When there are alternatives about **what** is delivered, **where** it is delivered,
+and **when** it is delivered, the party with **the short position chooses**.
 - A few contracts (for example, those on stock indices and Eurodollars) are
 settled in cash.
 
 ### Market Quotes
 
-- **Open interest**: the total number of contracts outstanding (equal to number
-of long positions or number of short positions).
 - **Settlement price**: the price just before the final bell each day (used
 for the daily settlement process).
+- **Open interest**: the total number of contracts outstanding (equal to number
+of long positions or number of short positions).
 - **Volume of trading**: the number of trades in one day.
 
 ```{admonition} Questions
@@ -48,7 +48,7 @@ interest?
 ```
 
 ```{admonition} Foreign exchange quotes
-:class: tip dropdown
+:class: seealso dropdown
 
 - Futures exchange rates are quoted as the number of USD per unit of the foreign
 currency.
@@ -65,7 +65,15 @@ her broker.
 - The balance in the margin account is adjusted to reflect daily settlement.
 - Margins minimize the possibility of a loss through a default on a contract.
 
-#### Margin Cash Flows
+The exchange sets margin requirements:
+- **Initial Margin:** the deposit required to open the contract.
+- **Maintenance Margin:** the amount of money that each participant must
+maintain in the account after the trade is initiated. 
+- Accounts below the maintenance margin will receive a **margin call**.
+- If a party receives a *margin call*, they must restore the account *to the
+initial margin* by depositing more funds and/or by closing out positions.
+
+<!-- #### Margin Cash Flows
 
 - A trader has to bring the balance in the margin account up to the initial
 margin when it falls below the maintenance margin level.
@@ -74,7 +82,7 @@ required to bring the balance in its account up to that level every day.
 - These daily margin cash flows are referred to as variation margin.
 - A member is also required to contribute to a default fund.
 
-% + Table, generate??
+ + Table, generate?? -->
 
 ```{seealso}
 :class: dropdown
@@ -84,9 +92,38 @@ required to bring the balance in its account up to that level every day.
 - [Understanding Futures Margin](https://www.schwab.com/learn/story/understanding-futures-margin)
 ```
 
+### Daily Settlement of Futures 
+
+- The clearinghouse determines the settlement price from the final trades made
+that day.
+- Positions are marked to market based on the settlement price.
+- Gains(losses) are added (subtracted) daily in the trader's margin account.
+
+### Example of Daily Settlement 
+
+- A trader goes long at a futures price of \$1200.
+- The exchange requires an initial margn (IM) of \$150 and a maintenance margin
+(MM) of \$75. 
+- The trader deposits \$150 into a margin account to open a long position at
+\$1200.
+
++ At the end of the **day 1**, the futures price settles at \$1180.
+  + The account is marked to market at \$1180 and \$20 is withdrawn from the
+  trader's account bringing the balance to \$130.
+
+- At the end of **day 2**, the futures price settles at \$1120.
+  - The account is marked to market at \$1120, and \$60 is withdrawn from the
+  trader's account bringing the balance to \$70.
+  - The margin balance is below the MM, so the trader receives a margin call.
+  - To keep the long position opened, the trader must deposit enough money to
+  bring the account back to IM.
+  - In this case \$80 must be deposited.
+
+---
+
 ## OTC Markets
 
-- Forward contracts.
+- Trading of forward contracts.
 - Before the 2007–2008 credit crisis, the OTC market was largely unregulated.
 - Since the crisis, the OTC market has been subject to a great deal of regulation. 
 - Collateral requirements (initial and variational margin).

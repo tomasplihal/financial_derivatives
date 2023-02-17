@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Swaps &#8212; Financial Derivatives</title>
+    <title>Interest Rate Swaps &#8212; Financial Derivatives</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -56,8 +56,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Lecture 5" href="05_intro.html" />
-    <link rel="prev" title="Lecture 4" href="04_intro.html" />
+    <link rel="next" title="Currency Swaps" href="04_currency_swaps.html" />
+    <link rel="prev" title="Nature of Swaps" href="04_nature_of_swaps.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -213,8 +213,18 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="03_forward_and_futures_pricing.html">
+    <a class="reference internal" href="03_forward_pricing_intro.html">
      Determination of Forward and Futures Prices
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_forward_price_and_value.html">
+     Forward Price for an Investment Asset
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_forward_prices_specific.html">
+     Forward Price for Specific Assets
     </a>
    </li>
    <li class="toctree-l2">
@@ -234,9 +244,24 @@ const thebe_selector_output = ".output, .cell_output"
    </i>
   </label>
   <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_nature_of_swaps.html">
+     Nature of Swaps
+    </a>
+   </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Swaps
+     Interest Rate Swaps
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_currency_swaps.html">
+     Currency Swaps
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_other_swaps.html">
+     Other Types of Swaps
     </a>
    </li>
   </ul>
@@ -352,7 +377,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/04_swaps.md"
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/04_interest_rate_swaps.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -395,7 +420,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/04_swaps.ipynb"
+        <a href="_sources/04_interest_rate_swaps.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -412,7 +437,7 @@ title="Download notebook file"
       </li>
       
       <li>
-        <a href="_sources/04_swaps.md"
+        <a href="_sources/04_interest_rate_swaps.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -472,36 +497,26 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#mechanics-of-interest-rate-swaps">
-   Mechanics of Interest Rate Swaps
+  <a class="reference internal nav-link" href="#an-example-of-a-plain-vanilla-interest-rate-swap">
+   An Example of a “Plain Vanilla” Interest Rate Swap
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#nature-of-swaps">
-     Nature of Swaps
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#an-example-of-a-plain-vanilla-interest-rate-swap">
-     An Example of a “Plain Vanilla” Interest Rate Swap
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#typical-uses-of-an-interest-rate">
-     Typical Uses of an Interest Rate
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#quotes-by-a-swap-market-maker-citigroup">
-     Quotes By a Swap Market Maker (Citigroup)
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#typical-uses-of-an-interest-rate-swap">
+   Typical Uses of an Interest Rate Swap
+  </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-comparative-advantage-argument">
    The Comparative-Advantage Argument
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#criticism-of-the-comparative-advantage-argument">
+     Criticism of the Comparative Advantage Argument
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#valuation-of-interest-rate-swaps">
@@ -514,33 +529,6 @@ title="Print to PDF"
     </a>
    </li>
   </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#fixed-for-fixed-currency-swaps">
-   Fixed-for-Fixed Currency Swaps
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#valuation-of-fixed-for-fixed-currency-swaps">
-   Valuation of Fixed-for-Fixed Currency Swaps
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     Example
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#other-currency-swaps-floating-for-floating">
-     Other Currency Swaps - Floating-for-Floating
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#other-types-of-swaps">
-   Other Types of Swaps
-  </a>
  </li>
 </ul>
 
@@ -551,7 +539,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Swaps</h1>
+                <h1>Interest Rate Swaps</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -562,36 +550,26 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#mechanics-of-interest-rate-swaps">
-   Mechanics of Interest Rate Swaps
+  <a class="reference internal nav-link" href="#an-example-of-a-plain-vanilla-interest-rate-swap">
+   An Example of a “Plain Vanilla” Interest Rate Swap
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#nature-of-swaps">
-     Nature of Swaps
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#an-example-of-a-plain-vanilla-interest-rate-swap">
-     An Example of a “Plain Vanilla” Interest Rate Swap
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#typical-uses-of-an-interest-rate">
-     Typical Uses of an Interest Rate
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#quotes-by-a-swap-market-maker-citigroup">
-     Quotes By a Swap Market Maker (Citigroup)
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#typical-uses-of-an-interest-rate-swap">
+   Typical Uses of an Interest Rate Swap
+  </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-comparative-advantage-argument">
    The Comparative-Advantage Argument
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#criticism-of-the-comparative-advantage-argument">
+     Criticism of the Comparative Advantage Argument
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#valuation-of-interest-rate-swaps">
@@ -604,33 +582,6 @@ title="Print to PDF"
     </a>
    </li>
   </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#fixed-for-fixed-currency-swaps">
-   Fixed-for-Fixed Currency Swaps
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#valuation-of-fixed-for-fixed-currency-swaps">
-   Valuation of Fixed-for-Fixed Currency Swaps
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     Example
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#other-currency-swaps-floating-for-floating">
-     Other Currency Swaps - Floating-for-Floating
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#other-types-of-swaps">
-   Other Types of Swaps
-  </a>
  </li>
 </ul>
 
@@ -642,29 +593,10 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="swaps">
-<h1>Swaps<a class="headerlink" href="#swaps" title="Permalink to this headline">#</a></h1>
-<section id="mechanics-of-interest-rate-swaps">
-<h2>Mechanics of Interest Rate Swaps<a class="headerlink" href="#mechanics-of-interest-rate-swaps" title="Permalink to this headline">#</a></h2>
-<section id="nature-of-swaps">
-<h3>Nature of Swaps<a class="headerlink" href="#nature-of-swaps" title="Permalink to this headline">#</a></h3>
-<ul class="simple">
-<li><p>A swap is an OTC contract</p></li>
-<li><p>A swap is subject to default risk</p></li>
-<li><p>A swap is negotiated between two parties and is customized</p></li>
-<li><p>A swap is an agreement to exchange cash flows at specified future times
-according to certain specified rules.</p></li>
-<li><p>A forward contract is equivalent to the exchange of cash flows on just one
-future date.</p></li>
-<li><p>Swaps typically lead to cash-flow exchanges taking place on
-<strong>several</strong> future dates.</p></li>
-<li><p>A swap can be regarded as a convenient way of packaging forward contracts.</p></li>
-<li><p>When a swap is initiated the swap has zero value, but typically some forwards
-have a positive value and some have a negative value.</p></li>
-</ul>
-</section>
+  <section class="tex2jax_ignore mathjax_ignore" id="interest-rate-swaps">
+<h1>Interest Rate Swaps<a class="headerlink" href="#interest-rate-swaps" title="Permalink to this headline">#</a></h1>
 <section id="an-example-of-a-plain-vanilla-interest-rate-swap">
-<h3>An Example of a “Plain Vanilla” Interest Rate Swap<a class="headerlink" href="#an-example-of-a-plain-vanilla-interest-rate-swap" title="Permalink to this headline">#</a></h3>
+<h2>An Example of a “Plain Vanilla” Interest Rate Swap<a class="headerlink" href="#an-example-of-a-plain-vanilla-interest-rate-swap" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Three year swap between Apple and Citigroup.</p></li>
 <li><p>Apple agrees to pay to Citigroup an interest rate of 3% per annum every
@@ -673,16 +605,15 @@ six-month on a notional principal of $100 million.</p></li>
 principal.</p></li>
 <li><p>Apple is the <strong>fixed-rate payer</strong>; Citigroup is the
 <strong>floating-rate payer</strong>.</p></li>
-<li><p>Next slides illustrates cash flows that could occur (Day count conventions are
-not considered).</p></li>
 </ul>
-<p>Interest Rate Swap Between Apple and Citigroup</p>
-<div class="mermaid">
+<div align="center" class="mermaid align-center">
             flowchart LR
     Citigroup --&gt;|Floating| Apple
     Apple --&gt; |3.0%| Citigroup
-        </div><p>Cash flows to Apple for one possible outcome of the OIS in Figure 7.1.
-The swap lasts two years and the notional principal is $100 million</p>
+        </div>
+        <ul class="simple">
+<li><p>Cash flows to Apple for one possible outcome of the OIS, the swap lasts two years and the notional principal is $100 million.</p></li>
+</ul>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Date</p></th>
@@ -744,8 +675,9 @@ The swap lasts two years and the notional principal is $100 million</p>
 </tbody>
 </table>
 </section>
-<section id="typical-uses-of-an-interest-rate">
-<h3>Typical Uses of an Interest Rate<a class="headerlink" href="#typical-uses-of-an-interest-rate" title="Permalink to this headline">#</a></h3>
+<hr class="docutils" />
+<section id="typical-uses-of-an-interest-rate-swap">
+<h2>Typical Uses of an Interest Rate Swap<a class="headerlink" href="#typical-uses-of-an-interest-rate-swap" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Swap Converting a liability or an investment from:</p>
 <ul>
@@ -754,119 +686,100 @@ The swap lasts two years and the notional principal is $100 million</p>
 </ul>
 </li>
 </ul>
-<p>Apple Transforms a Liability from Floating to Fixed</p>
-<div class="mermaid">
+<ul class="simple">
+<li><p>Apple Transforms a <strong>Liability</strong> from Floating to Fixed:</p></li>
+</ul>
+<div align="center" class="mermaid align-center">
             flowchart LR
     Citigroup --&gt;|Floating| Apple
     Apple --&gt; |3.0%| Citigroup
     Apple --&gt; |Floating + 0.1%| X
-        </div><p>Intel Transforms a Liability from Fixed to Floating</p>
-<div class="mermaid">
+        </div>
+        <ul class="simple">
+<li><p>Intel Transforms a <strong>Liability</strong> from Fixed to Floating:</p></li>
+</ul>
+<div align="center" class="mermaid align-center">
             flowchart LR
     Citigroup --&gt;|2.97%| Intel
     Intel --&gt; |Floating| Citigroup
     Intel --&gt; |3.2%| Y
-        </div><p>Apple Transforms an Asset from Fixed to Floating</p>
-<div class="mermaid">
-            flowchart LR
-    Citigroup --&gt;|Floating| Apple
-    Apple --&gt; |3.0%| Citigroup
-    X --&gt; |2.7%| Apple
-        </div><p>Intel Transforms an Asset from Floating to Fixed</p>
-<div class="mermaid">
-            flowchart LR
-    Citigroup --&gt;|2.97%| Intel
-    Intel --&gt; |Floating| Citigroup
-    Y --&gt; |Floating - 0.2%| Intel
-        </div></section>
-<section id="quotes-by-a-swap-market-maker-citigroup">
-<h3>Quotes By a Swap Market Maker (Citigroup)<a class="headerlink" href="#quotes-by-a-swap-market-maker-citigroup" title="Permalink to this headline">#</a></h3>
-<ul class="simple">
-<li><p>Example of bid and offer fixed rates in the swap market for a swap where
-payments are exchanged quarterly (percent per annum).</p></li>
-<li><p>Bid-offer spread is usually three to four basis points.</p></li>
+        </div>
+        <ul class="simple">
+<li><p>Apple Transforms an <strong>Asset</strong> from Fixed to Floating:</p></li>
 </ul>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Maturity (years)</p></th>
-<th class="head"><p>Bid</p></th>
-<th class="head"><p>Ask</p></th>
-<th class="head"><p>Swap rate</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>2</p></td>
-<td><p>2.97</p></td>
-<td><p>3.00</p></td>
-<td><p>2.985</p></td>
-</tr>
-<tr class="row-odd"><td><p>3</p></td>
-<td><p>3.05</p></td>
-<td><p>3.08</p></td>
-<td><p>3.065</p></td>
-</tr>
-<tr class="row-even"><td><p>4</p></td>
-<td><p>3.15</p></td>
-<td><p>3.19</p></td>
-<td><p>3.170</p></td>
-</tr>
-<tr class="row-odd"><td><p>5</p></td>
-<td><p>3.26</p></td>
-<td><p>3.30</p></td>
-<td><p>3.280</p></td>
-</tr>
-<tr class="row-even"><td><p>7</p></td>
-<td><p>3.40</p></td>
-<td><p>3.44</p></td>
-<td><p>3.420</p></td>
-</tr>
-<tr class="row-odd"><td><p>10</p></td>
-<td><p>3.48</p></td>
-<td><p>3.52</p></td>
-<td><p>3.500</p></td>
-</tr>
-</tbody>
-</table>
+<div align="center" class="mermaid align-center">
+            flowchart LR
+    X --&gt; |2.7%| Apple
+    Apple --&gt; |3.0%| Citigroup
+    Citigroup --&gt;|Floating| Apple
+        </div>
+        <ul class="simple">
+<li><p>Intel Transforms an <strong>Asset</strong> from Floating to Fixed:</p></li>
+</ul>
+<div align="center" class="mermaid align-center">
+            flowchart LR
+    Y --&gt; |Floating - 0.2%| Intel
+    Intel --&gt; |Floating| Citigroup
+    Citigroup --&gt;|2.97%| Intel
+        </div>
+        <!-- ### Quotes By a Swap Market Maker (Citigroup)
+
+- Example of bid and offer fixed rates in the swap market for a swap where
+payments are exchanged quarterly (percent per annum).
+- Bid-offer spread is usually three to four basis points.
+
+| Maturity (years) | Bid  | Ask  | Swap rate |
+| ---------------- | ---- | ---- | --------- |
+| 2                | 2.97 | 3.00 | 2.985     |
+| 3                | 3.05 | 3.08 | 3.065     |
+| 4                | 3.15 | 3.19 | 3.170     |
+| 5                | 3.26 | 3.30 | 3.280     |
+| 7                | 3.40 | 3.44 | 3.420     |
+| 10               | 3.48 | 3.52 | 3.500     | --> 
 </section>
-</section>
+<hr class="docutils" />
 <section id="the-comparative-advantage-argument">
 <h2>The Comparative-Advantage Argument<a class="headerlink" href="#the-comparative-advantage-argument" title="Permalink to this headline">#</a></h2>
-<p>The Comparative Advantage Argument Example</p>
-<p>Borrowing rates that provide a basis for the comparative-advantage
-argument.</p>
 <ul class="simple">
-<li><p>AAACorp wants to borrow floating</p></li>
-<li><p>BBBCorp wants to borrow fixed</p></li>
+<li><p>AAACorp wants to borrow floating.</p></li>
+<li><p>BBBCorp wants to borrow fixed.</p></li>
 </ul>
-<p>Table 7.5 Borrowing rates that provide a basis for the comparative-advantage
-argument. “Floating” is the floating reference rate.</p>
+<ul class="simple">
+<li><p>Borrowing rates that provide a basis for the comparative-advantage
+argument (“Floating” is the floating reference rate):</p></li>
+</ul>
 <table class="colwidths-auto table">
 <thead>
-<tr class="row-odd"><th class="head"><p></p></th>
-<th class="head"><p>Fixed rate</p></th>
-<th class="head"><p>Floating rate</p></th>
+<tr class="row-odd"><th class="text-align:center head"><p></p></th>
+<th class="text-align:center head"><p>Fixed rate</p></th>
+<th class="text-align:center head"><p>Floating rate</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>AAACorp</p></td>
-<td><p>4.0%</p></td>
-<td><p>Floating - 0.1%</p></td>
+<tr class="row-even"><td class="text-align:center"><p>AAACorp</p></td>
+<td class="text-align:center"><p>4.0%</p></td>
+<td class="text-align:center"><p>Floating - 0.1%</p></td>
 </tr>
-<tr class="row-odd"><td><p>BBBCorp</p></td>
-<td><p>5.2%</p></td>
-<td><p>Floating + 0.6%</p></td>
+<tr class="row-odd"><td class="text-align:center"><p>BBBCorp</p></td>
+<td class="text-align:center"><p>5.2%</p></td>
+<td class="text-align:center"><p>Floating + 0.6%</p></td>
 </tr>
 </tbody>
 </table>
-<p>A Swap where Companies Trade Directly with Each Other</p>
-<div class="mermaid">
+<ul class="simple">
+<li><p>A Swap where companies trade directly with each other:</p></li>
+</ul>
+<div align="center" class="mermaid align-center">
             flowchart LR
     AAACorp --&gt; |4%| X
     BBBCorp --&gt; |4.35%| AAACorp
     BBBCorp --&gt; |Floating + 0.6%| Y
     AAACorp --&gt; |Floating| BBBCorp
-        </div><p>The Swap when a Financial Institution is Involved</p>
-<div class="mermaid">
+        </div>
+        <ul class="simple">
+<li><p>The swap when a financial institution is involved:</p></li>
+</ul>
+<div align="center" class="mermaid align-center">
             flowchart LR
     AAACorp --&gt; |4%| X
     BBBCorp --&gt; |4.37%| F[Financial institution]
@@ -874,7 +787,9 @@ argument. “Floating” is the floating reference rate.</p>
     F --&gt; |4.33%| AAACorp
     BBBCorp --&gt; |Floating + 0.6%| Y
     AAACorp --&gt; |Floating| F
-        </div><p>Criticism of the Comparative Advantage Argument</p>
+        </div>
+        <section id="criticism-of-the-comparative-advantage-argument">
+<h3>Criticism of the Comparative Advantage Argument<a class="headerlink" href="#criticism-of-the-comparative-advantage-argument" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>The 4.0% and 5.2% rates available to AAACorp and BBBCorp in fixed rate markets
 are 5-year rates.</p></li>
@@ -884,306 +799,92 @@ are 5-year rates.</p></li>
 future.</p></li>
 </ul>
 </section>
+</section>
+<hr class="docutils" />
 <section id="valuation-of-interest-rate-swaps">
 <h2>Valuation of Interest Rate Swaps<a class="headerlink" href="#valuation-of-interest-rate-swaps" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
-<li><p>Initially interest rate swaps are worth close to zero</p></li>
+<li><p>Initially interest rate swaps are worth close to zero.</p></li>
 <li><p>At later times they can be valued as a portfolio of forward rate agreements
 (FRAs).</p></li>
 <li><p>The procedure is to:</p>
 <ol class="simple">
-<li><p>Calculate LIBOR forward rates</p></li>
-<li><p>Calculate the swap cash flows that will occur if LIBOR forward rates are
-realized</p></li>
-<li><p>Discount these swap cash flows at the risk free rate (OIS)</p></li>
+<li><p>Calculate Floating forward rates.</p></li>
+<li><p>Calculate the swap cash flows that will occur if Floating forward rates are
+realized.</p></li>
+<li><p>Discount these swap cash flows at the risk free rate (OIS).</p></li>
 </ol>
 </li>
 </ul>
 <section id="example">
 <h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
-<li><p>str 185 upravit zadani</p></li>
-<li><p>Swap involves paying 3% per annum and receiving LIBOR every six months on
-$100 million</p></li>
-<li><p>Swap has 1.2 years remaining (exchanges in 0.2, 0.7, 1.2 years)</p></li>
-<li><p>LIBOR rate applicable to exchange in 3 months was determined 3 months ago and
+<li><p>Swap involves paying 3% per annum and receiving SOFR every six months on $100 million.</p></li>
+<li><p>Swap has 1.2 years remaining (exchanges in 0.2, 0.7, 1.2 years).</p></li>
+<li><p>Risk-free (OIS) zero rates for maturities of 3, 9, and 15 months are 2.8%,
+3.2%, and 3.4%, respectively.</p></li>
+<li><p>SOFR rate applicable to exchange in 3 months was determined 3 months ago and
 is 2.9%</p></li>
-<li><p>Forward LIBOR rates for 3-9 month period and 9-15 month periods are 3.429% and
-3.734%, respectively</p></li>
-<li><p>OIS zero rates for maturities of 3, 9, and 15 months are 2.8%, 3.2%, and 3.4%,
-respectively</p></li>
+<li><p>Forward SOFR rates for exchanges in 0.2, 0.7, 1.2 years are:</p>
+<ul>
+<li><p>with cointinuous compounding: 2.50%, 3.36%, 3.68%, respectively</p></li>
+<li><p>with semi-annual compounding: 2.516%, 3.388%, 3.714%, respectively</p></li>
 </ul>
-<p>Calculations (USD million)</p>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Time (years)</p></th>
-<th class="head"><p>Fixed cash flow</p></th>
-<th class="head"><p>Floating cash flow</p></th>
-<th class="head"><p>Net cash flow</p></th>
-<th class="head"><p>Discount factor</p></th>
-<th class="head"><p>Present value of net cash flow</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>0.2</p></td>
-<td><p>-1.500</p></td>
-<td><p>+ 1.258</p></td>
-<td><p>-0.242</p></td>
-<td><p>0.9944</p></td>
-<td><p>-0.241</p></td>
-</tr>
-<tr class="row-odd"><td><p>0.7</p></td>
-<td><p>-1.500</p></td>
-<td><p>+ 1.694</p></td>
-<td><p>+ 0.194</p></td>
-<td><p>0.9778</p></td>
-<td><p>+ 0.190</p></td>
-</tr>
-<tr class="row-even"><td><p>1.2</p></td>
-<td><p>-1.500</p></td>
-<td><p>+ 1.857</p></td>
-<td><p>+ 0.357</p></td>
-<td><p>0.9600</p></td>
-<td><p>+ 0.343</p></td>
-</tr>
-<tr class="row-odd"><td><p>Total</p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p>+ 0.292</p></td>
-</tr>
-</tbody>
-</table>
-</section>
-</section>
-<section id="fixed-for-fixed-currency-swaps">
-<h2>Fixed-for-Fixed Currency Swaps<a class="headerlink" href="#fixed-for-fixed-currency-swaps" title="Permalink to this headline">#</a></h2>
-<p>An Example of a Fixed-for-Fixed Currency Swap</p>
-<ul class="simple">
-<li><p>Consider a hypothetical five-year currency swap agreement between British
-Petroleum and Barclays.</p></li>
-<li><p>British Petroleum pays a fixed rate of interest of 3% in dollars to Barclays
-and receives a fixed rate of interest of 4% in British pounds (sterling) from
-Barclays.</p></li>
-<li><p>Interest rate payments are made once a year.</p></li>
-<li><p>The principal amounts are USD 15 million and GBP 10 million.</p></li>
-<li><p>This is termed a fixed-for-fixed currency swap because the interest rate in
-both currencies is fixed.</p></li>
-</ul>
-<p>Exchange of Principal</p>
-<ul class="simple">
-<li><p>In an interest rate swap the principal is not exchanged</p></li>
-<li><p>In a currency swap the principal <strong>is exchanged</strong> at the beginning and
-the end of the swap</p></li>
-</ul>
-<p>The Cash Flows</p>
-<ul class="simple">
-<li><p>Cash flows to British Petroleum in currency swap.</p></li>
+</li>
+<li><p>Calculations (USD million):</p></li>
 </ul>
 <table class="colwidths-auto table">
 <thead>
-<tr class="row-odd"><th class="head"><p>Date</p></th>
-<th class="head"><p>Dollar cash flow (millions)</p></th>
-<th class="head"><p>Sterling cash flow (millions)</p></th>
+<tr class="row-odd"><th class="text-align:center head"><p>Time (years)</p></th>
+<th class="text-align:center head"><p>Fixed cash flow</p></th>
+<th class="text-align:center head"><p>Floating cash flow</p></th>
+<th class="text-align:center head"><p>Net cash flow</p></th>
+<th class="text-align:center head"><p>Discount factor</p></th>
+<th class="text-align:center head"><p>Present value of net cash flow</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>February 1, 2022</p></td>
-<td><p>+15.00</p></td>
-<td><p>-10.00</p></td>
+<tr class="row-even"><td class="text-align:center"><p>0.2</p></td>
+<td class="text-align:center"><p>-1.500</p></td>
+<td class="text-align:center"><p>+1.258</p></td>
+<td class="text-align:center"><p>-0.242</p></td>
+<td class="text-align:center"><p>0.9944</p></td>
+<td class="text-align:center"><p>-0.241</p></td>
 </tr>
-<tr class="row-odd"><td><p>February 1, 2023</p></td>
-<td><p>-0.45</p></td>
-<td><p>+ 0.40</p></td>
+<tr class="row-odd"><td class="text-align:center"><p>0.7</p></td>
+<td class="text-align:center"><p>-1.500</p></td>
+<td class="text-align:center"><p>+1.694</p></td>
+<td class="text-align:center"><p>+0.194</p></td>
+<td class="text-align:center"><p>0.9778</p></td>
+<td class="text-align:center"><p>+0.190</p></td>
 </tr>
-<tr class="row-even"><td><p>February 1, 2024</p></td>
-<td><p>-0.45</p></td>
-<td><p>+ 0.40</p></td>
+<tr class="row-even"><td class="text-align:center"><p>1.2</p></td>
+<td class="text-align:center"><p>-1.500</p></td>
+<td class="text-align:center"><p>+1.857</p></td>
+<td class="text-align:center"><p>+0.357</p></td>
+<td class="text-align:center"><p>0.9600</p></td>
+<td class="text-align:center"><p>+0.343</p></td>
 </tr>
-<tr class="row-odd"><td><p>February 1, 2025</p></td>
-<td><p>-0.45</p></td>
-<td><p>+ 0.40</p></td>
-</tr>
-<tr class="row-even"><td><p>February 1, 2026</p></td>
-<td><p>-0.45</p></td>
-<td><p>+ 0.40</p></td>
-</tr>
-<tr class="row-odd"><td><p>February 1, 2027</p></td>
-<td><p>-15.45</p></td>
-<td><p>+ 10.40</p></td>
-</tr>
-</tbody>
-</table>
-<p>Typical Uses of a Currency Swap</p>
-<ul class="simple">
-<li><p>Conversion from a liability in one currency to a liability in another currency</p></li>
-<li><p>Conversion from an investment in one currency to an investment in another
-currency</p></li>
-</ul>
-<p>Comparative Advantage May Be Real Because of Taxes</p>
-<ul class="simple">
-<li><p>General Electric wants to borrow AUD</p></li>
-<li><p>Quantas wants to borrow USD</p></li>
-<li><p>Borrowing costs after adjusting for the differential impact of taxes could be:</p></li>
-</ul>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="head"><p></p></th>
-<th class="head"><p>USD*</p></th>
-<th class="head"><p>AUD*</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>General Electric</p></td>
-<td><p>5.0%</p></td>
-<td><p>7.6%</p></td>
-</tr>
-<tr class="row-odd"><td><p>Qantas Airways</p></td>
-<td><p>7.0%</p></td>
-<td><p>8.0%</p></td>
-</tr>
-<tr class="row-even"><td><p>(* Quoted rates have been adjusted to reflect the differential impact of taxes.)</p></td>
-<td><p></p></td>
-<td><p></p></td>
+<tr class="row-odd"><td class="text-align:center"><p>Total</p></td>
+<td class="text-align:center"><p></p></td>
+<td class="text-align:center"><p></p></td>
+<td class="text-align:center"><p></p></td>
+<td class="text-align:center"><p></p></td>
+<td class="text-align:center"><p>+0.292</p></td>
 </tr>
 </tbody>
 </table>
-<p>A Currency Swap Motivated by Comparative Advantage</p>
-<div class="mermaid">
-            flowchart LR
-    GE[General Electric] --&gt; |USD 5%| X
-    QA[Qantas Airways] --&gt; |USD 6.3%| F[Financial institution]
-    F --&gt; |AUD 8.0%| QA
-    F --&gt; |AUD 6.9%| GE
-    QA --&gt; |AUD 8%| Y
-    GE --&gt; |AUD 6.9%| F
-        </div></section>
-<section id="valuation-of-fixed-for-fixed-currency-swaps">
-<h2>Valuation of Fixed-for-Fixed Currency Swaps<a class="headerlink" href="#valuation-of-fixed-for-fixed-currency-swaps" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
-<li><p>Each exchange of payments in a fixed-for-fixed currency swap is a forward
-contract.</p></li>
-<li><p>Forward foreign exchange contracts can be valued by assuming that forward
-exchange rates are realized.</p></li>
-<li><p>A fixed-for-fixed currency swap can therefore be valued assuming that forward
-rates are realized.</p></li>
+<li><p>Consider, for example, the 0.7 year row.</p></li>
+<li><p>The fixed cash flow is <span class="math notranslate nohighlight">\(-0.5 \times 0.03 \times 100 = -\$1.500\)</span>.</p></li>
+<li><p>The floating cash flow, assuming forward rates are realized, is <span class="math notranslate nohighlight">\(0.5 \times 0.03388 \times 100 = \$1.694\)</span>.</p></li>
+<li><p>The net cash flow is therefore <span class="math notranslate nohighlight">\(-1.500 + 1.694 = \$0.194\)</span> million.</p></li>
+<li><p>The discount factor is <span class="math notranslate nohighlight">\(e^{-0.032 \times 0.7} = 0.9778\)</span>, so that the present value is <span class="math notranslate nohighlight">\(0.194 \times 0.9778 = \$0.190\)</span>.</p></li>
+<li><p>The value of the swap is obtained by summing the present values <span class="math notranslate nohighlight">\( = \$0.292\)</span> million.</p></li>
+<li><p>Note that these calculations are approximate because they do not take account
+of holiday calendars and day count conventions.</p></li>
 </ul>
-<section id="id1">
-<h3>Example<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
-<ul class="simple">
-<li><p>All Japanese interest rates are 1.5% per annum (cont. comp.)</p></li>
-<li><p>All USD interest rates are 2.5% per annum (cont. comp.)</p></li>
-<li><p>3% is received in yen; 4% is paid in dollars.</p></li>
-<li><p>Payments are made annually</p></li>
-<li><p>Principals are USD 10 million and 1,200 million yen</p></li>
-<li><p>Swap will last for 3 more years</p></li>
-<li><p>Current exchange rate is 110 yen per dollar</p></li>
-</ul>
-<p>Example of Valuation in Terms of Forward Rates</p>
-<ul class="simple">
-<li><p>The current spot rate is 1/110 = 0.009091 dollar per yen.</p></li>
-<li><p>In this case, <span class="math notranslate nohighlight">\(r = 2.5\%\)</span> and <span class="math notranslate nohighlight">\(r_f = 1.5\%\)</span> so that the one-year
-forward exchange rate is,
-<span class="math notranslate nohighlight">\(0.009091 e^{(0.025-0.015) \times 1} = 0.009182\)</span></p></li>
-<li><p>The two- and three-year forward exchange rates in the table are
-calculated similarly.</p></li>
-</ul>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Time (years)</p></th>
-<th class="head"><p>Dollar cash flow</p></th>
-<th class="head"><p>Yen cash flow</p></th>
-<th class="head"><p>Forward exchange rate</p></th>
-<th class="head"><p>Dollar value of yen cash flow</p></th>
-<th class="head"><p>Net cash flow</p></th>
-<th class="head"><p>Present value</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>1</p></td>
-<td><p>-0.4</p></td>
-<td><p>+ 36</p></td>
-<td><p>0.009182</p></td>
-<td><p>0.3306</p></td>
-<td><p>-0.0694</p></td>
-<td><p>-0.0677</p></td>
-</tr>
-<tr class="row-odd"><td><p>2</p></td>
-<td><p>-0.4</p></td>
-<td><p>+ 36</p></td>
-<td><p>0.009275</p></td>
-<td><p>0.3339</p></td>
-<td><p>-0.0661</p></td>
-<td><p>-0.0629</p></td>
-</tr>
-<tr class="row-even"><td><p>3</p></td>
-<td><p>-10.4</p></td>
-<td><p>+ 1236</p></td>
-<td><p>0.009368</p></td>
-<td><p>11.5786</p></td>
-<td><p>+ 1.1786</p></td>
-<td><p>+ 1.0934</p></td>
-</tr>
-<tr class="row-odd"><td><p>Total</p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p>+ 0.9629</p></td>
-</tr>
-</tbody>
-</table>
-<p>Other Currency Swaps - Fixed-for-Floating</p>
-<ul class="simple">
-<li><p>Fixed-for-floating: equivalent to a fixed-for-fixed currency swap plus a fixed
-for floating interest rate swap</p></li>
-<li><p>An example of the first type of swap would be an exchange where Sterling LIBOR
-on a principal of GBP 7 million is paid and 3% on a principal of $10 million is
-received with payments being made semiannually for 10 years.</p></li>
-</ul>
-<ol class="simple">
-<li><p>a swap where 3% on a principal of $10 million is received and (say) 4% on a
-principal of GBP 7 million is paid</p></li>
-<li><p>an interest rate swap where 4% is received and sterling LIBOR is paid on
-anotional principal of GBP 7 million.</p></li>
-</ol>
 </section>
-<section id="other-currency-swaps-floating-for-floating">
-<h3>Other Currency Swaps - Floating-for-Floating<a class="headerlink" href="#other-currency-swaps-floating-for-floating" title="Permalink to this headline">#</a></h3>
-<ul class="simple">
-<li><p>Floating-for-floating: equivalent to a fixed-for-fixed currency swap plus two
-floating interest rate swaps</p></li>
-<li><p>An example of the second type of swap would be the exchange where sterling
-LIBOR on a principal of GBP 7 million is paid and dollar LIBOR on a principal of
-$10 million is received.</p></li>
-</ul>
-<ol class="simple">
-<li><p>a swap where 3% on aprincipal of $10 million is received and 4% on a
-principal of GBP 7 million is paid</p></li>
-<li><p>an interest rate swap where 4% is received and sterling LIBOR is paid on a
-notional principal of GBP 7 million</p></li>
-<li><p>an interest rate swap where 3% is paid and USD LIBOR is received on a
-notional principal of $10 million.</p></li>
-</ol>
-</section>
-</section>
-<section id="other-types-of-swaps">
-<h2>Other Types of Swaps<a class="headerlink" href="#other-types-of-swaps" title="Permalink to this headline">#</a></h2>
-<ul class="simple">
-<li><p>Amortizing/step up</p></li>
-<li><p>Compounding swap</p></li>
-<li><p>Constant maturity swap</p></li>
-<li><p>LIBOR-in-arrears swap</p></li>
-<li><p>Accrual swap</p></li>
-<li><p>Equity swap</p></li>
-<li><p>Cross currency interest rate swap</p></li>
-<li><p>Floating-for-floating currency swap</p></li>
-<li><p>Diff swap</p></li>
-<li><p>Commodity swap</p></li>
-<li><p>Variance swap</p></li>
-</ul>
 </section>
 </section>
 
@@ -1214,17 +915,17 @@ notional principal of $10 million.</p></li>
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="04_intro.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="04_nature_of_swaps.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Lecture 4</p>
+            <p class="prev-next-title">Nature of Swaps</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="05_intro.html" title="next page">
+    <a class='right-next' id="next-link" href="04_currency_swaps.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Lecture 5</p>
+        <p class="prev-next-title">Currency Swaps</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

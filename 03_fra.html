@@ -57,7 +57,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Lecture 4" href="04_intro.html" />
-    <link rel="prev" title="Determination of Forward and Futures Prices" href="03_forward_and_futures_pricing.html" />
+    <link rel="prev" title="Forward Price for Specific Assets" href="03_forward_prices_specific.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -213,8 +213,18 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="03_forward_and_futures_pricing.html">
+    <a class="reference internal" href="03_forward_pricing_intro.html">
      Determination of Forward and Futures Prices
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_forward_price_and_value.html">
+     Forward Price for an Investment Asset
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_forward_prices_specific.html">
+     Forward Price for Specific Assets
     </a>
    </li>
    <li class="toctree-l2 current active">
@@ -235,8 +245,23 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="04_swaps.html">
-     Swaps
+    <a class="reference internal" href="04_nature_of_swaps.html">
+     Nature of Swaps
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_interest_rate_swaps.html">
+     Interest Rate Swaps
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_currency_swaps.html">
+     Currency Swaps
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_other_swaps.html">
+     Other Types of Swaps
     </a>
    </li>
   </ul>
@@ -429,75 +454,39 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="forward-rate-agreement-fra">
 <h1>Forward Rate Agreement (FRA)<a class="headerlink" href="#forward-rate-agreement-fra" title="Permalink to this headline">#</a></h1>
-<!-- Forward Rates
-
-- The forward rate is the future zero rate implied by today's term structure of
-interest rates
-
-Formula for Forward Rates
-
-- Suppose that the zero rates for time periods $T_1$ and $T_2$ are $R_1$ and
-$R_2$ with both rates continuously compounded.
-- The forward rate for the period between times $T_1$ and $T_2$ is $$\frac{R_2
-T_2 - R_1 T_1}{T_2 - T_1}$$
-- This formula is only approximately true when rates are not expressed with
-continuous compounding
-
-Application of the Formula
-
-Instantaneous Forward Rate The instantaneous forward rate for a maturity
-T is the forward rate that applies for a very short time period starting
-at T. It is
-
-$$R + T \frac{\partial R}{\partial T}$$ where R is the T-year rate
-
-Upward vs Downward Sloping Yield Curve
-
-- For an upward sloping yield curve: Fwd Rate \> Zero Rate \> Par Yield
-- For a downward sloping yield curve: Par Yield \> Zero Rate \> Fwd Rate -->
 <ul class="simple">
-<li><p>A forward rate agreement (FRA) is an OTC agreement that a certain rate will
-apply to a certain principal during a certain future time period.</p></li>
+<li><p>A forward rate agreement (FRA) is an agreement to exchange a predetermined fixed
+rate for a reference rate that will be observed in the market at a future time.</p></li>
+<li><p>Both rates are applied to a specified principal, but the principal itself is not exchanged.</p></li>
+<li><p>Historically, the reference rate has usually been LIBOR.</p></li>
 </ul>
-<p>Forward Rate Agreement: Key Results</p>
+<div class="admonition-fra-example admonition">
+<p class="admonition-title">FRA Example</p>
 <ul class="simple">
-<li><p>An FRA is equivalent to an agreement where interest at a predetermined rate,
-<span class="math notranslate nohighlight">\(R_K\)</span> is exchanged for interest at the market rate.</p></li>
-<li><p>An FRA can be valued by assuming that the forward LIBOR interest rate, <span class="math notranslate nohighlight">\(R_F\)</span>,
-is certain to be realized.</p></li>
-<li><p>This means that the value of an FRA is the present value of the difference
-between the interest that would be paid at interest at rate <span class="math notranslate nohighlight">\(R_F\)</span> and the
-interest that would be paid at rate <span class="math notranslate nohighlight">\(R_K\)</span>.</p></li>
-</ul>
-<p>Valuation Formulas</p>
-<ul class="simple">
-<li><p>If the period to which an FRA applies lasts from <span class="math notranslate nohighlight">\(T_1\)</span> to <span class="math notranslate nohighlight">\(T_2\)</span>, we assume
-that <span class="math notranslate nohighlight">\(R_F\)</span> and <span class="math notranslate nohighlight">\(R_K\)</span> are expressed with a compounding frequency corresponding to
-the length of the period between <span class="math notranslate nohighlight">\(T_1\)</span> and <span class="math notranslate nohighlight">\(T_2\)</span>.</p></li>
-<li><p>With an interest rate of <span class="math notranslate nohighlight">\(R_K\)</span>, the interest cash flow is <span class="math notranslate nohighlight">\(R_K(T_2 - T_1)\)</span> at
-time <span class="math notranslate nohighlight">\(T_2\)</span>.</p></li>
-<li><p>With an interest rate of <span class="math notranslate nohighlight">\(R_F\)</span>, the interest cash flow is <span class="math notranslate nohighlight">\(R_F(T_2 - T_1)\)</span> at
-time <span class="math notranslate nohighlight">\(T_2\)</span>.</p></li>
-<li><p>When the rate <span class="math notranslate nohighlight">\(R_K\)</span> will be received on a principal of L the value of the FRA
-is the present value of <span class="math notranslate nohighlight">\((R_K - R_F) (T_2 - T_1)\)</span> received at time <span class="math notranslate nohighlight">\(T_2\)</span>.</p></li>
-<li><p>When the rate <span class="math notranslate nohighlight">\(R_K\)</span> will be received on a principal of L the value of the FRA
-is the present value of <span class="math notranslate nohighlight">\((R_F - R_K) (T_2 - T_1)\)</span> received at time <span class="math notranslate nohighlight">\(T2\)</span>.</p></li>
-</ul>
-<p>Example</p>
-<ul class="simple">
-<li><p>An FRA entered into some time ago ensures that a company will receive 4%
-(s.a.) on USD 100 million for six months starting in 1 year.</p></li>
-<li><p>Forward LIBOR for the period is 5% (s.a.).</p></li>
-<li><p>The 1.5 year risk-free rate is 4.5% with continuous compounding.</p></li>
-<li><p>The value of the FRA (in USD millions) is.</p></li>
+<li><p>Consider an agreement to exchange 3% for three-month LIBOR in two years with both rates being applied to a principal of <span class="math notranslate nohighlight">\(\$100\)</span> million.</p></li>
+<li><p>One side (Party A) would agree to pay LIBOR and receive the fixed rate of 3%.</p></li>
+<li><p>The other side (Party B) would agree to receive LIBOR and pay the fixed rate of 3%.</p></li>
+<li><p>Assume all rates are compounded quarterly (as would usually be the case).</p></li>
+<li><p>If three-month LIBOR proved to be 3.5% in two years, Party A would receive from Party B:</p></li>
 </ul>
 <div class="math notranslate nohighlight">
-\[100 \times (0.04 - 0.05) \times 0.5 \times e^{-0.045 \times 0.5} = -0.467\]</div>
+\[ \$100,000,000 \times (0.035 - 0.030) \times 0.25 = \$ 125,000 \]</div>
 <ul class="simple">
-<li><p>If the six-month LIBOR interest rate in one year turns out to be 5.5% (s.a.)
-there will be a payoff (in USD millions) of <span class="math notranslate nohighlight">\( 100 \times (0.04 - 0.055) \times 0.5 = -0.75 \)</span> in 1.5 years.</p></li>
-<li><p>The transaction might be settled at the one- year point for the present value
-of this.</p></li>
+<li><p>The payment would be due at time 2.25 years.</p></li>
+<li><p>In practice, because LIBOR is determined in advance of a period, the payment would be made at time two years and equal to the present value of $125,000 discounted for three months at 3.5%.</p></li>
+</ul>
+</div>
+<ul class="simple">
+<li><p>As LIBOR is phased out, we can expect to see more FRAs based on floating rates
+such as three-month SOFR and three-month SONIA.</p></li>
+<li><p>FRAs are a way of locking in the rate that will be paid or received in the future.</p></li>
+<li><p>For example, a trader who is due to receive a rate based on three-month SOFR on a certain principal during a certain future time period can lock in the rate by entering into an FRA where SOFR is paid and a fixed rate is received.</p></li>
+<li><p>Similarly, a trader who is due to pay a rate based on three-month SOFR on a certain principal during a certain future time period can lock in the rate by entering into an FRA where SOFR is received and a fixed rate is paid.</p></li>
+</ul>
+<ul class="simple">
+<li><p>When the fixed rate equals the relevant forward rate the value of an FRA is zero.</p></li>
+<li><p>When an FRA is first set up the fixed rate is normally equal to the forward rate, so that its value is zero.</p></li>
+<li><p>As time passes, the forward rate is liable to change.</p></li>
 </ul>
 </section>
 
@@ -528,11 +517,11 @@ of this.</p></li>
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="03_forward_and_futures_pricing.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="03_forward_prices_specific.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Determination of Forward and Futures Prices</p>
+            <p class="prev-next-title">Forward Price for Specific Assets</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="04_intro.html" title="next page">

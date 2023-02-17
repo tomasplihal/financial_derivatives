@@ -2,7 +2,8 @@
 
 ## Learning Outcomes
 
-- Swaps
+```{tableofcontents}
+```
 
 ## References
 

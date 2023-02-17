@@ -213,8 +213,18 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="03_forward_and_futures_pricing.html">
+    <a class="reference internal" href="03_forward_pricing_intro.html">
      Determination of Forward and Futures Prices
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_forward_price_and_value.html">
+     Forward Price for an Investment Asset
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_forward_prices_specific.html">
+     Forward Price for Specific Assets
     </a>
    </li>
    <li class="toctree-l2">
@@ -235,8 +245,23 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="04_swaps.html">
-     Swaps
+    <a class="reference internal" href="04_nature_of_swaps.html">
+     Nature of Swaps
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_interest_rate_swaps.html">
+     Interest Rate Swaps
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_currency_swaps.html">
+     Currency Swaps
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_other_swaps.html">
+     Other Types of Swaps
     </a>
    </li>
   </ul>
@@ -472,26 +497,19 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#forwards-and-futures-characteristics">
+   Forwards and Futures Characteristics
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#forward-contracts-vs-futures-contracts">
-   Forward Contracts vs Futures Contracts
+   Forward Contracts vs. Futures Contracts
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#payoff-from-a-forward-contract">
    Payoff From a Forward Contract
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#daily-settlement-of-futures">
-   Daily Settlement of Futures
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#example-of-daily-settlement">
-     Example of Daily Settlement
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 
@@ -513,26 +531,19 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#forwards-and-futures-characteristics">
+   Forwards and Futures Characteristics
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#forward-contracts-vs-futures-contracts">
-   Forward Contracts vs Futures Contracts
+   Forward Contracts vs. Futures Contracts
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#payoff-from-a-forward-contract">
    Payoff From a Forward Contract
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#daily-settlement-of-futures">
-   Daily Settlement of Futures
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#example-of-daily-settlement">
-     Example of Daily Settlement
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 
@@ -546,36 +557,47 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="forwards-and-futures">
 <h1>Forwards and Futures<a class="headerlink" href="#forwards-and-futures" title="Permalink to this headline">#</a></h1>
+<section id="forwards-and-futures-characteristics">
+<h2>Forwards and Futures Characteristics<a class="headerlink" href="#forwards-and-futures-characteristics" title="Permalink to this headline">#</a></h2>
+<div class="tip admonition">
+<p class="admonition-title">Definition</p>
 <ul class="simple">
 <li><p>Agreement to buy or sell an underlying asset at a later date.</p></li>
 <li><p>A <strong>forward/futures contract</strong> represents an <strong>obligation</strong> to trade the agreed upon
 asset at a future date.</p></li>
 <li><p>A <strong>forward/futures contract</strong> is a derivative contract in which two parties agree that one party, the buyer, will purchase an underlying asset from the other party, the seller, at a later date at a fixed price they agree on when the contract is signed.</p></li>
+</ul>
+</div>
+<ul class="simple">
 <li><p>A fixed price, called the <strong>forward/futures price</strong>, at which the underlying will be exchanged.</p></li>
 <li><p>The forward/futures price may be different for contracts of different maturities.</p></li>
+</ul>
+<ul class="simple">
 <li><p>The party that has agreed to <strong>buy</strong> has what is termed a <strong>long</strong> position.</p></li>
 <li><p>The party that has agreed to <strong>sell</strong> has what is termed a <strong>short</strong> position.</p></li>
 <li><p>The potential loss on a long forward contract can be as great as the full
 contract price.</p></li>
 <li><p>For a short forward contract, the loss can be infinite.</p></li>
+</ul>
+<ul class="simple">
 <li><p>Specifications need to be defined:</p>
 <ul>
-<li><p>What can be delivered,</p></li>
-<li><p>Where it can be delivered,</p></li>
-<li><p>When it can be delivered</p></li>
+<li><p>What can be delivered.</p></li>
+<li><p>Where it can be delivered.</p></li>
+<li><p>When it can be delivered.</p></li>
 </ul>
 </li>
 </ul>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="altair-viz-8035db7581e342c68201a1e2cc1c8711"></div>
+<div id="altair-viz-6ec8686a9f3d479d916179d01cbbe10c"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-8035db7581e342c68201a1e2cc1c8711") {
-      outputDiv = document.getElementById("altair-viz-8035db7581e342c68201a1e2cc1c8711");
+    if (outputDiv.id !== "altair-viz-6ec8686a9f3d479d916179d01cbbe10c") {
+      outputDiv = document.getElementById("altair-viz-6ec8686a9f3d479d916179d01cbbe10c");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
@@ -621,19 +643,19 @@ contract price.</p></li>
         .catch(showError)
         .then(() => displayChart(vegaEmbed));
     }
-  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"name": "data-1b6e13f6a78730389118d81d683640a4"}, "mark": "line", "encoding": {"x": {"field": "S", "type": "quantitative"}, "y": {"field": "profit", "type": "quantitative"}}, "title": "Long Forward/Futures, K=100", "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-1b6e13f6a78730389118d81d683640a4": [{"S": 0, "profit": -100}, {"S": 1, "profit": -99}, {"S": 2, "profit": -98}, {"S": 3, "profit": -97}, {"S": 4, "profit": -96}, {"S": 5, "profit": -95}, {"S": 6, "profit": -94}, {"S": 7, "profit": -93}, {"S": 8, "profit": -92}, {"S": 9, "profit": -91}, {"S": 10, "profit": -90}, {"S": 11, "profit": -89}, {"S": 12, "profit": -88}, {"S": 13, "profit": -87}, {"S": 14, "profit": -86}, {"S": 15, "profit": -85}, {"S": 16, "profit": -84}, {"S": 17, "profit": -83}, {"S": 18, "profit": -82}, {"S": 19, "profit": -81}, {"S": 20, "profit": -80}, {"S": 21, "profit": -79}, {"S": 22, "profit": -78}, {"S": 23, "profit": -77}, {"S": 24, "profit": -76}, {"S": 25, "profit": -75}, {"S": 26, "profit": -74}, {"S": 27, "profit": -73}, {"S": 28, "profit": -72}, {"S": 29, "profit": -71}, {"S": 30, "profit": -70}, {"S": 31, "profit": -69}, {"S": 32, "profit": -68}, {"S": 33, "profit": -67}, {"S": 34, "profit": -66}, {"S": 35, "profit": -65}, {"S": 36, "profit": -64}, {"S": 37, "profit": -63}, {"S": 38, "profit": -62}, {"S": 39, "profit": -61}, {"S": 40, "profit": -60}, {"S": 41, "profit": -59}, {"S": 42, "profit": -58}, {"S": 43, "profit": -57}, {"S": 44, "profit": -56}, {"S": 45, "profit": -55}, {"S": 46, "profit": -54}, {"S": 47, "profit": -53}, {"S": 48, "profit": -52}, {"S": 49, "profit": -51}, {"S": 50, "profit": -50}, {"S": 51, "profit": -49}, {"S": 52, "profit": -48}, {"S": 53, "profit": -47}, {"S": 54, "profit": -46}, {"S": 55, "profit": -45}, {"S": 56, "profit": -44}, {"S": 57, "profit": -43}, {"S": 58, "profit": -42}, {"S": 59, "profit": -41}, {"S": 60, "profit": -40}, {"S": 61, "profit": -39}, {"S": 62, "profit": -38}, {"S": 63, "profit": -37}, {"S": 64, "profit": -36}, {"S": 65, "profit": -35}, {"S": 66, "profit": -34}, {"S": 67, "profit": -33}, {"S": 68, "profit": -32}, {"S": 69, "profit": -31}, {"S": 70, "profit": -30}, {"S": 71, "profit": -29}, {"S": 72, "profit": -28}, {"S": 73, "profit": -27}, {"S": 74, "profit": -26}, {"S": 75, "profit": -25}, {"S": 76, "profit": -24}, {"S": 77, "profit": -23}, {"S": 78, "profit": -22}, {"S": 79, "profit": -21}, {"S": 80, "profit": -20}, {"S": 81, "profit": -19}, {"S": 82, "profit": -18}, {"S": 83, "profit": -17}, {"S": 84, "profit": -16}, {"S": 85, "profit": -15}, {"S": 86, "profit": -14}, {"S": 87, "profit": -13}, {"S": 88, "profit": -12}, {"S": 89, "profit": -11}, {"S": 90, "profit": -10}, {"S": 91, "profit": -9}, {"S": 92, "profit": -8}, {"S": 93, "profit": -7}, {"S": 94, "profit": -6}, {"S": 95, "profit": -5}, {"S": 96, "profit": -4}, {"S": 97, "profit": -3}, {"S": 98, "profit": -2}, {"S": 99, "profit": -1}, {"S": 100, "profit": 0}, {"S": 101, "profit": 1}, {"S": 102, "profit": 2}, {"S": 103, "profit": 3}, {"S": 104, "profit": 4}, {"S": 105, "profit": 5}, {"S": 106, "profit": 6}, {"S": 107, "profit": 7}, {"S": 108, "profit": 8}, {"S": 109, "profit": 9}, {"S": 110, "profit": 10}, {"S": 111, "profit": 11}, {"S": 112, "profit": 12}, {"S": 113, "profit": 13}, {"S": 114, "profit": 14}, {"S": 115, "profit": 15}, {"S": 116, "profit": 16}, {"S": 117, "profit": 17}, {"S": 118, "profit": 18}, {"S": 119, "profit": 19}, {"S": 120, "profit": 20}, {"S": 121, "profit": 21}, {"S": 122, "profit": 22}, {"S": 123, "profit": 23}, {"S": 124, "profit": 24}, {"S": 125, "profit": 25}, {"S": 126, "profit": 26}, {"S": 127, "profit": 27}, {"S": 128, "profit": 28}, {"S": 129, "profit": 29}, {"S": 130, "profit": 30}, {"S": 131, "profit": 31}, {"S": 132, "profit": 32}, {"S": 133, "profit": 33}, {"S": 134, "profit": 34}, {"S": 135, "profit": 35}, {"S": 136, "profit": 36}, {"S": 137, "profit": 37}, {"S": 138, "profit": 38}, {"S": 139, "profit": 39}, {"S": 140, "profit": 40}, {"S": 141, "profit": 41}, {"S": 142, "profit": 42}, {"S": 143, "profit": 43}, {"S": 144, "profit": 44}, {"S": 145, "profit": 45}, {"S": 146, "profit": 46}, {"S": 147, "profit": 47}, {"S": 148, "profit": 48}, {"S": 149, "profit": 49}, {"S": 150, "profit": 50}, {"S": 151, "profit": 51}, {"S": 152, "profit": 52}, {"S": 153, "profit": 53}, {"S": 154, "profit": 54}, {"S": 155, "profit": 55}, {"S": 156, "profit": 56}, {"S": 157, "profit": 57}, {"S": 158, "profit": 58}, {"S": 159, "profit": 59}, {"S": 160, "profit": 60}, {"S": 161, "profit": 61}, {"S": 162, "profit": 62}, {"S": 163, "profit": 63}, {"S": 164, "profit": 64}, {"S": 165, "profit": 65}, {"S": 166, "profit": 66}, {"S": 167, "profit": 67}, {"S": 168, "profit": 68}, {"S": 169, "profit": 69}, {"S": 170, "profit": 70}, {"S": 171, "profit": 71}, {"S": 172, "profit": 72}, {"S": 173, "profit": 73}, {"S": 174, "profit": 74}, {"S": 175, "profit": 75}, {"S": 176, "profit": 76}, {"S": 177, "profit": 77}, {"S": 178, "profit": 78}, {"S": 179, "profit": 79}, {"S": 180, "profit": 80}, {"S": 181, "profit": 81}, {"S": 182, "profit": 82}, {"S": 183, "profit": 83}, {"S": 184, "profit": 84}, {"S": 185, "profit": 85}, {"S": 186, "profit": 86}, {"S": 187, "profit": 87}, {"S": 188, "profit": 88}, {"S": 189, "profit": 89}, {"S": 190, "profit": 90}, {"S": 191, "profit": 91}, {"S": 192, "profit": 92}, {"S": 193, "profit": 93}, {"S": 194, "profit": 94}, {"S": 195, "profit": 95}, {"S": 196, "profit": 96}, {"S": 197, "profit": 97}, {"S": 198, "profit": 98}, {"S": 199, "profit": 99}, {"S": 200, "profit": 100}]}}, {"mode": "vega-lite"});
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"data": {"name": "data-1b6e13f6a78730389118d81d683640a4"}, "mark": "line", "encoding": {"x": {"field": "S", "type": "quantitative"}, "y": {"field": "profit", "type": "quantitative"}}, "title": "Long Forward/Futures, K=100, at maturity"}, {"data": {"name": "empty"}, "mark": {"type": "rule", "strokeDash": [6, 6], "strokeWidth": 1}, "encoding": {"x": {"datum": 100}}}, {"data": {"name": "empty"}, "mark": {"type": "rule", "strokeDash": [6, 6], "strokeWidth": 1}, "encoding": {"y": {"datum": 0}}}], "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-1b6e13f6a78730389118d81d683640a4": [{"S": 0, "profit": -100}, {"S": 1, "profit": -99}, {"S": 2, "profit": -98}, {"S": 3, "profit": -97}, {"S": 4, "profit": -96}, {"S": 5, "profit": -95}, {"S": 6, "profit": -94}, {"S": 7, "profit": -93}, {"S": 8, "profit": -92}, {"S": 9, "profit": -91}, {"S": 10, "profit": -90}, {"S": 11, "profit": -89}, {"S": 12, "profit": -88}, {"S": 13, "profit": -87}, {"S": 14, "profit": -86}, {"S": 15, "profit": -85}, {"S": 16, "profit": -84}, {"S": 17, "profit": -83}, {"S": 18, "profit": -82}, {"S": 19, "profit": -81}, {"S": 20, "profit": -80}, {"S": 21, "profit": -79}, {"S": 22, "profit": -78}, {"S": 23, "profit": -77}, {"S": 24, "profit": -76}, {"S": 25, "profit": -75}, {"S": 26, "profit": -74}, {"S": 27, "profit": -73}, {"S": 28, "profit": -72}, {"S": 29, "profit": -71}, {"S": 30, "profit": -70}, {"S": 31, "profit": -69}, {"S": 32, "profit": -68}, {"S": 33, "profit": -67}, {"S": 34, "profit": -66}, {"S": 35, "profit": -65}, {"S": 36, "profit": -64}, {"S": 37, "profit": -63}, {"S": 38, "profit": -62}, {"S": 39, "profit": -61}, {"S": 40, "profit": -60}, {"S": 41, "profit": -59}, {"S": 42, "profit": -58}, {"S": 43, "profit": -57}, {"S": 44, "profit": -56}, {"S": 45, "profit": -55}, {"S": 46, "profit": -54}, {"S": 47, "profit": -53}, {"S": 48, "profit": -52}, {"S": 49, "profit": -51}, {"S": 50, "profit": -50}, {"S": 51, "profit": -49}, {"S": 52, "profit": -48}, {"S": 53, "profit": -47}, {"S": 54, "profit": -46}, {"S": 55, "profit": -45}, {"S": 56, "profit": -44}, {"S": 57, "profit": -43}, {"S": 58, "profit": -42}, {"S": 59, "profit": -41}, {"S": 60, "profit": -40}, {"S": 61, "profit": -39}, {"S": 62, "profit": -38}, {"S": 63, "profit": -37}, {"S": 64, "profit": -36}, {"S": 65, "profit": -35}, {"S": 66, "profit": -34}, {"S": 67, "profit": -33}, {"S": 68, "profit": -32}, {"S": 69, "profit": -31}, {"S": 70, "profit": -30}, {"S": 71, "profit": -29}, {"S": 72, "profit": -28}, {"S": 73, "profit": -27}, {"S": 74, "profit": -26}, {"S": 75, "profit": -25}, {"S": 76, "profit": -24}, {"S": 77, "profit": -23}, {"S": 78, "profit": -22}, {"S": 79, "profit": -21}, {"S": 80, "profit": -20}, {"S": 81, "profit": -19}, {"S": 82, "profit": -18}, {"S": 83, "profit": -17}, {"S": 84, "profit": -16}, {"S": 85, "profit": -15}, {"S": 86, "profit": -14}, {"S": 87, "profit": -13}, {"S": 88, "profit": -12}, {"S": 89, "profit": -11}, {"S": 90, "profit": -10}, {"S": 91, "profit": -9}, {"S": 92, "profit": -8}, {"S": 93, "profit": -7}, {"S": 94, "profit": -6}, {"S": 95, "profit": -5}, {"S": 96, "profit": -4}, {"S": 97, "profit": -3}, {"S": 98, "profit": -2}, {"S": 99, "profit": -1}, {"S": 100, "profit": 0}, {"S": 101, "profit": 1}, {"S": 102, "profit": 2}, {"S": 103, "profit": 3}, {"S": 104, "profit": 4}, {"S": 105, "profit": 5}, {"S": 106, "profit": 6}, {"S": 107, "profit": 7}, {"S": 108, "profit": 8}, {"S": 109, "profit": 9}, {"S": 110, "profit": 10}, {"S": 111, "profit": 11}, {"S": 112, "profit": 12}, {"S": 113, "profit": 13}, {"S": 114, "profit": 14}, {"S": 115, "profit": 15}, {"S": 116, "profit": 16}, {"S": 117, "profit": 17}, {"S": 118, "profit": 18}, {"S": 119, "profit": 19}, {"S": 120, "profit": 20}, {"S": 121, "profit": 21}, {"S": 122, "profit": 22}, {"S": 123, "profit": 23}, {"S": 124, "profit": 24}, {"S": 125, "profit": 25}, {"S": 126, "profit": 26}, {"S": 127, "profit": 27}, {"S": 128, "profit": 28}, {"S": 129, "profit": 29}, {"S": 130, "profit": 30}, {"S": 131, "profit": 31}, {"S": 132, "profit": 32}, {"S": 133, "profit": 33}, {"S": 134, "profit": 34}, {"S": 135, "profit": 35}, {"S": 136, "profit": 36}, {"S": 137, "profit": 37}, {"S": 138, "profit": 38}, {"S": 139, "profit": 39}, {"S": 140, "profit": 40}, {"S": 141, "profit": 41}, {"S": 142, "profit": 42}, {"S": 143, "profit": 43}, {"S": 144, "profit": 44}, {"S": 145, "profit": 45}, {"S": 146, "profit": 46}, {"S": 147, "profit": 47}, {"S": 148, "profit": 48}, {"S": 149, "profit": 49}, {"S": 150, "profit": 50}, {"S": 151, "profit": 51}, {"S": 152, "profit": 52}, {"S": 153, "profit": 53}, {"S": 154, "profit": 54}, {"S": 155, "profit": 55}, {"S": 156, "profit": 56}, {"S": 157, "profit": 57}, {"S": 158, "profit": 58}, {"S": 159, "profit": 59}, {"S": 160, "profit": 60}, {"S": 161, "profit": 61}, {"S": 162, "profit": 62}, {"S": 163, "profit": 63}, {"S": 164, "profit": 64}, {"S": 165, "profit": 65}, {"S": 166, "profit": 66}, {"S": 167, "profit": 67}, {"S": 168, "profit": 68}, {"S": 169, "profit": 69}, {"S": 170, "profit": 70}, {"S": 171, "profit": 71}, {"S": 172, "profit": 72}, {"S": 173, "profit": 73}, {"S": 174, "profit": 74}, {"S": 175, "profit": 75}, {"S": 176, "profit": 76}, {"S": 177, "profit": 77}, {"S": 178, "profit": 78}, {"S": 179, "profit": 79}, {"S": 180, "profit": 80}, {"S": 181, "profit": 81}, {"S": 182, "profit": 82}, {"S": 183, "profit": 83}, {"S": 184, "profit": 84}, {"S": 185, "profit": 85}, {"S": 186, "profit": 86}, {"S": 187, "profit": 87}, {"S": 188, "profit": 88}, {"S": 189, "profit": 89}, {"S": 190, "profit": 90}, {"S": 191, "profit": 91}, {"S": 192, "profit": 92}, {"S": 193, "profit": 93}, {"S": 194, "profit": 94}, {"S": 195, "profit": 95}, {"S": 196, "profit": 96}, {"S": 197, "profit": 97}, {"S": 198, "profit": 98}, {"S": 199, "profit": 99}, {"S": 200, "profit": 100}], "empty": [{}]}}, {"mode": "vega-lite"});
 </script></div></div>
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="altair-viz-4f9605ffed3a4799a54529277867d1e4"></div>
+<div id="altair-viz-fca7dfd81b62414d892fd59cecbb164c"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-4f9605ffed3a4799a54529277867d1e4") {
-      outputDiv = document.getElementById("altair-viz-4f9605ffed3a4799a54529277867d1e4");
+    if (outputDiv.id !== "altair-viz-fca7dfd81b62414d892fd59cecbb164c") {
+      outputDiv = document.getElementById("altair-viz-fca7dfd81b62414d892fd59cecbb164c");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
@@ -679,38 +701,40 @@ contract price.</p></li>
         .catch(showError)
         .then(() => displayChart(vegaEmbed));
     }
-  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"name": "data-b3403c3ae8de652755424853c4f9821e"}, "mark": "line", "encoding": {"x": {"field": "S", "type": "quantitative"}, "y": {"field": "profit", "type": "quantitative"}}, "title": "Short Forward/Futures, K=100", "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-b3403c3ae8de652755424853c4f9821e": [{"S": 0, "profit": 100}, {"S": 1, "profit": 99}, {"S": 2, "profit": 98}, {"S": 3, "profit": 97}, {"S": 4, "profit": 96}, {"S": 5, "profit": 95}, {"S": 6, "profit": 94}, {"S": 7, "profit": 93}, {"S": 8, "profit": 92}, {"S": 9, "profit": 91}, {"S": 10, "profit": 90}, {"S": 11, "profit": 89}, {"S": 12, "profit": 88}, {"S": 13, "profit": 87}, {"S": 14, "profit": 86}, {"S": 15, "profit": 85}, {"S": 16, "profit": 84}, {"S": 17, "profit": 83}, {"S": 18, "profit": 82}, {"S": 19, "profit": 81}, {"S": 20, "profit": 80}, {"S": 21, "profit": 79}, {"S": 22, "profit": 78}, {"S": 23, "profit": 77}, {"S": 24, "profit": 76}, {"S": 25, "profit": 75}, {"S": 26, "profit": 74}, {"S": 27, "profit": 73}, {"S": 28, "profit": 72}, {"S": 29, "profit": 71}, {"S": 30, "profit": 70}, {"S": 31, "profit": 69}, {"S": 32, "profit": 68}, {"S": 33, "profit": 67}, {"S": 34, "profit": 66}, {"S": 35, "profit": 65}, {"S": 36, "profit": 64}, {"S": 37, "profit": 63}, {"S": 38, "profit": 62}, {"S": 39, "profit": 61}, {"S": 40, "profit": 60}, {"S": 41, "profit": 59}, {"S": 42, "profit": 58}, {"S": 43, "profit": 57}, {"S": 44, "profit": 56}, {"S": 45, "profit": 55}, {"S": 46, "profit": 54}, {"S": 47, "profit": 53}, {"S": 48, "profit": 52}, {"S": 49, "profit": 51}, {"S": 50, "profit": 50}, {"S": 51, "profit": 49}, {"S": 52, "profit": 48}, {"S": 53, "profit": 47}, {"S": 54, "profit": 46}, {"S": 55, "profit": 45}, {"S": 56, "profit": 44}, {"S": 57, "profit": 43}, {"S": 58, "profit": 42}, {"S": 59, "profit": 41}, {"S": 60, "profit": 40}, {"S": 61, "profit": 39}, {"S": 62, "profit": 38}, {"S": 63, "profit": 37}, {"S": 64, "profit": 36}, {"S": 65, "profit": 35}, {"S": 66, "profit": 34}, {"S": 67, "profit": 33}, {"S": 68, "profit": 32}, {"S": 69, "profit": 31}, {"S": 70, "profit": 30}, {"S": 71, "profit": 29}, {"S": 72, "profit": 28}, {"S": 73, "profit": 27}, {"S": 74, "profit": 26}, {"S": 75, "profit": 25}, {"S": 76, "profit": 24}, {"S": 77, "profit": 23}, {"S": 78, "profit": 22}, {"S": 79, "profit": 21}, {"S": 80, "profit": 20}, {"S": 81, "profit": 19}, {"S": 82, "profit": 18}, {"S": 83, "profit": 17}, {"S": 84, "profit": 16}, {"S": 85, "profit": 15}, {"S": 86, "profit": 14}, {"S": 87, "profit": 13}, {"S": 88, "profit": 12}, {"S": 89, "profit": 11}, {"S": 90, "profit": 10}, {"S": 91, "profit": 9}, {"S": 92, "profit": 8}, {"S": 93, "profit": 7}, {"S": 94, "profit": 6}, {"S": 95, "profit": 5}, {"S": 96, "profit": 4}, {"S": 97, "profit": 3}, {"S": 98, "profit": 2}, {"S": 99, "profit": 1}, {"S": 100, "profit": 0}, {"S": 101, "profit": -1}, {"S": 102, "profit": -2}, {"S": 103, "profit": -3}, {"S": 104, "profit": -4}, {"S": 105, "profit": -5}, {"S": 106, "profit": -6}, {"S": 107, "profit": -7}, {"S": 108, "profit": -8}, {"S": 109, "profit": -9}, {"S": 110, "profit": -10}, {"S": 111, "profit": -11}, {"S": 112, "profit": -12}, {"S": 113, "profit": -13}, {"S": 114, "profit": -14}, {"S": 115, "profit": -15}, {"S": 116, "profit": -16}, {"S": 117, "profit": -17}, {"S": 118, "profit": -18}, {"S": 119, "profit": -19}, {"S": 120, "profit": -20}, {"S": 121, "profit": -21}, {"S": 122, "profit": -22}, {"S": 123, "profit": -23}, {"S": 124, "profit": -24}, {"S": 125, "profit": -25}, {"S": 126, "profit": -26}, {"S": 127, "profit": -27}, {"S": 128, "profit": -28}, {"S": 129, "profit": -29}, {"S": 130, "profit": -30}, {"S": 131, "profit": -31}, {"S": 132, "profit": -32}, {"S": 133, "profit": -33}, {"S": 134, "profit": -34}, {"S": 135, "profit": -35}, {"S": 136, "profit": -36}, {"S": 137, "profit": -37}, {"S": 138, "profit": -38}, {"S": 139, "profit": -39}, {"S": 140, "profit": -40}, {"S": 141, "profit": -41}, {"S": 142, "profit": -42}, {"S": 143, "profit": -43}, {"S": 144, "profit": -44}, {"S": 145, "profit": -45}, {"S": 146, "profit": -46}, {"S": 147, "profit": -47}, {"S": 148, "profit": -48}, {"S": 149, "profit": -49}, {"S": 150, "profit": -50}, {"S": 151, "profit": -51}, {"S": 152, "profit": -52}, {"S": 153, "profit": -53}, {"S": 154, "profit": -54}, {"S": 155, "profit": -55}, {"S": 156, "profit": -56}, {"S": 157, "profit": -57}, {"S": 158, "profit": -58}, {"S": 159, "profit": -59}, {"S": 160, "profit": -60}, {"S": 161, "profit": -61}, {"S": 162, "profit": -62}, {"S": 163, "profit": -63}, {"S": 164, "profit": -64}, {"S": 165, "profit": -65}, {"S": 166, "profit": -66}, {"S": 167, "profit": -67}, {"S": 168, "profit": -68}, {"S": 169, "profit": -69}, {"S": 170, "profit": -70}, {"S": 171, "profit": -71}, {"S": 172, "profit": -72}, {"S": 173, "profit": -73}, {"S": 174, "profit": -74}, {"S": 175, "profit": -75}, {"S": 176, "profit": -76}, {"S": 177, "profit": -77}, {"S": 178, "profit": -78}, {"S": 179, "profit": -79}, {"S": 180, "profit": -80}, {"S": 181, "profit": -81}, {"S": 182, "profit": -82}, {"S": 183, "profit": -83}, {"S": 184, "profit": -84}, {"S": 185, "profit": -85}, {"S": 186, "profit": -86}, {"S": 187, "profit": -87}, {"S": 188, "profit": -88}, {"S": 189, "profit": -89}, {"S": 190, "profit": -90}, {"S": 191, "profit": -91}, {"S": 192, "profit": -92}, {"S": 193, "profit": -93}, {"S": 194, "profit": -94}, {"S": 195, "profit": -95}, {"S": 196, "profit": -96}, {"S": 197, "profit": -97}, {"S": 198, "profit": -98}, {"S": 199, "profit": -99}, {"S": 200, "profit": -100}]}}, {"mode": "vega-lite"});
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"data": {"name": "data-b3403c3ae8de652755424853c4f9821e"}, "mark": "line", "encoding": {"x": {"field": "S", "type": "quantitative"}, "y": {"field": "profit", "type": "quantitative"}}, "title": "Short Forward/Futures, K=100, at maturity"}, {"data": {"name": "empty"}, "mark": {"type": "rule", "strokeDash": [6, 6], "strokeWidth": 1}, "encoding": {"x": {"datum": 100}}}, {"data": {"name": "empty"}, "mark": {"type": "rule", "strokeDash": [6, 6], "strokeWidth": 1}, "encoding": {"y": {"datum": 0}}}], "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-b3403c3ae8de652755424853c4f9821e": [{"S": 0, "profit": 100}, {"S": 1, "profit": 99}, {"S": 2, "profit": 98}, {"S": 3, "profit": 97}, {"S": 4, "profit": 96}, {"S": 5, "profit": 95}, {"S": 6, "profit": 94}, {"S": 7, "profit": 93}, {"S": 8, "profit": 92}, {"S": 9, "profit": 91}, {"S": 10, "profit": 90}, {"S": 11, "profit": 89}, {"S": 12, "profit": 88}, {"S": 13, "profit": 87}, {"S": 14, "profit": 86}, {"S": 15, "profit": 85}, {"S": 16, "profit": 84}, {"S": 17, "profit": 83}, {"S": 18, "profit": 82}, {"S": 19, "profit": 81}, {"S": 20, "profit": 80}, {"S": 21, "profit": 79}, {"S": 22, "profit": 78}, {"S": 23, "profit": 77}, {"S": 24, "profit": 76}, {"S": 25, "profit": 75}, {"S": 26, "profit": 74}, {"S": 27, "profit": 73}, {"S": 28, "profit": 72}, {"S": 29, "profit": 71}, {"S": 30, "profit": 70}, {"S": 31, "profit": 69}, {"S": 32, "profit": 68}, {"S": 33, "profit": 67}, {"S": 34, "profit": 66}, {"S": 35, "profit": 65}, {"S": 36, "profit": 64}, {"S": 37, "profit": 63}, {"S": 38, "profit": 62}, {"S": 39, "profit": 61}, {"S": 40, "profit": 60}, {"S": 41, "profit": 59}, {"S": 42, "profit": 58}, {"S": 43, "profit": 57}, {"S": 44, "profit": 56}, {"S": 45, "profit": 55}, {"S": 46, "profit": 54}, {"S": 47, "profit": 53}, {"S": 48, "profit": 52}, {"S": 49, "profit": 51}, {"S": 50, "profit": 50}, {"S": 51, "profit": 49}, {"S": 52, "profit": 48}, {"S": 53, "profit": 47}, {"S": 54, "profit": 46}, {"S": 55, "profit": 45}, {"S": 56, "profit": 44}, {"S": 57, "profit": 43}, {"S": 58, "profit": 42}, {"S": 59, "profit": 41}, {"S": 60, "profit": 40}, {"S": 61, "profit": 39}, {"S": 62, "profit": 38}, {"S": 63, "profit": 37}, {"S": 64, "profit": 36}, {"S": 65, "profit": 35}, {"S": 66, "profit": 34}, {"S": 67, "profit": 33}, {"S": 68, "profit": 32}, {"S": 69, "profit": 31}, {"S": 70, "profit": 30}, {"S": 71, "profit": 29}, {"S": 72, "profit": 28}, {"S": 73, "profit": 27}, {"S": 74, "profit": 26}, {"S": 75, "profit": 25}, {"S": 76, "profit": 24}, {"S": 77, "profit": 23}, {"S": 78, "profit": 22}, {"S": 79, "profit": 21}, {"S": 80, "profit": 20}, {"S": 81, "profit": 19}, {"S": 82, "profit": 18}, {"S": 83, "profit": 17}, {"S": 84, "profit": 16}, {"S": 85, "profit": 15}, {"S": 86, "profit": 14}, {"S": 87, "profit": 13}, {"S": 88, "profit": 12}, {"S": 89, "profit": 11}, {"S": 90, "profit": 10}, {"S": 91, "profit": 9}, {"S": 92, "profit": 8}, {"S": 93, "profit": 7}, {"S": 94, "profit": 6}, {"S": 95, "profit": 5}, {"S": 96, "profit": 4}, {"S": 97, "profit": 3}, {"S": 98, "profit": 2}, {"S": 99, "profit": 1}, {"S": 100, "profit": 0}, {"S": 101, "profit": -1}, {"S": 102, "profit": -2}, {"S": 103, "profit": -3}, {"S": 104, "profit": -4}, {"S": 105, "profit": -5}, {"S": 106, "profit": -6}, {"S": 107, "profit": -7}, {"S": 108, "profit": -8}, {"S": 109, "profit": -9}, {"S": 110, "profit": -10}, {"S": 111, "profit": -11}, {"S": 112, "profit": -12}, {"S": 113, "profit": -13}, {"S": 114, "profit": -14}, {"S": 115, "profit": -15}, {"S": 116, "profit": -16}, {"S": 117, "profit": -17}, {"S": 118, "profit": -18}, {"S": 119, "profit": -19}, {"S": 120, "profit": -20}, {"S": 121, "profit": -21}, {"S": 122, "profit": -22}, {"S": 123, "profit": -23}, {"S": 124, "profit": -24}, {"S": 125, "profit": -25}, {"S": 126, "profit": -26}, {"S": 127, "profit": -27}, {"S": 128, "profit": -28}, {"S": 129, "profit": -29}, {"S": 130, "profit": -30}, {"S": 131, "profit": -31}, {"S": 132, "profit": -32}, {"S": 133, "profit": -33}, {"S": 134, "profit": -34}, {"S": 135, "profit": -35}, {"S": 136, "profit": -36}, {"S": 137, "profit": -37}, {"S": 138, "profit": -38}, {"S": 139, "profit": -39}, {"S": 140, "profit": -40}, {"S": 141, "profit": -41}, {"S": 142, "profit": -42}, {"S": 143, "profit": -43}, {"S": 144, "profit": -44}, {"S": 145, "profit": -45}, {"S": 146, "profit": -46}, {"S": 147, "profit": -47}, {"S": 148, "profit": -48}, {"S": 149, "profit": -49}, {"S": 150, "profit": -50}, {"S": 151, "profit": -51}, {"S": 152, "profit": -52}, {"S": 153, "profit": -53}, {"S": 154, "profit": -54}, {"S": 155, "profit": -55}, {"S": 156, "profit": -56}, {"S": 157, "profit": -57}, {"S": 158, "profit": -58}, {"S": 159, "profit": -59}, {"S": 160, "profit": -60}, {"S": 161, "profit": -61}, {"S": 162, "profit": -62}, {"S": 163, "profit": -63}, {"S": 164, "profit": -64}, {"S": 165, "profit": -65}, {"S": 166, "profit": -66}, {"S": 167, "profit": -67}, {"S": 168, "profit": -68}, {"S": 169, "profit": -69}, {"S": 170, "profit": -70}, {"S": 171, "profit": -71}, {"S": 172, "profit": -72}, {"S": 173, "profit": -73}, {"S": 174, "profit": -74}, {"S": 175, "profit": -75}, {"S": 176, "profit": -76}, {"S": 177, "profit": -77}, {"S": 178, "profit": -78}, {"S": 179, "profit": -79}, {"S": 180, "profit": -80}, {"S": 181, "profit": -81}, {"S": 182, "profit": -82}, {"S": 183, "profit": -83}, {"S": 184, "profit": -84}, {"S": 185, "profit": -85}, {"S": 186, "profit": -86}, {"S": 187, "profit": -87}, {"S": 188, "profit": -88}, {"S": 189, "profit": -89}, {"S": 190, "profit": -90}, {"S": 191, "profit": -91}, {"S": 192, "profit": -92}, {"S": 193, "profit": -93}, {"S": 194, "profit": -94}, {"S": 195, "profit": -95}, {"S": 196, "profit": -96}, {"S": 197, "profit": -97}, {"S": 198, "profit": -98}, {"S": 199, "profit": -99}, {"S": 200, "profit": -100}], "empty": [{}]}}, {"mode": "vega-lite"});
 </script></div></div>
 </div>
+</section>
+<hr class="docutils" />
 <section id="forward-contracts-vs-futures-contracts">
-<h2>Forward Contracts vs Futures Contracts<a class="headerlink" href="#forward-contracts-vs-futures-contracts" title="Permalink to this headline">#</a></h2>
+<h2>Forward Contracts vs. Futures Contracts<a class="headerlink" href="#forward-contracts-vs-futures-contracts" title="Permalink to this headline">#</a></h2>
 <table class="colwidths-auto table">
 <thead>
-<tr class="row-odd"><th class="head"><p>Forward</p></th>
-<th class="head"><p>Futures</p></th>
+<tr class="row-odd"><th class="text-align:center head"><p>Forwards</p></th>
+<th class="text-align:center head"><p>Futures</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Private contract between two parties (OTC market)</p></td>
-<td><p>Traded on an exchange</p></td>
+<tr class="row-even"><td class="text-align:center"><p>Private contract between two parties (OTC market)</p></td>
+<td class="text-align:center"><p>Traded on an exchange</p></td>
 </tr>
-<tr class="row-odd"><td><p>Not standardized (customized features)</p></td>
-<td><p>Standardized contract</p></td>
+<tr class="row-odd"><td class="text-align:center"><p>Not standardized (customized features)</p></td>
+<td class="text-align:center"><p>Standardized contract</p></td>
 </tr>
-<tr class="row-even"><td><p>Usually one specified delivery date</p></td>
-<td><p>Range of delivery dates</p></td>
+<tr class="row-even"><td class="text-align:center"><p>Usually one specified delivery date</p></td>
+<td class="text-align:center"><p>Range of delivery dates</p></td>
 </tr>
-<tr class="row-odd"><td><p>Gains and losses settled at maturity</p></td>
-<td><p>Daily settlement of gains and losses.</p></td>
+<tr class="row-odd"><td class="text-align:center"><p>Gains and losses settled at maturity</p></td>
+<td class="text-align:center"><p>Daily settlement of gains and losses</p></td>
 </tr>
-<tr class="row-even"><td><p>Delivery or final cash settlement</p></td>
-<td><p>Contract is usually closed out prior to maturity</p></td>
+<tr class="row-even"><td class="text-align:center"><p>Delivery or final cash settlement</p></td>
+<td class="text-align:center"><p>Contract is usually closed out prior to maturity</p></td>
 </tr>
-<tr class="row-odd"><td><p>Some credit risk (not guaranteed by a clearinghouse)</p></td>
-<td><p>Virtually no credit risk (traded trough a clearinghouse)</p></td>
+<tr class="row-odd"><td class="text-align:center"><p>Some credit risk (not guaranteed by a clearinghouse)</p></td>
+<td class="text-align:center"><p>Virtually no credit risk (traded trough a clearinghouse)</p></td>
 </tr>
-<tr class="row-even"><td><p>Limited regulation and reporting</p></td>
-<td><p>Regulated, transparent, and traded through a clearinghouse</p></td>
+<tr class="row-even"><td class="text-align:center"><p>Limited regulation and reporting</p></td>
+<td class="text-align:center"><p>Regulated, transparent, and traded through a clearinghouse</p></td>
 </tr>
 </tbody>
 </table>
@@ -724,26 +748,28 @@ contract price.</p></li>
 <li><p>Contract expiration at time <span class="math notranslate nohighlight">\(t = T\)</span></p></li>
 <li><p>Spot price of the underlying asset at time <span class="math notranslate nohighlight">\(0 = S_0\)</span></p></li>
 <li><p>Spot price of the underlying asset at time <span class="math notranslate nohighlight">\(T = S_T\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(F_0(T)\)</span> is the forward price</p></li>
+<li><p><span class="math notranslate nohighlight">\(F_0\)</span> is the forward price</p></li>
 </ul>
 <ul class="simple">
 <li><p>The <strong>long party agrees to buy</strong> at the forward price, and the <strong>short party agrees to sell</strong> at the forward price.</p></li>
-<li><p>Payoff to the <strong>long party</strong> at expiration <span class="math notranslate nohighlight">\((T) = S_T - F_0(T)\)</span></p></li>
-<li><p>Payoff to the <strong>short party</strong> at expiration <span class="math notranslate nohighlight">\((T) = -[S_T - F_0(T)]\)</span></p></li>
+<li><p>Payoff to the <strong>long party</strong> at expiration <span class="math notranslate nohighlight">\((T) = S_T - F_0\)</span></p></li>
+<li><p>Payoff to the <strong>short party</strong> at expiration <span class="math notranslate nohighlight">\((T) = -[S_T - F_0]\)</span></p></li>
 </ul>
-<div class="tip admonition">
+<div class="admonition-forward-payoff-example admonition">
 <p class="admonition-title">Forward Payoff Example</p>
 <p>Barbara Nix agrees to buy 1 kilogram of gold in 90 days at a price of $38,000 from PM metals Inc (short party). After 90 days, the spot price of gold is $38,500 per kilo.</p>
 <div class="math notranslate nohighlight">
-\[F_0(T) = \$38,000/kilo\]</div>
+\[F_0 = \$38,000/kilo\]</div>
 <div class="math notranslate nohighlight">
 \[S_T = \$38,500/kilo\]</div>
-<p>Payoff to the long party (Nix) at expiration:
-$<span class="math notranslate nohighlight">\((T) = S_T - F_0(T) = \$38,500 - \$38,000 = \$500\)</span>$</p>
-<p>Payoff to the short party at expiration:
-$<span class="math notranslate nohighlight">\((T) = -\$500\)</span>$</p>
+<p>Payoff to the long party (Nix) at expiration:</p>
+<div class="math notranslate nohighlight">
+\[S_T - F_0 = \$38,500 - \$38,000 = \$500\]</div>
+<p>Payoff to the short party at expiration:</p>
+<div class="math notranslate nohighlight">
+\[-\$500\]</div>
 </div>
-<div class="tip admonition">
+<div class="admonition-example admonition">
 <p class="admonition-title">Example</p>
 <ul class="simple">
 <li><p>On May 3, 2016, the treasurer of a corporation enters into a long forward
@@ -753,45 +779,6 @@ November 3, 2016</p></li>
 <li><p>What are the possible outcomes?</p></li>
 </ul>
 </div>
-</section>
-<section id="daily-settlement-of-futures">
-<h2>Daily Settlement of Futures<a class="headerlink" href="#daily-settlement-of-futures" title="Permalink to this headline">#</a></h2>
-<p><a class="reference external" href="https://www.cmegroup.com/markets/metals/precious/gold.quotes.html%5D">Gold Futures Trading</a></p>
-<p>The clearinghouse determines the settlement price from the final trades made
-that day. Positions are marked to market based on the settlement price. Gains
-(losses) are added (subtracted) daily in the trader’s margin account.</p>
-<p>The exchange sets two margin requirements:</p>
-<ul class="simple">
-<li><p><strong>Initial Margin:</strong> the deposit required to open the contract.</p></li>
-<li><p><strong>Maintenance Margin:</strong> the amount of money that each participant must
-maintain in the account after the trade is initiated. Accounts below the
-maintenance margin will receive a <strong>margin call</strong>.</p></li>
-</ul>
-<p>If a party receives a <em>margin call</em>, they must restore the account <em>to the
-initial margin</em> by depositing more funds and/or by closing out positions.</p>
-<section id="example-of-daily-settlement">
-<h3>Example of Daily Settlement<a class="headerlink" href="#example-of-daily-settlement" title="Permalink to this headline">#</a></h3>
-<p>A trader goes long at a futures price of $1200. The exchange requires an
-initial margn (IM) of $150 and a maintenance margin (MM) of $75. The trader
-deposits $150 into a margin account to open a long position at $1200.</p>
-<ul class="simple">
-<li><p>At the end of the day 1, the futures price settles at $1180.</p>
-<ul>
-<li><p>The account is marked to market at $1180 and $20 is withdrawn from the
-trader’s account bringing the balance to $130.</p></li>
-</ul>
-</li>
-<li><p>At the end of day 2, the futures price settles at $1120.</p>
-<ul>
-<li><p>The account is marked to market at $1120, and $60 is withdrawn from the
-trader’s account bringing the balance to $70.</p></li>
-<li><p>The margin balance is below the MM, so the trader receives a margin call.</p></li>
-<li><p>To keep the long position opened, the trader must deposit enough money toi
-bring the account back to IM. In this case $80 must be deposited.</p></li>
-</ul>
-</li>
-</ul>
-</section>
 </section>
 </section>
 

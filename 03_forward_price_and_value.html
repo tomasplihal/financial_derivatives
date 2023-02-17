@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Lecture 1 &#8212; Financial Derivatives</title>
+    <title>Forward Price for an Investment Asset &#8212; Financial Derivatives</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -50,12 +50,14 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
     <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Introduction" href="01_introduction.html" />
-    <link rel="prev" title="Welcome to the financial derivatives course" href="intro.html" />
+    <link rel="next" title="Forward Price for Specific Assets" href="03_forward_prices_specific.html" />
+    <link rel="prev" title="Determination of Forward and Futures Prices" href="03_forward_pricing_intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -116,11 +118,11 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="01_intro.html">
    Lecture 1
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
@@ -200,23 +202,23 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="03_intro.html">
    Lecture 3
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
   <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="03_forward_pricing_intro.html">
      Determination of Forward and Futures Prices
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="03_forward_price_and_value.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Forward Price for an Investment Asset
     </a>
    </li>
@@ -389,7 +391,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/01_intro.md"
+        <a href="_sources/03_forward_price_and_value.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -449,13 +451,47 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#learning-outcomes">
-   Learning Outcomes
+  <a class="reference internal nav-link" href="#arbitrage-example">
+   Arbitrage Example
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#assumptions">
+     Assumptions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#notation">
+     Notation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Arbitrage Example
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-forward-price">
+   The Forward Price
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#when-asset-provides-a-known-income-or-yield">
+     When Asset Provides a Known Income or Yield
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#valuing-a-forward-contract">
+   Valuing a Forward Contract
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#references">
-   References
+  <a class="reference internal nav-link" href="#forward-vs-futures-prices">
+   Forward vs. Futures Prices
   </a>
  </li>
 </ul>
@@ -467,7 +503,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Lecture 1</h1>
+                <h1>Forward Price for an Investment Asset</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -478,13 +514,47 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#learning-outcomes">
-   Learning Outcomes
+  <a class="reference internal nav-link" href="#arbitrage-example">
+   Arbitrage Example
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#assumptions">
+     Assumptions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#notation">
+     Notation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Arbitrage Example
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-forward-price">
+   The Forward Price
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#when-asset-provides-a-known-income-or-yield">
+     When Asset Provides a Known Income or Yield
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#valuing-a-forward-contract">
+   Valuing a Forward Contract
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#references">
-   References
+  <a class="reference internal nav-link" href="#forward-vs-futures-prices">
+   Forward vs. Futures Prices
   </a>
  </li>
 </ul>
@@ -497,37 +567,140 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="lecture-1">
-<h1>Lecture 1<a class="headerlink" href="#lecture-1" title="Permalink to this headline">#</a></h1>
-<section id="learning-outcomes">
-<h2>Learning Outcomes<a class="headerlink" href="#learning-outcomes" title="Permalink to this headline">#</a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="01_introduction.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="01_types_of_derivatives.html">Types of Derivatives</a></li>
-<li class="toctree-l1"><a class="reference internal" href="01_types_of_trades.html">Types of Trades</a></li>
-<li class="toctree-l1"><a class="reference internal" href="01_criticism.html">Criticisms and Misuses of Derivatives</a></li>
-<li class="toctree-l1"><a class="reference internal" href="01_interest_rates.html">Interest Rates</a></li>
-<li class="toctree-l1"><a class="reference internal" href="01_time_value_of_money.html">Time Value of Money</a></li>
-<li class="toctree-l1"><a class="reference internal" href="01_compound_interest.html">Compound Interest</a></li>
-<li class="toctree-l1"><a class="reference internal" href="01_practice_questions.html">Practice Questions and Problems</a></li>
-</ul>
-</div>
+  <section class="tex2jax_ignore mathjax_ignore" id="forward-price-for-an-investment-asset">
+<h1>Forward Price for an Investment Asset<a class="headerlink" href="#forward-price-for-an-investment-asset" title="Permalink to this headline">#</a></h1>
+<section id="arbitrage-example">
+<h2>Arbitrage Example<a class="headerlink" href="#arbitrage-example" title="Permalink to this headline">#</a></h2>
+<section id="assumptions">
+<h3>Assumptions<a class="headerlink" href="#assumptions" title="Permalink to this headline">#</a></h3>
+<ol class="simple">
+<li><p>The market participants are subject to no transaction costs when they trade.</p></li>
+<li><p>The market participants are subject to the same tax rate on all net trading
+profits.</p></li>
+<li><p>The market participants can borrow money at the same risk-free rate of
+interest as they can lend money.</p></li>
+<li><p>The market participants take advantage of arbitrage opportunities as they
+occur.</p></li>
+</ol>
 </section>
-<section id="references">
-<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">#</a></h2>
+<section id="notation">
+<h3>Notation<a class="headerlink" href="#notation" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
-<li><p>HULL, John. Options, futures, and other derivatives. Ninth edition. Harlow: Pearson, 2018. ISBN 978-1-292-21289-0.</p>
+<li><p><span class="math notranslate nohighlight">\(S_0\)</span> = Spot price today</p></li>
+<li><p><span class="math notranslate nohighlight">\(F_0\)</span> = Futures or forward price today</p></li>
+<li><p><span class="math notranslate nohighlight">\(T\)</span> = Time until delivery date</p></li>
+<li><p><span class="math notranslate nohighlight">\(r\)</span> = Risk-free interest rate for maturity <span class="math notranslate nohighlight">\(T\)</span></p></li>
+</ul>
+</section>
+<section id="id1">
+<h3>Arbitrage Example<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Arbitrage opportunities when forward price is out of line with spot price for
+asset providing no income.</p></li>
+<li><p>Asset price = $40; interest rate = 5%; maturity = 3 months</p></li>
+</ul>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Forward Price = $43</p></th>
+<th class="head"><p>Forward Price = $39</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>Action now:</em></p></td>
+<td><p><em>Action now:</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>Borrow $40 at 5% for 3 months</p></td>
+<td><p>Short 1 unit of asset to realize $40</p></td>
+</tr>
+<tr class="row-even"><td><p>Buy one unit of asset</p></td>
+<td><p>Invest $40 at 5% for 3 months</p></td>
+</tr>
+<tr class="row-odd"><td><p>Enter into forward contract to sell asset in 3 months for $43</p></td>
+<td><p>Enter into a forward contract to buy asset in 3 months for $39</p></td>
+</tr>
+<tr class="row-even"><td><p><em>Action in 3 months:</em></p></td>
+<td><p><em>Action in 3 months:</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>Sell asset for $43</p></td>
+<td><p>Buy asset for $39</p></td>
+</tr>
+<tr class="row-even"><td><p>Use $40.50 to repay loan with interest</p></td>
+<td><p>Close short position</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>Receive $40.50 from investment</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Profit realized = +2.50</strong></p></td>
+<td><p><strong>Profit realized = +1.50</strong></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<hr class="docutils" />
+<section id="the-forward-price">
+<h2>The Forward Price<a class="headerlink" href="#the-forward-price" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>If the spot price of an investment asset is <span class="math notranslate nohighlight">\(S_0\)</span> and the futures price for a
+contract deliverable in <span class="math notranslate nohighlight">\(T\)</span> years is <span class="math notranslate nohighlight">\(F_0\)</span>, then</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[F_0 = S_0 e^{rT}\]</div>
+<p>where <span class="math notranslate nohighlight">\(r\)</span> is the <span class="math notranslate nohighlight">\(T\)</span>-year risk-free rate of interest.</p>
+<ul class="simple">
+<li><p>In our examples, <span class="math notranslate nohighlight">\(S_0\)</span> = 40, <span class="math notranslate nohighlight">\(T\)</span> = 0.25, and <span class="math notranslate nohighlight">\(r\)</span> = 0.05 so that</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[F_0 = 40 e^{0.05\times0.25} = 40.50\]</div>
+<ul class="simple">
+<li><p>If short sales are not possible the formula still works for an investment
+asset because investors who hold the asset will sell it and buy forward
+contracts when the forward price is too low.</p></li>
+</ul>
+<section id="when-asset-provides-a-known-income-or-yield">
+<h3>When Asset Provides a Known Income or Yield<a class="headerlink" href="#when-asset-provides-a-known-income-or-yield" title="Permalink to this headline">#</a></h3>
+<div class="math notranslate nohighlight">
+\[F_0 = (S_0 - I)e^{rT}\]</div>
+<ul class="simple">
+<li><p>where <span class="math notranslate nohighlight">\(I\)</span> is the present value of the income during life of forward contract</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[F_0 = S_0 e^{(r-q)T}\]</div>
+<ul class="simple">
+<li><p>where <span class="math notranslate nohighlight">\(q\)</span> is the average yield during the life of the contract (expressed with
+continuous compounding)</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="valuing-a-forward-contract">
+<h2>Valuing a Forward Contract<a class="headerlink" href="#valuing-a-forward-contract" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>A forward contract is worth zero (except for bid-offer spread effects) when it
+is first negotiated.</p></li>
+<li><p>Later it may have a positive or negative value.</p></li>
+<li><p>Suppose that <span class="math notranslate nohighlight">\(K\)</span> is the delivery price and <span class="math notranslate nohighlight">\(F_0\)</span> is the forward price for a
+contract that would be negotiated today.</p></li>
+<li><p>By considering the difference between a contract with delivery price <span class="math notranslate nohighlight">\(K\)</span> and a
+contract with delivery price <span class="math notranslate nohighlight">\(F_0\)</span> we can deduce that:</p>
 <ul>
-<li><p>Chapter 1 - Introduction</p></li>
-<li><p>Chapter 4 - Interest Rates</p></li>
+<li><p>the value of a long forward contract is <span class="math notranslate nohighlight">\((F_0 - K) e^{-rT}\)</span></p></li>
+<li><p>the value of a short forward contract is <span class="math notranslate nohighlight">\((K - F_0) e^{-rT}\)</span></p></li>
 </ul>
 </li>
 </ul>
+</section>
+<hr class="docutils" />
+<section id="forward-vs-futures-prices">
+<h2>Forward vs. Futures Prices<a class="headerlink" href="#forward-vs-futures-prices" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
-<li><p>PIRIE, Wendy L. Derivatives. Hoboken: Wiley, 2017. CFA institute investment series. ISBN 978-1-119-38181-5.</p>
+<li><p>When the maturity and asset price are the same, forward and futures prices are
+usually assumed to be equal. (Eurodollar futures are an exception)</p></li>
+<li><p>In theory, when interest rates are uncertain, they are slightly different:</p>
 <ul>
-<li><p>Chapter 1 - Derivative Markets and Instruments</p></li>
+<li><p>A strong positive correlation between interest rates and the asset price
+implies the futures price is slightly higher than the forward price.</p></li>
+<li><p>A strong negative correlation implies the reverse.</p></li>
 </ul>
 </li>
 </ul>
@@ -561,17 +734,17 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="03_forward_pricing_intro.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Welcome to the financial derivatives course</p>
+            <p class="prev-next-title">Determination of Forward and Futures Prices</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="01_introduction.html" title="next page">
+    <a class='right-next' id="next-link" href="03_forward_prices_specific.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Introduction</p>
+        <p class="prev-next-title">Forward Price for Specific Assets</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

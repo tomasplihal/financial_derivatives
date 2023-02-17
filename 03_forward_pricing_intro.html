@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Lecture 1 &#8212; Financial Derivatives</title>
+    <title>Determination of Forward and Futures Prices &#8212; Financial Derivatives</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -54,8 +54,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Introduction" href="01_introduction.html" />
-    <link rel="prev" title="Welcome to the financial derivatives course" href="intro.html" />
+    <link rel="next" title="Forward Price for an Investment Asset" href="03_forward_price_and_value.html" />
+    <link rel="prev" title="Lecture 3" href="03_intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -116,11 +116,11 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="01_intro.html">
    Lecture 1
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
@@ -200,18 +200,18 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="03_intro.html">
    Lecture 3
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
   <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="03_forward_pricing_intro.html">
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Determination of Forward and Futures Prices
     </a>
    </li>
@@ -389,7 +389,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/01_intro.md"
+        <a href="_sources/03_forward_pricing_intro.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -449,14 +449,43 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#learning-outcomes">
-   Learning Outcomes
+  <a class="reference internal nav-link" href="#pricing-and-valuation">
+   Pricing and Valuation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#references">
-   References
+  <a class="reference internal nav-link" href="#pricing-and-valuation-methodology">
+   Pricing and Valuation Methodology
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#short-selling">
+     Short Selling
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#consumption-vs-investment-assets">
+     Consumption vs Investment Assets
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#arbitrage-opportunities">
+   Arbitrage Opportunities
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gold-arbitrage">
+     Gold Arbitrage
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oil-arbitrage">
+     Oil Arbitrage
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -467,7 +496,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Lecture 1</h1>
+                <h1>Determination of Forward and Futures Prices</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -478,14 +507,43 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#learning-outcomes">
-   Learning Outcomes
+  <a class="reference internal nav-link" href="#pricing-and-valuation">
+   Pricing and Valuation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#references">
-   References
+  <a class="reference internal nav-link" href="#pricing-and-valuation-methodology">
+   Pricing and Valuation Methodology
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#short-selling">
+     Short Selling
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#consumption-vs-investment-assets">
+     Consumption vs Investment Assets
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#arbitrage-opportunities">
+   Arbitrage Opportunities
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gold-arbitrage">
+     Gold Arbitrage
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oil-arbitrage">
+     Oil Arbitrage
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -497,40 +555,133 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="lecture-1">
-<h1>Lecture 1<a class="headerlink" href="#lecture-1" title="Permalink to this headline">#</a></h1>
-<section id="learning-outcomes">
-<h2>Learning Outcomes<a class="headerlink" href="#learning-outcomes" title="Permalink to this headline">#</a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="01_introduction.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="01_types_of_derivatives.html">Types of Derivatives</a></li>
-<li class="toctree-l1"><a class="reference internal" href="01_types_of_trades.html">Types of Trades</a></li>
-<li class="toctree-l1"><a class="reference internal" href="01_criticism.html">Criticisms and Misuses of Derivatives</a></li>
-<li class="toctree-l1"><a class="reference internal" href="01_interest_rates.html">Interest Rates</a></li>
-<li class="toctree-l1"><a class="reference internal" href="01_time_value_of_money.html">Time Value of Money</a></li>
-<li class="toctree-l1"><a class="reference internal" href="01_compound_interest.html">Compound Interest</a></li>
-<li class="toctree-l1"><a class="reference internal" href="01_practice_questions.html">Practice Questions and Problems</a></li>
+  <section class="tex2jax_ignore mathjax_ignore" id="determination-of-forward-and-futures-prices">
+<h1>Determination of Forward and Futures Prices<a class="headerlink" href="#determination-of-forward-and-futures-prices" title="Permalink to this headline">#</a></h1>
+<section id="pricing-and-valuation">
+<h2>Pricing and Valuation<a class="headerlink" href="#pricing-and-valuation" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Forward/futures <strong>pricing</strong> involves determining the appropriate price or rate
+when <strong>initiating</strong> the contract.</p></li>
+<li><p>Forward/futures <strong>valuation</strong> involves determining the appropriate value of
+the contract, typically <strong>after</strong> it has been initiated.</p></li>
+<li><p>When the forward or futures contract is established, the price is usually
+negotiated so that the <strong>value of the contract on the initiation date is zero</strong>.</p></li>
+</ul>
+<div class="admonition-forward-price-vs-value-example admonition">
+<p class="admonition-title">Forward Price vs. Value Example</p>
+<ul class="simple">
+<li><p>On 2 November, an investor goes long a December Gold futures contract at a
+price of $1,250/oz. This contract has an initial <strong>value of $0</strong>.</p></li>
+<li><p><strong>After the initiation date, the value can be significantly positive or
+negative.</strong></p></li>
+<li><p>On 3 November, the price of the December Gold futures contract drops to
+$1,225/oz. The long investor’s position (initiated the prior day) now has a
+<strong>negative value</strong>.</p></li>
 </ul>
 </div>
 </section>
-<section id="references">
-<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">#</a></h2>
+<hr class="docutils" />
+<section id="pricing-and-valuation-methodology">
+<h2>Pricing and Valuation Methodology<a class="headerlink" href="#pricing-and-valuation-methodology" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
-<li><p>HULL, John. Options, futures, and other derivatives. Ninth edition. Harlow: Pearson, 2018. ISBN 978-1-292-21289-0.</p>
-<ul>
-<li><p>Chapter 1 - Introduction</p></li>
-<li><p>Chapter 4 - Interest Rates</p></li>
+<li><p><strong>Risk aversion:</strong> The concept that investors do not accept risk without the
+expectation of a return commensurate with that risk.</p></li>
+<li><p><strong>Risk-neutral pricing:</strong> Arbitrage guarantees that a risk-free portfolio
+consisting of the underlying and the derivative must earn the risk-free rate.</p></li>
+<li><p><strong>Arbitrage-free pricing:</strong> The process of pricing a derivative under the
+assumption of risk-neutral pricing and a market free of arbitrage opportunities.</p></li>
+</ul>
+<ul class="simple">
+<li><p>Our approach to pricing and valuation is based on the assumption that prices
+adjust in order to <strong>not allow arbitrage profits</strong>.</p></li>
+<li><p>The arbitrageur abides by two fundamental rules:</p>
+<ol class="simple">
+<li><p>Do not use your own money.</p></li>
+<li><p>Do not take any price risk.</p></li>
+</ol>
+</li>
+<li><p><strong>Law of one price:</strong> Two investments with the same or equivalent future cash
+flows, regardless of what will happen in the future, will sell for the same
+current price.</p></li>
+</ul>
+<section id="short-selling">
+<h3>Short Selling<a class="headerlink" href="#short-selling" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Short selling involves selling securities you do not own.</p></li>
+<li><p>Your broker borrows the securities from another client and sells them in the
+market in the usual way.</p></li>
+<li><p>At some stage you must buy the securities so they can be replaced in the
+account of the client.</p></li>
+<li><p>You must pay dividends and other benefits the owner of the securities
+receives.</p></li>
+<li><p>There may be a small fee for borrowing the securities.</p></li>
+</ul>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<ul class="simple">
+<li><p>You short 100 shares when the price is $100 and close out the short position
+three months later when the price is $90.</p></li>
+<li><p>During the three months a dividend of $3 per share is paid.</p></li>
+</ul>
+<ul class="simple">
+<li><p>What is your profit?</p></li>
+<li><p>What would be your loss if you had bought 100 shares?</p></li>
+</ul>
+</div>
+</section>
+<section id="consumption-vs-investment-assets">
+<h3>Consumption vs Investment Assets<a class="headerlink" href="#consumption-vs-investment-assets" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><strong>Investment assets</strong> are assets held by significant numbers of people purely
+for investment purposes (Examples: gold, silver, stocks, bonds).</p></li>
+<li><p><strong>Consumption assets</strong> are assets held primarily for consumption (Examples:
+copper, oil, wheat).</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="arbitrage-opportunities">
+<h2>Arbitrage Opportunities<a class="headerlink" href="#arbitrage-opportunities" title="Permalink to this headline">#</a></h2>
+<section id="gold-arbitrage">
+<h3>Gold Arbitrage<a class="headerlink" href="#gold-arbitrage" title="Permalink to this headline">#</a></h3>
+<ol class="simple">
+<li><p>An Arbitrage Opportunity? Suppose that:</p>
+<ul class="simple">
+<li><p>The spot price of gold is USD 1,200.</p></li>
+<li><p>The 1-year forward price of gold is USD 1,300.</p></li>
+<li><p>The 1-year USD interest rate is 5% per annum.</p></li>
 </ul>
 </li>
-</ul>
+<li><p>Another Arbitrage Opportunity? Suppose that:</p>
 <ul class="simple">
-<li><p>PIRIE, Wendy L. Derivatives. Hoboken: Wiley, 2017. CFA institute investment series. ISBN 978-1-119-38181-5.</p>
-<ul>
-<li><p>Chapter 1 - Derivative Markets and Instruments</p></li>
+<li><p>The spot price of gold is USD 1,200.</p></li>
+<li><p>The 1-year forward price of gold is USD 1,200.</p></li>
+<li><p>The 1-year USD interest rate is 5% per annum.</p></li>
 </ul>
 </li>
+</ol>
+</section>
+<section id="oil-arbitrage">
+<h3>Oil Arbitrage<a class="headerlink" href="#oil-arbitrage" title="Permalink to this headline">#</a></h3>
+<ol class="simple">
+<li><p>An Arbitrage Opportunity? Suppose that:</p>
+<ul class="simple">
+<li><p>The spot price of oil is USD 50.</p></li>
+<li><p>The quoted 1-year futures price of oil is USD 60.</p></li>
+<li><p>The 1-year USD interest rate is 5% per annum.</p></li>
+<li><p>The storage costs of oil are 2% per annum.</p></li>
 </ul>
+</li>
+<li><p>Another Arbitrage Opportunity? Suppose that:</p>
+<ul class="simple">
+<li><p>The spot price of oil is USD 50.</p></li>
+<li><p>The quoted 1-year futures price of oil is USD 40.</p></li>
+<li><p>The 1-year USD interest rate is 5% per annum.</p></li>
+<li><p>The storage costs of oil are 2% per annum.</p></li>
+</ul>
+</li>
+</ol>
+</section>
 </section>
 </section>
 
@@ -561,17 +712,17 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="03_intro.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Welcome to the financial derivatives course</p>
+            <p class="prev-next-title">Lecture 3</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="01_introduction.html" title="next page">
+    <a class='right-next' id="next-link" href="03_forward_price_and_value.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Introduction</p>
+        <p class="prev-next-title">Forward Price for an Investment Asset</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

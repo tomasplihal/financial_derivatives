@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Introduction &#8212; Financial Derivatives</title>
+    <title>Currency Swaps &#8212; Financial Derivatives</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -50,12 +50,14 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
     <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Types of Derivatives" href="01_types_of_derivatives.html" />
-    <link rel="prev" title="Lecture 1" href="01_intro.html" />
+    <link rel="next" title="Other Types of Swaps" href="04_other_swaps.html" />
+    <link rel="prev" title="Interest Rate Swaps" href="04_interest_rate_swaps.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -116,18 +118,18 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active has-children">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="01_intro.html">
    Lecture 1
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_introduction.html">
      Introduction
     </a>
    </li>
@@ -232,16 +234,16 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="04_intro.html">
    Lecture 4
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
   <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="04_nature_of_swaps.html">
      Nature of Swaps
@@ -252,8 +254,8 @@ const thebe_selector_output = ".output, .cell_output"
      Interest Rate Swaps
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="04_currency_swaps.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Currency Swaps
     </a>
    </li>
@@ -375,7 +377,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/01_introduction.md"
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/04_currency_swaps.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -418,7 +420,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/01_introduction.ipynb"
+        <a href="_sources/04_currency_swaps.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -435,7 +437,7 @@ title="Download notebook file"
       </li>
       
       <li>
-        <a href="_sources/01_introduction.md"
+        <a href="_sources/04_currency_swaps.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -495,38 +497,47 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#what-is-a-derivative">
-   What is a Derivative?
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#why-derivatives-are-important">
-   Why Derivatives are Important?
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#how-derivatives-are-used">
-   How Derivatives are Used?
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#derivative-markets">
-   Derivative Markets
+  <a class="reference internal nav-link" href="#fixed-for-fixed-currency-swaps">
+   Fixed-for-Fixed Currency Swaps
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exchange-traded-derivatives">
-     Exchange-traded Derivatives
+    <a class="reference internal nav-link" href="#typical-uses-of-a-currency-swap">
+     Typical Uses of a Currency Swap
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comparative-advantage-example">
+   Comparative Advantage Example
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#valuation-of-fixed-for-fixed-currency-swaps">
+   Valuation of Fixed-for-Fixed Currency Swaps
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-of-valuation-in-terms-of-forward-rates">
+     Example of Valuation in Terms of Forward Rates
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#other-currency-swaps">
+   Other Currency Swaps
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fixed-for-floating">
+     Fixed-for-Floating
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#over-the-counter-otc-derivatives">
-     Over-The-Counter (OTC) Derivatives
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-lehman-bankruptcy">
-     The Lehman Bankruptcy
+    <a class="reference internal nav-link" href="#floating-for-floating">
+     Floating-for-Floating
     </a>
    </li>
   </ul>
@@ -540,7 +551,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Introduction</h1>
+                <h1>Currency Swaps</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -551,38 +562,47 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#what-is-a-derivative">
-   What is a Derivative?
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#why-derivatives-are-important">
-   Why Derivatives are Important?
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#how-derivatives-are-used">
-   How Derivatives are Used?
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#derivative-markets">
-   Derivative Markets
+  <a class="reference internal nav-link" href="#fixed-for-fixed-currency-swaps">
+   Fixed-for-Fixed Currency Swaps
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exchange-traded-derivatives">
-     Exchange-traded Derivatives
+    <a class="reference internal nav-link" href="#typical-uses-of-a-currency-swap">
+     Typical Uses of a Currency Swap
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comparative-advantage-example">
+   Comparative Advantage Example
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#valuation-of-fixed-for-fixed-currency-swaps">
+   Valuation of Fixed-for-Fixed Currency Swaps
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-of-valuation-in-terms-of-forward-rates">
+     Example of Valuation in Terms of Forward Rates
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#other-currency-swaps">
+   Other Currency Swaps
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fixed-for-floating">
+     Fixed-for-Floating
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#over-the-counter-otc-derivatives">
-     Over-The-Counter (OTC) Derivatives
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-lehman-bankruptcy">
-     The Lehman Bankruptcy
+    <a class="reference internal nav-link" href="#floating-for-floating">
+     Floating-for-Floating
     </a>
    </li>
   </ul>
@@ -597,106 +617,234 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="introduction">
-<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h1>
-<section id="what-is-a-derivative">
-<h2>What is a Derivative?<a class="headerlink" href="#what-is-a-derivative" title="Permalink to this headline">#</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="currency-swaps">
+<h1>Currency Swaps<a class="headerlink" href="#currency-swaps" title="Permalink to this headline">#</a></h1>
+<section id="fixed-for-fixed-currency-swaps">
+<h2>Fixed-for-Fixed Currency Swaps<a class="headerlink" href="#fixed-for-fixed-currency-swaps" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
-<li><p>A derivative is a financial instrument whose value is <strong>derived from</strong> the value of <strong>an underlying asset</strong>.</p></li>
-<li><p>The underlying asset, called the underlying, trades in the cash or spot market and its price is called the cash or spot price.</p></li>
-<li><p>The underlying assets include stocks, currencies, interest rates, commodities, debt instruments, electricity prices, insurance payouts, the weather, etc.</p></li>
+<li><p>Consider a hypothetical five-year currency swap agreement between British
+Petroleum and Barclays.</p></li>
+<li><p>British Petroleum pays a fixed rate of interest of 3% in dollars to Barclays
+and receives a fixed rate of interest of 4% in British pounds (sterling) from
+Barclays.</p></li>
+<li><p>Interest rate payments are made once a year.</p></li>
+<li><p>The principal amounts are USD 15 million and GBP 10 million.</p></li>
+<li><p>This is termed a fixed-for-fixed currency swap because the interest rate in
+both currencies is fixed.</p></li>
+</ul>
+<ul class="simple">
+<li><p>In an interest rate swap the principal is not exchanged.</p></li>
+<li><p>In a currency swap the principal <strong>is exchanged</strong> at the beginning and
+the end of the swap.</p></li>
+</ul>
+<ul class="simple">
+<li><p>Cash flows to British Petroleum in currency swap.</p></li>
+</ul>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p>Date</p></th>
+<th class="text-align:center head"><p>Dollar cash flow (millions)</p></th>
+<th class="text-align:center head"><p>Sterling cash flow (millions)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p>February 1, 2022</p></td>
+<td class="text-align:center"><p>+15.00</p></td>
+<td class="text-align:center"><p>-10.00</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>February 1, 2023</p></td>
+<td class="text-align:center"><p>-0.45</p></td>
+<td class="text-align:center"><p>+ 0.40</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>February 1, 2024</p></td>
+<td class="text-align:center"><p>-0.45</p></td>
+<td class="text-align:center"><p>+ 0.40</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>February 1, 2025</p></td>
+<td class="text-align:center"><p>-0.45</p></td>
+<td class="text-align:center"><p>+ 0.40</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>February 1, 2026</p></td>
+<td class="text-align:center"><p>-0.45</p></td>
+<td class="text-align:center"><p>+ 0.40</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>February 1, 2027</p></td>
+<td class="text-align:center"><p>-15.45</p></td>
+<td class="text-align:center"><p>+ 10.40</p></td>
+</tr>
+</tbody>
+</table>
+<section id="typical-uses-of-a-currency-swap">
+<h3>Typical Uses of a Currency Swap<a class="headerlink" href="#typical-uses-of-a-currency-swap" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Conversion from a liability in one currency to a liability in another currency.</p></li>
+<li><p>Conversion from an investment in one currency to an investment in another
+currency.</p></li>
 </ul>
 </section>
-<section id="why-derivatives-are-important">
-<h2>Why Derivatives are Important?<a class="headerlink" href="#why-derivatives-are-important" title="Permalink to this headline">#</a></h2>
-<p>Derivatives:</p>
+</section>
+<hr class="docutils" />
+<section id="comparative-advantage-example">
+<h2>Comparative Advantage Example<a class="headerlink" href="#comparative-advantage-example" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
-<li><p>play a key role in <strong>transferring risks</strong>,</p></li>
-<li><p>enable the creation of strategies and payoffs not otherwise possible with spot assets,</p></li>
-<li><p>provide information about the spot market,</p></li>
-<li><p>offer lower transaction costs,</p></li>
-<li><p>reduce the amount of capital required,</p></li>
-<li><p>are easier than the underlying to go short,</p></li>
-<li><p>improve the efficiency of spot markets.</p></li>
+<li><p>Comparative advantage may be real because of taxes.</p></li>
+<li><p>General Electric wants to borrow AUD.</p></li>
+<li><p>Quantas wants to borrow USD.</p></li>
+<li><p>Borrowing costs after adjusting for the differential impact of taxes could be:</p></li>
+</ul>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p></p></th>
+<th class="text-align:center head"><p>USD</p></th>
+<th class="text-align:center head"><p>AUD</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p>General Electric</p></td>
+<td class="text-align:center"><p>5.0%</p></td>
+<td class="text-align:center"><p>7.6%</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>Qantas Airways</p></td>
+<td class="text-align:center"><p>7.0%</p></td>
+<td class="text-align:center"><p>8.0%</p></td>
+</tr>
+</tbody>
+</table>
+<div align="center" class="mermaid align-center">
+            flowchart LR
+    GE[General Electric] --&gt; |USD 5%| X
+    QA[Qantas Airways] --&gt; |USD 6.3%| F[Financial institution]
+    F --&gt; |AUD 8.0%| QA
+    F --&gt; |AUD 6.9%| GE
+    QA --&gt; |AUD 8%| Y
+    GE --&gt; |AUD 6.9%| F
+        </div>
+        </section>
+<hr class="docutils" />
+<section id="valuation-of-fixed-for-fixed-currency-swaps">
+<h2>Valuation of Fixed-for-Fixed Currency Swaps<a class="headerlink" href="#valuation-of-fixed-for-fixed-currency-swaps" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Each exchange of payments in a fixed-for-fixed currency swap is a forward
+contract.</p></li>
+<li><p>Forward foreign exchange contracts can be valued by assuming that forward
+exchange rates are realized.</p></li>
+<li><p>A fixed-for-fixed currency swap can therefore be valued assuming that forward
+rates are realized.</p></li>
+</ul>
+<section id="example-of-valuation-in-terms-of-forward-rates">
+<h3>Example of Valuation in Terms of Forward Rates<a class="headerlink" href="#example-of-valuation-in-terms-of-forward-rates" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>All Japanese interest rates are 1.5% per annum (cont. comp.).</p></li>
+<li><p>All USD interest rates are 2.5% per annum (cont. comp.).</p></li>
+<li><p>3% is received in yen; 4% is paid in dollars.</p></li>
+<li><p>Payments are made annually.</p></li>
+<li><p>Principals are USD 10 million and 1,200 million yen.</p></li>
+<li><p>Swap will last for 3 more years.</p></li>
+<li><p>Current exchange rate is 110 yen per dollar.</p></li>
+</ul>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p>Time (years)</p></th>
+<th class="text-align:center head"><p>Dollar cash flow</p></th>
+<th class="text-align:center head"><p>Yen cash flow</p></th>
+<th class="text-align:center head"><p>Forward exchange rate</p></th>
+<th class="text-align:center head"><p>Dollar value of yen cash flow</p></th>
+<th class="text-align:center head"><p>Net cash flow</p></th>
+<th class="text-align:right head"><p>Present value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p>1</p></td>
+<td class="text-align:center"><p>-0.4</p></td>
+<td class="text-align:center"><p>+ 36</p></td>
+<td class="text-align:center"><p>0.009182</p></td>
+<td class="text-align:center"><p>0.3306</p></td>
+<td class="text-align:center"><p>-0.0694</p></td>
+<td class="text-align:right"><p>-0.0677</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>2</p></td>
+<td class="text-align:center"><p>-0.4</p></td>
+<td class="text-align:center"><p>+ 36</p></td>
+<td class="text-align:center"><p>0.009275</p></td>
+<td class="text-align:center"><p>0.3339</p></td>
+<td class="text-align:center"><p>-0.0661</p></td>
+<td class="text-align:right"><p>-0.0629</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>3</p></td>
+<td class="text-align:center"><p>-10.4</p></td>
+<td class="text-align:center"><p>+ 1236</p></td>
+<td class="text-align:center"><p>0.009368</p></td>
+<td class="text-align:center"><p>11.5786</p></td>
+<td class="text-align:center"><p>+ 1.1786</p></td>
+<td class="text-align:right"><p>+ 1.0934</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>Total</p></td>
+<td class="text-align:center"><p></p></td>
+<td class="text-align:center"><p></p></td>
+<td class="text-align:center"><p></p></td>
+<td class="text-align:center"><p></p></td>
+<td class="text-align:center"><p></p></td>
+<td class="text-align:right"><p>+ 0.9629</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>The financial institution pays <span class="math notranslate nohighlight">\(0.04 \times 10 = \$0.4\)</span> million dollars and
+receives <span class="math notranslate nohighlight">\(1,200 \times 0.03 = 36\)</span> million yen each year.</p></li>
+<li><p>In addition, the dollar principal of $10 million is paid and the yen principal of 1,200 million is received at the end of year 3.</p></li>
+<li><p>The current spot rate is <span class="math notranslate nohighlight">\(1/110 = 0.009091\)</span> dollar per yen.</p></li>
+<li><p>In this case, <span class="math notranslate nohighlight">\(r = 2.5\%\)</span> and <span class="math notranslate nohighlight">\(r_f = 1.5\%\)</span> so that the one-year forward
+exchange rate is, <span class="math notranslate nohighlight">\(0.009091 \times e^{(0.025-0.015) \times 1} = 0.009182\)</span></p></li>
+<li><p>The two- and three-year forward exchange rates in the table are calculated
+similarly.</p></li>
+<li><p>The forward contracts underlying the swap can be valued by assuming that the
+forward exchange rates are realized.</p></li>
+<li><p>If the one-year forward exchange rate is realized, the value of yen cash flow in year 1 will be <span class="math notranslate nohighlight">\(36 \times 0.009182 = 0.3306\)</span> million dollars and the net cash flow at the end of year 1 will be <span class="math notranslate nohighlight">\(0.3306 - 0.4 = -0.0694\)</span> million dollars.</p></li>
+<li><p>This has a present value of <span class="math notranslate nohighlight">\(-0.0694 \times e^{-0.025 \times 1} = -0.0677\)</span> million dollars.</p></li>
+<li><p>This is the value of the forward contract corresponding to the exchange of
+cash flows at the end of year 1.</p></li>
+<li><p>The value of the other forward contracts are calculated similarly.</p></li>
+<li><p>As shown in the table, the total value of the forward contracts is <span class="math notranslate nohighlight">\(\$0.9629\)</span> million.</p></li>
 </ul>
 </section>
-<section id="how-derivatives-are-used">
-<h2>How Derivatives are Used?<a class="headerlink" href="#how-derivatives-are-used" title="Permalink to this headline">#</a></h2>
-<ul class="simple">
-<li><p>To hedge risks.</p></li>
-<li><p>To speculate (take a view on the future direction of the market).</p></li>
-<li><p>To lock in an arbitrage profit.</p></li>
-<li><p>To change the nature of a liability.</p></li>
-<li><p>To change the nature of an investment without incurring the costs of selling one portfolio and buying another.</p></li>
-</ul>
 </section>
-<section id="derivative-markets">
-<h2>Derivative Markets<a class="headerlink" href="#derivative-markets" title="Permalink to this headline">#</a></h2>
+<hr class="docutils" />
+<section id="other-currency-swaps">
+<h2>Other Currency Swaps<a class="headerlink" href="#other-currency-swaps" title="Permalink to this headline">#</a></h2>
+<section id="fixed-for-floating">
+<h3>Fixed-for-Floating<a class="headerlink" href="#fixed-for-floating" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
-<li><p>Derivatives can be traded on an <strong>organized exchange</strong> or in <strong>over-the-counter</strong> (OTC) markets.</p></li>
-<li><p>Exchange-traded derivatives are <strong>standardized</strong>.</p></li>
-<li><p>OTC derivatives are <strong>customized</strong>.</p></li>
+<li><p>Fixed-for-floating: equivalent to a fixed-for-fixed currency swap plus a fixed
+for floating interest rate swap.</p></li>
+<li><p>An example of the first type of swap would be an exchange where Sterling Floating rate
+on a principal of GBP 7 million is paid and 3% on a principal of $10 million is
+received with payments being made semiannually for 10 years.</p></li>
 </ul>
-<section id="exchange-traded-derivatives">
-<h3>Exchange-traded Derivatives<a class="headerlink" href="#exchange-traded-derivatives" title="Permalink to this headline">#</a></h3>
-<ul class="simple">
-<li><p><strong>Standardized</strong> contract features such as:</p>
-<ul>
-<li><p>Contract size</p></li>
-<li><p>Expiration date</p></li>
-<li><p>Underlying assets</p></li>
-</ul>
-</li>
-<li><p>Exchange trades are <strong>guaranteed by a clearing house</strong> (margin required from participants).</p></li>
-<li><p>Transparency</p></li>
-<li><p>Regulation</p></li>
-</ul>
+<ol class="simple">
+<li><p>A swap where 3% on a principal of $10 million is received and (say) 4% on a
+principal of GBP 7 million is paid.</p></li>
+<li><p>An interest rate swap where 4% is received and sterling Floating rate is paid on
+anotional principal of GBP 7 million.</p></li>
+</ol>
 </section>
-<section id="over-the-counter-otc-derivatives">
-<h3>Over-The-Counter (OTC) Derivatives<a class="headerlink" href="#over-the-counter-otc-derivatives" title="Permalink to this headline">#</a></h3>
+<section id="floating-for-floating">
+<h3>Floating-for-Floating<a class="headerlink" href="#floating-for-floating" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
-<li><p>Flexibility in contract size and asset specification.</p></li>
-<li><p>Flexibility in expiration date.</p></li>
-<li><p>Greater risk of default (credit risk) for market participants.</p></li>
+<li><p>Floating-for-floating: equivalent to a fixed-for-fixed currency swap plus two
+floating interest rate swaps.</p></li>
+<li><p>An example of the second type of swap would be the exchange where sterling
+Floating rate on a principal of GBP 7 million is paid and dollar Floating rate
+on a principal of $10 million is received.</p></li>
 </ul>
-<ul class="simple">
-<li><p>The OTC Market Prior to 2008:</p>
-<ul>
-<li><p>Largely unregulated.</p></li>
-<li><p>Banks acted as market makers quoting bids and offers.</p></li>
-<li><p>Master agreements usually defined how transactions between two parties would be handled.</p></li>
-<li><p>Some transactions were cleared through central counterparties (CCPs, comparable to clearing house).</p></li>
-</ul>
-</li>
-</ul>
-<ul class="simple">
-<li><p>Since 2008:</p>
-<ul>
-<li><p>OTC market has become regulated.</p>
-<ul>
-<li><p>Reduce systemic risk</p></li>
-<li><p>Increase transparency</p></li>
-</ul>
-</li>
-<li><p>CCPs must be used to clear standardized transactions between financial institutions in most countries.</p></li>
-<li><p>All trades must be reported to a central repository.</p></li>
-</ul>
-</li>
-</ul>
+<ol class="simple">
+<li><p>A swap where 3% on aprincipal of $10 million is received and 4% on a
+principal of GBP 7 million is paid.</p></li>
+<li><p>an interest rate swap where 4% is received and sterling Floating rate is paid
+on a notional principal of GBP 7 million.</p></li>
+<li><p>an interest rate swap where 3% is paid and USD Floating rate is received on a
+notional principal of $10 million.</p></li>
+</ol>
 </section>
-<section id="the-lehman-bankruptcy">
-<h3>The Lehman Bankruptcy<a class="headerlink" href="#the-lehman-bankruptcy" title="Permalink to this headline">#</a></h3>
-<ul class="simple">
-<li><p>Lehman’s filed for bankruptcy on September 15, 2008.</p></li>
-<li><p>This was the biggest bankruptcy in US history.</p></li>
-<li><p>Lehman was an active participant in the OTC derivatives markets and got into financial difficulties because it took high risks and found it was unable to roll over its short term funding.</p></li>
-<li><p>It had hundreds of thousands of transactions outstanding with about 8,000 counterparties.</p></li>
-<li><p>Unwinding these transactions has been challenging for both the Lehman liquidators and their counterparties.</p></li>
-</ul>
-<!---
-# https://www.bis.org/statistics/extderiv.htm?m=2616
-# zkusit stahnout statistiku obratu otc vs exchange traded jako hull
---></section>
 </section>
 </section>
 
@@ -727,17 +875,17 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="01_intro.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="04_interest_rate_swaps.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Lecture 1</p>
+            <p class="prev-next-title">Interest Rate Swaps</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="01_types_of_derivatives.html" title="next page">
+    <a class='right-next' id="next-link" href="04_other_swaps.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Types of Derivatives</p>
+        <p class="prev-next-title">Other Types of Swaps</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

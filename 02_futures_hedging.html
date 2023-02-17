@@ -213,8 +213,18 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="03_forward_and_futures_pricing.html">
+    <a class="reference internal" href="03_forward_pricing_intro.html">
      Determination of Forward and Futures Prices
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_forward_price_and_value.html">
+     Forward Price for an Investment Asset
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_forward_prices_specific.html">
+     Forward Price for Specific Assets
     </a>
    </li>
    <li class="toctree-l2">
@@ -235,8 +245,23 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="04_swaps.html">
-     Swaps
+    <a class="reference internal" href="04_nature_of_swaps.html">
+     Nature of Swaps
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_interest_rate_swaps.html">
+     Interest Rate Swaps
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_currency_swaps.html">
+     Currency Swaps
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_other_swaps.html">
+     Other Types of Swaps
     </a>
    </li>
   </ul>
@@ -434,6 +459,18 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#basis-risk">
    Basis Risk
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#long-hedge-for-purchase-of-an-asset">
+     Long Hedge for Purchase of an Asset
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#short-hedge-for-sale-of-an-asset">
+     Short Hedge for Sale of an Asset
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#cross-hedging">
@@ -480,6 +517,18 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#basis-risk">
    Basis Risk
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#long-hedge-for-purchase-of-an-asset">
+     Long Hedge for Purchase of an Asset
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#short-hedge-for-sale-of-an-asset">
+     Short Hedge for Sale of an Asset
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#cross-hedging">
@@ -535,9 +584,18 @@ decisions.</p></li>
 underlying can be difficult.</p></li>
 </ul>
 </section>
+<hr class="docutils" />
 <section id="basis-risk">
 <h2>Basis Risk<a class="headerlink" href="#basis-risk" title="Permalink to this headline">#</a></h2>
-<p>Basis Risk Hedging in practice is usually more complex than our simplified
+<div class="tip admonition">
+<p class="admonition-title">The Basis Definition</p>
+<ul class="simple">
+<li><p>Basis is usually defined as the spot price minus the futures price.</p></li>
+<li><p>Basis risk arises because of the uncertainty about the basis when the hedge is
+closed out.</p></li>
+</ul>
+</div>
+<p>Basis risk hedging in practice is usually more complex than our simplified
 examples:</p>
 <ol class="simple">
 <li><p>The asset whose price is to be hedged may not be exactly the same as the
@@ -547,49 +605,49 @@ or sold.</p></li>
 <li><p>The hedge may require the futures contract to be closed out before its
 delivery month.</p></li>
 </ol>
-<p>The Basis</p>
-<ul class="simple">
-<li><p>Basis is usually defined as the spot price minus the futures price.</p></li>
-<li><p>Basis risk arises because of the uncertainty about the basis when the hedge is
-closed out.</p></li>
-</ul>
-<p>Long Hedge for Purchase of an Asset Define:</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(F_1\)</span>: Futures price at time hedge is set up <em>(88.0)</em></p></li>
-<li><p><span class="math notranslate nohighlight">\(F_2\)</span>: Futures price at time asset is purchased <em>(89.1)</em></p></li>
-<li><p><span class="math notranslate nohighlight">\(S_2\)</span>: Asset price at time of purchase <em>(90.0)</em></p></li>
-<li><p><span class="math notranslate nohighlight">\(b_2\)</span>: Basis at time of purchase <em>(90.0 - 89.1 = 0.9)</em></p></li>
-</ul>
-<ul class="simple">
-<li><p>Cost of asset = <span class="math notranslate nohighlight">\(S_2\)</span></p></li>
-<li><p>Gain on Futures = <span class="math notranslate nohighlight">\(F_2 - F_1\)</span> <em>( = 89.1 - 88.0 = 1.1)</em></p></li>
-<li><p>Net amount paid = <span class="math notranslate nohighlight">\(S_2 - (F_2 - F_1) = F_1 + b_2\)</span> <em>( = 90.0 - 1.1 = 88.0 + 0.9
-= 88.9)</em></p></li>
-</ul>
-<p>Short Hedge for Sale of an Asset Define:</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(F_1\)</span>: Futures price at time hedge is set up <em>(0.98)</em></p></li>
-<li><p><span class="math notranslate nohighlight">\(F_2\)</span>: Futures price at time asset is sold <em>(0.925)</em></p></li>
-<li><p><span class="math notranslate nohighlight">\(S_2\)</span>: Asset price at time of sale <em>(0.92)</em></p></li>
-<li><p><span class="math notranslate nohighlight">\(b_2\)</span>: Basis at time of sale <em>( = 0.92 - 0.925 = -0.005)</em></p></li>
-</ul>
-<ul class="simple">
-<li><p>Price of asset = <span class="math notranslate nohighlight">\(S_2\)</span></p></li>
-<li><p>Gain on Futures = <span class="math notranslate nohighlight">\(F_1 - F_2\)</span> <em>( = 0.98 - 0.925 = 0.055)</em></p></li>
-<li><p>Net amount received = <span class="math notranslate nohighlight">\(S_2 + (F_1 - F_2) = F_1 + b_2\)</span> <em>( = 0.92 + 0.055 = 0.98 - 0.005 = 0.975)</em></p></li>
-</ul>
 <p>Choice of Contract</p>
 <ul class="simple">
 <li><p>Choose a delivery month that is as close as possible to, but later than, the
 end of the life of the hedge.</p></li>
 <li><p>When there is no futures contract on the asset being hedged, choose the
-contract whose futures price is most highly correlated with the asset price.
-This is known as cross hedging.</p></li>
+contract whose futures price is most highly correlated with the asset price (cross hedging).</p></li>
+</ul>
+<section id="long-hedge-for-purchase-of-an-asset">
+<h3>Long Hedge for Purchase of an Asset<a class="headerlink" href="#long-hedge-for-purchase-of-an-asset" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(F_1\)</span>: Futures price at time hedge is set up; <span class="math notranslate nohighlight">\(88.0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(F_2\)</span>: Futures price at time asset is purchased; <span class="math notranslate nohighlight">\(89.1\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(S_2\)</span>: Asset price at time of purchase; <span class="math notranslate nohighlight">\(90.0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(b_2\)</span>: Basis at time of purchase; <span class="math notranslate nohighlight">\(90.0 - 89.1 = 0.9\)</span></p></li>
+</ul>
+<ul class="simple">
+<li><p>Cost of asset = <span class="math notranslate nohighlight">\(S_2 = 90.0\)</span></p></li>
+<li><p>Gain on Futures = <span class="math notranslate nohighlight">\(F_2 - F_1 = 89.1 - 88.0 = 1.1\)</span></p></li>
+<li><p>Net amount paid = <span class="math notranslate nohighlight">\(S_2 - (F_2 - F_1) = F_1 + b_2 = 90.0 - 1.1 = 88.0 + 0.9 = 88.9\)</span></p></li>
 </ul>
 </section>
+<section id="short-hedge-for-sale-of-an-asset">
+<h3>Short Hedge for Sale of an Asset<a class="headerlink" href="#short-hedge-for-sale-of-an-asset" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(F_1\)</span>: Futures price at time hedge is set up; <span class="math notranslate nohighlight">\(0.98\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(F_2\)</span>: Futures price at time asset is sold; <span class="math notranslate nohighlight">\(0.925\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(S_2\)</span>: Asset price at time of sale; <span class="math notranslate nohighlight">\(0.92\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(b_2\)</span>: Basis at time of sale; <span class="math notranslate nohighlight">\(0.92 - 0.925 = -0.005\)</span></p></li>
+</ul>
+<ul class="simple">
+<li><p>Price of asset = <span class="math notranslate nohighlight">\(S_2 = 0.92\)</span></p></li>
+<li><p>Gain on Futures = <span class="math notranslate nohighlight">\(F_1 - F_2 = 0.98 - 0.925 = 0.055\)</span></p></li>
+<li><p>Net amount received = <span class="math notranslate nohighlight">\(S_2 + (F_1 - F_2) = F_1 + b_2 = 0.92 + 0.055 = 0.98 - 0.005 = 0.975\)</span></p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
 <section id="cross-hedging">
 <h2>Cross Hedging<a class="headerlink" href="#cross-hedging" title="Permalink to this headline">#</a></h2>
-<p>Proportion of the exposure that should optimally be hedged is $<span class="math notranslate nohighlight">\(h^{*} = \rho \frac{\sigma_S}{\sigma_F}\)</span>$ where</p>
+<p>Proportion of the exposure that should optimally be hedged is</p>
+<div class="math notranslate nohighlight">
+\[h^{*} = \rho \frac{\sigma_S}{\sigma_F}\]</div>
+<p>where</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\sigma_S\)</span> is the standard deviation of <span class="math notranslate nohighlight">\(\Delta S\)</span>, the change in the spot
 price during the hedging period,</p></li>
@@ -602,9 +660,11 @@ price during the hedging period</p></li>
 <li><p><span class="math notranslate nohighlight">\(Q_A\)</span> = Size of position being hedged (units)</p></li>
 <li><p><span class="math notranslate nohighlight">\(Q_F\)</span> = Size of one futures contract (units)</p></li>
 </ul>
-<p>Optimal number of contracts if not adjusted for daily settlement:
-$<span class="math notranslate nohighlight">\(N^{*} = h^{*} \times \frac{Q_A}{Q_F}\)</span>$</p>
-<p>Example:</p>
+<p>Optimal number of contracts if not adjusted for daily settlement:</p>
+<div class="math notranslate nohighlight">
+\[N^{*} = h^{*} \times \frac{Q_A}{Q_F}\]</div>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example:</p>
 <ul class="simple">
 <li><p>Airline will purchase 2 million gallons of jet fuel in one month and hedges
 using heating oil futures.</p></li>
@@ -618,16 +678,18 @@ using heating oil futures.</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[0.78 \times \frac{2,000,000}{42,000} = 37\]</div>
+</div>
 <section id="daily-settlement">
 <h3>Daily Settlement<a class="headerlink" href="#daily-settlement" title="Permalink to this headline">#</a></h3>
-<p>Optimal hedge ratio is
-$<span class="math notranslate nohighlight">\(\hat{h} = \hat{\rho} \frac{\hat{\sigma_S}}{\hat{\sigma_F}}\)</span>$</p>
+<p>Optimal hedge ratio is</p>
+<div class="math notranslate nohighlight">
+\[\hat{h} = \hat{\rho} \frac{\hat{\sigma_S}}{\hat{\sigma_F}}\]</div>
 <p>where variables are defined as follows</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\hat{\rho}\)</span> = Correlation between percentage daily changes for spot and
 futures</p></li>
-<li><p><span class="math notranslate nohighlight">\(\hat{\sigma_S}\)</span> = SD of percentage daily changes in spot</p></li>
-<li><p><span class="math notranslate nohighlight">\(\hat{\sigma_F}\)</span> = SD of percentage daily changes in futures</p></li>
+<li><p><span class="math notranslate nohighlight">\(\hat{\sigma_S}\)</span> is the standard deviation of percentage daily changes in spot</p></li>
+<li><p><span class="math notranslate nohighlight">\(\hat{\sigma_F}\)</span> is the standard deviation of percentage daily changes in futures</p></li>
 </ul>
 <p>Optimal Number of Contracts</p>
 <ul class="simple">
@@ -635,9 +697,12 @@ futures</p></li>
 <li><p><span class="math notranslate nohighlight">\(V_F\)</span> = Value of one futures contract = futures price <span class="math notranslate nohighlight">\(\times\)</span> <span class="math notranslate nohighlight">\(Q_F\)</span></p></li>
 </ul>
 <p>Optimal number of contracts after ‘tailing adjustment’ to allow for
-daily settlement of futures $<span class="math notranslate nohighlight">\(N^{*} = \hat{h} \times \frac{V_A}{V_F}\)</span>$</p>
+daily settlement of futures</p>
+<div class="math notranslate nohighlight">
+\[N^{*} = \hat{h} \times \frac{V_A}{V_F}\]</div>
 </section>
 </section>
+<hr class="docutils" />
 <section id="stock-index-futures">
 <h2>Stock Index Futures<a class="headerlink" href="#stock-index-futures" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
@@ -649,12 +714,13 @@ shorted is</p></li>
 <ul class="simple">
 <li><p>where <span class="math notranslate nohighlight">\(V_A\)</span> is the value of the portfolio,</p></li>
 <li><p><span class="math notranslate nohighlight">\(\beta\)</span> is its beta, and</p></li>
-<li><p><span class="math notranslate nohighlight">\(V_F\)</span> is the value of one futures contract</p></li>
+<li><p><span class="math notranslate nohighlight">\(V_F\)</span> is the value of one futures contract.</p></li>
 </ul>
-<p>Example:</p>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example:</p>
 <ul class="simple">
-<li><p>S&amp;P 500 futures price is 1,000</p></li>
-<li><p>Value of Portfolio is USD 5 million</p></li>
+<li><p>S&amp;P 500 futures price is 1,000 (points)</p></li>
+<li><p>Value of Portfolio is $5 million</p></li>
 <li><p>Beta of portfolio is 1.5</p></li>
 <li><p>Each future contract is on $250 times the index</p></li>
 </ul>
@@ -662,6 +728,7 @@ shorted is</p></li>
 the portfolio?</p>
 <div class="math notranslate nohighlight">
 \[1.5 \times \frac{5~000~000}{250~000} = 30\]</div>
+</div>
 <p>Changing Beta</p>
 <ul class="simple">
 <li><p>What position is necessary to reduce the beta of the portfolio to 0.75?</p></li>
@@ -676,27 +743,27 @@ the portfolio?</p>
 </ul>
 <p>Why Hedge Equity Returns</p>
 <ul class="simple">
-<li><p>May want to be out of the market for a while. Hedging avoids the costs of
-selling and repurchasing the portfolio.</p></li>
+<li><p>May want to be out of the market for a while.</p></li>
+<li><p>Hedging avoids the costs of selling and repurchasing the portfolio.</p></li>
 <li><p>Suppose stocks in your portfolio have an average beta of 1.0, but you feel
 they have been chosen well and will outperform the market in both good and bad
-times. Hedging ensures that the return you earn is the risk-free return plus the
+times.</p></li>
+<li><p>Hedging ensures that the return you earn is the risk-free return plus the
 excess return of your portfolio over the market.</p></li>
 </ul>
 <p>Stack and Roll</p>
 <ul class="simple">
-<li><p>We can roll futures contracts forward to hedge future exposures</p></li>
+<li><p>We can roll futures contracts forward to hedge future exposures.</p></li>
 <li><p>Initially we enter into futures contracts to hedge exposures up to a time
-horizon</p></li>
+horizon.</p></li>
 <li><p>Just before maturity we close them out an replace them with new contract
-reflect the new exposure</p></li>
-<li><p>etc.</p></li>
+reflect the new exposure.</p></li>
 </ul>
 <p>Liquidity Issues</p>
 <ul class="simple">
 <li><p>In any hedging situation there is a danger that losses will be realized on the
-hedge while the gains on the underlying exposure are unrealized</p></li>
-<li><p>This can create liquidity problems</p></li>
+hedge while the gains on the underlying exposure are unrealized.</p></li>
+<li><p>This can create liquidity problems.</p></li>
 <li><p>One example is Metallgesellschaft which sold long term fixed-price contracts
 on heating oil and gasoline and hedged using stack and roll</p></li>
 <li><p>The price of oil fell…</p></li>

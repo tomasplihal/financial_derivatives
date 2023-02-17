@@ -1,71 +1,29 @@
 # Forward Rate Agreement (FRA)
 
-<!-- Forward Rates
+- A forward rate agreement (FRA) is an agreement to exchange a predetermined fixed
+rate for a reference rate that will be observed in the market at a future time.
+- Both rates are applied to a specified principal, but the principal itself is not exchanged.
+- Historically, the reference rate has usually been LIBOR.
 
-- The forward rate is the future zero rate implied by today's term structure of
-interest rates
+```{admonition} FRA Example
+- Consider an agreement to exchange 3% for three-month LIBOR in two years with both rates being applied to a principal of $\$100$ million.
+- One side (Party A) would agree to pay LIBOR and receive the fixed rate of 3%.
+- The other side (Party B) would agree to receive LIBOR and pay the fixed rate of 3%.
+- Assume all rates are compounded quarterly (as would usually be the case).
+- If three-month LIBOR proved to be 3.5% in two years, Party A would receive from Party B:
 
-Formula for Forward Rates
+$$ \$100,000,000 \times (0.035 - 0.030) \times 0.25 = \$ 125,000 $$
 
-- Suppose that the zero rates for time periods $T_1$ and $T_2$ are $R_1$ and
-$R_2$ with both rates continuously compounded.
-- The forward rate for the period between times $T_1$ and $T_2$ is $$\frac{R_2
-T_2 - R_1 T_1}{T_2 - T_1}$$
-- This formula is only approximately true when rates are not expressed with
-continuous compounding
+- The payment would be due at time 2.25 years.
+- In practice, because LIBOR is determined in advance of a period, the payment would be made at time two years and equal to the present value of \$125,000 discounted for three months at 3.5%.
+```
 
-Application of the Formula
+- As LIBOR is phased out, we can expect to see more FRAs based on floating rates
+such as three-month SOFR and three-month SONIA.
+- FRAs are a way of locking in the rate that will be paid or received in the future.
+- For example, a trader who is due to receive a rate based on three-month SOFR on a certain principal during a certain future time period can lock in the rate by entering into an FRA where SOFR is paid and a fixed rate is received.
+- Similarly, a trader who is due to pay a rate based on three-month SOFR on a certain principal during a certain future time period can lock in the rate by entering into an FRA where SOFR is received and a fixed rate is paid.
 
-Instantaneous Forward Rate The instantaneous forward rate for a maturity
-T is the forward rate that applies for a very short time period starting
-at T. It is
-
-$$R + T \frac{\partial R}{\partial T}$$ where R is the T-year rate
-
-Upward vs Downward Sloping Yield Curve
-
-- For an upward sloping yield curve: Fwd Rate \> Zero Rate \> Par Yield
-- For a downward sloping yield curve: Par Yield \> Zero Rate \> Fwd Rate -->
-
-
-- A forward rate agreement (FRA) is an OTC agreement that a certain rate will
-apply to a certain principal during a certain future time period.
-
-Forward Rate Agreement: Key Results
-
-- An FRA is equivalent to an agreement where interest at a predetermined rate,
-$R_K$ is exchanged for interest at the market rate.
-- An FRA can be valued by assuming that the forward LIBOR interest rate, $R_F$,
-is certain to be realized.
-- This means that the value of an FRA is the present value of the difference
-between the interest that would be paid at interest at rate $R_F$ and the
-interest that would be paid at rate $R_K$.
-
-Valuation Formulas
-
-- If the period to which an FRA applies lasts from $T_1$ to $T_2$, we assume
-that $R_F$ and $R_K$ are expressed with a compounding frequency corresponding to
-the length of the period between $T_1$ and $T_2$.
-- With an interest rate of $R_K$, the interest cash flow is $R_K(T_2 - T_1)$ at
-time $T_2$.
-- With an interest rate of $R_F$, the interest cash flow is $R_F(T_2 - T_1)$ at
-time $T_2$.
-- When the rate $R_K$ will be received on a principal of L the value of the FRA
-is the present value of $(R_K - R_F) (T_2 - T_1)$ received at time $T_2$.
-- When the rate $R_K$ will be received on a principal of L the value of the FRA
-is the present value of $(R_F - R_K) (T_2 - T_1)$ received at time $T2$.
-
-Example
-
-- An FRA entered into some time ago ensures that a company will receive 4%
-(s.a.) on USD 100 million for six months starting in 1 year.
-- Forward LIBOR for the period is 5% (s.a.).
-- The 1.5 year risk-free rate is 4.5% with continuous compounding.
-- The value of the FRA (in USD millions) is.
-
-$$100 \times (0.04 - 0.05) \times 0.5 \times e^{-0.045 \times 0.5} = -0.467$$
-
-- If the six-month LIBOR interest rate in one year turns out to be 5.5% (s.a.)
-there will be a payoff (in USD millions) of $ 100 \times (0.04 - 0.055) \times 0.5 = -0.75 $ in 1.5 years.
-- The transaction might be settled at the one- year point for the present value
-of this.
++ When the fixed rate equals the relevant forward rate the value of an FRA is zero.
++ When an FRA is first set up the fixed rate is normally equal to the forward rate, so that its value is zero. 
++ As time passes, the forward rate is liable to change. 
