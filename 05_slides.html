@@ -1,0 +1,991 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Mechanics of option markets and properties of options &#8212; Financial Derivatives</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Financial Derivatives</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to the financial derivatives course
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="01_intro.html">
+   Lecture 1
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_introduction.html">
+     Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_types_of_derivatives.html">
+     Types of Derivatives
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_types_of_trades.html">
+     Types of Trades
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_criticism.html">
+     Criticisms and Misuses of Derivatives
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_interest_rates.html">
+     Interest Rates
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_time_value_of_money.html">
+     Time Value of Money
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_compound_interest.html">
+     Compound Interest
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_practice_questions.html">
+     Practice Questions and Problems
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="02_intro.html">
+   Lecture 2
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_forwards_and_futures.html">
+     Forwards and Futures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_futures_markets.html">
+     Mechanics of Forward/Futures Markets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_futures_hedging.html">
+     Hedging Strategies Using Futures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_practice_questions.html">
+     Practice Questions and Problems
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="03_intro.html">
+   Lecture 3
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_forward_pricing_intro.html">
+     Determination of Forward and Futures Prices
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_forward_price_and_value.html">
+     Forward Price for an Investment Asset
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_forward_prices_specific.html">
+     Forward Price for Specific Assets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_fra.html">
+     Forward Rate Agreement (FRA)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="04_intro.html">
+   Lecture 4
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_nature_of_swaps.html">
+     Nature of Swaps
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_interest_rate_swaps.html">
+     Interest Rate Swaps
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_currency_swaps.html">
+     Currency Swaps
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_other_swaps.html">
+     Other Types of Swaps
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="05_intro.html">
+   Lecture 5
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05_option_markets.html">
+     Mechanics of option market and properties of options
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06_intro.html">
+   Lecture 6
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07_intro.html">
+   Lecture 7
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08_intro.html">
+   Lecture 8
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09_intro.html">
+   Lecture 9
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10_intro.html">
+   Lecture 10
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_intro.html">
+   Lecture 11
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="12_intro.html">
+   Lecture 12
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/05_slides.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/05_slides.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="_sources/05_slides.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Mechanics of option markets and properties of options
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mechanics-of-options-markets">
+   Mechanics of Options Markets
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#properties-of-stock-options">
+   Properties of Stock Options
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#upper-and-lower-bounds-for-option-prices">
+   Upper and Lower Bounds for Option Prices
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#put-call-parity">
+   Put-Call Parity
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#americal-call-option-on-a-non-dividend-paying-stock">
+   Americal Call Option on a Non-Dividend Paying Stock
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#americal-put-option-on-a-non-dividend-paying-stock">
+   Americal Put Option on a Non-Dividend Paying Stock
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#effect-of-dividends">
+   Effect of Dividends
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Mechanics of option markets and properties of options</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Mechanics of option markets and properties of options
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mechanics-of-options-markets">
+   Mechanics of Options Markets
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#properties-of-stock-options">
+   Properties of Stock Options
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#upper-and-lower-bounds-for-option-prices">
+   Upper and Lower Bounds for Option Prices
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#put-call-parity">
+   Put-Call Parity
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#americal-call-option-on-a-non-dividend-paying-stock">
+   Americal Call Option on a Non-Dividend Paying Stock
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#americal-put-option-on-a-non-dividend-paying-stock">
+   Americal Put Option on a Non-Dividend Paying Stock
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#effect-of-dividends">
+   Effect of Dividends
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="mechanics-of-option-markets-and-properties-of-options">
+<h1>Mechanics of option markets and properties of options<a class="headerlink" href="#mechanics-of-option-markets-and-properties-of-options" title="Permalink to this headline">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="mechanics-of-options-markets">
+<h1>Mechanics of Options Markets<a class="headerlink" href="#mechanics-of-options-markets" title="Permalink to this headline">#</a></h1>
+<p>Review of Option Types</p>
+<ul class="simple">
+<li><p>A call is an option to buy</p></li>
+<li><p>A put is an option to sell</p></li>
+<li><p>A European option can be exercised only at the end of its life</p></li>
+<li><p>An American option can be exercised at any time</p></li>
+</ul>
+<p>Option Positions</p>
+<ul class="simple">
+<li><p>Long call</p></li>
+<li><p>Long put</p></li>
+<li><p>Short call</p></li>
+<li><p>Short put</p></li>
+</ul>
+<p>Long Call Profit from buying one European call option: option price =
+USD 5, strike price = USD 100</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># strike price</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">p</span> <span class="o">=</span> <span class="mi">5</span>  <span class="c1"># option premium</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;S&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">201</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;profit&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="nb">max</span><span class="p">(</span><span class="n">s</span> <span class="o">-</span> <span class="n">k</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-</span> <span class="n">p</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;S&#39;</span><span class="p">]]</span>
+
+<span class="ne">NameError</span>: name &#39;pd&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>Short Call Profit from writing one European call option: option price =
+USD 5, strike price = USD 100</p>
+<div class="cell tag_remove-input docutils container">
+</div>
+<p>Long Put Profit from buying a European put option: option price = USD 7,
+strike price = USD 70</p>
+<div class="cell tag_remove-input docutils container">
+</div>
+<p>Short Put Profit from writing a European put option: option price = USD
+7, strike price = USD 70</p>
+<div class="cell tag_remove-input docutils container">
+</div>
+<p>Assets Underlying Exchange-Traded Options</p>
+<ul class="simple">
+<li><p>Stocks</p></li>
+<li><p>ETFs (and other ETPs)</p></li>
+<li><p>Foreign Currency</p></li>
+<li><p>Stock Indices</p></li>
+<li><p>Futures</p></li>
+</ul>
+<p>Specification of Exchange-Traded Options</p>
+<ul class="simple">
+<li><p>Expiration date</p></li>
+<li><p>Strike price</p></li>
+<li><p>European or American</p></li>
+<li><p>Call or Put (option class)</p></li>
+</ul>
+<p>Terminology Moneyness:</p>
+<ul class="simple">
+<li><p>At-the-money option</p></li>
+<li><p>In-the-money option</p></li>
+<li><p>Out-of-the-money option</p></li>
+<li><p>Option class (call or put for specific underlying)</p></li>
+<li><p>Option series (same expiration date in a given class)</p></li>
+<li><p>Intrinsic value (value if there were no time to maturity)</p></li>
+<li><p>Time value (the excess of an option’s value over its intrinsic value)</p></li>
+</ul>
+<p>Other CBOE Products</p>
+<ul class="simple">
+<li><p>FLEX options</p></li>
+<li><p>Weeklys</p></li>
+<li><p>Binary options</p></li>
+<li><p>Credit event binary options (CEBOs)</p></li>
+<li><p>Doom options</p></li>
+</ul>
+<p>Dividends &amp; Stock Splits Suppose you own <span class="math notranslate nohighlight">\(N\)</span> options with a strike price of <span class="math notranslate nohighlight">\(K\)</span>:</p>
+<ul class="simple">
+<li><p>No adjustments are made to the option terms for cash dividends</p></li>
+<li><p>When there is an <span class="math notranslate nohighlight">\(n\)</span>-for-<span class="math notranslate nohighlight">\(m\)</span> stock split:</p></li>
+</ul>
+<ol class="simple">
+<li><p>the strike price is reduced to <span class="math notranslate nohighlight">\(\frac{m}{n} \times K\)</span></p></li>
+<li><p>the no. of options is increased to <span class="math notranslate nohighlight">\(\frac{n}{m} \times N\)</span></p></li>
+</ol>
+<ul class="simple">
+<li><p>Stock dividends are handled similarly to stock splits</p></li>
+</ul>
+<p>Dividends &amp; Stock Splits Example</p>
+<ul class="simple">
+<li><p>Consider a call option to buy 100 shares for $20/share</p></li>
+<li><p>How should terms be adjusted:</p></li>
+</ul>
+<ol class="simple">
+<li><p>for a 2-for-1 stock split?</p></li>
+<li><p>for a 5% stock dividend?</p></li>
+</ol>
+<p>Market Makers</p>
+<ul class="simple">
+<li><p>Most exchanges use market makers to facilitate options trading</p></li>
+<li><p>A market maker quotes both bid and ask prices when requested</p></li>
+<li><p>The market maker does not know whether the individual requesting the quotes wants to buy or sell</p></li>
+</ul>
+<p>Margin</p>
+<ul class="simple">
+<li><p>Margin is required when options are sold</p></li>
+<li><p>When a naked option is written the margin is the greater of:</p></li>
+</ul>
+<ol class="simple">
+<li><p>A total of 100% of the proceeds of the sale plus 20% of the underlying share
+price less the amount (if any) by which the option is out of the money</p></li>
+<li><p>A total of 100% of the proceeds of the sale plus 10% of the underlying share
+price (call) or exercise price (put)</p></li>
+</ol>
+<ul class="simple">
+<li><p>For other trading strategies there are special rules</p></li>
+</ul>
+<p>Warrants</p>
+<ul class="simple">
+<li><p>Warrants are options that are issued by a corporation or a financial institution</p></li>
+<li><p>The number of warrants outstanding is determined by the size of the
+original issue and changes only when they are exercised or when they expire</p></li>
+<li><p>The issuer settles up with the holder when a warrant is exercised</p></li>
+<li><p>When call warrants are issued by a corporation on its own stock,
+exercise will usually lead to new treasury stock being issued</p></li>
+</ul>
+<p>Employee Stock Options</p>
+<ul class="simple">
+<li><p>Employee stock options are a form of remuneration issued by a company to its executives</p></li>
+<li><p>They are usually at the money when issued</p></li>
+<li><p>When options are exercised the company issues more stock and sells
+it to the option holder for the strike price</p></li>
+<li><p>Expensed on the income statement</p></li>
+</ul>
+<p>Convertible Bonds</p>
+<ul class="simple">
+<li><p>Convertible bonds are regular bonds that can be exchanged for equity at
+certain times in the future according to a predetermined exchange ratio</p></li>
+<li><p>Usually a convertible is callable</p></li>
+<li><p>The call provision is a way in which the issuer can force conversion at a time
+earlier than the holder might otherwise choose</p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="properties-of-stock-options">
+<h1>Properties of Stock Options<a class="headerlink" href="#properties-of-stock-options" title="Permalink to this headline">#</a></h1>
+<p>Notation</p>
+<p>0.5</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(c\)</span>: European call option price</p></li>
+<li><p><span class="math notranslate nohighlight">\(p\)</span>: European put option price</p></li>
+<li><p><span class="math notranslate nohighlight">\(S_0\)</span>: Stock price today</p></li>
+<li><p><span class="math notranslate nohighlight">\(K\)</span>: Strike price</p></li>
+<li><p><span class="math notranslate nohighlight">\(T\)</span>: Life of option</p></li>
+<li><p><span class="math notranslate nohighlight">\(\sigma\)</span>: Volatility of stock price</p></li>
+<li><p><span class="math notranslate nohighlight">\(C\)</span>: Americal call option price</p></li>
+<li><p><span class="math notranslate nohighlight">\(P\)</span>: American put option price</p></li>
+<li><p><span class="math notranslate nohighlight">\(S_T\)</span>: Stock price at option maturity</p></li>
+<li><p><span class="math notranslate nohighlight">\(D\)</span>: PV of dividends paid during life of option</p></li>
+<li><p><span class="math notranslate nohighlight">\(r\)</span>: Risk-free rate for maturity T with cont. comp.</p></li>
+</ul>
+<p>Effect of Variables on Option Pricing Summary of the effect on the price
+of a stock option of increasing one variable while keeping all others
+fixed.</p>
+<p>::: center
+<img alt="image" src="images/06-6-effect-of-variables.png" />{width=”5in”}
+:::</p>
+<p>American vs European Options An American option is worth at least as
+much as the corresponding European option</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(C \geq c\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(P \geq p\)</span></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="upper-and-lower-bounds-for-option-prices">
+<h1>Upper and Lower Bounds for Option Prices<a class="headerlink" href="#upper-and-lower-bounds-for-option-prices" title="Permalink to this headline">#</a></h1>
+<p>Upper Bounds for Call Options American or European call option:</p>
+<ul class="simple">
+<li><p>The option can never be worth more than the stock.</p></li>
+<li><p><span class="math notranslate nohighlight">\(c \leq S_0\)</span> and <span class="math notranslate nohighlight">\(C \leq S_0\)</span></p></li>
+<li><p>Otherwise, an arbitrageur could easily make a riskless profit by buying the
+stock and selling the call option.</p></li>
+</ul>
+<p>Upper Bounds for Put Options American put option:</p>
+<ul class="simple">
+<li><p>The option can never be worth more than <span class="math notranslate nohighlight">\(K\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(P \leq K\)</span></p></li>
+</ul>
+<p>European put option:</p>
+<ul class="simple">
+<li><p>At maturity the option cannot be worth morethan <span class="math notranslate nohighlight">\(K\)</span>.</p></li>
+<li><p>It follows that it cannot be worth more than the present value of <span class="math notranslate nohighlight">\(K\)</span> today.</p></li>
+<li><p><span class="math notranslate nohighlight">\(p \leq K e^{-rT}\)</span></p></li>
+</ul>
+<p>If this were not true, an arbitrageur could make a riskless profit by writing
+the option and investing the proceeds of the sale at the risk-free interest
+rate.</p>
+<p>Lower Bound for European Calls on Non-Dividend-Paying Stocks</p>
+<ul class="simple">
+<li><p>A lower bound for the price of a European call option on a non-dividend-paying
+stock is: $<span class="math notranslate nohighlight">\(S_0 - K e^{-rT}\)</span>$</p></li>
+<li><p>Example: <span class="math notranslate nohighlight">\(S_0\)</span> = 20, <span class="math notranslate nohighlight">\(T\)</span> = 1, <span class="math notranslate nohighlight">\(r\)</span> = 10%, <span class="math notranslate nohighlight">\(K\)</span> = 18, <span class="math notranslate nohighlight">\(D\)</span> = 0 $<span class="math notranslate nohighlight">\(S_0 - K e^{-rT} =
+20 - 18 e^{-0.1} = 3.71\)</span>$</p></li>
+<li><p>What if the European call price is $3?</p></li>
+<li><p>An arbitrageur can short the stock, buy the call, and invest proceeds at 10%.</p></li>
+</ul>
+<p>Lower Bound for European Puts on Non-Dividend-Paying Stocks</p>
+<ul class="simple">
+<li><p>A lower bound for the price of a European put option on a non-dividend-paying
+stock is: $<span class="math notranslate nohighlight">\(K e^{-rT} - S_0\)</span>$</p></li>
+<li><p>Example: <span class="math notranslate nohighlight">\(S_0\)</span> = 37, <span class="math notranslate nohighlight">\(T\)</span> = 0.5, <span class="math notranslate nohighlight">\(r\)</span> = 5%, <span class="math notranslate nohighlight">\(K\)</span> = 40, <span class="math notranslate nohighlight">\(D\)</span> = 0 $<span class="math notranslate nohighlight">\(K e^{-rT} - S_0
+= 40 e^{-0.05 \times 0.5} - 37 = 2.01\)</span>$</p></li>
+<li><p>What if the European put price is $1?</p></li>
+<li><p>An arbitrageur can borrow $38 for 6 months to buy both the put and the stock.</p></li>
+</ul>
+<p>Upper and Lower Bounds Summary</p>
+<ul class="simple">
+<li><p>Upper bound for European and American call options:
+$<span class="math notranslate nohighlight">\(c \leq S_0 \text{ and } C \leq S_0\)</span>$</p></li>
+<li><p>Upper bound for European and American put options:
+$<span class="math notranslate nohighlight">\(p \leq K e^{-rT} \text{ and } P \leq K\)</span>$</p></li>
+<li><p>Lower bound for European call option:
+$<span class="math notranslate nohighlight">\(c \geq max(S_0 - K e^{-rT}, 0)\)</span>$</p></li>
+<li><p>Lower bound for European put option:
+$<span class="math notranslate nohighlight">\(p \geq max(K e^{-rT} - S_0, 0)\)</span>$</p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="put-call-parity">
+<h1>Put-Call Parity<a class="headerlink" href="#put-call-parity" title="Permalink to this headline">#</a></h1>
+<p>Put-Call Parity: No Dividends Consider the following 2 portfolios:</p>
+<ul class="simple">
+<li><p>Portfolio A: European call on a stock + zero-coupon bond that pays
+<span class="math notranslate nohighlight">\(K\)</span> at time <span class="math notranslate nohighlight">\(T\)</span></p></li>
+<li><p>Portfolio C: European put on the stock + the stock</p></li>
+</ul>
+<p>Values of Portfolios Portfolios illustrating put-call parity.</p>
+<p>::: center
+<img alt="image" src="images/06-7-put-call-parity.png" />{width=”4in”}
+:::
+:::</p>
+<p>::: frame
+The Put-Call Parity Result</p>
+<ul class="simple">
+<li><p>Both are worth <span class="math notranslate nohighlight">\(max(S_T , K )\)</span> at the maturity of the options</p></li>
+<li><p>They must therefore be worth the same today.</p></li>
+<li><p>This means that $<span class="math notranslate nohighlight">\(c + K e^{-rT} = p + S_0\)</span>$</p></li>
+</ul>
+<p>Put-Call Parity Arbitrage (<span class="math notranslate nohighlight">\(S_0\)</span> = $31, <span class="math notranslate nohighlight">\(r\)</span> = 10%, <span class="math notranslate nohighlight">\(c\)</span> = $3, <span class="math notranslate nohighlight">\(K\)</span> =
+$30) <img alt="image" src="images/06-arbitrage-put-call.png" />{width=”5in”}
+:::</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="americal-call-option-on-a-non-dividend-paying-stock">
+<h1>Americal Call Option on a Non-Dividend Paying Stock<a class="headerlink" href="#americal-call-option-on-a-non-dividend-paying-stock" title="Permalink to this headline">#</a></h1>
+<p>Early Exercise</p>
+<ul class="simple">
+<li><p>Usually there is some chance that an American option will be exercised early</p></li>
+<li><p>An exception is an American call on a non-dividend paying stock</p></li>
+<li><p>This should [never]{.alert} be exercised early</p></li>
+</ul>
+<p>An Extreme Situation</p>
+<ul class="simple">
+<li><p>For an American call option: <span class="math notranslate nohighlight">\(S_0\)</span> = 100; T = 0.25; K = 60; D = 0</p></li>
+<li><p>Should you exercise immediately?</p></li>
+</ul>
+<p>What should you do if</p>
+<ul class="simple">
+<li><p>You want to hold the stock for the next 3 months?</p></li>
+<li><p>You do not feel that the stock is worth holding for the next 3 months?</p></li>
+</ul>
+<p>Reasons For Not Exercising a Call Early (No Dividends)</p>
+<ul class="simple">
+<li><p>No income is sacrificed</p></li>
+<li><p>You delay paying the strike price</p></li>
+<li><p>Holding the call provides insurance against stock price falling below strike price</p></li>
+<li><p>If you do not want to hold the stock, it is better to sell it than exercise
+it. (intrinsic value + time value)</p></li>
+</ul>
+<p>Bounds for European or American Call Options (No Dividends)</p>
+<p>::: center
+<img alt="image" src="images/06-8-option-bounds.png" />{width=”3in”}
+:::
+:::</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="americal-put-option-on-a-non-dividend-paying-stock">
+<h1>Americal Put Option on a Non-Dividend Paying Stock<a class="headerlink" href="#americal-put-option-on-a-non-dividend-paying-stock" title="Permalink to this headline">#</a></h1>
+<p>Should Puts Be Exercised Early?</p>
+<ul class="simple">
+<li><p>At any given time during its life, the put option should always be exercised
+early if it is sufficiently deep in the money.</p></li>
+<li><p>In general, the early exercise of a put option becomes more attractive as
+<span class="math notranslate nohighlight">\(S_0\)</span> decreases, as <span class="math notranslate nohighlight">\(r\)</span> increases, and as the volatility decreases.</p></li>
+<li><p>Suppose that the strike price is $10 and the stock price is virtually zero.</p></li>
+<li><p>By exercising immediately, an investor makes an immediate gain of $10.</p></li>
+<li><p>If the investor waits, the gain from exercise might be less than $10, but it
+cannot be more than $10, because negative stock prices are impossible.</p></li>
+<li><p>Furthermore, receiving $10 now is preferable to receiving $10 in the future.</p></li>
+<li><p>It follows that the option should be exercised immediately.</p></li>
+</ul>
+<p>Bounds for European and American Put Options (No Dividends)</p>
+<p><img alt="image" src="images/06-9-put-option-bounds.png" />{width=”5in”}</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="effect-of-dividends">
+<h1>Effect of Dividends<a class="headerlink" href="#effect-of-dividends" title="Permalink to this headline">#</a></h1>
+<p>Effect of Dividends</p>
+<ul class="simple">
+<li><p>We assume that the dividends that will be paid during the life of the option
+are known.</p></li>
+<li><p>We will use <span class="math notranslate nohighlight">\(D\)</span> to denote the present value of the dividends during the life
+of the option.</p></li>
+<li><p>A dividend is assumed to occur at the time of its ex-dividend date.</p></li>
+<li><p>When dividends are expected, we can no longer assert that an American call
+option will not be exercised early.</p></li>
+<li><p>Sometimes it is [optimal to exercise]{.alert} an American call immediately
+prior to an ex-dividend date.</p></li>
+<li><p>It is never optimal to exercise a call at other times.</p></li>
+</ul>
+<p>The Impact of Dividends on Lower Bounds to Option Prices
+$<span class="math notranslate nohighlight">\(c \geq S_0 - D - K e^{-rT}\)</span>$</p>
+<div class="math notranslate nohighlight">
+\[p \geq D + K e^{-rT} - S_0\]</div>
+<p>Extensions of Put-Call Parity</p>
+<ul class="simple">
+<li><p>American options; D = 0 <span class="math notranslate nohighlight">\(S_0 - K &lt; C -P &lt; S_0 - K e^{-rT}\)</span></p></li>
+<li><p>European options; D &gt; 0 <span class="math notranslate nohighlight">\(c + D + K e^{-rT} = p + S_0\)</span></p></li>
+<li><p>American options; D &gt; 0 <span class="math notranslate nohighlight">\(S_0 - D - K &lt; C - P &lt; S_0 - K e^{-rT}\)</span></p></li>
+</ul>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Tomáš Plíhal, Institute of Financial Complex Systems - Department of Finance<br/>
+  
+      &copy; Copyright Masaryk University, 2023.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

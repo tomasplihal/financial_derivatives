@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Lecture 5 &#8212; Financial Derivatives</title>
+    <title>Trading Strategies Involving Options &#8212; Financial Derivatives</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -50,12 +50,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
     <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Mechanics of option market and properties of options" href="05_option_markets.html" />
-    <link rel="prev" title="Other Types of Swaps" href="04_other_swaps.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -115,7 +115,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="01_intro.html">
    Lecture 1
@@ -264,11 +264,11 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="05_intro.html">
    Lecture 5
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
   <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
@@ -389,7 +389,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/05_intro.md"
+        <a href="_sources/05_slides2.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -448,14 +448,29 @@ title="Print to PDF"
     </div>
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#learning-outcomes">
-   Learning Outcomes
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Trading Strategies Involving Options
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#references">
-   References
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#principal-protected-note">
+   Principal Protected Note
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stock-option">
+   Stock &amp; Option
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#spreads">
+   Spreads
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#combinations">
+   Combinations
   </a>
  </li>
 </ul>
@@ -467,7 +482,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Lecture 5</h1>
+                <h1>Trading Strategies Involving Options</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -477,14 +492,29 @@ title="Print to PDF"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#learning-outcomes">
-   Learning Outcomes
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Trading Strategies Involving Options
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#references">
-   References
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#principal-protected-note">
+   Principal Protected Note
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stock-option">
+   Stock &amp; Option
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#spreads">
+   Spreads
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#combinations">
+   Combinations
   </a>
  </li>
 </ul>
@@ -497,31 +527,184 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="lecture-5">
-<h1>Lecture 5<a class="headerlink" href="#lecture-5" title="Permalink to this headline">#</a></h1>
-<section id="learning-outcomes">
-<h2>Learning Outcomes<a class="headerlink" href="#learning-outcomes" title="Permalink to this headline">#</a></h2>
+  <p>::: frame
+:::</p>
+<p>::: frame
+Table of contents [sections numbered]
+:::</p>
+<p>::: frame
+References HULL, John. 2018. Options, futures, and other derivatives.
+Ninth edition. Harlow: Pearson. ISBN 978-1-292-21289-0.</p>
 <ul class="simple">
-<li><p>Mechanics of option market</p></li>
-<li><p>Properties of options</p></li>
+<li><p>Chapter 12. Trading Strategies Involving Options
+:::</p></li>
+</ul>
+<section class="tex2jax_ignore mathjax_ignore" id="trading-strategies-involving-options">
+<h1>Trading Strategies Involving Options<a class="headerlink" href="#trading-strategies-involving-options" title="Permalink to this headline">#</a></h1>
+<p>::: frame
+Strategies to Be Considered</p>
+<ul class="simple">
+<li><p>Bond plus option to create principal protected note</p></li>
+<li><p>Stock plus option</p></li>
+<li><p>Two or more options of the same type (a spread)</p></li>
+<li><p>Two or more options of different types (a combination)
+:::</p></li>
 </ul>
 </section>
-<section id="references">
-<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">#</a></h2>
+<section class="tex2jax_ignore mathjax_ignore" id="principal-protected-note">
+<h1>Principal Protected Note<a class="headerlink" href="#principal-protected-note" title="Permalink to this headline">#</a></h1>
+<p>::: frame
+Principal Protected Note</p>
 <ul class="simple">
-<li><p>HULL, John. Options, futures, and other derivatives. Ninth edition. Harlow: Pearson, 2018. ISBN 978-1-292-21289-0.</p>
-<ul>
-<li><p>Chapter 10. Mechanics of Options Markets</p></li>
-<li><p>Chapter 11. Properties of Stock Options</p></li>
-</ul>
+<li><p>Allows investor to take a risky position without risking any
+principal.</p></li>
+<li><p>Example: USD 1000 instrument consisting of:</p>
+<ol class="simple">
+<li><p>3-year zero-coupon bond with principal of USD 1000</p></li>
+<li><p>3-year at-the-money call option on a stock portfolio
+:::</p></li>
+</ol>
 </li>
 </ul>
+<p>::: frame
+Example: Principal Protected Note</p>
 <ul class="simple">
-<li><p>PIRIE, Wendy L. Derivatives. Hoboken: Wiley, 2017. CFA institute investment series. ISBN 978-1-119-38181-5.</p></li>
+<li><p>Suppose that the 3-year interest rate is 6% with continuous
+compounding.</p></li>
+<li><p>This means that <span class="math notranslate nohighlight">\(1,000 e^{-0.06 \times 3} = 835.27\)</span> will grow to
+$1,000 in 3 years.</p></li>
+<li><p>The difference between $1,000 and $835.27 is $164.73.</p></li>
+<li><p>Suppose that a stock portfolio is worth $1,000 and provides a
+dividend yield of 1.5% per annum.</p></li>
+<li><p>Suppose further that a 3-year at-the-money European call option on
+the stock portfolio can be purchased for less than $164.73.
+:::</p></li>
+</ul>
+<p>::: frame
+Principal Protected Notes <strong>Viability depends on:</strong></p>
+<ul class="simple">
+<li><p>Level of dividends</p></li>
+<li><p>Level of interest rates</p></li>
+<li><p>Volatility of the portfolio</p></li>
+</ul>
+<p><strong>Variations on standard product:</strong></p>
+<ul class="simple">
+<li><p>Out of the money strike price</p></li>
+<li><p>Caps on investor return</p></li>
+<li><p>Knock outs, averaging features, etc
+:::</p></li>
 </ul>
 </section>
-<div class="toctree-wrapper compound">
-</div>
+<section class="tex2jax_ignore mathjax_ignore" id="stock-option">
+<h1>Stock &amp; Option<a class="headerlink" href="#stock-option" title="Permalink to this headline">#</a></h1>
+<p>::: frame
+Positions in an Option &amp; the Underlying</p>
+<p>::: center
+<img alt="image" src="images/07-1-option-and-underlying.png" />{width=”2.45in”}
+:::
+:::</p>
+<p>::: frame
+Positions in an Option &amp; the Underlying</p>
+<ul class="simple">
+<li><p>The profit patterns in the previous figure have the same general
+shape as the profit patterns of options.</p></li>
+<li><p>a) short put, b) long put, c) long call, d) short call</p></li>
+<li><p>It can be explained by the put-call parity
+$<span class="math notranslate nohighlight">\(p + S_0 = c + K e^{-rT} + D\)</span>$
+:::</p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="spreads">
+<h1>Spreads<a class="headerlink" href="#spreads" title="Permalink to this headline">#</a></h1>
+<p>::: frame
+Bull Spread Using Calls</p>
+<p>::: center
+<img alt="image" src="images/07-2-bull-spread-calls.png" />{width=”4in”}
+:::
+:::</p>
+<p>::: frame
+Bull Spread Using Puts</p>
+<p>::: center
+<img alt="image" src="images/07-3-bull-spread-puts.png" />{width=”4in”}
+:::
+:::</p>
+<p>::: frame
+Bear Spread Using Puts</p>
+<p>::: center
+<img alt="image" src="images/07-4-bear-spread-puts.png" />{width=”4in”}
+:::
+:::</p>
+<p>::: frame
+Bear Spread Using Calls</p>
+<p>::: center
+<img alt="image" src="images/07-5-bear-spread-calls.png" />{width=”4in”}
+:::
+:::</p>
+<p>::: frame
+Box Spread</p>
+<ul class="simple">
+<li><p>A combination of a bull call spread and a bear put spread</p></li>
+<li><p>If all options are European a box spread is worth the present value
+of the difference between the strike prices</p></li>
+<li><p>If they are American this is not necessarily so (see Business
+Snapshot 11.1)
+:::</p></li>
+</ul>
+<p>::: frame
+Butterfly Spread Using Calls</p>
+<p>::: center
+<img alt="image" src="images/07-6-butterfly-spread-calls.png" />{width=”4in”}
+:::
+:::</p>
+<p>::: frame
+Butterfly Spread Using Puts</p>
+<p>::: center
+<img alt="image" src="images/07-7-butterfly-spread-puts.png" />{width=”4in”}
+:::
+:::</p>
+<p>::: frame
+Calendar Spread Using Calls</p>
+<p>::: center
+<img alt="image" src="images/07-8-calendar-spread-calls.png" />{width=”3.8in”}
+:::
+:::</p>
+<p>::: frame
+Calendar Spread Using Puts</p>
+<p>::: center
+<img alt="image" src="images/07-9-calendar-spread-puts.png" />{width=”4in”}
+:::
+:::</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="combinations">
+<h1>Combinations<a class="headerlink" href="#combinations" title="Permalink to this headline">#</a></h1>
+<p>::: frame
+A Straddle Combination</p>
+<p>::: center
+<img alt="image" src="images/07-10-straddle.png" />{width=”4in”}
+:::
+:::</p>
+<p>::: frame
+Strip &amp; Strap</p>
+<p>::: center
+<img alt="image" src="images/07-11-strip-strap.png" />{width=”5in”}
+:::
+:::</p>
+<p>::: frame
+A Strangle Combination</p>
+<p>::: center
+<img alt="image" src="images/07-12-strangle.png" />{width=”4in”}
+:::
+:::</p>
+<p>::: frame
+Other Payoff Patterns</p>
+<ul class="simple">
+<li><p>When the strike prices are close together a butterfly spread
+provides a payoff consisting of a small “spike”.</p></li>
+<li><p>If options with all strike prices were available any payoff pattern
+could (at least approximately) be created by combining the spikes
+obtained from different butterfly spreads.
+:::</p></li>
+</ul>
 </section>
 
     <script type="text/x-thebe-config">
@@ -551,20 +734,6 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="04_other_swaps.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Other Types of Swaps</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="05_option_markets.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Mechanics of option market and properties of options</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
 </div>
             </footer>
         </div>
