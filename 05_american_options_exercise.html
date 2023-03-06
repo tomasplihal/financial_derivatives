@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>A One-Step Binomial Model and A No-Arbitrage Argument &#8212; Financial Derivatives</title>
+    <title>American Options &#8212; Financial Derivatives</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -230,6 +230,11 @@ const thebe_selector_output = ".output, .cell_output"
      Forward Rate Agreement (FRA)
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_practice_questions.html">
+     Practice Questions and Problems
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
@@ -264,22 +269,10 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1">
   <a class="reference internal" href="05_intro.html">
    Lecture 5
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="05_option_markets.html">
-     Mechanics of option market and properties of options
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="06_intro.html">
@@ -367,6 +360,35 @@ title="Toggle navigation"
         
     </div>
     <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/05_american_options_exercise.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
 <button onclick="toggleFullScreen()"
   class="headerbtn"
   data-toggle="tooltip"
@@ -389,7 +411,24 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/07_trees.md"
+        <a href="_sources/05_american_options_exercise.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="_sources/05_american_options_exercise.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -450,22 +489,19 @@ title="Print to PDF"
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
-   A One-Step Binomial Model and A No-Arbitrage Argument
+   American Options
   </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#americal-call-option-on-a-non-dividend-paying-stock">
+     Americal Call Option on a Non-Dividend Paying Stock
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#risk-neutral-valuation">
-   Risk-Neutral Valuation
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#two-step-binomial-trees">
-   Two-Step Binomial Trees
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-binomial-tree-formulas">
-   The Binomial Tree Formulas
+  <a class="reference internal nav-link" href="#americal-put-option-on-a-non-dividend-paying-stock">
+   Americal Put Option on a Non-Dividend Paying Stock
   </a>
  </li>
 </ul>
@@ -477,7 +513,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>A One-Step Binomial Model and A No-Arbitrage Argument</h1>
+                <h1>American Options</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -489,22 +525,19 @@ title="Print to PDF"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
-   A One-Step Binomial Model and A No-Arbitrage Argument
+   American Options
   </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#americal-call-option-on-a-non-dividend-paying-stock">
+     Americal Call Option on a Non-Dividend Paying Stock
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#risk-neutral-valuation">
-   Risk-Neutral Valuation
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#two-step-binomial-trees">
-   Two-Step Binomial Trees
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-binomial-tree-formulas">
-   The Binomial Tree Formulas
+  <a class="reference internal nav-link" href="#americal-put-option-on-a-non-dividend-paying-stock">
+   Americal Put Option on a Non-Dividend Paying Stock
   </a>
  </li>
 </ul>
@@ -517,259 +550,57 @@ title="Print to PDF"
                 
               <div>
                 
-  <p>::: frame
-:::</p>
-<p>::: frame
-Table of contents [sections numbered]
-:::</p>
-<p>::: frame
-References HULL, John. 2018. Options, futures, and other derivatives.
-Ninth edition. Harlow: Pearson. ISBN 978-1-292-21289-0.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="american-options">
+<h1>American Options<a class="headerlink" href="#american-options" title="Permalink to this headline">#</a></h1>
+<section id="americal-call-option-on-a-non-dividend-paying-stock">
+<h2>Americal Call Option on a Non-Dividend Paying Stock<a class="headerlink" href="#americal-call-option-on-a-non-dividend-paying-stock" title="Permalink to this headline">#</a></h2>
+<p>Early Exercise</p>
 <ul class="simple">
-<li><p>Chapter 13. Binomial Trees</p></li>
+<li><p>Usually there is some chance that an American option will be exercised early.</p></li>
+<li><p>An exception is an American call on a non-dividend paying stock.</p></li>
+<li><p>This should <strong>never</strong> be exercised early.</p></li>
 </ul>
-<p>Cox, J. C., S. A. Ross, and M. Rubinstein. “Option Pricing: A
-Simplified Approach,” <em>Journal of Financial Economics</em> 7 (October
-1979): 229–64.
-:::</p>
-<section class="tex2jax_ignore mathjax_ignore" id="a-one-step-binomial-model-and-a-no-arbitrage-argument">
-<h1>A One-Step Binomial Model and A No-Arbitrage Argument<a class="headerlink" href="#a-one-step-binomial-model-and-a-no-arbitrage-argument" title="Permalink to this headline">#</a></h1>
-<p>::: frame
-A Simple Binomial Model - Call option</p>
+<p>An Extreme Situation</p>
 <ul class="simple">
-<li><p>A 3-month call option on the stock has a strike price of $21</p></li>
-<li><p>A stock price is currently $20</p></li>
-<li><p>In 3 months it will be either $22 or $18</p></li>
+<li><p>For an American call option: <span class="math notranslate nohighlight">\(S_0 = 100\)</span>; <span class="math notranslate nohighlight">\(T = 0.25\)</span>; <span class="math notranslate nohighlight">\(K = 60\)</span>; <span class="math notranslate nohighlight">\(D = 0\)</span></p></li>
+<li><p>Should you exercise immediately?</p></li>
 </ul>
-<p>::: center
-<img alt="image" src="images/07-13-simple-binomial-model.png" />{width=”3.2in”}
-:::
-:::</p>
-<p>::: frame
-Setting Up a Riskless Portfolio</p>
+<p>What should you do if:</p>
 <ul class="simple">
-<li><p>For a portfolio that is long <span class="math notranslate nohighlight">\(\Delta\)</span> shares and a short 1 call
-option</p></li>
-<li><p>Calculate the value of <span class="math notranslate nohighlight">\(\Delta\)</span> that makes the portfolio riskless
-$<span class="math notranslate nohighlight">\(22 \Delta - 1 = 18 \Delta - 0\)</span><span class="math notranslate nohighlight">\( \)</span><span class="math notranslate nohighlight">\(\Delta = 0.25\)</span>$</p></li>
-<li><p>A riskless portfolio is therefore Long 0.25 shares + short 1 option.
-:::</p></li>
+<li><p>You want to hold the stock for the next 3 months?</p></li>
+<li><p>You do not feel that the stock is worth holding for the next 3 months?</p></li>
 </ul>
-<p>::: frame
-Valuing the Portfolio (Risk-Free Rate is 4%)</p>
+<p>Reasons For Not Exercising a Call Early (No Dividends)</p>
 <ul class="simple">
-<li><p>The riskless portfolio is: long 0.25 shares and short 1 call option</p></li>
-<li><p>The value of the portfolio in 3 months is:
-$<span class="math notranslate nohighlight">\(22 \times 0.25 - 1 = 4.50\)</span>$</p></li>
-<li><p>The value of the portfolio today is:
-$<span class="math notranslate nohighlight">\(4.5e^{-0.04 \times 0.25} = 4.455\)</span>$
-:::</p></li>
-</ul>
-<p>::: frame
-Valuing the Option</p>
-<ul class="simple">
-<li><p>The portfolio that is long 0.25 shares and short 1 option is worth
-4.455</p></li>
-<li><p>The value of the shares is 5.000 (<span class="math notranslate nohighlight">\(= 0.25 \times 20\)</span>)</p></li>
-<li><p>The value of the option is therefore 5.000 – 4.455 = 0.545
-:::</p></li>
-</ul>
-<p>::: frame
-Generalization</p>
-<p>::: center
-<img alt="image" src="images/07-14-generalization.png" />{width=”3.3in”}
-:::
-:::</p>
-<p>::: frame
-Generalization The value of the portfolio at the end of the life of the
-option is:</p>
-<ul class="simple">
-<li><p>If there is an up movement <span class="math notranslate nohighlight">\(= S_0u\Delta - f_u\)</span></p></li>
-<li><p>If there is a down movement <span class="math notranslate nohighlight">\(=S_0d\Delta - f_d\)</span></p></li>
-<li><p>The portfolio is riskless when
-$<span class="math notranslate nohighlight">\(S_0 u \Delta - f_u = S_0 d \Delta - f_d\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(\Delta = \frac{f_u - f_d}{S_0 u - S_0 d}\)</span>$</p></li>
-<li><p>In this case, the portfolio is riskless and, for there to be no
-arbitrage opportunities, it must earn the risk-free interest rate.</p></li>
-<li><p>It shows that <span class="math notranslate nohighlight">\(\Delta\)</span> is the ratio of the change in the option
-price to the change in the stock price as we move between the nodes
-at time <span class="math notranslate nohighlight">\(T\)</span>.
-:::</p></li>
-</ul>
-<p>::: frame
-Generalization</p>
-<ul class="simple">
-<li><p>Value of the portfolio at time <span class="math notranslate nohighlight">\(T\)</span> is $<span class="math notranslate nohighlight">\(S_0 u \Delta - f_u\)</span>$</p></li>
-<li><p>Value of the portfolio today is $<span class="math notranslate nohighlight">\((S_0 u \Delta - f_u)e^{-rT}\)</span>$</p></li>
-<li><p>The cost of setting up the portfolio today (another expression for
-the portfolio value today) is $<span class="math notranslate nohighlight">\(S_0 \Delta - f\)</span>$</p></li>
-<li><p>Hence $<span class="math notranslate nohighlight">\(f = S_0 \Delta - (S_0 u \Delta - f_u)e^{-rT}\)</span>$
-:::</p></li>
-</ul>
-<p>::: frame
-Generalization Substituting for <span class="math notranslate nohighlight">\(\Delta\)</span> we obtain:
-$<span class="math notranslate nohighlight">\(f = [pf_u + (1 - p)f_d]e^{-rT}\)</span>$</p>
-<p>where $<span class="math notranslate nohighlight">\(p = \frac{e^{rT} - d}{u - d}\)</span>$
-:::</p>
-<p>::: frame
-<span class="math notranslate nohighlight">\(p\)</span> as a Probability</p>
-<ul class="simple">
-<li><p>It is natural to interpret <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(1-p\)</span> as probabilities of up and
-down movements.</p></li>
-<li><p>The value of a derivative is then its expected payoff in a
-risk-neutral world discounted at the risk-free rate.
-:::</p></li>
-</ul>
-<p>::: frame
-Example</p>
-<ul class="simple">
-<li><p>In the numerical example considered previously we have:</p></li>
-<li><p><span class="math notranslate nohighlight">\(u = 1.1\)</span>, <span class="math notranslate nohighlight">\(d=0.9\)</span>, <span class="math notranslate nohighlight">\(r=0.04\)</span>, <span class="math notranslate nohighlight">\(T=0.25\)</span>, <span class="math notranslate nohighlight">\(f_u = 1\)</span>, and <span class="math notranslate nohighlight">\(f_d = 0\)</span></p></li>
-</ul>
-<div class="math notranslate nohighlight">
-\[p = \frac{e^{0.04 \times 0.25} - 0.9}{1.1 - 0.9} = 0.5503\]</div>
-<div class="math notranslate nohighlight">
-\[f = e^{-0.04 \times 0.25} (0.5503 \times 1 + 0.4497 \times 0) = 0.545\]</div>
-<p>:::</p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="risk-neutral-valuation">
-<h1>Risk-Neutral Valuation<a class="headerlink" href="#risk-neutral-valuation" title="Permalink to this headline">#</a></h1>
-<p>::: frame
-Risk-Neutral Valuation</p>
-<ul class="simple">
-<li><p>When the probability of an up and down movements are <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(1-p\)</span>
-the expected stock price at time <span class="math notranslate nohighlight">\(T\)</span> is <span class="math notranslate nohighlight">\(S_0e^{rT}\)</span></p></li>
-<li><p>This shows that the stock price earns the risk-free rate.</p></li>
-<li><p>Binomial trees illustrate the general result that to value a
-derivative we can assume that the expected return on the underlying
-asset is the risk-free rate and the discount rate is also the
-risk-free rate.</p></li>
-<li><p>This is known as using risk-neutral valuation.
-:::</p></li>
-</ul>
-<p>::: frame
-Example Revisited</p>
-<ul class="simple">
-<li><p>In the numerical example considered previously we have:</p></li>
-<li><p><span class="math notranslate nohighlight">\(u = 1.1\)</span>, <span class="math notranslate nohighlight">\(d=0.9\)</span>, <span class="math notranslate nohighlight">\(r=0.04\)</span>, <span class="math notranslate nohighlight">\(T=0.25\)</span>, <span class="math notranslate nohighlight">\(f_u = 1\)</span>, and <span class="math notranslate nohighlight">\(f_d = 0\)</span>
-$<span class="math notranslate nohighlight">\(22p + 18(1-p) = 20 e^{0.04 \times 0.25} \Rightarrow  p = 0.5503\)</span>$</p></li>
-<li><p>At the end of the 3 months, the call option has a 0.5503 probability
-of being worth 1 and a 0.4497 probability of being worth zero. Its
-expected value is therefore:
-$<span class="math notranslate nohighlight">\(0.5503 \times 1 + 0.4497 \times 0 = 0.5503\)</span>$</p></li>
-<li><p>In a risk-neutral world this should be discounted at the risk-free
-rate. The value of the option today is therefore:
-$<span class="math notranslate nohighlight">\(0.5503 e^{-0.04 \times 0.25} = 0.545\)</span>$</p></li>
-<li><p>This is the same as the value obtained earlier, demonstrating that
-no-arbitrage arguments and risk-neutral valuation give the same
-answer.
-:::</p></li>
-</ul>
-<p>::: frame
-Irrelevance of Stock’s Expected Return</p>
-<ul class="simple">
-<li><p>When we are valuing an option in terms of the price of the
-underlying asset, the probability of up and down movements in the
-real world are irrelevant.</p></li>
-<li><p>The probabilities of future up or down movements are already
-incorporated into the stock price: we do not need to take them into
-account again when valuing the option in terms of the stock price.</p></li>
-<li><p>This is an example of a more general result stating that the
-expected return on the underlying asset in the real world is
-irrelevant
-:::</p></li>
+<li><p>No income is sacrificed.</p></li>
+<li><p>You delay paying the strike price.</p></li>
+<li><p>Holding the call provides insurance against stock price falling below strike
+price.</p></li>
+<li><p>If you do not want to hold the stock, it is better to sell it than exercise
+it (intrinsic value + time value).</p></li>
+<li><p>Upper bound for American call options:
+$<span class="math notranslate nohighlight">\( C \leq S_0\)</span>$</p></li>
+<li><p>Lower bound for American call option:
+$<span class="math notranslate nohighlight">\(C \geq max(S_0 - K e^{-rT}, 0)\)</span>$</p></li>
 </ul>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="two-step-binomial-trees">
-<h1>Two-Step Binomial Trees<a class="headerlink" href="#two-step-binomial-trees" title="Permalink to this headline">#</a></h1>
-<p>::: frame
-A Two-Step Example <span class="math notranslate nohighlight">\(K\)</span>=21; r = <span class="math notranslate nohighlight">\(4\)</span>%; each time step is 3 months</p>
-<p>::: center
-<img alt="image" src="images/07-15-two-step-tree.png" />{width=”3in”}
-:::
-:::</p>
-<p>::: frame
-Valuing a Call Option</p>
-<p>::: center
-<img alt="image" src="images/07-16-valuing-call-option.png" />{width=”2.8in”}
-:::</p>
-<ul class="simple">
-<li><p>Value at node B =
-<span class="math notranslate nohighlight">\(e^{-0.04 \times 0.25}(0.5503 \times 3.2 + 0.4497 \times 0) = 1.7433\)</span></p></li>
-<li><p>Value at node A =
-<span class="math notranslate nohighlight">\(e^{-0.04 \times 0.25}(0.5503 \times 1.7433 + 0.4497\times 0) = 0.9497\)</span>
-:::</p></li>
-</ul>
-<p>::: frame
-A Put Option Example</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(K\)</span> = 52, time step = 1 year</p></li>
-<li><p><span class="math notranslate nohighlight">\(r\)</span> = 5%, <span class="math notranslate nohighlight">\(u\)</span> = 1.2, <span class="math notranslate nohighlight">\(d\)</span> = 0.8, <span class="math notranslate nohighlight">\(p\)</span> = 0.6282</p></li>
-</ul>
-<p>::: center
-<img alt="image" src="images/07-17-valuing-put-option.png" />{width=”2.8in”}
-:::
-:::</p>
-<p>::: frame
-What Happens When the Put Option is American</p>
-<ul class="simple">
-<li><p>The American feature increases the value at node C from 9.4636 to
-12.0000.</p></li>
-<li><p>This increases the value of the option from 4.1923 to 5.0894.</p></li>
-</ul>
-<p>::: center
-<img alt="image" src="images/07-18-american-put.png" />{width=”2.8in”}
-:::
-:::</p>
-<p>::: frame
-Choosing <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(d\)</span></p>
-<ul class="simple">
-<li><p>One way of matching the volatility is to set:
-$<span class="math notranslate nohighlight">\(u = e^{\sigma \sqrt{\Delta t}}\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(d = \frac{1}{u} = e^{- \sigma \sqrt{\Delta t}}\)</span>$</p></li>
-<li><p>where <span class="math notranslate nohighlight">\(\sigma\)</span> is the volatility and <span class="math notranslate nohighlight">\(\Delta t\)</span> is the length of the
-time step.</p></li>
-<li><p>This is the approach used by Cox, Ross, and Rubinstein (1979).
-:::</p></li>
-</ul>
-<p>::: frame
-Girsanov’s Theorem</p>
-<ul class="simple">
-<li><p>Volatility is the same in the real world and the risk-neutral world.</p></li>
-<li><p>We can therefore measure volatility in the real world and use it to
-build a tree for the an asset in the risk-neutral world.
-:::</p></li>
-</ul>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="the-binomial-tree-formulas">
-<h1>The Binomial Tree Formulas<a class="headerlink" href="#the-binomial-tree-formulas" title="Permalink to this headline">#</a></h1>
-<p>::: frame
-The Binomial Tree Formulas</p>
+<section class="tex2jax_ignore mathjax_ignore" id="americal-put-option-on-a-non-dividend-paying-stock">
+<h1>Americal Put Option on a Non-Dividend Paying Stock<a class="headerlink" href="#americal-put-option-on-a-non-dividend-paying-stock" title="Permalink to this headline">#</a></h1>
+<p>Should Puts Be Exercised Early?</p>
 <ul class="simple">
-<li><p>the size of an up and down move: $<span class="math notranslate nohighlight">\(u = e^{\sigma \sqrt{\Delta t}}\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(d = \frac{1}{u} = e^{- \sigma \sqrt{\Delta t}}\)</span>$</p></li>
-<li><p>probability of an up move: $<span class="math notranslate nohighlight">\(p = \frac{a - d}{u - d}\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(a = e^{r\Delta t}\)</span>$</p></li>
-<li><p>option value (one step): $<span class="math notranslate nohighlight">\(f = [pf_u + (1 - p)f_d]e^{-rT}\)</span>$
-:::</p></li>
-</ul>
-<p>::: frame
-Other Types of Assets</p>
-<ul class="simple">
-<li><p>For options on stock indices, currencies and futures the basic
-procedure for constructing the tree is the same except for the
-calculation of <span class="math notranslate nohighlight">\(p\)</span></p></li>
-</ul>
-<div class="math notranslate nohighlight">
-\[p = \frac{a - d}{u - d}\]</div>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(a = e^{r\Delta t}\)</span> for a nondividend paying stock</p></li>
-<li><p><span class="math notranslate nohighlight">\(a = e^{(r-q)\Delta t}\)</span> for a stock index where <span class="math notranslate nohighlight">\(q\)</span> is the dividend
-yield on the index</p></li>
-<li><p><span class="math notranslate nohighlight">\(a = e^{(r - r_f) \Delta t}\)</span> for a currency where <span class="math notranslate nohighlight">\(r_f\)</span> is the
-foreign risk-free rate</p></li>
-<li><p><span class="math notranslate nohighlight">\(a = 1\)</span> for a futures contract
-:::</p></li>
+<li><p>At any given time during its life, the put option should always be exercised
+early if it is sufficiently deep in the money.</p></li>
+<li><p>In general, the early exercise of a put option becomes more attractive as
+<span class="math notranslate nohighlight">\(S_0\)</span> decreases, as <span class="math notranslate nohighlight">\(r\)</span> increases, and as the volatility decreases.</p></li>
+<li><p>Suppose that the strike price is $10 and the stock price is virtually zero.</p></li>
+<li><p>By exercising immediately, an investor makes an immediate gain of $10.</p></li>
+<li><p>If the investor waits, the gain from exercise might be less than $10, but it
+cannot be more than $10, because negative stock prices are impossible.</p></li>
+<li><p>Furthermore, receiving $10 now is preferable to receiving $10 in the future.</p></li>
+<li><p>It follows that the option should be exercised immediately.</p></li>
+<li><p>Upper and lower bounds for American put options:
+$<span class="math notranslate nohighlight">\( max(K - S_0, 0) \leq P \leq K \)</span>$</p></li>
 </ul>
 </section>
 

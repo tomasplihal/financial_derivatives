@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Mechanics of option market and properties of options &#8212; Financial Derivatives</title>
+    <title>Spreads &#8212; Financial Derivatives</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -54,8 +54,6 @@ const thebe_selector_output = ".output, .cell_output"
     <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Lecture 6" href="06_intro.html" />
-    <link rel="prev" title="Lecture 5" href="05_intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -115,7 +113,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="01_intro.html">
    Lecture 1
@@ -230,6 +228,11 @@ const thebe_selector_output = ".output, .cell_output"
      Forward Rate Agreement (FRA)
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_practice_questions.html">
+     Practice Questions and Problems
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
@@ -264,22 +267,10 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
+ <li class="toctree-l1">
   <a class="reference internal" href="05_intro.html">
    Lecture 5
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     Mechanics of option market and properties of options
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="06_intro.html">
@@ -367,6 +358,35 @@ title="Toggle navigation"
         
     </div>
     <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/06_spreads.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
 <button onclick="toggleFullScreen()"
   class="headerbtn"
   data-toggle="tooltip"
@@ -389,7 +409,24 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/05_option_markets.md"
+        <a href="_sources/06_spreads.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="_sources/06_spreads.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -426,23 +463,140 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bull-spread-using-calls">
+   Bull Spread Using Calls
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bull-spread-using-puts">
+   Bull Spread Using Puts
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bear-spread-using-puts">
+   Bear Spread Using Puts
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bear-spread-using-calls">
+   Bear Spread Using Calls
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#box-spread">
+   Box Spread
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#butterfly-spread-using-calls">
+   Butterfly Spread Using Calls
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#butterfly-spread-using-puts">
+   Butterfly Spread Using Puts
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#calendar-spread-using-calls">
+   Calendar Spread Using Calls
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#calendar-spread-using-puts">
+   Calendar Spread Using Puts
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Mechanics of option market and properties of options</h1>
+                <h1>Spreads</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bull-spread-using-calls">
+   Bull Spread Using Calls
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bull-spread-using-puts">
+   Bull Spread Using Puts
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bear-spread-using-puts">
+   Bear Spread Using Puts
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bear-spread-using-calls">
+   Bear Spread Using Calls
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#box-spread">
+   Box Spread
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#butterfly-spread-using-calls">
+   Butterfly Spread Using Calls
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#butterfly-spread-using-puts">
+   Butterfly Spread Using Puts
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#calendar-spread-using-calls">
+   Calendar Spread Using Calls
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#calendar-spread-using-puts">
+   Calendar Spread Using Puts
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -450,179 +604,53 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="mechanics-of-option-market-and-properties-of-options">
-<h1>Mechanics of option market and properties of options<a class="headerlink" href="#mechanics-of-option-market-and-properties-of-options" title="Permalink to this headline">#</a></h1>
-<!-- 
--
-from 01_introduction
-
-Options
-
-Options
-
-A call option is an option to buy a certain asset by a certain date for a certain price
-(the strike price)
-A put option is an option to sell a certain asset by a certain date for a certain price
-(the strike price)
-An American option can be exercised at any time during its life
-A European option can be exercised only at maturity
-
-T. Plíhal
-
-· Introduction to Financial Derivatives · February 14, 2022
-
-30 / 45
-
-Options
-
-Options vs Futures/Forwards
-
-A futures/forward contract gives the holder the obligation to buy or sell at a certain
-price
-An option gives the holder the right to buy or sell at a certain price
-
-T. Plíhal
-
-· Introduction to Financial Derivatives · February 14, 2022
-
-31 / 45
-
-Options
-
-Google Call Option Prices
-Google Call Option Prices from CBOE (May 3, 2016; Stock Price is bid 695.86, offer
-696.25);
-
-T. Plíhal
-
-· Introduction to Financial Derivatives · February 14, 2022
-
-32 / 45
-
-Options
-
-Google Put Option Prices
-Google Put Option Prices from CBOE (May 3, 2016; Stock Price is bid 695.86, offer
-696.25);
-
-T. Plíhal
-
-· Introduction to Financial Derivatives · February 14, 2022
-
-33 / 45
-
-Types of Trades
-
-Table of Contents
-
-
-## Contingent Claims/Options Summary ##
-- An option is a derivative contract in which one party, the buyer, pays a sum
-    of money to the other party, the seller or writer, and receives the right
-    to either buy or sell an underlying asset at a fixed price either on a
-    specific expiration date or at any time prior to the expiration date.
-
-- A **call** is an option that provides the right to **buy** the underlying.
-
-- A **put** is an option that provides the right to **sell** the underlying.
-
-Put and call options may be *American style* or *European style*.
-
-## Option Definition ##
-An **option** is a derivative contract in which one party, the buyer, pays a
-sum of money to the other party, the seller or writer, and receives the right
-to either buy or sell an underlying asset at a fixed price either on a specific
-expiration date or at any time prior to the expiration date.
-
-There are two types of options:
-
-- **Call Option:** grants the holder the right to **buy** the underlying asset
-    at a fixed price (called the exercise price or strike price) either on the
-    expiration date or at any time prior to the expiration date.
-
-- **Put Option:** grants the holder the right to **sell** the underlying asset
-    at a fixed price (called the exercise price or strike price) either on the
-    expiration date or at any time prior to the expiration date.
-
-Put and call options may be *American style* or *European style*.
-
-## Option Payoffs ##
-Assumptions and symbol definitions:
-
-- $S_T$: the price of the underlying at the expiration date $T$
-
-- $X$: the exercise price of the option
-
-Payoff to the call buyer: $c_T = Max(0, S_T - X)$
-
-Payoff to the put buyer: $p_T = Max(0, X - S_T)$
-
-
-## Option Payoff Example ##
-At expiration the underlying asset price $S_T$ is \$28. If the strike price X
-is \$25, what is the payoff of the put and call?
-
-Payoff to the call buyer:
-$$c_T = Max(0, S_T - X) = Max(0, \$28 - \$25) = \$3$$
-
-Payoff to the put buyer:
-$$p_T = Max(0, X - S_T) = Max(0, \$25 - \$28) = 0$$
-
-When the option has a positive payoff it is said to be **in the money**. In the
-example above, the call option is **in the money**. The put option is **out of
-the money** because $X - S_T$ is less than 0. When $S_T = X$, the option is
-said to be **at the money**.
-
-
-## Option Profit ##
-Since option buyer must pay a price (or **option premium**), the profit is
-computed by subtracting the option premium from the option payoff.
-
-Assumptions and symbol definitions:
-
-- $S_T$: the price of the underlying at the expiration date $T$ 
-
-- $X$: the exercise price of the option
-
-- $c_0$: the price (premium) of the call option
-
-- $p_0$: the price (premium) of the put option
-
-Profit to the call buyer: $\Pi = Max(0, S_T - X) - c_0$
-
-Profit to the put buyer: $\Pi = Max(0, X - S_T) - p_0$
-
-
-## Option Profit Example ##
-Assume that a put and call on CBX stock both have a strike price $X = \$30$. The
-call initially costs \$1, and the put costs \$2.
-
-What is the profit on the call and put if the price of CBX stock at expiration
-($S_T$) is \$27.50?
-
-Profit to the call buyer: 
-$$ \Pi = Max(0, S_T - X) - c_0 = Max(0, \$27.5 - \$30) - \$1 = -\$1 $$
-
-Profit to the put buyer: 
-$$ \Pi = Max(0, X - S_T) - p_0 = Max(0, \$30 - \$27.5) - \$2 = \$0.5 $$
-
-# Options
-
-::: {.frame}
-Options
-
--   A **call option** is an option to buy a certain asset by a certain
-    date for a certain price (the strike price)
-
--   A **put option** is an option to sell a certain asset by a certain
-    date for a certain price (the strike price)
-
-```{=html}
-```
--   An **American option** can be exercised at any time during its life
-
--   A **European option** can be exercised only at maturity
-::: --></section>
+  <section class="tex2jax_ignore mathjax_ignore" id="spreads">
+<h1>Spreads<a class="headerlink" href="#spreads" title="Permalink to this headline">#</a></h1>
+<ul class="simple">
+<li><p>Two or more options of the same type (a spread).</p></li>
+</ul>
+<section id="bull-spread-using-calls">
+<h2>Bull Spread Using Calls<a class="headerlink" href="#bull-spread-using-calls" title="Permalink to this headline">#</a></h2>
+<p><img alt="image" src="_images/07-2-bull-spread-calls.png" /></p>
+</section>
+<section id="bull-spread-using-puts">
+<h2>Bull Spread Using Puts<a class="headerlink" href="#bull-spread-using-puts" title="Permalink to this headline">#</a></h2>
+<p><img alt="image" src="_images/07-3-bull-spread-puts.png" /></p>
+</section>
+<section id="bear-spread-using-puts">
+<h2>Bear Spread Using Puts<a class="headerlink" href="#bear-spread-using-puts" title="Permalink to this headline">#</a></h2>
+<p><img alt="image" src="_images/07-4-bear-spread-puts.png" /></p>
+</section>
+<section id="bear-spread-using-calls">
+<h2>Bear Spread Using Calls<a class="headerlink" href="#bear-spread-using-calls" title="Permalink to this headline">#</a></h2>
+<p><img alt="image" src="_images/07-5-bear-spread-calls.png" /></p>
+</section>
+<section id="box-spread">
+<h2>Box Spread<a class="headerlink" href="#box-spread" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>A combination of a bull call spread and a bear put spread.</p></li>
+<li><p>If all options are European a box spread is worth the present value of the
+difference between the strike prices.</p></li>
+<li><p>If they are American this is not necessarily so.</p></li>
+</ul>
+</section>
+<section id="butterfly-spread-using-calls">
+<h2>Butterfly Spread Using Calls<a class="headerlink" href="#butterfly-spread-using-calls" title="Permalink to this headline">#</a></h2>
+<p><img alt="image" src="_images/07-6-butterfly-spread-calls.png" /></p>
+</section>
+<section id="butterfly-spread-using-puts">
+<h2>Butterfly Spread Using Puts<a class="headerlink" href="#butterfly-spread-using-puts" title="Permalink to this headline">#</a></h2>
+<p><img alt="image" src="_images/07-7-butterfly-spread-puts.png" /></p>
+</section>
+<section id="calendar-spread-using-calls">
+<h2>Calendar Spread Using Calls<a class="headerlink" href="#calendar-spread-using-calls" title="Permalink to this headline">#</a></h2>
+<p><img alt="image" src="_images/07-8-calendar-spread-calls.png" /></p>
+</section>
+<section id="calendar-spread-using-puts">
+<h2>Calendar Spread Using Puts<a class="headerlink" href="#calendar-spread-using-puts" title="Permalink to this headline">#</a></h2>
+<p><img alt="image" src="_images/07-9-calendar-spread-puts.png" /></p>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -651,20 +679,6 @@ Options
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="05_intro.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Lecture 5</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="06_intro.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Lecture 6</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
 </div>
             </footer>
         </div>

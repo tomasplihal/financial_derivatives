@@ -1,0 +1,806 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Practice Questions and Problems &#8212; Financial Derivatives</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Lecture 4" href="04_intro.html" />
+    <link rel="prev" title="Forward Rate Agreement (FRA)" href="03_fra.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Financial Derivatives</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to the financial derivatives course
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="01_intro.html">
+   Lecture 1
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_introduction.html">
+     Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_types_of_derivatives.html">
+     Types of Derivatives
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_types_of_trades.html">
+     Types of Trades
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_criticism.html">
+     Criticisms and Misuses of Derivatives
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_interest_rates.html">
+     Interest Rates
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_time_value_of_money.html">
+     Time Value of Money
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_compound_interest.html">
+     Compound Interest
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_practice_questions.html">
+     Practice Questions and Problems
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="02_intro.html">
+   Lecture 2
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_forwards_and_futures.html">
+     Forwards and Futures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_futures_markets.html">
+     Mechanics of Forward/Futures Markets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_futures_hedging.html">
+     Hedging Strategies Using Futures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_practice_questions.html">
+     Practice Questions and Problems
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="03_intro.html">
+   Lecture 3
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_forward_pricing_intro.html">
+     Determination of Forward and Futures Prices
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_forward_price_and_value.html">
+     Forward Price for an Investment Asset
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_forward_prices_specific.html">
+     Forward Price for Specific Assets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_fra.html">
+     Forward Rate Agreement (FRA)
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Practice Questions and Problems
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="04_intro.html">
+   Lecture 4
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_nature_of_swaps.html">
+     Nature of Swaps
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_interest_rate_swaps.html">
+     Interest Rate Swaps
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_currency_swaps.html">
+     Currency Swaps
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_other_swaps.html">
+     Other Types of Swaps
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05_intro.html">
+   Lecture 5
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06_intro.html">
+   Lecture 6
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07_intro.html">
+   Lecture 7
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08_intro.html">
+   Lecture 8
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09_intro.html">
+   Lecture 9
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10_intro.html">
+   Lecture 10
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_intro.html">
+   Lecture 11
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="12_intro.html">
+   Lecture 12
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/03_practice_questions.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#determination-of-forward-and-futures-prices">
+   Determination of Forward and Futures Prices
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Practice Questions and Problems</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#determination-of-forward-and-futures-prices">
+   Determination of Forward and Futures Prices
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="practice-questions-and-problems">
+<h1>Practice Questions and Problems<a class="headerlink" href="#practice-questions-and-problems" title="Permalink to this headline">#</a></h1>
+<section id="determination-of-forward-and-futures-prices">
+<h2>Determination of Forward and Futures Prices<a class="headerlink" href="#determination-of-forward-and-futures-prices" title="Permalink to this headline">#</a></h2>
+<ol class="simple">
+<li><p>Explain what happens when an investor shorts a certain share.</p></li>
+<li><p>What is the difference between the forward price and the value of a forward
+contract?</p></li>
+<li><p>Suppose that you enter into a three-month forward contract on a
+non-dividend-paying stock when the stock price is $108 and the risk-free
+interest rate (with continuous compounding) is 4% per annum. What is the forward
+price?</p></li>
+<li><p>A stock index currently stands at 725. The risk-free interest rate is 7.6%
+per annum (with continuous compounding) and the dividend yield on the index is
+1.8% per annum. What should the futures price for a three-month contract be?</p></li>
+<li><p>Explain carefully why the futures price of gold can be calculated from its
+spot price and other observable variables whereas the futures price of copper
+cannot.</p></li>
+<li><p>What is meant by (a) an investment asset and (b) a consumption asset. Why is
+the distinction between investment and consumption assets important in the
+determination of forward and futures prices?</p></li>
+<li><p>Explain carefully the meaning of the terms convenience yield and cost of
+carry. What is the relationship between futures price, spot price, convenience
+yield, and cost of carry?</p></li>
+<li><p>What is the cost of carry for (a) a non-dividend-paying stock, (b) a stock
+index, (c) a commodity with storage costs, and (d) a foreign currency?</p></li>
+<li><p>A four-months long forward contract on a non-dividend-paying stock is entered
+into when the stock price is $150 and the risk-free rate of interest is 5.7%
+per annum with continuous compounding.</p>
+<ul class="simple">
+<li><p>a) What are the forward price and the initial value of the forward contract?</p></li>
+<li><p>b) Two months later, the price of the stock is $168 and the risk-free
+interest rate is still 5.7%. What are the forward price and the value of the
+forward contract?</p></li>
+</ul>
+</li>
+<li><p>The risk-free rate of interest is 4.1% per annum with continuous compounding,
+and the dividend yield on a stock index is 6.2% per annum. The current value of
+the index is 2445. What is the one-month futures price?</p></li>
+<li><p>Suppose that the risk-free interest rate is 3.00% per annum with continuous
+compounding and that the dividend yield on a stock index is 0.60% per annum. The
+index is standing at 3646, and the futures price for a contract deliverable in
+ten months is 3701. What arbitrage opportunities does this create?</p></li>
+<li><p>The eight-month interest rates in Switzerland and the United States are,
+respectively, 3.60% and 5.40% per annum with continuous compounding. The spot
+price of the Swiss franc is $0.9. The futures price for a contract deliverable
+in two months is also $0.9. What arbitrage opportunities does this create?</p></li>
+<li><p>The spot price of silver is $11 per ounce. The storage costs are $0.25 per
+ounce per year payable quarterly in advance. Assuming that interest rates are
+1.80% per annum for all maturities, calculate the futures price of silver for
+delivery in nine months.</p></li>
+<li><p>An index is 550. The three-month risk-free rate is 4.60% per annum and the
+dividend yield over the next three months is 5.80% per annum. The six-month
+risk-free rate is 5.34% per annum and the dividend yield over the next six
+months is 4.93% per annum. Estimate the futures price of the index for
+three-month and six-month contracts. All interest rates and dividend yields are
+continuously compounded.</p></li>
+<li><p>The spot price of oil is $39 per barrel and the cost of storing a barrel of
+oil for one year is $1.2, payable at the end of the year. The risk-free
+interest rate is 8.60% per annum, continuously compounded. What is an upper
+bound for the one-year futures price of oil?</p></li>
+<li><p>When a known future cash outflow in a foreign currency is hedged by a
+company using a forward contract, there is no foreign exchange risk. When it is
+hedged using futures contracts, the daily settlement process does leave the
+company exposed to some risk. Explain the nature of this risk. In particular,
+consider whether the company is better off using a futures contract or a forward
+contract when</p>
+<ul class="simple">
+<li><p>a) The value of the foreign currency falls rapidly during the life of the
+contract</p></li>
+<li><p>b) The value of the foreign currency rises rapidly during the life of the
+contract</p></li>
+<li><p>c) The value of the foreign currency first rises and then falls back to its
+initial value</p></li>
+<li><p>d) The value of the foreign currency first falls and then rises back to its
+initial value</p></li>
+<li><p>Assume that the forward price equals the futures price.</p></li>
+</ul>
+</li>
+</ol>
+<!-- ## Solutions - Determination of Forward and Futures Prices
+
+1. Explain what happens when an investor shorts a certain share.
+    - (Problem 5.1., Hull 2018) The investor's broker borrows the shares from
+    another client's account and sells them in the usual way. To close out the
+    position, the investor must purchase the shares. The broker then replaces
+    them in the account of the client from whom they were borrowed. The party
+    with the short position must remit to the broker dividends and other income
+    paid on the shares. The broker transfers these funds to the account of the
+    client from whom the shares were borrowed. Occasionally the broker runs out
+    of places from which to borrow the shares. The investor is then short
+    squeezed and has to close out the position immediately. A fee may be charged
+    for borrowing shares.
+2. What is the difference between the forward price and the value of a forward
+contract?
+    - (Problem 5.2., Hull 2018) The forward price of an asset today is the price
+    at which you would agree to buy or sell the asset at a future time. The
+    value of a forward contract is zero when you first enter into it. As time
+    passes the underlying asset price changes and the value of the contract may
+    become positive or negative.
+3. Suppose that you enter into a three-month forward contract on a
+non-dividend-paying stock when the stock price is \$108 and the risk-free
+interest rate (with continuous compounding) is 4% per annum. What is the forward
+price?
+    - (Problem 5.3., Hull 2018) The forward price is: 
+    $ 108 e^{ 0.04 \times (3/12) } = 109.085 $
+4. A stock index currently stands at 725. The risk-free interest rate is 7.6%
+per annum (with continuous compounding) and the dividend yield on the index is
+1.8% per annum. What should the futures price for a three-month contract be?
+    - (Problem 5.4., Hull 2018) The futures price is:
+    $ 725 e^{ (0.076 - 0.018) \times (3/12) } = 735.589 $
+5. Explain carefully why the futures price of gold can be calculated from its
+spot price and other observable variables whereas the futures price of copper
+cannot.
+    - (Problem 5.5., Hull 2018) Gold is an investment asset. If the futures
+    price is too high, investors will find it profitable to increase their
+    holdings of gold and short futures contracts. If the futures price is too
+    low, they will find it profitable to decrease their holdings of gold and go
+    long in the futures market. Copper is a consumption asset. If the futures
+    price is too high, a strategy of buy copper and short futures works.
+    However, because investors do not in general hold the asset, the strategy of
+    sell copper and buy futures is not available to them. There is therefore an
+    upper bound, but no lower bound, to the futures price.
+6. What is meant by (a) an investment asset and (b) a consumption asset. Why is
+the distinction between investment and consumption assets important in the
+determination of forward and futures prices?
+    - (Problem 5.24., Hull 2018) An investment asset is an asset held for
+    investment by a significant number of people or companies. A consumption
+    asset is an asset that is nearly always held to be consumed (either directly
+    or in some sort of manufacturing process). The forward/futures price can be
+    determined from the spot price for an investment asset. In the case of a
+    consumption asset all that can be determined is an upper bound for the
+    forward/futures price.
+7. Explain carefully the meaning of the terms convenience yield and cost of
+carry. What is the relationship between futures price, spot price, convenience
+yield, and cost of carry?
+    - (Problem 5.6., Hull 2018) Convenience yield measures the extent to which
+    there are benefits obtained from ownership of the physical asset that are
+    not obtained by owners of long futures contracts. The cost of carry is the
+    interest cost plus storage cost less the income earned. The futures price,
+    $F_0$, and spot price, $S_0$, are related by $F_0 = S_0 e^{(c-y)T}$ where
+    $c$ is the cost of carry, $y$ is the convenience yield, and $T$ is the time
+    to maturity of the futures contract.
+8. What is the cost of carry for (a) a non-dividend-paying stock, (b) a stock
+index, (c) a commodity with storage costs, and (d) a foreign currency?
+    - (Problem 5.25., Hull 2018) 
+    - a) the risk-free rate, 
+    - b) the excess of the risk-free rate over the dividend yield 
+    - c) the risk-free rate plus the storage cost, 
+    - d) the excess of the domestic risk-free rate over the foreign risk- free
+    rate.
+9. A four-months long forward contract on a non-dividend-paying stock is entered
+into when the stock price is \$150 and the risk-free rate of interest is 5.7%
+per annum with continuous compounding.
+    - a) What are the forward price and the initial value of the forward contract?
+    - b) Two months later, the price of the stock is \$168 and the risk-free
+    interest rate is still 5.7%. What are the forward price and the value of the
+    forward contract?
+    - (Problem 5.9., Hull 2018) The forward price is 
+    $ 150 e^{ 0.057 \times (4/12) } = 152.88 $. 
+    The initial value of the forward contract is zero. 
+    - b) The delivery price $K$ in the contract is 152.88. The value of the contract, $f$, after 2 months is given by: 
+    $ \text{value} = 168 - 152.88 e^ { -0.057 \times (2 / 12) } = 16.57  $.
+    - The forward price is $ 168 e^{ 0.057 \times (2/12) }  = 169.6 $
+10. The risk-free rate of interest is 4.1% per annum with continuous compounding,
+and the dividend yield on a stock index is 6.2% per annum. The current value of
+the index is 2445. What is the one-month futures price?
+    - (Problem 5.10., Hull 2018) The futures price is: 
+    $ 2445 e^{ (0.041 - 0.062) \times (1/12) } = 2440.725 $
+11. Suppose that the risk-free interest rate is 3.00% per annum with continuous
+compounding and that the dividend yield on a stock index is 0.60% per annum. The
+index is standing at 3646, and the futures price for a contract deliverable in
+ten months is 3701. What arbitrage opportunities does this create?
+    - (Problem 5.12., Hull 2018) The theoretical futures price is 
+    $ 3646 e^{ (0.03 - 0.006) \times (10/12) } = 3719.654 $
+    - The actual futures price is only 3701. This shows that the index futures
+    price is too low relative to the index. The correct arbitrage strategy is 
+      1. Buy futures contracts 
+      2. Short the shares underlying the index.
+12. The eight-month interest rates in Switzerland and the United States are,
+respectively, 3.60% and 5.40% per annum with continuous compounding. The spot
+price of the Swiss franc is \$0.9. The futures price for a contract deliverable
+in two months is also \$0.9. What arbitrage opportunities does this create?
+    - (Problem 5.14., Hull 2018) The theoretical futures price is: 
+    $ 0.9 e^{ (0.036 - 0.054) \times 8/12 } = 0.911 $
+    The actual futures price is too low. This suggests that a Swiss arbitrageur
+    should sell Swiss francs for US dollars and buy Swiss francs back in the
+    futures market.
+13. The spot price of silver is \$11 per ounce. The storage costs are \$0.25 per
+ounce per year payable quarterly in advance. Assuming that interest rates are
+1.80% per annum for all maturities, calculate the futures price of silver for
+delivery in nine months.
+    - (Problem 5.15., Hull 2018) The present value of the storage costs for nine
+    months are
+    $ 0.25 + 0.25\times e^{ -0.018 \times 0.25 } + 0.25 \times e^{ -0.018 \times 0.5 } = 0.7466 $. 
+    - The futures price is given by $ (11 + 0.7466)e^{ 0.018 \times 0.75 } = 11.91 $. 
+14. An index is 550. The three-month risk-free rate is 4.60% per annum and the
+dividend yield over the next three months is 5.80% per annum. The six-month
+risk-free rate is 5.34% per annum and the dividend yield over the next six
+months is 4.93% per annum. Estimate the futures price of the index for
+three-month and six-month contracts. All interest rates and dividend yields are
+continuously compounded.
+    - (Problem 5.27., Hull 2018) The futures price for the three month contract
+    is
+    $ 550 e^{ (0.046 - 0.058) \times (3 / 12) } = 548.352 $ 
+    - The futures price for the six month contract is 
+    $ 550 e^{ (0.0534 - 0.0493) \times (6 /12) } = 551.129 $
+15. The spot price of oil is \$39 per barrel and the cost of storing a barrel of
+oil for one year is \$1.2, payable at the end of the year. The risk-free
+interest rate is 8.60% per annum, continuously compounded. What is an upper
+bound for the one-year futures price of oil?
+    - (Problem 5.29., Hull 2018) The present value of the storage costs per
+    barrel is
+    $ 1.2 e^{ -0.086 \times 1 } = 1.1 $
+    - An upper bound to the one-year futures price is 
+    $ (39 + 1.1) e^{ 0.086 \times 1} = 43.81 $
+16. When a known future cash outflow in a foreign currency is hedged by a
+company using a forward contract, there is no foreign exchange risk. When it is
+hedged using futures contracts, the daily settlement process does leave the
+company exposed to some risk. Explain the nature of this risk. In particular,
+consider whether the company is better off using a futures contract or a forward
+contract when
+    - a) The value of the foreign currency falls rapidly during the life of the
+    contract
+    - b) The value of the foreign currency rises rapidly during the life of the
+    contract
+    - c) The value of the foreign currency first rises and then falls back to its
+    initial value
+    - d) The value of the foreign currency first falls and then rises back to its
+    initial value
+    - Assume that the forward price equals the futures price.
+    - (Problem 5.17., Hull 2018) In total the gain or loss under a futures
+    contract is equal to the gain or loss under the corresponding forward
+    contract. However the timing of the cash flows is different. When the time
+    value of money is taken into account a futures contract may prove to be more
+    valuable or less valuable than a forward contract. Of course the company
+    does not know in advance which will work out better. The long forward
+    contract provides a perfect hedge. The long futures contract provides a
+    slightly imperfect hedge. 
+    a) In this case the forward contract would lead to a slightly better
+    outcome. The company will make a loss on its hedge. If the hedge is with a
+    forward contract the whole of the loss will be realized at the end. If it is
+    with a futures contract the loss will be realized day by day throughout the
+    contract. On a present value basis the former is preferable. 
+    - b) In this case the futures contract would lead to a slightly better
+    outcome. The company will make a gain on the hedge. If the hedge is with a
+    forward contract the gain will be realized at the end. If it is with a
+    futures contract the gain will be realized day by day throughout the life of
+    the contract. On a present value basis the latter is preferable. 
+    - c) In this case the futures contract would lead to a slightly better
+    outcome. This is because it would involve positive cash flows early and
+    negative cash flows later. 
+    - d) In this case the forward contract would lead to a slightly better
+    outcome. This is because, in the case of the futures contract, the early
+    cash flows would be negative and the later cash flow would be positive. --></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="03_fra.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Forward Rate Agreement (FRA)</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="04_intro.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lecture 4</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Tomáš Plíhal, Institute of Financial Complex Systems - Department of Finance<br/>
+  
+      &copy; Copyright Masaryk University, 2023.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Introduction to Black-Scholes-Merton Model &#8212; Financial Derivatives</title>
+    <title>Black-Scholes-Merton Model &#8212; Financial Derivatives</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -230,6 +230,11 @@ const thebe_selector_output = ".output, .cell_output"
      Forward Rate Agreement (FRA)
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_practice_questions.html">
+     Practice Questions and Problems
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
@@ -264,22 +269,10 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1">
   <a class="reference internal" href="05_intro.html">
    Lecture 5
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="05_option_markets.html">
-     Mechanics of option market and properties of options
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="06_intro.html">
@@ -450,6 +443,11 @@ title="Print to PDF"
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
+   Black-Scholes-Merton Model
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction-to-black-scholes-merton-model">
    Introduction to Black-Scholes-Merton Model
   </a>
  </li>
@@ -472,7 +470,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Introduction to Black-Scholes-Merton Model</h1>
+                <h1>Black-Scholes-Merton Model</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -484,6 +482,11 @@ title="Print to PDF"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
+   Black-Scholes-Merton Model
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction-to-black-scholes-merton-model">
    Introduction to Black-Scholes-Merton Model
   </a>
  </li>
@@ -507,22 +510,12 @@ title="Print to PDF"
                 
               <div>
                 
-  <p>::: frame
-:::</p>
-<p>::: frame
-Table of contents [sections numbered]
-:::</p>
-<p>::: frame
-References HULL, John. 2018. Options, futures, and other derivatives.
-Ninth edition. Harlow: Pearson. ISBN 978-1-292-21289-0.</p>
-<ul class="simple">
-<li><p>Chapter 15. Black-Scholes-Merton Model
-:::</p></li>
-</ul>
+  <section class="tex2jax_ignore mathjax_ignore" id="black-scholes-merton-model">
+<h1>Black-Scholes-Merton Model<a class="headerlink" href="#black-scholes-merton-model" title="Permalink to this headline">#</a></h1>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-black-scholes-merton-model">
 <h1>Introduction to Black-Scholes-Merton Model<a class="headerlink" href="#introduction-to-black-scholes-merton-model" title="Permalink to this headline">#</a></h1>
-<p>::: frame
-Model Assumptions</p>
+<p>Model Assumptions</p>
 <ul class="simple">
 <li><p>The options are European-style (early exercise is not allowed).</p></li>
 <li><p>There are no dividends during the life of the derivative.</p></li>
@@ -537,16 +530,14 @@ constant.</p></li>
 <li><p>The underlying follows a geometric Brownian motion statistical
 process (continuous prices with no jumps).</p></li>
 <li><p>Continuous trading is available (one must be able to trade at every
-instant) and the underlying instrument has perfect liquidity.
-:::</p></li>
+instant) and the underlying instrument has perfect liquidity.</p></li>
 </ul>
-<p>::: frame
-The Black-Scholes-Merton Formulas for Options</p>
+<p>The Black-Scholes-Merton Formulas for Options</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(N(x)\)</span>…the standard normal cumulative distribution function;
-<span class="math notranslate nohighlight">\(r\)</span>…annualized continuously compounded risk-free rate; <span class="math notranslate nohighlight">\(\sigma\)</span>…
-annualized constant volatility; <span class="math notranslate nohighlight">\(S\)</span>…stock price; <span class="math notranslate nohighlight">\(K\)</span>…strike
-price; <span class="math notranslate nohighlight">\(T\)</span>…time to expiration for the option (in years)</p></li>
+<span class="math notranslate nohighlight">\(r\)</span>…annualized continuously compounded risk-free rate; <span class="math notranslate nohighlight">\(\sigma\)</span>…  annualized
+constant volatility; <span class="math notranslate nohighlight">\(S\)</span>…stock price; <span class="math notranslate nohighlight">\(K\)</span>…strike price; <span class="math notranslate nohighlight">\(T\)</span>…time to
+expiration for the option (in years)</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[c = S_0 N(d_1) - K e^{-rT} N(d_2)\]</div>
@@ -555,74 +546,56 @@ price; <span class="math notranslate nohighlight">\(T\)</span>…time to expirat
 <p>where
 $<span class="math notranslate nohighlight">\(d_1 = \frac{\ln (S_0 / K) + (r + \sigma^2 / 2)T}{\sigma \sqrt{T}}\)</span><span class="math notranslate nohighlight">\(
 \)</span><span class="math notranslate nohighlight">\(d_2 = \frac{\ln (S_0 / K) + (r - \sigma^2 / 2)T}{\sigma \sqrt{T}} =
-        d_1 - \sigma \sqrt{T}\)</span>$
-:::</p>
-<p>::: frame
-The N(x) Function</p>
+        d_1 - \sigma \sqrt{T}\)</span>$</p>
+<p>The N(x) Function</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(N(x)\)</span> is the probability that a normally distributed variable with
-a mean of zero and a standard deviation of 1 is less than <span class="math notranslate nohighlight">\(x\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(N(x)\)</span> is the probability that a normally distributed variable with a mean of
+zero and a standard deviation of 1 is less than <span class="math notranslate nohighlight">\(x\)</span></p></li>
 <li><p>See tables at the end of the book or function NORMDIST in excel</p></li>
 </ul>
-<p>::: center
-<img alt="image" src="images/08-2-nx.png" />{width=”3.5in”}
-:::
-:::</p>
-<p>::: frame
-Understanding Black-Scholes I</p>
+<p><img alt="image" src="_images/08-2-nx.png" /></p>
+<p>Understanding Black-Scholes I</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(N(d_2)\)</span>…Probability of exercise (at maturity)</p></li>
-<li><p><span class="math notranslate nohighlight">\(S_0 e^{rT} N(d_1)\)</span>…The expected stock price at maturity in a
-risk-neutral world when stock prices less than the strike price are
-counted as zero.</p></li>
+<li><p><span class="math notranslate nohighlight">\(S_0 e^{rT} N(d_1)\)</span>…The expected stock price at maturity in a risk-neutral
+world when stock prices less than the strike price are counted as zero.</p></li>
 <li><p>The expected payoff is therefore $<span class="math notranslate nohighlight">\(S_0 e^{rT} N(d_1) - K N(d_2)\)</span>$</p></li>
-<li><p>Calculate present value to get $<span class="math notranslate nohighlight">\(c = S_0 N(d_1) - K e^{-rT} N(d_2)\)</span>$
-:::</p></li>
+<li><p>Calculate present value to get $<span class="math notranslate nohighlight">\(c = S_0 N(d_1) - K e^{-rT} N(d_2)\)</span>$</p></li>
 </ul>
-<p>::: frame
-Understanding Black-Scholes II
+<p>Understanding Black-Scholes II
 $<span class="math notranslate nohighlight">\(c = e^{-rT} N(d_2) \left( S_0 e^{rT} N(d_1) / N(d_2) - K \right)\)</span>$</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(e^{-rT}\)</span>…Present value factor</p></li>
 <li><p><span class="math notranslate nohighlight">\(N(d_2)\)</span>…Probability of exercise (at maturity)</p></li>
-<li><p><span class="math notranslate nohighlight">\(S_0 e^{rT} N(d_1) / N(d_2)\)</span>…Expected stock price in a
-risk-neutral world if option is exercised</p></li>
-<li><p><span class="math notranslate nohighlight">\(K\)</span>…Strike price paid if option is exercised
-:::</p></li>
+<li><p><span class="math notranslate nohighlight">\(S_0 e^{rT} N(d_1) / N(d_2)\)</span>…Expected stock price in a risk-neutral world if
+option is exercised</p></li>
+<li><p><span class="math notranslate nohighlight">\(K\)</span>…Strike price paid if option is exercised</p></li>
 </ul>
-<p>::: frame
-Risk-Neutral Valuation</p>
+<p>Risk-Neutral Valuation</p>
 <ul class="simple">
-<li><p>The variable <span class="math notranslate nohighlight">\(\mu\)</span> does not appear in the Black-Scholes-Merton
-differential equation.</p></li>
-<li><p>The equation is independent of all variables affected by risk
-preference.</p></li>
-<li><p>The solution to the differential equation is therefore the same in a
-risk-free world as it is in the real world.</p></li>
+<li><p>The variable <span class="math notranslate nohighlight">\(\mu\)</span> does not appear in the Black-Scholes-Merton differential
+equation.</p></li>
+<li><p>The equation is independent of all variables affected by risk preference.</p></li>
+<li><p>The solution to the differential equation is therefore the same in a risk-free
+world as it is in the real world.</p></li>
 <li><p>This leads to the principle of risk-neutral valuation.</p></li>
 </ul>
 <p><strong>Applying Risk-Neutral Valuation:</strong></p>
 <ol class="simple">
-<li><p>Assume that the expected return from the stock price is the
-risk-free rate</p></li>
+<li><p>Assume that the expected return from the stock price is the risk-free rate</p></li>
 <li><p>Calculate the expected payoff from the option</p></li>
-<li><p>Discount at the risk-free rate
-:::</p></li>
+<li><p>Discount at the risk-free rate</p></li>
 </ol>
-<p>::: frame
-Properties of Black-Scholes Formula</p>
+<p>Properties of Black-Scholes Formula</p>
 <ul class="simple">
-<li><p>As <span class="math notranslate nohighlight">\(S_0\)</span> becomes very large <span class="math notranslate nohighlight">\(c\)</span> tends to <span class="math notranslate nohighlight">\(S_0 - Ke^{-rT}\)</span> because
-<span class="math notranslate nohighlight">\(d_1\)</span> and <span class="math notranslate nohighlight">\(d_2\)</span> become very large, and <span class="math notranslate nohighlight">\(N(d_1)\)</span> and <span class="math notranslate nohighlight">\(N(d_2)\)</span> become
-close to 1.</p></li>
-<li><p>On the other hand, <span class="math notranslate nohighlight">\(p\)</span> tends to zero because <span class="math notranslate nohighlight">\(N(-d_1)\)</span> and
-<span class="math notranslate nohighlight">\(N(- d_2)\)</span> become close to 0.</p></li>
-<li><p>As <span class="math notranslate nohighlight">\(S_0\)</span> becomes very small <span class="math notranslate nohighlight">\(c\)</span> tends to zero and <span class="math notranslate nohighlight">\(p\)</span> tends to
-<span class="math notranslate nohighlight">\(Ke^{-rT} - S_0\)</span>
-:::</p></li>
+<li><p>As <span class="math notranslate nohighlight">\(S_0\)</span> becomes very large <span class="math notranslate nohighlight">\(c\)</span> tends to <span class="math notranslate nohighlight">\(S_0 - Ke^{-rT}\)</span> because <span class="math notranslate nohighlight">\(d_1\)</span> and
+<span class="math notranslate nohighlight">\(d_2\)</span> become very large, and <span class="math notranslate nohighlight">\(N(d_1)\)</span> and <span class="math notranslate nohighlight">\(N(d_2)\)</span> become close to 1.</p></li>
+<li><p>On the other hand, <span class="math notranslate nohighlight">\(p\)</span> tends to zero because <span class="math notranslate nohighlight">\(N(-d_1)\)</span> and <span class="math notranslate nohighlight">\(N(- d_2)\)</span> become
+close to 0.</p></li>
+<li><p>As <span class="math notranslate nohighlight">\(S_0\)</span> becomes very small <span class="math notranslate nohighlight">\(c\)</span> tends to zero and <span class="math notranslate nohighlight">\(p\)</span> tends to <span class="math notranslate nohighlight">\(Ke^{-rT} -
+S_0\)</span></p></li>
 </ul>
-<p>::: frame
-Black-Scholes-Merton Model Example</p>
+<p>Black-Scholes-Merton Model Example</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(S_0 = 42\)</span>, <span class="math notranslate nohighlight">\(K = 40\)</span>, <span class="math notranslate nohighlight">\(r = 0.1\)</span>, <span class="math notranslate nohighlight">\(\sigma = 0.2\)</span>, <span class="math notranslate nohighlight">\(T = 0.5\)</span></p></li>
 </ul>
@@ -632,10 +605,8 @@ Black-Scholes-Merton Model Example</p>
 \[p = K e^{-rT} N(-d_2) - S_0 N(-d_1)\]</div>
 <p>where
 $<span class="math notranslate nohighlight">\(d_1 = \frac{\ln (S_0 / K) + (r + \sigma^2 / 2)T}{\sigma \sqrt{T}}\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(d_2 = d_1 - \sigma \sqrt{T}\)</span>$
-:::</p>
-<p>::: frame
-Black-Scholes-Merton Model Example</p>
+\)</span><span class="math notranslate nohighlight">\(d_2 = d_1 - \sigma \sqrt{T}\)</span>$</p>
+<p>Black-Scholes-Merton Model Example</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(S_0 = 42\)</span>, <span class="math notranslate nohighlight">\(K = 40\)</span>, <span class="math notranslate nohighlight">\(r = 0.1\)</span>, <span class="math notranslate nohighlight">\(\sigma = 0.2\)</span>, <span class="math notranslate nohighlight">\(T = 0.5\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(d_1 = \frac{\ln (42/40) + (0.1 + 0.2^2 / 2) \times0.5 }{0.2 \sqrt{0.5}} = 0.7693\)</span></p></li>
@@ -652,138 +623,112 @@ Black-Scholes-Merton Model Example</p>
 \[c = 42 \times 0.7791 - 38.049 \times 0.7349 = 4.76\]</div>
 <div class="math notranslate nohighlight">
 \[p = 38.049 \times 0.2651 - 42 \times 0.2209 = 0.81\]</div>
-<p>:::</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="volatility">
 <h1>Volatility<a class="headerlink" href="#volatility" title="Permalink to this headline">#</a></h1>
-<p>::: frame
-Historical Volatility</p>
+<p>Historical Volatility</p>
 <ul class="simple">
-<li><p>The volatility is the standard deviation of the continuously
-compounded rate of return in 1 year</p></li>
-<li><p>The standard deviation of the return in a short time period
-<span class="math notranslate nohighlight">\(\Delta t\)</span> is approx. <span class="math notranslate nohighlight">\(\sigma \sqrt{\Delta t}\)</span></p></li>
-<li><p>If a stock price is USD 30 and its volatility is 25% per year what
-is the standard deviation of the price change in one day?
-$<span class="math notranslate nohighlight">\(\sigma \sqrt{\Delta
-                      t} = 30 \times \sqrt{\frac{1}{252}} = 1.89\)</span>$</p></li>
-<li><p>On the other hand, when you calculate volatility as a standard
-deviation of daily returns, you can multiply the result by
-<span class="math notranslate nohighlight">\(\sqrt{252}\)</span> to obtain annulized volatility.
-:::</p></li>
+<li><p>The volatility is the standard deviation of the continuously compounded rate
+of return in 1 year</p></li>
+<li><p>The standard deviation of the return in a short time period <span class="math notranslate nohighlight">\(\Delta t\)</span> is
+approx. <span class="math notranslate nohighlight">\(\sigma \sqrt{\Delta t}\)</span></p></li>
+<li><p>If a stock price is USD 30 and its volatility is 25% per year what is the
+standard deviation of the price change in one day?</p></li>
 </ul>
-<p>::: frame
-Nature of Volatility (Business Snapshot 15.2)</p>
+<div class="math notranslate nohighlight">
+\[\sigma \sqrt{\Delta t} = 30 \times \sqrt{\frac{1}{252}} = 1.89\]</div>
 <ul class="simple">
-<li><p>Volatility is usually much greater when the market is open (i.e. the
-asset is trading) than when it is closed.</p></li>
-<li><p>For this reason time is usually measured in [trading days]{.alert}
-not calendar days when options are valued.</p></li>
-<li><p>It is assumed that there are 252 trading days in one year for most
-assets</p></li>
-<li><p>Suppose it is April 1 and an option lasts to April 30 so that the
-number of days remaining is 30 calendar days or 22 trading days</p></li>
-<li><p>The time to maturity would be assumed to be 22/252 = 0.0873 years
-:::</p></li>
+<li><p>On the other hand, when you calculate volatility as a standard deviation of
+daily returns, you can multiply the result by <span class="math notranslate nohighlight">\(\sqrt{252}\)</span> to obtain annulized
+volatility.</p></li>
 </ul>
-<p>::: frame
-Implied Volatility</p>
+<p>Nature of Volatility (Business Snapshot 15.2)</p>
+<ul class="simple">
+<li><p>Volatility is usually much greater when the market is open (i.e. the asset is
+trading) than when it is closed.</p></li>
+<li><p>For this reason time is usually measured in [trading days]{.alert} not
+calendar days when options are valued.</p></li>
+<li><p>It is assumed that there are 252 trading days in one year for most assets</p></li>
+<li><p>Suppose it is April 1 and an option lasts to April 30 so that the number of
+days remaining is 30 calendar days or 22 trading days</p></li>
+<li><p>The time to maturity would be assumed to be 22/252 = 0.0873 years</p></li>
+</ul>
+<p>Implied Volatility</p>
 <ul class="simple">
 <li><p>Option’s value is particularly sensitive to volatility.</p></li>
-<li><p>Unlike the price of the underlying, volatility is not an observable
-value in the marketplace.</p></li>
-<li><p>Volatility can be, and often is, estimated based on a sample of
-historical data.</p></li>
-<li><p>Volatility can also be inferred from option prices. This inferred
-volatility is called the [implied volatility]{.alert}.</p></li>
+<li><p>Unlike the price of the underlying, volatility is not an observable value in
+the marketplace.</p></li>
+<li><p>Volatility can be, and often is, estimated based on a sample of historical
+data.</p></li>
+<li><p>Volatility can also be inferred from option prices. This inferred volatility
+is called the <strong>implied volatility</strong>.</p></li>
 <li><p>The implied volatility of an option is the volatility for which the
 Black-Scholes-Merton price equals the market price</p></li>
-<li><p>The key advantage in using implied volatility is that it provides
-information regarding the market’s perception of uncertainty going
-forward.
-:::</p></li>
+<li><p>The key advantage in using implied volatility is that it provides information
+regarding the market’s perception of uncertainty going forward.</p></li>
 </ul>
-<p>::: frame
-The VIX S&amp;P500 Volatility Index
-<img alt="image" src="images/08-3-vix.png" />{width=”3.3in”}</p>
-<p>Chapter 26 explains how the index is calculated
-:::</p>
-<p>::: frame
-Implied Volatility in Option Trading</p>
+<p>The VIX S&amp;P500 Volatility Index</p>
+<p><img alt="image" src="_images/08-3-vix.png" /></p>
+<p>Chapter 26 explains how the index is calculated</p>
+<p>Implied Volatility in Option Trading</p>
 <ul class="simple">
-<li><p>Implied volatility can be interpreted as the market’s view of option
-value.</p></li>
-<li><p>In the option markets, participants use volatility as the medium in
-which to quote options. Rather than quote a call price as $10,
-traders may quote the implied volatility as 25%, which prices the
-option at $10.</p></li>
-<li><p>Implied volatility can be used to assess the relative value of
-different options, neutralizing the effects of moneyness and time to
-expiration (low implied volatility = cheap options)</p></li>
-<li><p>Implied volatility is useful for revaluing existing positions over
-time.</p></li>
-<li><p>Regulators, banks, compliance officers, and most option traders use
-implied volatilities to communicate information related to options
-portfolios.
-:::</p></li>
+<li><p>Implied volatility can be interpreted as the market’s view of option value.</p></li>
+<li><p>In the option markets, participants use volatility as the medium in which to
+quote options. Rather than quote a call price as $10, traders may quote the
+implied volatility as 25%, which prices the option at $10.</p></li>
+<li><p>Implied volatility can be used to assess the relative value of different
+options, neutralizing the effects of moneyness and time to expiration (low
+implied volatility = cheap options)</p></li>
+<li><p>Implied volatility is useful for revaluing existing positions over time.</p></li>
+<li><p>Regulators, banks, compliance officers, and most option traders use implied
+volatilities to communicate information related to options portfolios.</p></li>
 </ul>
-<p>::: frame
-Implied Volatility Summary</p>
+<p>Implied Volatility Summary</p>
 <ul class="simple">
-<li><p>Although historical volatility can be estimated, there is no
-objective measure of future volatility.</p></li>
-<li><p>Implied volatility is the BSM model volatility that yields the
-market option price.</p></li>
-<li><p>Implied volatility is a measure of future volatility, whereas
-historical volatility is a measure of past volatility.</p></li>
-<li><p>Option prices reflect the beliefs of option market participants
-about the future volatility of the underlying.</p></li>
-<li><p>The volatility smile is a two dimensional plot of the implied
-volatility with respect to the exercise price.</p></li>
-<li><p>The volatility surface is a three-dimensional plot of the implied
-volatility with respect to both expiration time and exercise prices.</p></li>
-<li><p>If the BSM model assumptions were true, then one would expect to
-find the volatility surface flat, but in practice, the volatility
-surface is not flat.
-:::</p></li>
+<li><p>Although historical volatility can be estimated, there is no objective measure
+of future volatility.</p></li>
+<li><p>Implied volatility is the BSM model volatility that yields the market option
+price.</p></li>
+<li><p>Implied volatility is a measure of future volatility, whereas historical
+volatility is a measure of past volatility.</p></li>
+<li><p>Option prices reflect the beliefs of option market participants about the
+future volatility of the underlying.</p></li>
+<li><p>The volatility smile is a two dimensional plot of the implied volatility with
+respect to the exercise price.</p></li>
+<li><p>The volatility surface is a three-dimensional plot of the implied volatility
+with respect to both expiration time and exercise prices.</p></li>
+<li><p>If the BSM model assumptions were true, then one would expect to find the
+volatility surface flat, but in practice, the volatility surface is not flat.</p></li>
 </ul>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="dividends">
 <h1>Dividends<a class="headerlink" href="#dividends" title="Permalink to this headline">#</a></h1>
-<p>::: frame
-Dividends</p>
 <ul class="simple">
-<li><p>European options on dividend-paying stocks are valued by
-substituting the stock price less the present value of dividends
-into Black-Scholes.</p></li>
-<li><p>Only dividends with ex-dividend dates during life of option should
-be included.</p></li>
-<li><p>The “dividend” should be the expected reduction in the stock price
-expected during the life of the option.
-:::</p></li>
+<li><p>European options on dividend-paying stocks are valued by substituting the
+stock price less the present value of dividends into Black-Scholes.</p></li>
+<li><p>Only dividends with ex-dividend dates during life of option should be
+included.</p></li>
+<li><p>The “dividend” should be the expected reduction in the stock price expected
+during the life of the option.</p></li>
 </ul>
-<p>::: frame
-American Calls</p>
+<p>American Calls</p>
 <ul class="simple">
-<li><p>An American call on a non-dividend-paying stock should never be
-exercised early</p></li>
-<li><p>An American call on a dividend-paying stock should only ever be
-exercised immediately prior to an ex-dividend date</p></li>
+<li><p>An American call on a non-dividend-paying stock should never be exercised
+early</p></li>
+<li><p>An American call on a dividend-paying stock should only ever be exercised
+immediately prior to an ex-dividend date</p></li>
 <li><p>Suppose dividend dates are at times <span class="math notranslate nohighlight">\(t_1, t_2, \dots t_n\)</span>.</p></li>
-<li><p>Early exercise is sometimes optimal at time <span class="math notranslate nohighlight">\(t_i\)</span> if the dividend at
-that time is greater than <span class="math notranslate nohighlight">\(K[1 - e^{-r (t_{i+1} - t_i)}]\)</span>
-:::</p></li>
+<li><p>Early exercise is sometimes optimal at time <span class="math notranslate nohighlight">\(t_i\)</span> if the dividend at that time
+is greater than <span class="math notranslate nohighlight">\(K[1 - e^{-r (t_{i+1} - t_i)}]\)</span></p></li>
 </ul>
-<p>::: frame
-Black’s Approximation for Dealing with Dividends in American Call
+<p>Black’s Approximation for Dealing with Dividends in American Call
 Options Set the American price equal to the maximum of two European
 prices:</p>
 <ol class="simple">
-<li><p>The 1st European price is for an option maturing at the same time as
-the American option</p></li>
-<li><p>The 2nd European price is for an option maturing just before the
-final ex-dividend date
-:::</p></li>
+<li><p>The 1st European price is for an option maturing at the same time as the
+American option</p></li>
+<li><p>The 2nd European price is for an option maturing just before the final
+ex-dividend date</p></li>
 </ol>
 </section>
 

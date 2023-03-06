@@ -1,0 +1,1084 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Mechanics of Options Markets &#8212; Financial Derivatives</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Financial Derivatives</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to the financial derivatives course
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="01_intro.html">
+   Lecture 1
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_introduction.html">
+     Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_types_of_derivatives.html">
+     Types of Derivatives
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_types_of_trades.html">
+     Types of Trades
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_criticism.html">
+     Criticisms and Misuses of Derivatives
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_interest_rates.html">
+     Interest Rates
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_time_value_of_money.html">
+     Time Value of Money
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_compound_interest.html">
+     Compound Interest
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_practice_questions.html">
+     Practice Questions and Problems
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="02_intro.html">
+   Lecture 2
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_forwards_and_futures.html">
+     Forwards and Futures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_futures_markets.html">
+     Mechanics of Forward/Futures Markets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_futures_hedging.html">
+     Hedging Strategies Using Futures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_practice_questions.html">
+     Practice Questions and Problems
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="03_intro.html">
+   Lecture 3
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_forward_pricing_intro.html">
+     Determination of Forward and Futures Prices
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_forward_price_and_value.html">
+     Forward Price for an Investment Asset
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_forward_prices_specific.html">
+     Forward Price for Specific Assets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_fra.html">
+     Forward Rate Agreement (FRA)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_practice_questions.html">
+     Practice Questions and Problems
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="04_intro.html">
+   Lecture 4
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_nature_of_swaps.html">
+     Nature of Swaps
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_interest_rate_swaps.html">
+     Interest Rate Swaps
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_currency_swaps.html">
+     Currency Swaps
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_other_swaps.html">
+     Other Types of Swaps
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05_intro.html">
+   Lecture 5
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06_intro.html">
+   Lecture 6
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07_intro.html">
+   Lecture 7
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08_intro.html">
+   Lecture 8
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09_intro.html">
+   Lecture 9
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10_intro.html">
+   Lecture 10
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_intro.html">
+   Lecture 11
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="12_intro.html">
+   Lecture 12
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/05_mechanics_of_options_market.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/05_mechanics_of_options_market.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="_sources/05_mechanics_of_options_market.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#options">
+   Options
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#option-positions">
+   Option Positions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#option-payoffs">
+   Option Payoffs
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#option-profit">
+   Option Profit
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#other-option-characteristics">
+   Other Option Characteristics
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dividends-and-stock-splits">
+   Dividends and Stock Splits
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#other-assets-related-to-options">
+   Other Assets Related to Options
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Mechanics of Options Markets</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#options">
+   Options
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#option-positions">
+   Option Positions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#option-payoffs">
+   Option Payoffs
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#option-profit">
+   Option Profit
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#other-option-characteristics">
+   Other Option Characteristics
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dividends-and-stock-splits">
+   Dividends and Stock Splits
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#other-assets-related-to-options">
+   Other Assets Related to Options
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="mechanics-of-options-markets">
+<h1>Mechanics of Options Markets<a class="headerlink" href="#mechanics-of-options-markets" title="Permalink to this headline">#</a></h1>
+<section id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">#</a></h2>
+<div class="tip admonition">
+<p class="admonition-title">Definition</p>
+<ul class="simple">
+<li><p>An option gives the holder the <strong>right</strong> to buy or sell at a certain price.</p></li>
+<li><p>An <strong>option</strong> is a derivative contract in which one party, the buyer, pays a
+sum of money to the other party, the seller or writer, and receives the
+<strong>right</strong> to either buy or sell an underlying asset at a fixed price either on a
+specific expiration date or at any time prior to the expiration date.</p></li>
+</ul>
+</div>
+<ul class="simple">
+<li><p>A <strong>call option</strong> is an option to <strong>buy</strong> a certain asset by a certain date
+for a certain price (the strike price).</p></li>
+<li><p>A <strong>put option</strong> is an option to <strong>sell</strong> a certain asset by a certain date
+for a certain price (the strike price).</p></li>
+</ul>
+<ul class="simple">
+<li><p>An <strong>American option</strong> can be exercised at any time during its life.</p></li>
+<li><p>A <strong>European option</strong> can be exercised only at maturity.</p></li>
+</ul>
+</section>
+<section id="option-positions">
+<h2>Option Positions<a class="headerlink" href="#option-positions" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Long call</p></li>
+<li><p>Long put</p></li>
+<li><p>Short call</p></li>
+<li><p>Short put</p></li>
+</ul>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-91eb6b0878aa4a5a8f7ed43dd1bdc645"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-91eb6b0878aa4a5a8f7ed43dd1bdc645") {
+      outputDiv = document.getElementById("altair-viz-91eb6b0878aa4a5a8f7ed43dd1bdc645");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"data": {"name": "data-93434342e0a577b3708bd0040dae4d8c"}, "mark": {"type": "line", "clip": true, "strokeWidth": 3}, "encoding": {"x": {"field": "S", "scale": {"domain": [70, 130]}, "type": "quantitative"}, "y": {"field": "profit", "scale": {"domain": [-10, 30]}, "type": "quantitative"}}, "title": "Long Call Option, K = 100, c = 5"}, {"data": {"name": "empty"}, "mark": {"type": "rule", "strokeDash": [6, 6], "strokeWidth": 1}, "encoding": {"x": {"datum": 100}}}, {"data": {"name": "empty"}, "mark": {"type": "rule", "strokeDash": [6, 6], "strokeWidth": 1}, "encoding": {"y": {"datum": 0}}}], "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-93434342e0a577b3708bd0040dae4d8c": [{"S": 0, "profit": -5}, {"S": 1, "profit": -5}, {"S": 2, "profit": -5}, {"S": 3, "profit": -5}, {"S": 4, "profit": -5}, {"S": 5, "profit": -5}, {"S": 6, "profit": -5}, {"S": 7, "profit": -5}, {"S": 8, "profit": -5}, {"S": 9, "profit": -5}, {"S": 10, "profit": -5}, {"S": 11, "profit": -5}, {"S": 12, "profit": -5}, {"S": 13, "profit": -5}, {"S": 14, "profit": -5}, {"S": 15, "profit": -5}, {"S": 16, "profit": -5}, {"S": 17, "profit": -5}, {"S": 18, "profit": -5}, {"S": 19, "profit": -5}, {"S": 20, "profit": -5}, {"S": 21, "profit": -5}, {"S": 22, "profit": -5}, {"S": 23, "profit": -5}, {"S": 24, "profit": -5}, {"S": 25, "profit": -5}, {"S": 26, "profit": -5}, {"S": 27, "profit": -5}, {"S": 28, "profit": -5}, {"S": 29, "profit": -5}, {"S": 30, "profit": -5}, {"S": 31, "profit": -5}, {"S": 32, "profit": -5}, {"S": 33, "profit": -5}, {"S": 34, "profit": -5}, {"S": 35, "profit": -5}, {"S": 36, "profit": -5}, {"S": 37, "profit": -5}, {"S": 38, "profit": -5}, {"S": 39, "profit": -5}, {"S": 40, "profit": -5}, {"S": 41, "profit": -5}, {"S": 42, "profit": -5}, {"S": 43, "profit": -5}, {"S": 44, "profit": -5}, {"S": 45, "profit": -5}, {"S": 46, "profit": -5}, {"S": 47, "profit": -5}, {"S": 48, "profit": -5}, {"S": 49, "profit": -5}, {"S": 50, "profit": -5}, {"S": 51, "profit": -5}, {"S": 52, "profit": -5}, {"S": 53, "profit": -5}, {"S": 54, "profit": -5}, {"S": 55, "profit": -5}, {"S": 56, "profit": -5}, {"S": 57, "profit": -5}, {"S": 58, "profit": -5}, {"S": 59, "profit": -5}, {"S": 60, "profit": -5}, {"S": 61, "profit": -5}, {"S": 62, "profit": -5}, {"S": 63, "profit": -5}, {"S": 64, "profit": -5}, {"S": 65, "profit": -5}, {"S": 66, "profit": -5}, {"S": 67, "profit": -5}, {"S": 68, "profit": -5}, {"S": 69, "profit": -5}, {"S": 70, "profit": -5}, {"S": 71, "profit": -5}, {"S": 72, "profit": -5}, {"S": 73, "profit": -5}, {"S": 74, "profit": -5}, {"S": 75, "profit": -5}, {"S": 76, "profit": -5}, {"S": 77, "profit": -5}, {"S": 78, "profit": -5}, {"S": 79, "profit": -5}, {"S": 80, "profit": -5}, {"S": 81, "profit": -5}, {"S": 82, "profit": -5}, {"S": 83, "profit": -5}, {"S": 84, "profit": -5}, {"S": 85, "profit": -5}, {"S": 86, "profit": -5}, {"S": 87, "profit": -5}, {"S": 88, "profit": -5}, {"S": 89, "profit": -5}, {"S": 90, "profit": -5}, {"S": 91, "profit": -5}, {"S": 92, "profit": -5}, {"S": 93, "profit": -5}, {"S": 94, "profit": -5}, {"S": 95, "profit": -5}, {"S": 96, "profit": -5}, {"S": 97, "profit": -5}, {"S": 98, "profit": -5}, {"S": 99, "profit": -5}, {"S": 100, "profit": -5}, {"S": 101, "profit": -4}, {"S": 102, "profit": -3}, {"S": 103, "profit": -2}, {"S": 104, "profit": -1}, {"S": 105, "profit": 0}, {"S": 106, "profit": 1}, {"S": 107, "profit": 2}, {"S": 108, "profit": 3}, {"S": 109, "profit": 4}, {"S": 110, "profit": 5}, {"S": 111, "profit": 6}, {"S": 112, "profit": 7}, {"S": 113, "profit": 8}, {"S": 114, "profit": 9}, {"S": 115, "profit": 10}, {"S": 116, "profit": 11}, {"S": 117, "profit": 12}, {"S": 118, "profit": 13}, {"S": 119, "profit": 14}, {"S": 120, "profit": 15}, {"S": 121, "profit": 16}, {"S": 122, "profit": 17}, {"S": 123, "profit": 18}, {"S": 124, "profit": 19}, {"S": 125, "profit": 20}, {"S": 126, "profit": 21}, {"S": 127, "profit": 22}, {"S": 128, "profit": 23}, {"S": 129, "profit": 24}, {"S": 130, "profit": 25}, {"S": 131, "profit": 26}, {"S": 132, "profit": 27}, {"S": 133, "profit": 28}, {"S": 134, "profit": 29}, {"S": 135, "profit": 30}, {"S": 136, "profit": 31}, {"S": 137, "profit": 32}, {"S": 138, "profit": 33}, {"S": 139, "profit": 34}, {"S": 140, "profit": 35}, {"S": 141, "profit": 36}, {"S": 142, "profit": 37}, {"S": 143, "profit": 38}, {"S": 144, "profit": 39}, {"S": 145, "profit": 40}, {"S": 146, "profit": 41}, {"S": 147, "profit": 42}, {"S": 148, "profit": 43}, {"S": 149, "profit": 44}, {"S": 150, "profit": 45}, {"S": 151, "profit": 46}, {"S": 152, "profit": 47}, {"S": 153, "profit": 48}, {"S": 154, "profit": 49}, {"S": 155, "profit": 50}, {"S": 156, "profit": 51}, {"S": 157, "profit": 52}, {"S": 158, "profit": 53}, {"S": 159, "profit": 54}, {"S": 160, "profit": 55}, {"S": 161, "profit": 56}, {"S": 162, "profit": 57}, {"S": 163, "profit": 58}, {"S": 164, "profit": 59}, {"S": 165, "profit": 60}, {"S": 166, "profit": 61}, {"S": 167, "profit": 62}, {"S": 168, "profit": 63}, {"S": 169, "profit": 64}, {"S": 170, "profit": 65}, {"S": 171, "profit": 66}, {"S": 172, "profit": 67}, {"S": 173, "profit": 68}, {"S": 174, "profit": 69}, {"S": 175, "profit": 70}, {"S": 176, "profit": 71}, {"S": 177, "profit": 72}, {"S": 178, "profit": 73}, {"S": 179, "profit": 74}, {"S": 180, "profit": 75}, {"S": 181, "profit": 76}, {"S": 182, "profit": 77}, {"S": 183, "profit": 78}, {"S": 184, "profit": 79}, {"S": 185, "profit": 80}, {"S": 186, "profit": 81}, {"S": 187, "profit": 82}, {"S": 188, "profit": 83}, {"S": 189, "profit": 84}, {"S": 190, "profit": 85}, {"S": 191, "profit": 86}, {"S": 192, "profit": 87}, {"S": 193, "profit": 88}, {"S": 194, "profit": 89}, {"S": 195, "profit": 90}, {"S": 196, "profit": 91}, {"S": 197, "profit": 92}, {"S": 198, "profit": 93}, {"S": 199, "profit": 94}, {"S": 200, "profit": 95}], "empty": [{}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-425e30d2b0a54b0ea73a1003126f6d68"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-425e30d2b0a54b0ea73a1003126f6d68") {
+      outputDiv = document.getElementById("altair-viz-425e30d2b0a54b0ea73a1003126f6d68");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"data": {"name": "data-cc3c778547f05b47d823bf6704621587"}, "mark": {"type": "line", "clip": true, "strokeWidth": 3}, "encoding": {"x": {"field": "S", "scale": {"domain": [70, 130]}, "type": "quantitative"}, "y": {"field": "profit", "scale": {"domain": [-30, 10]}, "type": "quantitative"}}, "title": "Short Call Option, K = 100, c = 5"}, {"data": {"name": "empty"}, "mark": {"type": "rule", "strokeDash": [6, 6], "strokeWidth": 1}, "encoding": {"x": {"datum": 100}}}, {"data": {"name": "empty"}, "mark": {"type": "rule", "strokeDash": [6, 6], "strokeWidth": 1}, "encoding": {"y": {"datum": 0}}}], "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-cc3c778547f05b47d823bf6704621587": [{"S": 0, "profit": 5}, {"S": 1, "profit": 5}, {"S": 2, "profit": 5}, {"S": 3, "profit": 5}, {"S": 4, "profit": 5}, {"S": 5, "profit": 5}, {"S": 6, "profit": 5}, {"S": 7, "profit": 5}, {"S": 8, "profit": 5}, {"S": 9, "profit": 5}, {"S": 10, "profit": 5}, {"S": 11, "profit": 5}, {"S": 12, "profit": 5}, {"S": 13, "profit": 5}, {"S": 14, "profit": 5}, {"S": 15, "profit": 5}, {"S": 16, "profit": 5}, {"S": 17, "profit": 5}, {"S": 18, "profit": 5}, {"S": 19, "profit": 5}, {"S": 20, "profit": 5}, {"S": 21, "profit": 5}, {"S": 22, "profit": 5}, {"S": 23, "profit": 5}, {"S": 24, "profit": 5}, {"S": 25, "profit": 5}, {"S": 26, "profit": 5}, {"S": 27, "profit": 5}, {"S": 28, "profit": 5}, {"S": 29, "profit": 5}, {"S": 30, "profit": 5}, {"S": 31, "profit": 5}, {"S": 32, "profit": 5}, {"S": 33, "profit": 5}, {"S": 34, "profit": 5}, {"S": 35, "profit": 5}, {"S": 36, "profit": 5}, {"S": 37, "profit": 5}, {"S": 38, "profit": 5}, {"S": 39, "profit": 5}, {"S": 40, "profit": 5}, {"S": 41, "profit": 5}, {"S": 42, "profit": 5}, {"S": 43, "profit": 5}, {"S": 44, "profit": 5}, {"S": 45, "profit": 5}, {"S": 46, "profit": 5}, {"S": 47, "profit": 5}, {"S": 48, "profit": 5}, {"S": 49, "profit": 5}, {"S": 50, "profit": 5}, {"S": 51, "profit": 5}, {"S": 52, "profit": 5}, {"S": 53, "profit": 5}, {"S": 54, "profit": 5}, {"S": 55, "profit": 5}, {"S": 56, "profit": 5}, {"S": 57, "profit": 5}, {"S": 58, "profit": 5}, {"S": 59, "profit": 5}, {"S": 60, "profit": 5}, {"S": 61, "profit": 5}, {"S": 62, "profit": 5}, {"S": 63, "profit": 5}, {"S": 64, "profit": 5}, {"S": 65, "profit": 5}, {"S": 66, "profit": 5}, {"S": 67, "profit": 5}, {"S": 68, "profit": 5}, {"S": 69, "profit": 5}, {"S": 70, "profit": 5}, {"S": 71, "profit": 5}, {"S": 72, "profit": 5}, {"S": 73, "profit": 5}, {"S": 74, "profit": 5}, {"S": 75, "profit": 5}, {"S": 76, "profit": 5}, {"S": 77, "profit": 5}, {"S": 78, "profit": 5}, {"S": 79, "profit": 5}, {"S": 80, "profit": 5}, {"S": 81, "profit": 5}, {"S": 82, "profit": 5}, {"S": 83, "profit": 5}, {"S": 84, "profit": 5}, {"S": 85, "profit": 5}, {"S": 86, "profit": 5}, {"S": 87, "profit": 5}, {"S": 88, "profit": 5}, {"S": 89, "profit": 5}, {"S": 90, "profit": 5}, {"S": 91, "profit": 5}, {"S": 92, "profit": 5}, {"S": 93, "profit": 5}, {"S": 94, "profit": 5}, {"S": 95, "profit": 5}, {"S": 96, "profit": 5}, {"S": 97, "profit": 5}, {"S": 98, "profit": 5}, {"S": 99, "profit": 5}, {"S": 100, "profit": 5}, {"S": 101, "profit": 4}, {"S": 102, "profit": 3}, {"S": 103, "profit": 2}, {"S": 104, "profit": 1}, {"S": 105, "profit": 0}, {"S": 106, "profit": -1}, {"S": 107, "profit": -2}, {"S": 108, "profit": -3}, {"S": 109, "profit": -4}, {"S": 110, "profit": -5}, {"S": 111, "profit": -6}, {"S": 112, "profit": -7}, {"S": 113, "profit": -8}, {"S": 114, "profit": -9}, {"S": 115, "profit": -10}, {"S": 116, "profit": -11}, {"S": 117, "profit": -12}, {"S": 118, "profit": -13}, {"S": 119, "profit": -14}, {"S": 120, "profit": -15}, {"S": 121, "profit": -16}, {"S": 122, "profit": -17}, {"S": 123, "profit": -18}, {"S": 124, "profit": -19}, {"S": 125, "profit": -20}, {"S": 126, "profit": -21}, {"S": 127, "profit": -22}, {"S": 128, "profit": -23}, {"S": 129, "profit": -24}, {"S": 130, "profit": -25}, {"S": 131, "profit": -26}, {"S": 132, "profit": -27}, {"S": 133, "profit": -28}, {"S": 134, "profit": -29}, {"S": 135, "profit": -30}, {"S": 136, "profit": -31}, {"S": 137, "profit": -32}, {"S": 138, "profit": -33}, {"S": 139, "profit": -34}, {"S": 140, "profit": -35}, {"S": 141, "profit": -36}, {"S": 142, "profit": -37}, {"S": 143, "profit": -38}, {"S": 144, "profit": -39}, {"S": 145, "profit": -40}, {"S": 146, "profit": -41}, {"S": 147, "profit": -42}, {"S": 148, "profit": -43}, {"S": 149, "profit": -44}, {"S": 150, "profit": -45}, {"S": 151, "profit": -46}, {"S": 152, "profit": -47}, {"S": 153, "profit": -48}, {"S": 154, "profit": -49}, {"S": 155, "profit": -50}, {"S": 156, "profit": -51}, {"S": 157, "profit": -52}, {"S": 158, "profit": -53}, {"S": 159, "profit": -54}, {"S": 160, "profit": -55}, {"S": 161, "profit": -56}, {"S": 162, "profit": -57}, {"S": 163, "profit": -58}, {"S": 164, "profit": -59}, {"S": 165, "profit": -60}, {"S": 166, "profit": -61}, {"S": 167, "profit": -62}, {"S": 168, "profit": -63}, {"S": 169, "profit": -64}, {"S": 170, "profit": -65}, {"S": 171, "profit": -66}, {"S": 172, "profit": -67}, {"S": 173, "profit": -68}, {"S": 174, "profit": -69}, {"S": 175, "profit": -70}, {"S": 176, "profit": -71}, {"S": 177, "profit": -72}, {"S": 178, "profit": -73}, {"S": 179, "profit": -74}, {"S": 180, "profit": -75}, {"S": 181, "profit": -76}, {"S": 182, "profit": -77}, {"S": 183, "profit": -78}, {"S": 184, "profit": -79}, {"S": 185, "profit": -80}, {"S": 186, "profit": -81}, {"S": 187, "profit": -82}, {"S": 188, "profit": -83}, {"S": 189, "profit": -84}, {"S": 190, "profit": -85}, {"S": 191, "profit": -86}, {"S": 192, "profit": -87}, {"S": 193, "profit": -88}, {"S": 194, "profit": -89}, {"S": 195, "profit": -90}, {"S": 196, "profit": -91}, {"S": 197, "profit": -92}, {"S": 198, "profit": -93}, {"S": 199, "profit": -94}, {"S": 200, "profit": -95}], "empty": [{}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-0838ea5e637d494fbcf57bfdc3f31d9a"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-0838ea5e637d494fbcf57bfdc3f31d9a") {
+      outputDiv = document.getElementById("altair-viz-0838ea5e637d494fbcf57bfdc3f31d9a");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"data": {"name": "data-f9381d3d4031c64399326cb16288dc45"}, "mark": {"type": "line", "clip": true, "strokeWidth": 3}, "encoding": {"x": {"field": "S", "scale": {"domain": [70, 130]}, "type": "quantitative"}, "y": {"field": "profit", "scale": {"domain": [-10, 30]}, "type": "quantitative"}}, "title": "Long Put Option, K = 100, p = 5"}, {"data": {"name": "empty"}, "mark": {"type": "rule", "strokeDash": [6, 6], "strokeWidth": 1}, "encoding": {"x": {"datum": 100}}}, {"data": {"name": "empty"}, "mark": {"type": "rule", "strokeDash": [6, 6], "strokeWidth": 1}, "encoding": {"y": {"datum": 0}}}], "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-f9381d3d4031c64399326cb16288dc45": [{"S": 0, "profit": 95}, {"S": 1, "profit": 94}, {"S": 2, "profit": 93}, {"S": 3, "profit": 92}, {"S": 4, "profit": 91}, {"S": 5, "profit": 90}, {"S": 6, "profit": 89}, {"S": 7, "profit": 88}, {"S": 8, "profit": 87}, {"S": 9, "profit": 86}, {"S": 10, "profit": 85}, {"S": 11, "profit": 84}, {"S": 12, "profit": 83}, {"S": 13, "profit": 82}, {"S": 14, "profit": 81}, {"S": 15, "profit": 80}, {"S": 16, "profit": 79}, {"S": 17, "profit": 78}, {"S": 18, "profit": 77}, {"S": 19, "profit": 76}, {"S": 20, "profit": 75}, {"S": 21, "profit": 74}, {"S": 22, "profit": 73}, {"S": 23, "profit": 72}, {"S": 24, "profit": 71}, {"S": 25, "profit": 70}, {"S": 26, "profit": 69}, {"S": 27, "profit": 68}, {"S": 28, "profit": 67}, {"S": 29, "profit": 66}, {"S": 30, "profit": 65}, {"S": 31, "profit": 64}, {"S": 32, "profit": 63}, {"S": 33, "profit": 62}, {"S": 34, "profit": 61}, {"S": 35, "profit": 60}, {"S": 36, "profit": 59}, {"S": 37, "profit": 58}, {"S": 38, "profit": 57}, {"S": 39, "profit": 56}, {"S": 40, "profit": 55}, {"S": 41, "profit": 54}, {"S": 42, "profit": 53}, {"S": 43, "profit": 52}, {"S": 44, "profit": 51}, {"S": 45, "profit": 50}, {"S": 46, "profit": 49}, {"S": 47, "profit": 48}, {"S": 48, "profit": 47}, {"S": 49, "profit": 46}, {"S": 50, "profit": 45}, {"S": 51, "profit": 44}, {"S": 52, "profit": 43}, {"S": 53, "profit": 42}, {"S": 54, "profit": 41}, {"S": 55, "profit": 40}, {"S": 56, "profit": 39}, {"S": 57, "profit": 38}, {"S": 58, "profit": 37}, {"S": 59, "profit": 36}, {"S": 60, "profit": 35}, {"S": 61, "profit": 34}, {"S": 62, "profit": 33}, {"S": 63, "profit": 32}, {"S": 64, "profit": 31}, {"S": 65, "profit": 30}, {"S": 66, "profit": 29}, {"S": 67, "profit": 28}, {"S": 68, "profit": 27}, {"S": 69, "profit": 26}, {"S": 70, "profit": 25}, {"S": 71, "profit": 24}, {"S": 72, "profit": 23}, {"S": 73, "profit": 22}, {"S": 74, "profit": 21}, {"S": 75, "profit": 20}, {"S": 76, "profit": 19}, {"S": 77, "profit": 18}, {"S": 78, "profit": 17}, {"S": 79, "profit": 16}, {"S": 80, "profit": 15}, {"S": 81, "profit": 14}, {"S": 82, "profit": 13}, {"S": 83, "profit": 12}, {"S": 84, "profit": 11}, {"S": 85, "profit": 10}, {"S": 86, "profit": 9}, {"S": 87, "profit": 8}, {"S": 88, "profit": 7}, {"S": 89, "profit": 6}, {"S": 90, "profit": 5}, {"S": 91, "profit": 4}, {"S": 92, "profit": 3}, {"S": 93, "profit": 2}, {"S": 94, "profit": 1}, {"S": 95, "profit": 0}, {"S": 96, "profit": -1}, {"S": 97, "profit": -2}, {"S": 98, "profit": -3}, {"S": 99, "profit": -4}, {"S": 100, "profit": -5}, {"S": 101, "profit": -5}, {"S": 102, "profit": -5}, {"S": 103, "profit": -5}, {"S": 104, "profit": -5}, {"S": 105, "profit": -5}, {"S": 106, "profit": -5}, {"S": 107, "profit": -5}, {"S": 108, "profit": -5}, {"S": 109, "profit": -5}, {"S": 110, "profit": -5}, {"S": 111, "profit": -5}, {"S": 112, "profit": -5}, {"S": 113, "profit": -5}, {"S": 114, "profit": -5}, {"S": 115, "profit": -5}, {"S": 116, "profit": -5}, {"S": 117, "profit": -5}, {"S": 118, "profit": -5}, {"S": 119, "profit": -5}, {"S": 120, "profit": -5}, {"S": 121, "profit": -5}, {"S": 122, "profit": -5}, {"S": 123, "profit": -5}, {"S": 124, "profit": -5}, {"S": 125, "profit": -5}, {"S": 126, "profit": -5}, {"S": 127, "profit": -5}, {"S": 128, "profit": -5}, {"S": 129, "profit": -5}, {"S": 130, "profit": -5}, {"S": 131, "profit": -5}, {"S": 132, "profit": -5}, {"S": 133, "profit": -5}, {"S": 134, "profit": -5}, {"S": 135, "profit": -5}, {"S": 136, "profit": -5}, {"S": 137, "profit": -5}, {"S": 138, "profit": -5}, {"S": 139, "profit": -5}, {"S": 140, "profit": -5}, {"S": 141, "profit": -5}, {"S": 142, "profit": -5}, {"S": 143, "profit": -5}, {"S": 144, "profit": -5}, {"S": 145, "profit": -5}, {"S": 146, "profit": -5}, {"S": 147, "profit": -5}, {"S": 148, "profit": -5}, {"S": 149, "profit": -5}, {"S": 150, "profit": -5}, {"S": 151, "profit": -5}, {"S": 152, "profit": -5}, {"S": 153, "profit": -5}, {"S": 154, "profit": -5}, {"S": 155, "profit": -5}, {"S": 156, "profit": -5}, {"S": 157, "profit": -5}, {"S": 158, "profit": -5}, {"S": 159, "profit": -5}, {"S": 160, "profit": -5}, {"S": 161, "profit": -5}, {"S": 162, "profit": -5}, {"S": 163, "profit": -5}, {"S": 164, "profit": -5}, {"S": 165, "profit": -5}, {"S": 166, "profit": -5}, {"S": 167, "profit": -5}, {"S": 168, "profit": -5}, {"S": 169, "profit": -5}, {"S": 170, "profit": -5}, {"S": 171, "profit": -5}, {"S": 172, "profit": -5}, {"S": 173, "profit": -5}, {"S": 174, "profit": -5}, {"S": 175, "profit": -5}, {"S": 176, "profit": -5}, {"S": 177, "profit": -5}, {"S": 178, "profit": -5}, {"S": 179, "profit": -5}, {"S": 180, "profit": -5}, {"S": 181, "profit": -5}, {"S": 182, "profit": -5}, {"S": 183, "profit": -5}, {"S": 184, "profit": -5}, {"S": 185, "profit": -5}, {"S": 186, "profit": -5}, {"S": 187, "profit": -5}, {"S": 188, "profit": -5}, {"S": 189, "profit": -5}, {"S": 190, "profit": -5}, {"S": 191, "profit": -5}, {"S": 192, "profit": -5}, {"S": 193, "profit": -5}, {"S": 194, "profit": -5}, {"S": 195, "profit": -5}, {"S": 196, "profit": -5}, {"S": 197, "profit": -5}, {"S": 198, "profit": -5}, {"S": 199, "profit": -5}, {"S": 200, "profit": -5}], "empty": [{}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-2a3efe310ab44276ba5052cb0e565d48"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-2a3efe310ab44276ba5052cb0e565d48") {
+      outputDiv = document.getElementById("altair-viz-2a3efe310ab44276ba5052cb0e565d48");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"data": {"name": "data-4c8effd0ae74bbf7ed477a1a65159440"}, "mark": {"type": "line", "clip": true, "strokeWidth": 3}, "encoding": {"x": {"field": "S", "scale": {"domain": [70, 130]}, "type": "quantitative"}, "y": {"field": "profit", "scale": {"domain": [-30, 10]}, "type": "quantitative"}}, "title": "Short Put Option, K = 100, p = 5"}, {"data": {"name": "empty"}, "mark": {"type": "rule", "strokeDash": [6, 6], "strokeWidth": 1}, "encoding": {"x": {"datum": 100}}}, {"data": {"name": "empty"}, "mark": {"type": "rule", "strokeDash": [6, 6], "strokeWidth": 1}, "encoding": {"y": {"datum": 0}}}], "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-4c8effd0ae74bbf7ed477a1a65159440": [{"S": 0, "profit": -95}, {"S": 1, "profit": -94}, {"S": 2, "profit": -93}, {"S": 3, "profit": -92}, {"S": 4, "profit": -91}, {"S": 5, "profit": -90}, {"S": 6, "profit": -89}, {"S": 7, "profit": -88}, {"S": 8, "profit": -87}, {"S": 9, "profit": -86}, {"S": 10, "profit": -85}, {"S": 11, "profit": -84}, {"S": 12, "profit": -83}, {"S": 13, "profit": -82}, {"S": 14, "profit": -81}, {"S": 15, "profit": -80}, {"S": 16, "profit": -79}, {"S": 17, "profit": -78}, {"S": 18, "profit": -77}, {"S": 19, "profit": -76}, {"S": 20, "profit": -75}, {"S": 21, "profit": -74}, {"S": 22, "profit": -73}, {"S": 23, "profit": -72}, {"S": 24, "profit": -71}, {"S": 25, "profit": -70}, {"S": 26, "profit": -69}, {"S": 27, "profit": -68}, {"S": 28, "profit": -67}, {"S": 29, "profit": -66}, {"S": 30, "profit": -65}, {"S": 31, "profit": -64}, {"S": 32, "profit": -63}, {"S": 33, "profit": -62}, {"S": 34, "profit": -61}, {"S": 35, "profit": -60}, {"S": 36, "profit": -59}, {"S": 37, "profit": -58}, {"S": 38, "profit": -57}, {"S": 39, "profit": -56}, {"S": 40, "profit": -55}, {"S": 41, "profit": -54}, {"S": 42, "profit": -53}, {"S": 43, "profit": -52}, {"S": 44, "profit": -51}, {"S": 45, "profit": -50}, {"S": 46, "profit": -49}, {"S": 47, "profit": -48}, {"S": 48, "profit": -47}, {"S": 49, "profit": -46}, {"S": 50, "profit": -45}, {"S": 51, "profit": -44}, {"S": 52, "profit": -43}, {"S": 53, "profit": -42}, {"S": 54, "profit": -41}, {"S": 55, "profit": -40}, {"S": 56, "profit": -39}, {"S": 57, "profit": -38}, {"S": 58, "profit": -37}, {"S": 59, "profit": -36}, {"S": 60, "profit": -35}, {"S": 61, "profit": -34}, {"S": 62, "profit": -33}, {"S": 63, "profit": -32}, {"S": 64, "profit": -31}, {"S": 65, "profit": -30}, {"S": 66, "profit": -29}, {"S": 67, "profit": -28}, {"S": 68, "profit": -27}, {"S": 69, "profit": -26}, {"S": 70, "profit": -25}, {"S": 71, "profit": -24}, {"S": 72, "profit": -23}, {"S": 73, "profit": -22}, {"S": 74, "profit": -21}, {"S": 75, "profit": -20}, {"S": 76, "profit": -19}, {"S": 77, "profit": -18}, {"S": 78, "profit": -17}, {"S": 79, "profit": -16}, {"S": 80, "profit": -15}, {"S": 81, "profit": -14}, {"S": 82, "profit": -13}, {"S": 83, "profit": -12}, {"S": 84, "profit": -11}, {"S": 85, "profit": -10}, {"S": 86, "profit": -9}, {"S": 87, "profit": -8}, {"S": 88, "profit": -7}, {"S": 89, "profit": -6}, {"S": 90, "profit": -5}, {"S": 91, "profit": -4}, {"S": 92, "profit": -3}, {"S": 93, "profit": -2}, {"S": 94, "profit": -1}, {"S": 95, "profit": 0}, {"S": 96, "profit": 1}, {"S": 97, "profit": 2}, {"S": 98, "profit": 3}, {"S": 99, "profit": 4}, {"S": 100, "profit": 5}, {"S": 101, "profit": 5}, {"S": 102, "profit": 5}, {"S": 103, "profit": 5}, {"S": 104, "profit": 5}, {"S": 105, "profit": 5}, {"S": 106, "profit": 5}, {"S": 107, "profit": 5}, {"S": 108, "profit": 5}, {"S": 109, "profit": 5}, {"S": 110, "profit": 5}, {"S": 111, "profit": 5}, {"S": 112, "profit": 5}, {"S": 113, "profit": 5}, {"S": 114, "profit": 5}, {"S": 115, "profit": 5}, {"S": 116, "profit": 5}, {"S": 117, "profit": 5}, {"S": 118, "profit": 5}, {"S": 119, "profit": 5}, {"S": 120, "profit": 5}, {"S": 121, "profit": 5}, {"S": 122, "profit": 5}, {"S": 123, "profit": 5}, {"S": 124, "profit": 5}, {"S": 125, "profit": 5}, {"S": 126, "profit": 5}, {"S": 127, "profit": 5}, {"S": 128, "profit": 5}, {"S": 129, "profit": 5}, {"S": 130, "profit": 5}, {"S": 131, "profit": 5}, {"S": 132, "profit": 5}, {"S": 133, "profit": 5}, {"S": 134, "profit": 5}, {"S": 135, "profit": 5}, {"S": 136, "profit": 5}, {"S": 137, "profit": 5}, {"S": 138, "profit": 5}, {"S": 139, "profit": 5}, {"S": 140, "profit": 5}, {"S": 141, "profit": 5}, {"S": 142, "profit": 5}, {"S": 143, "profit": 5}, {"S": 144, "profit": 5}, {"S": 145, "profit": 5}, {"S": 146, "profit": 5}, {"S": 147, "profit": 5}, {"S": 148, "profit": 5}, {"S": 149, "profit": 5}, {"S": 150, "profit": 5}, {"S": 151, "profit": 5}, {"S": 152, "profit": 5}, {"S": 153, "profit": 5}, {"S": 154, "profit": 5}, {"S": 155, "profit": 5}, {"S": 156, "profit": 5}, {"S": 157, "profit": 5}, {"S": 158, "profit": 5}, {"S": 159, "profit": 5}, {"S": 160, "profit": 5}, {"S": 161, "profit": 5}, {"S": 162, "profit": 5}, {"S": 163, "profit": 5}, {"S": 164, "profit": 5}, {"S": 165, "profit": 5}, {"S": 166, "profit": 5}, {"S": 167, "profit": 5}, {"S": 168, "profit": 5}, {"S": 169, "profit": 5}, {"S": 170, "profit": 5}, {"S": 171, "profit": 5}, {"S": 172, "profit": 5}, {"S": 173, "profit": 5}, {"S": 174, "profit": 5}, {"S": 175, "profit": 5}, {"S": 176, "profit": 5}, {"S": 177, "profit": 5}, {"S": 178, "profit": 5}, {"S": 179, "profit": 5}, {"S": 180, "profit": 5}, {"S": 181, "profit": 5}, {"S": 182, "profit": 5}, {"S": 183, "profit": 5}, {"S": 184, "profit": 5}, {"S": 185, "profit": 5}, {"S": 186, "profit": 5}, {"S": 187, "profit": 5}, {"S": 188, "profit": 5}, {"S": 189, "profit": 5}, {"S": 190, "profit": 5}, {"S": 191, "profit": 5}, {"S": 192, "profit": 5}, {"S": 193, "profit": 5}, {"S": 194, "profit": 5}, {"S": 195, "profit": 5}, {"S": 196, "profit": 5}, {"S": 197, "profit": 5}, {"S": 198, "profit": 5}, {"S": 199, "profit": 5}, {"S": 200, "profit": 5}], "empty": [{}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+</section>
+<section id="option-payoffs">
+<h2>Option Payoffs<a class="headerlink" href="#option-payoffs" title="Permalink to this headline">#</a></h2>
+<p>Assumptions and symbol definitions:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(S_T\)</span>: the price of the underlying at the expiration date <span class="math notranslate nohighlight">\(T\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(K\)</span>: the exercise price of the option</p></li>
+</ul>
+<ul class="simple">
+<li><p>Payoff to the call buyer: <span class="math notranslate nohighlight">\(c_T = Max(0, S_T - K)\)</span></p></li>
+<li><p>Payoff to the put buyer: <span class="math notranslate nohighlight">\(p_T = Max(0, K - S_T)\)</span></p></li>
+</ul>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<p>At expiration the underlying asset price <span class="math notranslate nohighlight">\(S_T\)</span> is $28. If the strike price K is
+$25, what is the payoff of the put and call?</p>
+<ul class="simple">
+<li><p>Payoff to the call buyer:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[c_T = Max(0, S_T - K) = Max(0, \$28 - \$25) = \$3\]</div>
+<ul class="simple">
+<li><p>Payoff to the put buyer:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[p_T = Max(0, K - S_T) = Max(0, \$25 - \$28) = 0\]</div>
+<p>When the option has a positive payoff it is said to be <strong>in the money</strong>. In the
+example above, the call option is <strong>in the money</strong>. The put option is <strong>out of
+the money</strong> because <span class="math notranslate nohighlight">\(X - S_T\)</span> is less than 0. When <span class="math notranslate nohighlight">\(S_T = X\)</span>, the option is said
+to be <strong>at the money</strong>.</p>
+</div>
+</section>
+<section id="option-profit">
+<h2>Option Profit<a class="headerlink" href="#option-profit" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Since option buyer must pay a price (or <strong>option premium</strong>), the profit is
+computed by subtracting the option premium from the option payoff.</p></li>
+</ul>
+<p>Assumptions and symbol definitions:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(S_T\)</span>: the price of the underlying at the expiration date <span class="math notranslate nohighlight">\(T\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(K\)</span>: the exercise price of the option</p></li>
+<li><p><span class="math notranslate nohighlight">\(c_0\)</span>: the price (premium) of the call option</p></li>
+<li><p><span class="math notranslate nohighlight">\(p_0\)</span>: the price (premium) of the put option</p></li>
+</ul>
+<ul>
+<li><p>Profit to the call buyer:</p>
+<div class="math notranslate nohighlight">
+\[\Pi = Max(0, S_T - X) - c_0\]</div>
+</li>
+<li><p>Profit to the put buyer: $<span class="math notranslate nohighlight">\( \Pi = Max(0, X - S_T) - p_0 \)</span>$</p></li>
+</ul>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<ul class="simple">
+<li><p>Assume that a put and call on CBX stock both have a strike price <span class="math notranslate nohighlight">\(X = \$30\)</span>.
+The call initially costs $1, and the put costs $2.</p></li>
+<li><p>What is the profit on the call and put if the price of CBX stock at expiration
+(<span class="math notranslate nohighlight">\(S_T\)</span>) is $27.50?</p></li>
+</ul>
+<ul class="simple">
+<li><p>Profit to the call buyer:
+$<span class="math notranslate nohighlight">\( \Pi = Max(0, S_T - X) - c_0 = Max(0, \$27.5 - \$30) - \$1 = -\$1 \)</span>$</p></li>
+<li><p>Profit to the put buyer:
+$<span class="math notranslate nohighlight">\( \Pi = Max(0, X - S_T) - p_0 = Max(0, \$30 - \$27.5) - \$2 = \$0.5 \)</span>$</p></li>
+</ul>
+</div>
+</section>
+<section id="other-option-characteristics">
+<h2>Other Option Characteristics<a class="headerlink" href="#other-option-characteristics" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Assets underlying exchange-traded options:</p>
+<ul>
+<li><p>Stocks</p></li>
+<li><p>ETFs (and other ETPs)</p></li>
+<li><p>Foreign Currency</p></li>
+<li><p>Stock Indices</p></li>
+<li><p>Futures</p></li>
+</ul>
+</li>
+<li><p>Specification of exchange-traded options:</p>
+<ul>
+<li><p>Expiration date</p></li>
+<li><p>Strike price</p></li>
+<li><p>European or American</p></li>
+<li><p>Call or Put (option class)</p></li>
+</ul>
+</li>
+<li><p>Moneyness:</p>
+<ul>
+<li><p>At-the-money option</p></li>
+<li><p>In-the-money option</p></li>
+<li><p>Out-of-the-money option</p></li>
+</ul>
+</li>
+<li><p>Value:</p>
+<ul>
+<li><p><strong>Intrinsic value</strong> (value if there were no time to maturity).</p></li>
+<li><p><strong>Time value</strong> (the excess of an option’s value over its intrinsic value).</p></li>
+</ul>
+</li>
+<li><p>Margin:</p>
+<ul>
+<li><p>Margin is required when options are sold.</p></li>
+<li><p>Specific rules for different trading strategies.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="dividends-and-stock-splits">
+<h2>Dividends and Stock Splits<a class="headerlink" href="#dividends-and-stock-splits" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>No adjustments are made to the option terms for cash dividends.</p></li>
+<li><p>Stock splits and stock dividends require adjustment in strike price and number
+of options.</p></li>
+</ul>
+<ul class="simple">
+<li><p>Suppose you own <span class="math notranslate nohighlight">\(N\)</span> options with a strike price of <span class="math notranslate nohighlight">\(K\)</span>:</p></li>
+<li><p>When there is an <span class="math notranslate nohighlight">\(n\)</span>-for-<span class="math notranslate nohighlight">\(m\)</span> stock split:</p></li>
+</ul>
+<ol class="simple">
+<li><p>the strike price is reduced to <span class="math notranslate nohighlight">\(\frac{m}{n} \times K\)</span></p></li>
+<li><p>the number of options is increased to <span class="math notranslate nohighlight">\(\frac{n}{m} \times N\)</span></p></li>
+</ol>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<ul class="simple">
+<li><p>Consider a call option to buy 100 shares for $20 per share.</p></li>
+<li><p>How should terms be adjusted:</p>
+<ol class="simple">
+<li><p>for a 2-for-1 stock split?</p></li>
+<li><p>for a 5% stock dividend?</p></li>
+</ol>
+</li>
+</ul>
+</div>
+</section>
+<section id="other-assets-related-to-options">
+<h2>Other Assets Related to Options<a class="headerlink" href="#other-assets-related-to-options" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Warrants</p>
+<ul>
+<li><p>Warrants are options that are issued by a corporation or a financial
+institution.</p></li>
+<li><p>The number of warrants outstanding is determined by the size of the
+original issue and changes only when they are exercised or when they expire.</p></li>
+<li><p>The issuer settles up with the holder when a warrant is exercised.</p></li>
+<li><p>When call warrants are issued by a corporation on its own stock, exercise
+will usually lead to new treasury stock being issued.</p></li>
+</ul>
+</li>
+</ul>
+<ul class="simple">
+<li><p>Employee Stock Options</p>
+<ul>
+<li><p>Employee stock options are a form of remuneration issued by a company to
+its executives.</p></li>
+<li><p>They are usually at the money when issued.</p></li>
+<li><p>When options are exercised the company issues more stock and sells it to
+the option holder for the strike price.</p></li>
+<li><p>Expensed on the income statement.</p></li>
+</ul>
+</li>
+</ul>
+<ul class="simple">
+<li><p>Convertible Bonds</p>
+<ul>
+<li><p>Convertible bonds are regular bonds that can be exchanged for equity at
+certain times in the future according to a predetermined exchange ratio.</p></li>
+<li><p>Usually a convertible is callable.</p></li>
+<li><p>The call provision is a way in which the issuer can force conversion at a
+time earlier than the holder might otherwise choose.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Tomáš Plíhal, Institute of Financial Complex Systems - Department of Finance<br/>
+  
+      &copy; Copyright Masaryk University, 2023.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
