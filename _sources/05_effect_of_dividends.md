@@ -31,6 +31,7 @@ $$p \geq D + K e^{-rT} - S_0$$
 
 ## Extensions of Put-Call Parity
 
-- American options; D = 0 $ \rightarrow S_0 - K < C -P < S_0 - K e^{-rT}$
-- European options; D > 0 $ \rightarrow c + D + K e^{-rT} = p + S_0$
-- American options; D > 0 $ \rightarrow S_0 - D - K < C - P < S_0 - K e^{-rT}$
++ European options; $ D > 0 \rightarrow c + D + K e^{-rT} = p + S_0$
+
+- American options; $ D = 0 \rightarrow S_0 - K < C -P < S_0 - K e^{-rT}$
+- American options; $ D > 0 \rightarrow S_0 - D - K < C - P < S_0 - K e^{-rT}$

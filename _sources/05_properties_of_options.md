@@ -23,14 +23,14 @@ increase or stay the same.
 decrease or stay the same.
 + $?$ Indicates that the relationship is uncertain.
 
-| Variable                   | European call | European put | American call | American put |
-|:--------------------------:|:-------------:|:------------:|:-------------:|:------------:|
-| Current stock price        | +             | -            | +             | -            |
-| Strike price               | -             | +            | -             | +            |
-| Time to expiration         | ?             | ?            | +             | +            |
-| Volatility                 | +             | +            | +             | +            |
-| Risk-free rate             | +             | -            | +             | -            |
-| Amount of future dividends | -             | +            | -             | +            |
+|          Variable          | European call | European put | American call | American put |
+| :------------------------: | :-----------: | :----------: | :-----------: | :----------: |
+|    Current stock price     |      $+$      |     $-$      |      $+$      |     $-$      |
+|        Strike price        |      $-$      |     $+$      |      $-$      |     $+$      |
+|     Time to expiration     |      $?$      |     $?$      |      $+$      |     $+$      |
+|         Volatility         |      $+$      |     $+$      |      $+$      |     $+$      |
+|       Risk-free rate       |      $+$      |     $-$      |      $+$      |     $-$      |
+| Amount of future dividends |      $-$      |     $+$      |      $-$      |     $+$      |
 
 ## Notation
 
@@ -57,8 +57,9 @@ $$ P \geq p $$
 
 ## Upper and Lower Bounds for Option Prices
 
-### Upper Bounds for Call Options (American and European)
+### Upper Bounds for Call Options
 
+- Applies to both, American and European, options.
 - The option can never be worth more than the stock.
 - $c \leq S_0$ and $C \leq S_0$
 - Otherwise, an arbitrageur could easily make a riskless profit by buying the
@@ -71,20 +72,22 @@ stock and selling the call option.
   - $P \leq K$
 
 + European put option:
-  - At maturity the option cannot be worth morethan $K$.
+  - At maturity the option cannot be worth more than $K$.
   - It follows that it cannot be worth more than the present value of $K$ today.
   - $p \leq K e^{-rT}$
   - If this were not true, an arbitrageur could make a riskless profit by
   writing the option and investing the proceeds of the sale at the risk-free
   interest rate.
 
-### Lower Bound for European Calls on Non-Dividend-Paying Stocks
+### Lower Bounds for European Call Options
 
-- A lower bound for the price of a European call option on a non-dividend-paying
-stock is: $$S_0 - K e^{-rT}$$
+- A lower bound for the price of a European call option on a **non-dividend-paying
+stock** is: 
+
+$$S_0 - K e^{-rT}$$
 
 ```{admonition} Example
-- $S_0$ = 20, $T$ = 1, $r$ = 10%, $K$ = 18, $D$ = 0 
+- $S_0 = 20$, $T = 1$, $r = 10\%$, $K = 18$, $D = 0$
 
 $$S_0 - K e^{-rT} = 20 - 18 e^{-0.1} = 3.71$$
 
@@ -92,14 +95,18 @@ $$S_0 - K e^{-rT} = 20 - 18 e^{-0.1} = 3.71$$
 - An arbitrageur can short the stock, buy the call, and invest proceeds at 10%.
 ```
 
-### Lower Bound for European Puts on Non-Dividend-Paying Stocks
+### Lower Bounds for European Put Options
 
-- A lower bound for the price of a European put option on a non-dividend-paying
-stock is: $$K e^{-rT} - S_0$$
+- A lower bound for the price of a European put option on a **non-dividend-paying
+stock** is: 
+
+$$K e^{-rT} - S_0$$
 
 ```{admonition} Example
-- $S_0$ = 37, $T$ = 0.5, $r$ = 5%, $K$ = 40, $D$ = 0 
+- $S_0 = 37$, $T = 0.5$, $r = 5\%$, $K = 40$, $D = 0$ 
+
 $$K e^{-rT} - S_0 = 40 e^{-0.05 \times 0.5} - 37 = 2.01$$
+
 - What if the European put price is \$1?
 - An arbitrageur can borrow \$38 for 6 months to buy both the put and the stock.
 ```
@@ -107,10 +114,17 @@ $$K e^{-rT} - S_0 = 40 e^{-0.05 \times 0.5} - 37 = 2.01$$
 ## Upper and Lower Bounds Summary
 
 - Upper bound for European and American call options:
-    $$c \leq S_0 \text{ and } C \leq S_0$$
+
+  $$c \leq S_0 \text{ and } C \leq S_0$$
+
 - Upper bound for European and American put options:
-    $$p \leq K e^{-rT} \text{ and } P \leq K$$
+
+  $$p \leq K e^{-rT} \text{ and } P \leq K$$
+
 - Lower bound for European call option:
-    $$c \geq max(S_0 - K e^{-rT}, 0)$$
+
+  $$c \geq max(S_0 - K e^{-rT}, 0)$$
+
 - Lower bound for European put option:
-    $$p \geq max(K e^{-rT} - S_0, 0)$$
+
+  $$p \geq max(K e^{-rT} - S_0, 0)$$

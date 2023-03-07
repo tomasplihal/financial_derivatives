@@ -2,7 +2,8 @@
 
 ## Learning Outcomes
 
-- Option pricing - Black-Scholes model
+```{tableofcontents}
+```
 
 ## References
 

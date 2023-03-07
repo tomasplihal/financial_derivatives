@@ -39,13 +39,9 @@ for a certain price (the strike price).
 + An **American option** can be exercised at any time during its life.
 + A **European option** can be exercised only at maturity.
 
-
 ## Option Positions
 
-- Long call
-- Long put
-- Short call
-- Short put
+### Long Call
 
 ```{code-cell}
 :tags: [remove-input]
@@ -69,6 +65,8 @@ yrule = alt.Chart().mark_rule(strokeDash=[6, 6], strokeWidth=1).encode(y=alt.dat
 chart + xrule + yrule
 ```
 
+### Short Call
+
 ```{code-cell}
 :tags: [remove-input]
 k = 100  # strike price
@@ -90,6 +88,8 @@ yrule = alt.Chart().mark_rule(strokeDash=[6, 6], strokeWidth=1).encode(y=alt.dat
 
 chart + xrule + yrule
 ```
+
+### Long Put
 
 ```{code-cell}
 :tags: [remove-input]
@@ -113,6 +113,8 @@ yrule = alt.Chart().mark_rule(strokeDash=[6, 6], strokeWidth=1).encode(y=alt.dat
 
 chart + xrule + yrule
 ```
+
+### Short Put
 
 ```{code-cell}
 :tags: [remove-input]
@@ -177,22 +179,21 @@ Assumptions and symbol definitions:
 - $c_0$: the price (premium) of the call option
 - $p_0$: the price (premium) of the put option
 
-+ Profit to the call buyer:
-   
-  $$\Pi = Max(0, S_T - X) - c_0$$
-
-+ Profit to the put buyer: $$ \Pi = Max(0, X - S_T) - p_0 $$
++ Profit to the call buyer: $\Pi = Max(0, S_T - K) - c_0$
++ Profit to the put buyer: $\Pi = Max(0, K - S_T) - p_0$
 
 ```{admonition} Example
-- Assume that a put and call on CBX stock both have a strike price $X = \$30$.
+- Assume that a put and call on CBX stock both have a strike price $K = \$30$.
 The call initially costs \$1, and the put costs \$2.
 - What is the profit on the call and put if the price of CBX stock at expiration
 ($S_T$) is \$27.50?
 
 + Profit to the call buyer: 
+
 $$ \Pi = Max(0, S_T - X) - c_0 = Max(0, \$27.5 - \$30) - \$1 = -\$1 $$
 
 + Profit to the put buyer: 
+
 $$ \Pi = Max(0, X - S_T) - p_0 = Max(0, \$30 - \$27.5) - \$2 = \$0.5 $$
 ```
 
@@ -236,7 +237,11 @@ of options.
 - Consider a call option to buy 100 shares for \$20 per share.
 - How should terms be adjusted:
     1. for a 2-for-1 stock split?
+        - the strike price is reduced to $\frac{1}{2} \times \$20 = \$10$
+        - the number of options is increased to $\frac{2}{1} \times 100 = 200$
     2. for a 5% stock dividend?
+        - the strike price is reduced to $\frac{1}{1.05} \times \$20 = \$19.05$
+        - the number of options is increased to $\frac{1.05}{1} \times 100 = 105$
 ```
 
 ## Other Assets Related to Options

@@ -2,7 +2,8 @@
 
 ## Learning Outcomes
 
-- Option pricing - Binomial trees
+```{tableofcontents}
+```
 
 ## References
 

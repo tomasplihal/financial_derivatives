@@ -2,8 +2,8 @@
 
 ## Learning Outcomes
 
-- Mechanics of option market
-- Properties of options
+```{tableofcontents}
+```
 
 ## References
 

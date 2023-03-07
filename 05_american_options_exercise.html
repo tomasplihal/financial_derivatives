@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>American Options &#8212; Financial Derivatives</title>
+    <title>American Options - Early Exercise &#8212; Financial Derivatives</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -56,6 +56,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Effect of Dividends" href="05_effect_of_dividends.html" />
+    <link rel="prev" title="Put-Call Parity" href="05_put_call_parity.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -115,7 +117,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="01_intro.html">
    Lecture 1
@@ -269,25 +271,150 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="05_intro.html">
    Lecture 5
   </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="05_mechanics_of_options_market.html">
+     Mechanics of Options Markets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05_properties_of_options.html">
+     Properties of Stock Options
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05_put_call_parity.html">
+     Put-Call Parity
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     American Options - Early Exercise
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05_effect_of_dividends.html">
+     Effect of Dividends
+    </a>
+   </li>
+  </ul>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="06_intro.html">
    Lecture 6
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06_principal_protected_note.html">
+     Principal Protected Note
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06_stock_and_option.html">
+     Stock and Option
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06_spreads.html">
+     Spreads
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06_combinations.html">
+     Combinations
+    </a>
+   </li>
+  </ul>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="07_intro.html">
    Lecture 7
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="07_one_step_binomial_model.html">
+     A One-Step Binomial Model and A No-Arbitrage Argument
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="07_risk_neutral_valuation.html">
+     Risk-Neutral Valuation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="07_two_step_binomial_model.html">
+     Two-Step Binomial Trees
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="07_binomial_tree_formulas.html">
+     The Binomial Tree Formulas
+    </a>
+   </li>
+  </ul>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="08_intro.html">
    Lecture 8
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="08_bs_model.html">
+     Black-Scholes-Merton Model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="08_understanding_bs_model.html">
+     Understanding
+     <span class="math notranslate nohighlight">
+      \(N(d_1)\)
+     </span>
+     and
+     <span class="math notranslate nohighlight">
+      \(N(d_2)\)
+     </span>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="08_risk_neutral_valuation.html">
+     Risk-Neutral Valuation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="08_dividends.html">
+     Dividends
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="08_volatility.html">
+     Volatility
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="09_intro.html">
@@ -489,13 +616,20 @@ title="Print to PDF"
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
-   American Options
+   American Options - Early Exercise
   </a>
   <ul class="visible nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#americal-call-option-on-a-non-dividend-paying-stock">
      Americal Call Option on a Non-Dividend Paying Stock
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#reasons-for-not-exercising-a-call-early-no-dividends">
+       Reasons For Not Exercising a Call Early (No Dividends)
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
@@ -513,7 +647,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>American Options</h1>
+                <h1>American Options - Early Exercise</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -525,13 +659,20 @@ title="Print to PDF"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
-   American Options
+   American Options - Early Exercise
   </a>
   <ul class="visible nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#americal-call-option-on-a-non-dividend-paying-stock">
      Americal Call Option on a Non-Dividend Paying Stock
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#reasons-for-not-exercising-a-call-early-no-dividends">
+       Reasons For Not Exercising a Call Early (No Dividends)
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
@@ -550,57 +691,81 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="american-options">
-<h1>American Options<a class="headerlink" href="#american-options" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="american-options-early-exercise">
+<h1>American Options - Early Exercise<a class="headerlink" href="#american-options-early-exercise" title="Permalink to this headline">#</a></h1>
 <section id="americal-call-option-on-a-non-dividend-paying-stock">
 <h2>Americal Call Option on a Non-Dividend Paying Stock<a class="headerlink" href="#americal-call-option-on-a-non-dividend-paying-stock" title="Permalink to this headline">#</a></h2>
-<p>Early Exercise</p>
 <ul class="simple">
 <li><p>Usually there is some chance that an American option will be exercised early.</p></li>
 <li><p>An exception is an American call on a non-dividend paying stock.</p></li>
 <li><p>This should <strong>never</strong> be exercised early.</p></li>
 </ul>
-<p>An Extreme Situation</p>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
 <ul class="simple">
-<li><p>For an American call option: <span class="math notranslate nohighlight">\(S_0 = 100\)</span>; <span class="math notranslate nohighlight">\(T = 0.25\)</span>; <span class="math notranslate nohighlight">\(K = 60\)</span>; <span class="math notranslate nohighlight">\(D = 0\)</span></p></li>
+<li><p>American call option: <span class="math notranslate nohighlight">\(S_0 = 100\)</span>; <span class="math notranslate nohighlight">\(T = 0.25\)</span>; <span class="math notranslate nohighlight">\(K = 60\)</span>; <span class="math notranslate nohighlight">\(D = 0\)</span></p></li>
 <li><p>Should you exercise immediately?</p></li>
 </ul>
-<p>What should you do if:</p>
 <ul class="simple">
+<li><p>What should you do if:</p>
+<ul>
 <li><p>You want to hold the stock for the next 3 months?</p></li>
 <li><p>You do not feel that the stock is worth holding for the next 3 months?</p></li>
 </ul>
-<p>Reasons For Not Exercising a Call Early (No Dividends)</p>
+</li>
+</ul>
+</div>
+<section id="reasons-for-not-exercising-a-call-early-no-dividends">
+<h3>Reasons For Not Exercising a Call Early (No Dividends)<a class="headerlink" href="#reasons-for-not-exercising-a-call-early-no-dividends" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>No income is sacrificed.</p></li>
 <li><p>You delay paying the strike price.</p></li>
 <li><p>Holding the call provides insurance against stock price falling below strike
 price.</p></li>
-<li><p>If you do not want to hold the stock, it is better to sell it than exercise
-it (intrinsic value + time value).</p></li>
-<li><p>Upper bound for American call options:
-$<span class="math notranslate nohighlight">\( C \leq S_0\)</span>$</p></li>
-<li><p>Lower bound for American call option:
-$<span class="math notranslate nohighlight">\(C \geq max(S_0 - K e^{-rT}, 0)\)</span>$</p></li>
+<li><p>If you do not want to hold the stock, it is better to sell it (and receive
+intrinsic + time value) than exercise it (and receive only intrinsic value).</p></li>
 </ul>
+<ul>
+<li><p>Upper bound for American call options:</p>
+<div class="math notranslate nohighlight">
+\[ C \leq S_0\]</div>
+</li>
+<li><p>Lower bound for American call option:</p>
+<div class="math notranslate nohighlight">
+\[C \geq max(S_0 - K e^{-rT}, 0)\]</div>
+</li>
+</ul>
+</section>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="americal-put-option-on-a-non-dividend-paying-stock">
 <h1>Americal Put Option on a Non-Dividend Paying Stock<a class="headerlink" href="#americal-put-option-on-a-non-dividend-paying-stock" title="Permalink to this headline">#</a></h1>
-<p>Should Puts Be Exercised Early?</p>
 <ul class="simple">
-<li><p>At any given time during its life, the put option should always be exercised
-early if it is sufficiently deep in the money.</p></li>
+<li><p>At any given time during its life, the put option <strong>should always be exercised
+early if it is sufficiently deep in the money</strong>.</p></li>
 <li><p>In general, the early exercise of a put option becomes more attractive as
 <span class="math notranslate nohighlight">\(S_0\)</span> decreases, as <span class="math notranslate nohighlight">\(r\)</span> increases, and as the volatility decreases.</p></li>
+</ul>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<ul class="simple">
 <li><p>Suppose that the strike price is $10 and the stock price is virtually zero.</p></li>
 <li><p>By exercising immediately, an investor makes an immediate gain of $10.</p></li>
 <li><p>If the investor waits, the gain from exercise might be less than $10, but it
 cannot be more than $10, because negative stock prices are impossible.</p></li>
 <li><p>Furthermore, receiving $10 now is preferable to receiving $10 in the future.</p></li>
 <li><p>It follows that the option should be exercised immediately.</p></li>
-<li><p>Upper and lower bounds for American put options:
-$<span class="math notranslate nohighlight">\( max(K - S_0, 0) \leq P \leq K \)</span>$</p></li>
+</ul>
+</div>
+<ul>
+<li><p>Upper bound for American put options:</p>
+<div class="math notranslate nohighlight">
+\[ P \leq K \]</div>
+</li>
+<li><p>Lower bound for American call option:</p>
+<div class="math notranslate nohighlight">
+\[ P \geq max(K - S_0, 0) \]</div>
+</li>
 </ul>
 </section>
 
@@ -631,6 +796,20 @@ $<span class="math notranslate nohighlight">\( max(K - S_0, 0) \leq P \leq K \)<
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="05_put_call_parity.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Put-Call Parity</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="05_effect_of_dividends.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Effect of Dividends</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>

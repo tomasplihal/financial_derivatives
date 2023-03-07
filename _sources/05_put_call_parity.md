@@ -17,25 +17,28 @@ kernelspec:
 - Consider the following 2 portfolios:
   - Portfolio A: European call on a stock + zero-coupon bond that pays $K$ at
   time $T$
-- Portfolio C: European put on the stock + the stock
+  - Portfolio B: European put on the stock + the stock
 
-+ Values of Portfolios Portfolios illustrating put-call parity:
++ Values of portfolios illustrating put-call parity:
 
 |             |                  | $S_T > K$ | $S_T < K$ |
 | ----------- | ---------------- | :-------: | :-------: |
 | Portfolio A | Call option      | $S_T - K$ |    $0$    |
 |             | Zero-coupon bond |    $K$    |    $K$    |
 |             | **Total**        |   $S_T$   |    $K$    |
-| Portfolio C | Put Option       |    $0$    | $K - S_T$ |
+| Portfolio B | Put Option       |    $0$    | $K - S_T$ |
 |             | Share            |   $S_T$   |   $S_T$   |
 |             | **Total**        |   $S_T$   |    $K$    |
 
 - Both portfolios are worth $max(S_T , K)$ at the maturity of the options.
 - They must therefore be worth the same today.
 - This means that:
-   $$c + K e^{-rT} = p + S_0$$
 
-Put-Call Parity Arbitrage ($S_0$ = \$31, $r$ = 10%, $c$ = \$3, $K$ = \$30) 
+  $$c + K e^{-rT} = p + S_0$$
+
+## Put-Call Parity Arbitrage 
+
+- $S_0 = \$31$, $r = 10\%$, $c = \$3$, $K = \$30$ 
 
 | Three-month put price = \$2.25      | Three-month put price = \$1         |
 | ----------------------------------- | ----------------------------------- |

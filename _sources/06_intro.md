@@ -2,8 +2,8 @@
 
 ## Learning Outcomes
 
-- Trading strategies involving options
-- Hedging using options
+```{tableofcontents}
+```
 
 ## References
 

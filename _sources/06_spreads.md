@@ -12,21 +12,28 @@ kernelspec:
 
 # Spreads
 
-- Two or more options of the same type (a spread).
+- A combination of two or more options of the same type (a spread).
+- Examples of other option strategies can be found
+[HERE](https://www.optionsplaybook.com/option-strategies/) or
+[HERE](https://www.investopedia.com/trading/options-strategies/).
 
-## Bull Spread Using Calls
+## Bull Spread
+
+### Bull Spread Using Calls
 
 ![image](images/07-2-bull-spread-calls.png)
 
-## Bull Spread Using Puts
+### Bull Spread Using Puts
 
 ![image](images/07-3-bull-spread-puts.png)
 
-## Bear Spread Using Puts
+## Bear Spread
+
+### Bear Spread Using Puts
 
 ![image](images/07-4-bear-spread-puts.png)
 
-## Bear Spread Using Calls
+### Bear Spread Using Calls
 
 ![image](images/07-5-bear-spread-calls.png)
 
@@ -37,18 +44,22 @@ kernelspec:
 difference between the strike prices.
 - If they are American this is not necessarily so.
 
-## Butterfly Spread Using Calls
+## Butterfly Spread
+
+### Butterfly Spread Using Calls
 
 ![image](images/07-6-butterfly-spread-calls.png)
 
-## Butterfly Spread Using Puts
+### Butterfly Spread Using Puts
 
 ![image](images/07-7-butterfly-spread-puts.png)
 
-## Calendar Spread Using Calls
+## Calendar Spread
+
+### Calendar Spread Using Calls
 
 ![image](images/07-8-calendar-spread-calls.png)
 
-## Calendar Spread Using Puts
+### Calendar Spread Using Puts
 
 ![image](images/07-9-calendar-spread-puts.png)

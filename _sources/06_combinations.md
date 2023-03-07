@@ -13,18 +13,21 @@ kernelspec:
 # Combinations
 
 - Two or more options of different types (a combination).
+- Examples of other option strategies can be found
+[HERE](https://www.optionsplaybook.com/option-strategies/) or
+[HERE](https://www.investopedia.com/trading/options-strategies/).
 
 ## A Straddle Combination
 
 ![image](images/07-10-straddle.png)
 
-## Strip & Strap
-
-![image](images/07-11-strip-strap.png)
-
 ## A Strangle Combination
 
 ![image](images/07-12-strangle.png)
+
+## Strip & Strap
+
+![image](images/07-11-strip-strap.png)
 
 ## Other Payoff Patterns
 
