@@ -269,6 +269,11 @@ const thebe_selector_output = ".output, .cell_output"
      Other Types of Swaps
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_practice_questions.html">
+     Practice Questions and Problems
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
@@ -724,12 +729,16 @@ principal.</p></li>
 <li><p>Apple is the <strong>fixed-rate payer</strong>; Citigroup is the
 <strong>floating-rate payer</strong>.</p></li>
 </ul>
-<div align="center" class="mermaid align-center">
-            flowchart LR
-    Citigroup --&gt;|Floating| Apple
-    Apple --&gt; |3.0%| Citigroup
-        </div>
-        <ul class="simple">
+<p><img alt="image" src="_images/05-2-apple-citi-1.png" /></p>
+<!-- ```{mermaid}
+:align: 'center'
+
+flowchart LR
+    Citigroup --|Floating| Apple
+    Apple -- |3.0%| Citigroup
+``` 
+-->
+<ul class="simple">
 <li><p>Cash flows to Apple for one possible outcome of the OIS, the swap lasts two years and the notional principal is $100 million.</p></li>
 </ul>
 <table class="colwidths-auto table">
@@ -807,40 +816,56 @@ principal.</p></li>
 <ul class="simple">
 <li><p>Apple Transforms a <strong>Liability</strong> from Floating to Fixed:</p></li>
 </ul>
-<div align="center" class="mermaid align-center">
-            flowchart LR
-    Citigroup --&gt;|Floating| Apple
-    Apple --&gt; |3.0%| Citigroup
-    Apple --&gt; |Floating + 0.1%| X
-        </div>
-        <ul class="simple">
+<p><img alt="image" src="_images/05-3-apple-citi-2.png" /></p>
+<!-- ```{mermaid}
+:align: 'center'
+
+flowchart LR
+    Citigroup --|Floating| Apple
+    Apple -- |3.0%| Citigroup
+    Apple -- |Floating + 0.1%| X
+``` 
+-->
+<ul class="simple">
 <li><p>Intel Transforms a <strong>Liability</strong> from Fixed to Floating:</p></li>
 </ul>
-<div align="center" class="mermaid align-center">
-            flowchart LR
-    Citigroup --&gt;|2.97%| Intel
-    Intel --&gt; |Floating| Citigroup
-    Intel --&gt; |3.2%| Y
-        </div>
-        <ul class="simple">
+<p><img alt="image" src="_images/05-5-intel-citi-2.png" /></p>
+<!-- ```{mermaid}
+:align: 'center'
+
+flowchart LR
+    Citigroup --|2.97%| Intel
+    Intel -- |Floating| Citigroup
+    Intel -- |3.2%| Y
+```
+ -->
+<ul class="simple">
 <li><p>Apple Transforms an <strong>Asset</strong> from Fixed to Floating:</p></li>
 </ul>
-<div align="center" class="mermaid align-center">
-            flowchart LR
-    X --&gt; |2.7%| Apple
-    Apple --&gt; |3.0%| Citigroup
-    Citigroup --&gt;|Floating| Apple
-        </div>
-        <ul class="simple">
+<p><img alt="image" src="_images/05-6-apple-citi-3.png" /></p>
+<!-- ```{mermaid}
+:align: 'center'
+
+flowchart LR
+    X -- |2.7%| Apple
+    Apple -- |3.0%| Citigroup
+    Citigroup --|Floating| Apple
+```
+ -->
+<ul class="simple">
 <li><p>Intel Transforms an <strong>Asset</strong> from Floating to Fixed:</p></li>
 </ul>
-<div align="center" class="mermaid align-center">
-            flowchart LR
-    Y --&gt; |Floating - 0.2%| Intel
-    Intel --&gt; |Floating| Citigroup
-    Citigroup --&gt;|2.97%| Intel
-        </div>
-        <!-- ### Quotes By a Swap Market Maker (Citigroup)
+<p><img alt="image" src="_images/05-7-intel-citi-3.png" /></p>
+<!-- ```{mermaid}
+:align: 'center'
+
+flowchart LR
+    Y -- |Floating - 0.2%| Intel
+    Intel -- |Floating| Citigroup
+    Citigroup --|2.97%| Intel
+```
+ -->
+<!-- ### Quotes By a Swap Market Maker (Citigroup)
 
 - Example of bid and offer fixed rates in the swap market for a swap where
 payments are exchanged quarterly (percent per annum).
@@ -887,26 +912,34 @@ argument (“Floating” is the floating reference rate):</p></li>
 <ul class="simple">
 <li><p>A Swap where companies trade directly with each other:</p></li>
 </ul>
-<div align="center" class="mermaid align-center">
-            flowchart LR
-    AAACorp --&gt; |4%| X
-    BBBCorp --&gt; |4.35%| AAACorp
-    BBBCorp --&gt; |Floating + 0.6%| Y
-    AAACorp --&gt; |Floating| BBBCorp
-        </div>
-        <ul class="simple">
+<p><img alt="image" src="_images/05-10-swap-directly.png" /></p>
+<!-- ```{mermaid}
+:align: 'center'
+
+flowchart LR
+    AAACorp -- |4%| X
+    BBBCorp -- |4.35%| AAACorp
+    BBBCorp -- |Floating + 0.6%| Y
+    AAACorp -- |Floating| BBBCorp
+```
+ -->
+<ul class="simple">
 <li><p>The swap when a financial institution is involved:</p></li>
 </ul>
-<div align="center" class="mermaid align-center">
-            flowchart LR
-    AAACorp --&gt; |4%| X
-    BBBCorp --&gt; |4.37%| F[Financial institution]
-    F --&gt; |Floating| BBBCorp
-    F --&gt; |4.33%| AAACorp
-    BBBCorp --&gt; |Floating + 0.6%| Y
-    AAACorp --&gt; |Floating| F
-        </div>
-        <section id="criticism-of-the-comparative-advantage-argument">
+<p><img alt="image" src="_images/05-11-swap-indirectly.png" /></p>
+<!-- ```{mermaid}
+:align: 'center'
+
+flowchart LR
+    AAACorp -- |4%| X
+    BBBCorp -- |4.37%| F[Financial institution]
+    F -- |Floating| BBBCorp
+    F -- |4.33%| AAACorp
+    BBBCorp -- |Floating + 0.6%| Y
+    AAACorp -- |Floating| F
+```
+ -->
+<section id="criticism-of-the-comparative-advantage-argument">
 <h3>Criticism of the Comparative Advantage Argument<a class="headerlink" href="#criticism-of-the-comparative-advantage-argument" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>The 4.0% and 5.2% rates available to AAACorp and BBBCorp in fixed rate markets

@@ -22,13 +22,16 @@ principal.
 - Apple is the **fixed-rate payer**; Citigroup is the
 **floating-rate payer**.
 
-```{mermaid}
+![image](images/05-2-apple-citi-1.png)
+
+<!-- ```{mermaid}
 :align: 'center'
 
 flowchart LR
-    Citigroup -->|Floating| Apple
-    Apple --> |3.0%| Citigroup
-```
+    Citigroup --|Floating| Apple
+    Apple -- |3.0%| Citigroup
+``` 
+-->
 
 - Cash flows to Apple for one possible outcome of the OIS, the swap lasts two years and the notional principal is \$100 million.
 
@@ -53,47 +56,59 @@ flowchart LR
 
 + Apple Transforms a **Liability** from Floating to Fixed:
 
-```{mermaid}
+![image](images/05-3-apple-citi-2.png)
+
+<!-- ```{mermaid}
 :align: 'center'
 
 flowchart LR
-    Citigroup -->|Floating| Apple
-    Apple --> |3.0%| Citigroup
-    Apple --> |Floating + 0.1%| X
-```
+    Citigroup --|Floating| Apple
+    Apple -- |3.0%| Citigroup
+    Apple -- |Floating + 0.1%| X
+``` 
+-->
 
 - Intel Transforms a **Liability** from Fixed to Floating:
 
-```{mermaid}
+![image](images/05-5-intel-citi-2.png)
+
+<!-- ```{mermaid}
 :align: 'center'
 
 flowchart LR
-    Citigroup -->|2.97%| Intel
-    Intel --> |Floating| Citigroup
-    Intel --> |3.2%| Y
+    Citigroup --|2.97%| Intel
+    Intel -- |Floating| Citigroup
+    Intel -- |3.2%| Y
 ```
+ -->
 
 + Apple Transforms an **Asset** from Fixed to Floating:
 
-```{mermaid}
+![image](images/05-6-apple-citi-3.png)
+
+<!-- ```{mermaid}
 :align: 'center'
 
 flowchart LR
-    X --> |2.7%| Apple
-    Apple --> |3.0%| Citigroup
-    Citigroup -->|Floating| Apple
+    X -- |2.7%| Apple
+    Apple -- |3.0%| Citigroup
+    Citigroup --|Floating| Apple
 ```
+ -->
 
 - Intel Transforms an **Asset** from Floating to Fixed:
 
-```{mermaid}
+![image](images/05-7-intel-citi-3.png)
+
+<!-- ```{mermaid}
 :align: 'center'
 
 flowchart LR
-    Y --> |Floating - 0.2%| Intel
-    Intel --> |Floating| Citigroup
-    Citigroup -->|2.97%| Intel
+    Y -- |Floating - 0.2%| Intel
+    Intel -- |Floating| Citigroup
+    Citigroup --|2.97%| Intel
 ```
+ -->
 
 <!-- ### Quotes By a Swap Market Maker (Citigroup)
 
@@ -127,29 +142,35 @@ argument ("Floating" is the floating reference rate):
 
  - A Swap where companies trade directly with each other:
 
-```{mermaid}
+![image](images/05-10-swap-directly.png)
+
+<!-- ```{mermaid}
 :align: 'center'
 
 flowchart LR
-    AAACorp --> |4%| X
-    BBBCorp --> |4.35%| AAACorp
-    BBBCorp --> |Floating + 0.6%| Y
-    AAACorp --> |Floating| BBBCorp
+    AAACorp -- |4%| X
+    BBBCorp -- |4.35%| AAACorp
+    BBBCorp -- |Floating + 0.6%| Y
+    AAACorp -- |Floating| BBBCorp
 ```
+ -->
 
 + The swap when a financial institution is involved:
 
-```{mermaid}
+![image](images/05-11-swap-indirectly.png)
+
+<!-- ```{mermaid}
 :align: 'center'
 
 flowchart LR
-    AAACorp --> |4%| X
-    BBBCorp --> |4.37%| F[Financial institution]
-    F --> |Floating| BBBCorp
-    F --> |4.33%| AAACorp
-    BBBCorp --> |Floating + 0.6%| Y
-    AAACorp --> |Floating| F
+    AAACorp -- |4%| X
+    BBBCorp -- |4.37%| F[Financial institution]
+    F -- |Floating| BBBCorp
+    F -- |4.33%| AAACorp
+    BBBCorp -- |Floating + 0.6%| Y
+    AAACorp -- |Floating| F
 ```
+ -->
 
 ### Criticism of the Comparative Advantage Argument
 

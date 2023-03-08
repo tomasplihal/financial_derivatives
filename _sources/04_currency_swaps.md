@@ -59,18 +59,22 @@ currency.
 | General Electric | 5.0%  | 7.6%  |
 |  Qantas Airways  | 7.0%  | 8.0%  |
 
+![image](images/05-17-currency-swap.png)
 
-```{mermaid}
+<!-- 
+ ```{mermaid}
 :align: 'center'
 
 flowchart LR
-    GE[General Electric] --> |USD 5%| X
-    QA[Qantas Airways] --> |USD 6.3%| F[Financial institution]
-    F --> |AUD 8.0%| QA
-    F --> |AUD 6.9%| GE
-    QA --> |AUD 8%| Y
-    GE --> |AUD 6.9%| F
+    GE[General Electric] -- |USD 5%| X
+    QA[Qantas Airways] -- |USD 6.3%| F[Financial institution]
+    F -- |AUD 8.0%| QA
+    F -- |AUD 6.9%| GE
+    QA -- |AUD 8%| Y
+    GE -- |AUD 6.9%| F
 ```
+ -->
+
 
 ---
 
