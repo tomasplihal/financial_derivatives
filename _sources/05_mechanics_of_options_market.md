@@ -190,11 +190,11 @@ The call initially costs \$1, and the put costs \$2.
 
 + Profit to the call buyer: 
 
-$$ \Pi = Max(0, S_T - X) - c_0 = Max(0, \$27.5 - \$30) - \$1 = -\$1 $$
+$$ \Pi = Max(0, S_T - K) - c_0 = Max(0, \$27.5 - \$30) - \$1 = -\$1 $$
 
 + Profit to the put buyer: 
 
-$$ \Pi = Max(0, X - S_T) - p_0 = Max(0, \$30 - \$27.5) - \$2 = \$0.5 $$
+$$ \Pi = Max(0, K - S_T) - p_0 = Max(0, \$30 - \$27.5) - \$2 = \$0.5 $$
 ```
 
 ## Other Option Characteristics
