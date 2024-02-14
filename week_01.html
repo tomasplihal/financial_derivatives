@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.549">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Financial Derivatives - 1&nbsp; Introduction to Financial Derivatives</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./week_02.html" rel="next">
+<link href="./index.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week_01.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to Financial Derivatives</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Financial Derivatives</a> 
+        <div class="sidebar-tools-main">
+    <div class="dropdown">
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Financial-Derivatives.pdf">
+              <i class="bi bi-bi-file-pdf pe-1"></i>
+            Download PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Financial-Derivatives.epub">
+              <i class="bi bi-bi-journal pe-1"></i>
+            Download ePub
+            </a>
+          </li>
+      </ul>
+    </div>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-1" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-1">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+              <i class="bi bi-bi-facebook pe-1"></i>
+            Facebook
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preamble</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week_01.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to Financial Derivatives</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week_02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Forwards and Futures</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week_03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Determination of Forward and Futures Prices</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week_04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Swaps</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week_05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Options</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week_06.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Options Trading Strategies and Hedging</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week_07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Reading Week</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week_08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Option Pricing - Binomial Trees</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week_09.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Option Pricing - Black-Scholes Model</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week_10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">The Greeks and Volatility</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week_11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Options on Stock Indices, Currencies, and Futures</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week_12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Structured Products I</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week_13.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Structured Products II</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./time_value.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Time Value of Money</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./interest_rates.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Interest Rates</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#what-are-derivatives" id="toc-what-are-derivatives" class="nav-link active" data-scroll-target="#what-are-derivatives"><span class="header-section-number">1.1</span> What Are Derivatives?</a>
+  <ul class="collapse">
+  <li><a href="#understanding-derivatives" id="toc-understanding-derivatives" class="nav-link" data-scroll-target="#understanding-derivatives"><span class="header-section-number">1.1.1</span> Understanding Derivatives</a></li>
+  <li><a href="#the-significance-of-derivatives" id="toc-the-significance-of-derivatives" class="nav-link" data-scroll-target="#the-significance-of-derivatives"><span class="header-section-number">1.1.2</span> The Significance of Derivatives</a></li>
+  </ul></li>
+  <li><a href="#derivative-markets" id="toc-derivative-markets" class="nav-link" data-scroll-target="#derivative-markets"><span class="header-section-number">1.2</span> Derivative Markets</a>
+  <ul class="collapse">
+  <li><a href="#exchange-traded-derivatives" id="toc-exchange-traded-derivatives" class="nav-link" data-scroll-target="#exchange-traded-derivatives"><span class="header-section-number">1.2.1</span> Exchange-Traded Derivatives</a></li>
+  <li><a href="#over-the-counter-otc-derivatives" id="toc-over-the-counter-otc-derivatives" class="nav-link" data-scroll-target="#over-the-counter-otc-derivatives"><span class="header-section-number">1.2.2</span> Over-The-Counter (OTC) Derivatives</a></li>
+  </ul></li>
+  <li><a href="#forward-contracts-vs.-contingent-claims" id="toc-forward-contracts-vs.-contingent-claims" class="nav-link" data-scroll-target="#forward-contracts-vs.-contingent-claims"><span class="header-section-number">1.3</span> Forward Contracts vs.&nbsp;Contingent Claims</a>
+  <ul class="collapse">
+  <li><a href="#forward-commitments" id="toc-forward-commitments" class="nav-link" data-scroll-target="#forward-commitments"><span class="header-section-number">1.3.1</span> Forward Commitments</a></li>
+  <li><a href="#contingent-claims" id="toc-contingent-claims" class="nav-link" data-scroll-target="#contingent-claims"><span class="header-section-number">1.3.2</span> Contingent Claims</a></li>
+  <li><a href="#key-differences-and-risks" id="toc-key-differences-and-risks" class="nav-link" data-scroll-target="#key-differences-and-risks"><span class="header-section-number">1.3.3</span> Key Differences and Risks</a></li>
+  </ul></li>
+  <li><a href="#types-of-derivatives" id="toc-types-of-derivatives" class="nav-link" data-scroll-target="#types-of-derivatives"><span class="header-section-number">1.4</span> Types of Derivatives</a>
+  <ul class="collapse">
+  <li><a href="#forward-contract" id="toc-forward-contract" class="nav-link" data-scroll-target="#forward-contract"><span class="header-section-number">1.4.1</span> Forward Contract</a></li>
+  <li><a href="#futures-contract" id="toc-futures-contract" class="nav-link" data-scroll-target="#futures-contract"><span class="header-section-number">1.4.2</span> Futures Contract</a></li>
+  <li><a href="#swap-contract" id="toc-swap-contract" class="nav-link" data-scroll-target="#swap-contract"><span class="header-section-number">1.4.3</span> Swap Contract</a></li>
+  <li><a href="#options" id="toc-options" class="nav-link" data-scroll-target="#options"><span class="header-section-number">1.4.4</span> Options</a></li>
+  </ul></li>
+  <li><a href="#applications-of-derivatives" id="toc-applications-of-derivatives" class="nav-link" data-scroll-target="#applications-of-derivatives"><span class="header-section-number">1.5</span> Applications of Derivatives</a>
+  <ul class="collapse">
+  <li><a href="#hedging" id="toc-hedging" class="nav-link" data-scroll-target="#hedging"><span class="header-section-number">1.5.1</span> Hedging</a></li>
+  <li><a href="#arbitrage" id="toc-arbitrage" class="nav-link" data-scroll-target="#arbitrage"><span class="header-section-number">1.5.2</span> Arbitrage</a></li>
+  <li><a href="#speculation" id="toc-speculation" class="nav-link" data-scroll-target="#speculation"><span class="header-section-number">1.5.3</span> Speculation</a></li>
+  </ul></li>
+  <li><a href="#criticisms-and-misuses-of-derivatives" id="toc-criticisms-and-misuses-of-derivatives" class="nav-link" data-scroll-target="#criticisms-and-misuses-of-derivatives"><span class="header-section-number">1.6</span> Criticisms and Misuses of Derivatives</a></li>
+  <li><a href="#practice-questions-and-problems" id="toc-practice-questions-and-problems" class="nav-link" data-scroll-target="#practice-questions-and-problems"><span class="header-section-number">1.7</span> Practice Questions and Problems</a>
+  <ul class="collapse">
+  <li><a href="#time-value-of-money" id="toc-time-value-of-money" class="nav-link" data-scroll-target="#time-value-of-money"><span class="header-section-number">1.7.1</span> Time Value of Money</a></li>
+  <li><a href="#theoretical-foundations-of-derivatives" id="toc-theoretical-foundations-of-derivatives" class="nav-link" data-scroll-target="#theoretical-foundations-of-derivatives"><span class="header-section-number">1.7.2</span> Theoretical Foundations of Derivatives</a></li>
+  <li><a href="#practical-applications-of-forwards-and-futures" id="toc-practical-applications-of-forwards-and-futures" class="nav-link" data-scroll-target="#practical-applications-of-forwards-and-futures"><span class="header-section-number">1.7.3</span> Practical Applications of Forwards and Futures</a></li>
+  <li><a href="#practical-applications-of-options" id="toc-practical-applications-of-options" class="nav-link" data-scroll-target="#practical-applications-of-options"><span class="header-section-number">1.7.4</span> Practical Applications of Options</a></li>
+  <li><a href="#hedging-strategies" id="toc-hedging-strategies" class="nav-link" data-scroll-target="#hedging-strategies"><span class="header-section-number">1.7.5</span> Hedging Strategies</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to Financial Derivatives</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+References
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>HULL, John. Options, futures, and other derivatives. Ninth edition. Harlow: Pearson, 2018. ISBN 978-1-292-21289-0.
+<ul>
+<li>Chapter 1 - Introduction</li>
+<li>Chapter 4 - Interest Rates</li>
+</ul></li>
+<li>PIRIE, Wendy L. Derivatives. Hoboken: Wiley, 2017. CFA institute investment series. ISBN 978-1-119-38181-5.
+<ul>
+<li>Chapter 1 - Derivative Markets and Instruments</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<p><strong>Learning Outcomes:</strong></p>
+<ul>
+<li>Define and explain the concept of derivatives in financial markets.</li>
+<li>Analyze the importance and role of derivatives in finance.</li>
+<li>Distinguish between derivative markets, including their structure and function.</li>
+<li>Compare and contrast forward contracts with contingent claims, highlighting their differences and uses.</li>
+<li>Identify the various types of derivatives.</li>
+<li>Discuss the applications of derivatives in hedging, speculation, and arbitrage.</li>
+<li>Evaluate criticisms and potential misuses of derivatives in financial markets.</li>
+</ul>
+<section id="what-are-derivatives" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="what-are-derivatives"><span class="header-section-number">1.1</span> What Are Derivatives?</h2>
+<section id="understanding-derivatives" class="level3" data-number="1.1.1">
+<h3 data-number="1.1.1" class="anchored" data-anchor-id="understanding-derivatives"><span class="header-section-number">1.1.1</span> Understanding Derivatives</h3>
+<ul>
+<li>A derivative is a financial contract whose value depends on the performance of <strong>an underlying asset</strong>.</li>
+<li>This underlying asset, referred to as the underlying, may be a stock, currency, interest rate, commodity, or any other marketable item. Its market price is known as the cash or spot price.</li>
+<li>The range of underlying assets encompasses a wide array, including stocks, currencies, commodities, debt instruments, and even non-traditional metrics like weather conditions or insurance claims.</li>
+</ul>
+</section>
+<section id="the-significance-of-derivatives" class="level3" data-number="1.1.2">
+<h3 data-number="1.1.2" class="anchored" data-anchor-id="the-significance-of-derivatives"><span class="header-section-number">1.1.2</span> The Significance of Derivatives</h3>
+<p>Derivatives are pivotal in the financial ecosystem due to their ability to:</p>
+<ul>
+<li>Facilitate risk management by transferring risks between parties.</li>
+<li>Craft unique investment strategies and returns not feasible with direct investments.</li>
+<li>Serve as a source of market insight and future price expectations.</li>
+<li>Offer cost efficiencies in transactions.</li>
+<li>Minimize required capital investment.</li>
+<li>Simplify the process of taking short positions compared to dealing with the underlying directly.</li>
+<li>Enhance the liquidity and operational efficiency of the primary markets they relate to.</li>
+</ul>
+</section>
+</section>
+<section id="derivative-markets" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="derivative-markets"><span class="header-section-number">1.2</span> Derivative Markets</h2>
+<p>Derivatives are traded in two main venues: <strong>organized exchanges</strong> and <strong>over-the-counter (OTC)</strong> markets.</p>
+<section id="exchange-traded-derivatives" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="exchange-traded-derivatives"><span class="header-section-number">1.2.1</span> Exchange-Traded Derivatives</h3>
+<p>These derivatives are <strong>standardized</strong> contracts with fixed features such as contract size, expiration date, and underlying assets. Their trading is <strong>guaranteed by a clearing house</strong>, which requires participants to post margins. This arrangement ensures transparency and regulation, safeguarding the integrity of the market.</p>
+</section>
+<section id="over-the-counter-otc-derivatives" class="level3" data-number="1.2.2">
+<h3 data-number="1.2.2" class="anchored" data-anchor-id="over-the-counter-otc-derivatives"><span class="header-section-number">1.2.2</span> Over-The-Counter (OTC) Derivatives</h3>
+<p>In contrast, OTC derivatives offer <strong>customization</strong> in terms of contract size, asset specification, and expiration dates. This flexibility, however, comes with a higher risk of default (credit risk) for the parties involved.</p>
+<section id="the-otc-market-evolution" class="level4">
+<h4 class="anchored" data-anchor-id="the-otc-market-evolution">The OTC Market Evolution</h4>
+<ul>
+<li><p><strong>Prior to 2008</strong>: The OTC market was largely unregulated, with banks serving as the primary market makers. Transactions were governed by master agreements, and some were cleared through central counterparties (CCPs), similar to clearing houses.</p></li>
+<li><p><strong>Since 2008</strong>: Significant regulatory changes have been implemented to reduce systemic risk and enhance transparency. Standardized OTC transactions must now be cleared through CCPs, and all trades are required to be reported to a central repository. These measures aim to bolster market stability and integrity.</p></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+The Lehman Bankruptcy
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The bankruptcy of Lehman Brothers on September 15, 2008, stands as the largest in U.S. history. Lehman Brothers was heavily involved in the over-the-counter (OTC) derivatives market, engaging in high-risk financial activities. The firm’s inability to refinance its short-term debt ultimately led to its downfall. At the time of its bankruptcy, Lehman Brothers had an extensive network of transactions, with hundreds of thousands outstanding across approximately 8,000 counterparties. The process of unwinding these transactions has posed significant challenges for both the Lehman liquidators and the involved counterparties, illustrating the complex and interconnected nature of modern financial markets.</p>
+</div>
+</div>
+<!---
+# https://www.bis.org/statistics/extderiv.htm?m=2616
+-->
+</section>
+</section>
+</section>
+<section id="forward-contracts-vs.-contingent-claims" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="forward-contracts-vs.-contingent-claims"><span class="header-section-number">1.3</span> Forward Contracts vs.&nbsp;Contingent Claims</h2>
+<p>Both forward contracts and contingent claims are essential financial instruments that derive their value from the performance of an underlying asset, playing pivotal roles in the global financial markets for hedging, speculation, and arbitrage.</p>
+<section id="forward-commitments" class="level3" data-number="1.3.1">
+<h3 data-number="1.3.1" class="anchored" data-anchor-id="forward-commitments"><span class="header-section-number">1.3.1</span> Forward Commitments</h3>
+<p>Forward commitments are agreements to buy or sell an asset at a predetermined future date and price. They include:</p>
+<ul>
+<li><p><strong>Forward Contracts</strong>: Private, <strong><em>non-standardized</em></strong> agreements between two parties to buy or sell an asset at a specified future time at a price agreed upon at the contract’s initiation.</p></li>
+<li><p><strong>Futures Contracts</strong>: <strong><em>Standardized</em></strong> forward contracts traded on organized exchanges that require the posting of a margin. Futures contracts are marked to market daily, which mitigates credit risk.</p></li>
+<li><p><strong>Swaps</strong>: Agreements between two parties to exchange sequences of cash flows for a set period based on a specified principal amount. Swaps often involve the exchange of a fixed interest rate for a floating rate, or vice versa.</p></li>
+</ul>
+</section>
+<section id="contingent-claims" class="level3" data-number="1.3.2">
+<h3 data-number="1.3.2" class="anchored" data-anchor-id="contingent-claims"><span class="header-section-number">1.3.2</span> Contingent Claims</h3>
+<p>Contingent claims are financial instruments that <strong><em>offer the holder the right, but not the obligation</em></strong>, to buy or sell an asset at a predetermined price within a specified timeframe. The primary form of contingent claims is:</p>
+<ul>
+<li><strong>Options</strong>: Contracts that give the buyer the right, but not the obligation, to buy (call option) or sell (put option) an underlying asset at a specified strike price on or before a certain date. Options are of two types: <em>European options</em>, which can be exercised only at expiration, and <em>American options</em>, which can be exercised at any time before expiration.</li>
+</ul>
+</section>
+<section id="key-differences-and-risks" class="level3" data-number="1.3.3">
+<h3 data-number="1.3.3" class="anchored" data-anchor-id="key-differences-and-risks"><span class="header-section-number">1.3.3</span> Key Differences and Risks</h3>
+<ul>
+<li><p><strong>Obligation vs.&nbsp;Right</strong>: A forward contract represents an obligation to carry out the transaction, potentially leading to large losses depending on the market’s movement. In contrast, a contingent claim like an option provides a right, limiting the buyer’s potential loss to the premium paid for acquiring this right.</p></li>
+<li><p><strong>Risk Profile</strong>: The potential loss on a long forward contract can equal the full contract price, while for a short position, the loss can be theoretically infinite due to the asset’s price potential to rise indefinitely. Conversely, the risk of a contingent claim is limited to the premium paid, providing a risk-averse strategy for speculators and hedgers.</p></li>
+<li><p><strong>Uses and Applications</strong>: Forward contracts and futures are commonly used for hedging against price movements in commodities, currencies, and interest rates. Swaps are utilized for managing interest rate risk and currency exposure. Options are employed for hedging, speculative trading, and income generation through premium collection.</p></li>
+</ul>
+<p>Incorporating these instruments into investment and risk management strategies requires an understanding of their mechanics, risks, and market behavior. Their usage reflects the financial goals, risk tolerance, and market outlook of the participants, illustrating the complexity and diversity of modern financial markets.</p>
+</section>
+</section>
+<section id="types-of-derivatives" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="types-of-derivatives"><span class="header-section-number">1.4</span> Types of Derivatives</h2>
+<section id="forward-contract" class="level3" data-number="1.4.1">
+<h3 data-number="1.4.1" class="anchored" data-anchor-id="forward-contract"><span class="header-section-number">1.4.1</span> Forward Contract</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A <strong>forward contract</strong> is a customized, over-the-counter derivative agreement between two parties, where the buyer agrees to purchase, and the seller agrees to sell, an underlying asset at a predetermined future date and price established at the contract’s inception.</p>
+</div>
+</div>
+<ul>
+<li><strong>Long Position</strong>: The party committing to purchase the asset.</li>
+<li><strong>Short Position</strong>: The party committing to sell the asset.</li>
+</ul>
+<section id="characteristics-of-forward-contracts" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="characteristics-of-forward-contracts">Characteristics of Forward Contracts</h4>
+<ul>
+<li><strong>Underlying Asset</strong>: Specifies the type and quantity of the asset to be traded.</li>
+<li><strong>Settlement Method</strong>: Describes how the contract will be executed or settled upon expiration.</li>
+<li><strong>Forward Price</strong>: The agreed-upon price for the underlying asset exchange, designed to make the contract’s initial value zero.</li>
+</ul>
+</section>
+<section id="key-points" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="key-points">Key Points</h4>
+<ul>
+<li><strong>Popularity in Foreign Exchange</strong>: Forward contracts are frequently used for hedging in the foreign exchange markets.</li>
+<li><strong>OTC Markets</strong>: Typically involves at least one financial institution, allowing for customization but lacking centralized regulation.</li>
+<li><strong>Flexibility and Risk Management</strong>: Forward contracts offer tailored solutions for specific hedging needs, particularly in markets lacking standardized instruments. This customization enables precise risk management tailored to the parties’ unique requirements.</li>
+<li><strong>Market Dynamics and Pricing</strong>: The determination of forward prices is influenced by various factors, including the underlying asset’s current price, interest rates, and the asset’s expected future price volatility. This dynamic pricing mechanism reflects the market’s consensus on future price movements, adjusted for the time value of money.</li>
+</ul>
+</section>
+</section>
+<section id="futures-contract" class="level3" data-number="1.4.2">
+<h3 data-number="1.4.2" class="anchored" data-anchor-id="futures-contract"><span class="header-section-number">1.4.2</span> Futures Contract</h3>
+<ul>
+<li><p>A futures contract is a <strong>standardized</strong> derivative traded on <strong>futures exchanges</strong>, like the <a href="https://www.cmegroup.com/">CME Group</a> or <a href="https://www.theice.com/about/exchanges-clearing">Intercontinental Exchange</a>, facilitating the buying and selling of underlying assets at future dates.</p></li>
+<li><p><strong>Futures and Liquidity</strong>: Futures contracts provide liquidity and price discovery in a regulated environment, offering a transparent and efficient means for market participants to hedge against price volatility or speculate on future price movements.</p></li>
+</ul>
+<section id="forwards-vs.-futures" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="forwards-vs.-futures">Forwards vs.&nbsp;Futures</h4>
+<table class="table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Forwards</th>
+<th style="text-align: left;">Futures</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Customized terms, traded over-the-counter.</td>
+<td style="text-align: left;">Standardized terms, traded on regulated exchanges.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Counterparty risk, with less regulatory oversight.</td>
+<td style="text-align: left;">Mitigated counterparty risk through clearinghouses.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Settlement occurs at contract maturity.</td>
+<td style="text-align: left;">Daily mark-to-market settlement.</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="swap-contract" class="level3" data-number="1.4.3">
+<h3 data-number="1.4.3" class="anchored" data-anchor-id="swap-contract"><span class="header-section-number">1.4.3</span> Swap Contract</h3>
+<ul>
+<li><p>A <strong>swap</strong> is an OTC derivative where two parties exchange cash flow series, addressing multi-period risks. Unlike a forward contract focusing on a single-period risk, swaps often manage interest rate, currency, or commodity exposure over extended periods.</p></li>
+<li><p>Swaps can be structured in numerous ways to suit different types of risk management strategies. For example, interest rate swaps exchange fixed for floating interest rate payments to manage interest rate risk, while currency swaps exchange cash flows in different currencies to hedge against currency risk.</p></li>
+</ul>
+</section>
+<section id="options" class="level3" data-number="1.4.4">
+<h3 data-number="1.4.4" class="anchored" data-anchor-id="options"><span class="header-section-number">1.4.4</span> Options</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Options are versatile financial derivatives allowing the holder to buy (call option) or sell (put option) an underlying asset at a predetermined price (strike price) within a specific timeframe. The buyer of the option pays a premium to the seller or writer for this right, without the obligation to execute the transaction.</p>
+</div>
+</div>
+<section id="types-of-options" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="types-of-options">Types of Options</h4>
+<ul>
+<li><p><strong>Call Options</strong>: Grant the holder the right to <strong>purchase</strong> the underlying asset at the strike price. Investors buy calls when they anticipate the underlying asset’s price will increase.</p></li>
+<li><p><strong>Put Options</strong>: Provide the holder the right to <strong>sell</strong> the underlying asset at the strike price. Puts are purchased when an investor expects the underlying asset’s price to decline.</p></li>
+</ul>
+</section>
+<section id="exercise-styles" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="exercise-styles">Exercise Styles</h4>
+<ul>
+<li><p><strong>American Options</strong>: These can be exercised at any point up to and including the expiration date, offering maximum flexibility to the holder.</p></li>
+<li><p><strong>European Options</strong>: Can only be exercised on the expiration date itself, limiting the timing of execution to this single moment.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="applications-of-derivatives" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="applications-of-derivatives"><span class="header-section-number">1.5</span> Applications of Derivatives</h2>
+<section id="hedging" class="level3" data-number="1.5.1">
+<h3 data-number="1.5.1" class="anchored" data-anchor-id="hedging"><span class="header-section-number">1.5.1</span> Hedging</h3>
+<p>Hedging is a strategic financial practice aimed at reducing potential risks and mitigating financial exposure. Its core purpose is to <strong>minimize risk</strong>, though it does not assure a more favorable outcome. This strategy employs various financial instruments, such as forward and option contracts, each with distinct characteristics and uses.</p>
+<p>Forward contracts are pivotal in risk management, enabling the hedger to lock in a future transaction price for an underlying asset, thereby neutralizing the risk of adverse price fluctuations. This fixed-price agreement ensures predictability in financial planning.</p>
+<p>Option contracts, on the other hand, serve as a form of financial insurance. They grant investors the right, but not the obligation, to buy (call option) or sell (put option) an underlying asset at a predetermined price (strike price) within a specific timeframe. This mechanism allows investors to safeguard against potential adverse price movements while preserving the opportunity to capitalize on favorable price changes. Unlike forward contracts, acquiring an option requires paying an upfront premium, which represents the cost of the protection offered.</p>
+<section id="examples-to-illustrate-hedging" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="examples-to-illustrate-hedging">Examples to Illustrate Hedging</h4>
+<ol type="1">
+<li><p>Consider a U.S. company that anticipates a payment of GBP 10 million for imports from Britain in three months. To hedge against the risk of GBP appreciating against USD, the company can enter into a long position in a forward contract. By doing so, it secures a fixed exchange rate for the future payment, thus avoiding the uncertainty of currency fluctuations.</p></li>
+<li><p>An investor holding 1,000 shares of Microsoft, valued at $28 per share, faces the risk of a potential decrease in share value. To mitigate this risk, the investor can purchase a put option, which provides the right to sell the shares at a strike price of $27.50. For example, if a two-month put option costs $1 per share, the investor would buy 10 contracts (each contract typically covers 100 shares), paying a total premium of $1,000. This strategy protects the investor’s portfolio from a decline below the strike price, while still allowing participation in any upward price movements.</p></li>
+</ol>
+</section>
+</section>
+<section id="arbitrage" class="level3" data-number="1.5.2">
+<h3 data-number="1.5.2" class="anchored" data-anchor-id="arbitrage"><span class="header-section-number">1.5.2</span> Arbitrage</h3>
+<p>Arbitrage represents a foundational concept in financial markets, involving the exploitation of price differentials across different markets or forms of an asset to secure risk-free profits. This practice underscores the <strong>Law of One Price</strong>, which posits that in efficient markets with minimal transaction costs and unrestricted information flow, identical assets should uniformly price.</p>
+<p>When disparities arise, arbitrageurs can purchase the undervalued asset in one market and sell it at a higher price in another, leveraging these discrepancies to generate a risk-free return. This activity not only capitalizes on the price differentials but also plays a crucial role in driving the prices of identical assets towards convergence, thus contributing to market efficiency.</p>
+<p>Arbitrage serves as a relative valuation method, providing insights into the correct pricing of one asset or derivative in relation to another. It operates under the principle that no two identical assets should exist with different pricing or that equivalent asset combinations yielding the same returns should not vary in price.</p>
+<p>The presence and subsequent elimination of arbitrage opportunities are indicative of market efficiency, where markets compensate investors for risks appropriately. However, when arbitrage allows for returns above the risk-free rate without exposure to risk, it challenges the notions of market efficiency by presenting an anomaly of abnormal returns.</p>
+<section id="example-to-illustrate-arbitrage" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="example-to-illustrate-arbitrage">Example to Illustrate Arbitrage</h4>
+<p>Imagine a scenario where a stock is priced at GBP 100 in London and USD 150 in New York, with the current exchange rate being 1.5300 USD/GBP. An arbitrage opportunity arises if the price of the stock, when converted using the current exchange rate, does not match across these markets. By buying the stock in the market where it is undervalued and selling it in the market where it is overvalued, an arbitrageur can secure a risk-free profit, highlighting the practical application of arbitrage in rectifying price discrepancies and promoting market efficiency.</p>
+</section>
+</section>
+<section id="speculation" class="level3" data-number="1.5.3">
+<h3 data-number="1.5.3" class="anchored" data-anchor-id="speculation"><span class="header-section-number">1.5.3</span> Speculation</h3>
+<p>Speculation in financial markets is driven by the intention to profit from anticipated market movements. Speculators engage in market positions with the expectation that prices will either rise or fall, aiming to capitalize on these predicted changes.</p>
+<p>When engaging in futures contracts, speculators face significant risk and reward potential. Futures contracts obligate the purchase or sale of an asset at a predetermined future date and price, exposing the speculator to potentially unlimited losses or gains, depending on market movements.</p>
+<p>Conversely, options contracts offer a different risk profile. By purchasing options, a speculator gains the right, but not the obligation, to buy (call option) or sell (put option) an asset at a specified price within a certain period. The maximum loss in this scenario is limited to the premium paid for the options, providing a safety net against adverse market movements.</p>
+<section id="examples-to-illustrate-speculation" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="examples-to-illustrate-speculation">Examples to Illustrate Speculation</h4>
+<p>Trading strategies for an investor with $2,000 anticipating a stock price increase:</p>
+<ol type="1">
+<li><p><strong>Buying Shares Outright:</strong> If the investor is confident in their prediction and prefers direct exposure, they could use their $2,000 to buy shares of the stock directly. This approach offers unlimited upside potential if the stock price increases but also exposes the investor to potential losses if the price falls.</p></li>
+<li><p><strong>Buying Call Options:</strong> The investor could purchase call options on the stock they believe will increase in value. This strategy allows the investor to control a larger amount of stock with a smaller investment (the premium paid for the options), with the potential for significant gains if the stock price rises as anticipated. The risk is limited to the premium paid.</p></li>
+<li><p><strong>Futures Contracts:</strong> If the investor has access to futures trading and is knowledgeable about its risks, they could engage in a futures contract that bets on the stock price increasing. This strategy requires careful risk management due to the potential for large losses.</p></li>
+</ol>
+</section>
+</section>
+</section>
+<section id="criticisms-and-misuses-of-derivatives" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="criticisms-and-misuses-of-derivatives"><span class="header-section-number">1.6</span> Criticisms and Misuses of Derivatives</h2>
+<p>Derivatives, while fundamental to risk management and price discovery in financial markets, have faced criticisms and concerns regarding their potential for misuse and the risks they can introduce to the financial system. These criticisms encompass several key areas:</p>
+<ol type="1">
+<li><p><strong>Speculation and Gambling:</strong> Derivatives are often utilized for speculative purposes, where investors bet on the direction of market prices with the aim of generating profits. This speculative use can resemble gambling when trades are made based on predictions rather than informed decisions, potentially leading to significant losses.</p></li>
+<li><p><strong>Systemic Risk and Destabilization:</strong> Derivatives can add systemic risk to the financial system, especially when used in large volumes or in complex combinations that are difficult to understand and manage. The interconnectedness of market participants through derivatives can lead to contagion effects, where the failure of one entity can trigger a chain reaction affecting others.</p></li>
+<li><p><strong>Complexity:</strong> The inherent complexity of many derivative products makes them difficult to value and understand, even for sophisticated investors. This complexity can obscure the real risks involved and lead to mispricing or inappropriate use of these instruments.</p></li>
+<li><p><strong>Role Shifting:</strong> Traders and institutions may shift roles between being hedgers, who use derivatives to manage risk, to speculators, who seek to profit from market movements, or from being arbitrageurs, who exploit price discrepancies, to speculators. This shifting can blur the lines between risk management and speculative activities, increasing the potential for losses and systemic risks.</p></li>
+<li><p><strong>Need for Controls:</strong> Given the potential for misuse and the complex nature of derivatives, it is crucial to establish comprehensive controls and regulatory frameworks. These controls should ensure that derivatives are used for their intended purposes, such as hedging risk, rather than for unchecked speculation. Proper oversight, transparent reporting requirements, and clear guidelines for risk assessment and management are essential components of a robust regulatory framework.</p></li>
+</ol>
+<p>To address these criticisms and mitigate the risks associated with derivatives, financial markets and regulatory bodies have implemented measures such as:</p>
+<ul>
+<li><p><strong>Central Clearing Counterparties (CCPs):</strong> These entities act as intermediaries for derivative transactions, reducing counterparty risk and increasing transparency.</p></li>
+<li><p><strong>Margin Requirements:</strong> These requirements ensure that parties in derivative contracts have sufficient capital to cover potential losses, reducing the risk of default.</p></li>
+<li><p><strong>Regulatory Reforms:</strong> Post-2008 financial crisis, reforms like the Dodd-Frank Act in the United States and EMIR in Europe have increased oversight and regulation of derivative markets, aiming to improve transparency, reduce systemic risk, and ensure that derivatives fulfill their role in financial markets responsibly.</p></li>
+</ul>
+</section>
+<section id="practice-questions-and-problems" class="level2" data-number="1.7">
+<h2 data-number="1.7" class="anchored" data-anchor-id="practice-questions-and-problems"><span class="header-section-number">1.7</span> Practice Questions and Problems</h2>
+<section id="time-value-of-money" class="level3" data-number="1.7.1">
+<h3 data-number="1.7.1" class="anchored" data-anchor-id="time-value-of-money"><span class="header-section-number">1.7.1</span> Time Value of Money</h3>
+<ol type="1">
+<li>A bank quotes an interest rate of 7% per annum with quarterly compounding. How much you will earn from $100 investment after (a) 1 year and (b) 3 years? What is the equivalent rate with (a) continuous compounding and (b) annual compounding? Verify your results.</li>
+</ol>
+</section>
+<section id="theoretical-foundations-of-derivatives" class="level3" data-number="1.7.2">
+<h3 data-number="1.7.2" class="anchored" data-anchor-id="theoretical-foundations-of-derivatives"><span class="header-section-number">1.7.2</span> Theoretical Foundations of Derivatives</h3>
+<ol type="1">
+<li>Explain carefully the difference between hedging, speculation, and arbitrage.</li>
+<li>What is the difference between the over-the-counter market and the exchange-traded market?</li>
+<li>“Options and futures are zero-sum games.” What do you think is meant by this statement?</li>
+<li>What is the difference between a long forward position and a short forward position?</li>
+<li>What is the difference between entering into a long forward contract when the forward price is $50 and taking a long position in a call option with a strike price of $50?</li>
+<li>Explain carefully the difference between selling a call option and buying a put option.</li>
+<li>When first issued, a stock provides funds for a company. Is the same true of an exchange-traded stock option? Discuss.</li>
+</ol>
+</section>
+<section id="practical-applications-of-forwards-and-futures" class="level3" data-number="1.7.3">
+<h3 data-number="1.7.3" class="anchored" data-anchor-id="practical-applications-of-forwards-and-futures"><span class="header-section-number">1.7.3</span> Practical Applications of Forwards and Futures</h3>
+<ol type="1">
+<li>A trader enters into a short cotton futures contract when the futures price is 50 cents per pound. The contract is for the delivery of 50,000 pounds. How much does the trader gain or lose if the cotton price at the end of the contract is (a) 48.20 cents per pound; (b) 51.30 cents per pound?</li>
+<li>An investor enters into a short forward contract to sell 100,000 British pounds for US dollars at an exchange rate of 1.5000 US dollars per pound. How much does the investor gain or lose if the exchange rate at the end of the contract is (a) 1.4900 and</li>
+</ol>
+<ol start="2" type="a">
+<li>1.5200?</li>
+</ol>
+</section>
+<section id="practical-applications-of-options" class="level3" data-number="1.7.4">
+<h3 data-number="1.7.4" class="anchored" data-anchor-id="practical-applications-of-options"><span class="header-section-number">1.7.4</span> Practical Applications of Options</h3>
+<ol type="1">
+<li>A trader buys a call option with a strike price of $30 for $3. Does the trader ever exercise the option and lose money on the trade. Explain.</li>
+<li>Suppose that you write a put contract with a strike price of $40 and an expiration date in three months. The current stock price is $41 and the contract is on 100 shares. What have you committed yourself to? How much could you gain or lose?</li>
+<li>Suppose you own 5,000 shares that are worth $25 each. How can put options be used to provide you with insurance against a decline in the value of your holding over the next four months?</li>
+<li>You would like to speculate on a rise in the price of a certain stock. The current stock price is $29, and a three-month call with a strike of $30 costs $2.90. You have $5,800 to invest. Identify two alternative strategies, one involving an investment in the stock and the other involving investment in the option. What are the potential gains and losses from each?</li>
+</ol>
+</section>
+<section id="hedging-strategies" class="level3" data-number="1.7.5">
+<h3 data-number="1.7.5" class="anchored" data-anchor-id="hedging-strategies"><span class="header-section-number">1.7.5</span> Hedging Strategies</h3>
+<ol type="1">
+<li>Explain why a futures contract can be used for either speculation or hedging.</li>
+<li>A US company expects to have to pay 1 million Canadian dollars in six months. Explain how the exchange rate risk can be hedged using (a) a forward contract and (b) an option.</li>
+<li>The CME Group offers a futures contract on long-term Treasury bonds. Characterize the investors likely to use this contract.</li>
+</ol>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link  aria-label=" preamble"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preamble</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./week_02.html" class="pagination-link" aria-label="<span class='chapter-number'>2</span>&nbsp; <span class='chapter-title'>Forwards and Futures</span>">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Forwards and Futures</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

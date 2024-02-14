@@ -1,0 +1,322 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Financial Derivatives",
+    "section": "",
+    "text": "Preamble\nThe course Financial Derivatives delves into the intricacies of derivative instruments, focusing on both fixed and conditional contracts, including forwards, futures, swaps, and options. It explores the utilization of derivatives within financial markets, particularly for hedging against various risks. Students will gain a comprehensive understanding of the essence and valuation of financial derivatives, along with detailed insights into the exchange trading mechanisms for futures and options.\nUpon completing this course, the student will be able to:\n\ndefine financial derivatives and understand their specific characteristics\nexplain the differences between fixed future contracts and options\nprice financial derivatives\nsuggest their use\n\nReferences:\n\nHULL, John. Options, futures, and other derivatives. Global edition. Harlow: Pearson, 2018. ISBN 9781292212890.\nPIRIE, Wendy L. Derivatives. Hoboken: Wiley, 2017. xix, 597. ISBN 9781119381815.\nBLÜMKE, Andreas. How to invest in structured products : a guide for investors and investment advisors. Chichester: Wiley, 2009. xvi, 374. ISBN 9780470746790.",
+    "crumbs": [
+      "Preamble"
+    ]
+  },
+  {
+    "objectID": "week_01.html",
+    "href": "week_01.html",
+    "title": "1  Introduction to Financial Derivatives",
+    "section": "",
+    "text": "1.1 What Are Derivatives?",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to Financial Derivatives</span>"
+    ]
+  },
+  {
+    "objectID": "week_01.html#what-are-derivatives",
+    "href": "week_01.html#what-are-derivatives",
+    "title": "1  Introduction to Financial Derivatives",
+    "section": "",
+    "text": "1.1.1 Understanding Derivatives\n\nA derivative is a financial contract whose value depends on the performance of an underlying asset.\nThis underlying asset, referred to as the underlying, may be a stock, currency, interest rate, commodity, or any other marketable item. Its market price is known as the cash or spot price.\nThe range of underlying assets encompasses a wide array, including stocks, currencies, commodities, debt instruments, and even non-traditional metrics like weather conditions or insurance claims.\n\n\n\n1.1.2 The Significance of Derivatives\nDerivatives are pivotal in the financial ecosystem due to their ability to:\n\nFacilitate risk management by transferring risks between parties.\nCraft unique investment strategies and returns not feasible with direct investments.\nServe as a source of market insight and future price expectations.\nOffer cost efficiencies in transactions.\nMinimize required capital investment.\nSimplify the process of taking short positions compared to dealing with the underlying directly.\nEnhance the liquidity and operational efficiency of the primary markets they relate to.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to Financial Derivatives</span>"
+    ]
+  },
+  {
+    "objectID": "week_01.html#derivative-markets",
+    "href": "week_01.html#derivative-markets",
+    "title": "1  Introduction to Financial Derivatives",
+    "section": "1.2 Derivative Markets",
+    "text": "1.2 Derivative Markets\nDerivatives are traded in two main venues: organized exchanges and over-the-counter (OTC) markets.\n\n1.2.1 Exchange-Traded Derivatives\nThese derivatives are standardized contracts with fixed features such as contract size, expiration date, and underlying assets. Their trading is guaranteed by a clearing house, which requires participants to post margins. This arrangement ensures transparency and regulation, safeguarding the integrity of the market.\n\n\n1.2.2 Over-The-Counter (OTC) Derivatives\nIn contrast, OTC derivatives offer customization in terms of contract size, asset specification, and expiration dates. This flexibility, however, comes with a higher risk of default (credit risk) for the parties involved.\n\nThe OTC Market Evolution\n\nPrior to 2008: The OTC market was largely unregulated, with banks serving as the primary market makers. Transactions were governed by master agreements, and some were cleared through central counterparties (CCPs), similar to clearing houses.\nSince 2008: Significant regulatory changes have been implemented to reduce systemic risk and enhance transparency. Standardized OTC transactions must now be cleared through CCPs, and all trades are required to be reported to a central repository. These measures aim to bolster market stability and integrity.\n\n\n\n\n\n\n\nThe Lehman Bankruptcy\n\n\n\nThe bankruptcy of Lehman Brothers on September 15, 2008, stands as the largest in U.S. history. Lehman Brothers was heavily involved in the over-the-counter (OTC) derivatives market, engaging in high-risk financial activities. The firm’s inability to refinance its short-term debt ultimately led to its downfall. At the time of its bankruptcy, Lehman Brothers had an extensive network of transactions, with hundreds of thousands outstanding across approximately 8,000 counterparties. The process of unwinding these transactions has posed significant challenges for both the Lehman liquidators and the involved counterparties, illustrating the complex and interconnected nature of modern financial markets.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to Financial Derivatives</span>"
+    ]
+  },
+  {
+    "objectID": "week_01.html#forward-contracts-vs.-contingent-claims",
+    "href": "week_01.html#forward-contracts-vs.-contingent-claims",
+    "title": "1  Introduction to Financial Derivatives",
+    "section": "1.3 Forward Contracts vs. Contingent Claims",
+    "text": "1.3 Forward Contracts vs. Contingent Claims\nBoth forward contracts and contingent claims are essential financial instruments that derive their value from the performance of an underlying asset, playing pivotal roles in the global financial markets for hedging, speculation, and arbitrage.\n\n1.3.1 Forward Commitments\nForward commitments are agreements to buy or sell an asset at a predetermined future date and price. They include:\n\nForward Contracts: Private, non-standardized agreements between two parties to buy or sell an asset at a specified future time at a price agreed upon at the contract’s initiation.\nFutures Contracts: Standardized forward contracts traded on organized exchanges that require the posting of a margin. Futures contracts are marked to market daily, which mitigates credit risk.\nSwaps: Agreements between two parties to exchange sequences of cash flows for a set period based on a specified principal amount. Swaps often involve the exchange of a fixed interest rate for a floating rate, or vice versa.\n\n\n\n1.3.2 Contingent Claims\nContingent claims are financial instruments that offer the holder the right, but not the obligation, to buy or sell an asset at a predetermined price within a specified timeframe. The primary form of contingent claims is:\n\nOptions: Contracts that give the buyer the right, but not the obligation, to buy (call option) or sell (put option) an underlying asset at a specified strike price on or before a certain date. Options are of two types: European options, which can be exercised only at expiration, and American options, which can be exercised at any time before expiration.\n\n\n\n1.3.3 Key Differences and Risks\n\nObligation vs. Right: A forward contract represents an obligation to carry out the transaction, potentially leading to large losses depending on the market’s movement. In contrast, a contingent claim like an option provides a right, limiting the buyer’s potential loss to the premium paid for acquiring this right.\nRisk Profile: The potential loss on a long forward contract can equal the full contract price, while for a short position, the loss can be theoretically infinite due to the asset’s price potential to rise indefinitely. Conversely, the risk of a contingent claim is limited to the premium paid, providing a risk-averse strategy for speculators and hedgers.\nUses and Applications: Forward contracts and futures are commonly used for hedging against price movements in commodities, currencies, and interest rates. Swaps are utilized for managing interest rate risk and currency exposure. Options are employed for hedging, speculative trading, and income generation through premium collection.\n\nIncorporating these instruments into investment and risk management strategies requires an understanding of their mechanics, risks, and market behavior. Their usage reflects the financial goals, risk tolerance, and market outlook of the participants, illustrating the complexity and diversity of modern financial markets.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to Financial Derivatives</span>"
+    ]
+  },
+  {
+    "objectID": "week_01.html#types-of-derivatives",
+    "href": "week_01.html#types-of-derivatives",
+    "title": "1  Introduction to Financial Derivatives",
+    "section": "1.4 Types of Derivatives",
+    "text": "1.4 Types of Derivatives\n\n1.4.1 Forward Contract\n\n\n\n\n\n\nTip\n\n\n\nA forward contract is a customized, over-the-counter derivative agreement between two parties, where the buyer agrees to purchase, and the seller agrees to sell, an underlying asset at a predetermined future date and price established at the contract’s inception.\n\n\n\nLong Position: The party committing to purchase the asset.\nShort Position: The party committing to sell the asset.\n\n\nCharacteristics of Forward Contracts\n\nUnderlying Asset: Specifies the type and quantity of the asset to be traded.\nSettlement Method: Describes how the contract will be executed or settled upon expiration.\nForward Price: The agreed-upon price for the underlying asset exchange, designed to make the contract’s initial value zero.\n\n\n\nKey Points\n\nPopularity in Foreign Exchange: Forward contracts are frequently used for hedging in the foreign exchange markets.\nOTC Markets: Typically involves at least one financial institution, allowing for customization but lacking centralized regulation.\nFlexibility and Risk Management: Forward contracts offer tailored solutions for specific hedging needs, particularly in markets lacking standardized instruments. This customization enables precise risk management tailored to the parties’ unique requirements.\nMarket Dynamics and Pricing: The determination of forward prices is influenced by various factors, including the underlying asset’s current price, interest rates, and the asset’s expected future price volatility. This dynamic pricing mechanism reflects the market’s consensus on future price movements, adjusted for the time value of money.\n\n\n\n\n1.4.2 Futures Contract\n\nA futures contract is a standardized derivative traded on futures exchanges, like the CME Group or Intercontinental Exchange, facilitating the buying and selling of underlying assets at future dates.\nFutures and Liquidity: Futures contracts provide liquidity and price discovery in a regulated environment, offering a transparent and efficient means for market participants to hedge against price volatility or speculate on future price movements.\n\n\nForwards vs. Futures\n\n\n\n\n\n\n\nForwards\nFutures\n\n\n\n\nCustomized terms, traded over-the-counter.\nStandardized terms, traded on regulated exchanges.\n\n\nCounterparty risk, with less regulatory oversight.\nMitigated counterparty risk through clearinghouses.\n\n\nSettlement occurs at contract maturity.\nDaily mark-to-market settlement.\n\n\n\n\n\n\n1.4.3 Swap Contract\n\nA swap is an OTC derivative where two parties exchange cash flow series, addressing multi-period risks. Unlike a forward contract focusing on a single-period risk, swaps often manage interest rate, currency, or commodity exposure over extended periods.\nSwaps can be structured in numerous ways to suit different types of risk management strategies. For example, interest rate swaps exchange fixed for floating interest rate payments to manage interest rate risk, while currency swaps exchange cash flows in different currencies to hedge against currency risk.\n\n\n\n1.4.4 Options\n\n\n\n\n\n\nTip\n\n\n\nOptions are versatile financial derivatives allowing the holder to buy (call option) or sell (put option) an underlying asset at a predetermined price (strike price) within a specific timeframe. The buyer of the option pays a premium to the seller or writer for this right, without the obligation to execute the transaction.\n\n\n\nTypes of Options\n\nCall Options: Grant the holder the right to purchase the underlying asset at the strike price. Investors buy calls when they anticipate the underlying asset’s price will increase.\nPut Options: Provide the holder the right to sell the underlying asset at the strike price. Puts are purchased when an investor expects the underlying asset’s price to decline.\n\n\n\nExercise Styles\n\nAmerican Options: These can be exercised at any point up to and including the expiration date, offering maximum flexibility to the holder.\nEuropean Options: Can only be exercised on the expiration date itself, limiting the timing of execution to this single moment.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to Financial Derivatives</span>"
+    ]
+  },
+  {
+    "objectID": "week_01.html#applications-of-derivatives",
+    "href": "week_01.html#applications-of-derivatives",
+    "title": "1  Introduction to Financial Derivatives",
+    "section": "1.5 Applications of Derivatives",
+    "text": "1.5 Applications of Derivatives\n\n1.5.1 Hedging\nHedging is a strategic financial practice aimed at reducing potential risks and mitigating financial exposure. Its core purpose is to minimize risk, though it does not assure a more favorable outcome. This strategy employs various financial instruments, such as forward and option contracts, each with distinct characteristics and uses.\nForward contracts are pivotal in risk management, enabling the hedger to lock in a future transaction price for an underlying asset, thereby neutralizing the risk of adverse price fluctuations. This fixed-price agreement ensures predictability in financial planning.\nOption contracts, on the other hand, serve as a form of financial insurance. They grant investors the right, but not the obligation, to buy (call option) or sell (put option) an underlying asset at a predetermined price (strike price) within a specific timeframe. This mechanism allows investors to safeguard against potential adverse price movements while preserving the opportunity to capitalize on favorable price changes. Unlike forward contracts, acquiring an option requires paying an upfront premium, which represents the cost of the protection offered.\n\nExamples to Illustrate Hedging\n\nConsider a U.S. company that anticipates a payment of GBP 10 million for imports from Britain in three months. To hedge against the risk of GBP appreciating against USD, the company can enter into a long position in a forward contract. By doing so, it secures a fixed exchange rate for the future payment, thus avoiding the uncertainty of currency fluctuations.\nAn investor holding 1,000 shares of Microsoft, valued at $28 per share, faces the risk of a potential decrease in share value. To mitigate this risk, the investor can purchase a put option, which provides the right to sell the shares at a strike price of $27.50. For example, if a two-month put option costs $1 per share, the investor would buy 10 contracts (each contract typically covers 100 shares), paying a total premium of $1,000. This strategy protects the investor’s portfolio from a decline below the strike price, while still allowing participation in any upward price movements.\n\n\n\n\n1.5.2 Arbitrage\nArbitrage represents a foundational concept in financial markets, involving the exploitation of price differentials across different markets or forms of an asset to secure risk-free profits. This practice underscores the Law of One Price, which posits that in efficient markets with minimal transaction costs and unrestricted information flow, identical assets should uniformly price.\nWhen disparities arise, arbitrageurs can purchase the undervalued asset in one market and sell it at a higher price in another, leveraging these discrepancies to generate a risk-free return. This activity not only capitalizes on the price differentials but also plays a crucial role in driving the prices of identical assets towards convergence, thus contributing to market efficiency.\nArbitrage serves as a relative valuation method, providing insights into the correct pricing of one asset or derivative in relation to another. It operates under the principle that no two identical assets should exist with different pricing or that equivalent asset combinations yielding the same returns should not vary in price.\nThe presence and subsequent elimination of arbitrage opportunities are indicative of market efficiency, where markets compensate investors for risks appropriately. However, when arbitrage allows for returns above the risk-free rate without exposure to risk, it challenges the notions of market efficiency by presenting an anomaly of abnormal returns.\n\nExample to Illustrate Arbitrage\nImagine a scenario where a stock is priced at GBP 100 in London and USD 150 in New York, with the current exchange rate being 1.5300 USD/GBP. An arbitrage opportunity arises if the price of the stock, when converted using the current exchange rate, does not match across these markets. By buying the stock in the market where it is undervalued and selling it in the market where it is overvalued, an arbitrageur can secure a risk-free profit, highlighting the practical application of arbitrage in rectifying price discrepancies and promoting market efficiency.\n\n\n\n1.5.3 Speculation\nSpeculation in financial markets is driven by the intention to profit from anticipated market movements. Speculators engage in market positions with the expectation that prices will either rise or fall, aiming to capitalize on these predicted changes.\nWhen engaging in futures contracts, speculators face significant risk and reward potential. Futures contracts obligate the purchase or sale of an asset at a predetermined future date and price, exposing the speculator to potentially unlimited losses or gains, depending on market movements.\nConversely, options contracts offer a different risk profile. By purchasing options, a speculator gains the right, but not the obligation, to buy (call option) or sell (put option) an asset at a specified price within a certain period. The maximum loss in this scenario is limited to the premium paid for the options, providing a safety net against adverse market movements.\n\nExamples to Illustrate Speculation\nTrading strategies for an investor with $2,000 anticipating a stock price increase:\n\nBuying Shares Outright: If the investor is confident in their prediction and prefers direct exposure, they could use their $2,000 to buy shares of the stock directly. This approach offers unlimited upside potential if the stock price increases but also exposes the investor to potential losses if the price falls.\nBuying Call Options: The investor could purchase call options on the stock they believe will increase in value. This strategy allows the investor to control a larger amount of stock with a smaller investment (the premium paid for the options), with the potential for significant gains if the stock price rises as anticipated. The risk is limited to the premium paid.\nFutures Contracts: If the investor has access to futures trading and is knowledgeable about its risks, they could engage in a futures contract that bets on the stock price increasing. This strategy requires careful risk management due to the potential for large losses.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to Financial Derivatives</span>"
+    ]
+  },
+  {
+    "objectID": "week_01.html#criticisms-and-misuses-of-derivatives",
+    "href": "week_01.html#criticisms-and-misuses-of-derivatives",
+    "title": "1  Introduction to Financial Derivatives",
+    "section": "1.6 Criticisms and Misuses of Derivatives",
+    "text": "1.6 Criticisms and Misuses of Derivatives\nDerivatives, while fundamental to risk management and price discovery in financial markets, have faced criticisms and concerns regarding their potential for misuse and the risks they can introduce to the financial system. These criticisms encompass several key areas:\n\nSpeculation and Gambling: Derivatives are often utilized for speculative purposes, where investors bet on the direction of market prices with the aim of generating profits. This speculative use can resemble gambling when trades are made based on predictions rather than informed decisions, potentially leading to significant losses.\nSystemic Risk and Destabilization: Derivatives can add systemic risk to the financial system, especially when used in large volumes or in complex combinations that are difficult to understand and manage. The interconnectedness of market participants through derivatives can lead to contagion effects, where the failure of one entity can trigger a chain reaction affecting others.\nComplexity: The inherent complexity of many derivative products makes them difficult to value and understand, even for sophisticated investors. This complexity can obscure the real risks involved and lead to mispricing or inappropriate use of these instruments.\nRole Shifting: Traders and institutions may shift roles between being hedgers, who use derivatives to manage risk, to speculators, who seek to profit from market movements, or from being arbitrageurs, who exploit price discrepancies, to speculators. This shifting can blur the lines between risk management and speculative activities, increasing the potential for losses and systemic risks.\nNeed for Controls: Given the potential for misuse and the complex nature of derivatives, it is crucial to establish comprehensive controls and regulatory frameworks. These controls should ensure that derivatives are used for their intended purposes, such as hedging risk, rather than for unchecked speculation. Proper oversight, transparent reporting requirements, and clear guidelines for risk assessment and management are essential components of a robust regulatory framework.\n\nTo address these criticisms and mitigate the risks associated with derivatives, financial markets and regulatory bodies have implemented measures such as:\n\nCentral Clearing Counterparties (CCPs): These entities act as intermediaries for derivative transactions, reducing counterparty risk and increasing transparency.\nMargin Requirements: These requirements ensure that parties in derivative contracts have sufficient capital to cover potential losses, reducing the risk of default.\nRegulatory Reforms: Post-2008 financial crisis, reforms like the Dodd-Frank Act in the United States and EMIR in Europe have increased oversight and regulation of derivative markets, aiming to improve transparency, reduce systemic risk, and ensure that derivatives fulfill their role in financial markets responsibly.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to Financial Derivatives</span>"
+    ]
+  },
+  {
+    "objectID": "week_01.html#practice-questions-and-problems",
+    "href": "week_01.html#practice-questions-and-problems",
+    "title": "1  Introduction to Financial Derivatives",
+    "section": "1.7 Practice Questions and Problems",
+    "text": "1.7 Practice Questions and Problems\n\n1.7.1 Time Value of Money\n\nA bank quotes an interest rate of 7% per annum with quarterly compounding. How much you will earn from $100 investment after (a) 1 year and (b) 3 years? What is the equivalent rate with (a) continuous compounding and (b) annual compounding? Verify your results.\n\n\n\n1.7.2 Theoretical Foundations of Derivatives\n\nExplain carefully the difference between hedging, speculation, and arbitrage.\nWhat is the difference between the over-the-counter market and the exchange-traded market?\n“Options and futures are zero-sum games.” What do you think is meant by this statement?\nWhat is the difference between a long forward position and a short forward position?\nWhat is the difference between entering into a long forward contract when the forward price is $50 and taking a long position in a call option with a strike price of $50?\nExplain carefully the difference between selling a call option and buying a put option.\nWhen first issued, a stock provides funds for a company. Is the same true of an exchange-traded stock option? Discuss.\n\n\n\n1.7.3 Practical Applications of Forwards and Futures\n\nA trader enters into a short cotton futures contract when the futures price is 50 cents per pound. The contract is for the delivery of 50,000 pounds. How much does the trader gain or lose if the cotton price at the end of the contract is (a) 48.20 cents per pound; (b) 51.30 cents per pound?\nAn investor enters into a short forward contract to sell 100,000 British pounds for US dollars at an exchange rate of 1.5000 US dollars per pound. How much does the investor gain or lose if the exchange rate at the end of the contract is (a) 1.4900 and\n\n\n1.5200?\n\n\n\n1.7.4 Practical Applications of Options\n\nA trader buys a call option with a strike price of $30 for $3. Does the trader ever exercise the option and lose money on the trade. Explain.\nSuppose that you write a put contract with a strike price of $40 and an expiration date in three months. The current stock price is $41 and the contract is on 100 shares. What have you committed yourself to? How much could you gain or lose?\nSuppose you own 5,000 shares that are worth $25 each. How can put options be used to provide you with insurance against a decline in the value of your holding over the next four months?\nYou would like to speculate on a rise in the price of a certain stock. The current stock price is $29, and a three-month call with a strike of $30 costs $2.90. You have $5,800 to invest. Identify two alternative strategies, one involving an investment in the stock and the other involving investment in the option. What are the potential gains and losses from each?\n\n\n\n1.7.5 Hedging Strategies\n\nExplain why a futures contract can be used for either speculation or hedging.\nA US company expects to have to pay 1 million Canadian dollars in six months. Explain how the exchange rate risk can be hedged using (a) a forward contract and (b) an option.\nThe CME Group offers a futures contract on long-term Treasury bonds. Characterize the investors likely to use this contract.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to Financial Derivatives</span>"
+    ]
+  },
+  {
+    "objectID": "week_02.html",
+    "href": "week_02.html",
+    "title": "2  Forwards and Futures",
+    "section": "",
+    "text": "References\n\n\n\n\nHULL, John. Options, futures, and other derivatives. Ninth edition. Harlow: Pearson, 2018. ISBN 978-1-292-21289-0.\n\nChapter 1 - Introduction\nChapter 4 - Interest Rates\n\nPIRIE, Wendy L. Derivatives. Hoboken: Wiley, 2017. CFA institute investment series. ISBN 978-1-119-38181-5.\n\nChapter 1 - Derivative Markets and Instruments\n\n\n\n\nLearning Outcomes:",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Forwards and Futures</span>"
+    ]
+  },
+  {
+    "objectID": "week_03.html",
+    "href": "week_03.html",
+    "title": "3  Determination of Forward and Futures Prices",
+    "section": "",
+    "text": "References\n\n\n\n\nHULL, John. Options, futures, and other derivatives. Ninth edition. Harlow: Pearson, 2018. ISBN 978-1-292-21289-0.\n\nChapter 1 - Introduction\nChapter 4 - Interest Rates\n\nPIRIE, Wendy L. Derivatives. Hoboken: Wiley, 2017. CFA institute investment series. ISBN 978-1-119-38181-5.\n\nChapter 1 - Derivative Markets and Instruments\n\n\n\n\nLearning Outcomes:",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Determination of Forward and Futures Prices</span>"
+    ]
+  },
+  {
+    "objectID": "week_04.html",
+    "href": "week_04.html",
+    "title": "4  Swaps",
+    "section": "",
+    "text": "References\n\n\n\n\nHULL, John. Options, futures, and other derivatives. Ninth edition. Harlow: Pearson, 2018. ISBN 978-1-292-21289-0.\n\nChapter 1 - Introduction\nChapter 4 - Interest Rates\n\nPIRIE, Wendy L. Derivatives. Hoboken: Wiley, 2017. CFA institute investment series. ISBN 978-1-119-38181-5.\n\nChapter 1 - Derivative Markets and Instruments\n\n\n\n\nLearning Outcomes:",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Swaps</span>"
+    ]
+  },
+  {
+    "objectID": "week_05.html",
+    "href": "week_05.html",
+    "title": "5  Options",
+    "section": "",
+    "text": "References\n\n\n\n\nHULL, John. Options, futures, and other derivatives. Ninth edition. Harlow: Pearson, 2018. ISBN 978-1-292-21289-0.\n\nChapter 1 - Introduction\nChapter 4 - Interest Rates\n\nPIRIE, Wendy L. Derivatives. Hoboken: Wiley, 2017. CFA institute investment series. ISBN 978-1-119-38181-5.\n\nChapter 1 - Derivative Markets and Instruments\n\n\n\n\nLearning Outcomes:",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Options</span>"
+    ]
+  },
+  {
+    "objectID": "week_06.html",
+    "href": "week_06.html",
+    "title": "6  Options Trading Strategies and Hedging",
+    "section": "",
+    "text": "References\n\n\n\n\nHULL, John. Options, futures, and other derivatives. Ninth edition. Harlow: Pearson, 2018. ISBN 978-1-292-21289-0.\n\nChapter 1 - Introduction\nChapter 4 - Interest Rates\n\nPIRIE, Wendy L. Derivatives. Hoboken: Wiley, 2017. CFA institute investment series. ISBN 978-1-119-38181-5.\n\nChapter 1 - Derivative Markets and Instruments\n\n\n\n\nLearning Outcomes:",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Options Trading Strategies and Hedging</span>"
+    ]
+  },
+  {
+    "objectID": "week_07.html",
+    "href": "week_07.html",
+    "title": "7  Reading Week",
+    "section": "",
+    "text": "Tip\n\n\n\nTake some rest and revise the first six topics!",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Reading Week</span>"
+    ]
+  },
+  {
+    "objectID": "week_08.html",
+    "href": "week_08.html",
+    "title": "8  Option Pricing - Binomial Trees",
+    "section": "",
+    "text": "References\n\n\n\n\nHULL, John. Options, futures, and other derivatives. Ninth edition. Harlow: Pearson, 2018. ISBN 978-1-292-21289-0.\n\nChapter 1 - Introduction\nChapter 4 - Interest Rates\n\nPIRIE, Wendy L. Derivatives. Hoboken: Wiley, 2017. CFA institute investment series. ISBN 978-1-119-38181-5.\n\nChapter 1 - Derivative Markets and Instruments\n\n\n\n\nLearning Outcomes:",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Option Pricing - Binomial Trees</span>"
+    ]
+  },
+  {
+    "objectID": "week_09.html",
+    "href": "week_09.html",
+    "title": "9  Option Pricing - Black-Scholes Model",
+    "section": "",
+    "text": "References\n\n\n\n\nHULL, John. Options, futures, and other derivatives. Ninth edition. Harlow: Pearson, 2018. ISBN 978-1-292-21289-0.\n\nChapter 1 - Introduction\nChapter 4 - Interest Rates\n\nPIRIE, Wendy L. Derivatives. Hoboken: Wiley, 2017. CFA institute investment series. ISBN 978-1-119-38181-5.\n\nChapter 1 - Derivative Markets and Instruments\n\n\n\n\nLearning Outcomes:",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Option Pricing - Black-Scholes Model</span>"
+    ]
+  },
+  {
+    "objectID": "week_10.html",
+    "href": "week_10.html",
+    "title": "10  The Greeks and Volatility",
+    "section": "",
+    "text": "References\n\n\n\n\nHULL, John. Options, futures, and other derivatives. Ninth edition. Harlow: Pearson, 2018. ISBN 978-1-292-21289-0.\n\nChapter 1 - Introduction\nChapter 4 - Interest Rates\n\nPIRIE, Wendy L. Derivatives. Hoboken: Wiley, 2017. CFA institute investment series. ISBN 978-1-119-38181-5.\n\nChapter 1 - Derivative Markets and Instruments\n\n\n\n\nLearning Outcomes:",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>The Greeks and Volatility</span>"
+    ]
+  },
+  {
+    "objectID": "week_11.html",
+    "href": "week_11.html",
+    "title": "11  Options on Stock Indices, Currencies, and Futures",
+    "section": "",
+    "text": "References\n\n\n\n\nHULL, John. Options, futures, and other derivatives. Ninth edition. Harlow: Pearson, 2018. ISBN 978-1-292-21289-0.\n\nChapter 1 - Introduction\nChapter 4 - Interest Rates\n\nPIRIE, Wendy L. Derivatives. Hoboken: Wiley, 2017. CFA institute investment series. ISBN 978-1-119-38181-5.\n\nChapter 1 - Derivative Markets and Instruments\n\n\n\n\nLearning Outcomes:",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Options on Stock Indices, Currencies, and Futures</span>"
+    ]
+  },
+  {
+    "objectID": "week_12.html",
+    "href": "week_12.html",
+    "title": "12  Structured Products I",
+    "section": "",
+    "text": "References\n\n\n\n\nHULL, John. Options, futures, and other derivatives. Ninth edition. Harlow: Pearson, 2018. ISBN 978-1-292-21289-0.\n\nChapter 1 - Introduction\nChapter 4 - Interest Rates\n\nPIRIE, Wendy L. Derivatives. Hoboken: Wiley, 2017. CFA institute investment series. ISBN 978-1-119-38181-5.\n\nChapter 1 - Derivative Markets and Instruments\n\n\n\n\nLearning Outcomes:",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Structured Products I</span>"
+    ]
+  },
+  {
+    "objectID": "week_13.html",
+    "href": "week_13.html",
+    "title": "13  Structured Products II",
+    "section": "",
+    "text": "References\n\n\n\n\nHULL, John. Options, futures, and other derivatives. Ninth edition. Harlow: Pearson, 2018. ISBN 978-1-292-21289-0.\n\nChapter 1 - Introduction\nChapter 4 - Interest Rates\n\nPIRIE, Wendy L. Derivatives. Hoboken: Wiley, 2017. CFA institute investment series. ISBN 978-1-119-38181-5.\n\nChapter 1 - Derivative Markets and Instruments\n\n\n\n\nLearning Outcomes:",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Structured Products II</span>"
+    ]
+  },
+  {
+    "objectID": "time_value.html",
+    "href": "time_value.html",
+    "title": "Appendix A — Time Value of Money",
+    "section": "",
+    "text": "A.1 Notation and Terminology",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Time Value of Money</span>"
+    ]
+  },
+  {
+    "objectID": "time_value.html#notation-and-terminology",
+    "href": "time_value.html#notation-and-terminology",
+    "title": "Appendix A — Time Value of Money",
+    "section": "",
+    "text": "A.1.1 Basic Notation and Terminology\n\n\\(P =\\) Principal (i.e., value of initial deposit)\n\\(A =\\) Accumulated amount (i.e., sum of the principal and interest)\n\\(r =\\) Nominal interest rate\n\\(m =\\) Number of conversion periods per year, (a conversion period is the interval of time between successive interest payments)\n\n\n\n\nAnnually\nSemiannually\nQuarterly\nMonthly\nWeekly\nDaily\n\n\n\n\n\\(m=1\\)\n\\(m=2\\)\n\\(m=4\\)\n\\(m=12\\)\n\\(m=52\\)\n\\(m=365\\)\n\n\n\n\n$t = $ Term of investment (in years)\n\n\n\nA.1.2 Simple Interest\nInterest is always computed based on the original principal.\n\n\n\nInterest Earned\nAccumulated Amount\n\n\n\n\n\\(I = Prt\\)\n\\(A = P(1 + rt)\\)\n\n\n\n\n\nA.1.3 Discrete Compound Interest\nInterest payments are added to the principal at the end of each conversion period and therefore earn interest during future conversion periods.\n\n\n\n\n\n\n\nAccumulated Amount\nPresent Value Formula\n\n\n\n\n\\(A = P \\left(1 + \\frac{r}{m}\\right)^{mt}\\)\n\\(P = A\\left(1 + \\frac{r}{m}\\right)^{-mt}\\)\n\n\n\n\n\nA.1.4 Continuous Compound Interest\nContinuous compounding of interest is equivalent to a discrete compounding of interest where \\(m\\), the number of conversion periods per year, goes to infinity.\n\n\n\nAccumulated Amount\nPresent Value Formula\n\n\n\n\n\\(A = Pe^{rt}\\)\n\\(P = Ae^{-rt}\\)\n\n\n\n\n\nA.1.5 Effective Rate of Interest\nThe effective interest rate, \\(r_{\\text{eff}}\\), is the simple interest rate that produces the same accumulated amount in 1 year as the nominal rate, \\(r\\), compounded \\(m\\) times a year.\n\\[r_{\\text{eff}}=\\left(1+\\frac{r}{m}\\right)^m-1\\]",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Time Value of Money</span>"
+    ]
+  },
+  {
+    "objectID": "time_value.html#future-value-examples",
+    "href": "time_value.html#future-value-examples",
+    "title": "Appendix A — Time Value of Money",
+    "section": "A.2 Future Value Examples",
+    "text": "A.2 Future Value Examples\n\nA.2.1 Example 1\nSuppose $1,000 is deposited into an account with an interest rate of 16% compounded annually. How much money is in the account after 3 years?\nStep 1: Since interest is compounded annually, use the accumulated amount for discrete compound interest.\n\\[A=P\\left(1+\\frac{r}{m}\\right)^{mt}\\]\nStep 2: Plug in the given values: \\(P = 1000\\), \\(r = 0.16\\), \\(m=1\\), and \\(t = 3\\).\n\\[\\begin{align*}\n  A\n  &= 1000\\left(1 + \\frac{0.16}{1}\\right)^{1\\cdot 3} \\\\  \\\\\n  &= 1000\\left(1 + 0.16\\right)^{3} \\\\  \\\\\n  &= 1000\\left(1.16\\right)^{3} \\approx \\$1,560.90\n\\end{align*}\\]\nTherefore, after 3 years of accumulating interest, the original investment of $1,000 is worth $1,560.90.\n\n\nA.2.2 Example 2\nSuppose $1,000 is deposited into an account with an interest rate of 16% compounded quarterly. How much money is in the account after 3 years?\nStep 1: Since interest is compounded quarterly, use the accumulated amount for discrete compound interest.\n\\[A=P\\left(1+\\frac{r}{m}\\right)^{mt}\\]\nStep 2: Plug in the given values: \\(P = 1000\\), \\(r = 0.16\\), \\(m=4\\), and \\(t = 3\\).\n\\[\\begin{align*}\n  A\n  &= 1000\\left(1 + \\frac{0.16}{4}\\right)^{4\\cdot 3} \\\\  \\\\\n  &= 1000\\left(1 + 0.04\\right)^{12} \\\\ \\\\\n  &= 1000\\left(1.04\\right)^{12} \\approx \\$1,601.03\n\\end{align*}\\]\nTherefore, after 3 years of accumulating interest, the original investment of $1,000 is worth $1,601.03.\n\n\n\n\n\n\nObservation\n\n\n\nCompare the accumulated amounts in the above two examples. Both examples have the same principal, interest rate, and term. But since interest is compounded more frequently in Example 2 (4 times a year) than in Example 1 (1 time a year), the accumulated amount is higher in Example 2.\n\n\n\n\nA.2.3 Example 3\nFind the interest rate required for an investment of $3,000 to double in value after 5 years if interest is compounded quarterly.\nStep 1: Since interest is compounded quarterly, use the accumulated amount for discrete compound interest.\n\\[A=P\\left(1+\\frac{r}{m}\\right)^{mt}\\]\nStep 2: Plug in the given values: \\(P=3000\\), \\(A=6000\\) (since the investment is to double in value), \\(m=4\\), and \\(t=5\\).\n\\[\\begin{align*}\n  6000\n  &= 3000\\left(1 + \\frac{r}{4} \\right)^{4\\cdot 5}\\\\\n  &= 3000\\left(1 + \\frac{r}{4} \\right)^{20}\n\\end{align*}\\]\nStep 3: Solve for the interest rate, \\(r\\).\n\n\n\n\n\n\nMethod 1\n\n\n\n\n\nDivide both sides by 3000 \\[ 2 = \\left(1 + \\frac{r}{4} \\right)^{20} \\]\nTake the natural logarithm of both sides.\n\\[\\begin{align*}\n  \\ln(2)\n  &= \\ln\\left[\\left(1 + \\frac{r}{4} \\right)^{20}\\right] \\\\\n  &= 20\\ln\\left(1 + \\frac{r}{4} \\right) && \\hbox{since $\\ln(m^n) = n\\ln(m)$}\n\\end{align*}\\]\nDivide both sides by 20.\n\\[\\ln(2)/20 = \\ln\\left(1 + \\frac{r}{4} \\right)\\]\nTake the exponential of both sides.\n\\[\\begin{align*}\n  e^{\\ln(2)/20}\n  &= e^{\\ln\\left(1 + \\frac{r}{4} \\right)} \\\\\n  &= 1 + \\frac{r}{4} && \\hbox{since $e^{\\ln(x)} = x$}\n\\end{align*}\\]\nSubtract 1 from both sides.\n\\[e^{\\ln(2)/20} - 1  = \\frac{r}{4} \\]\nAnd finally, multiply both sides by 4.\n\\[r = 4(e^{\\ln(2)/20} - 1)  \\approx  0.1411.\\]\n\n\n\n\n\n\n\n\n\nMethod 2\n\n\n\n\n\nHere is an alternate method for solving for the interest rate \\(r\\). We start with the following equation.\n\\[2 = \\left(1 + \\frac{r}{4} \\right)^{20}\\]\nInstead of taking the natural logarithm of both sides as we did before, now take the 20th root of both sides (i.e., raise both sides to the power of \\(1/20\\)).\n\\[2^{1/20} = 1 + \\frac{r}{4}\\]\nSubtract 1 from both sides.\n\\[2^{1/20} - 1 = \\frac{r}{4}\\]\nAnd finally, multiply both sides by 4.\n\\[r = 4(2^{1/20} - 1) \\approx 0.1411\\]\n\n\n\nNote that this value of \\(r\\) is numerically equal in both methods since\n\\[\\begin{align*}\n  e^{\\ln(2)/20}\n  &= e^{\\ln(2^{1/20})} && \\hbox{since $n\\ln(m) = \\ln(m^n)$} \\\\\n  &= 2^{1/20} && \\hbox{since $e^{\\ln(x)} = x$}\n\\end{align*}\\]\nTherefore, an interest rate of approximately 14.11% compounded quarterly is required for an investment of $3,000 to double in value in 5 years.\n\n\nA.2.4 Example 4\nFind the interest rate required for an investment of $3,000 to double in value after 5 years if interest is compounded continuously.\nStep 1: Since interest is compounded continuously, use the accumulated amount for continuous compound interest.\n\\[A=Pe^{rt}\\]\nStep 2: Plug in the given values: \\(P=3000\\), \\(A=6000\\) (since the investment is to double in value), and \\(t=5\\).\n\\[\\begin{align*}\n  6000 &= 3000e^{5r}\n\\end{align*}\\]\nStep 3: Solve for the interest rate, \\(r\\).\nDivide both sides by 3000.\n\\[2 = e^{5r}\\]\nTake the natural logarithm of both sides.\n\\[\\begin{align*}\n  \\ln(2)\n  &= \\ln(e^{5r}) \\\\\n  &= 5r && \\hbox{since $\\ln(e^x) = x$}\n\\end{align*}\\]\nDivide both sides by 5.\n\\[r = \\ln(2) / 5 \\approx 0.1386\\]\nTherefore, an interest rate of approximately 13.86% compounded continuously is required for an investment of $3,000 to double in value in 5 years.\n\n\n\n\n\n\nObservation\n\n\n\nCompare the last two examples. Since continuous compounding of interest earns interest faster than discrete compounding, a lower interest rate is needed for an investment to double in value over a fixed term if interest is compounded continuously. In our examples, an interest rate of 13.86% was needed for the investment with continuous compound interest to double in value in 5 years, while an interest rate to 14.11% was needed for the investment with quarterly compound interest.\n\n\n\n\nA.2.5 Example 5\nHow long will it take for $5,000 to grow to $8,000 if the investment earns interest at 6% per year compounded monthly?\nStep 1: Since interest is compounded monthly, use the accumulated amount for discrete compound interest.\n\\[A=P\\left(1+\\frac{r}{m}\\right)^{mt}\\]\nStep 2: Plug in the given values: \\(P=5000\\), \\(A=8000\\), \\(m=12\\), and \\(r=0.06\\).\n\\[\\begin{align*}\n  8000\n  &= 5000\\left(1 + \\frac{0.06}{12} \\right)^{12\\cdot t}\\\\\n  &= 5000\\left(1 + 0.005 \\right)^{12t}\n\\end{align*}\\]\nStep 3: Solve for the unknown term \\(t\\).\nDivide both sides by 5000.\n\\[8/5 = 1.005^{12t}\\]\nTake the natural logarithm of both sides.\n\\[\\begin{align*}\n  \\ln(8/5)\n  &= \\ln(1.005^{12t}) \\\\\n  &= 12t\\ln(1.005) & \\hbox{since $\\ln(m^n) = n\\ln(m)$}\n\\end{align*}\\]\nDivide both sides by \\(12\\ln(1.005)\\).\n\\[\\begin{align*}\n  t &= \\frac{\\ln(8/5)}{12\\ln(1.005)} \\approx 7.85\n\\end{align*}\\]\nTherefore, it will take approximately 7.85 years for $5,000 to grow to $8,000 if the investment earns interest at 6% per year compounded monthly.\n\n\nA.2.6 Example 6\nHow long will it take for $5,000 to grow to $8,000 if the investment earns interest at 6% per year compounded continuously?\nStep 1: Since interest is compounded continuously, use the accumulated amount for continuous compound interest.\n\\[A=Pe^{rt}\\]\nStep 2: Plug in the given values: \\(P=5000\\), \\(A=8000\\), and \\(r=0.06\\).\n\\[\\begin{align*}\n  8000\n  &= 5000e^{0.06t}\n\\end{align*}\\]\nStep 3: Solve for the unknown term \\(t\\).\nDivide both sides by 5000.\n\\[8/5 = e^{0.06t}\\]\nTake the natural logarithm of both sides.\n\\[\\begin{align*}\n  \\ln(8/5)\n  &= \\ln(e^{0.06t}) \\\\\n  &= 0.06t & \\hbox{since $\\ln(e^x) = x$}\n\\end{align*}\\]\nDivide both sides by \\(0.06\\).\n\\[\\begin{align*}\n  t &= \\frac{\\ln(8/5)}{0.06} \\approx 7.83\n\\end{align*}\\]\nTherefore, it will take approximately 7.83 years for $5,000 to grow to $8,000 if the investment earns interest at 6% per year compounded monthly.\n\n\n\n\n\n\nObservation\n\n\n\nCompare the last two examples. Both examples have the same principal, accumulated amount, and interest rate. But since continuous compounding of interest earns interest faster than discrete compounding, it should take less time for the investment to grow to $8,000 if interest is compounded continuously.\n\n\n\n\nA.2.7 Example 7\nFind the effective interest rate corresponding to a nominal interest rate of 10% compounded semiannually.\nStep 1: Recall the formula for effective interest rate, \\(r_{\\text{eff}}\\).\n\\[r_{\\text{eff}}=\\left(1+\\frac{r}{m}\\right)^m-1\\]\nStep 2: Plug in the given values: \\(r = 0.1\\) and \\(m=2\\).\n\\[\\begin{align*}\n  r_{\\text{eff}}\n  &= \\left(1+\\frac{0.1}{2}\\right)^2-1 \\\\\n  &= 1.05^2 - 1 \\\\\n  &= 0.1025\n\\end{align*}\\]\nTherefore, an investment earning interest compounded semiannually at 10% earns the same amount of interest after 1 year as an investment earning simple interest at 10.25%.\n\n\nA.2.8 Example 8\nSuppose you have $12,000 in the bank earning interest at a rate of 12% compounded quarterly. Your cousin calls you and needs $12,000 to buy a new car. You are willing him to loan him the money, but you’d hate to lose out on the interest you would gather by simply leaving your money alone. If you charge your cousin an interest rate compounded continuously, what rate should you charge in order to earn the same amount of interest you otherwise would have?\nStep 1: Assume your cousin is prepared to pay you back after \\(t\\) years.\nWe’ll use \\(t\\) as the term in each of the following calculations. Eventually, we’ll see that the interest rate you charge does not depend on the specific value of \\(t\\).\nStep 2: Compute the accumulated amount of the $12,000 after \\(t\\) years assuming you leave your money in the bank.\n\\[\\begin{align*}\n  A\n  &= P\\left(1 + \\frac{r}{m}\\right)^{m\\cdot t} \\\\\n  &= 12000 \\left( 1 + \\frac{0.12}{4} \\right)^{4t}  \\\\\n  &= 12000 \\left( 1.03 \\right)^{4t}\n\\end{align*}\\]\nStep 3: Compute the accumulated amount of the $12,000 after \\(t\\) years assuming you let your cousin borrow the money.\nThis would be the amount that your cousin repays you after \\(t\\) years.\n\\[\\begin{align*}\n  A\n  &= Pe^{rt}\\\\\n  &= 12000e^{rt}\n\\end{align*}\\]\nStep 4: Equate the two accumulated amounts and solve for \\(r\\).\n\\[12000\\left(1.03\\right)^{4t} = 12000e^{rt}\\]\nDivide both sides by 12000.\n\\[1.03^{4t} = e^{rt}\\]\nTake the natural logarithm of both sides.\n\\[\\ln(1.03^{4t}) = \\ln(e^{rt})\\]\nSimplify using properties of logarithms (\\(\\ln(m^n) = n\\ln(m)\\) and \\(\\ln(e^x) = x\\)).\n\\[4t\\ln(1.03) = rt\\]\nAnd finally, divide both sides by \\(t\\). Here is where we see that the time it would take your cousin to repay you does not affect the interest rate you would charge.\n\\[r = 4\\ln(1.03) \\approx 0.1182\\]\nTherefore, charging your cousin 11.82% interest compounded continuously earns the same amount of interest as leaving your money in the bank earning interest at a rate of 12% compounded quarterly.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Time Value of Money</span>"
+    ]
+  },
+  {
+    "objectID": "time_value.html#present-value-examples",
+    "href": "time_value.html#present-value-examples",
+    "title": "Appendix A — Time Value of Money",
+    "section": "A.3 Present Value Examples",
+    "text": "A.3 Present Value Examples\n\nA.3.1 Example 1\nHow much money should be deposited in a bank paying a yearly interest rate of 6% compounded monthly so that after 3 years, the accumulated amount will be $20,000?\nStep 1: Notice that this is a present value problem since we’re given the accumulated amount and we’re asked to find the principal. And since interest is compounded monthly, we’ll use the present value formula for discrete compounding of interest.\n\\[P = A\\left(1 + \\frac{r}{m}\\right)^{-mt}\\]\nStep 2: Plug in the given values: \\(A = 20000\\), \\(r = 0.06\\), \\(m=12\\), and \\(t=3\\).\n\\[\\begin{align*}\n  P\n  &=20000\\left(1+\\frac{0.06}{12}\\right)^{-(12)(3)}\\\\ \\\\\n  &=20000(1.005)^{-36} \\approx \\$16,712.90\n\\end{align*}\\]\nTherefore, $16,712.90 invested at 6% interest compounded monthly will be worth $20,000 in 3 years.\n\n\nA.3.2 Example 2\nUse the accumulated amount for discrete compound interest to solve the previous example.\nStep 1: Start with the formula for accumulated amount for discrete compounding of interest.\n\\[A = P\\left( 1 + \\frac{r}{m}\\right)^{mt}\\]\nStep 2: Plug in the given values: \\(A = 20000\\), \\(r = 0.06\\), \\(m=12\\), and \\(t=3\\).\n\\[\\begin{align*}\n  20000\n  &= P\\left(1+\\frac{0.06}{12}\\right)^{(12)(3)}\\\\\n  &=P(1.005)^{36}\n\\end{align*}\\]\nStep 3: Solve for \\(P\\).\n\\[\\begin{align*}\n  P  = \\frac{20000}{1.005^{36}} \\approx \\$16,712.90\n\\end{align*}\\]\n\n\nA.3.3 Example 3\nParents wish to establish a trust fund for their child’s education. If they need $170,000 in 7 years, how much should they set aside now if the money is invested at 20% compounded continuously?\nStep 1: Notice that this is a present value problem since we’re given the accumulated amount and we’re asked to find the principal. And since interest is compounded continuously, we’ll use the present value formula for continuous compounding of interest.\n\\[P = Ae^{-rt}\\]\nStep 2: Plug in the given values: \\(A = 170000\\), \\(r = 0.2\\), and \\(t=7\\).\n\\[\\begin{align*}\n  P\n  &=170,000e^{-(0.2)(7)}\\\\ \\\\\n  &=170,000e^{-1.4} \\approx {\\$41,921.48}\n\\end{align*}\\]\nTherefore, $41,921.48 invested at 20% interest compounded continuously will be worth $170,000 in 7 years.\n\n\nA.3.4 Example 4\nUse the accumulated amount for continuous compound interest to solve the previous example.\nStep 1: Start with the formula for accumulated amount for continuous compounding of interest.\n\\[A = Pe^{rt}\\]\nStep 2: Plug in the given values: \\(A = 170000\\), \\(r = 0.2\\), and \\(t=7\\).\n\\[\\begin{align*}\n  170000\n  &= Pe^{(0.2)(7)}\\\\\n  &= Pe^{1.4}\n\\end{align*}\\]\nStep 3: Solve for \\(P\\).\n\\[\\begin{align*}\n  P\n  &= \\frac{170000}{e^{1.4}} \\approx \\$41,921.48\n\\end{align*}\\]",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Time Value of Money</span>"
+    ]
+  },
+  {
+    "objectID": "time_value.html#try-it-yourself",
+    "href": "time_value.html#try-it-yourself",
+    "title": "Appendix A — Time Value of Money",
+    "section": "A.4 Try It Yourself",
+    "text": "A.4 Try It Yourself\n\nA.4.1 Exercise 1\nIf $6,00 is invested at 7% compounded continuously, what will be the accumulated amount after 6 years?\n\n\n\n\n\n\nShow answer\n\n\n\n\n\n\\(A = 6000e^{0.42}\\)\n\n\n\n\n\nA.4.2 Exercise 2\nIf $7,000 is invested at 16% compounded quarterly, what will be the accumulated amount after 3 years?\n\n\n\n\n\n\nShow answer\n\n\n\n\n\n\\(A = 7000(1.04)^{12}\\)\n\n\n\n\n\nA.4.3 Exercise 3\nFind the interest rate \\(r\\) needed for an investment of $2,000 to grow to $8,000 in 7 years if compounded continuously.\n\n\n\n\n\n\nShow answer\n\n\n\n\n\n\\(r = \\ln(4)/7\\)\n\n\n\n\n\nA.4.4 Exercise 4\nFind the interest rate \\(r\\) needed for an investment of $7,000 to grow to $12,000 in 21 years if compounded monthly.\n\n\n\n\n\n\nShow answer\n\n\n\n\n\n\\(r = 12\\left[(12/7)^{1/252} - 1\\right]\\)\n\n\n\n\n\nA.4.5 Exercise 5\nFind the time it would take for an investment of $1,000 to grow to $100,000 if interest is compounded quarterly at an annual rate of 8%.\n\n\n\n\n\n\nShow answer\n\n\n\n\n\n\\(t = \\frac{\\ln(100)}{4\\ln(1.02)}\\)\n\n\n\n\n\nA.4.6 Exercise 6\nFind the time it would take for an investment of $2,500 to grow to $6,000 if interest is compounded continuously at an annual rate of 24%.\n\n\n\n\n\n\nShow answer\n\n\n\n\n\n\\(t = \\frac{25}{6}\\ln(12/5)\\)\n\n\n\n\n\nA.4.7 Exercise 7\nCalculate the effective rate of interest corresponding to a nominal interest rate of 52% compounded weekly.\n\n\n\n\n\n\nShow answer\n\n\n\n\n\n\\(r_{eff} = 1.01^{52} - 1\\)\n\n\n\n\n\nA.4.8 Exercise 8\nYour grandma would like to establish a trust fund for your education. How much should she set aside now if she wants $50,000 in 9 years and interest is compounded monthly at an annual rate of 12%?\n\n\n\n\n\n\nShow answer\n\n\n\n\n\n\\(P = 50000(1.01)^{-108}\\)\n\n\n\n\n\nA.4.9 Exercise 9\nYou are preparing to run for president and want to have $100,000 in 6 years to start your campaign. How much money do you need now if interest is compounded continuously at an annual rate of 15%?\n\n\n\n\n\n\nShow answer\n\n\n\n\n\n\\(P = 100000e^{-0.9}\\)\n\n\n\n\n\nA.4.10 Exercise 10\nYou have $50,000 in the bank earning 7% interest compounded quarterly. However, your cousin needs a $50,000 investment to start up his new financial consulting business. In order to get the same total return as leaving your money in the bank, what interest rate \\(r\\) should you request from your cousin if interest is compounded continuously?\n\n\n\n\n\n\nShow answer\n\n\n\n\n\n\\(r = 4\\ln(1+0.07/4)\\)",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Time Value of Money</span>"
+    ]
+  },
+  {
+    "objectID": "interest_rates.html",
+    "href": "interest_rates.html",
+    "title": "Appendix B — Interest Rates",
+    "section": "",
+    "text": "B.1 Types of Rates",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Interest Rates</span>"
+    ]
+  },
+  {
+    "objectID": "interest_rates.html#types-of-rates",
+    "href": "interest_rates.html#types-of-rates",
+    "title": "Appendix B — Interest Rates",
+    "section": "",
+    "text": "B.1.1 Treasury Rate\n\nRate on instrument issued by a government in its own currency.\n\n\n\nB.1.2 The U.S. Fed Funds Rate\n\nUnsecured interbank overnight rate of interest.\nAllows banks to adjust the cash (i.e., reserves) on deposit with the Federal Reserve at the end of each day.\nThe effective fed funds rate is the average rate on brokered transactions.\nThe central bank may intervene with its own transactions to raise or lower the rate.\nSimilar arrangements in other countries.\n\n\n\nB.1.3 Repo Rate\n\nRepurchase agreement is an agreement where a financial institution that owns securities agrees to sell them for X and buy them bank in the future (usually the next day) for a slightly higher price, Y.\nThe financial institution obtains a loan.\nThe rate of interest is calculated from the difference between X and Y and is known as the repo rate.\n\n\n\nB.1.4 LIBOR (ICE LIBOR)\n\nDetailed information about LIBOR: https://www.theice.com/iba/libor\nLIBOR is the rate of interest at which a AA bank can borrow money on an unsecured basis from another bank.\nBased on submissions from a panel of contributor banks (16 for each of USD and GBP).\nIt is calculated daily for 5 currencies and 7 maturities.\nThere have been some suggestions that banks manipulated LIBOR during certain periods.\nWhy would they do this?",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Interest Rates</span>"
+    ]
+  },
+  {
+    "objectID": "interest_rates.html#alternative-reference-rates",
+    "href": "interest_rates.html#alternative-reference-rates",
+    "title": "Appendix B — Interest Rates",
+    "section": "B.2 Alternative Reference Rates",
+    "text": "B.2 Alternative Reference Rates\n\n\n\n\n\n\n\n\nCountry/Currency/CODE\nIBOR Rate\nNew Reference Rate\n\n\n\n\nUSA/Dollars/USD\nUSD ICE LIBOR\nSOFR\n\n\nUK/Pounds Sterling/GBP\nGBP ICE LIBOR\nSONIA\n\n\nSwitzerland/Swiss Francs/CHF\nCHF ICE LIBOR\nSARON\n\n\nJapan/Yen/JPY\nJPY ICE LIBOR, Tibor\nTONAR\n\n\nEU/Euro/EUR\nEuribor\nESTER\n\n\n\n\nB.2.1 SOFR (Secured Overnight Financing Rate)\n\nCME Group Education\nAdministered by Federal Reserve Bank of New York (link)\nTransaction-based, calculated from overnight US Treasury repurchase (repo) activity.\nSOFR is a broad measure of the cost of borrowing USD cash overnight, collateralized by U.S. Treasury securities.\nSOFR is a good representation of general funding conditions in the overnight Treasury repo market.\nAs such, it will reflect an economic cost of lending and borrowing relevant to the wide array of market participants active in the market.\n\n\n\nB.2.2 SONIA (Sterling Overnight Index Average)\n\nCME Group Education\nAdministered by Bank of England (link)\nUnsecured transaction-based index, wholesale based (beyond Interbank)\nIt has been endorsed by the Sterling Risk-Free Reference Rate Working Group (Working Group) as the preferred risk-free reference rate for Sterling Overnight Indexed Swaps (OIS).\nIn January 2018, the Working Group added banks, dealers, investment managers, non-financial corporates, infrastructure providers, trade associations and professional services firms.\nIn April 2018, the BOE introduced a series of reforms of the SONIA benchmark.\n\n\n\nB.2.3 €STR (or ESTER, Euro Short-Term Rate)\n\nAdministered by European Central Bank (link)\nIt is based on the unsecured market segment.\nThe ECB developed an unsecured rate, because it is intended to complement the EONIA.\nFurthermore, a secured rate would be affected by the type of the collaterals.\nThe money market statistical reporting covers the 50 largest banks in the euro area in terms of balance sheet size.\nWhile the EONIA (link) reflects the interbank market, the €STR extends the scope to money market funds, insurance companies and other financial corporations because banks developed significant money market activity with those entities.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Interest Rates</span>"
+    ]
+  },
+  {
+    "objectID": "interest_rates.html#ois-rate",
+    "href": "interest_rates.html#ois-rate",
+    "title": "Appendix B — Interest Rates",
+    "section": "B.3 OIS Rate",
+    "text": "B.3 OIS Rate\n\nAn overnight indexed swap is swap where a fixed rate for a period (e.g. 3 months) is exchanged for the geometric average of overnight rates (or overnight rate compounded over the term of the swap).\nThe underlying floating rate is typically the rate for overnight lending between banks, either non-secured or secured (SOFR, SONIA, €STR).\nFor maturities up to one year there is a single exchange (swap term is not overnight).\nFor maturities beyond one year there are periodic exchanges, e.g. every quarter.\nThe OIS rate is a continually refreshed overnight rate.\nThe fixed rate of OIS is typically an interest rate considered less risky than the corresponding interbank rate (LIBOR) because there is limited counterparty risk.\n\n\nB.3.1 The Risk-Free Rate\n\nThe Treasury rate is considered to be artificially low because:\n\nBanks are not required to keep capital for Treasury instruments\nTreasury instruments are given favorable tax treatment in the US\n\nOIS rates are now used as a proxy for risk-free rates in derivatives valuation.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Interest Rates</span>"
+    ]
+  },
+  {
+    "objectID": "interest_rates.html#time-value-of-money",
+    "href": "interest_rates.html#time-value-of-money",
+    "title": "Appendix B — Interest Rates",
+    "section": "B.4 Time Value of Money",
+    "text": "B.4 Time Value of Money\n\nB.4.1 Compounding Frequency\n\nWhen we compound \\(m\\) times per year at rate \\(r\\) an amount \\(P\\) grows to \\(P(1+r/m)^m\\) in one year.\nThe compounding frequency used for an interest rate is the unit of measurement.\nThe difference between quarterly and annual compounding is analogous to the difference between miles and kilometers.\nEffect of the compounding frequency on the value of $100 at the end of 1 year when the interest rate is 10% per annum.\n\n\n\n\nCompounding frequency\nValue of $100 at end of year ($)\n\n\n\n\nAnnually m = 1\n110.00\n\n\nSemiannually m = 2\n110.25\n\n\nQuarterly m = 4\n110.38\n\n\nMonthly m = 12\n110.47\n\n\nWeekly m = 52\n110.51\n\n\nDaily m = 365\n110.52\n\n\n\n\n\nB.4.2 Continuous Compounding\n\nRates used in option pricing are nearly always expressed with continuous compounding.\nIn the limit as we compound more and more frequently we obtain continuously compounded interest rates.\nNotation:\n\n\\(r\\): continuously compounded annual interest rate\n\\(T\\): time to maturity in years\n\\(e\\): Euler’s number (mathematical constant)\n\n\n\\[ \\text{Future value} = P \\times e^{rT} \\]\n\\[ \\text{Present value} = P \\times e^{-rT} \\]\n\nUSD 100 grows to \\(100 \\times e^{rT}\\) when invested at a continuously compounded rate \\(r\\) for time \\(T\\).\nUSD 100 received at time \\(T\\) discounts to \\(100 \\times e^{-rT}\\) at time zero when the continuously compounded discount rate is \\(r\\).\n\n\n\nB.4.3 Conversion Formulas\n\n\\(r_c\\): continuously compounded rate\n\\(r_m\\): same rate with compounding \\(m\\) times per year\n\n\\[ r_c = m \\ln (1+ \\frac{r_m}{m}) \\]\n\\[ r_m = m(e^{r_c/m} - 1) \\]\nExamples:\n\n10% with semiannual compounding is equivalent to \\(2 \\ln (1.05) = 9.758\\%\\) with continuous compounding.\n8% with continuous compounding is equivalent to \\(4(e^{0.08/4} - 1) = 8.08\\%\\) with quarterly compounding.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Interest Rates</span>"
+    ]
+  }
+]
