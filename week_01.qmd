@@ -443,8 +443,8 @@ trader gain or lose if the cotton price at the end of the contract is (a) 48.20 
 per pound; (b) 51.30 cents per pound?
 2. An investor enters into a short forward contract to sell 100,000 British pounds for
 US dollars at an exchange rate of 1.5000 US dollars per pound. How much does the
-investor gain or lose if the exchange rate at the end of the contract is (a) 1.4900 and
-(b) 1.5200?
+investor gain or lose if the exchange rate at the end of the contract is (a) 1.4900
+and (b) 1.5200?
 
 ### Practical Applications of Options
 
