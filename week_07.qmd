@@ -1,0 +1,5 @@
+# Reading Week
+
+::: {.callout-tip}
+Take some rest and revise the first six topics!
+:::

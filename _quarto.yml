@@ -1,0 +1,38 @@
+project:
+  type: book
+
+book:
+  title: "Financial Derivatives"
+  author: "Tomáš Plíhal"
+  date: "2024-02-19"
+  search: true
+  page-navigation: true
+  downloads: [pdf, epub]
+  sharing: [twitter, facebook]
+  sidebar:
+    logo: logo.png
+  chapters:
+    - index.qmd
+    - week_01.qmd
+    - week_02.qmd
+    - week_03.qmd
+    - week_04.qmd
+    - week_05.qmd
+    - week_06.qmd
+    - week_07.qmd
+    - week_08.qmd
+    - week_09.qmd
+    - week_10.qmd
+    - week_11.qmd
+    - week_12.qmd
+    - week_13.qmd
+  appendices: 
+    - time_value.qmd
+    - interest_rates.qmd
+
+format:
+  html:
+    theme: materia
+    number-depth: 3
+  pdf:
+    documentclass: scrreprt

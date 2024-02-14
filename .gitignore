@@ -1,0 +1,8 @@
+/.quarto/
+/_book/
+/_site/
+/resources/
+/solutions/
+/test_bank/
+/slides/*.html
+financial_derivatives.code-workspace

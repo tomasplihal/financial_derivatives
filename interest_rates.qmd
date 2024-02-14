@@ -1,0 +1,177 @@
+# Interest Rates
+
+::: {.callout-note}
+# References
+
+- HULL, John. Options, futures, and other derivatives. Ninth edition. Harlow: Pearson, 2018. ISBN 978-1-292-21289-0.
+  - Chapter 4 - Interest Rates
+:::
+
+**Learning Outcomes:**
+
+- Understand the different types of interest rates.
+- Define the risk-free rate and its significance in financial derivatives.
+- Explain the concept of continuous compounding and its importance in pricing financial
+derivatives.
+
+## Types of Rates
+
+### Treasury Rate
+
+- Rate on instrument issued by a government in its own currency.
+
+### The U.S. Fed Funds Rate
+
+- Unsecured interbank overnight rate of interest.
+- Allows banks to adjust the cash (i.e., reserves) on deposit with the Federal Reserve
+at the end of each day.
+- The effective fed funds rate is the average rate on brokered transactions.
+- The central bank may intervene with its own transactions to raise or lower the rate.
+- Similar arrangements in other countries.
+
+### Repo Rate
+
+- Repurchase agreement is an agreement where a financial institution that owns
+securities agrees to sell them for X and buy them bank in the future (usually the next
+day) for a slightly higher price, Y.
+- The financial institution obtains a loan.
+- The rate of interest is calculated from the difference between X and Y and is known as
+the repo rate.
+
+### LIBOR (ICE LIBOR)
+
+- Detailed information about LIBOR: <https://www.theice.com/iba/libor>
+- LIBOR is the rate of interest at which a AA bank can borrow money on an
+**unsecured** basis from another bank.
+- Based on **submissions** from a panel of contributor banks (16 for each of USD and
+GBP).
+- It is calculated daily for 5 currencies and 7 maturities.
+- There have been some suggestions that banks manipulated LIBOR during certain periods. 
+- Why would they do this?
+
+## Alternative Reference Rates
+
+| Country/Currency/CODE        | IBOR Rate            | New Reference Rate |
+| ---------------------------- | -------------------- | ------------------ |
+| USA/Dollars/USD              | USD ICE LIBOR        | SOFR               |
+| UK/Pounds Sterling/GBP       | GBP ICE LIBOR        | SONIA              |
+| Switzerland/Swiss Francs/CHF | CHF ICE LIBOR        | SARON              |
+| Japan/Yen/JPY                | JPY ICE LIBOR, Tibor | TONAR              |
+| EU/Euro/EUR                  | Euribor              | ESTER              |
+
+### SOFR (Secured Overnight Financing Rate)
+
+- [CME Group Education](https://www.cmegroup.com/education/courses/introduction-to-sofr/what-is-sofr.html)
+- Administered by Federal Reserve Bank of New York
+([link](https://apps.newyorkfed.org/markets/autorates/SOFR))
+- Transaction-based, calculated from overnight US Treasury repurchase (repo) activity.
+- SOFR is a broad measure of the cost of borrowing USD cash overnight, collateralized by
+U.S. Treasury securities.
+- SOFR is a good representation of general funding conditions in the overnight Treasury
+repo market.
+- As such, it will reflect an economic cost of lending and borrowing relevant to the
+wide array of market participants active in the market.
+
+### SONIA (Sterling Overnight Index Average)
+
+- [CME Group Education](https://www.cmegroup.com/education/courses/introduction-to-sonia/what-is-sonia.html)
+- Administered by Bank of England ([link](https://www.bankofengland.co.uk/markets/sonia-benchmark))
+- Unsecured transaction-based index, wholesale based (beyond Interbank)
+- It has been endorsed by the Sterling Risk-Free Reference Rate Working Group (Working
+Group) as the preferred risk-free reference rate for Sterling Overnight Indexed Swaps
+(OIS).
+- In January 2018, the Working Group added banks, dealers, investment managers,
+non-financial corporates, infrastructure providers, trade associations and professional
+services firms.
+- In April 2018, the BOE introduced a series of reforms of the SONIA benchmark.
+
+### €STR (or ESTER, Euro Short-Term Rate)
+
+- Administered by European Central Bank
+([link](https://www.ecb.europa.eu/stats/financial_markets_and_interest_rates/euro_short-term_rate/html/index.en.html))
+- It is based on the unsecured market segment.
+- The ECB developed an unsecured rate, because it is intended to complement the EONIA.
+- Furthermore, a secured rate would be affected by the type of the collaterals.
+- The money market statistical reporting covers the 50 largest banks in the euro area in
+terms of balance sheet size.
+- While the EONIA ([link](https://www.euribor-rates.eu/en/)) reflects the interbank
+market, the €STR extends the scope to money market funds, insurance companies and other
+financial corporations because banks developed significant money market activity with
+those entities.
+
+## OIS Rate
+
+- An **overnight indexed swap** is swap where a fixed rate for a period (e.g. 3 months)
+is exchanged for the geometric average of overnight rates (or overnight rate compounded
+over the term of the swap).
+- The underlying floating rate is typically the rate for overnight lending between
+banks, either non-secured or secured (SOFR, SONIA, €STR).
+- For maturities up to one year there is a single exchange (swap term is not overnight).
+- For maturities beyond one year there are periodic exchanges, e.g. every quarter.
+- The OIS rate is a continually refreshed overnight rate.
+- The fixed rate of OIS is typically an interest rate considered less risky than the
+corresponding interbank rate (LIBOR) because there is limited counterparty risk.
+
+### The Risk-Free Rate
+
+- The Treasury rate is considered to be artificially low because:
+  - Banks are not required to keep capital for Treasury instruments
+  - Treasury instruments are given favorable tax treatment in the US
+- OIS rates are now used as a proxy for risk-free rates in derivatives valuation.
+
+## Time Value of Money
+
+### Compounding Frequency
+
+- When we compound $m$ times per year at rate $r$ an amount $P$ grows to $P(1+r/m)^m$ in
+one year.
+- The compounding frequency used for an interest rate is the unit of measurement.
+- The difference between quarterly and annual compounding is analogous to the difference
+between miles and kilometers.
+- Effect of the compounding frequency on the value of \$100 at the end of 1 year when
+the interest rate is 10% per annum.
+
+| Compounding frequency | Value of \$100 at end of year (\$) |
+| :-------------------: | :--------------------------------: |
+| Annually m = 1        | 110.00                             |
+| Semiannually m = 2    | 110.25                             |
+| Quarterly m = 4       | 110.38                             |
+| Monthly m = 12        | 110.47                             |
+| Weekly m = 52         | 110.51                             |
+| Daily m = 365         | 110.52                             |
+
+### Continuous Compounding
+
+- **Rates used in option pricing are nearly always expressed with continuous
+compounding.**
+- In the limit as we compound more and more frequently we obtain continuously compounded
+interest rates.
+- Notation:
+    - $r$: continuously compounded annual interest rate
+    - $T$: time to maturity in years
+    - $e$: Euler's number (mathematical constant)
+
+$$ \text{Future value} = P \times e^{rT} $$
+
+$$ \text{Present value} = P \times e^{-rT} $$
+
+- USD 100 grows to $100 \times e^{rT}$ when invested at a continuously compounded rate
+$r$ for time $T$.
+- USD 100 received at time $T$ discounts to $100 \times e^{-rT}$ at time zero when the
+continuously compounded discount rate is $r$.
+
+### Conversion Formulas
+
+- $r_c$: continuously compounded rate
+- $r_m$: same rate with compounding $m$ times per year
+
+$$ r_c = m \ln (1+ \frac{r_m}{m}) $$
+
+$$ r_m = m(e^{r_c/m} - 1) $$
+
+**Examples:**
+
+- 10% with semiannual compounding is equivalent to $2 \ln (1.05) = 9.758\%$ with
+continuous compounding.
+- 8% with continuous compounding is equivalent to $4(e^{0.08/4} - 1) = 8.08\%$ with
+quarterly compounding.

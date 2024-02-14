@@ -1,0 +1,22 @@
+# Preamble {.unnumbered}
+
+The course Financial Derivatives delves into the intricacies of derivative instruments,
+focusing on both fixed and conditional contracts, including forwards, futures, swaps,
+and options. It explores the utilization of derivatives within financial markets,
+particularly for hedging against various risks. Students will gain a comprehensive
+understanding of the essence and valuation of financial derivatives, along with detailed
+insights into the exchange trading mechanisms for futures and options.
+
+Upon completing this course, the student will be able to:
+
+- define financial derivatives and understand their specific characteristics
+- explain the differences between fixed future contracts and options
+- price financial derivatives
+- suggest their use
+
+References:
+
+- HULL, John. Options, futures, and other derivatives. Global edition. Harlow: Pearson, 2018. ISBN 9781292212890.
+- PIRIE, Wendy L. Derivatives. Hoboken: Wiley, 2017. xix, 597. ISBN 9781119381815.
+- BLÜMKE, Andreas. How to invest in structured products : a guide for investors and
+investment advisors. Chichester: Wiley, 2009. xvi, 374. ISBN 9780470746790.

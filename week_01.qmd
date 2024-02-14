@@ -1,0 +1,471 @@
+# Introduction to Financial Derivatives
+
+::: {.callout-note}
+# References
+
+- HULL, John. Options, futures, and other derivatives. Ninth edition. Harlow: Pearson, 2018. ISBN 978-1-292-21289-0.
+  - Chapter 1 - Introduction
+  - Chapter 4 - Interest Rates
+- PIRIE, Wendy L. Derivatives. Hoboken: Wiley, 2017. CFA institute investment series. ISBN 978-1-119-38181-5.
+  - Chapter 1 - Derivative Markets and Instruments
+:::
+
+**Learning Outcomes:**
+
+- Define and explain the concept of derivatives in financial markets.
+- Analyze the importance and role of derivatives in finance.
+- Distinguish between derivative markets, including their structure and function.
+- Compare and contrast forward contracts with contingent claims, highlighting their
+differences and uses.
+- Identify the various types of derivatives.
+- Discuss the applications of derivatives in hedging, speculation, and arbitrage.
+- Evaluate criticisms and potential misuses of derivatives in financial markets.
+
+## What Are Derivatives?
+
+### Understanding Derivatives
+
+- A derivative is a financial contract whose value depends on the performance of **an
+underlying asset**.
+- This underlying asset, referred to as the underlying, may be a stock, currency,
+interest rate, commodity, or any other marketable item. Its market price is known as the
+cash or spot price.
+- The range of underlying assets encompasses a wide array, including stocks, currencies,
+commodities, debt instruments, and even non-traditional metrics like weather conditions
+or insurance claims.
+
+### The Significance of Derivatives
+
+Derivatives are pivotal in the financial ecosystem due to their ability to:
+
+- Facilitate risk management by transferring risks between parties.
+- Craft unique investment strategies and returns not feasible with direct investments.
+- Serve as a source of market insight and future price expectations.
+- Offer cost efficiencies in transactions.
+- Minimize required capital investment.
+- Simplify the process of taking short positions compared to dealing with the underlying
+directly.
+- Enhance the liquidity and operational efficiency of the primary markets they relate
+to.
+
+## Derivative Markets
+
+Derivatives are traded in two main venues: **organized exchanges** and
+**over-the-counter (OTC)** markets.
+
+### Exchange-Traded Derivatives
+
+These derivatives are **standardized** contracts with fixed features such as contract
+size, expiration date, and underlying assets. Their trading is **guaranteed by a
+clearing house**, which requires participants to post margins. This arrangement ensures
+transparency and regulation, safeguarding the integrity of the market.
+
+### Over-The-Counter (OTC) Derivatives
+
+In contrast, OTC derivatives offer **customization** in terms of contract size, asset
+specification, and expiration dates. This flexibility, however, comes with a higher risk
+of default (credit risk) for the parties involved. 
+
+#### The OTC Market Evolution
+
+- **Prior to 2008**: The OTC market was largely unregulated, with banks serving as the
+primary market makers. Transactions were governed by master agreements, and some were
+cleared through central counterparties (CCPs), similar to clearing houses.
+
+- **Since 2008**: Significant regulatory changes have been implemented to reduce
+systemic risk and enhance transparency. Standardized OTC transactions must now be
+cleared through CCPs, and all trades are required to be reported to a central
+repository. These measures aim to bolster market stability and integrity.
+
+::: {.callout-note}
+# The Lehman Bankruptcy
+
+The bankruptcy of Lehman Brothers on September 15, 2008, stands as the largest in U.S.
+history. Lehman Brothers was heavily involved in the over-the-counter (OTC) derivatives
+market, engaging in high-risk financial activities. The firm's inability to refinance
+its short-term debt ultimately led to its downfall. At the time of its bankruptcy,
+Lehman Brothers had an extensive network of transactions, with hundreds of thousands
+outstanding across approximately 8,000 counterparties. The process of unwinding these
+transactions has posed significant challenges for both the Lehman liquidators and the
+involved counterparties, illustrating the complex and interconnected nature of modern
+financial markets.
+:::
+
+<!---
+# https://www.bis.org/statistics/extderiv.htm?m=2616
+-->
+
+## Forward Contracts vs. Contingent Claims
+
+Both forward contracts and contingent claims are essential financial instruments that
+derive their value from the performance of an underlying asset, playing pivotal roles in
+the global financial markets for hedging, speculation, and arbitrage.
+
+### Forward Commitments
+
+Forward commitments are agreements to buy or sell an asset at a predetermined future
+date and price. They include:
+
+- **Forward Contracts**: Private, ***non-standardized*** agreements between two parties
+to buy or sell an asset at a specified future time at a price agreed upon at the
+contract's initiation.
+  
+- **Futures Contracts**: ***Standardized*** forward contracts traded on organized
+exchanges that require the posting of a margin. Futures contracts are marked to market
+daily, which mitigates credit risk.
+  
+- **Swaps**: Agreements between two parties to exchange sequences of cash flows for a
+set period based on a specified principal amount. Swaps often involve the exchange of a
+fixed interest rate for a floating rate, or vice versa.
+
+### Contingent Claims
+
+Contingent claims are financial instruments that ***offer the holder the right, but not
+the obligation***, to buy or sell an asset at a predetermined price within a specified
+timeframe. The primary form of contingent claims is:
+
+- **Options**: Contracts that give the buyer the right, but not the obligation, to buy
+(call option) or sell (put option) an underlying asset at a specified strike price on or
+before a certain date. Options are of two types: *European options*, which can be
+exercised only at expiration, and *American options*, which can be exercised at any time
+before expiration.
+
+### Key Differences and Risks
+
+- **Obligation vs. Right**: A forward contract represents an obligation to carry out the
+transaction, potentially leading to large losses depending on the market's movement. In
+contrast, a contingent claim like an option provides a right, limiting the buyer's
+potential loss to the premium paid for acquiring this right.
+
+- **Risk Profile**: The potential loss on a long forward contract can equal the full
+contract price, while for a short position, the loss can be theoretically infinite due
+to the asset's price potential to rise indefinitely. Conversely, the risk of a
+contingent claim is limited to the premium paid, providing a risk-averse strategy for
+speculators and hedgers.
+
+- **Uses and Applications**: Forward contracts and futures are commonly used for hedging
+against price movements in commodities, currencies, and interest rates. Swaps are
+utilized for managing interest rate risk and currency exposure. Options are employed for
+hedging, speculative trading, and income generation through premium collection.
+
+Incorporating these instruments into investment and risk management strategies requires
+an understanding of their mechanics, risks, and market behavior. Their usage reflects
+the financial goals, risk tolerance, and market outlook of the participants,
+illustrating the complexity and diversity of modern financial markets.
+
+## Types of Derivatives
+
+### Forward Contract
+
+::: {.callout-tip}
+A **forward contract** is a customized, over-the-counter derivative agreement between
+two parties, where the buyer agrees to purchase, and the seller agrees to sell, an
+underlying asset at a predetermined future date and price established at the contract's
+inception.
+:::
+
+- **Long Position**: The party committing to purchase the asset.
+- **Short Position**: The party committing to sell the asset.
+
+#### Characteristics of Forward Contracts {.unnumbered}
+
+- **Underlying Asset**: Specifies the type and quantity of the asset to be traded.
+- **Settlement Method**: Describes how the contract will be executed or settled upon
+expiration.
+- **Forward Price**: The agreed-upon price for the underlying asset exchange, designed
+to make the contract's initial value zero.
+
+#### Key Points {.unnumbered}
+
+- **Popularity in Foreign Exchange**: Forward contracts are frequently used for hedging
+in the foreign exchange markets.
+- **OTC Markets**: Typically involves at least one financial institution, allowing for
+customization but lacking centralized regulation.
+- **Flexibility and Risk Management**: Forward contracts offer tailored solutions for
+specific hedging needs, particularly in markets lacking standardized instruments. This
+customization enables precise risk management tailored to the parties' unique
+requirements.
+- **Market Dynamics and Pricing**: The determination of forward prices is influenced by
+various factors, including the underlying asset's current price, interest rates, and the
+asset's expected future price volatility. This dynamic pricing mechanism reflects the
+market's consensus on future price movements, adjusted for the time value of money.
+
+### Futures Contract
+
+- A futures contract is a **standardized** derivative traded on **futures exchanges**,
+like the [CME Group](https://www.cmegroup.com/) or [Intercontinental
+Exchange](https://www.theice.com/about/exchanges-clearing), facilitating the buying and
+selling of underlying assets at future dates.
+
+- **Futures and Liquidity**: Futures contracts provide liquidity and price discovery in
+a regulated environment, offering a transparent and efficient means for market
+participants to hedge against price volatility or speculate on future price movements.
+
+#### Forwards vs. Futures {.unnumbered}
+
+| Forwards                                           | Futures                                             |
+| :--------------------------------------------------| :-------------------------------------------------- |
+| Customized terms, traded over-the-counter.         | Standardized terms, traded on regulated exchanges.  |
+| Counterparty risk, with less regulatory oversight. | Mitigated counterparty risk through clearinghouses. |
+| Settlement occurs at contract maturity.            | Daily mark-to-market settlement.                    |
+
+### Swap Contract 
+
+- A **swap** is an OTC derivative where two parties exchange cash flow series,
+addressing multi-period risks. Unlike a forward contract focusing on a single-period
+risk, swaps often manage interest rate, currency, or commodity exposure over extended
+periods.
+
+- Swaps can be structured in numerous ways to suit different types of risk management
+strategies. For example, interest rate swaps exchange fixed for floating interest rate
+payments to manage interest rate risk, while currency swaps exchange cash flows in
+different currencies to hedge against currency risk.
+
+### Options
+
+::: {.callout-tip}
+Options are versatile financial derivatives allowing the holder to buy (call option) or
+sell (put option) an underlying asset at a predetermined price (strike price) within a
+specific timeframe. The buyer of the option pays a premium to the seller or writer for
+this right, without the obligation to execute the transaction.
+:::
+
+#### Types of Options {.unnumbered}
+
+- **Call Options**: Grant the holder the right to **purchase** the underlying asset at
+the strike price. Investors buy calls when they anticipate the underlying asset's price
+will increase.
+  
+- **Put Options**: Provide the holder the right to **sell** the underlying asset at the
+strike price. Puts are purchased when an investor expects the underlying asset's price
+to decline.
+
+#### Exercise Styles {.unnumbered}
+
+- **American Options**: These can be exercised at any point up to and including the
+expiration date, offering maximum flexibility to the holder.
+  
+- **European Options**: Can only be exercised on the expiration date itself, limiting
+the timing of execution to this single moment.
+
+## Applications of Derivatives
+
+### Hedging
+
+Hedging is a strategic financial practice aimed at reducing potential risks and
+mitigating financial exposure. Its core purpose is to **minimize risk**, though it does
+not assure a more favorable outcome. This strategy employs various financial
+instruments, such as forward and option contracts, each with distinct characteristics
+and uses.
+
+Forward contracts are pivotal in risk management, enabling the hedger to lock in a
+future transaction price for an underlying asset, thereby neutralizing the risk of
+adverse price fluctuations. This fixed-price agreement ensures predictability in
+financial planning.
+
+Option contracts, on the other hand, serve as a form of financial insurance. They grant
+investors the right, but not the obligation, to buy (call option) or sell (put option)
+an underlying asset at a predetermined price (strike price) within a specific timeframe.
+This mechanism allows investors to safeguard against potential adverse price movements
+while preserving the opportunity to capitalize on favorable price changes. Unlike
+forward contracts, acquiring an option requires paying an upfront premium, which
+represents the cost of the protection offered.
+
+#### Examples to Illustrate Hedging {.unnumbered}
+
+1. Consider a U.S. company that anticipates a payment of GBP 10 million for imports from
+Britain in three months. To hedge against the risk of GBP appreciating against USD, the
+company can enter into a long position in a forward contract. By doing so, it secures a
+fixed exchange rate for the future payment, thus avoiding the uncertainty of currency
+fluctuations.
+
+2. An investor holding 1,000 shares of Microsoft, valued at \$28 per share, faces the
+risk of a potential decrease in share value. To mitigate this risk, the investor can
+purchase a put option, which provides the right to sell the shares at a strike price of
+\$27.50. For example, if a two-month put option costs \$1 per share, the investor would
+buy 10 contracts (each contract typically covers 100 shares), paying a total premium of
+\$1,000. This strategy protects the investor's portfolio from a decline below the strike
+price, while still allowing participation in any upward price movements.
+
+### Arbitrage
+
+Arbitrage represents a foundational concept in financial markets, involving the
+exploitation of price differentials across different markets or forms of an asset to
+secure risk-free profits. This practice underscores the **Law of One Price**, which
+posits that in efficient markets with minimal transaction costs and unrestricted
+information flow, identical assets should uniformly price.
+
+When disparities arise, arbitrageurs can purchase the undervalued asset in one market
+and sell it at a higher price in another, leveraging these discrepancies to generate a
+risk-free return. This activity not only capitalizes on the price differentials but also
+plays a crucial role in driving the prices of identical assets towards convergence, thus
+contributing to market efficiency.
+
+Arbitrage serves as a relative valuation method, providing insights into the correct
+pricing of one asset or derivative in relation to another. It operates under the
+principle that no two identical assets should exist with different pricing or that
+equivalent asset combinations yielding the same returns should not vary in price.
+
+The presence and subsequent elimination of arbitrage opportunities are indicative of
+market efficiency, where markets compensate investors for risks appropriately. However,
+when arbitrage allows for returns above the risk-free rate without exposure to risk, it
+challenges the notions of market efficiency by presenting an anomaly of abnormal
+returns.
+
+#### Example to Illustrate Arbitrage {.unnumbered}
+
+Imagine a scenario where a stock is priced at GBP 100 in London and USD 150 in New York,
+with the current exchange rate being 1.5300 USD/GBP. An arbitrage opportunity arises if
+the price of the stock, when converted using the current exchange rate, does not match
+across these markets. By buying the stock in the market where it is undervalued and
+selling it in the market where it is overvalued, an arbitrageur can secure a risk-free
+profit, highlighting the practical application of arbitrage in rectifying price
+discrepancies and promoting market efficiency.
+
+### Speculation
+
+Speculation in financial markets is driven by the intention to profit from anticipated
+market movements. Speculators engage in market positions with the expectation that
+prices will either rise or fall, aiming to capitalize on these predicted changes.
+
+When engaging in futures contracts, speculators face significant risk and reward
+potential. Futures contracts obligate the purchase or sale of an asset at a
+predetermined future date and price, exposing the speculator to potentially unlimited
+losses or gains, depending on market movements.
+
+Conversely, options contracts offer a different risk profile. By purchasing options, a
+speculator gains the right, but not the obligation, to buy (call option) or sell (put
+option) an asset at a specified price within a certain period. The maximum loss in this
+scenario is limited to the premium paid for the options, providing a safety net against
+adverse market movements.
+
+#### Examples to Illustrate Speculation {.unnumbered}
+
+Trading strategies for an investor with \$2,000 anticipating a stock price increase:
+
+1. **Buying Shares Outright:** If the investor is confident in their prediction and
+prefers direct exposure, they could use their \$2,000 to buy shares of the stock
+directly. This approach offers unlimited upside potential if the stock price increases
+but also exposes the investor to potential losses if the price falls.
+
+2. **Buying Call Options:** The investor could purchase call options on the stock they
+believe will increase in value. This strategy allows the investor to control a larger
+amount of stock with a smaller investment (the premium paid for the options), with the
+potential for significant gains if the stock price rises as anticipated. The risk is
+limited to the premium paid.
+
+3. **Futures Contracts:** If the investor has access to futures trading and is
+knowledgeable about its risks, they could engage in a futures contract that bets on the
+stock price increasing. This strategy requires careful risk management due to the
+potential for large losses.
+
+## Criticisms and Misuses of Derivatives
+
+Derivatives, while fundamental to risk management and price discovery in financial
+markets, have faced criticisms and concerns regarding their potential for misuse and the
+risks they can introduce to the financial system. These criticisms encompass several key
+areas:
+
+1. **Speculation and Gambling:** Derivatives are often utilized for speculative
+purposes, where investors bet on the direction of market prices with the aim of
+generating profits. This speculative use can resemble gambling when trades are made
+based on predictions rather than informed decisions, potentially leading to significant
+losses.
+
+2. **Systemic Risk and Destabilization:** Derivatives can add systemic risk to the
+financial system, especially when used in large volumes or in complex combinations that
+are difficult to understand and manage. The interconnectedness of market participants
+through derivatives can lead to contagion effects, where the failure of one entity can
+trigger a chain reaction affecting others.
+
+3. **Complexity:** The inherent complexity of many derivative products makes them
+difficult to value and understand, even for sophisticated investors. This complexity can
+obscure the real risks involved and lead to mispricing or inappropriate use of these
+instruments.
+
+4. **Role Shifting:** Traders and institutions may shift roles between being hedgers,
+who use derivatives to manage risk, to speculators, who seek to profit from market
+movements, or from being arbitrageurs, who exploit price discrepancies, to speculators.
+This shifting can blur the lines between risk management and speculative activities,
+increasing the potential for losses and systemic risks.
+
+5. **Need for Controls:** Given the potential for misuse and the complex nature of
+derivatives, it is crucial to establish comprehensive controls and regulatory
+frameworks. These controls should ensure that derivatives are used for their intended
+purposes, such as hedging risk, rather than for unchecked speculation. Proper oversight,
+transparent reporting requirements, and clear guidelines for risk assessment and
+management are essential components of a robust regulatory framework.
+
+To address these criticisms and mitigate the risks associated with derivatives,
+financial markets and regulatory bodies have implemented measures such as:
+
+- **Central Clearing Counterparties (CCPs):** These entities act as intermediaries for
+derivative transactions, reducing counterparty risk and increasing transparency.
+
+- **Margin Requirements:** These requirements ensure that parties in derivative
+contracts have sufficient capital to cover potential losses, reducing the risk of
+default.
+
+- **Regulatory Reforms:** Post-2008 financial crisis, reforms like the Dodd-Frank Act in
+the United States and EMIR in Europe have increased oversight and regulation of
+derivative markets, aiming to improve transparency, reduce systemic risk, and ensure
+that derivatives fulfill their role in financial markets responsibly.
+
+## Practice Questions and Problems
+
+### Time Value of Money
+
+1. A bank quotes an interest rate of 7% per annum with quarterly compounding. How much
+you will earn from \$100 investment after (a) 1 year and (b) 3 years? What is the
+equivalent rate with (a) continuous compounding and (b) annual compounding? Verify your
+results.
+
+### Theoretical Foundations of Derivatives
+
+1. Explain carefully the difference between hedging, speculation, and arbitrage.
+2. What is the difference between the over-the-counter market and the exchange-traded
+market?
+3. "Options and futures are zero-sum games." What do you think is meant by this
+statement?
+4. What is the difference between a long forward position and a short forward position?
+5. What is the difference between entering into a long forward contract when the forward
+price is \$50 and taking a long position in a call option with a strike price of \$50?
+6. Explain carefully the difference between selling a call option and buying a put
+option.
+7. When first issued, a stock provides funds for a company. Is the same true of an
+exchange-traded stock option? Discuss.
+
+### Practical Applications of Forwards and Futures
+
+1. A trader enters into a short cotton futures contract when the futures price is 50
+cents per pound. The contract is for the delivery of 50,000 pounds. How much does the
+trader gain or lose if the cotton price at the end of the contract is (a) 48.20 cents
+per pound; (b) 51.30 cents per pound?
+2. An investor enters into a short forward contract to sell 100,000 British pounds for
+US dollars at an exchange rate of 1.5000 US dollars per pound. How much does the
+investor gain or lose if the exchange rate at the end of the contract is (a) 1.4900 and
+(b) 1.5200?
+
+### Practical Applications of Options
+
+1. A trader buys a call option with a strike price of \$30 for \$3. Does the trader ever
+exercise the option and lose money on the trade. Explain.
+2. Suppose that you write a put contract with a strike price of \$40 and an expiration
+date in three months. The current stock price is \$41 and the contract is on 100 shares.
+What have you committed yourself to? How much could you gain or lose?
+3. Suppose you own 5,000 shares that are worth \$25 each. How can put options be used to
+provide you with insurance against a decline in the value of your holding over the next
+four months?
+4. You would like to speculate on a rise in the price of a certain stock. The current
+stock price is \$29, and a three-month call with a strike of \$30 costs \$2.90. You have
+\$5,800 to invest. Identify two alternative strategies, one involving an investment in
+the stock and the other involving investment in the option. What are the potential gains
+and losses from each?
+
+### Hedging Strategies
+
+1. Explain why a futures contract can be used for either speculation or hedging.
+2. A US company expects to have to pay 1 million Canadian dollars in six months. Explain
+how the exchange rate risk can be hedged using (a) a forward contract and (b) an option.
+3. The CME Group offers a futures contract on long-term Treasury bonds. Characterize the
+investors likely to use this contract.
