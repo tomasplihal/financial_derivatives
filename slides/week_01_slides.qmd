@@ -125,8 +125,8 @@ format:
 ## Example of Arbitrage
 
 - Stock priced GBP 100 in London, USD 150 in New York
-- Exchange rate: 1.5300 USD/GBP
-- Buys undervalued, sells overvalued for profit
+- Exchange rate: 1.5300 GBP/USD
+- Buys in New York, sells in London
 
 ## Speculation
 
