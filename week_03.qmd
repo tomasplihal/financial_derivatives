@@ -4,11 +4,484 @@
 # References
 
 - HULL, John. Options, futures, and other derivatives. Ninth edition. Harlow: Pearson, 2018. ISBN 978-1-292-21289-0.
-  - Chapter 1 - Introduction
-  - Chapter 4 - Interest Rates
-+ PIRIE, Wendy L. Derivatives. Hoboken: Wiley, 2017. CFA institute investment series. ISBN 978-1-119-38181-5.
-  + Chapter 1 - Derivative Markets and Instruments
+  - Chapter 5 - Determination of Forward and Futures Prices
+- PIRIE, Wendy L. Derivatives. Hoboken: Wiley, 2017. CFA institute investment series. ISBN 978-1-119-38181-5.
+  - Chapter 2 - Basics of Derivative Pricing and Valuation
+  - Chapter 3 - Pricing and Valuation of Forward Commitments
 :::
 
 **Learning Outcomes:**
 
+
+
+
+## Pricing and Valuation of Forward/Futures Contracts
+
+- **Pricing** of forward/futures contracts entails determining the fair market price or
+rate at the **initiation** of the contract. This process ensures that the contract's
+initial value is neutral, aligning the interests of both parties without giving an undue
+advantage to either side.
+
+- **Valuation**, on the other hand, is the process of assessing the contract's current
+value **after its initiation**. The value fluctuates based on market conditions,
+reflecting the gain or loss to the contract holder.
+
+:::{.callout-note}
+# Example: Forward Price vs. Value
+
+- An investor enters a long position in a December Gold futures contract on 2 November,
+agreeing to a price of \$1,250/oz. Initially, the contract's value is set to \$0,
+indicating a fair agreement based on current market expectations.
+- Post-initiation, the contract's value is subject to change due to market dynamics. For
+instance, if on 3 November, the market price for December Gold futures falls to
+\$1,225/oz, the value of the investor's long position declines, rendering a **negative
+value** to their investment.
+:::
+
+## Pricing and Valuation Methodology
+
+- **Risk Aversion:** Investors require compensation for taking on additional risk,
+reflecting the principle that higher risk should be rewarded with higher potential
+returns.
+
+- **Risk-Neutral Pricing:** Under this approach, it's assumed that investors are
+indifferent to risk. The pricing of derivatives through arbitrage opportunities ensures
+that the portfolio, combining the derivative and its underlying asset, yields the
+risk-free rate of return.
+
+- **Arbitrage-Free Pricing:** This methodology prices derivatives based on the
+assumption that the market operates under risk-neutral conditions and is free of
+arbitrage opportunities, ensuring no risk-free profits can be made from market
+inefficiencies.
+
+The framework for pricing and valuation operates on the principle that market prices
+adjust to preclude arbitrage profits. The **Law of One Price** asserts that identical
+cash flows must have the same price, irrespective of future outcomes.
+
+Arbitrageurs follow two cardinal rules:
+
+1. Do not use your own money.
+2. Do not take any price risk.
+
+### Short Selling
+
+Short selling entails the sale of securities not owned by the seller, typically
+facilitated by borrowing these securities from a broker. The seller aims to buy back the
+securities at a lower price to profit from the difference. Obligations include covering
+dividends and possibly a borrowing fee.
+
+:::{.callout-note}
+# Example: Short Selling
+
+Assuming you short sell 100 shares at \$100 each and close out the short position three
+months later at \$90, while a \$3 per share dividend is issued during this period:
+
+- Your profit would be the difference in share prices minus the dividends paid,
+highlighting the risks and rewards of short selling.
+
+$$100 \times (100 - 90 - 3) = \$700$$
+
+- Conversely, buying 100 shares would result in a loss if the share price decreases.
+
+$$100 \times (90 - 100 + 3) = \$-700$$
+:::
+
+### Consumption vs. Investment Assets
+
+- **Investment Assets:** These are assets like gold, stocks, and bonds, held primarily
+for their potential to appreciate in value over time.
+
+- **Consumption Assets:** Assets such as copper or oil are classified as consumption
+assets, held mainly for their utility in production or consumption rather than for
+investment.
+
+## Forward Price for an Investment Asset
+
+### Assumptions and Notation
+
+#### Assumptions
+
+1. Market participants incur no transaction costs when trading.
+2. All net trading profits are taxed at the same rate for market participants.
+3. Market participants can borrow and lend money at the identical risk-free interest
+rate.
+4. Arbitrage opportunities are exploited immediately by market participants.
+
+#### Notation
+
+- $S_0$: Current spot price of the asset.
+- $F_0$: Today's futures or forward price of the asset.
+- $T$: Time to the delivery date of the contract (in years).
+- $r$: Annualized risk-free interest rate over the period $T$.
+
+### Arbitrage Example 
+
+Consider an asset that provides no income, with a current price of \$40, subject to an
+annual interest rate of 5%, and associated with a forward contract that has a maturity
+of 3 months.
+
+#### Case 1: Forward Price = \$43
+
+- **Action now:** Borrow \$40 at 5% annual interest for 3 months. Purchase one unit of
+the asset and enter into a forward contract to sell it in 3 months at \$43.
+- **Action in 3 months:** Sell the asset at the forward price of \$43. Repay the loan,
+which amounts to \$40.50 with interest. 
+- **Profit realized:** \$2.50.
+
+#### Case 2: Forward Price = \$39
+
+- **Action now:** Short sell one unit of the asset for \$40. Invest the proceeds at 5%
+annual interest for 3 months. Enter into a forward contract to buy the asset in 3 months
+at \$39.
+- **Action in 3 months:** Buy back the asset at the forward price of \$39. Close the
+short position and retrieve \$40.50 from the investment.
+- **Profit realized:** \$1.50.
+
+### The Forward Price Formula
+
+The forward price $F_0$ for an investment asset that does not provide income and is
+deliverable in $T$ years is given by the following formula, where $r$ is the annualized
+risk-free interest rate for the period $T$.
+
+$$F_0 = S_0 e^{rT}$$
+
+In the given example, with $S_0 = 40$, $T = 0.25$ (3 months), and $r = 0.05$ (5%), the
+forward price is calculated as:
+
+$$F_0 = 40 e^{0.05 \times 0.25} = 40.50$$
+
+This calculation demonstrates that the no-arbitrage forward price aligns with the
+theoretical value, preventing arbitrage opportunities under these conditions.
+
+### Adjustments for Known Income or Yield
+
+When the asset provides a known income or yield, the forward price adjusts to account
+for this. For an asset generating a known income $I$ (expressed as the present value of
+the income) over the contract's life, the formula modifies to:
+
+$$F_0 = (S_0 - I)e^{rT}$$
+
+For assets providing a yield $q$ (expressed as a continuous compounding rate), the
+forward price formula adjusts to:
+
+$$F_0 = S_0 e^{(r-q)T}$$
+
+## Valuing a Forward Contract
+
+Initially, a forward contract's value is zero, except for potential impacts from the
+bid-offer spread. This neutrality in value reflects the agreement's fairness based on
+current market conditions.
+
+As time progresses, the value of the forward contract can become positive or negative,
+reflecting changes in market conditions and the underlying asset's price relative to the
+contract's terms.
+
+Let $K$ represent the agreed-upon delivery price in the contract, and $F_0$ denote the
+forward price for a contract negotiated today for future delivery.
+
+The valuation of forward contracts can be understood by comparing contracts with
+different delivery prices. This comparison reveals:
+
+- The value of being in a long position in a forward contract, where one has agreed to
+buy the asset, is $(F_0 - K) e^{-rT}$. This formula represents the present value of the
+profit from the contract if the forward price $F_0$ set today is higher than the
+contract's delivery price $K$.
+
+- Conversely, the value of a short forward contract, where one has agreed to sell the
+asset, is $(K - F_0) e^{-rT}$. This expresses the present value of the profit from the
+contract if the delivery price $K$ exceeds today's forward price $F_0$.
+
+These valuations underscore the importance of the risk-free rate $r$ and the time to
+delivery $T$ in determining the present value of future contract profits or losses.
+
+## Forward vs. Futures Prices
+
+While forward and futures contracts are similar in their function of agreeing to buy or
+sell an asset at a future date, their pricing can diverge under certain conditions,
+despite the common assumption that they are equal when the maturity and asset prices
+coincide. One notable exception is Eurodollar futures, which often exhibit pricing
+anomalies due to their specific market characteristics.
+
+The theoretical distinction in pricing between forwards and futures arises primarily
+from the volatility and uncertainty of interest rates:
+
+- When there is a strong positive correlation between interest rates and the asset's
+price, futures prices tend to be slightly higher than forward prices. This is because
+the daily settlement of futures can lead to a net gain in environments where rising
+interest rates accompany rising asset prices, due to the reinvestment of gains at higher
+rates.
+
+- Conversely, a strong negative correlation between interest rates and the asset's price
+suggests that forward prices may exceed futures prices. In such scenarios, the absence
+of daily settlement in forward contracts avoids the potential loss from having to
+reinvest at lower interest rates.
+
+## Forward Price for Specific Assets
+
+### Stock Index
+
+A stock index can be regarded as an investment asset that effectively pays a dividend
+yield, analogous to the income generated by holding the underlying stocks.
+
+The relationship between the futures price ($F_0$) and the spot price ($S_0$) of the
+index is captured by the formula:
+
+$$F_0 = S_0 e^{(r-q)T}$$
+
+Here, $q$ represents the average dividend yield of the portfolio reflected by the index
+over the contract's life.
+
+This formula assumes the index acts as a tradable investment asset, with changes in the
+index mirroring changes in the value of a corresponding tradable portfolio. For
+instance, the Nikkei 225, when viewed purely as a numerical value without considering
+its underlying assets, does not qualify as an investment asset in this context.
+
+:::{.callout-note collapse="true"}
+# Index Arbitrage
+
+Index arbitrage exploits discrepancies between the futures price and the spot price
+adjusted for the dividend yield and risk-free rate. When $F_0$ exceeds $S_0 e^{(r-q)T}$,
+arbitrageurs purchase the underlying stocks of the index while selling futures.
+Conversely, if $F_0 < S_0 e^{(r-q)T}$, they buy futures and short sell the index's
+underlying stocks.
+
+This strategy requires executing trades in futures and various stocks simultaneously,
+often facilitated by computer algorithms to manage the complexity and timing. However,
+real-world frictions sometimes prevent perfect execution, leading to temporary
+deviations from the theoretical no-arbitrage relationship.
+:::
+
+### Exchange Rates
+
+A foreign currency functions similarly to a security that yields interest, where the
+yield is the foreign country's risk-free interest rate.
+
+Given $r_f$ as the foreign risk-free interest rate, the forward exchange rate formula
+is:
+
+$$F_0 = S_0 e^{(r-r_f)T}$$
+
+:::{.callout-note collapse=true}
+# Exchange Rate Arbitrage
+
+Consider two strategies for converting 1,000 units of a foreign currency into dollars by
+time $T$, where $S_0$ represents the current spot exchange rate, $F_0$ the forward
+exchange rate, and $r$ and $r_f$ the domestic and foreign risk-free interest rates,
+respectively.
+
+- **Strategy 1:** Convert the 1,000 units of foreign currency into dollars at the future
+time $T$ by initially investing these units at the foreign risk-free rate $r_f$. Then,
+agree to a forward contract to sell the resulting amount for dollars at time $T$.
+
+- **Strategy 2:** Immediately exchange the 1,000 units of foreign currency for dollars
+at the current spot rate $S_0$, then invest this dollar amount at the domestic risk-free
+rate $r$ until time $T$.
+
+The principle of no arbitrage implies that both strategies must yield the same outcome
+in dollar terms to prevent free profit opportunities. This condition leads to the
+following equation:
+
+$$1,000 \times e^{r_f \times T} \times F_0 = 1,000 \times S_0 \times e^{r \times T}$$
+
+Simplifying this equation provides the formula for the forward exchange rate:
+
+$$F_0 = S_0 e^{(r-r_f)T}$$
+:::
+
+### Commodities
+
+For **consumption assets** like commodities, storage costs represent a form of negative
+income, impacting the forward price:
+
+$$F_0 \leq S_0 e^{(r+u)T}$$
+
+Here, $u$ stands for the storage cost per unit time as a percentage of the asset's
+value. Alternatively, incorporating the present value of storage costs $U$:
+
+$$F_0 \leq (S_0 +U) e^{rT}$$
+
+These formulas accommodate the costs associated with holding and storing physical
+commodities, from agricultural products to metals, affecting their forward pricing.
+
+### The Cost of Carry
+
+The cost of carry ($c$) combines storage costs, interest expenses, and any income
+earned. For investment assets, the forward price formula simplifies to:
+
+$$F_0 = S_0 e^{cT}$$
+
+In contrast, for consumption assets, the formula accounts for potential lower bounds due
+to additional costs, hence:
+
+$$F_0 \leq S_0 e^{cT}$$
+
+The concept of a **convenience yield** ($y$) is introduced for consumption assets,
+acknowledging the benefits from holding the physical asset as opposed to a derivative
+position. It's defined such that:
+
+$$F_0 = S_0 e^{(c-y)T}$$
+
+## Futures Prices and Expected Spot Prices
+
+When analyzing futures contracts, we consider the expected return required by investors,
+denoted as $k$. This expected return plays a critical role in determining the futures
+price $F_0$ relative to the expected spot price at maturity $E(S_T)$.
+
+An investment strategy involving futures contracts can be described as follows:
+
+- By investing an amount $F_0 e^{-rT}$ at the risk-free rate $r$ and entering a long
+futures contract, an investor can secure a cash inflow of $S_T$ at maturity.
+
+- The present value (PV) of this investment strategy is calculated as $-F_0 e^{-rT} +
+E(S_T) e^{-kT}$, where $E$ denotes the expected value.
+
+In efficient markets, investments are typically priced to yield a zero net present value
+(NPV). This principle leads to the fundamental pricing relation for futures contracts:
+$$F_0 = E(S_T)e^{(r-k)T}$$
+
+The relationship between futures prices and expected future spot prices varies with the
+underlying asset's systematic risk:
+
+- **No Systematic Risk**: When the asset carries no systematic risk, the expected return
+from the asset $k$ equals the risk-free rate $r$, leading to $F_0 = E(S_T)$.
+- **Positive Systematic Risk**: For assets with positive systematic risk, such as stock
+indices, $k > r$ implies that futures prices will be lower than the expected spot prices
+$F_0 < E(S_T)$.
+- **Negative Systematic Risk**: Conversely, assets like gold, which may exhibit negative
+systematic risk during certain periods, have $k < r$, resulting in futures prices
+exceeding expected spot prices $F_0 > E(S_T)$.
+
+:::{.callout-tip}
+# Contango and Backwardation
+
+- [CME Institute](https://www.cmegroup.com/education/courses/introduction-to-ferrous-metals/what-is-contango-and-backwardation.html)
+
+- **Backwardation**: This market condition occurs when futures prices are below the
+expected future spot prices, often observed in markets expecting lower future prices.
+
+- **Contango**: In contrast, a contango market condition is characterized by futures
+prices that exceed expected future spot prices, typically occurring in markets where
+future prices are anticipated to rise.
+:::
+
+## Forward Rate Agreement (FRA)
+
+A Forward Rate Agreement (FRA) is a financial contract between two parties to exchange
+interest payments for a predetermined amount of principal at a future date. The
+agreement allows one party to pay a fixed interest rate and receive a floating interest
+rate, or vice versa. The key characteristics of FRAs make them valuable tools for
+financial risk management and speculation.
+
+LIBOR (London Interbank Offered Rate) has been the predominant reference rate for FRAs.
+However, with the phase-out of LIBOR, alternative reference rates such as SOFR (Secured
+Overnight Financing Rate) and SONIA (Sterling Overnight Index Average) are gaining
+prominence.
+
+:::{.callout-note collapse="true"}
+# Example: FRA
+
+Consider an FRA where Party A and Party B agree to exchange a fixed rate of 3% for
+three-month SOFR on a principal of \$100 million in two years. The interest rates are
+compounded quarterly.
+
+- **Position of Parties:** Party A will pay the floating SOFR rate and receive a fixed
+3%. Party B takes the opposite position.
+- **Outcome:** If the three-month SOFR rate is 3.5% in two years, Party A receives a net
+payment from Party B calculated as follows:
+
+$$ \$100,000,000 \times (0.035 - 0.030) \times 0.25 = \$125,000 $$
+
+This amount would ideally be paid at 2.25 years. However, considering the advance
+determination of SOFR, the actual payment is adjusted to its present value and made at
+the 2-year mark (discounted for three months at 3.5%).
+:::
+
+### Advantages of Using FRAs
+
+- **Risk Management:** FRAs allow businesses and financial institutions to hedge against
+interest rate fluctuations, securing borrowing costs or investment returns in advance.
+- **Speculation:** Traders can speculate on the direction of future interest rates,
+entering FRAs to profit from their predictions.
+- **Customization:** FRAs can be tailored to specific needs, such as the amount,
+duration, and the starting date of the agreement, providing flexibility.
+
+### Valuation and Pricing
+
+- **Initial Value:** At inception, the fixed rate of an FRA is set equal to the
+prevailing forward rate for the contract period, making the initial value of the
+contract zero.
+- **Value Over Time:** The value of an FRA changes as market interest rates fluctuate.
+If market rates rise above the FRA rate, the buyer (fixed rate payer) benefits, and vice
+versa.
+- **Settlement:** The difference between the agreed fixed rate and the reference
+floating rate at the settlement date is paid by the losing party to the winning party,
+adjusted for the contract's term.
+
+## Practice Questions and Problems
+
+### Basics of Forward and Futures Contracts
+
+1. Explain what happens when an investor shorts a certain share.
+2. What is the difference between the forward price and the value of a forward contract?
+3. What is meant by (a) an investment asset and (b) a consumption asset. Why is the
+distinction between investment and consumption assets important in the determination of
+forward and futures prices?
+4. Explain carefully why the futures price of gold can be calculated from its spot price
+and other observable variables whereas the futures price of copper cannot.
+5. Explain carefully the meaning of the terms convenience yield and cost of carry. What
+is the relationship between futures price, spot price, convenience yield, and cost of
+carry?
+6. What is the cost of carry for (a) a non-dividend-paying stock, (b) a stock index, (c)
+a commodity with storage costs, and (d) a foreign currency?
+
+### Calculation of Forward and Futures Prices
+
+1. Suppose that you enter into a three-month forward contract on a non-dividend-paying
+stock when the stock price is \$108 and the risk-free interest rate (with continuous
+compounding) is 4% per annum. What is the forward price?
+2. A four-months long forward contract on a non-dividend-paying stock is entered into
+when the stock price is \$150 and the risk-free rate of interest is 5.7% per annum with
+continuous compounding.
+    - a) What are the forward price and the initial value of the forward contract?
+    - b) Two months later, the price of the stock is \$168 and the risk-free interest
+    rate is still 5.7%. What are the forward price and the value of the forward
+    contract?
+3. The risk-free rate of interest is 4.1% per annum with continuous compounding, and the
+dividend yield on a stock index is 6.2% per annum. The current value of the index is 2445. What is the one-month futures price?
+4. A stock index currently stands at 725. The risk-free interest rate is 7.6% per annum
+(with continuous compounding) and the dividend yield on the index is 1.8% per annum.
+What should the futures price for a three-month contract be?
+5. An index is 550. The three-month risk-free rate is 4.60% per annum and the dividend
+yield over the next three months is 5.80% per annum. The six-month risk-free rate is
+5.34% per annum and the dividend yield over the next six months is 4.93% per annum.
+Estimate the futures price of the index for three-month and six-month contracts. All
+interest rates and dividend yields are continuously compounded.
+6. The spot price of silver is \$11 per ounce. The storage costs are \$0.25 per ounce
+per year payable quarterly in advance. Assuming that interest rates are 1.80% per annum
+for all maturities, calculate the futures price of silver for delivery in nine months.
+7. The spot price of oil is \$39 per barrel and the cost of storing a barrel of oil for
+one year is \$1.2, payable at the end of the year. The risk-free interest rate is 8.60%
+per annum, continuously compounded. What is an upper bound for the one-year futures
+price of oil?
+
+### Arbitrage and Risk Management
+
+1. Suppose that the risk-free interest rate is 3.00% per annum with continuous
+compounding and that the dividend yield on a stock index is 0.60% per annum. The index
+is standing at 3646, and the futures price for a contract deliverable in ten months is 3701. What arbitrage opportunities does this create?
+2. The eight-month interest rates in Switzerland and the United States are,
+respectively, 3.60% and 5.40% per annum with continuous compounding. The spot price of
+the Swiss franc is \$0.9. The futures price for a contract deliverable in two months is
+also \$0.9. What arbitrage opportunities does this create?
+3. When a known future cash outflow in a foreign currency is hedged by a company using a
+forward contract, there is no foreign exchange risk. When it is hedged using futures
+contracts, the daily settlement process does leave the company exposed to some risk.
+Explain the nature of this risk. In particular, consider whether the company is better
+off using a futures contract or a forward contract when
+    - a) The value of the foreign currency falls rapidly during the life of the contract
+    - b) The value of the foreign currency rises rapidly during the life of the contract
+    - c) The value of the foreign currency first rises and then falls back to its
+    initial value
+    - d) The value of the foreign currency first falls and then rises back to its
+    initial value
+    - Assume that the forward price equals the futures price.
