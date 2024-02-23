@@ -12,8 +12,11 @@
 
 **Learning Outcomes:**
 
-
-
+- Understand the principles of pricing and valuation for forward and futures contracts.
+- Apply pricing models to specific assets, including commodities and financial
+instruments.
+- Analyze the relationship between futures prices and expected spot prices.
+- Understand the structure and valuation of Forward Rate Agreements (FRAs).
 
 ## Pricing and Valuation of Forward/Futures Contracts
 
