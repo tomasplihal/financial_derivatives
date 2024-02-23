@@ -20,10 +20,44 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -68,7 +102,55 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+<script type="text/javascript">
+window.PlotlyConfig = {MathJaxConfig: 'local'};
+if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
+if (typeof require !== 'undefined') {
+require.undef("plotly");
+requirejs.config({
+    paths: {
+        'plotly': ['https://cdn.plot.ly/plotly-2.29.1.min']
+    }
+});
+require(['plotly'], function(Plotly) {
+    window._Plotly = Plotly;
+});
+}
+</script>
+
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -258,7 +340,49 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#forwards-and-futures-characteristics" id="toc-forwards-and-futures-characteristics" class="nav-link active" data-scroll-target="#forwards-and-futures-characteristics"><span class="header-section-number">2.1</span> Forwards and Futures Characteristics</a></li>
+  <li><a href="#payoff-from-a-forward-contract" id="toc-payoff-from-a-forward-contract" class="nav-link" data-scroll-target="#payoff-from-a-forward-contract"><span class="header-section-number">2.2</span> Payoff From a Forward Contract</a></li>
+  <li><a href="#exchange-markets" id="toc-exchange-markets" class="nav-link" data-scroll-target="#exchange-markets"><span class="header-section-number">2.3</span> Exchange Markets</a>
+  <ul class="collapse">
+  <li><a href="#delivery-mechanisms" id="toc-delivery-mechanisms" class="nav-link" data-scroll-target="#delivery-mechanisms"><span class="header-section-number">2.3.1</span> Delivery Mechanisms</a></li>
+  <li><a href="#understanding-market-quotes" id="toc-understanding-market-quotes" class="nav-link" data-scroll-target="#understanding-market-quotes"><span class="header-section-number">2.3.2</span> Understanding Market Quotes</a></li>
+  <li><a href="#daily-settlement-process-and-margins" id="toc-daily-settlement-process-and-margins" class="nav-link" data-scroll-target="#daily-settlement-process-and-margins"><span class="header-section-number">2.3.3</span> Daily Settlement Process and Margins</a></li>
+  </ul></li>
+  <li><a href="#otc-markets" id="toc-otc-markets" class="nav-link" data-scroll-target="#otc-markets"><span class="header-section-number">2.4</span> OTC Markets</a>
+  <ul class="collapse">
+  <li><a href="#regulatory-evolution" id="toc-regulatory-evolution" class="nav-link" data-scroll-target="#regulatory-evolution"><span class="header-section-number">2.4.1</span> Regulatory Evolution</a></li>
+  <li><a href="#collateral-requirements" id="toc-collateral-requirements" class="nav-link" data-scroll-target="#collateral-requirements"><span class="header-section-number">2.4.2</span> Collateral Requirements</a></li>
+  <li><a href="#clearing-mechanisms" id="toc-clearing-mechanisms" class="nav-link" data-scroll-target="#clearing-mechanisms"><span class="header-section-number">2.4.3</span> Clearing Mechanisms</a></li>
+  </ul></li>
+  <li><a href="#forward-vs.-futures-contracts-summary" id="toc-forward-vs.-futures-contracts-summary" class="nav-link" data-scroll-target="#forward-vs.-futures-contracts-summary"><span class="header-section-number">2.5</span> Forward vs.&nbsp;Futures Contracts Summary</a></li>
+  <li><a href="#introduction-to-hedging-with-futures" id="toc-introduction-to-hedging-with-futures" class="nav-link" data-scroll-target="#introduction-to-hedging-with-futures"><span class="header-section-number">2.6</span> Introduction to Hedging with Futures</a></li>
+  <li><a href="#hedging-and-basis-risk" id="toc-hedging-and-basis-risk" class="nav-link" data-scroll-target="#hedging-and-basis-risk"><span class="header-section-number">2.7</span> Hedging and Basis Risk</a></li>
+  <li><a href="#cross-hedging" id="toc-cross-hedging" class="nav-link" data-scroll-target="#cross-hedging"><span class="header-section-number">2.8</span> Cross Hedging</a>
+  <ul class="collapse">
+  <li><a href="#daily-settlement-and-tailing-adjustment-in-hedging" id="toc-daily-settlement-and-tailing-adjustment-in-hedging" class="nav-link" data-scroll-target="#daily-settlement-and-tailing-adjustment-in-hedging"><span class="header-section-number">2.8.1</span> Daily Settlement and Tailing Adjustment in Hedging</a></li>
+  </ul></li>
+  <li><a href="#stock-index-futures" id="toc-stock-index-futures" class="nav-link" data-scroll-target="#stock-index-futures"><span class="header-section-number">2.9</span> Stock Index Futures</a>
+  <ul class="collapse">
+  <li><a href="#hedging-portfolio" id="toc-hedging-portfolio" class="nav-link" data-scroll-target="#hedging-portfolio"><span class="header-section-number">2.9.1</span> Hedging Portfolio</a></li>
+  <li><a href="#adjusting-portfolio-beta" id="toc-adjusting-portfolio-beta" class="nav-link" data-scroll-target="#adjusting-portfolio-beta"><span class="header-section-number">2.9.2</span> Adjusting Portfolio Beta</a></li>
+  <li><a href="#additional-notes-about-hedging" id="toc-additional-notes-about-hedging" class="nav-link" data-scroll-target="#additional-notes-about-hedging"><span class="header-section-number">2.9.3</span> Additional Notes About Hedging</a></li>
+  </ul></li>
+  <li><a href="#practice-questions-and-problems" id="toc-practice-questions-and-problems" class="nav-link" data-scroll-target="#practice-questions-and-problems"><span class="header-section-number">2.10</span> Practice Questions and Problems</a>
+  <ul class="collapse">
+  <li><a href="#fundamentals-of-futures-trading" id="toc-fundamentals-of-futures-trading" class="nav-link" data-scroll-target="#fundamentals-of-futures-trading"><span class="header-section-number">2.10.1</span> Fundamentals of Futures Trading</a></li>
+  <li><a href="#open-interest-and-trading-volume" id="toc-open-interest-and-trading-volume" class="nav-link" data-scroll-target="#open-interest-and-trading-volume"><span class="header-section-number">2.10.2</span> Open Interest and Trading Volume</a></li>
+  <li><a href="#margin-mechanics-in-futures-trading" id="toc-margin-mechanics-in-futures-trading" class="nav-link" data-scroll-target="#margin-mechanics-in-futures-trading"><span class="header-section-number">2.10.3</span> Margin Mechanics in Futures Trading</a></li>
+  <li><a href="#basics-of-hedging-with-futures" id="toc-basics-of-hedging-with-futures" class="nav-link" data-scroll-target="#basics-of-hedging-with-futures"><span class="header-section-number">2.10.4</span> Basics of Hedging with Futures</a></li>
+  <li><a href="#advanced-hedging-scenarios-and-strategies" id="toc-advanced-hedging-scenarios-and-strategies" class="nav-link" data-scroll-target="#advanced-hedging-scenarios-and-strategies"><span class="header-section-number">2.10.5</span> Advanced Hedging Scenarios and Strategies</a></li>
+  <li><a href="#practical-concerns-and-risk-management" id="toc-practical-concerns-and-risk-management" class="nav-link" data-scroll-target="#practical-concerns-and-risk-management"><span class="header-section-number">2.10.6</span> Practical Concerns and Risk Management</a></li>
+  <li><a href="#hedging-with-stock-and-commodity-futures" id="toc-hedging-with-stock-and-commodity-futures" class="nav-link" data-scroll-target="#hedging-with-stock-and-commodity-futures"><span class="header-section-number">2.10.7</span> Hedging with Stock and Commodity Futures</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -296,7 +420,8 @@ References
 <li>HULL, John. Options, futures, and other derivatives. Ninth edition. Harlow: Pearson, 2018. ISBN 978-1-292-21289-0.
 <ul>
 <li>Chapter 1 - Introduction</li>
-<li>Chapter 4 - Interest Rates</li>
+<li>Chapter 2 - Mechanics of futures markets</li>
+<li>Chapter 3 - Hedging Strategies Using Futures</li>
 </ul></li>
 <li>PIRIE, Wendy L. Derivatives. Hoboken: Wiley, 2017. CFA institute investment series. ISBN 978-1-119-38181-5.
 <ul>
@@ -306,8 +431,760 @@ References
 </div>
 </div>
 <p><strong>Learning Outcomes:</strong></p>
+<ul>
+<li>Understand forwards and futures, including their characteristics, payoff structures, and key differences.</li>
+<li>Gain knowledge of exchange and over-the-counter (OTC) markets, focusing on their functionalities and distinctions.</li>
+<li>Learn the basics of hedging with futures, managing basis risk, and applying cross hedging techniques.</li>
+<li>Explore the role of stock index futures in portfolio risk management and speculation.</li>
+</ul>
+<section id="forwards-and-futures-characteristics" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="forwards-and-futures-characteristics"><span class="header-section-number">2.1</span> Forwards and Futures Characteristics</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Forwards and futures are derivative contracts <strong>obligating</strong> two parties to exchange an asset at a predetermined future date and price.</p>
+</div>
+</div>
+<ul>
+<li><p><strong>Forward/Futures Price:</strong> This is the agreed-upon price at which the underlying asset will be exchanged in the future. It’s important to note that this price is determined at the contract’s inception and may vary across contracts with different expiration dates, reflecting the market’s expectations of future price movements.</p></li>
+<li><p><strong>Positioning:</strong></p>
+<ul>
+<li>A <strong>long position</strong> signifies the buyer’s <strong>commitment to purchase</strong> the underlying asset. The buyer stands to benefit from a rise in the asset’s price over time but also bears the risk of a potential decrease.</li>
+<li>A <strong>short position</strong> represents the seller’s <strong>obligation to sell</strong> the asset. While the seller can profit from a decline in the asset’s price, there is also the risk of unlimited loss if the asset’s price increases substantially.</li>
+</ul></li>
+<li><p><strong>Risk Exposure:</strong></p>
+<ul>
+<li>The potential loss for the holder of a <strong>long position</strong> can extend up to the full contract price, emphasizing the risk of a total loss if the asset’s value drops to zero.</li>
+<li>Conversely, the <strong>short position</strong> holder faces potentially unlimited loss, as there is no upper limit to how high an asset’s price can climb.</li>
+</ul></li>
+<li><p><strong>Contract Specifications:</strong></p>
+<ul>
+<li><strong>Deliverable Assets:</strong> Clearly defines the asset or assets that can be delivered under the contract, including any standards or grades if applicable.</li>
+<li><strong>Delivery Location:</strong> Specifies where the asset will be delivered, which can significantly impact logistics and costs.</li>
+<li><strong>Delivery Time:</strong> Outlines when delivery of the asset is expected, providing a timeframe within which the contract must be settled.</li>
+</ul></li>
+<li><p><strong>Settlement:</strong> Futures contracts often settle daily based on market price changes, a process known as “marking to market.” Forwards, however, usually settle at the end of the contract term, with the final payment reflecting the difference between the forward price and the underlying asset’s price at maturity.</p></li>
+</ul>
+<div id="f2b71719" class="cell" data-execution_count="1">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.graph_objects <span class="im">as</span> go</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>F <span class="op">=</span> <span class="dv">100</span>  <span class="co"># Futures price</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>Q <span class="op">=</span> <span class="dv">1</span>  <span class="co"># Quantity of the asset</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>spot_prices <span class="op">=</span> np.linspace(<span class="dv">80</span>, <span class="dv">120</span>, <span class="dv">100</span>)  <span class="co"># Range of spot prices</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Payoff calculations</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>long_payoff <span class="op">=</span> (spot_prices <span class="op">-</span> F) <span class="op">*</span> Q</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>short_payoff <span class="op">=</span> (F <span class="op">-</span> spot_prices) <span class="op">*</span> Q</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the figure</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> go.Figure()</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Add traces for long and short positions</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>fig.add_trace(</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    go.Scatter(</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>        x<span class="op">=</span>spot_prices,</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>        y<span class="op">=</span>long_payoff,</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>        mode<span class="op">=</span><span class="st">"lines"</span>,</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>        name<span class="op">=</span><span class="st">"Long Position"</span>,</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>        line<span class="op">=</span><span class="bu">dict</span>(width<span class="op">=</span><span class="dv">3</span>),</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>        hovertemplate<span class="op">=</span><span class="st">"Long Position&lt;br&gt;Spot Price: %</span><span class="sc">{x:.0f}</span><span class="st">&lt;br&gt;Payoff: %</span><span class="sc">{y:.0f}</span><span class="st">&lt;extra&gt;&lt;/extra&gt;"</span>,</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>fig.add_trace(</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    go.Scatter(</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>        x<span class="op">=</span>spot_prices,</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>        y<span class="op">=</span>short_payoff,</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>        mode<span class="op">=</span><span class="st">"lines"</span>,</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>        name<span class="op">=</span><span class="st">"Short Position"</span>,</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>        line<span class="op">=</span><span class="bu">dict</span>(width<span class="op">=</span><span class="dv">3</span>),</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>        hovertemplate<span class="op">=</span><span class="st">"Short Position&lt;br&gt;Spot Price: %</span><span class="sc">{x:.0f}</span><span class="st">&lt;br&gt;Payoff: %</span><span class="sc">{y:.0f}</span><span class="st">&lt;extra&gt;&lt;/extra&gt;"</span>,</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>fig.add_hline(y<span class="op">=</span><span class="dv">0</span>, line_dash<span class="op">=</span><span class="st">"solid"</span>, line_color<span class="op">=</span><span class="st">"black"</span>, line<span class="op">=</span><span class="bu">dict</span>(width<span class="op">=</span><span class="fl">0.7</span>))</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="co"># Layout</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>fig.update_layout(</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">"Payoff from a Futures Contract"</span>,</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>    xaxis_title<span class="op">=</span><span class="st">"Spot Price at Expiration"</span>,</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>    yaxis_title<span class="op">=</span><span class="st">"Payoff"</span>,</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>    legend_title<span class="op">=</span><span class="st">"Position"</span>,</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the figure</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>                            <div id="9af99898-72e3-43c3-8e05-abff3778ac21" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("9af99898-72e3-43c3-8e05-abff3778ac21")) {                    Plotly.newPlot(                        "9af99898-72e3-43c3-8e05-abff3778ac21",                        [{"hovertemplate":"Long Position\u003cbr\u003eSpot Price: %{x:.0f}\u003cbr\u003ePayoff: %{y:.0f}\u003cextra\u003e\u003c\u002fextra\u003e","line":{"width":3},"mode":"lines","name":"Long Position","x":[80.0,80.4040404040404,80.8080808080808,81.21212121212122,81.61616161616162,82.02020202020202,82.42424242424242,82.82828282828282,83.23232323232324,83.63636363636364,84.04040404040404,84.44444444444444,84.84848484848484,85.25252525252526,85.65656565656566,86.06060606060606,86.46464646464646,86.86868686868686,87.27272727272727,87.67676767676768,88.08080808080808,88.48484848484848,88.88888888888889,89.29292929292929,89.6969696969697,90.1010101010101,90.5050505050505,90.9090909090909,91.31313131313131,91.71717171717171,92.12121212121212,92.52525252525253,92.92929292929293,93.33333333333333,93.73737373737373,94.14141414141415,94.54545454545455,94.94949494949495,95.35353535353535,95.75757575757575,96.16161616161617,96.56565656565657,96.96969696969697,97.37373737373737,97.77777777777777,98.18181818181819,98.58585858585859,98.98989898989899,99.39393939393939,99.79797979797979,100.20202020202021,100.60606060606061,101.01010101010101,101.41414141414141,101.81818181818181,102.22222222222223,102.62626262626263,103.03030303030303,103.43434343434343,103.83838383838383,104.24242424242425,104.64646464646465,105.05050505050505,105.45454545454545,105.85858585858585,106.26262626262627,106.66666666666667,107.07070707070707,107.47474747474747,107.87878787878788,108.28282828282829,108.68686868686868,109.0909090909091,109.4949494949495,109.8989898989899,110.3030303030303,110.7070707070707,111.11111111111111,111.51515151515152,111.91919191919192,112.32323232323233,112.72727272727272,113.13131313131314,113.53535353535354,113.93939393939394,114.34343434343435,114.74747474747474,115.15151515151516,115.55555555555556,115.95959595959596,116.36363636363636,116.76767676767676,117.17171717171718,117.57575757575758,117.97979797979798,118.38383838383838,118.78787878787878,119.1919191919192,119.5959595959596,120.0],"y":[-20.0,-19.5959595959596,-19.191919191919197,-18.787878787878782,-18.38383838383838,-17.97979797979798,-17.575757575757578,-17.171717171717177,-16.76767676767676,-16.36363636363636,-15.959595959595958,-15.555555555555557,-15.151515151515156,-14.74747474747474,-14.343434343434339,-13.939393939393938,-13.535353535353536,-13.131313131313135,-12.727272727272734,-12.323232323232318,-11.919191919191917,-11.515151515151516,-11.111111111111114,-10.707070707070713,-10.303030303030297,-9.898989898989896,-9.494949494949495,-9.090909090909093,-8.686868686868692,-8.28282828282829,-7.878787878787875,-7.474747474747474,-7.070707070707073,-6.666666666666671,-6.26262626262627,-5.858585858585855,-5.454545454545453,-5.050505050505052,-4.646464646464651,-4.242424242424249,-3.838383838383834,-3.4343434343434325,-3.030303030303031,-2.62626262626263,-2.2222222222222285,-1.818181818181813,-1.4141414141414117,-1.0101010101010104,-0.6060606060606091,-0.20202020202020776,0.20202020202020776,0.6060606060606091,1.0101010101010104,1.4141414141414117,1.818181818181813,2.2222222222222285,2.62626262626263,3.030303030303031,3.4343434343434325,3.838383838383834,4.242424242424249,4.646464646464651,5.050505050505052,5.454545454545453,5.858585858585855,6.26262626262627,6.666666666666671,7.070707070707073,7.474747474747474,7.878787878787875,8.28282828282829,8.686868686868678,9.090909090909093,9.494949494949495,9.898989898989896,10.303030303030297,10.707070707070699,11.111111111111114,11.515151515151516,11.919191919191917,12.323232323232332,12.72727272727272,13.131313131313135,13.535353535353536,13.939393939393938,14.343434343434353,14.74747474747474,15.151515151515156,15.555555555555557,15.959595959595958,16.36363636363636,16.76767676767676,17.171717171717177,17.575757575757578,17.97979797979798,18.38383838383838,18.787878787878782,19.191919191919197,19.5959595959596,20.0],"type":"scatter"},{"hovertemplate":"Short Position\u003cbr\u003eSpot Price: %{x:.0f}\u003cbr\u003ePayoff: %{y:.0f}\u003cextra\u003e\u003c\u002fextra\u003e","line":{"width":3},"mode":"lines","name":"Short Position","x":[80.0,80.4040404040404,80.8080808080808,81.21212121212122,81.61616161616162,82.02020202020202,82.42424242424242,82.82828282828282,83.23232323232324,83.63636363636364,84.04040404040404,84.44444444444444,84.84848484848484,85.25252525252526,85.65656565656566,86.06060606060606,86.46464646464646,86.86868686868686,87.27272727272727,87.67676767676768,88.08080808080808,88.48484848484848,88.88888888888889,89.29292929292929,89.6969696969697,90.1010101010101,90.5050505050505,90.9090909090909,91.31313131313131,91.71717171717171,92.12121212121212,92.52525252525253,92.92929292929293,93.33333333333333,93.73737373737373,94.14141414141415,94.54545454545455,94.94949494949495,95.35353535353535,95.75757575757575,96.16161616161617,96.56565656565657,96.96969696969697,97.37373737373737,97.77777777777777,98.18181818181819,98.58585858585859,98.98989898989899,99.39393939393939,99.79797979797979,100.20202020202021,100.60606060606061,101.01010101010101,101.41414141414141,101.81818181818181,102.22222222222223,102.62626262626263,103.03030303030303,103.43434343434343,103.83838383838383,104.24242424242425,104.64646464646465,105.05050505050505,105.45454545454545,105.85858585858585,106.26262626262627,106.66666666666667,107.07070707070707,107.47474747474747,107.87878787878788,108.28282828282829,108.68686868686868,109.0909090909091,109.4949494949495,109.8989898989899,110.3030303030303,110.7070707070707,111.11111111111111,111.51515151515152,111.91919191919192,112.32323232323233,112.72727272727272,113.13131313131314,113.53535353535354,113.93939393939394,114.34343434343435,114.74747474747474,115.15151515151516,115.55555555555556,115.95959595959596,116.36363636363636,116.76767676767676,117.17171717171718,117.57575757575758,117.97979797979798,118.38383838383838,118.78787878787878,119.1919191919192,119.5959595959596,120.0],"y":[20.0,19.5959595959596,19.191919191919197,18.787878787878782,18.38383838383838,17.97979797979798,17.575757575757578,17.171717171717177,16.76767676767676,16.36363636363636,15.959595959595958,15.555555555555557,15.151515151515156,14.74747474747474,14.343434343434339,13.939393939393938,13.535353535353536,13.131313131313135,12.727272727272734,12.323232323232318,11.919191919191917,11.515151515151516,11.111111111111114,10.707070707070713,10.303030303030297,9.898989898989896,9.494949494949495,9.090909090909093,8.686868686868692,8.28282828282829,7.878787878787875,7.474747474747474,7.070707070707073,6.666666666666671,6.26262626262627,5.858585858585855,5.454545454545453,5.050505050505052,4.646464646464651,4.242424242424249,3.838383838383834,3.4343434343434325,3.030303030303031,2.62626262626263,2.2222222222222285,1.818181818181813,1.4141414141414117,1.0101010101010104,0.6060606060606091,0.20202020202020776,-0.20202020202020776,-0.6060606060606091,-1.0101010101010104,-1.4141414141414117,-1.818181818181813,-2.2222222222222285,-2.62626262626263,-3.030303030303031,-3.4343434343434325,-3.838383838383834,-4.242424242424249,-4.646464646464651,-5.050505050505052,-5.454545454545453,-5.858585858585855,-6.26262626262627,-6.666666666666671,-7.070707070707073,-7.474747474747474,-7.878787878787875,-8.28282828282829,-8.686868686868678,-9.090909090909093,-9.494949494949495,-9.898989898989896,-10.303030303030297,-10.707070707070699,-11.111111111111114,-11.515151515151516,-11.919191919191917,-12.323232323232332,-12.72727272727272,-13.131313131313135,-13.535353535353536,-13.939393939393938,-14.343434343434353,-14.74747474747474,-15.151515151515156,-15.555555555555557,-15.959595959595958,-16.36363636363636,-16.76767676767676,-17.171717171717177,-17.575757575757578,-17.97979797979798,-18.38383838383838,-18.787878787878782,-19.191919191919197,-19.5959595959596,-20.0],"type":"scatter"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30}}},"shapes":[{"line":{"color":"black","dash":"solid","width":0.7},"type":"line","x0":0,"x1":1,"xref":"x domain","y0":0,"y1":0,"yref":"y"}],"title":{"text":"Payoff from a Futures Contract"},"xaxis":{"title":{"text":"Spot Price at Expiration"}},"yaxis":{"title":{"text":"Payoff"}},"legend":{"title":{"text":"Position"}}},                        {"responsive": true}                    ).then(function(){
+                            
+var gd = document.getElementById('9af99898-72e3-43c3-8e05-abff3778ac21');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })                };                });            </script>        </div>
+</div>
+</div>
+</section>
+<section id="payoff-from-a-forward-contract" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="payoff-from-a-forward-contract"><span class="header-section-number">2.2</span> Payoff From a Forward Contract</h2>
+<p>When discussing forward contracts, it’s essential to understand the setup:</p>
+<ul>
+<li><strong>Initiation Time:</strong> The contract begins at <span class="math inline">\(t = 0\)</span></li>
+<li><strong>Expiration Time:</strong> The contract ends at <span class="math inline">\(t = T\)</span></li>
+<li><strong>Initial Spot Price:</strong> The price of the underlying asset at start, denoted as <span class="math inline">\(S_0\)</span></li>
+<li><strong>Final Spot Price:</strong> The price of the underlying asset at expiration, <span class="math inline">\(S_T\)</span></li>
+<li><strong>Forward Price:</strong> Agreed upon price for the asset, represented as <span class="math inline">\(F_0\)</span></li>
+</ul>
+<p>Forward contracts involve two parties with contrasting positions:</p>
+<ul>
+<li>The <strong>long position</strong> commits to purchasing the asset at <span class="math inline">\(F_0\)</span>, seeking to profit from an increase in <span class="math inline">\(S_T\)</span>.</li>
+<li>The <strong>short position</strong> commits to selling the asset at <span class="math inline">\(F_0\)</span>, benefiting if <span class="math inline">\(S_T\)</span> decreases.</li>
+</ul>
+<p>Payoff from a forward contract is then calculated as:</p>
+<ul>
+<li><strong>Long Party Payoff at Expiration:</strong> <span class="math inline">\(S_T - F_0\)</span></li>
+<li><strong>Short Party Payoff at Expiration:</strong> <span class="math inline">\(-[S_T - F_0]\)</span></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example: Gold Purchase Agreement
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Barbara Nix agreed to buy 1 kilogram of gold at a price of $38,000 per kilo from Metals Inc.&nbsp;in 90 days. After 90 days, the spot price of gold reached $38,500 per kilo. What is the payoff for each party?</p>
+<ul>
+<li><strong>For Nix (Long Party):</strong> The gain is $500, calculated as <span class="math display">\[S_T - F_0 = \$38,500 - \$38,000 = \$500\]</span></li>
+<li><strong>For PM Metals Inc.&nbsp;(Short Party):</strong> The loss is $500</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="exchange-markets" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="exchange-markets"><span class="header-section-number">2.3</span> Exchange Markets</h2>
+<p>Exchange markets facilitate the trading of futures contracts, allowing participants to hedge against price changes or speculate on market movements. Key characteristics include the standardized nature of contracts and the regulatory oversight provided to ensure market integrity.</p>
+<ul>
+<li><p><strong>Regulation:</strong> In the United States, the Commodity Futures Trading Commission (CFTC) oversees the futures markets, aiming to protect market participants and maintain market integrity.</p></li>
+<li><p><strong>Futures Contract Specifications:</strong> Futures contracts are highly standardized, with detailed specifications, e.g., <a href="https://www.cmegroup.com/markets/metals/precious/gold.quotes.html">CME Group’s Gold Futures</a>.</p></li>
+</ul>
+<section id="delivery-mechanisms" class="level3" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="delivery-mechanisms"><span class="header-section-number">2.3.1</span> Delivery Mechanisms</h3>
+<ul>
+<li><strong>Contract Settlement:</strong> Most futures contracts are closed out before maturity, avoiding physical delivery. Instead, positions are settled by entering into an offsetting transaction.</li>
+<li><strong>Delivery Options:</strong> For contracts requiring physical delivery, specifications outline the deliverable commodities, delivery locations, and timelines. The short position holder usually determines the delivery specifics.</li>
+<li><strong>Cash Settlement:</strong> Certain contracts, such as those for stock indices, settle in cash instead of physical delivery.</li>
+</ul>
+</section>
+<section id="understanding-market-quotes" class="level3" data-number="2.3.2">
+<h3 data-number="2.3.2" class="anchored" data-anchor-id="understanding-market-quotes"><span class="header-section-number">2.3.2</span> Understanding Market Quotes</h3>
+<ul>
+<li><strong>Settlement Price:</strong> This is the closing price used for the daily settlement process.</li>
+<li><strong>Open Interest:</strong> Represents the total number of open contracts, equal to either the number of long or short positions.</li>
+<li><strong>Trading Volume:</strong> Indicates the total number of contracts traded in a day, which can exceed the open interest.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example of Open Interest and Trading Volume
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Imagine a futures market for wheat. At the start of the trading day, there are 1,000 open contracts for December Wheat futures. Throughout the day, traders conduct the following transactions:</p>
+<ol type="1">
+<li><strong>Transaction 1:</strong> A new buyer and a new seller enter the market, agreeing on a contract. This transaction increases the open interest by 1 contract, bringing the total open interest to 1,001.</li>
+<li><strong>Transaction 2:</strong> An existing holder of a long position sells to a new participant. This transaction does not change the open interest since one new party replaces another in the open position count, keeping the open interest at 1,001.</li>
+<li><strong>Transaction 3:</strong> Two new participants (a buyer and a seller) enter the market with 5 new contracts. This increases the open interest by 5, making it 1,006.</li>
+<li><strong>Transaction 4:</strong> An existing buyer and an existing seller close out their position by entering into an offsetting contract. This transaction decreases the open interest by 1, bringing it down to 1,005.</li>
+</ol>
+<p>By the end of the day, the open interest in December Wheat futures is 1,005, indicating the total number of active contracts.</p>
+<p>The <strong>trading volume</strong> for the day is calculated by adding up all the new contracts traded, regardless of whether they increase, decrease, or leave open interest unchanged. For the day’s transactions:</p>
+<ul>
+<li><strong>Transaction 1:</strong> Adds 1 to the trading volume.</li>
+<li><strong>Transaction 2:</strong> Adds 1 to the trading volume (although it doesn’t affect open interest).</li>
+<li><strong>Transaction 3:</strong> Adds 5 to the trading volume.</li>
+<li><strong>Transaction 4:</strong> Adds 1 to the trading volume (as it involves the exchange of contracts, despite decreasing open interest).</li>
+</ul>
+<p>Therefore, the total trading volume for the day is 8 contracts.</p>
+<p>This example illustrates how open interest and trading volume provide different insights into market activity. Open interest shows the total number of outstanding contracts, indicating market liquidity and potential future activity. Trading volume measures the number of contracts traded within a day, offering insights into the market’s current activity level.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="daily-settlement-process-and-margins" class="level3" data-number="2.3.3">
+<h3 data-number="2.3.3" class="anchored" data-anchor-id="daily-settlement-process-and-margins"><span class="header-section-number">2.3.3</span> Daily Settlement Process and Margins</h3>
+<p>The clearinghouse calculates the settlement price daily, adjusting traders’ margin accounts based on market movements:</p>
+<ul>
+<li><strong>Mark-to-Market:</strong> Daily gains or losses are reflected in the margin account, ensuring that the account balance accurately represents the market value of the position.</li>
+</ul>
+<p>Margins are crucial for managing credit risk in futures trading:</p>
+<ul>
+<li><strong>Initial Margin:</strong> The upfront deposit required to open a position.</li>
+<li><strong>Maintenance Margin:</strong> A lower threshold that must be maintained; falling below triggers a margin call, requiring the account to be topped up to the initial margin level again.</li>
+<li><strong>Margin Calls:</strong> If an account falls below the maintenance margin, additional funds must be deposited to meet the initial margin requirement.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example of Margin, Maintenance Margin, and Margin Call
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Let’s consider an investor, Alex, who wants to enter into a futures contract for crude oil. The price of one contract (representing 1,000 barrels) is $60 per barrel, making the total value of the contract $60,000.</p>
+<section id="initial-margin" class="level4">
+<h4 class="anchored" data-anchor-id="initial-margin">Initial Margin</h4>
+<p>The exchange requires an <strong>initial margin</strong> of 5% to open a position. Therefore, Alex must deposit:</p>
+<p><span class="math display">\[5\% \times \$60,000 = \$3,000\]</span></p>
+<p>This deposit is a security against potential losses on the position.</p>
+</section>
+<section id="maintenance-margin" class="level4">
+<h4 class="anchored" data-anchor-id="maintenance-margin">Maintenance Margin</h4>
+<p>The exchange sets a <strong>maintenance margin</strong> at 3% of the contract value, which is the minimum amount that must be maintained in the margin account. For Alex, this is:</p>
+<p><span class="math display">\[3\% \times \$60,000 = \$1,800\]</span></p>
+</section>
+<section id="margin-call" class="level4">
+<h4 class="anchored" data-anchor-id="margin-call">Margin Call</h4>
+<p>Assume the price of crude oil drops to $58 per barrel, decreasing the value of Alex’s futures contract to:</p>
+<p><span class="math display">\[1,000 \text{ barrels} \times \$58 = \$58,000\]</span></p>
+<p>This decrease results in a loss of $2,000 on Alex’s position, reducing his margin account to $1,000 ($3,000 initial margin - $2,000 loss), which is below the maintenance margin of $1,800. As a result, Alex receives a <strong>margin call</strong> from his broker, requiring him to deposit additional funds to bring his margin account back up to the initial margin level of $3,000.</p>
+<p>To meet the margin call, Alex must deposit an additional $2,000 into his margin account. If Alex fails to meet the margin call, his position may be closed out by the broker to limit further losses.</p>
+<p>This example illustrates the concepts of initial margin, maintenance margin, and margin calls within the context of futures trading. These mechanisms protect both the investor and the broker from the volatility and potential losses associated with leveraged positions in the futures market.</p>
+</section>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Some Useful Links
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><a href="https://www.cmegroup.com/education/courses/introduction-to-futures/margin-know-what-is-needed.html">Margin: Know What’s Needed</a></li>
+<li><a href="https://www.cmegroup.com/education/courses/understanding-the-benefits-of-futures/the-benefits-of-futures-margins.html">The Benefits of Futures Margins</a></li>
+<li><a href="https://www.schwab.com/learn/story/understanding-futures-margin">Understanding Futures Margin</a></li>
+</ul>
+</div>
+</div>
+</section>
+</section>
+<section id="otc-markets" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="otc-markets"><span class="header-section-number">2.4</span> OTC Markets</h2>
+<p>Over-the-Counter (OTC) markets facilitate the trading of forward contracts and other financial instruments directly between two parties without the intermediation of exchanges. These markets offer flexibility and customization in the contracts traded but historically lacked the transparency and regulation of their exchange-traded counterparts.</p>
+<section id="regulatory-evolution" class="level3" data-number="2.4.1">
+<h3 data-number="2.4.1" class="anchored" data-anchor-id="regulatory-evolution"><span class="header-section-number">2.4.1</span> Regulatory Evolution</h3>
+<ul>
+<li><p><strong>Pre-Crisis Era:</strong> Prior to the 2007–2008 financial crisis, the OTC market operated with minimal regulatory oversight. This lack of regulation contributed to systemic risks, as evidenced by the crisis.</p></li>
+<li><p><strong>Post-Crisis Reforms:</strong> In response to the financial crisis, significant regulatory measures were introduced globally to increase transparency, reduce systemic risk, and improve market stability. These include the Dodd-Frank Act in the United States and the European Market Infrastructure Regulation (EMIR) in the EU, mandating the reporting of OTC transactions and the use of central clearing parties for certain classes of derivatives.</p></li>
+</ul>
+</section>
+<section id="collateral-requirements" class="level3" data-number="2.4.2">
+<h3 data-number="2.4.2" class="anchored" data-anchor-id="collateral-requirements"><span class="header-section-number">2.4.2</span> Collateral Requirements</h3>
+<p>To mitigate counterparty risk, collateral requirements were introduced, including:</p>
+<ul>
+<li><p><strong>Initial Margin:</strong> An upfront deposit required to enter into a contract, intended to cover potential future exposure in the period immediately following a default.</p></li>
+<li><p><strong>Variational Margin (or Variation Margin):</strong> Additional funds that must be deposited to cover adverse price movements, ensuring the value of the collateral matches the exposure at the end of each trading day.</p></li>
+</ul>
+</section>
+<section id="clearing-mechanisms" class="level3" data-number="2.4.3">
+<h3 data-number="2.4.3" class="anchored" data-anchor-id="clearing-mechanisms"><span class="header-section-number">2.4.3</span> Clearing Mechanisms</h3>
+<ul>
+<li><p><strong>Bilateral Clearing:</strong> Traditionally, OTC markets relied on bilateral clearing, where each transaction is a separate agreement between two parties. This method allows for customization but lacks centralized risk management, making it harder to monitor and mitigate systemic risk.</p></li>
+<li><p><strong>Central Clearing:</strong> The introduction of a <strong>Central Counterparty (CCP)</strong> for clearing OTC trades represents a significant shift. The CCP acts as a buyer to every seller and a seller to every buyer, reducing counterparty risk and increasing market transparency. Central clearing houses also enforce margin requirements and perform regular mark-to-market adjustments to manage risk. While OTC contracts are customized, CCPs have facilitated a move towards some level of standardization, especially in the processes for managing risk and settling trades.</p></li>
+</ul>
+</section>
+</section>
+<section id="forward-vs.-futures-contracts-summary" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="forward-vs.-futures-contracts-summary"><span class="header-section-number">2.5</span> Forward vs.&nbsp;Futures Contracts Summary</h2>
+<table class="table">
+<colgroup>
+<col style="width: 31%">
+<col style="width: 33%">
+<col style="width: 35%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Characteristics</strong></th>
+<th><strong>Forward Contracts</strong></th>
+<th><strong>Futures Contracts</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Market Type</strong></td>
+<td>Over-the-Counter (OTC)</td>
+<td>Exchange-Traded</td>
+</tr>
+<tr class="even">
+<td><strong>Standardization</strong></td>
+<td>Customized features to suit parties’ needs</td>
+<td>Standardized in terms of contract size and expiration</td>
+</tr>
+<tr class="odd">
+<td><strong>Delivery Date</strong></td>
+<td>Typically one specified date</td>
+<td>Range of specified dates allowing flexibility</td>
+</tr>
+<tr class="even">
+<td><strong>Settlement of Gains and Losses</strong></td>
+<td>At contract maturity</td>
+<td>Daily, via marking to market</td>
+</tr>
+<tr class="odd">
+<td><strong>Settlement Method</strong></td>
+<td>Physical delivery or cash settlement</td>
+<td>Often closed out before maturity, usually cash settled</td>
+</tr>
+<tr class="even">
+<td><strong>Credit Risk</strong></td>
+<td>Present, due to lack of central clearing</td>
+<td>Mitigated by the clearinghouse’s guarantee</td>
+</tr>
+<tr class="odd">
+<td><strong>Regulation and Transparency</strong></td>
+<td>Limited, due to private nature</td>
+<td>High, due to regulatory oversight and transparency</td>
+</tr>
+<tr class="even">
+<td><strong>Liquidity and Market Depth</strong></td>
+<td>Varies, often lower due to customization</td>
+<td>Higher, facilitated by standardization and exchange</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="introduction-to-hedging-with-futures" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="introduction-to-hedging-with-futures"><span class="header-section-number">2.6</span> Introduction to Hedging with Futures</h2>
+<p>Hedging using futures contracts is a risk management strategy that allows individuals and corporations to stabilize the price of assets they intend to purchase or sell in the future. This technique is critical for managing the volatility associated with commodity prices, foreign exchange rates, interest rates, and other financial variables.</p>
+<ul>
+<li><p><strong>Long Futures Hedge:</strong> Used when anticipating the purchase of an asset in the future. A long hedge allows the buyer to lock in a purchase price, mitigating the risk of rising prices.</p></li>
+<li><p><strong>Short Futures Hedge:</strong> Employed when planning to sell an asset in the future. It enables the seller to secure a selling price, protecting against falling prices.</p></li>
+</ul>
+<section id="arguments-in-favor-of-hedging" class="level4">
+<h4 class="anchored" data-anchor-id="arguments-in-favor-of-hedging">Arguments in Favor of Hedging</h4>
+<ul>
+<li><strong>Business Focus:</strong> Hedging allows companies to concentrate on their core business activities by reducing exposure to financial market risks.</li>
+<li><strong>Cost Predictability:</strong> It provides predictability in costs and revenues, which is beneficial for budgeting and financial planning.</li>
+<li><strong>Risk Management:</strong> Effectively manages risks related to fluctuations in interest rates, exchange rates, and commodity prices.</li>
+</ul>
+</section>
+<section id="arguments-against-hedging" class="level4">
+<h4 class="anchored" data-anchor-id="arguments-against-hedging">Arguments Against Hedging</h4>
+<ul>
+<li><strong>Shareholder Autonomy:</strong> Critics argue that shareholders can diversify their portfolios independently and undertake personal hedging strategies if desired.</li>
+<li><strong>Competitive Risk:</strong> There’s a belief that hedging could introduce additional risk, especially if competitors choose not to hedge, potentially affecting market dynamics and competitive positioning.</li>
+<li><strong>Complexity and Perception:</strong> Hedging can be complex to implement and explain, especially in scenarios where the hedge results in a loss while the underlying asset gains in value, which might confuse stakeholders.</li>
+</ul>
+</section>
+</section>
+<section id="hedging-and-basis-risk" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="hedging-and-basis-risk"><span class="header-section-number">2.7</span> Hedging and Basis Risk</h2>
+<p>Basis risk is a critical concept in the realm of financial hedging, referring to the risk that the difference between the spot price and the futures price (the basis) will not behave as anticipated when the hedge is unwound. This discrepancy can lead to less effective hedges and unexpected financial outcomes.</p>
+<p>Basis risk arises due to several factors:</p>
+<ol type="1">
+<li><strong>Asset Mismatch:</strong> Often, the asset being hedged does not perfectly match the asset underlying the futures contract, introducing a discrepancy in price movements.</li>
+<li><strong>Timing Uncertainty:</strong> The exact timing of when an asset will be bought or sold can add uncertainty, affecting the effectiveness of the hedge.</li>
+<li><strong>Early Contract Closure:</strong> Sometimes, it is necessary to close out a futures contract before its delivery month, which can influence the basis and the outcome of the hedge.</li>
+</ol>
+<p>To mitigate basis risk, selecting an appropriate futures contract is vital:</p>
+<ul>
+<li><strong>Delivery Month:</strong> Opt for a contract with a delivery month as close as possible to but after the anticipated end of the hedge to minimize the time gap’s impact on the basis.</li>
+<li><strong>Cross Hedging:</strong> When direct futures contracts for the asset are unavailable, choose a contract with a price highly correlated to the asset’s price. This approach, known as cross hedging, can help manage the risk despite the asset mismatch.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Long Hedge Example for Asset Purchase
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li>Initial Futures Price (<span class="math inline">\(F_1\)</span>): <span class="math inline">\(88.0\)</span></li>
+<li>Futures Price at Purchase (<span class="math inline">\(F_2\)</span>): <span class="math inline">\(89.1\)</span></li>
+<li>Spot Price at Purchase (<span class="math inline">\(S_2\)</span>): <span class="math inline">\(90.0\)</span></li>
+<li>Basis at Purchase (<span class="math inline">\(b_2\)</span>): <span class="math inline">\(0.9\)</span> (calculated as <span class="math inline">\(S_2 - F_2\)</span>)</li>
+</ul>
+<p><strong>Hedging Outcome:</strong></p>
+<ul>
+<li>The asset’s cost is <span class="math inline">\(90.0\)</span>.</li>
+<li>The gain from futures is <span class="math inline">\(1.1\)</span> (<span class="math inline">\(F_2 - F_1\)</span>).</li>
+<li>The net amount paid effectively becomes <span class="math inline">\(88.9\)</span>, considering the gain from futures and the basis at purchase.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Short Hedge Example for Asset Sale
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li>Initial Futures Price (<span class="math inline">\(F_1\)</span>): <span class="math inline">\(0.98\)</span></li>
+<li>Futures Price at Sale (<span class="math inline">\(F_2\)</span>): <span class="math inline">\(0.925\)</span></li>
+<li>Spot Price at Sale (<span class="math inline">\(S_2\)</span>): <span class="math inline">\(0.92\)</span></li>
+<li>Basis at Sale (<span class="math inline">\(b_2\)</span>): <span class="math inline">\(-0.005\)</span> (calculated as <span class="math inline">\(S_2 - F_2\)</span>)</li>
+</ul>
+<p><strong>Hedging Outcome:</strong></p>
+<ul>
+<li>The asset’s sale price is <span class="math inline">\(0.92\)</span>.</li>
+<li>The gain from futures is <span class="math inline">\(0.055\)</span> (<span class="math inline">\(F_1 - F_2\)</span>).</li>
+<li>The net amount received effectively becomes <span class="math inline">\(0.975\)</span>, factoring in the gain from futures and the basis at sale.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="cross-hedging" class="level2" data-number="2.8">
+<h2 data-number="2.8" class="anchored" data-anchor-id="cross-hedging"><span class="header-section-number">2.8</span> Cross Hedging</h2>
+<p>Cross hedging involves using futures contracts of a commodity or asset that is different from, but correlated to, the asset being hedged. It is particularly useful when no futures market exists for the specific asset in question. The effectiveness of a cross hedge depends on the correlation between the price movements of the hedged asset and the futures contract used for hedging.</p>
+<p>The <strong>optimal hedge ratio</strong> (proportion of exposure to be hedged), denoted as <span class="math inline">\(h^{*}\)</span>, is calculated using the formula:</p>
+<p><span class="math display">\[h^{*} = \rho \frac{\sigma_S}{\sigma_F}\]</span></p>
+<ul>
+<li><span class="math inline">\(\rho\)</span> is the coefficient of correlation between <span class="math inline">\(\Delta S\)</span> and <span class="math inline">\(\Delta F\)</span>, indicating how closely the futures prices move in relation to the spot prices of the hedged asset.</li>
+<li><span class="math inline">\(\sigma_S\)</span> is the standard deviation of <span class="math inline">\(\Delta S\)</span>, representing the change in the spot price of the asset being hedged over the hedging period.</li>
+<li><span class="math inline">\(\sigma_F\)</span> is the standard deviation of <span class="math inline">\(\Delta F\)</span>, representing the change in the futures price over the hedging period.</li>
+</ul>
+<p>To determine the <strong>optimal number of futures contracts</strong> (<span class="math inline">\(N^{*}\)</span>) required for the hedge, <strong>without adjusting for daily settlement</strong>, is:</p>
+<p><span class="math display">\[N^{*} = h^{*} \times \frac{Q_A}{Q_F}\]</span></p>
+<ul>
+<li><span class="math inline">\(Q_A\)</span> represents the size of the position being hedged, measured in units.</li>
+<li><span class="math inline">\(Q_F\)</span> denotes the size of one futures contract, also in units.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example: Hedging Jet Fuel with Heating Oil Futures
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Consider an airline that anticipates purchasing 2 million gallons of jet fuel in one month and decides to hedge the price risk using heating oil futures, based on their historical price movements and correlation:</p>
+<ul>
+<li>Historical data provides <span class="math inline">\(\sigma_F = 0.0313\)</span>, <span class="math inline">\(\sigma_S = 0.0263\)</span>, and <span class="math inline">\(\rho = 0.928\)</span>.</li>
+<li>Applying the formula for <span class="math inline">\(h^{*}\)</span>:</li>
+</ul>
+<p><span class="math display">\[h^{*} = 0.928 \times \frac{0.0263}{0.0313} = 0.78\]</span></p>
+<ul>
+<li>Given that one heating oil futures contract covers 42,000 gallons, the optimal number of contracts to hedge the airline’s exposure is calculated as:</li>
+</ul>
+<p><span class="math display">\[0.78 \times \frac{2,000,000}{42,000} \approx 37\]</span></p>
+<p>Thus, to optimally hedge against the price risk of jet fuel, the airline should purchase approximately 37 heating oil futures contracts.</p>
+</div>
+</div>
+</div>
+<section id="daily-settlement-and-tailing-adjustment-in-hedging" class="level3" data-number="2.8.1">
+<h3 data-number="2.8.1" class="anchored" data-anchor-id="daily-settlement-and-tailing-adjustment-in-hedging"><span class="header-section-number">2.8.1</span> Daily Settlement and Tailing Adjustment in Hedging</h3>
+<p>The daily settlement process and the concept of tailing adjustments are crucial for refining the hedging strategy, particularly in the context of futures markets. These adjustments are necessary to account for the nuances of daily price changes and the mechanics of futures contracts.</p>
+<p>The optimal hedge ratio, <strong>adjusted for daily settlement</strong>, is given by:</p>
+<p><span class="math display">\[\hat{h} = \hat{\rho} \frac{\hat{\sigma_S}}{\hat{\sigma_F}}\]</span></p>
+<ul>
+<li><span class="math inline">\(\hat{\rho}\)</span> represents the correlation between percentage daily changes in the spot and futures prices. This measures how closely the futures prices move in relation to the spot prices on a day-to-day basis.</li>
+<li><span class="math inline">\(\hat{\sigma_S}\)</span> is the standard deviation of the percentage daily changes in the spot price, quantifying the daily price volatility of the spot asset.</li>
+<li><span class="math inline">\(\hat{\sigma_F}\)</span> is the standard deviation of the percentage daily changes in the futures price, indicating the daily volatility in the futures market.</li>
+</ul>
+<p>The <strong>optimal number of futures contracts</strong>, incorporating tailing adjustments for daily settlement, can be calculated as follows:</p>
+<p><span class="math display">\[N^{*} = \hat{h} \times \frac{V_A}{V_F}\]</span></p>
+<ul>
+<li><span class="math inline">\(V_A\)</span> represents the total value of the position being hedged, calculated as the spot price multiplied by the quantity of the asset (<span class="math inline">\(Q_A\)</span>).</li>
+<li><span class="math inline">\(V_F\)</span> denotes the value of one futures contract, determined by the futures price multiplied by the quantity specified in one futures contract (<span class="math inline">\(Q_F\)</span>).</li>
+</ul>
+<p>This adjustment, often referred to as “tailing the hedge,” modifies the hedge ratio to account for the impact of daily settlements on the futures position. It ensures that the hedge remains effective in offsetting the price risk of the underlying asset over the hedging period.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example: Hedging with Tailing Adjustments
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>A transportation company, “TransCo,” needs to purchase 500,000 gallons of diesel fuel in one month. However, there are no futures contracts available for diesel. TransCo decides to use heating oil futures as a hedge because heating oil prices are highly correlated with diesel prices. Each heating oil futures contract covers 42,000 gallons.</p>
+<ul>
+<li>Current diesel price (spot price): $3.00 per gallon</li>
+<li>Current heating oil futures price for next month’s delivery: $2.90 per gallon</li>
+<li>Correlation between daily percentage changes in diesel and heating oil prices (<span class="math inline">\(\hat{\rho}\)</span>): 0.9</li>
+<li>Standard deviation of daily percentage changes in diesel prices (<span class="math inline">\(\hat{\sigma_S}\)</span>): 1.5%</li>
+<li>Standard deviation of daily percentage changes in heating oil futures prices (<span class="math inline">\(\hat{\sigma_F}\)</span>): 1.8%</li>
+</ul>
+<section id="solution" class="level4">
+<h4 class="anchored" data-anchor-id="solution">Solution</h4>
+<ul>
+<li>Calculate the optimal hedge ratio</li>
+</ul>
+<p><span class="math display">\[\hat{h} = \hat{\rho} \frac{\hat{\sigma_S}}{\hat{\sigma_F}} = 0.9 \times
+\frac{0.015}{0.018} = 0.75\]</span></p>
+<ul>
+<li>Determine the <span class="math inline">\(V_A\)</span> and <span class="math inline">\(V_F\)</span></li>
+</ul>
+<p><span class="math display">\[V_A = \$3.00 \times 500,000 = \$1,500,000\]</span> <span class="math display">\[V_F = \$2.90 \times 42,000 = \$121,800\]</span></p>
+<ul>
+<li>Calculate the optimal number of futures contracts</li>
+</ul>
+<p><span class="math display">\[N^{*} = \hat{h} \times \frac{V_A}{V_F} = 0.75 \times \frac{1,500,000}{121,800} \approx
+9.23\]</span></p>
+<p>Given that partial contracts cannot be purchased, TransCo would need to round to the nearest whole number. In practice, the company might choose to hedge with 9 contracts to avoid over-hedging, understanding that this leaves a slight unhedged exposure.</p>
+<p>By purchasing 9 heating oil futures contracts, TransCo effectively hedges against the risk of rising diesel prices. The chosen hedge ratio of 0.75, derived from the correlation and volatility (standard deviation) differences between diesel and heating oil prices, optimizes the hedge despite the imperfect match between the two commodities. This example illustrates how cross-hedging can be applied when direct hedging instruments are not available, using tailing adjustments to fine-tune the hedge for daily settlement impacts.</p>
+</section>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="stock-index-futures" class="level2" data-number="2.9">
+<h2 data-number="2.9" class="anchored" data-anchor-id="stock-index-futures"><span class="header-section-number">2.9</span> Stock Index Futures</h2>
+<p>Stock index futures are a powerful tool for hedging the risk in a portfolio. By taking positions in these futures, investors can manage exposure to market fluctuations without the need to alter the composition of their portfolio.</p>
+<section id="hedging-portfolio" class="level3" data-number="2.9.1">
+<h3 data-number="2.9.1" class="anchored" data-anchor-id="hedging-portfolio"><span class="header-section-number">2.9.1</span> Hedging Portfolio</h3>
+<p>The formula to determine the number of contracts to short for hedging purposes is:</p>
+<p><span class="math display">\[\beta \times \frac{V_A}{V_F}\]</span></p>
+<ul>
+<li><strong><span class="math inline">\(V_A\)</span></strong> is the value of the portfolio being hedged.</li>
+<li><strong><span class="math inline">\(\beta\)</span></strong> measures the portfolio’s sensitivity to market movements. A beta of 1 indicates that the portfolio moves in line with the market.</li>
+<li><strong><span class="math inline">\(V_F\)</span></strong> is the value of one futures contract, calculated as the futures price multiplied by a specified multiplier (e.g., $250 times the index for S&amp;P 500 futures).</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example: Stock Index Futures Hedging
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Consider a portfolio with the following characteristics:</p>
+<ul>
+<li>S&amp;P 500 futures price: 1,000 points</li>
+<li>Portfolio value: $5 million</li>
+<li>Portfolio beta: 1.5</li>
+<li>Value of one futures contract: $250,000 ($250 times the index)</li>
+</ul>
+<p>Necessary position in S&amp;P 500 futures to hedge the portfolio:</p>
+<p><span class="math display">\[1.5 \times \frac{5,000,000}{250,000} = 30\]</span></p>
+<p>Thus, to hedge the portfolio against market movements, it would be necessary to short 30 S&amp;P 500 futures contracts.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="adjusting-portfolio-beta" class="level3" data-number="2.9.2">
+<h3 data-number="2.9.2" class="anchored" data-anchor-id="adjusting-portfolio-beta"><span class="header-section-number">2.9.2</span> Adjusting Portfolio Beta</h3>
+<p>To modify the beta of a portfolio, the formula is:</p>
+<p><span class="math display">\[(\beta^{*} - \beta) \times \frac{V_A}{V_F}\]</span></p>
+<ul>
+<li><strong><span class="math inline">\(\beta^{*}\)</span></strong> is the desired new beta level.</li>
+<li>A negative outcome suggests shorting futures to decrease beta, while a positive value indicates going long on futures to increase beta.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example: Adjusting Portfolio Beta
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>A portfolio manager seeks to adjust the beta of a $10 million portfolio. The current beta of the portfolio is 1.2, but due to a bearish market outlook, the manager wishes to decrease the portfolio’s beta to 0.8 to reduce exposure to market volatility. The futures contract used for hedging is based on an index that is currently priced at 3,000 points, with each contract representing $250 times the index value.</p>
+<ul>
+<li>Current portfolio value (<span class="math inline">\(V_A\)</span>): $10,000,000</li>
+<li>Current portfolio beta (<span class="math inline">\(\beta\)</span>): 1.2</li>
+<li>Desired portfolio beta (<span class="math inline">\(\beta^{*}\)</span>): 0.8</li>
+<li>Index futures price: 3,000 points</li>
+<li>Value of one futures contract (<span class="math inline">\(V_F\)</span>): $250 ,000 = $750,000</li>
+</ul>
+<p>Calculate the number of futures contracts needed to adjust the portfolio’s beta to 0.8.</p>
+<p><span class="math display">\[N^{*} = -0.4 \times \frac{10,000,000}{750,000} = -0.4 \times 13.33 \approx -5.33\]</span></p>
+<p>Since we cannot trade a fraction of a contract, we’ll need to round to the nearest whole number. In this case, rounding to -5 suggests that the portfolio manager should short 5 futures contracts to achieve the desired beta adjustment.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="additional-notes-about-hedging" class="level3" data-number="2.9.3">
+<h3 data-number="2.9.3" class="anchored" data-anchor-id="additional-notes-about-hedging"><span class="header-section-number">2.9.3</span> Additional Notes About Hedging</h3>
+<section id="why-hedge-equity-returns" class="level4">
+<h4 class="anchored" data-anchor-id="why-hedge-equity-returns">Why Hedge Equity Returns?</h4>
+<p>Hedging with stock index futures is advantageous for several reasons:</p>
+<ul>
+<li><strong>Market Timing:</strong> Allows investors to effectively “exit” the market without selling assets, ideal for avoiding transaction costs and capital gains taxes.</li>
+<li><strong>Risk Management:</strong> Enables precise control over the portfolio’s exposure to market risk.</li>
+<li><strong>Performance:</strong> Ensures returns are based on the specific selection and performance of portfolio assets, beyond the general market movements.</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Imagine your portfolio’s stocks have an average beta of 1.0, aligning their performance with the market. Yet, you’re confident these stocks will surpass market returns in any scenario. By hedging, you secure returns at the risk-free rate plus any outperformance of your stocks over the market. This strategy minimizes market volatility’s impact, ensuring your portfolio’s gains are primarily due to your stock selection skills.</p>
+</div>
+</div>
+</section>
+<section id="stack-and-roll-strategy" class="level4">
+<h4 class="anchored" data-anchor-id="stack-and-roll-strategy">Stack and Roll Strategy</h4>
+<p>This approach involves rolling futures contracts forward to manage future exposures:</p>
+<ul>
+<li>Start with futures contracts hedging up to a certain time horizon.</li>
+<li>Before these contracts mature, close them out and replace them with new contracts for the next period.</li>
+<li>This method allows continuous hedging over time, adjusting as market conditions and portfolio needs change.</li>
+</ul>
+<p>However, it’s crucial to be mindful of the liquidity risks and potential for realized losses.</p>
+<ul>
+<li><strong>Realized vs.&nbsp;Unrealized Gains/Losses:</strong> Hedging can lead to scenarios where losses on the hedge are realized while corresponding gains in the underlying assets are unrealized, potentially causing liquidity issues.</li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The Metallgesellschaft (MG) case in the early 1990s serves as a cautionary example of how rolling forward hedges can lead to significant cash flow problems. MG sold long-term fixed-price contracts for heating oil and gasoline, hedging its exposure with short-dated long futures that were regularly rolled over. When oil prices dropped, MG faced substantial margin calls, creating severe short-term liquidity issues. Despite the hedging strategy’s long-term rationale, the immediate financial strain alarmed the company’s management and bankers. Ultimately, MG had to close out its hedge positions and cancel the fixed-price contracts with customers, resulting in a staggering loss of $1.33 billion.</p>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="practice-questions-and-problems" class="level2" data-number="2.10">
+<h2 data-number="2.10" class="anchored" data-anchor-id="practice-questions-and-problems"><span class="header-section-number">2.10</span> Practice Questions and Problems</h2>
+<section id="fundamentals-of-futures-trading" class="level3" data-number="2.10.1">
+<h3 data-number="2.10.1" class="anchored" data-anchor-id="fundamentals-of-futures-trading"><span class="header-section-number">2.10.1</span> Fundamentals of Futures Trading</h3>
+<ol type="1">
+<li>What are the most important aspects of the design of a new futures contract?</li>
+<li>The party with a short position in a futures contract sometimes has options as to the precise asset that will be delivered, where delivery will take place, when delivery will take place, and so on. Do these options increase or decrease the futures price? Explain your reasoning.</li>
+<li>What do you think would happen if an exchange started trading a contract in which the quality of the underlying asset was incompletely specified?</li>
+<li>“Speculation in futures markets is pure gambling. It is not in the public interest to allow speculators to trade on a futures exchange.” Discuss this viewpoint.</li>
+</ol>
+</section>
+<section id="open-interest-and-trading-volume" class="level3" data-number="2.10.2">
+<h3 data-number="2.10.2" class="anchored" data-anchor-id="open-interest-and-trading-volume"><span class="header-section-number">2.10.2</span> Open Interest and Trading Volume</h3>
+<ol type="1">
+<li>Distinguish between the terms open interest and trading volume.</li>
+<li>“When a futures contract is traded on the floor of the exchange, it may be the case that the open interest increases by one, stays the same, or decreases by one.” Explain this statement.</li>
+<li>Why does the open interest usually decline during the month preceding the delivery month? On a particular day, there were 2,000 trades in a particular futures contract. This means that there were 2000 buyers (going long) and 2000 sellers (going short). Of the 2,000 buyers, 1,400 were closing out positions and 600 were entering into new positions. Of the 2,000 sellers, 1,200 were closing out positions and 800 were entering into new positions. What is the impact of the day’s trading on open interest?</li>
+</ol>
+</section>
+<section id="margin-mechanics-in-futures-trading" class="level3" data-number="2.10.3">
+<h3 data-number="2.10.3" class="anchored" data-anchor-id="margin-mechanics-in-futures-trading"><span class="header-section-number">2.10.3</span> Margin Mechanics in Futures Trading</h3>
+<ol type="1">
+<li>Explain how margin accounts protect investors against the possibility of default.</li>
+<li>Suppose that you enter into a short futures contract to sell July silver for $17.20 per ounce. The size of the contract is 5,000 ounces. The initial margin is $4,000, and the maintenance margin is $3,000. What change in the futures price will lead to a margin call? What happens if you do not meet the margin call?</li>
+<li>A trader buys two July futures contracts on frozen orange juice. Each contract is for the delivery of 15,000 pounds. The current futures price is 160 cents per pound, the initial margin is $6,000 per contract, and the maintenance margin is $4,500 per contract. What price change would lead to a margin call? Under what circumstances could $2,000 be withdrawn from the margin account?</li>
+<li>A company enters into a short futures contract to sell 5,000 bushels of wheat for 750 cents per bushel. The initial margin is $3,000 and the maintenance margin is $2,000. What price change would lead to a margin call? Under what circumstances could $1,500 be withdrawn from the margin account?</li>
+</ol>
+</section>
+<section id="basics-of-hedging-with-futures" class="level3" data-number="2.10.4">
+<h3 data-number="2.10.4" class="anchored" data-anchor-id="basics-of-hedging-with-futures"><span class="header-section-number">2.10.4</span> Basics of Hedging with Futures</h3>
+<ol type="1">
+<li>Under what circumstances are (a) a short hedge and (b) a long hedge appropriate?</li>
+<li>Explain what is meant by basis risk when futures contracts are used for hedging.</li>
+<li>Explain what is meant by a perfect hedge. Does a perfect hedge always lead to a better outcome than an imperfect hedge? Explain your answer.</li>
+<li>Does a perfect hedge always succeed in locking in the current spot price of an asset for a future transaction? Explain your answer.</li>
+<li>“For an asset where futures prices for contracts on the asset are usually less than spot prices, long hedges are likely to be particularly attractive.” Explain this statement.</li>
+</ol>
+</section>
+<section id="advanced-hedging-scenarios-and-strategies" class="level3" data-number="2.10.5">
+<h3 data-number="2.10.5" class="anchored" data-anchor-id="advanced-hedging-scenarios-and-strategies"><span class="header-section-number">2.10.5</span> Advanced Hedging Scenarios and Strategies</h3>
+<ol type="1">
+<li>Sixty futures contracts are used to hedge an exposure to the price of silver. Each futures contract is on 5,000 ounces of silver. At the time the hedge is closed out, the basis is $0.20 per ounce. What is the effect of the basis on the hedger’s financial position if (a) the trader is hedging the purchase of silver and (b) the trader is hedging the sale of silver?</li>
+<li>In the corn futures contract, the following delivery months are available: March, May, July, September, and December. State the contract that should be used for hedging when the expiration of the hedge is in a) June, b) July, and c) January.</li>
+<li>Suppose that the standard deviation of quarterly changes in the prices of a commodity is $0.65, the standard deviation of quarterly changes in a futures price on the commodity is $0.81, and the coefficient of correlation between the two changes is 0.8. What is the optimal hedge ratio for a three-month contract? What does it mean?</li>
+<li>The standard deviation of monthly changes in the spot price of live cattle is 1.2 (in cents per pound). The standard deviation of monthly changes in the futures price of live cattle for the closest contract is 1.4. The correlation between the futures price changes and the spot price changes is 0.7. It is now October 15. A beef producer is committed to purchasing 200,000 pounds of live cattle on November 15. The producer wants to use the December live-cattle futures contracts to hedge its risk. Each contract is for the delivery of 40,000 pounds of cattle. What strategy should the beef producer follow?</li>
+</ol>
+</section>
+<section id="practical-concerns-and-risk-management" class="level3" data-number="2.10.6">
+<h3 data-number="2.10.6" class="anchored" data-anchor-id="practical-concerns-and-risk-management"><span class="header-section-number">2.10.6</span> Practical Concerns and Risk Management</h3>
+<ol type="1">
+<li>Give three reasons why the treasurer of a company might not hedge the company’s exposure to a particular risk.</li>
+<li>A corn farmer argues “I do not use futures contracts for hedging. My real risk is not the price of corn. It is that my whole crop gets wiped out by the weather.” Discuss this viewpoint. Should the farmer estimate his or her expected production of corn and hedge to try to lock in a price for expected production?</li>
+<li>Imagine you are the treasurer of a Japanese company exporting electronic equipment to the United States. Discuss how you would design a foreign exchange hedging strategy and the arguments you would use to sell the strategy to your fellow executives.</li>
+<li>A futures contract is used for hedging. Explain why the daily settlement of the contract can give rise to cash flow problems.</li>
+</ol>
+</section>
+<section id="hedging-with-stock-and-commodity-futures" class="level3" data-number="2.10.7">
+<h3 data-number="2.10.7" class="anchored" data-anchor-id="hedging-with-stock-and-commodity-futures"><span class="header-section-number">2.10.7</span> Hedging with Stock and Commodity Futures</h3>
+<ol type="1">
+<li>A company has a $20 million portfolio with a beta of 1.2. It would like to use futures contracts on a stock index to hedge its risk. The index futures is currently standing at 1080, and each contract is for delivery of $250 times the index. What is the hedge that minimizes risk? What should the company do if it wants to reduce the beta of the portfolio to 0.6? What should the company do if it wants to increase the beta of the portfolio to 1.5?</li>
+<li>On July 1, an investor holds 50,000 shares of a certain stock. The market price is $30 per share. He decides to use the September Mini S&amp;P 500 futures contract. The index is currently 1,500 and one contract is for delivery of $50 times the index. The beta of the stock is 1.3. What strategy should the investor follow? Under what circumstances will it be profitable?</li>
+<li>It is now June. A company knows that it will sell 5,000 barrels of crude oil in September. It uses the October CME Group futures contract to hedge the price it will receive. Each contract is on 1,000 barrels of “light sweet crude”. What position should it take? What price risks is it still exposed to after taking the position?</li>
+</ol>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
