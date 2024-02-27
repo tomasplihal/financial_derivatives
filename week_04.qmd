@@ -12,6 +12,14 @@
 
 **Learning Outcomes:**
 
+- Understand the fundamental principles and nature of swaps, including their purpose and
+functionality in financial markets.
+- Analyze the mechanics and applications of interest rate swaps, identifying the roles
+of comparative advantage and valuation methods.
+- Explore currency swaps, including their types, uses, and the valuation process for
+fixed-for-fixed currency swaps.
+- Examine additional swap arrangements outside of interest rate and currency swaps,
+recognizing their unique features and applications.
 
 ## Nature of Swaps
 
@@ -466,6 +474,8 @@ development.
 
 ## Practice Questions and Problems
 
+### The Basic Usage of Swaps in Risk Management
+
 **1)** A bank finds that its assets are not matched with its liabilities. It is
 taking floating-rate deposits and making fixed-rate loans. How can swaps be used to
 offset the risk?
@@ -478,6 +488,8 @@ offsetting swap contracts.
 
 **4)** Why is the expected loss from a default on a swap less than the expected loss
 from the default on a loan to the same counterparty with the same principal?
+
+### Comparative Advantage and Swap Structuring
 
 **5)** A corporate treasurer tells you that he has just negotiated a five-year loan
 at a competitive fixed rate of interest of 5.2\%. The treasurer explains that he
@@ -500,9 +512,8 @@ equally attractive to both companies.
 
 **7)** Company X wishes to borrow U.S. dollars at a fixed rate of interest. Company
 Y wishes to borrow Japanese yen at a fixed rate of interest. The amounts required by the
-two companies are roughly the same at the current exchange rate.  The companies have
-been quoted the following interest rates, which have been adjusted for the impact of
-taxes:
+two companies are roughly the same at the current exchange rate. The companies have been
+quoted the following interest rates, which have been adjusted for the impact of taxes:
 
 |           |  Yen  | Dollars |
 | :-------: | :---: | :-----: |
@@ -524,6 +535,8 @@ million 10-year investment:
 Company X requires a fixed-rate investment; company Y requires a floating-rate
 investment. Design a swap that will net a bank, acting as intermediary, 0.2% per annum
 and will appear equally attractive to X and Y.
+
+### Swap Valuation
 
 **9)** A \$100 million interest rate swap has a remaining life of 10 months. Under
 the terms of the swap, six-month LIBOR is exchanged for 7\% per annum (compounded
