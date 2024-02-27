@@ -1,14 +1,741 @@
+---
+format:
+  html:
+    code-fold: true
+jupyter: python3
+---
+
 # Options
 
 ::: {.callout-note}
 # References
 
 - HULL, John. Options, futures, and other derivatives. Ninth edition. Harlow: Pearson, 2018. ISBN 978-1-292-21289-0.
-  - Chapter 1 - Introduction
-  - Chapter 4 - Interest Rates
-+ PIRIE, Wendy L. Derivatives. Hoboken: Wiley, 2017. CFA institute investment series. ISBN 978-1-119-38181-5.
-  + Chapter 1 - Derivative Markets and Instruments
+    - Chapter 10. Mechanics of Options Markets
+    - Chapter 11. Properties of Stock Options
+- PIRIE, Wendy L. Derivatives. Hoboken: Wiley, 2017. CFA institute investment series. ISBN 978-1-119-38181-5.
+    - Chapter 1 - Derivative Markets and Instruments
 :::
 
 **Learning Outcomes:**
 
+- Comprehend the fundamentals and definitions of options, including the mechanics behind
+option payoffs and profits.
+- Identify and understand other option characteristics, adjustments, and the
+relationship with related assets.
+- Grasp the principles underlying option pricing dynamics, along with the factors
+influencing option values.
+- Analyze the upper and lower bounds for option prices and the concept of put-call
+parity in option trading strategies.
+- Evaluate the specific considerations for American options, including the impact of
+early exercise decisions and dividends on option valuation.
+
+## Understanding Options
+
+:::{.callout-tip}
+# Definition
+
+Options are financial derivatives that offer the buyer the **right, but not the
+obligation**, to buy (call option) or sell (put option) an underlying asset at a
+predetermined price (strike price) on or before a specified date. The seller of the
+option, also known as the writer, receives a premium from the buyer in exchange for this
+right. 
+:::
+
+#### Types of Options
+
+- **Call Option**: Grants the holder the right to purchase an asset at the strike price
+by the expiration date. It is a bullish bet, with the buyer anticipating an increase in
+the asset's price.
+
+```{python}
+import plotly.graph_objects as go
+import numpy as np
+
+# Parameters
+S = 100  # Strike price of the option
+Q = 1  # Quantity of the asset
+spot_prices = np.linspace(80, 120, 100)  # Range of spot prices
+premium = 5  # Option premium
+
+# Payoff calculations for call options
+long_call_profit = np.maximum(spot_prices - S, 0) * Q - premium
+short_call_profit = -np.maximum(spot_prices - S, 0) * Q + premium
+
+# Create the figure
+fig = go.Figure()
+
+# Add traces for long and short call option positions
+fig.add_trace(
+    go.Scatter(
+        x=spot_prices,
+        y=long_call_profit,
+        mode="lines",
+        name="Long Call",
+        line=dict(width=3),
+        hovertemplate="Long Call<br>Spot Price: %{x:.0f}<br>Profit: %{y:.0f}<extra></extra>",
+    )
+)
+fig.add_trace(
+    go.Scatter(
+        x=spot_prices,
+        y=short_call_profit,
+        mode="lines",
+        name="Short Call",
+        line=dict(width=3),
+        hovertemplate="Short Call<br>Spot Price: %{x:.0f}<br>Profit: %{y:.0f}<extra></extra>",
+    )
+)
+fig.add_hline(y=0, line_dash="solid", line_color="black", line=dict(width=0.7))
+
+# Layout
+fig.update_layout(
+    title="Profit from Call Option, K = 100, c = 5",
+    xaxis_title="Spot Price at Expiration",
+    yaxis_title="Profit",
+    legend_title="Position",
+)
+
+# Show the figure
+fig.show()
+```
+
+- **Put Option**: Provides the holder the right to sell an asset at the strike price by
+the expiration date. It represents a bearish outlook, where the buyer expects the
+asset's price to decline.
+
+```{python}
+# Parameters
+S = 100  # Strike price of the option
+Q = 1  # Quantity of the asset
+spot_prices = np.linspace(80, 120, 100)  # Range of spot prices
+premium = 5  # Option premium
+
+# Payoff calculations for call options
+long_put_profit = np.maximum(S - spot_prices, 0) * Q - premium
+short_put_profit = -np.maximum(S - spot_prices, 0) * Q + premium
+
+# Create the figure
+fig = go.Figure()
+
+# Add traces for long and short call option positions
+fig.add_trace(
+    go.Scatter(
+        x=spot_prices,
+        y=long_put_profit,
+        mode="lines",
+        name="Long Put",
+        line=dict(width=3),
+        hovertemplate="Long Put<br>Spot Price: %{x:.0f}<br>Profit: %{y:.0f}<extra></extra>",
+    )
+)
+fig.add_trace(
+    go.Scatter(
+        x=spot_prices,
+        y=short_put_profit,
+        mode="lines",
+        name="Short Put",
+        line=dict(width=3),
+        hovertemplate="Short Put<br>Spot Price: %{x:.0f}<br>Profit: %{y:.0f}<extra></extra>",
+    )
+)
+fig.add_hline(y=0, line_dash="solid", line_color="black", line=dict(width=0.7))
+
+# Layout
+fig.update_layout(
+    title="Profit from Put Option, K = 100, p = 5",
+    xaxis_title="Spot Price at Expiration",
+    yaxis_title="Profit",
+    legend_title="Position",
+)
+
+# Show the figure
+fig.show()
+```
+
+#### Execution Styles
+
+- **American Option**: Characterized by the flexibility it offers, an American option
+can be exercised at any point up until its expiration. This feature provides the holder
+with the opportunity to respond to market movements and exercise the option when it is
+most advantageous.
+
+- **European Option**: This option type can only be exercised on its expiration date,
+not before. The restriction on early exercise makes European options more predictable in
+terms of their valuation, but it limits the holder's flexibility in responding to market
+changes.
+
+## Option Payoffs and Profits
+
+### Understanding Option Payoffs
+
+- **$S_T$**: Represents the price of the underlying asset at the expiration date $T$.
+- **$K$**: Denotes the exercise or strike price of the option.
+
+The payoff to the option buyer, whether for a call or put, depends on the relationship
+between the strike price $K$ and the underlying asset's price at expiration $S_T$:
+
+- **Call Option Payoff**: $c_T = \max(0, S_T - K)$
+- **Put Option Payoff**: $p_T = \max(0, K - S_T)$
+
+:::{.callout-note}
+# Example: Option Payoff
+
+Given an underlying asset price at expiration $S_T$ of \$28 and a strike price $K$ of
+\$25, the payoffs for call and put options are calculated as follows:
+
+- **Call Buyer Payoff**: $c_T = \max(0, \$28 - \$25) = \$3$
+- **Put Buyer Payoff**: $p_T = \max(0, \$25 - \$28) = \$0$
+:::
+
+- The call option is **in the money** as it has a positive payoff of \$3.
+- The put option is **out of the money**, resulting in zero payoff, indicating that
+exercising the option is not advantageous.
+
+### Calculating Option Profit
+
+The profit from an option trade must account for the option premium paid upfront ($c_0$
+for calls and $p_0$ for puts). Thus, profit formulas are adjusted as follows:
+
+- **Profit for Call Buyer**: $\Pi_{call} = \max(0, S_T - K) - c_0$
+- **Profit for Put Buyer**: $\Pi_{put} = \max(0, K - S_T) - p_0$
+
+:::{.callout-note}
+# Example: Option Profit
+
+Considering CBX stock options with a strike price $K = \$30$, where the call and put
+premiums are \$1 and \$2 respectively, and the stock price at expiration $S_T$ is
+\$27.50:
+
+- **Call Option Profit**: $\Pi_{call} = \max(0, \$27.5 - \$30) - \$1 = -\$1$
+- **Put Option Profit**: $\Pi_{put} = \max(0, \$30 - \$27.5) - \$2 = \$0.5$
+:::
+
+- The call option buyer incurs a loss of \$1, as the call's intrinsic value does not
+offset the premium paid.
+- The put option buyer realizes a profit of \$0.5, indicating that the intrinsic value
+exceeds the premium paid, making the option trade beneficial despite the underlying
+asset's price movement.
+
+## Other Option Characteristics, Adjustments, and Related Assets
+
+### Other Option Characteristics
+
+Options are versatile financial instruments with various characteristics that cater to
+different investment strategies and risk profiles. They can be based on a wide range of
+underlying assets and come with specific features that define their contractual terms.
+
+- Selling options requires posting margin due to the potential obligation to fulfill the
+contract.
+
+#### Specification of Exchange-Traded Options
+
+Options can be written on **various assets**, providing flexibility and diversity in
+investment choices:
+
+- Stocks
+- ETFs (Exchange-Traded Funds) and ETPs (Exchange-Traded Products)
+- Foreign Currency
+- Stock Indices
+- Futures
+
+Key specifications include:
+
+- **Expiration Date**: The last date the option can be exercised.
+- **Strike Price**: The price at which the underlying asset can be bought or sold.
+- **Option Style**: European (exercisable only at expiration) or American (exercisable
+any time before expiration).
+- **Option Class**: Call (right to buy) or Put (right to sell).
+
+#### Option Value
+
+- **Intrinsic Value**: The profit that could be realized if the option were exercised
+immediately.
+- **Time Value**: The additional value reflecting the potential for the option to gain
+intrinsic value before expiration.
+
+**Moneyness** describes the intrinsic value of an option in its current state:
+
+- **At-the-Money**: The option's strike price is equal to the underlying asset's current
+price.
+- **In-the-Money**: The option would have positive intrinsic value if exercised now.
+- **Out-of-the-Money**: The option has no intrinsic value (only time value).
+
+### Dividends and Stock Splits Adjustments
+
+- **Cash Dividends**: Typically, option contracts are not adjusted for cash dividends.
+The reasoning behind this is that cash dividends are expected events, and their
+potential impact is already factored into the option's price through market mechanisms.
+
+- **Stock Splits and Stock Dividends**: These corporate actions directly affect the
+company's stock price and, consequently, the value of options on that stock. To preserve
+the value of existing options, adjustments are made to both the strike price ($K$) and
+the number of options ($N$) held.
+
+For an $n$-for-$m$ stock split, adjustments are made as follows:
+
+1. **Strike Price Adjustment**: The new strike price is calculated using the formula
+$\frac{m}{n} \times K$. This adjustment ensures that the economic value of the strike
+price relative to the stock price remains constant.
+
+2. **Number of Options Adjustment**: The quantity of options held is recalibrated to
+$\frac{n}{m} \times N$. This change ensures that the overall exposure of the option
+holder remains unchanged.
+
+:::{.callout-note collapse=true}
+# Examples: Option Adjustments
+
+#### Adjustments for a 2-for-1 Stock Split
+
+A call option to buy 100 shares at \$20 per share.
+
+- **Strike Price**: Becomes $\frac{1}{2} \times \$20 = \$10$.
+- **Number of Options**: Increases to $\frac{2}{1} \times 100 = 200$ options.
+
+- **2-for-1 Stock Split**: This split essentially doubles the number of shares in
+circulation, halving the stock price. To maintain the option's value, the strike price
+is halved, and the number of options is doubled.
+
+#### Adjustments for a 5% Stock Dividend
+
+A call option to buy 100 shares at \$20 per share.
+
+- **Strike Price**: Adjusts to $\frac{1}{1.05} \times \$20 = \$19.05$.
+- **Number of Options**: Increases to $\frac{1.05}{1} \times 100 = 105$ options.
+
+- **5% Stock Dividend**: This dividend increases the number of shares by 5%, slightly
+reducing the stock price. The option's strike price is adjusted to reflect the new
+price, and the number of options is increased by 5% to maintain the holder's position
+value.
+:::
+
+### Related Assets
+
+#### Warrants
+
+- Issued by corporations or financial institutions, warrants give the right to buy the
+issuer's stock at a specific price before expiration.
+- The exercise of warrants typically leads to the issuance of new stock.
+
+#### Employee Stock Options
+
+- A form of compensation for employees, usually at-the-money when issued.
+- Exercise leads to the issuance of new company stock at the strike price.
+
+#### Convertible Bonds
+
+- Bonds that can be converted into a predetermined amount of the company's equity at
+certain times during its life.
+- Often callable, allowing the issuer to force conversion under specified conditions.
+
+## Understanding the Dynamics of Option Pricing
+
+In the realm of financial derivatives, stock options are pivotal instruments whose
+valuation intricately hinges on multiple underlying factors. The valuation dynamics of
+these options can be dissected into several key variables, each exerting a distinct
+influence under the ceteris paribus (all else equal) assumption. Herein, we delineate
+the impact of these variables on the prices of European and American options, using the
+following notations to denote directional influences: a positive ($+$) impact suggests
+that an increase in the variable elevates the option's price, a negative ($-$) impact
+denotes a price decrease, and an uncertain ($?$) relationship indicates an ambiguous
+effect.
+
+|          Variable          | European Call | European Put | American Call | American Put |
+| :------------------------: | :-----------: | :----------: | :-----------: | :----------: |
+|    Current Stock Price ($S_0$)    |      $+$      |     $-$      |      $+$      |     $-$      |
+|        Strike Price ($K$)        |      $-$      |     $+$      |      $-$      |     $+$      |
+|     Time to Expiration ($T$)     |      $?$      |     $?$      |      $+$      |     $+$      |
+|         Volatility ($\sigma$)         |      $+$      |     $+$      |      $+$      |     $+$      |
+|       Risk-free Rate ($r$)       |      $+$      |     $-$      |      $+$      |     $-$      |
+| Amount of Future Dividends ($D$) |      $-$      |     $+$      |      $-$      |     $+$      |
+
+To ensure clarity in discourse, we employ the following notations throughout:
+
+- $c$: Price of a European call option
+- $p$: Price of a European put option
+- $C$: Price of an American call option
+- $P$: Price of an American put option
+- $S_0$: Current stock price
+- $S_T$: Stock price at option maturity
+- $K$: Strike price
+- $T$: Option's life span
+- $\sigma$: Volatility of the stock price
+- $D$: Present value of dividends disbursed during the option's life
+- $r$: Risk-free interest rate with continuous compounding over maturity $T$
+
+### Comparative Analysis of American and European Options
+
+A pivotal aspect of option theory is the intrinsic value comparison between American and
+European options. American options, characterized by their flexibility of exercise prior
+to expiration, inherently command a value that is not less than their European
+counterparts, which are exercisable only at maturity. This valuation principle is
+succinctly encapsulated in the following inequalities:
+
+$$ C \geq c $$
+$$ P \geq p $$
+
+These relations underscore a fundamental valuation floor for American options, driven by
+their enhanced exercise flexibility. This comparative analysis not only enriches our
+understanding of option pricing dynamics but also accentuates the critical role of
+exercise timing in option valuation.
+
+## Upper and Lower Bounds for Option Prices
+
+### Upper Boundaries for Option Valuations
+
+#### Call Options
+
+For both American and European call options, the principle that an option's value cannot
+exceed the current price of the underlying stock is fundamental. Mathematically, this is
+represented as:
+$$ c \leq S_0 \text{ and } C \leq S_0 $$
+
+This ceiling on call option prices prevents the possibility of arbitrage profits that
+could arise from buying the stock outright and selling the call option, thereby
+exploiting price discrepancies.
+
+#### Put Options
+
+The valuation cap for put options varies between American and European styles due to
+their exercise terms.
+
+- **American Put Options:** The value is naturally capped at the strike price, $K$,
+because the option grants the right but not the obligation to sell the stock at $K$.
+Thus, $P \leq K$.
+
+- **European Put Options:** The maximum value is the present value of the strike price,
+$P \leq K e^{-rT}$, considering that it can only be exercised at maturity. This prevents
+arbitrage opportunities involving writing the option and investing the proceeds at the
+risk-free rate.
+
+### Lower Boundaries for Option Prices
+
+#### European Call Options
+
+For a European call option on a stock that does not pay dividends, the price floor is
+determined by the difference between the stock's current price and the present value of
+the strike price:
+$$S_0 - K e^{-rT}$$
+
+This lower bound highlights the intrinsic value of the option, beyond which arbitrage
+becomes viable.
+
+:::{.callout-note}
+# Example
+Given $S_0 = 20$, $T = 1$ year, $r = 10\%$ annual interest rate, and $K = 18$, the lower
+bound calculation yields \$3.71. If the market price of the call option is \$3, an
+arbitrage opportunity exists by shorting the stock, buying the call, and investing the
+proceeds at the 10% rate.
+
+- $S_0 = 20$, $T = 1$, $r = 10\%$, $K = 18$, $D = 0$
+
+$$S_0 - K e^{-rT} = 20 - 18 e^{-0.1} = 3.71$$
+
+- What if the European call price is \$3?
+- An arbitrageur can short the stock, buy the call, and invest proceeds at 10%.
+:::
+
+#### European Put Options
+
+The lower bound for a European put option, similarly on a non-dividend-paying stock, is
+the present value of the strike price minus the current stock price:
+$$K e^{-rT} - S_0$$
+
+This calculation ensures that the option's price reflects its minimum economic value.
+
+:::{.callout-note}
+# Example
+With $S_0 = 37$, $T = 0.5$ years, $r = 5\%$, and $K = 40$, the lower bound is \$2.01. If
+the market price is \$1, arbitrage is possible by borrowing \$38 for 6 months to
+purchase both the stock and the put option.
+
+- $S_0 = 37$, $T = 0.5$, $r = 5\%$, $K = 40$, $D = 0$ 
+
+$$K e^{-rT} - S_0 = 40 e^{-0.05 \times 0.5} - 37 = 2.01$$
+
+- What if the European put price is \$1?
+- An arbitrageur can borrow \$38 for 6 months to buy both the put and the stock.
+:::
+
+### American Options and Early Exercise Decision
+
+#### American Call Options on Non-dividend Paying Stocks
+
+The conventional wisdom suggests that **it is suboptimal to exercise an American call
+option on a non-dividend paying stock before expiration**. Consider an American call
+option with the following parameters: $S_0 = 100$, $T = 0.25$, $K = 60$, and $D = 0$.
+The dilemma of whether to exercise the option immediately hinges on the anticipated
+utility from holding the stock versus the option.
+
+- **If intending to hold the stock:** Exercising early forfeits the call option's time
+value, providing no additional benefit over holding the option.
+
+- **If intending to close the stock position:** Selling the option is preferable,
+capturing both its intrinsic and time value, unlike exercising, which yields only the
+intrinsic value.
+
+- **Justifications Against Early Exercise:**
+    - **Preservation of Capital:** Delaying the exercise preserves liquidity by
+    deferring the payment of the strike price.
+    - **Insurance Benefit:** The option acts as a hedge against the stock's depreciation
+    below the strike price.
+    - **Maximization of Value:** Selling the option rather than exercising it realizes
+    both intrinsic and time value.
+
+- Because it is not optimal to exercise an American stock option on a
+non-dividend-paying stock early, the upper and lower bounds will be the same as those
+for European options.
+
+#### American Put Options on Non-dividend Paying Stocks
+
+Contrary to calls, American put options on non-dividend paying stocks **may warrant early
+exercise**, especially when deeply in the money, due to the immediate gain realization and
+the time value of money.
+
+Imagine a scenario where the strike price is \$10, and the stock price plummets near
+zero. Immediate exercise yields a \$10 gain, maximizing the investor's return as stock
+prices cannot become negative and due to the preference for current versus future value.
+
+- **Justifications for Early Exercise:**
+    - **Immediate Value Realization:** Exercising deep in-the-money puts captures the
+    maximum possible gain immediately.
+    - **Time Value of Money:** Receiving proceeds today is financially more beneficial
+    than an identical future payment due to potential investment returns.
+    - **Decreased Attractiveness with Stock Price Decline:** As $S_0$ diminishes, the
+    attractiveness of early exercise increases, especially under higher interest rates
+    and lower volatility.
+
+- Because it may be optimal in some cases to exercise an American put option early, the
+**lower bound** changes accordingly:
+
+$$P \geq \max(K - S_0, 0)$$
+
+### Summary of Price Boundaries
+
+The upper and lower price limits for options serve as critical indicators for arbitrage
+strategies and investment analysis. They are succinctly summarized as follows:
+
+#### Call Options
+
+The upper bound is the stock's current price, while the lower bound is either the
+difference between the stock's price and the discounted strike price or zero, whichever
+is greater.
+
+- Upper bound for European and American call options:
+
+  $$c \leq S_0 \text{ and } C \leq S_0$$
+
+- Lower bound for European and American call option:
+
+$$c \geq \max(S_0 - K e^{-rT}, 0)$$
+$$C \geq \max(S_0 - K e^{-rT}, 0)$$
+
+#### Put Options
+
+The upper bound for European options is the discounted strike price, while for American
+options, it's the strike price itself. The lower bound is the greater of the discounted
+strike price minus the stock's price or zero.
+
+- Upper bound for European and American put options:
+
+$$p \leq K e^{-rT} \text{ and } P \leq K$$
+
+- Lower bound for European and American put option:
+
+$$p \geq \max(K e^{-rT} - S_0, 0)$$
+
+$$P \geq \max(K - S_0, 0)$$
+
+## Put-Call Parity
+
+The principle of put-call parity is a cornerstone in the theoretical framework of
+financial derivatives, providing a fundamental relationship between the prices of
+European call and put options. This parity underlines the equilibrium that must exist
+between these options when they have identical strike prices and expiration dates.
+Below, we delve deeper into the concept, illustrating its implications for both
+non-dividend and dividend-paying stocks, and extend the discussion to American options.
+
+### Put-Call Parity for Non-dividend Paying Stocks
+
+Consider two distinct portfolios, A and B, each composed of different financial
+instruments but constructed to have equivalent values at the expiration of the options
+involved:
+
+- **Portfolio A** consists of a European call option and a zero-coupon bond paying $K$
+(the strike price) at time $T$ (expiration).
+- **Portfolio B** includes a European put option and the underlying stock itself.
+
+The table below presents the values of these portfolios at option expiration under two
+scenarios: when the stock price at expiration, $S_T$, is above or below the strike
+price, $K$.
+
+|             |                  | $S_T > K$ (Above Strike) | $S_T < K$ (Below Strike) |
+| ----------- | ---------------- | :----------------------: | :----------------------: |
+| Portfolio A | Call option      |       $S_T - K$          |          $0$             |
+|             | Zero-coupon bond |          $K$             |          $K$             |
+|             | **Total**        |         $S_T$            |          $K$             |
+| Portfolio B | Put Option       |          $0$             |       $K - S_T$          |
+|             | Share            |         $S_T$            |         $S_T$            |
+|             | **Total**        |         $S_T$            |          $K$             |
+
+Given their identical payouts at maturity, both portfolios must have the same present
+value, leading to the foundational put-call parity equation:
+
+$$c + K e^{-rT} = p + S_0$$
+
+### Arbitrage Opportunities via Put-Call Parity
+
+Consider an example where $S_0 = \$31$, $r = 10\%$, the call option price $c = \$3$, and
+the strike price $K = \$30$. The table outlines potential arbitrage strategies based on
+discrepancies in put option pricing, illustrating the mechanism for securing risk-free
+profits by leveraging the put-call parity principle.
+
+| Three-month put price = \$2.25      | Three-month put price = \$1         |
+| ----------------------------------- | ----------------------------------- |
+| *Action now:*                       | *Action now:*                       |
+| Buy call for \$3                    | Borrow \$29 for 3 months            |
+| Short put to realize \$2.25         | Short call to realize \$3           |
+| Short the stock to realize \$31     | Buy put for \$1                     |
+| Invest \$30.25 for 3 months         | Buy the stock for \$31              |
+| ...                                 |                                     |
+| *Action in 3 months if* $S_T > 30$: | *Action in 3 months if* $S_T > 30$: |
+| Receive \$31.02 from investment     | Call exercised: sell stock for \$30 |
+| Exercise call to buy stock for \$30 | Use \$29.73 to repay loan           |
+| Net profit = \$1.02                 | Net profit = \$0.27                 |
+| ...                                 |                                     |
+| *Action in 3 months if* $S_T < 30$: | *Action in 3 months if* $S_T < 30$: |
+| Receive \$31.02 from investment     | Exercise put to sell stock for \$30 |
+| Put exercised: buy stock for \$30   | Use \$29.73 to repay loan           |
+| Net profit = \$1.02                 | Net profit = \$0.27                 |
+
+### Extension to American Options
+
+While put-call parity directly applies to European options, its principles offer insight
+into the valuation boundaries of American options, which can be exercised at any time
+before expiration. In the absence of dividends, the relationship between American call
+and put prices can be expressed as:
+
+$$ S_0 - K \leq C - P \leq S_0 - Ke^{-rT} $$
+
+This range provides a basis for evaluating the relative pricing of American calls and
+puts, emphasizing the influence of early exercise rights and the absence of dividend
+payments on option valuation.
+
+## Effect of Dividends on Options
+
+The presence of dividends within the lifespan of an option introduces significant
+nuances to the valuation and strategic exercise decisions of options. This section
+delves into how known dividends impact the valuation of options, adjusting the
+traditional models to accommodate the dividend factor.
+
+When dividends are anticipated during the option's term, they must be factored into the
+option's present value. We denote the present value of expected dividends during the
+option's life as $D$. The ex-dividend date marks the occasion for these adjustments,
+impacting the strategic exercise decisions for American call options.
+
+The prospect of dividends alters the conventional wisdom that American call options
+should not be exercised early. Specifically, it may become optimal to exercise these
+options just before the ex-dividend date to capture the dividend payout.
+
+**Crucial Point:** Apart from the period just before the ex-dividend date, early
+exercise of a call option remains suboptimal.
+
+### Adjusting Lower Bound Valuations for Dividends
+
+The introduction of dividends necessitates a revision of the lower bound calculations
+for both call and put option prices:
+
+- **For Call Options:** The lower bound formula adjusts to account for the dividend's
+negative impact on the option's value, reflecting the loss of dividend income upon early
+exercise:
+$$c \geq S_0 - D - K e^{-rT}$$
+
+- **For Put Options:** Conversely, the lower bound for put options incorporates
+dividends positively, indicating an increase in value due to the potential decrease in
+the underlying stock's price upon dividend payout:
+$$p \geq D + K e^{-rT} - S_0$$
+
+### Revising Put-Call Parity with Dividends
+
+The presence of dividends also modifies the put-call parity relationship, a fundamental
+principle in options pricing:
+
+- **European Options with Dividends:** The parity formula integrates $D$ to balance the
+equation, highlighting the direct impact of dividends on the call option's lower
+valuation compared to its put counterpart:
+$$c + D + K e^{-rT} = p + S_0$$
+
+- **American Options with Dividends:** When dividends are present, the valuation bounds
+for American options adjust to reflect the diminished value of the call option due to
+potential early exercise for dividend capture:
+$$S_0 - D - K < C - P < S_0 - K e^{-rT}$$
+
+Dividends play a pivotal role in the strategic exercise and valuation of options,
+particularly affecting American call options' early exercise decisions. Adjusting option
+valuation models to account for dividends is essential for accurate pricing and
+effective investment strategy formulation.
+
+## Practice Questions and Problems
+
+### Option Profitability and Exercise Conditions
+
+1. Suppose that a European call option to buy a share for \$100.00 costs \$5.00 and is
+held until maturity. Under what circumstances will the holder of the option make a
+profit? Under what circumstances will the option be exercised? Draw a diagram
+illustrating how the profit from a long position in the option depends on the stock
+price at maturity of the option.
+2. An investor sells a European call on a share for \$4. The stock price is \$47 and the
+strike price is \$50. Under what circumstances does the investor make a profit? Under
+what circumstances will the option be exercised? Draw a diagram showing the variation of
+the investor's profit with the stock price at the maturity of the option.
+3. An investor buys a European put on a share for \$3. The stock price is \$42 and the
+strike price is \$40. Under what circumstances does the investor make a profit? Under
+what circumstances will the option be exercised? Draw a diagram showing the variation of
+the investor's profit with the stock price at the maturity of the option.
+4. Suppose that a European put option to sell a share for \$60 costs \$8 and is held
+until maturity. Under what circumstances will the seller of the option (the party with
+the short position) make a profit? Under what circumstances will the option be
+exercised? Draw a diagram illustrating how the profit from a short position in the
+option depends on the stock price at maturity of the option.
+
+### Margin Requirements, Market Choices, and Contract Adjustments
+
+5. Explain why margin accounts are required when clients write options but not when they
+buy options.
+6. A corporate treasurer is designing a hedging program involving foreign currency
+options. What are the pros and cons of using (a) the NASDAQ OMX and (b) the
+over-the-counter market for trading?
+7. The treasurer of a corporation is trying to choose between options and forward
+contracts to hedge the corporation's foreign exchange risk. Discuss the advantages and
+disadvantages of each.
+8. Consider an exchange-traded call option contract to buy 500 shares with a strike
+price of \$40 and maturity in four months. Explain how the terms of the option contract
+change when there is
+    1. A 10\% stock dividend
+    2. A 10\% cash dividend
+    3. A 4-for-1 stock split
+
+### Option Pricing Bounds
+
+9. Explain why an American option is always worth at least as much as a European option
+on the same asset with the same strike price and exercise date.
+10. Explain why an American option is always worth at least as much as its intrinsic
+value.
+11. What is a lower bound for the price of a four-month call option on a
+non-dividend-paying stock when the stock price is \$28, the strike price is \$25, and
+the risk-free interest rate is 8\% per annum?
+12. What is a lower bound for the price of a one-month European put option on a
+non-dividend paying stock when the stock price is \$12, the strike price is \$15, and
+the risk-free interest rate is 6\% per annum?
+
+### Early Exercise and Put-Call Parity
+
+13. Give at least two reasons that the early exercise of an American call option on a
+non-dividend-paying stock is not optimal.
+14. The early exercise of an American put is a trade-off between the time value of money
+and the insurance value of a put. Explain this statement.
+15. The price of a non-dividend paying stock is \$19 and the price of a three-month
+European call option on the stock with a strike price of \$20 is
+\$1. The risk-free rate is 4\% per annum. What is the price of a three-month European
+put option with a strike price of \$20?
+16. List and explain the six factors affecting stock option prices.
