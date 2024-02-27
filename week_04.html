@@ -69,6 +69,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -258,7 +287,46 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#nature-of-swaps" id="toc-nature-of-swaps" class="nav-link active" data-scroll-target="#nature-of-swaps"><span class="header-section-number">4.1</span> Nature of Swaps</a></li>
+  <li><a href="#interest-rate-swaps" id="toc-interest-rate-swaps" class="nav-link" data-scroll-target="#interest-rate-swaps"><span class="header-section-number">4.2</span> Interest Rate Swaps</a>
+  <ul class="collapse">
+  <li><a href="#typical-applications-of-interest-rate-swaps" id="toc-typical-applications-of-interest-rate-swaps" class="nav-link" data-scroll-target="#typical-applications-of-interest-rate-swaps"><span class="header-section-number">4.2.1</span> Typical Applications of Interest Rate Swaps</a></li>
+  <li><a href="#insights-from-a-swap-market-maker-citigroup" id="toc-insights-from-a-swap-market-maker-citigroup" class="nav-link" data-scroll-target="#insights-from-a-swap-market-maker-citigroup"><span class="header-section-number">4.2.2</span> Insights from a Swap Market Maker (Citigroup)</a></li>
+  </ul></li>
+  <li><a href="#the-comparative-advantage-argument" id="toc-the-comparative-advantage-argument" class="nav-link" data-scroll-target="#the-comparative-advantage-argument"><span class="header-section-number">4.3</span> The Comparative-Advantage Argument</a>
+  <ul class="collapse">
+  <li><a href="#the-case-study-aaacorp-and-bbbcorp" id="toc-the-case-study-aaacorp-and-bbbcorp" class="nav-link" data-scroll-target="#the-case-study-aaacorp-and-bbbcorp"><span class="header-section-number">4.3.1</span> The Case Study: AAACorp and BBBCorp</a></li>
+  <li><a href="#critical-analysis-of-the-comparative-advantage-argument" id="toc-critical-analysis-of-the-comparative-advantage-argument" class="nav-link" data-scroll-target="#critical-analysis-of-the-comparative-advantage-argument"><span class="header-section-number">4.3.2</span> Critical Analysis of the Comparative Advantage Argument</a></li>
+  </ul></li>
+  <li><a href="#valuation-of-interest-rate-swaps" id="toc-valuation-of-interest-rate-swaps" class="nav-link" data-scroll-target="#valuation-of-interest-rate-swaps"><span class="header-section-number">4.4</span> Valuation of Interest Rate Swaps</a>
+  <ul class="collapse">
+  <li><a href="#valuation-framework" id="toc-valuation-framework" class="nav-link" data-scroll-target="#valuation-framework"><span class="header-section-number">4.4.1</span> Valuation Framework</a></li>
+  </ul></li>
+  <li><a href="#currency-swaps" id="toc-currency-swaps" class="nav-link" data-scroll-target="#currency-swaps"><span class="header-section-number">4.5</span> Currency Swaps</a>
+  <ul class="collapse">
+  <li><a href="#case-study-british-petroleum-and-barclays-swap-agreement" id="toc-case-study-british-petroleum-and-barclays-swap-agreement" class="nav-link" data-scroll-target="#case-study-british-petroleum-and-barclays-swap-agreement"><span class="header-section-number">4.5.1</span> Case Study: British Petroleum and Barclays Swap Agreement</a></li>
+  <li><a href="#typical-applications-of-currency-swaps" id="toc-typical-applications-of-currency-swaps" class="nav-link" data-scroll-target="#typical-applications-of-currency-swaps"><span class="header-section-number">4.5.2</span> Typical Applications of Currency Swaps</a></li>
+  <li><a href="#comparative-advantage-in-currency-swaps" id="toc-comparative-advantage-in-currency-swaps" class="nav-link" data-scroll-target="#comparative-advantage-in-currency-swaps"><span class="header-section-number">4.5.3</span> Comparative Advantage in Currency Swaps</a></li>
+  </ul></li>
+  <li><a href="#valuation-of-fixed-for-fixed-currency-swaps" id="toc-valuation-of-fixed-for-fixed-currency-swaps" class="nav-link" data-scroll-target="#valuation-of-fixed-for-fixed-currency-swaps"><span class="header-section-number">4.6</span> Valuation of Fixed-for-Fixed Currency Swaps</a></li>
+  <li><a href="#other-currency-swaps" id="toc-other-currency-swaps" class="nav-link" data-scroll-target="#other-currency-swaps"><span class="header-section-number">4.7</span> Other Currency Swaps</a>
+  <ul class="collapse">
+  <li><a href="#fixed-for-floating-currency-swaps" id="toc-fixed-for-floating-currency-swaps" class="nav-link" data-scroll-target="#fixed-for-floating-currency-swaps"><span class="header-section-number">4.7.1</span> Fixed-for-Floating Currency Swaps</a></li>
+  <li><a href="#floating-for-floating-currency-swaps" id="toc-floating-for-floating-currency-swaps" class="nav-link" data-scroll-target="#floating-for-floating-currency-swaps"><span class="header-section-number">4.7.2</span> Floating-for-Floating Currency Swaps</a></li>
+  </ul></li>
+  <li><a href="#other-types-of-swaps" id="toc-other-types-of-swaps" class="nav-link" data-scroll-target="#other-types-of-swaps"><span class="header-section-number">4.8</span> Other Types of Swaps</a></li>
+  <li><a href="#practice-questions-and-problems" id="toc-practice-questions-and-problems" class="nav-link" data-scroll-target="#practice-questions-and-problems"><span class="header-section-number">4.9</span> Practice Questions and Problems</a>
+  <ul class="collapse">
+  <li><a href="#the-basic-usage-of-swaps-in-risk-management" id="toc-the-basic-usage-of-swaps-in-risk-management" class="nav-link" data-scroll-target="#the-basic-usage-of-swaps-in-risk-management"><span class="header-section-number">4.9.1</span> The Basic Usage of Swaps in Risk Management</a></li>
+  <li><a href="#comparative-advantage-and-swap-structuring" id="toc-comparative-advantage-and-swap-structuring" class="nav-link" data-scroll-target="#comparative-advantage-and-swap-structuring"><span class="header-section-number">4.9.2</span> Comparative Advantage and Swap Structuring</a></li>
+  <li><a href="#swap-valuation" id="toc-swap-valuation" class="nav-link" data-scroll-target="#swap-valuation"><span class="header-section-number">4.9.3</span> Swap Valuation</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -295,19 +363,705 @@ References
 <ul>
 <li>HULL, John. Options, futures, and other derivatives. Ninth edition. Harlow: Pearson, 2018. ISBN 978-1-292-21289-0.
 <ul>
-<li>Chapter 1 - Introduction</li>
-<li>Chapter 4 - Interest Rates</li>
+<li>Chapter 7 - Swaps</li>
 </ul></li>
 <li>PIRIE, Wendy L. Derivatives. Hoboken: Wiley, 2017. CFA institute investment series. ISBN 978-1-119-38181-5.
 <ul>
-<li>Chapter 1 - Derivative Markets and Instruments</li>
+<li>Chapter 2 - Basics of Derivative Pricing and Valuation</li>
+<li>Chapter 3 - Pricing and Valuation of Forward Commitments</li>
 </ul></li>
 </ul>
 </div>
 </div>
 <p><strong>Learning Outcomes:</strong></p>
+<ul>
+<li>Understand the fundamental principles and nature of swaps, including their purpose and functionality in financial markets.</li>
+<li>Analyze the mechanics and applications of interest rate swaps, identifying the roles of comparative advantage and valuation methods.</li>
+<li>Explore currency swaps, including their types, uses, and the valuation process for fixed-for-fixed currency swaps.</li>
+<li>Examine additional swap arrangements outside of interest rate and currency swaps, recognizing their unique features and applications.</li>
+</ul>
+<section id="nature-of-swaps" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="nature-of-swaps"><span class="header-section-number">4.1</span> Nature of Swaps</h2>
+<ul>
+<li><p><strong>Definition and Nature</strong>: A swap is an OTC contract, inherently subject to default risk due to its bilateral negotiation and customization. It represents a mutual agreement to exchange cash flows at designated times, adhering to agreed-upon rules.</p></li>
+<li><p><strong>Comparison with Forward Contracts</strong>: Unlike forward contracts, which culminate in a single cash flow exchange on a future date, swaps facilitate multiple cash-flow exchanges over time. This difference highlights swaps’ flexibility and applicability in various financial strategies.</p></li>
+<li><p>Conceptually, a swap can be viewed as a series of forward contracts bundled together. This perspective underscores its utility in hedging and financing operations, where the timing and value of cash flows are critical.</p></li>
+<li><p><strong>Value Dynamics at Inception</strong>: At the initiation of a swap, its market value is zero. This initial neutrality reflects a balance within the swap’s structure, where some forward components might hold positive value, and others, negative. Over time, the value of these components evolves, influenced by market conditions and the underlying assets’ performance.</p></li>
+</ul>
+</section>
+<section id="interest-rate-swaps" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="interest-rate-swaps"><span class="header-section-number">4.2</span> Interest Rate Swaps</h2>
+<p>This section delves into a classic example of a “Plain Vanilla” Interest Rate Swap, illustrating a transaction between two prominent entities: Apple and Citigroup. Over a three-year period, they engage in an exchange that highlights the fundamental mechanics of interest rate swaps.</p>
+<ul>
+<li><p><strong>Transaction Overview</strong>: Apple commits to paying Citigroup a fixed interest rate of 3% per annum. These payments occur bi-annually, based on a hypothetical principal amount of $100 million. Conversely, Citigroup is responsible for paying Apple based on the six-month SOFR rate, calculated against the same principal value.</p></li>
+<li><p><strong>Roles Defined</strong>: In this arrangement, Apple assumes the role of the <strong>fixed-rate payer</strong>, while Citigroup takes on the position of the <strong>floating-rate payer</strong>.</p></li>
+</ul>
+<p><img src="images/05-2-apple-citi-1.png" class="img-fluid"></p>
+<ul>
+<li><strong>Cash Flow Dynamics</strong>: The table provided outlines potential outcomes for a modified scenario where the swap duration is two years, retaining the $100 million notional principal. It details the exchange rates, corresponding cash flows, and net outcomes for Apple across several dates. This table exemplifies the variability in net cash flow resulting from fluctuations in the SOFR rate, with Apple’s position oscillating between receiving and paying funds based on these rates.</li>
+</ul>
+<table class="table">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 31%">
+<col style="width: 25%">
+<col style="width: 19%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Date</th>
+<th style="text-align: center;">SOFR rate (%)</th>
+<th style="text-align: center;">Floating cash flow received ($’000s)</th>
+<th style="text-align: center;">Fixed cash flow paid ($’000s)</th>
+<th style="text-align: center;">Net cash flow ($’000s)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">June 8, 2022</td>
+<td style="text-align: center;">2.20</td>
+<td style="text-align: center;">550</td>
+<td style="text-align: center;">750</td>
+<td style="text-align: center;">-200</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Sept.&nbsp;8, 2022</td>
+<td style="text-align: center;">2.60</td>
+<td style="text-align: center;">650</td>
+<td style="text-align: center;">750</td>
+<td style="text-align: center;">-100</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Dec.&nbsp;8, 2022</td>
+<td style="text-align: center;">2.80</td>
+<td style="text-align: center;">700</td>
+<td style="text-align: center;">750</td>
+<td style="text-align: center;">-50</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Mar.&nbsp;8, 2023</td>
+<td style="text-align: center;">3.10</td>
+<td style="text-align: center;">775</td>
+<td style="text-align: center;">750</td>
+<td style="text-align: center;">+25</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">June 8, 2023</td>
+<td style="text-align: center;">3.30</td>
+<td style="text-align: center;">825</td>
+<td style="text-align: center;">750</td>
+<td style="text-align: center;">+75</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Sept.&nbsp;8, 2023</td>
+<td style="text-align: center;">3.40</td>
+<td style="text-align: center;">850</td>
+<td style="text-align: center;">750</td>
+<td style="text-align: center;">+100</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Dec.&nbsp;8, 2023</td>
+<td style="text-align: center;">3.60</td>
+<td style="text-align: center;">900</td>
+<td style="text-align: center;">750</td>
+<td style="text-align: center;">+150</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Mar.&nbsp;8, 2024</td>
+<td style="text-align: center;">3.80</td>
+<td style="text-align: center;">950</td>
+<td style="text-align: center;">750</td>
+<td style="text-align: center;">+200</td>
+</tr>
+</tbody>
+</table>
+<section id="typical-applications-of-interest-rate-swaps" class="level3" data-number="4.2.1">
+<h3 data-number="4.2.1" class="anchored" data-anchor-id="typical-applications-of-interest-rate-swaps"><span class="header-section-number">4.2.1</span> Typical Applications of Interest Rate Swaps</h3>
+<p>Interest rate swaps serve as versatile financial instruments, facilitating strategic adjustments to both liabilities and assets. Entities utilize these swaps to modify their interest rate exposure, transitioning between fixed and floating rates as per their financial strategies or market outlook.</p>
+<ul>
+<li>Apple Transforms a <strong>Liability</strong> from Floating to Fixed:</li>
+</ul>
+<p><img src="images/05-3-apple-citi-2.png" class="img-fluid"></p>
+<ul>
+<li>Intel Transforms a <strong>Liability</strong> from Fixed to Floating:</li>
+</ul>
+<p><img src="images/05-5-intel-citi-2.png" class="img-fluid"></p>
+<ul>
+<li>Apple Transforms an <strong>Asset</strong> from Fixed to Floating:</li>
+</ul>
+<p><img src="images/05-6-apple-citi-3.png" class="img-fluid"></p>
+<ul>
+<li>Intel Transforms an <strong>Asset</strong> from Floating to Fixed:</li>
+</ul>
+<p><img src="images/05-7-intel-citi-3.png" class="img-fluid"></p>
+</section>
+<section id="insights-from-a-swap-market-maker-citigroup" class="level3" data-number="4.2.2">
+<h3 data-number="4.2.2" class="anchored" data-anchor-id="insights-from-a-swap-market-maker-citigroup"><span class="header-section-number">4.2.2</span> Insights from a Swap Market Maker (Citigroup)</h3>
+<ul>
+<li><strong>Market Quotations</strong>: This section offers a glimpse into the swap market’s dynamics, presenting Citigroup’s bid and offer rates for fixed-rate swaps with varying maturities. The bid-offer spread, typically ranging from three to four basis points, reflects the market maker’s pricing strategy and the liquidity of swap contracts across different terms.</li>
+</ul>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Maturity (years)</th>
+<th style="text-align: center;">Bid</th>
+<th style="text-align: center;">Ask</th>
+<th style="text-align: center;">Swap rate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2.97</td>
+<td style="text-align: center;">3.00</td>
+<td style="text-align: center;">2.985</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3.05</td>
+<td style="text-align: center;">3.08</td>
+<td style="text-align: center;">3.065</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">3.15</td>
+<td style="text-align: center;">3.19</td>
+<td style="text-align: center;">3.170</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">3.26</td>
+<td style="text-align: center;">3.30</td>
+<td style="text-align: center;">3.280</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">3.40</td>
+<td style="text-align: center;">3.44</td>
+<td style="text-align: center;">3.420</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">3.48</td>
+<td style="text-align: center;">3.52</td>
+<td style="text-align: center;">3.500</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="the-comparative-advantage-argument" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="the-comparative-advantage-argument"><span class="header-section-number">4.3</span> The Comparative-Advantage Argument</h2>
+<p>The comparative-advantage argument forms a foundational concept in the realm of financial swaps, particularly illuminating why and how companies engage in interest rate swaps to optimize their borrowing costs. At the heart of this argument is the strategic alignment of borrowing preferences with market conditions to leverage comparative advantages.</p>
+<section id="the-case-study-aaacorp-and-bbbcorp" class="level3" data-number="4.3.1">
+<h3 data-number="4.3.1" class="anchored" data-anchor-id="the-case-study-aaacorp-and-bbbcorp"><span class="header-section-number">4.3.1</span> The Case Study: AAACorp and BBBCorp</h3>
+<p>Consider two hypothetical entities: AAACorp, which prefers to borrow using floating interest rates, and BBBCorp, which opts for fixed-rate borrowing. Their respective borrowing rates are tabled below, illustrating the differential costs of borrowing in fixed versus floating rate markets:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Entity</th>
+<th style="text-align: center;">Fixed Rate</th>
+<th style="text-align: center;">Floating Rate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">AAACorp</td>
+<td style="text-align: center;">4.0%</td>
+<td style="text-align: center;">Floating - 0.1%</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">BBBCorp</td>
+<td style="text-align: center;">5.2%</td>
+<td style="text-align: center;">Floating + 0.6%</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Direct Swap</strong>: Initially, let’s explore a scenario where AAACorp and BBBCorp engage in a direct swap agreement. This entails AAACorp borrowing at its preferred floating rate and BBBCorp at its preferred fixed rate, followed by an exchange of their respective financial obligations. The direct swap mechanism is visually represented as follows:</li>
+</ul>
+<p><img src="images/05-10-swap-directly.png" class="img-fluid"></p>
+<ul>
+<li><strong>Indirect Swap via Financial Institution</strong>: In a more complex structure, a financial institution plays an intermediary role, facilitating the swap between AAACorp and BBBCorp. This arrangement often introduces efficiencies and reduces the direct negotiation complexities between the companies:</li>
+</ul>
+<p><img src="images/05-11-swap-indirectly.png" class="img-fluid"></p>
+</section>
+<section id="critical-analysis-of-the-comparative-advantage-argument" class="level3" data-number="4.3.2">
+<h3 data-number="4.3.2" class="anchored" data-anchor-id="critical-analysis-of-the-comparative-advantage-argument"><span class="header-section-number">4.3.2</span> Critical Analysis of the Comparative Advantage Argument</h3>
+<p>While the comparative-advantage argument underpins the financial logic for interest rate swaps, it is not without criticism, particularly when scrutinizing the underlying rates’ term structure:</p>
+<ul>
+<li><p><strong>Rate Term Disparity</strong>: The fixed rates quoted (4.0% for AAACorp and 5.2% for BBBCorp) pertain to 5-year borrowing, whereas the floating rates (Floating - 0.1% for AAACorp and Floating + 0.6% for BBBCorp) are based on 6-month terms. This discrepancy in rate terms introduces complexities in directly comparing and assessing the advantages of one type of rate over the other.</p></li>
+<li><p><strong>Future Rate Uncertainty for BBBCorp</strong>: BBBCorp’s future borrowing costs, especially its fixed rate, are contingent upon the spread above the floating rate at which it borrows subsequently. This introduces an element of uncertainty and risk, particularly in fluctuating interest rate environments.</p></li>
+</ul>
+</section>
+</section>
+<section id="valuation-of-interest-rate-swaps" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="valuation-of-interest-rate-swaps"><span class="header-section-number">4.4</span> Valuation of Interest Rate Swaps</h2>
+<p>Interest rate swaps are sophisticated financial instruments utilized to manage interest rate exposure. Initially, their valuation is approximately zero, reflecting an equitable initiation of terms. As market conditions evolve, their value can fluctuate significantly. This dynamic nature requires a detailed understanding of valuation techniques, notably through the lens of Forward Rate Agreements (FRAs).</p>
+<section id="valuation-framework" class="level3" data-number="4.4.1">
+<h3 data-number="4.4.1" class="anchored" data-anchor-id="valuation-framework"><span class="header-section-number">4.4.1</span> Valuation Framework</h3>
+<p>The valuation process encompasses several steps, designed to ascertain the present value of the swap’s anticipated cash flows:</p>
+<ol type="1">
+<li><p><strong>Floating Forward Rates Calculation</strong>: This initial step involves projecting future interest rates based on current market data, which will determine the floating rate payments of the swap.</p></li>
+<li><p><strong>Swap Cash Flows Determination</strong>: By applying the calculated forward rates, one can estimate the future cash flows for both fixed and floating legs of the swap.</p></li>
+<li><p><strong>Cash Flow Discounting</strong>: The future cash flows are then discounted back to their present value using risk-free rates, typically Overnight Indexed Swap (OIS) rates, to reflect the time value of money and credit risk.</p></li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example: Swap Valuation
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<section id="swap-agreement-overview" class="level4">
+<h4 class="anchored" data-anchor-id="swap-agreement-overview">Swap Agreement Overview</h4>
+<ul>
+<li><strong>Nature of Swap</strong>: This transaction entails an exchange where one party pays a fixed annual rate of 3% and receives the SOFR semi-annually on a principal of $100 million.</li>
+<li><strong>Remaining Duration</strong>: The swap has a remaining term of 1.2 years with scheduled exchanges occurring at 0.2, 0.7, and 1.2 years.</li>
+<li><strong>Risk-Free Rates</strong>: The Overnight Indexed Swap (OIS) zero rates applicable for maturities of 3, 9, and 15 months are respectively set at 2.8%, 3.2%, and 3.4%.</li>
+<li><strong>Historical SOFR Rate</strong>: The SOFR rate for the upcoming exchange in 3 months has been previously fixed at 2.9%.</li>
+<li><strong>Forward SOFR Rates</strong>: Projected forward SOFR rates for exchanges at 0.2, 0.7, and 1.2 years, considering both continuous and semi-annual compounding, are as follows:
+<ul>
+<li>Continuous compounding rates: 2.50%, 3.36%, 3.68%</li>
+<li>Semi-annual compounding rates: 2.516%, 3.388%, 3.714%</li>
+</ul></li>
+</ul>
+</section>
+<section id="cash-flow-valuation" class="level4">
+<h4 class="anchored" data-anchor-id="cash-flow-valuation">Cash Flow Valuation</h4>
+<p>The valuation process meticulously calculates the fixed and floating cash flows, their net impact, and their present values as detailed in the table below. These calculations employ the forward SOFR rates and discount them using the corresponding OIS rates to ascertain the swap’s current value.</p>
+<table class="table">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 17%">
+<col style="width: 19%">
+<col style="width: 16%">
+<col style="width: 9%">
+<col style="width: 27%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Time (years)</th>
+<th>Fixed Cash Flow (USD million)</th>
+<th>Floating Cash Flow (USD million)</th>
+<th>Net Cash Flow (USD million)</th>
+<th>Discount Factor</th>
+<th>Present Value of Net Cash Flow (USD million)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0.2</td>
+<td>-1.500</td>
+<td>+1.258</td>
+<td>-0.242</td>
+<td>0.9944</td>
+<td>-0.241</td>
+</tr>
+<tr class="even">
+<td>0.7</td>
+<td>-1.500</td>
+<td>+1.694</td>
+<td>+0.194</td>
+<td>0.9778</td>
+<td>+0.190</td>
+</tr>
+<tr class="odd">
+<td>1.2</td>
+<td>-1.500</td>
+<td>+1.857</td>
+<td>+0.357</td>
+<td>0.9600</td>
+<td>+0.343</td>
+</tr>
+<tr class="even">
+<td><strong>Total</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><strong>+0.292</strong></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p><strong>Fixed Cash Flow Calculation</strong>: At 0.7 years, the fixed payment is calculated as <span class="math inline">\(0.5
+\times 0.03 \times 100 = -\$1.5 \text{million}\)</span>.</p></li>
+<li><p><strong>Floating Cash Flow Projection</strong>: The floating cash flow, based on the semi-annual compounding forward rate for 0.7 years (3.388%), is <span class="math inline">\(0.5 \times 0.03388 \times 100 =
+\$1.694 \text{million}\)</span>.</p></li>
+<li><p><strong>Net Cash Flow and Present Value</strong>: The resulting net cash flow of $0.194 million is then discounted using the exponential factor derived from the OIS rate for 0.7 years (<span class="math inline">\(e^{-0.032 \times 0.7} = 0.9778\)</span>), leading to a present value of $0.190 million.</p></li>
+</ul>
+<p>The swap’s value, a summation of the present values of net cash flows across all time points, is calculated to be $0.292 million.</p>
+<p>It’s crucial to acknowledge the approximation inherent in these calculations due to the exclusion of factors such as holiday calendars and day count conventions, which can affect precise cash flow timings and amounts.</p>
+</section>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="currency-swaps" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="currency-swaps"><span class="header-section-number">4.5</span> Currency Swaps</h2>
+<p>Currency swaps are intricate financial instruments that facilitate the exchange of principal and interest payments in different currencies between two parties. A fixed-for-fixed currency swap involves exchanging fixed interest rate payments in one currency for fixed interest rate payments in another currency, alongside the exchange of principal amounts at both the start and end of the agreement.</p>
+<section id="case-study-british-petroleum-and-barclays-swap-agreement" class="level3" data-number="4.5.1">
+<h3 data-number="4.5.1" class="anchored" data-anchor-id="case-study-british-petroleum-and-barclays-swap-agreement"><span class="header-section-number">4.5.1</span> Case Study: British Petroleum and Barclays Swap Agreement</h3>
+<ul>
+<li><strong>Agreement Overview</strong>: British Petroleum enters into a five-year currency swap with Barclays, where British Petroleum agrees to pay a fixed interest rate of 3% in U.S. dollars and receives a fixed interest rate of 4% in British pounds sterling.</li>
+<li><strong>Principal Exchange</strong>: The principal amounts involved are USD 15 million and GBP 10 million, exchanged at the inception and conclusion of the swap term.</li>
+<li><strong>Interest Payment Schedule</strong>: Interest is paid annually, reflecting the fixed rates agreed upon in both currencies.</li>
+</ul>
+<p>The table below outlines the yearly cash flows resulting from this swap, highlighting the exchange of principal and interest payments between British Petroleum and Barclays:</p>
+<table class="table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 37%">
+<col style="width: 39%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Date</th>
+<th style="text-align: center;">Dollar Cash Flow (millions)</th>
+<th style="text-align: center;">Sterling Cash Flow (millions)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">February 1, 2022</td>
+<td style="text-align: center;">+15.00</td>
+<td style="text-align: center;">-10.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">February 1, 2023</td>
+<td style="text-align: center;">-0.45</td>
+<td style="text-align: center;">+0.40</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">February 1, 2024</td>
+<td style="text-align: center;">-0.45</td>
+<td style="text-align: center;">+0.40</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">February 1, 2025</td>
+<td style="text-align: center;">-0.45</td>
+<td style="text-align: center;">+0.40</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">February 1, 2026</td>
+<td style="text-align: center;">-0.45</td>
+<td style="text-align: center;">+0.40</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">February 1, 2027</td>
+<td style="text-align: center;">-15.45</td>
+<td style="text-align: center;">+10.40</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="typical-applications-of-currency-swaps" class="level3" data-number="4.5.2">
+<h3 data-number="4.5.2" class="anchored" data-anchor-id="typical-applications-of-currency-swaps"><span class="header-section-number">4.5.2</span> Typical Applications of Currency Swaps</h3>
+<p>Currency swaps serve versatile functions in global finance, including but not limited to:</p>
+<ul>
+<li><p><strong>Liability Management</strong>: They enable entities to convert liabilities from one currency to another, aligning with their currency exposure preferences or expectations.</p></li>
+<li><p><strong>Investment Optimization</strong>: Similarly, currency swaps can convert investments from one currency to another, facilitating global investment strategies that match investors’ risk and return profiles.</p></li>
+</ul>
+</section>
+<section id="comparative-advantage-in-currency-swaps" class="level3" data-number="4.5.3">
+<h3 data-number="4.5.3" class="anchored" data-anchor-id="comparative-advantage-in-currency-swaps"><span class="header-section-number">4.5.3</span> Comparative Advantage in Currency Swaps</h3>
+<p>Comparative advantage in currency swaps can emerge from various factors, including the differential impact of taxation on borrowing costs across different currencies.</p>
+<ul>
+<li><p><strong>Scenario</strong>: General Electric seeks to borrow in Australian dollars (AUD), while Qantas Airways aims to borrow in U.S. dollars (USD).</p></li>
+<li><p><strong>Borrowing Costs</strong>: After tax adjustments, the borrowing costs for each entity in their non-preferred currencies reveal a potential for mutual benefit through a currency swap.</p></li>
+</ul>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;">USD</th>
+<th style="text-align: center;">AUD</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">General Electric</td>
+<td style="text-align: center;">5.0%</td>
+<td style="text-align: center;">7.6%</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Qantas Airways</td>
+<td style="text-align: center;">7.0%</td>
+<td style="text-align: center;">8.0%</td>
+</tr>
+</tbody>
+</table>
+<p><img src="images/05-17-currency-swap.png" class="img-fluid"></p>
+</section>
+</section>
+<section id="valuation-of-fixed-for-fixed-currency-swaps" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="valuation-of-fixed-for-fixed-currency-swaps"><span class="header-section-number">4.6</span> Valuation of Fixed-for-Fixed Currency Swaps</h2>
+<p>Fixed-for-fixed currency swaps are complex financial instruments that involve exchanging fixed interest payments in two different currencies. The essence of valuing these swaps lies in understanding that each payment exchange represents a forward contract on currencies. The valuation process hinges on the assumption that forward exchange rates, as determined by the market’s expectations of future currency values, will be realized.</p>
+<p>The valuation of a fixed-for-fixed currency swap can be methodically approached by considering the swap as a series of forward foreign exchange contracts. Each of these contracts can be valued based on the premise that the forward exchange rates, agreed upon at the initiation of the contract, accurately predict future exchange rates.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example: Valuation of Currency Swap
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Consider a swap agreement involving the exchange of interest payments in Japanese yen and U.S. dollars, with the following parameters:</p>
+<ul>
+<li><strong>Interest Rates</strong>: Japanese yen interest rates are fixed at 1.5% per annum with continuous compounding, while U.S. dollar interest rates are fixed at 2.5% per annum with continuous compounding.</li>
+<li><strong>Swap Payments</strong>: Annually, 3% interest is received in yen, and 4% interest is paid in dollars.</li>
+<li><strong>Principal Amounts</strong>: The principal amounts involved are $10 million and 1,200 million yen.</li>
+<li><strong>Swap Duration</strong>: The swap has a remaining life of 3 years.</li>
+<li><strong>Current Exchange Rate</strong>: The spot exchange rate is 110 yen per dollar.</li>
+</ul>
+<table class="table">
+<colgroup>
+<col style="width: 7%">
+<col style="width: 15%">
+<col style="width: 13%">
+<col style="width: 12%">
+<col style="width: 22%">
+<col style="width: 13%">
+<col style="width: 13%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Time (years)</th>
+<th>Dollar Cash Flow (million)</th>
+<th>Yen Cash Flow (million)</th>
+<th>Forward Exchange Rate</th>
+<th>Dollar Value of Yen Cash Flow (million)</th>
+<th>Net Cash Flow (million)</th>
+<th>Present Value (million)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>-0.4</td>
+<td>+36</td>
+<td>0.009182</td>
+<td>0.3306</td>
+<td>-0.0694</td>
+<td>-0.0677</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>-0.4</td>
+<td>+36</td>
+<td>0.009275</td>
+<td>0.3339</td>
+<td>-0.0661</td>
+<td>-0.0629</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>-10.4</td>
+<td>+1236</td>
+<td>0.009368</td>
+<td>11.5786</td>
+<td>+1.1786</td>
+<td>+1.0934</td>
+</tr>
+<tr class="even">
+<td><strong>Total</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><strong>+0.9629</strong></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Annual Payments</strong>: The institution commits to an annual payment of $0.4 million in U.S. dollars (calculated as <span class="math inline">\(0.04 \times 10\)</span>) while receiving 36 million yen (calculated as <span class="math inline">\(1,200 \times 0.03\)</span>).</li>
+<li><strong>Principal Exchange</strong>: At the end of the third year, a principal payment of $10 million is made in dollars, and a reciprocal receipt of 1,200 million yen is recorded.</li>
+<li><strong>Spot Exchange Rate</strong>: The initial exchange rate stands at <span class="math inline">\(1/110 = 0.009091\)</span> dollars per yen, serving as the basis for forward rate calculations.</li>
+</ul>
+<p>The valuation intricately relies on the forward exchange rates, derived from the differential in continuous compounding interest rates between the two currencies:</p>
+<ul>
+<li><strong>Interest Rates</strong>: The domestic (USD) and foreign (JPY) interest rates are set at 2.5% (<span class="math inline">\(r\)</span>) and 1.5% (<span class="math inline">\(r_f\)</span>), respectively.</li>
+<li><strong>Forward Rate for Year 1</strong>: The one-year forward exchange rate is calculated as <span class="math inline">\(0.009091 \times e^{(0.025-0.015) \times 1} = 0.009182\)</span>, reflecting the expected exchange rate in one year based on interest rate differentials.</li>
+<li><strong>Subsequent Years’ Rates</strong>: Forward rates for years two and three are similarly derived, adjusting for the respective time periods.</li>
+</ul>
+<p>The forward exchange rates are pivotal in valuing the yen-denominated cash flows in dollars, subsequently determining the net cash flow and its present value:</p>
+<ul>
+<li><strong>Year 1 Valuation</strong>: The yen cash flow’s conversion at the one-year forward rate yields <span class="math inline">\(36 \times 0.009182 = 0.3306\)</span> million dollars. The net cash flow, after accounting for the dollar payment, stands at <span class="math inline">\(0.3306 - 0.4 = -0.0694\)</span> million dollars.</li>
+<li><strong>Present Value Calculation</strong>: The present value of the year 1 net cash flow is calculated as <span class="math inline">\(-0.0694 \times e^{-0.025 \times 1} = -0.0677\)</span> million dollars, applying the domestic interest rate for discounting.</li>
+<li>Similar methodologies are applied for the cash flows in years two and three, ensuring that each forward contract’s value is accurately captured.</li>
+</ul>
+<p>The aggregate value of the forward contracts, representing the net present value of all future cash flows under the swap agreement, culminates in a total of <span class="math inline">\(\$0.9629\)</span> million. This valuation encapsulates the financial institution’s gain from the swap, assuming that the calculated forward rates are realized as projected.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="other-currency-swaps" class="level2" data-number="4.7">
+<h2 data-number="4.7" class="anchored" data-anchor-id="other-currency-swaps"><span class="header-section-number">4.7</span> Other Currency Swaps</h2>
+<section id="fixed-for-floating-currency-swaps" class="level3" data-number="4.7.1">
+<h3 data-number="4.7.1" class="anchored" data-anchor-id="fixed-for-floating-currency-swaps"><span class="header-section-number">4.7.1</span> Fixed-for-Floating Currency Swaps</h3>
+<p>A fixed-for-floating currency swap is a hybrid financial instrument that combines elements of a fixed-for-fixed currency swap with a fixed-for-floating interest rate swap. This type of swap involves the exchange of fixed interest payments in one currency for floating interest payments in another currency.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Consider an agreement where a party pays a floating interest rate on a GBP 7 million principal and receives a fixed 3% interest rate on a USD 10 million principal, with semiannual payments over a period of 10 years. This can be further dissected into:</p>
+<ol type="1">
+<li><p>A currency swap component where 3% fixed interest on a USD 10 million principal is received in exchange for paying a 4% fixed interest on a GBP 7 million principal.</p></li>
+<li><p>An interest rate swap component where a 4% fixed interest is received, and a sterling floating interest rate is paid on a notional GBP 7 million principal.</p></li>
+</ol>
+</div>
+</div>
+</section>
+<section id="floating-for-floating-currency-swaps" class="level3" data-number="4.7.2">
+<h3 data-number="4.7.2" class="anchored" data-anchor-id="floating-for-floating-currency-swaps"><span class="header-section-number">4.7.2</span> Floating-for-Floating Currency Swaps</h3>
+<p>Floating-for-floating currency swaps involve the exchange of floating interest payments in two different currencies. This type of swap is essentially a combination of a fixed-for-fixed currency swap and two floating interest rate swaps.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>An example of this swap could involve exchanging sterling floating interest payments on a GBP 7 million principal for dollar floating interest payments on a USD 10 million principal. This arrangement can be broken down into:</p>
+<ol type="1">
+<li><p>A base swap where 3% fixed interest on a USD 10 million principal is exchanged for 4% fixed interest on a GBP 7 million principal.</p></li>
+<li><p>An interest rate swap where 4% fixed interest is exchanged for sterling floating interest on a GBP 7 million principal.</p></li>
+<li><p>An additional interest rate swap where 3% fixed interest is paid in exchange for receiving USD floating interest on a USD 10 million principal.</p></li>
+</ol>
+</div>
+</div>
+</section>
+</section>
+<section id="other-types-of-swaps" class="level2" data-number="4.8">
+<h2 data-number="4.8" class="anchored" data-anchor-id="other-types-of-swaps"><span class="header-section-number">4.8</span> Other Types of Swaps</h2>
+<p>Beyond the conventional currency and interest rate swaps, the derivatives market offers a variety of specialized swaps designed to meet diverse financial needs and strategies. These include:</p>
+<ul>
+<li><p><strong>Amortizing/Step-Up Swaps</strong>: These involve gradually increasing or decreasing notional principal amounts, typically to match the amortization of an underlying asset or liability.</p></li>
+<li><p><strong>Compounding Swap</strong>: Involves the reinvestment of periodic interest payments to compound over the life of the swap.</p></li>
+<li><p><strong>Constant Maturity Swap (CMS)</strong>: The swap’s interest rate is reset periodically based on the rate of a constant maturity instrument, such as a 10-year Treasury note.</p></li>
+<li><p><strong>LIBOR-in-Arrears Swap</strong>: The interest rate is determined at the end of the payment period rather than the beginning, introducing additional risk and potential reward.</p></li>
+<li><p><strong>Accrual Swap</strong>: Interest accruals are contingent on the performance of a benchmark rate or index, potentially pausing under certain conditions.</p></li>
+<li><p><strong>Equity Swap</strong>: Involves the exchange of the returns of an equity asset with those of another financial instrument, which can be fixed or floating rate interest.</p></li>
+<li><p><strong>Cross Currency Interest Rate Swap</strong>: A variant of currency swaps where both legs of the swap are in different currencies and at least one leg is a floating interest rate.</p></li>
+<li><p><strong>Floating-for-Floating Currency Swap</strong>: Both parties exchange floating interest rate payments in different currencies.</p></li>
+<li><p><strong>Diff Swap</strong>: An interest rate differential swap, where payments are based on the difference between two reference rates.</p></li>
+<li><p><strong>Commodity Swap</strong>: Involves exchanging a fixed price for a commodity for its floating market price over the term of the swap.</p></li>
+<li><p><strong>Variance Swap</strong>: A forward contract on future volatility; the payments are based on the variance of a specified underlying asset.</p></li>
+</ul>
+<p>The diversity of swap instruments in financial markets allows for tailored risk management and investment strategies. Whether through modifying payment structures, leveraging different types of rates (fixed, floating, or equity-based), or engaging in swaps based on commodities or variances, these instruments offer significant flexibility and potential for hedging, speculation, or arbitrage. Understanding the nuances and applications of each type is essential for effective financial management and strategy development.</p>
+</section>
+<section id="practice-questions-and-problems" class="level2" data-number="4.9">
+<h2 data-number="4.9" class="anchored" data-anchor-id="practice-questions-and-problems"><span class="header-section-number">4.9</span> Practice Questions and Problems</h2>
+<section id="the-basic-usage-of-swaps-in-risk-management" class="level3" data-number="4.9.1">
+<h3 data-number="4.9.1" class="anchored" data-anchor-id="the-basic-usage-of-swaps-in-risk-management"><span class="header-section-number">4.9.1</span> The Basic Usage of Swaps in Risk Management</h3>
+<p><strong>1)</strong> A bank finds that its assets are not matched with its liabilities. It is taking floating-rate deposits and making fixed-rate loans. How can swaps be used to offset the risk?</p>
+<p><strong>2)</strong> Explain the difference between the credit risk and the market risk in a financial contract.</p>
+<p><strong>3)</strong> Explain why a bank is subject to credit risk when it enters into two offsetting swap contracts.</p>
+<p><strong>4)</strong> Why is the expected loss from a default on a swap less than the expected loss from the default on a loan to the same counterparty with the same principal?</p>
+</section>
+<section id="comparative-advantage-and-swap-structuring" class="level3" data-number="4.9.2">
+<h3 data-number="4.9.2" class="anchored" data-anchor-id="comparative-advantage-and-swap-structuring"><span class="header-section-number">4.9.2</span> Comparative Advantage and Swap Structuring</h3>
+<p><strong>5)</strong> A corporate treasurer tells you that he has just negotiated a five-year loan at a competitive fixed rate of interest of 5.2%. The treasurer explains that he achieved the 5.2% rate by borrowing at six-month LIBOR plus 150 basis points and swapping LIBOR for 3.7%. He goes on to say that this was possible because his company has a comparative advantage in the floating-rate market. What has the treasurer overlooked?</p>
+<p><strong>6)</strong> Companies A and B have been offered the following rates per annum on a $20 million five-year loan:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;">Fixed Rate</th>
+<th style="text-align: center;">Floating Rate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Company A</td>
+<td style="text-align: center;">5.0%</td>
+<td style="text-align: center;">Floating + 0.1%</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Company B</td>
+<td style="text-align: center;">6.4%</td>
+<td style="text-align: center;">Floating + 0.6%</td>
+</tr>
+</tbody>
+</table>
+<p>Company A requires a floating-rate loan; company B requires a fixed-rate loan. Design a swap that will net a bank, acting as intermediary, 0.1% per annum and that will appear equally attractive to both companies.</p>
+<p><strong>7)</strong> Company X wishes to borrow U.S. dollars at a fixed rate of interest. Company Y wishes to borrow Japanese yen at a fixed rate of interest. The amounts required by the two companies are roughly the same at the current exchange rate. The companies have been quoted the following interest rates, which have been adjusted for the impact of taxes:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;">Yen</th>
+<th style="text-align: center;">Dollars</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Company X</td>
+<td style="text-align: center;">5.0%</td>
+<td style="text-align: center;">9.6%</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Company Y</td>
+<td style="text-align: center;">6.5%</td>
+<td style="text-align: center;">10.0%</td>
+</tr>
+</tbody>
+</table>
+<p>Design a swap that will net a bank, acting as intermediary, 50 basis points per annum. Make the swap equally attractive to the two companies and ensure that all foreign exchange risk is assumed by the bank.</p>
+<p><strong>8)</strong> Companies X and Y have been offered the following rates per annum on a $5 million 10-year investment:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;">Fixed Rate</th>
+<th style="text-align: center;">Floating Rate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Company X</td>
+<td style="text-align: center;">8.0%</td>
+<td style="text-align: center;">Floating</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Company Y</td>
+<td style="text-align: center;">8.8%</td>
+<td style="text-align: center;">Floating</td>
+</tr>
+</tbody>
+</table>
+<p>Company X requires a fixed-rate investment; company Y requires a floating-rate investment. Design a swap that will net a bank, acting as intermediary, 0.2% per annum and will appear equally attractive to X and Y.</p>
+</section>
+<section id="swap-valuation" class="level3" data-number="4.9.3">
+<h3 data-number="4.9.3" class="anchored" data-anchor-id="swap-valuation"><span class="header-section-number">4.9.3</span> Swap Valuation</h3>
+<p><strong>9)</strong> A $100 million interest rate swap has a remaining life of 10 months. Under the terms of the swap, six-month LIBOR is exchanged for 7% per annum (compounded semiannually). The average of the bid-offer rate being exchanged for six-month LIBOR in swaps of all maturities is currently 5% per annum with continuous compounding (5.063% with semi-annual compounding). The six-month LIBOR rate was 4.6% per annum two months ago. What is the current value of the swap to the party paying floating? What is its value to the party paying fixed?</p>
+<p><strong>10)</strong> A currency swap has a remaining life of 15 months. It involves exchanging interest at 10% on 20 million GBP for interest at 6% on 30 million USD once a year. The term structure of interest rates in both the United Kingdom and the United States is currently flat, and if the swap were negotiated today the interest rates exchanged would be 4% in dollars and 7% in sterling. All interest rates are quoted with annual compounding (the continuously compounded interest rates in sterling and dollars are 6.766% per annum and 3.922% per annum). The current exchange rate (dollars per pound sterling) is 1.5500. What is the value of the swap to the party paying sterling? What is the value of the swap to the party paying dollars?</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
