@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.549">
+<meta name="generator" content="quarto-1.4.550">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -314,11 +314,7 @@ window.Quarto = {
   <li><a href="#the-cost-of-carry" id="toc-the-cost-of-carry" class="nav-link" data-scroll-target="#the-cost-of-carry"><span class="header-section-number">3.6.4</span> The Cost of Carry</a></li>
   </ul></li>
   <li><a href="#futures-prices-and-expected-spot-prices" id="toc-futures-prices-and-expected-spot-prices" class="nav-link" data-scroll-target="#futures-prices-and-expected-spot-prices"><span class="header-section-number">3.7</span> Futures Prices and Expected Spot Prices</a></li>
-  <li><a href="#forward-rate-agreement-fra" id="toc-forward-rate-agreement-fra" class="nav-link" data-scroll-target="#forward-rate-agreement-fra"><span class="header-section-number">3.8</span> Forward Rate Agreement (FRA)</a>
-  <ul class="collapse">
-  <li><a href="#advantages-of-using-fras" id="toc-advantages-of-using-fras" class="nav-link" data-scroll-target="#advantages-of-using-fras"><span class="header-section-number">3.8.1</span> Advantages of Using FRAs</a></li>
-  <li><a href="#valuation-and-pricing" id="toc-valuation-and-pricing" class="nav-link" data-scroll-target="#valuation-and-pricing"><span class="header-section-number">3.8.2</span> Valuation and Pricing</a></li>
-  </ul></li>
+  <li><a href="#forward-rate-agreement-fra" id="toc-forward-rate-agreement-fra" class="nav-link" data-scroll-target="#forward-rate-agreement-fra"><span class="header-section-number">3.8</span> Forward Rate Agreement (FRA)</a></li>
   <li><a href="#practice-questions-and-problems" id="toc-practice-questions-and-problems" class="nav-link" data-scroll-target="#practice-questions-and-problems"><span class="header-section-number">3.9</span> Practice Questions and Problems</a>
   <ul class="collapse">
   <li><a href="#basics-of-forward-and-futures-contracts" id="toc-basics-of-forward-and-futures-contracts" class="nav-link" data-scroll-target="#basics-of-forward-and-futures-contracts"><span class="header-section-number">3.9.1</span> Basics of Forward and Futures Contracts</a></li>
@@ -640,19 +636,16 @@ Contango and Backwardation
 </section>
 <section id="forward-rate-agreement-fra" class="level2" data-number="3.8">
 <h2 data-number="3.8" class="anchored" data-anchor-id="forward-rate-agreement-fra"><span class="header-section-number">3.8</span> Forward Rate Agreement (FRA)</h2>
-<p>A Forward Rate Agreement (FRA) is a financial contract between two parties to exchange interest payments for a predetermined amount of principal at a future date. The agreement allows one party to pay a fixed interest rate and receive a floating interest rate, or vice versa. The key characteristics of FRAs make them valuable tools for financial risk management and speculation.</p>
-<p>LIBOR (London Interbank Offered Rate) has been the predominant reference rate for FRAs. However, with the phase-out of LIBOR, alternative reference rates such as SOFR (Secured Overnight Financing Rate) and SONIA (Sterling Overnight Index Average) are gaining prominence.</p>
+<p>An FRA is a financial contract that allows parties to exchange a fixed interest rate for a floating rate (often based on LIBOR, SOFR, or SONIA) at a future date, applied to a specified principal amount. The agreement does not involve the exchange of principal but rather the difference in interest payments based on the agreed rates. The value of an FRA at inception is zero, as the fixed rate equals the forward rate. The value changes as the forward rate changes over time.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Example: FRA
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Consider an FRA where Party A and Party B agree to exchange a fixed rate of 3% for three-month SOFR on a principal of $100 million in two years. The interest rates are compounded quarterly.</p>
 <ul>
@@ -663,23 +656,84 @@ Example: FRA
 <p>This amount would ideally be paid at 2.25 years. However, considering the advance determination of SOFR, the actual payment is adjusted to its present value and made at the 2-year mark (discounted for three months at 3.5%).</p>
 </div>
 </div>
+<ul>
+<li><strong>Zero Rates</strong>: The n-year zero rate (or spot rate) is the interest rate for an investment lasting n years, with interest and principal paid at the end of the term. No intermediate payments are made.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<section id="advantages-of-using-fras" class="level3" data-number="3.8.1">
-<h3 data-number="3.8.1" class="anchored" data-anchor-id="advantages-of-using-fras"><span class="header-section-number">3.8.1</span> Advantages of Using FRAs</h3>
+<div class="callout-title-container flex-fill">
+Example: Zero Rate
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A 5-year zero rate of 5% per annum, under continuous compounding, means $100 grows to $128.40 over 5 years, calculated as <span class="math inline">\(100 \times e^{0.05 \times 5}\)</span>.</p>
+</div>
+</div>
 <ul>
-<li><strong>Risk Management:</strong> FRAs allow businesses and financial institutions to hedge against interest rate fluctuations, securing borrowing costs or investment returns in advance.</li>
-<li><strong>Speculation:</strong> Traders can speculate on the direction of future interest rates, entering FRAs to profit from their predictions.</li>
-<li><strong>Customization:</strong> FRAs can be tailored to specific needs, such as the amount, duration, and the starting date of the agreement, providing flexibility.</li>
+<li><strong>Forward Rates</strong>: Forward rates represent the future interest rates implied by current zero rates for future periods. Derived from zero rates for various maturities, indicating the cost of borrowing or lending money in the future, as implied by today’s rates.</li>
 </ul>
-</section>
-<section id="valuation-and-pricing" class="level3" data-number="3.8.2">
-<h3 data-number="3.8.2" class="anchored" data-anchor-id="valuation-and-pricing"><span class="header-section-number">3.8.2</span> Valuation and Pricing</h3>
-<ul>
-<li><strong>Initial Value:</strong> At inception, the fixed rate of an FRA is set equal to the prevailing forward rate for the contract period, making the initial value of the contract zero.</li>
-<li><strong>Value Over Time:</strong> The value of an FRA changes as market interest rates fluctuate. If market rates rise above the FRA rate, the buyer (fixed rate payer) benefits, and vice versa.</li>
-<li><strong>Settlement:</strong> The difference between the agreed fixed rate and the reference floating rate at the settlement date is paid by the losing party to the winning party, adjusted for the contract’s term.</li>
-</ul>
-</section>
+<p>For calculating a forward rate between times <span class="math inline">\(T_1\)</span> and <span class="math inline">\(T_2\)</span>, given zero rates <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span> for these times, the forward rate, <span class="math inline">\(R_F\)</span>, is:</p>
+<p><span class="math display">\[R_F = \frac{R_2 T_2 - R_1 T_1}{T_2 - T_1}\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example: Forward Rate
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<table class="table">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 51%">
+<col style="width: 42%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Year</th>
+<th style="text-align: center;">Zero rate for an n-year investment (% per annum)</th>
+<th style="text-align: center;">Forward rate for nth year (% per annum)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">3.0</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">4.0</td>
+<td style="text-align: center;">5.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">4.6</td>
+<td style="text-align: center;">5.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">5.0</td>
+<td style="text-align: center;">6.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">5.3</td>
+<td style="text-align: center;">6.5</td>
+</tr>
+</tbody>
+</table>
+<p>To illustrate, consider calculating the forward rate for the fourth year using the data provided in the Table. Assuming <span class="math inline">\(T_1 = 3\)</span>, <span class="math inline">\(T_2 = 4\)</span>, <span class="math inline">\(R_1 = 4.6\%\)</span>, and <span class="math inline">\(R_2 = 5.0\%\)</span>, the forward rate, <span class="math inline">\(R_F\)</span>, is calculated as follows:</p>
+<p><span class="math display">\[ R_F = \frac{0.05 \times 4 - 0.046 \times 3}{4 - 3} = 6.2\% \]</span></p>
+<p>This result indicates the forward rate for the fourth year is 6.2% per annum, which is higher than the zero rate for the same period due to the upward sloping yield curve.</p>
+</div>
+</div>
+<p>The value of an FRA at inception is zero since the fixed rate typically equals the forward rate for the reference rate at that time. However, the value can change over time as the forward rate fluctuates. The valuation of an FRA can be determined by comparing the difference between the agreed fixed rate (<span class="math inline">\(R_K\)</span>) and the current forward rate (<span class="math inline">\(R_F\)</span>) over the contract period (<span class="math inline">\(t\)</span>), discounted back to the present value.</p>
 </section>
 <section id="practice-questions-and-problems" class="level2" data-number="3.9">
 <h2 data-number="3.9" class="anchored" data-anchor-id="practice-questions-and-problems"><span class="header-section-number">3.9</span> Practice Questions and Problems</h2>
@@ -696,7 +750,7 @@ Example: FRA
 </section>
 <section id="calculation-of-forward-and-futures-prices" class="level3" data-number="3.9.2">
 <h3 data-number="3.9.2" class="anchored" data-anchor-id="calculation-of-forward-and-futures-prices"><span class="header-section-number">3.9.2</span> Calculation of Forward and Futures Prices</h3>
-<ol type="1">
+<ol start="7" type="1">
 <li>Suppose that you enter into a three-month forward contract on a non-dividend-paying stock when the stock price is $108 and the risk-free interest rate (with continuous compounding) is 4% per annum. What is the forward price?</li>
 <li>A four-months long forward contract on a non-dividend-paying stock is entered into when the stock price is $150 and the risk-free rate of interest is 5.7% per annum with continuous compounding.
 <ul>
@@ -716,10 +770,10 @@ Example: FRA
 </section>
 <section id="arbitrage-and-risk-management" class="level3" data-number="3.9.3">
 <h3 data-number="3.9.3" class="anchored" data-anchor-id="arbitrage-and-risk-management"><span class="header-section-number">3.9.3</span> Arbitrage and Risk Management</h3>
-<ol type="1">
+<ol start="14" type="1">
 <li>Suppose that the risk-free interest rate is 3.00% per annum with continuous compounding and that the dividend yield on a stock index is 0.60% per annum. The index is standing at 3646, and the futures price for a contract deliverable in ten months is 3701. What arbitrage opportunities does this create?</li>
 <li>The eight-month interest rates in Switzerland and the United States are, respectively, 3.60% and 5.40% per annum with continuous compounding. The spot price of the Swiss franc is $0.9. The futures price for a contract deliverable in two months is also $0.9. What arbitrage opportunities does this create?</li>
-<li>When a known future cash outflow in a foreign currency is hedged by a company using a forward contract, there is no foreign exchange risk. When it is hedged using futures contracts, the daily settlement process does leave the company exposed to some risk. Explain the nature of this risk. In particular, consider whether the company is better off using a futures contract or a forward contract when
+<li>When a known future cash outflow in a foreign currency is hedged by a company using a forward contract, there is no foreign exchange risk. When it is hedged using futures contracts, the daily settlement process does leave the company exposed to some risk. Explain the nature of this risk. Assume that the forward price equals the futures price. In particular, consider whether the company is better off using a futures contract or a forward contract when
 <ul>
 <li><ol type="a">
 <li>The value of the foreign currency falls rapidly during the life of the contract</li>
@@ -733,7 +787,6 @@ Example: FRA
 <li><ol start="4" type="a">
 <li>The value of the foreign currency first falls and then rises back to its initial value</li>
 </ol></li>
-<li>Assume that the forward price equals the futures price.</li>
 </ul></li>
 </ol>
 
@@ -1131,12 +1184,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./week_02.html" class="pagination-link  aria-label=" &lt;span="" and="" futures&lt;="" span&gt;"="">
+      <a href="./week_02.html" class="pagination-link" aria-label="Forwards and Futures">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Forwards and Futures</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./week_04.html" class="pagination-link" aria-label="<span class='chapter-number'>4</span>&nbsp; <span class='chapter-title'>Swaps</span>">
+      <a href="./week_04.html" class="pagination-link" aria-label="Swaps">
         <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Swaps</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
