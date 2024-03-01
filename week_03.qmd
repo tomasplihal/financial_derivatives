@@ -369,18 +369,14 @@ future prices are anticipated to rise.
 
 ## Forward Rate Agreement (FRA)
 
-A Forward Rate Agreement (FRA) is a financial contract between two parties to exchange
-interest payments for a predetermined amount of principal at a future date. The
-agreement allows one party to pay a fixed interest rate and receive a floating interest
-rate, or vice versa. The key characteristics of FRAs make them valuable tools for
-financial risk management and speculation.
+An FRA is a financial contract that allows parties to exchange a fixed interest rate for
+a floating rate (often based on LIBOR, SOFR, or SONIA) at a future date, applied to a
+specified principal amount. The agreement does not involve the exchange of principal but
+rather the difference in interest payments based on the agreed rates. The value of an
+FRA at inception is zero, as the fixed rate equals the forward rate. The value changes
+as the forward rate changes over time.
 
-LIBOR (London Interbank Offered Rate) has been the predominant reference rate for FRAs.
-However, with the phase-out of LIBOR, alternative reference rates such as SOFR (Secured
-Overnight Financing Rate) and SONIA (Sterling Overnight Index Average) are gaining
-prominence.
-
-:::{.callout-note collapse="true"}
+:::{.callout-note}
 # Example: FRA
 
 Consider an FRA where Party A and Party B agree to exchange a fixed rate of 3% for
@@ -399,26 +395,53 @@ determination of SOFR, the actual payment is adjusted to its present value and m
 the 2-year mark (discounted for three months at 3.5%).
 :::
 
-### Advantages of Using FRAs
+- **Zero Rates**: The n-year zero rate (or spot rate) is the interest rate for an
+investment lasting n years, with interest and principal paid at the end of the term. No
+intermediate payments are made.
 
-- **Risk Management:** FRAs allow businesses and financial institutions to hedge against
-interest rate fluctuations, securing borrowing costs or investment returns in advance.
-- **Speculation:** Traders can speculate on the direction of future interest rates,
-entering FRAs to profit from their predictions.
-- **Customization:** FRAs can be tailored to specific needs, such as the amount,
-duration, and the starting date of the agreement, providing flexibility.
+:::{.callout-note}
+# Example: Zero Rate
 
-### Valuation and Pricing
+A 5-year zero rate of 5% per annum, under continuous compounding, means \$100 grows to
+\$128.40 over 5 years, calculated as $100 \times e^{0.05 \times 5}$.
+:::
 
-- **Initial Value:** At inception, the fixed rate of an FRA is set equal to the
-prevailing forward rate for the contract period, making the initial value of the
-contract zero.
-- **Value Over Time:** The value of an FRA changes as market interest rates fluctuate.
-If market rates rise above the FRA rate, the buyer (fixed rate payer) benefits, and vice
-versa.
-- **Settlement:** The difference between the agreed fixed rate and the reference
-floating rate at the settlement date is paid by the losing party to the winning party,
-adjusted for the contract's term.
+- **Forward Rates**: Forward rates represent the future interest rates implied by
+current zero rates for future periods. Derived from zero rates for various maturities,
+indicating the cost of borrowing or lending money in the future, as implied by today's
+rates.
+
+For calculating a forward rate between times $T_1$ and $T_2$, given zero rates $R_1$ and
+$R_2$ for these times, the forward rate, $R_F$, is:
+
+$$R_F = \frac{R_2 T_2 - R_1 T_1}{T_2 - T_1}$$
+
+:::{.callout-note}
+# Example: Forward Rate
+
+| Year | Zero rate for an n-year investment (% per annum) | Forward rate for nth year (% per annum) |
+|:----:|:-----------------------------------------------:|:---------------------------------------:|
+| 1    | 3.0                                             |                                         |
+| 2    | 4.0                                             | 5.0                                     |
+| 3    | 4.6                                             | 5.8                                     |
+| 4    | 5.0                                             | 6.2                                     |
+| 5    | 5.3                                             | 6.5                                     |
+
+To illustrate, consider calculating the forward rate for the fourth year using the data
+provided in the Table. Assuming $T_1 = 3$, $T_2 = 4$, $R_1 = 4.6\%$, and $R_2 = 5.0\%$,
+the forward rate, $R_F$, is calculated as follows:
+
+$$ R_F = \frac{0.05 \times 4 - 0.046 \times 3}{4 - 3} = 6.2\% $$
+
+This result indicates the forward rate for the fourth year is 6.2% per annum, which is
+higher than the zero rate for the same period due to the upward sloping yield curve.
+:::
+
+The value of an FRA at inception is zero since the fixed rate typically equals the
+forward rate for the reference rate at that time. However, the value can change over
+time as the forward rate fluctuates. The valuation of an FRA can be determined by
+comparing the difference between the agreed fixed rate ($R_K$) and the current forward
+rate ($R_F$) over the contract period ($t$), discounted back to the present value.
 
 ## Practice Questions and Problems
 
@@ -439,52 +462,52 @@ a commodity with storage costs, and (d) a foreign currency?
 
 ### Calculation of Forward and Futures Prices
 
-1. Suppose that you enter into a three-month forward contract on a non-dividend-paying
+7. Suppose that you enter into a three-month forward contract on a non-dividend-paying
 stock when the stock price is \$108 and the risk-free interest rate (with continuous
 compounding) is 4% per annum. What is the forward price?
-2. A four-months long forward contract on a non-dividend-paying stock is entered into
+8. A four-months long forward contract on a non-dividend-paying stock is entered into
 when the stock price is \$150 and the risk-free rate of interest is 5.7% per annum with
 continuous compounding.
     - a) What are the forward price and the initial value of the forward contract?
     - b) Two months later, the price of the stock is \$168 and the risk-free interest
     rate is still 5.7%. What are the forward price and the value of the forward
     contract?
-3. The risk-free rate of interest is 4.1% per annum with continuous compounding, and the
+9. The risk-free rate of interest is 4.1% per annum with continuous compounding, and the
 dividend yield on a stock index is 6.2% per annum. The current value of the index is 2445. What is the one-month futures price?
-4. A stock index currently stands at 725. The risk-free interest rate is 7.6% per annum
+10. A stock index currently stands at 725. The risk-free interest rate is 7.6% per annum
 (with continuous compounding) and the dividend yield on the index is 1.8% per annum.
 What should the futures price for a three-month contract be?
-5. An index is 550. The three-month risk-free rate is 4.60% per annum and the dividend
+11. An index is 550. The three-month risk-free rate is 4.60% per annum and the dividend
 yield over the next three months is 5.80% per annum. The six-month risk-free rate is
 5.34% per annum and the dividend yield over the next six months is 4.93% per annum.
 Estimate the futures price of the index for three-month and six-month contracts. All
 interest rates and dividend yields are continuously compounded.
-6. The spot price of silver is \$11 per ounce. The storage costs are \$0.25 per ounce
+12. The spot price of silver is \$11 per ounce. The storage costs are \$0.25 per ounce
 per year payable quarterly in advance. Assuming that interest rates are 1.80% per annum
 for all maturities, calculate the futures price of silver for delivery in nine months.
-7. The spot price of oil is \$39 per barrel and the cost of storing a barrel of oil for
+13. The spot price of oil is \$39 per barrel and the cost of storing a barrel of oil for
 one year is \$1.2, payable at the end of the year. The risk-free interest rate is 8.60%
 per annum, continuously compounded. What is an upper bound for the one-year futures
 price of oil?
 
 ### Arbitrage and Risk Management
 
-1. Suppose that the risk-free interest rate is 3.00% per annum with continuous
+14. Suppose that the risk-free interest rate is 3.00% per annum with continuous
 compounding and that the dividend yield on a stock index is 0.60% per annum. The index
 is standing at 3646, and the futures price for a contract deliverable in ten months is 3701. What arbitrage opportunities does this create?
-2. The eight-month interest rates in Switzerland and the United States are,
+15. The eight-month interest rates in Switzerland and the United States are,
 respectively, 3.60% and 5.40% per annum with continuous compounding. The spot price of
 the Swiss franc is \$0.9. The futures price for a contract deliverable in two months is
 also \$0.9. What arbitrage opportunities does this create?
-3. When a known future cash outflow in a foreign currency is hedged by a company using a
+16. When a known future cash outflow in a foreign currency is hedged by a company using a
 forward contract, there is no foreign exchange risk. When it is hedged using futures
 contracts, the daily settlement process does leave the company exposed to some risk.
-Explain the nature of this risk. In particular, consider whether the company is better
-off using a futures contract or a forward contract when
+Explain the nature of this risk. Assume that the forward price equals the futures price.
+In particular, consider whether the company is better off using a futures contract or a
+forward contract when
     - a) The value of the foreign currency falls rapidly during the life of the contract
     - b) The value of the foreign currency rises rapidly during the life of the contract
     - c) The value of the foreign currency first rises and then falls back to its
     initial value
     - d) The value of the foreign currency first falls and then rises back to its
     initial value
-    - Assume that the forward price equals the futures price.
