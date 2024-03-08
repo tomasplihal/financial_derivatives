@@ -465,6 +465,12 @@ a commodity with storage costs, and (d) a foreign currency?
 7. Suppose that you enter into a three-month forward contract on a non-dividend-paying
 stock when the stock price is \$108 and the risk-free interest rate (with continuous
 compounding) is 4% per annum. What is the forward price?
+
+:::{.callout-note collapse="true"}
+# Solution
+$F_0 = 109.085$
+:::
+
 8. A four-months long forward contract on a non-dividend-paying stock is entered into
 when the stock price is \$150 and the risk-free rate of interest is 5.7% per annum with
 continuous compounding.
@@ -472,33 +478,82 @@ continuous compounding.
     - b) Two months later, the price of the stock is \$168 and the risk-free interest
     rate is still 5.7%. What are the forward price and the value of the forward
     contract?
+
+:::{.callout-note collapse="true"}
+# Solution
+Forward price $F_0 = 152.88$; initial value $0$; final value $169.6$
+:::
+
 9. The risk-free rate of interest is 4.1% per annum with continuous compounding, and the
-dividend yield on a stock index is 6.2% per annum. The current value of the index is 2445. What is the one-month futures price?
+dividend yield on a stock index is 6.2% per annum. The current value of the index is 2445.
+What is the one-month futures price?
+
+:::{.callout-note collapse="true"}
+# Solution
+$F_0 = 2440.725$
+:::
+
 10. A stock index currently stands at 725. The risk-free interest rate is 7.6% per annum
 (with continuous compounding) and the dividend yield on the index is 1.8% per annum.
 What should the futures price for a three-month contract be?
+
+:::{.callout-note collapse="true"}
+# Solution
+$F_0 = 735.589$
+:::
+
 11. An index is 550. The three-month risk-free rate is 4.60% per annum and the dividend
 yield over the next three months is 5.80% per annum. The six-month risk-free rate is
 5.34% per annum and the dividend yield over the next six months is 4.93% per annum.
 Estimate the futures price of the index for three-month and six-month contracts. All
 interest rates and dividend yields are continuously compounded.
+
+:::{.callout-note collapse="true"}
+# Solution
+3-month $F_0 = 548.352$; 6-month $F_0 = 551.129$
+:::
+
 12. The spot price of silver is \$11 per ounce. The storage costs are \$0.25 per ounce
-per year payable quarterly in advance. Assuming that interest rates are 1.80% per annum
+payable quarterly in advance. Assuming that interest rates are 1.80% per annum
 for all maturities, calculate the futures price of silver for delivery in nine months.
+
+:::{.callout-note collapse="true"}
+# Solution
+$F_0 = 11.91$
+:::
+
 13. The spot price of oil is \$39 per barrel and the cost of storing a barrel of oil for
 one year is \$1.2, payable at the end of the year. The risk-free interest rate is 8.60%
 per annum, continuously compounded. What is an upper bound for the one-year futures
 price of oil?
 
+:::{.callout-note collapse="true"}
+# Solution
+$F_0 = 43.70$
+:::
+
 ### Arbitrage and Risk Management
 
 14. Suppose that the risk-free interest rate is 3.00% per annum with continuous
 compounding and that the dividend yield on a stock index is 0.60% per annum. The index
-is standing at 3646, and the futures price for a contract deliverable in ten months is 3701. What arbitrage opportunities does this create?
+is standing at 3646, and the futures price for a contract deliverable in ten months is 3701.
+What arbitrage opportunities does this create?
+
+:::{.callout-note collapse="true"}
+# Solution
+$F_0 = 3719.654$
+:::
+
 15. The eight-month interest rates in Switzerland and the United States are,
 respectively, 3.60% and 5.40% per annum with continuous compounding. The spot price of
 the Swiss franc is \$0.9. The futures price for a contract deliverable in two months is
 also \$0.9. What arbitrage opportunities does this create?
+
+:::{.callout-note collapse="true"}
+# Solution
+$F_0 = 0.911$
+:::
+
 16. When a known future cash outflow in a foreign currency is hedged by a company using a
 forward contract, there is no foreign exchange risk. When it is hedged using futures
 contracts, the daily settlement process does leave the company exposed to some risk.
