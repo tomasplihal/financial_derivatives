@@ -738,15 +738,32 @@ into new positions. What is the impact of the day's trading on open interest?
 per ounce. The size of the contract is 5,000 ounces. The initial margin is \$4,000, and
 the maintenance margin is \$3,000. What change in the futures price will lead to a
 margin call? What happens if you do not meet the margin call?
+
+:::{.callout-note collapse="true"}
+# Solution
+$S = \$17.40$
+:::
+
 3. A trader buys two July futures contracts on frozen orange juice. Each contract is for
 the delivery of 15,000 pounds. The current futures price is 160 cents per pound, the
 initial margin is \$6,000 per contract, and the maintenance margin is \$4,500 per
 contract. What price change would lead to a margin call?  Under what circumstances could
 \$2,000 be withdrawn from the margin account?
+
+:::{.callout-note collapse="true"}
+# Solution
+$S = 166.67$ cents
+:::
+
 4. A company enters into a short futures contract to sell 5,000 bushels of wheat for 750
 cents per bushel. The initial margin is \$3,000 and the maintenance margin is \$2,000.
 What price change would lead to a margin call?  Under what circumstances could \$1,500
 be withdrawn from the margin account?
+
+:::{.callout-note collapse="true"}
+# Solution
+Margin call: $S = 770$ cents; Withdraw \$1500: $S = 720$ cents
+:::
 
 ### Basics of Hedging with Futures
 
@@ -774,6 +791,12 @@ when the expiration of the hedge is in a) June, b) July, and c) January.
 commodity is \$0.65, the standard deviation of quarterly changes in a futures price on
 the commodity is \$0.81, and the coefficient of correlation between the two changes is
 0.8. What is the optimal hedge ratio for a three-month contract?  What does it mean?
+
+:::{.callout-note collapse="true"}
+# Solution
+$h = 64.2\%$
+:::
+
 4. The standard deviation of monthly changes in the spot price of live cattle is 1.2 (in
 cents per pound). The standard deviation of monthly changes in the futures price of live
 cattle for the closest contract is 1.4. The correlation between the futures price
@@ -782,6 +805,11 @@ committed to purchasing 200,000 pounds of live cattle on November 15. The produc
 to use the December live-cattle futures contracts to hedge its risk. Each contract is
 for the delivery of 40,000 pounds of cattle. What strategy should the beef producer
 follow?
+
+:::{.callout-note collapse="true"}
+# Solution
+Long $3$ contracts.
+:::
 
 ### Practical Concerns and Risk Management
 
@@ -805,11 +833,27 @@ standing at 1080, and each contract is for delivery of \$250 times the index. Wh
 the hedge that minimizes risk? What should the company do if it wants to reduce the beta
 of the portfolio to 0.6? What should the company do if it wants to increase the beta of
 the portfolio to 1.5?
+
+:::{.callout-note collapse="true"}
+# Solution
+
+- short $89$ contracts
+- short $44$ contracts to reduce beta
+- long $22$ contracts to increase beta
+:::
+
 2. On July 1, an investor holds 50,000 shares of a certain stock. The market price is
 \$30 per share. He decides to use the September Mini S&P 500 futures contract. The index
 is currently 1,500 and one contract is for delivery of \$50 times the index. The beta of
 the stock is 1.3. What strategy should the investor follow? Under what circumstances
 will it be profitable?
+
+:::{.callout-note collapse="true"}
+# Solution
+
+Short $26$ contracts.
+:::
+
 3. It is now June. A company knows that it will sell 5,000 barrels of crude oil in
 September. It uses the October CME Group futures contract to hedge the price it will
 receive. Each contract is on 1,000 barrels of "light sweet crude". What position should
