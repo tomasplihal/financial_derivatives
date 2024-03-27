@@ -381,7 +381,7 @@ exercise timing in option valuation.
 
 ## Upper and Lower Bounds for Option Prices
 
-### Upper Boundaries for Option Valuations
+### Upper Boundaries for Option Prices
 
 #### Call Options
 
@@ -404,7 +404,7 @@ because the option grants the right but not the obligation to sell the stock at 
 Thus, $P \leq K$.
 
 - **European Put Options:** The maximum value is the present value of the strike price,
-$P \leq K e^{-rT}$, considering that it can only be exercised at maturity. This prevents
+$p \leq K e^{-rT}$, considering that it can only be exercised at maturity. This prevents
 arbitrage opportunities involving writing the option and investing the proceeds at the
 risk-free rate.
 
@@ -415,23 +415,21 @@ risk-free rate.
 For a European call option on a stock that does not pay dividends, the price floor is
 determined by the difference between the stock's current price and the present value of
 the strike price:
-$$S_0 - K e^{-rT}$$
+$$c \geq S_0 - K e^{-rT}$$
 
 This lower bound highlights the intrinsic value of the option, beyond which arbitrage
 becomes viable.
 
 :::{.callout-note}
 # Example
-Given $S_0 = 20$, $T = 1$ year, $r = 10\%$ annual interest rate, and $K = 18$, the lower
-bound calculation yields \$3.71. If the market price of the call option is \$3, an
-arbitrage opportunity exists by shorting the stock, buying the call, and investing the
-proceeds at the 10% rate.
+What is a lower bound for the following European call option?
 
 - $S_0 = 20$, $T = 1$, $r = 10\%$, $K = 18$, $D = 0$
 
-$$S_0 - K e^{-rT} = 20 - 18 e^{-0.1} = 3.71$$
+$$\text{Lower bound} = S_0 - K e^{-rT} = 20 - 18 e^{-0.1} = 3.71$$
 
-- What if the European call price is \$3?
+What if the European call price is \$3?
+
 - An arbitrageur can short the stock, buy the call, and invest proceeds at 10%.
 :::
 
@@ -439,21 +437,20 @@ $$S_0 - K e^{-rT} = 20 - 18 e^{-0.1} = 3.71$$
 
 The lower bound for a European put option, similarly on a non-dividend-paying stock, is
 the present value of the strike price minus the current stock price:
-$$K e^{-rT} - S_0$$
+$$p \geq K e^{-rT} - S_0$$
 
 This calculation ensures that the option's price reflects its minimum economic value.
 
 :::{.callout-note}
 # Example
-With $S_0 = 37$, $T = 0.5$ years, $r = 5\%$, and $K = 40$, the lower bound is \$2.01. If
-the market price is \$1, arbitrage is possible by borrowing \$38 for 6 months to
-purchase both the stock and the put option.
+What is a lower bound for the following European put option?
 
 - $S_0 = 37$, $T = 0.5$, $r = 5\%$, $K = 40$, $D = 0$ 
 
 $$K e^{-rT} - S_0 = 40 e^{-0.05 \times 0.5} - 37 = 2.01$$
 
-- What if the European put price is \$1?
+What if the European put price is \$1?
+
 - An arbitrageur can borrow \$38 for 6 months to buy both the put and the stock.
 :::
 
@@ -483,8 +480,8 @@ intrinsic value.
     both intrinsic and time value.
 
 - Because it is not optimal to exercise an American stock option on a
-non-dividend-paying stock early, the upper and lower bounds will be the same as those
-for European options.
+non-dividend-paying stock early, the **upper and lower bounds will be the same as those
+for European options**.
 
 #### American Put Options on Non-dividend Paying Stocks
 
