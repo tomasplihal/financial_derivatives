@@ -479,8 +479,8 @@ fig.show()
 
 #### Using Puts (Put Bear Spread)
 
-- **Position**: Buy a put option with a lower strike price and sell another put option
-with a higher strike price, both having the same expiration date.
+- **Position**: Buy a put option with a higher strike price and sell another put option
+with a lower strike price, both having the same expiration date.
 - **Profit Potential**: Maximum profit is limited to the net premium received for the
 spread.
 - **Risk**: Limited to the difference between the strike prices minus the net premium
