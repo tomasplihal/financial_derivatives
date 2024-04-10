@@ -69,6 +69,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -258,7 +287,42 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#black-scholes-merton-model" id="toc-black-scholes-merton-model" class="nav-link active" data-scroll-target="#black-scholes-merton-model"><span class="header-section-number">9.1</span> Black-Scholes-Merton Model</a>
+  <ul class="collapse">
+  <li><a href="#model-assumptions" id="toc-model-assumptions" class="nav-link" data-scroll-target="#model-assumptions"><span class="header-section-number">9.1.1</span> Model Assumptions</a></li>
+  <li><a href="#the-black-scholes-merton-formulas-for-options-pricing" id="toc-the-black-scholes-merton-formulas-for-options-pricing" class="nav-link" data-scroll-target="#the-black-scholes-merton-formulas-for-options-pricing"><span class="header-section-number">9.1.2</span> The Black-Scholes-Merton Formulas for Options Pricing</a></li>
+  <li><a href="#the-nx-function" id="toc-the-nx-function" class="nav-link" data-scroll-target="#the-nx-function"><span class="header-section-number">9.1.3</span> The <span class="math inline">\(N(x)\)</span> Function</a></li>
+  </ul></li>
+  <li><a href="#interpretation-of-nd_1-and-nd_2" id="toc-interpretation-of-nd_1-and-nd_2" class="nav-link" data-scroll-target="#interpretation-of-nd_1-and-nd_2"><span class="header-section-number">9.2</span> Interpretation of <span class="math inline">\(N(d_1)\)</span> and <span class="math inline">\(N(d_2)\)</span></a>
+  <ul class="collapse">
+  <li><a href="#interpretation-1" id="toc-interpretation-1" class="nav-link" data-scroll-target="#interpretation-1"><span class="header-section-number">9.2.1</span> Interpretation #1</a></li>
+  <li><a href="#interpretation-2" id="toc-interpretation-2" class="nav-link" data-scroll-target="#interpretation-2"><span class="header-section-number">9.2.2</span> Interpretation #2</a></li>
+  </ul></li>
+  <li><a href="#properties-of-the-black-scholes-formula" id="toc-properties-of-the-black-scholes-formula" class="nav-link" data-scroll-target="#properties-of-the-black-scholes-formula"><span class="header-section-number">9.3</span> Properties of the Black-Scholes Formula</a></li>
+  <li><a href="#risk-neutral-valuation" id="toc-risk-neutral-valuation" class="nav-link" data-scroll-target="#risk-neutral-valuation"><span class="header-section-number">9.4</span> Risk-Neutral Valuation</a>
+  <ul class="collapse">
+  <li><a href="#key-points-of-risk-neutral-valuation" id="toc-key-points-of-risk-neutral-valuation" class="nav-link" data-scroll-target="#key-points-of-risk-neutral-valuation"><span class="header-section-number">9.4.1</span> Key Points of Risk-Neutral Valuation</a></li>
+  <li><a href="#application-of-risk-neutral-valuation" id="toc-application-of-risk-neutral-valuation" class="nav-link" data-scroll-target="#application-of-risk-neutral-valuation"><span class="header-section-number">9.4.2</span> Application of Risk-Neutral Valuation</a></li>
+  </ul></li>
+  <li><a href="#the-effect-of-dividends" id="toc-the-effect-of-dividends" class="nav-link" data-scroll-target="#the-effect-of-dividends"><span class="header-section-number">9.5</span> The Effect of Dividends</a>
+  <ul class="collapse">
+  <li><a href="#valuing-european-options-on-dividend-paying-stocks" id="toc-valuing-european-options-on-dividend-paying-stocks" class="nav-link" data-scroll-target="#valuing-european-options-on-dividend-paying-stocks"><span class="header-section-number">9.5.1</span> Valuing European Options on Dividend-Paying Stocks</a></li>
+  <li><a href="#american-calls-on-dividend-paying-stocks" id="toc-american-calls-on-dividend-paying-stocks" class="nav-link" data-scroll-target="#american-calls-on-dividend-paying-stocks"><span class="header-section-number">9.5.2</span> American Calls on Dividend-Paying Stocks</a></li>
+  <li><a href="#blacks-approximation-for-american-call-options-with-dividends" id="toc-blacks-approximation-for-american-call-options-with-dividends" class="nav-link" data-scroll-target="#blacks-approximation-for-american-call-options-with-dividends"><span class="header-section-number">9.5.3</span> Black’s Approximation for American Call Options with Dividends</a></li>
+  </ul></li>
+  <li><a href="#volatility-in-financial-markets" id="toc-volatility-in-financial-markets" class="nav-link" data-scroll-target="#volatility-in-financial-markets"><span class="header-section-number">9.6</span> Volatility in Financial Markets</a>
+  <ul class="collapse">
+  <li><a href="#historical-volatility" id="toc-historical-volatility" class="nav-link" data-scroll-target="#historical-volatility"><span class="header-section-number">9.6.1</span> Historical Volatility</a></li>
+  <li><a href="#nature-of-volatility" id="toc-nature-of-volatility" class="nav-link" data-scroll-target="#nature-of-volatility"><span class="header-section-number">9.6.2</span> Nature of Volatility</a></li>
+  <li><a href="#implied-volatility" id="toc-implied-volatility" class="nav-link" data-scroll-target="#implied-volatility"><span class="header-section-number">9.6.3</span> Implied Volatility</a></li>
+  </ul></li>
+  <li><a href="#practice-questions-and-problems" id="toc-practice-questions-and-problems" class="nav-link" data-scroll-target="#practice-questions-and-problems"><span class="header-section-number">9.7</span> Practice Questions and Problems</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -295,19 +359,282 @@ References
 <ul>
 <li>HULL, John. Options, futures, and other derivatives. Ninth edition. Harlow: Pearson, 2018. ISBN 978-1-292-21289-0.
 <ul>
-<li>Chapter 1 - Introduction</li>
-<li>Chapter 4 - Interest Rates</li>
+<li>Chapter 15 - the Black-Scholes-Merton Model</li>
 </ul></li>
 <li>PIRIE, Wendy L. Derivatives. Hoboken: Wiley, 2017. CFA institute investment series. ISBN 978-1-119-38181-5.
 <ul>
-<li>Chapter 1 - Derivative Markets and Instruments</li>
+<li>Chapter 4 - Valuation of Contingent Claims</li>
 </ul></li>
+<li>Black, F., &amp; Scholes, M. (1973). “The pricing of options and corporate liabilities”. <em>Journal of political economy</em>, 81(3), 637-654.</li>
+<li>Merton, Robert (1973). “Theory of Rational Option Pricing”. <em>Bell Journal of Economics and Management Science</em>. 4 (1): 141–183.</li>
 </ul>
 </div>
 </div>
 <p><strong>Learning Outcomes:</strong></p>
+<ul>
+<li>Understand the foundational principles of the Black-Scholes-Merton model, including its formulation and applications in financial markets.</li>
+<li>Interpret key parameters within the Black-Scholes-Merton model, explore its properties, assumptions and limitations in real-world scenarios.</li>
+<li>Grasp the concept of risk-neutral valuation and its significance in pricing financial derivatives and managing financial risk.</li>
+<li>Analyze the effect of dividends on option pricing within the Black-Scholes-Merton framework and understand its practical implications for investors and traders.</li>
+<li>Discuss the role of volatility in financial markets, specifically how it influences option pricing and investor strategies.</li>
+</ul>
+<section id="black-scholes-merton-model" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="black-scholes-merton-model"><span class="header-section-number">9.1</span> Black-Scholes-Merton Model</h2>
+<p>The Black-Scholes model, developed by Fischer Black and Myron Scholes in 1973, is a groundbreaking mathematical framework for valuing European options. It provides a closed-form solution for the price of a European call or put option based on stock volatility, the risk-free rate, the strike price, and the time to expiration. The model assumes a lognormal distribution of stock prices, continuous trading, and no dividends, among other factors.</p>
+<p>The Binomial Option Pricing Model, introduced by Cox, Ross, and Rubinstein in 1979, offers a more flexible approach to option valuation, accommodating American options and dividends. It constructs a discrete-time (binomial) lattice for asset price movements, allowing for an iterative calculation of option prices. This model can be viewed as a simplified, discrete approximation of the continuous processes underlying the Black-Scholes model. As the number of steps in the binomial model increases, its results converge to those of the Black-Scholes formula, illustrating their intrinsic relationship. The binomial model’s adaptability to different types of options and its intuitive framework make it a vital complement to the Black-Scholes model in financial theory.</p>
+<section id="model-assumptions" class="level3" data-number="9.1.1">
+<h3 data-number="9.1.1" class="anchored" data-anchor-id="model-assumptions"><span class="header-section-number">9.1.1</span> Model Assumptions</h3>
+<p>The Black-Scholes-Merton model is predicated on several key assumptions to facilitate the derivation of a closed-form solution for pricing European options. These assumptions include:</p>
+<ol type="1">
+<li><strong>European-style Options:</strong> The model is applicable to European options, which can only be exercised at expiration.</li>
+<li><strong>No Dividends:</strong> It is assumed that the underlying asset does not pay dividends during the life of the option.</li>
+<li><strong>No Arbitrage:</strong> The market is efficient, prohibiting the possibility of riskless arbitrage profits.</li>
+<li><strong>Short Selling:</strong> Investors are allowed to short sell the underlying asset without restrictions.</li>
+<li><strong>No Market Frictions:</strong> The market operates without transaction costs, taxes, or regulatory constraints, implying perfect market conditions.</li>
+<li><strong>Constant Risk-Free Rate:</strong> The risk-free interest rate, underpinning the time value of money, is constant over the option’s life and the same for all maturities.</li>
+<li><strong>Known and Constant Volatility:</strong> The volatility of the underlying asset’s returns, a measure of its price fluctuations, is known and remains constant over time.</li>
+<li><strong>Geometric Brownian Motion:</strong> The price of the underlying asset follows a geometric Brownian motion, characterizing price changes as continuous and random without sudden jumps.</li>
+<li><strong>Continuous Trading and Liquidity:</strong> Trading is possible at any moment during market hours, and the asset is perfectly liquid, allowing for immediate buy and sell transactions.</li>
+</ol>
+</section>
+<section id="the-black-scholes-merton-formulas-for-options-pricing" class="level3" data-number="9.1.2">
+<h3 data-number="9.1.2" class="anchored" data-anchor-id="the-black-scholes-merton-formulas-for-options-pricing"><span class="header-section-number">9.1.2</span> The Black-Scholes-Merton Formulas for Options Pricing</h3>
+<p>The model provides explicit formulas to compute the price of call and put options, defined as follows:</p>
+<ul>
+<li><span class="math inline">\(c\)</span> = price of a European call option</li>
+<li><span class="math inline">\(p\)</span> = price of a European put option</li>
+<li><span class="math inline">\(N(x)\)</span> = the standard normal cumulative distribution function, representing the probability that a normally distributed variable with a mean of zero and a standard deviation of one is less than <span class="math inline">\(x\)</span>.</li>
+<li><span class="math inline">\(r\)</span> = annualized continuously compounded risk-free rate</li>
+<li><span class="math inline">\(\sigma\)</span> = annualized constant volatility of the stock returns</li>
+<li><span class="math inline">\(S\)</span> = current stock price</li>
+<li><span class="math inline">\(K\)</span> = option strike price</li>
+<li><span class="math inline">\(T\)</span> = time to expiration (in years)</li>
+</ul>
+<p>The core equations are:</p>
+<p><span class="math display">\[c = S_0 N(d_1) - K e^{-rT} N(d_2)\]</span> <span class="math display">\[p = K e^{-rT} N(-d_2) - S_0 N(-d_1)\]</span></p>
+<p>Where:</p>
+<p><span class="math display">\[d_1 = \frac{\ln (S_0 / K) + (r + \sigma^2 / 2)T}{\sigma \sqrt{T}}\]</span> <span class="math display">\[d_2 = d_1 - \sigma \sqrt{T}\]</span></p>
+</section>
+<section id="the-nx-function" class="level3" data-number="9.1.3">
+<h3 data-number="9.1.3" class="anchored" data-anchor-id="the-nx-function"><span class="header-section-number">9.1.3</span> The <span class="math inline">\(N(x)\)</span> Function</h3>
+<p>The function <span class="math inline">\(N(x)\)</span> is pivotal in calculating the probabilities essential for the Black-Scholes-Merton formula. It quantifies the likelihood that a random draw from a standard normal distribution falls below a specific value <span class="math inline">\(x\)</span>. For practical computations, one may refer to statistical tables or the NORM.DIST function in Excel.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/08-2-nx.png" class="img-fluid figure-img"></p>
+<figcaption>image</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example: Black-Scholes-Merton Model
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Consider an option with the following parameters:</p>
+<ul>
+<li><span class="math inline">\(S_0 = 42\)</span> (Current stock price)</li>
+<li><span class="math inline">\(K = 40\)</span> (Strike price)</li>
+<li><span class="math inline">\(r = 10\%\)</span> (Risk-free rate)</li>
+<li><span class="math inline">\(\sigma = 20\%\)</span> (Volatility)</li>
+<li><span class="math inline">\(T = 0.5\)</span> (Time to expiration in years)</li>
+</ul>
+<p>Using these parameters, we calculate:</p>
+<p><span class="math display">\[d_1 = \frac{\ln (42/40) + (0.1 + 0.2^2 / 2) \times 0.5 }{0.2 \sqrt{0.5}} = 0.7693\]</span> <span class="math display">\[d_2 = 0.7693 - 0.2 \sqrt{0.5} = 0.6278\]</span></p>
+<p>Employing the NORM.DIST function in Excel for <span class="math inline">\(d_1\)</span> and <span class="math inline">\(d_2\)</span> yields:</p>
+<ul>
+<li><span class="math inline">\(N(0.7693) = 0.7791\)</span>; <span class="math inline">\(N(0.6278) = 0.7349\)</span>;</li>
+<li><span class="math inline">\(N(-0.7693) = 0.2209\)</span>; <span class="math inline">\(N(-0.6278) = 0.2651\)</span>.</li>
+</ul>
+<p>The discounted strike price is calculated as:</p>
+<p><span class="math display">\[K e^{-rT} = 40 e^{-0.1 \times 0.5} = 38.049\]</span></p>
+<p>Finally, the call (<span class="math inline">\(c\)</span>) and put (<span class="math inline">\(p\)</span>)</p>
+<p><span class="math display">\[c = 42 \times 0.7791 - 38.049 \times 0.7349 = 4.76\]</span> <span class="math display">\[p = 38.049 \times 0.2651 - 42 \times 0.2209 = 0.81\]</span></p>
+</div>
+</div>
+</section>
+</section>
+<section id="interpretation-of-nd_1-and-nd_2" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="interpretation-of-nd_1-and-nd_2"><span class="header-section-number">9.2</span> Interpretation of <span class="math inline">\(N(d_1)\)</span> and <span class="math inline">\(N(d_2)\)</span></h2>
+<p>Understanding the terms <span class="math inline">\(N(d_1)\)</span> and <span class="math inline">\(N(d_2)\)</span> within the Black-Scholes formula is fundamental for grasping the model’s insights into option pricing dynamics. These terms provide a probabilistic interpretation that enriches the model’s application and theoretical comprehension.</p>
+<section id="interpretation-1" class="level3" data-number="9.2.1">
+<h3 data-number="9.2.1" class="anchored" data-anchor-id="interpretation-1"><span class="header-section-number">9.2.1</span> Interpretation #1</h3>
+<ul>
+<li><p><strong><span class="math inline">\(N(d_2)\)</span>:</strong> This term represents the probability that the option will be exercised at maturity. It quantifies the likelihood that the stock price at maturity will exceed the strike price, making it beneficial for the holder to exercise the option.</p></li>
+<li><p><strong><span class="math inline">\(S_0 e^{rT} N(d_1)\)</span>:</strong> This expression estimates the expected stock price at maturity in a risk-neutral world, adjusting for instances when the stock price falls below the strike price, which are considered as zero value. This adjustment mirrors the option’s payoff structure, where only in-the-money scenarios contribute to the expected payoff.</p></li>
+<li><p><strong>Expected Payoff and Present Value:</strong> The expected payoff of holding a call option can be expressed as <span class="math inline">\(S_0 e^{rT} N(d_1) - K N(d_2)\)</span>. To derive the option’s current value, we discount this expected payoff to the present, yielding the Black-Scholes call option pricing formula: <span class="math inline">\(c = S_0 N(d_1) - K e^{-rT} N(d_2)\)</span>.</p></li>
+</ul>
+</section>
+<section id="interpretation-2" class="level3" data-number="9.2.2">
+<h3 data-number="9.2.2" class="anchored" data-anchor-id="interpretation-2"><span class="header-section-number">9.2.2</span> Interpretation #2</h3>
+<p>Another lens to view the call option pricing formula is:</p>
+<p><span class="math display">\[c = e^{-rT} N(d_2) \left( S_0 e^{rT} N(d_1) / N(d_2) - K \right)\]</span></p>
+<ul>
+<li><strong><span class="math inline">\(e^{-rT}\)</span>:</strong> This factor discounts the expected payoff to its present value, reflecting the time value of money.</li>
+<li><strong><span class="math inline">\(N(d_2)\)</span>:</strong> Represents the probability of the option being exercised, acting as a weight for the expected payoff.</li>
+<li><strong><span class="math inline">\(S_0 e^{rT} N(d_1) / N(d_2)\)</span>:</strong> Expected stock price in a risk-neutral world if option is exercised.</li>
+<li><strong><span class="math inline">\(K\)</span>:</strong> The strike price, indicating the cost to exercise the option.</li>
+</ul>
+</section>
+</section>
+<section id="properties-of-the-black-scholes-formula" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="properties-of-the-black-scholes-formula"><span class="header-section-number">9.3</span> Properties of the Black-Scholes Formula</h2>
+<p>The behavior of the call (<span class="math inline">\(c\)</span>) and put (<span class="math inline">\(p\)</span>) option prices relative to changes in the underlying stock price (<span class="math inline">\(S_0\)</span>) is critical for understanding the model’s implications:</p>
+<ul>
+<li><strong>As <span class="math inline">\(S_0\)</span> increases significantly:</strong>
+<ul>
+<li>The call option price (<span class="math inline">\(c\)</span>) converges to <span class="math inline">\(S_0 - Ke^{-rT}\)</span>, because both <span class="math inline">\(d_1\)</span> and <span class="math inline">\(d_2\)</span> grow large, making <span class="math inline">\(N(d_1)\)</span> and <span class="math inline">\(N(d_2)\)</span> approach 1. This reflects the option’s intrinsic value, as the benefit from exercise becomes almost certain.</li>
+<li>The put option price (<span class="math inline">\(p\)</span>) approaches zero, as <span class="math inline">\(N(-d_1)\)</span> and <span class="math inline">\(N(-d_2)\)</span> approach zero, indicating a negligible chance of the option being in-the-money.</li>
+</ul></li>
+<li><strong>As <span class="math inline">\(S_0\)</span> decreases significantly:</strong>
+<ul>
+<li>The call option price (<span class="math inline">\(c\)</span>) trends towards zero, mirroring the diminishing likelihood of the option being exercised.</li>
+<li>The put option price (<span class="math inline">\(p\)</span>) converges to <span class="math inline">\(Ke^{-rT} - S_0\)</span>, reflecting the increasing intrinsic value of the option as the likelihood of exercise grows.</li>
+</ul></li>
+</ul>
+</section>
+<section id="risk-neutral-valuation" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="risk-neutral-valuation"><span class="header-section-number">9.4</span> Risk-Neutral Valuation</h2>
+<p>The concept of Risk-Neutral Valuation is a cornerstone in the field of financial derivatives, offering a powerful framework for option pricing, particularly within the Black-Scholes-Merton model. This approach simplifies valuation by assuming that all investors are indifferent to risk, thereby pricing assets solely based on the risk-free rate rather than the expected return under actual market conditions.</p>
+<p>In the derivation of the Black-Scholes-Merton differential equation, an intriguing observation is that the expected return of the underlying asset, denoted by <span class="math inline">\(\mu\)</span>, does not influence the equation. This omission signifies that the equation—and by extension, the option’s price—is not affected by investors’ risk preferences. The remarkable outcome is that the solution to this differential equation remains consistent whether we consider a risk-neutral world or the real, risk-averse world. This observation leads to the principle of risk-neutral valuation, which posits that under certain conditions, the market can be modeled as if all investors were risk-neutral.</p>
+<p>This methodological approach allows the valuation of options and other derivatives in a theoretically consistent manner, abstracting away from the complexities introduced by varying risk preferences among investors. The elegance and simplicity of risk-neutral valuation underpin its widespread application in financial economics and the pricing of derivatives.</p>
+<section id="key-points-of-risk-neutral-valuation" class="level3" data-number="9.4.1">
+<h3 data-number="9.4.1" class="anchored" data-anchor-id="key-points-of-risk-neutral-valuation"><span class="header-section-number">9.4.1</span> Key Points of Risk-Neutral Valuation</h3>
+<ul>
+<li><p><strong>Indifference to Risk:</strong> In a risk-neutral world, investors expect to earn the risk-free rate on all investments, regardless of the risk involved. This assumption is purely theoretical but facilitates the practical application of option pricing models.</p></li>
+<li><p><strong>Exclusion of <span class="math inline">\(\mu\)</span>:</strong> The fact that the differential equation does not incorporate the expected return <span class="math inline">\(\mu\)</span> indicates the irrelevance of personal risk preferences in pricing derivatives through this model.</p></li>
+<li><p><strong>Universal Pricing Principle:</strong> The risk-neutral valuation framework suggests that the price of a derivative is determined by the expected payoff under risk neutrality, discounted at the risk-free rate.</p></li>
+</ul>
+</section>
+<section id="application-of-risk-neutral-valuation" class="level3" data-number="9.4.2">
+<h3 data-number="9.4.2" class="anchored" data-anchor-id="application-of-risk-neutral-valuation"><span class="header-section-number">9.4.2</span> Application of Risk-Neutral Valuation</h3>
+<p>Applying risk-neutral valuation to price options involves a straightforward three-step process:</p>
+<ol type="1">
+<li><p><strong>Assumption of Risk-Free Returns:</strong> Initially, it is assumed that the expected return on the stock (or the underlying asset) is equal to the risk-free rate. This simplification aligns the future stock price dynamics with a risk-neutral perspective, where all assets are expected to grow at this rate.</p></li>
+<li><p><strong>Calculation of Expected Payoff:</strong> The next step involves computing the expected payoff of the option at expiration. This calculation is performed under the assumption that the stock prices follow a risk-neutral probability distribution, reflecting a world where the expected rate of return on all assets is the risk-free rate.</p></li>
+<li><p><strong>Discounting at the Risk-Free Rate:</strong> Finally, the expected payoff is discounted back to the present using the risk-free rate. This discounting reflects the principle that future cash flows must be adjusted to present value at a rate that reflects their time value of money, devoid of risk premiums.</p></li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example: Risk-Neutral Valuation of a Call Option
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Consider a call option with a strike price of <span class="math inline">\(K\)</span>, and let’s assume that under the risk-neutral world, the expected stock price at expiration is <span class="math inline">\(E[S_T]\)</span>. The expected payoff from holding this call option can be represented as <span class="math inline">\(E[max(S_T - K, 0)]\)</span>, where <span class="math inline">\(S_T\)</span> is the stock price at expiration. By discounting this expected payoff at the risk-free rate <span class="math inline">\(r\)</span>, we can calculate the present value of the call option.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="the-effect-of-dividends" class="level2" data-number="9.5">
+<h2 data-number="9.5" class="anchored" data-anchor-id="the-effect-of-dividends"><span class="header-section-number">9.5</span> The Effect of Dividends</h2>
+<p>The inclusion of dividends in the valuation of options introduces additional complexity, as dividends can significantly affect option prices. The adjustment for dividends in the Black-Scholes model and considerations for American call options are pivotal for accurate pricing.</p>
+<section id="valuing-european-options-on-dividend-paying-stocks" class="level3" data-number="9.5.1">
+<h3 data-number="9.5.1" class="anchored" data-anchor-id="valuing-european-options-on-dividend-paying-stocks"><span class="header-section-number">9.5.1</span> Valuing European Options on Dividend-Paying Stocks</h3>
+<p>To accommodate dividends in the Black-Scholes model, <strong>the stock price is adjusted by subtracting the present value of dividends expected to be paid during the life of the option</strong>. This adjustment reflects the reduction in stock price that typically occurs on the ex-dividend date, thereby affecting the option’s intrinsic value. It’s crucial to include only those dividends that are expected to be paid before the option expires, as these are the ones that will impact the option holder.</p>
+<p>For a dividend-paying stock, the adjusted stock price <span class="math inline">\(S_{adj}\)</span> in the Black-Scholes formula becomes:</p>
+<p><span class="math display">\[S_{adj} = S_0 - PV(\text{dividends})\]</span></p>
+<p>where <span class="math inline">\(PV(\text{dividends})\)</span> is the present value of dividends paid during the option’s life. This adjustment aims to capture the expected drop in the stock price due to dividend payouts, ensuring the option valuation accurately reflects this anticipated decrease.</p>
+</section>
+<section id="american-calls-on-dividend-paying-stocks" class="level3" data-number="9.5.2">
+<h3 data-number="9.5.2" class="anchored" data-anchor-id="american-calls-on-dividend-paying-stocks"><span class="header-section-number">9.5.2</span> American Calls on Dividend-Paying Stocks</h3>
+<p>The traditional wisdom that American call options should not be exercised early due to their time value does not always hold in the presence of dividends. The possibility of early exercise becomes relevant when the stock pays dividends.</p>
+<section id="criteria-for-early-exercise" class="level4">
+<h4 class="anchored" data-anchor-id="criteria-for-early-exercise">Criteria for Early Exercise</h4>
+<p>For an American call option on a dividend-paying stock, early exercise might be optimal just before an ex-dividend date if the dividend amount exceeds the loss of time value from early exercise, specifically if the dividend is greater than:</p>
+<p><span class="math display">\[K[1 - e^{-r (t_{i+1} - t_i)}]\]</span></p>
+<p>Here, <span class="math inline">\(K\)</span> is the strike price, <span class="math inline">\(r\)</span> is the risk-free rate, and <span class="math inline">\(t_i\)</span> to <span class="math inline">\(t_{i+1}\)</span> represents the interval between dividend payments. This condition evaluates whether the immediate gain from capturing the dividend outweighs the potential benefits of holding the option for its time value.</p>
+</section>
+</section>
+<section id="blacks-approximation-for-american-call-options-with-dividends" class="level3" data-number="9.5.3">
+<h3 data-number="9.5.3" class="anchored" data-anchor-id="blacks-approximation-for-american-call-options-with-dividends"><span class="header-section-number">9.5.3</span> Black’s Approximation for American Call Options with Dividends</h3>
+<p>Black’s Approximation offers a pragmatic method for approximating the price of American call options on dividend-paying stocks. This approximation involves comparing two European call option prices:</p>
+<ol type="1">
+<li><strong>First European Price:</strong> This is calculated for a European call option with the same expiration date as the American option, incorporating the adjusted stock price for dividends.</li>
+<li><strong>Second European Price:</strong> This is calculated for a European call option expiring just before the final ex-dividend date within the American option’s life.</li>
+</ol>
+<p>The value of the American call option is approximated as the maximum value derived from these two European call options. This method acknowledges the critical influence of dividends on option pricing and provides a practical solution for incorporating this factor into American option valuation.</p>
+<p>Black’s Approximation simplifies the valuation process by sidestepping the complex optimization problem of determining the exact optimal early exercise strategy in the presence of dividends. It offers a balance between accuracy and computational efficiency, making it a valuable tool for practitioners in the financial markets.</p>
+</section>
+</section>
+<section id="volatility-in-financial-markets" class="level2" data-number="9.6">
+<h2 data-number="9.6" class="anchored" data-anchor-id="volatility-in-financial-markets"><span class="header-section-number">9.6</span> Volatility in Financial Markets</h2>
+<p>Volatility is a pivotal concept in finance, encapsulating the degree of variation in the price of a financial instrument over time. It is central to the valuation of options, where it measures the extent of uncertainty or risk associated with the price change of the underlying asset.</p>
+<ul>
+<li><strong>Definition:</strong> Volatility, denoted as <span class="math inline">\(\sigma\)</span>, quantifies the expected variability in the returns of a stock or any financial asset. It reflects the degree of uncertainty or risk about the magnitude of changes in an asset’s value.</li>
+<li><strong>Range:</strong> Typically, stocks exhibit annual volatilities in the range of 15% to 60%. This range indicates the expected yearly change in the stock price, highlighting the variability in asset prices across different markets and conditions.</li>
+<li><strong>Impact on Options:</strong> The value of an option is exceptionally sensitive to changes in volatility. Since options are derivatives based on the underlying asset, increased volatility translates to higher option premiums, all else being equal.</li>
+<li><strong>Observability:</strong> Unlike direct observables like stock prices, volatility is not directly observable and must be estimated. Historical volatility is derived from past market prices, while implied volatility is inferred from current market prices of options.</li>
+</ul>
+<section id="historical-volatility" class="level3" data-number="9.6.1">
+<h3 data-number="9.6.1" class="anchored" data-anchor-id="historical-volatility"><span class="header-section-number">9.6.1</span> Historical Volatility</h3>
+<ul>
+<li><strong>Calculation:</strong> Historical volatility is the standard deviation of the continuously compounded returns of an asset over a specified period, typically annualized. This measure provides a backward-looking estimate of volatility based on actual market data.</li>
+<li><strong>Daily Volatility Example:</strong> For a stock priced at $30 with an annual volatility of 25%, the standard deviation of the stock’s price change over one day (<span class="math inline">\(\Delta t\)</span>) can be approximated as <span class="math inline">\(25\% \times \sqrt{\frac{1}{252}} = 1.57\%\)</span>, assuming 252 trading days in a year. This calculation aids in understanding daily price variability.</li>
+<li><strong>Annualization:</strong> By annualizing the standard deviation of daily returns (multiplied by <span class="math inline">\(\sqrt{252}\)</span>), investors can compare volatility across assets with different time frames.</li>
+</ul>
+</section>
+<section id="nature-of-volatility" class="level3" data-number="9.6.2">
+<h3 data-number="9.6.2" class="anchored" data-anchor-id="nature-of-volatility"><span class="header-section-number">9.6.2</span> Nature of Volatility</h3>
+<ul>
+<li><strong>Market Hours:</strong> Volatility tends to be higher during trading hours compared to when the market is closed, reflecting the immediate impact of news and events on asset prices.</li>
+<li><strong>Trading Days:</strong> For options valuation, time is measured in trading days, not calendar days, acknowledging the fact that price changes are primarily driven by market activity. This convention ensures that the time to maturity for options reflects actual market exposure.</li>
+</ul>
+</section>
+<section id="implied-volatility" class="level3" data-number="9.6.3">
+<h3 data-number="9.6.3" class="anchored" data-anchor-id="implied-volatility"><span class="header-section-number">9.6.3</span> Implied Volatility</h3>
+<ul>
+<li><strong>Definition:</strong> Implied volatility is the volatility implied by the market price of an option, based on the Black-Scholes-Merton model. It represents the market’s expectation of future volatility over the life of the option.</li>
+<li><strong>VIX Index:</strong> The VIX S&amp;P 500 Volatility Index is a widely recognized measure of market expectation of near-term volatility conveyed by S&amp;P 500 stock index option prices. <a href="https://www.cboe.com/tradable_products/vix/">The VIX S&amp;P 500 Volatility Index.</a></li>
+<li><strong>Application:</strong> Implied volatility is crucial in options trading, serving as a standard measure that reflects the market’s view on future volatility. It is instrumental in pricing, trading strategies, and risk management.</li>
+<li><strong>Volatility Smile and Surface:</strong> The volatility smile and surface graphically represent implied volatility across different strike prices and maturities. Deviations from a flat surface—expected under the BSM model assumptions—reveal market anomalies, such as varying risk preferences and the impact of market events on different options.</li>
+<li><strong>Market Anomalies:</strong> The observed curvature in the volatility smile and the dynamic topology of the volatility surface challenge the BSM model’s assumptions, demonstrating real-market frictions and behaviors not accounted for by the model. These phenomena offer valuable insights into the complexity of market dynamics and the factors influencing option pricing beyond theoretical models.</li>
+</ul>
+<section id="role-of-implied-volatility-in-option-trading" class="level4">
+<h4 class="anchored" data-anchor-id="role-of-implied-volatility-in-option-trading">Role of Implied Volatility in Option Trading</h4>
+<ul>
+<li><strong>Market’s Perception of Value:</strong> Implied volatility reflects the market’s anticipation of future price fluctuations of the underlying asset. Higher implied volatility indicates greater expected price movement and, consequently, a higher option premium.</li>
+<li><strong>Pricing Medium:</strong> In options markets, implied volatility is often used as a standard metric to quote prices. A call option priced at $10, corresponding to an implied volatility of 25%, illustrates how traders communicate and gauge option value through volatility levels.</li>
+<li><strong>Valuation of Options:</strong> Implied volatility aids in comparing the relative value of options by standardizing price differences attributable to intrinsic value and time decay. Options with lower implied volatility are considered cheaper relative to those with higher implied volatility, offering insights into potential over- or under-valuation.</li>
+<li><strong>Revaluation Over Time:</strong> As market conditions and perceptions change, so does implied volatility. Tracking its evolution allows traders and portfolio managers to reassess the value of their positions, adapting strategies accordingly.</li>
+<li><strong>Market Sentiment Indicator:</strong> The level of implied volatility reflects market participants’ expectations about future volatility, serving as a barometer for market sentiment.</li>
+<li><strong>Communication Tool:</strong> For regulators, banks, and compliance officers, implied volatility serves as a universal language to discuss and assess the risk and valuation of options portfolios.</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="practice-questions-and-problems" class="level2" data-number="9.7">
+<h2 data-number="9.7" class="anchored" data-anchor-id="practice-questions-and-problems"><span class="header-section-number">9.7</span> Practice Questions and Problems</h2>
+<ol type="1">
+<li><p>Name some assumptions of the Black-Scholes-Merton model. Compare with the real world and explain potential issues.</p></li>
+<li><p>Explain the principle of risk-neutral valuation.</p></li>
+<li><p>Calculate the price of a three-month European put option on a non-dividend-paying stock with a strike price of $50 when the current stock price is $50, the risk-free interest rate is 10% per annum, and the volatility is 30% per annum. (Tip: Use Excel function NORMDIST to calculate <span class="math inline">\(N(x)\)</span>)</p></li>
+<li><p>What difference does it make to your calculations in the previous Problem if a dividend of $1.50 is expected in two months? (Tip: Use Excel function NORMDIST to calculate <span class="math inline">\(N(x)\)</span>)</p></li>
+<li><p>What is the price of a European call option on a non-dividend-paying stock when the stock price is $52, the strike price is $50, the risk-free interest rate is 12% per annum, the volatility is 30% per annum, and the time to maturity is three months?</p></li>
+<li><p>What is the price of a European put option on a non-dividend-paying stock when the stock price is $69, the strike price is $70, the risk-free interest rate is 5% per annum, the volatility is 35% per annum, and the time to maturity is six months?</p></li>
+<li><p>Consider an option on a non-dividend-paying stock when the stock price is $30, the exercise price is $29, the risk-free interest rate is 5% per annum, the volatility is 25% per annum, and the time to maturity is four months.</p>
+<ol type="a">
+<li>What is the price of the option if it is a European call?</li>
+<li>What is the price of the option if it is an American call?</li>
+<li>What is the price of the option if it is a European put?</li>
+<li>Verify that put–call parity holds.</li>
+</ol></li>
+<li><p>Calculate the value of a three-month at-the-money European call option on a stock index when the index is at 250, the risk-free interest rate is 10% per annum, the volatility of the index is 18% per annum, and the dividend yield on the index is 3% per annum.</p></li>
+<li><p>Calculate the value of an eight-month European put option on a currency with a strike price of 0.50. The current exchange rate is 0.52, the volatility of the exchange rate is 12%, the domestic risk-free interest rate is 4% per annum, and the foreign risk-free interest rate is 8% per annum.</p></li>
+<li><p>What is implied volatility? How can it be calculated?</p></li>
+<li><p>The volatility of a stock price is 30% per annum. What is the standard deviation of the percentage price change in one trading day?</p></li>
+<li><p>What is the actual implied volatility of the S&amp;P 500? Try to interpret the value.</p></li>
+<li><p>A call option on a non-dividend-paying stock has a market price of $2.50. The stock price is $15, the exercise price is $13, the time to maturity is three months, and the risk-free interest rate is 5% perannum. What is the implied volatility?</p></li>
+</ol>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
