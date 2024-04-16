@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Financial Derivatives - 10&nbsp; The Greeks and Volatility</title>
+<title>Financial Derivatives - 10&nbsp; Options on Indices, Currencies, and Futures</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -69,6 +69,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -81,7 +110,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week_10.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">The Greeks and Volatility</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week_10.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Options on Indices, Currencies, and Futures</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -208,13 +237,13 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./week_10.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">The Greeks and Volatility</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Options on Indices, Currencies, and Futures</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./week_11.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Options on Stock Indices, Currencies, and Futures</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Greeks</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -258,14 +287,53 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#options-on-stock-indices" id="toc-options-on-stock-indices" class="nav-link active" data-scroll-target="#options-on-stock-indices"><span class="header-section-number">10.1</span> Options on Stock Indices</a>
+  <ul class="collapse">
+  <li><a href="#using-index-options-for-portfolio-insurance" id="toc-using-index-options-for-portfolio-insurance" class="nav-link" data-scroll-target="#using-index-options-for-portfolio-insurance"><span class="header-section-number">10.1.1</span> Using Index Options for Portfolio Insurance</a></li>
+  </ul></li>
+  <li><a href="#valuation-of-stock-index-options" id="toc-valuation-of-stock-index-options" class="nav-link" data-scroll-target="#valuation-of-stock-index-options"><span class="header-section-number">10.2</span> Valuation of Stock Index Options</a>
+  <ul class="collapse">
+  <li><a href="#extending-lower-bounds-and-put-call-parity" id="toc-extending-lower-bounds-and-put-call-parity" class="nav-link" data-scroll-target="#extending-lower-bounds-and-put-call-parity"><span class="header-section-number">10.2.1</span> Extending Lower Bounds and Put-Call Parity</a></li>
+  <li><a href="#extending-black-scholes-model" id="toc-extending-black-scholes-model" class="nav-link" data-scroll-target="#extending-black-scholes-model"><span class="header-section-number">10.2.2</span> Extending Black-Scholes Model</a></li>
+  <li><a href="#alternative-formulas-using-forward-prices" id="toc-alternative-formulas-using-forward-prices" class="nav-link" data-scroll-target="#alternative-formulas-using-forward-prices"><span class="header-section-number">10.2.3</span> Alternative Formulas Using Forward Prices</a></li>
+  <li><a href="#implied-forward-prices-and-dividend-yields" id="toc-implied-forward-prices-and-dividend-yields" class="nav-link" data-scroll-target="#implied-forward-prices-and-dividend-yields"><span class="header-section-number">10.2.4</span> Implied Forward Prices and Dividend Yields</a></li>
+  </ul></li>
+  <li><a href="#currency-options" id="toc-currency-options" class="nav-link" data-scroll-target="#currency-options"><span class="header-section-number">10.3</span> Currency Options</a>
+  <ul class="collapse">
+  <li><a href="#range-forward-contracts" id="toc-range-forward-contracts" class="nav-link" data-scroll-target="#range-forward-contracts"><span class="header-section-number">10.3.1</span> Range Forward Contracts</a></li>
+  <li><a href="#extending-black-scholes-model-1" id="toc-extending-black-scholes-model-1" class="nav-link" data-scroll-target="#extending-black-scholes-model-1"><span class="header-section-number">10.3.2</span> Extending Black-Scholes Model</a></li>
+  <li><a href="#alternative-formulas-using-forward-prices-1" id="toc-alternative-formulas-using-forward-prices-1" class="nav-link" data-scroll-target="#alternative-formulas-using-forward-prices-1"><span class="header-section-number">10.3.3</span> Alternative Formulas Using Forward Prices</a></li>
+  </ul></li>
+  <li><a href="#options-on-futures-and-blacks-model" id="toc-options-on-futures-and-blacks-model" class="nav-link" data-scroll-target="#options-on-futures-and-blacks-model"><span class="header-section-number">10.4</span> Options on Futures and Black’s Model</a>
+  <ul class="collapse">
+  <li><a href="#mechanics-of-futures-options" id="toc-mechanics-of-futures-options" class="nav-link" data-scroll-target="#mechanics-of-futures-options"><span class="header-section-number">10.4.1</span> Mechanics of Futures Options</a></li>
+  <li><a href="#payoffs-of-futures-options" id="toc-payoffs-of-futures-options" class="nav-link" data-scroll-target="#payoffs-of-futures-options"><span class="header-section-number">10.4.2</span> Payoffs of Futures Options</a></li>
+  <li><a href="#potential-advantages-of-futures-options-over-spot-options" id="toc-potential-advantages-of-futures-options-over-spot-options" class="nav-link" data-scroll-target="#potential-advantages-of-futures-options-over-spot-options"><span class="header-section-number">10.4.3</span> Potential Advantages of Futures Options over Spot Options</a></li>
+  <li><a href="#put-call-parity-and-lower-bounds-for-european-futures-options" id="toc-put-call-parity-and-lower-bounds-for-european-futures-options" class="nav-link" data-scroll-target="#put-call-parity-and-lower-bounds-for-european-futures-options"><span class="header-section-number">10.4.4</span> Put-Call Parity and Lower Bounds for European Futures Options</a></li>
+  <li><a href="#blacks-model-for-valuing-futures-options" id="toc-blacks-model-for-valuing-futures-options" class="nav-link" data-scroll-target="#blacks-model-for-valuing-futures-options"><span class="header-section-number">10.4.5</span> Black’s Model for Valuing Futures Options</a></li>
+  <li><a href="#pricing-formulas" id="toc-pricing-formulas" class="nav-link" data-scroll-target="#pricing-formulas"><span class="header-section-number">10.4.6</span> Pricing Formulas</a></li>
+  <li><a href="#futures-option-price-vs.-spot-option-price" id="toc-futures-option-price-vs.-spot-option-price" class="nav-link" data-scroll-target="#futures-option-price-vs.-spot-option-price"><span class="header-section-number">10.4.7</span> Futures Option Price vs.&nbsp;Spot Option Price</a></li>
+  </ul></li>
+  <li><a href="#practice-questions-and-problems" id="toc-practice-questions-and-problems" class="nav-link" data-scroll-target="#practice-questions-and-problems"><span class="header-section-number">10.5</span> Practice Questions and Problems</a>
+  <ul class="collapse">
+  <li><a href="#index-options" id="toc-index-options" class="nav-link" data-scroll-target="#index-options"><span class="header-section-number">10.5.1</span> Index Options</a></li>
+  <li><a href="#currency-options-1" id="toc-currency-options-1" class="nav-link" data-scroll-target="#currency-options-1"><span class="header-section-number">10.5.2</span> Currency Options</a></li>
+  <li><a href="#futures-options" id="toc-futures-options" class="nav-link" data-scroll-target="#futures-options"><span class="header-section-number">10.5.3</span> Futures Options</a></li>
+  <li><a href="#strategic-considerations" id="toc-strategic-considerations" class="nav-link" data-scroll-target="#strategic-considerations"><span class="header-section-number">10.5.4</span> Strategic Considerations</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">The Greeks and Volatility</span></h1>
+<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Options on Indices, Currencies, and Futures</span></h1>
 </div>
 
 
@@ -295,19 +363,665 @@ References
 <ul>
 <li>HULL, John. Options, futures, and other derivatives. Ninth edition. Harlow: Pearson, 2018. ISBN 978-1-292-21289-0.
 <ul>
-<li>Chapter 1 - Introduction</li>
-<li>Chapter 4 - Interest Rates</li>
+<li>Chapter 17 - Options on Stock Indices and Currencies</li>
+<li>Chapter 18 - Futures Options and Black’s Model</li>
 </ul></li>
 <li>PIRIE, Wendy L. Derivatives. Hoboken: Wiley, 2017. CFA institute investment series. ISBN 978-1-119-38181-5.
 <ul>
-<li>Chapter 1 - Derivative Markets and Instruments</li>
+<li>Chapter 4 - Valuation of Contingent Claims</li>
 </ul></li>
 </ul>
 </div>
 </div>
 <p><strong>Learning Outcomes:</strong></p>
+<ul>
+<li>Master the use of index options for hedging and portfolio protection; understand the benefits compared to direct stock transactions.</li>
+<li>Apply models like Black-Scholes for valuing index options.</li>
+<li>Utilize currency options for hedging foreign exchange risks; grasp valuation techniques using both spot and forward prices.</li>
+<li>Evaluate European futures options using Black’s model; distinguish between options on futures and physical commodities.</li>
+</ul>
+<section id="options-on-stock-indices" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="options-on-stock-indices"><span class="header-section-number">10.1</span> Options on Stock Indices</h2>
+<p>Options on stock indices allow investors to speculate on the direction of an entire market index or hedge their portfolio market risk without directly transacting the component stocks. Some of the most widely traded stock index options in the United States are:</p>
+<ul>
+<li><p><strong>S&amp;P 100 Index (OEX and XEO):</strong> These options provide a broad market exposure to the top 100 stocks in the S&amp;P index. OEX options are American-style, allowing exercise at any point before the expiration date, whereas XEO options are European-style, exercisable only at expiration.</p></li>
+<li><p><strong>S&amp;P 500 Index (SPX):</strong> A benchmark index for U.S. equities, these European-style options reflect the performance of 500 large-cap stocks and are a key tool for institutional investors for hedging and exposure adjustment.</p></li>
+<li><p><strong>Dow Jones Index (DJX):</strong> Priced at 1/100th of the Dow Jones Industrial Average, these options are a cost-effective way to gain exposure to the movements of the Dow Jones, consisting of 30 significant stocks.</p></li>
+<li><p><strong>Nasdaq 100 Index (NDX):</strong> These European-style options represent the 100 largest non-financial stocks from the Nasdaq, making them crucial for investors focused on technology and innovation sectors.</p></li>
+</ul>
+<p>All mentioned index options are exchange-traded, have their contract size set at 100 times the index value, and are settled in cash, which simplifies the transaction and eliminates the need for physical delivery of the underlying securities.</p>
+<section id="using-index-options-for-portfolio-insurance" class="level3" data-number="10.1.1">
+<h3 data-number="10.1.1" class="anchored" data-anchor-id="using-index-options-for-portfolio-insurance"><span class="header-section-number">10.1.1</span> Using Index Options for Portfolio Insurance</h3>
+<p>Portfolio insurance is a strategy used to protect against market declines through the use of put options. The strategy involves purchasing puts to cover potential losses in a portfolio’s value due to adverse market movements.</p>
+<ul>
+<li><strong>Initial Setup:</strong>
+<ul>
+<li>Let <span class="math inline">\(S_0\)</span> represent the current index value.</li>
+<li>Let <span class="math inline">\(K\)</span> be the strike price of the put option.</li>
+<li>The portfolio’s beta (<span class="math inline">\(\beta\)</span>) indicates its sensitivity to market movements relative to the index.</li>
+</ul></li>
+<li><strong>Insurance Strategy:</strong>
+<ul>
+<li>For a portfolio with <span class="math inline">\(\beta = 1.0\)</span>, purchase one put option for every <span class="math inline">\(\$100 \times
+S_0\)</span> of portfolio value to hedge against downturns.</li>
+<li>If <span class="math inline">\(\beta \neq 1.0\)</span>, adjust the number of put options accordingly, purchasing <span class="math inline">\(\beta\)</span> options per <span class="math inline">\(\$100 \times S_0\)</span>.</li>
+<li>In both cases, <span class="math inline">\(K\)</span> is chosen to give the appropriate insurance level.</li>
+</ul></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example: Portfolio Insurance, <span class="math inline">\(\beta = 1.0\)</span>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p><strong>Portfolio Details:</strong></p>
+<ul>
+<li>Portfolio <span class="math inline">\(\beta\)</span> = 1.0</li>
+<li>Portfolio Value = $500,000</li>
+<li>Current Index Value = 1,000</li>
+</ul></li>
+<li><p><strong>Objective:</strong> Insure the portfolio so its value does not fall below $450,000 in the next three months.</p></li>
+<li><p><strong>Implementation Strategy:</strong></p>
+<ul>
+<li>The manager opts to buy put options as a form of insurance. Since each contract covers 100 times the index value, the manager needs one put option for every $100,000 of the portfolio value (i.e., <span class="math inline">\(500,000 / 100 \times 1,000 = 5\)</span> put options).</li>
+<li>These options have a strike price (<span class="math inline">\(K\)</span>) of 900 (10% decrease).</li>
+</ul></li>
+<li><p><strong>Mechanism of Insurance:</strong></p>
+<ul>
+<li><p>If the index drops to 880 in three months, the portfolio’s expected value would decrease proportionately to about $440,000.</p></li>
+<li><p>The put options’ payoff can be calculated as follows:</p>
+<p><span class="math display">\[\text{Payoff} = 5 \times \left[ (900 - 880) \times 100 \right] = \$10,000\]</span></p></li>
+<li><p>This payoff compensates for the decrease in the portfolio’s value, effectively bringing it up to the insured value of $450,000.</p></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example: Portfolio Insurance, <span class="math inline">\(\beta \neq 1.0\)</span>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Consider a portfolio with a <span class="math inline">\(\beta\)</span> of 2.0. This high beta implies that the portfolio’s returns are expected to be twice as volatile as the underlying index’s returns. Currently, the portfolio is valued at $500,000, while the index stands at 1,000. With a risk-free rate of 12% per annum and a dividend yield of 4% on both the portfolio and the index.</p>
+<ul>
+<li><p><strong>Objective:</strong> Insure the portfolio so its value does not fall below $450,000 in the next three months.</p></li>
+<li><p><strong>Required Number of Contracts:</strong> <span class="math inline">\((500,000 / 100,000) \times 2 = 10\)</span> put option contracts are needed.</p></li>
+</ul>
+<section id="determining-the-appropriate-strike-price-using-capm-model" class="level4">
+<h4 class="anchored" data-anchor-id="determining-the-appropriate-strike-price-using-capm-model">Determining the Appropriate Strike Price Using CAPM Model</h4>
+<ul>
+<li><p><strong>Index Return Scenario:</strong> Assume the index rises to 1,040 in three months, reflecting a 4% return.</p></li>
+<li><p><strong>Total Return Including Dividends:</strong> <span class="math inline">\(4\%\)</span> (index return) + <span class="math inline">\(1\%\)</span> (dividends) = 5%.</p></li>
+<li><p><strong>Excess Return Over Risk-Free Rate:</strong> <span class="math inline">\(5\%\)</span> - <span class="math inline">\(3\%\)</span> (equivalent quarterly risk-free rate) = 2%.</p></li>
+<li><p><strong>Excess Return for Portfolio:</strong> <span class="math inline">\(2\% \times 2 = 4\%\)</span> (due to beta of 2.0).</p></li>
+<li><p><strong>Net Portfolio Return Calculation:</strong> Excess return (4%) + risk-free rate over three months (3%) - dividend yield (1%) = 6%.</p></li>
+<li><p><strong>Projected Portfolio Value:</strong> <span class="math inline">\(\$500,000 \times 1.06 = \$530,000\)</span>.</p></li>
+<li><p><strong>Result:</strong> Similar calculations can be carried out for other values of the index at the end of the three months. Appropriate strike price for the 10 put option contracts that are purchased is 960 (or 955 when we include dividends).</p></li>
+</ul>
+<table class="table">
+<colgroup>
+<col style="width: 45%">
+<col style="width: 54%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Value of Index in Three Months</th>
+<th style="text-align: center;">Value of Portfolio in Three Months ($)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1,080</td>
+<td style="text-align: center;">570,000</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1,040</td>
+<td style="text-align: center;">530,000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">1,000</td>
+<td style="text-align: center;">490,000</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">960</td>
+<td style="text-align: center;">450,000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">920</td>
+<td style="text-align: center;">410,000</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">880</td>
+<td style="text-align: center;">370,000</td>
+</tr>
+</tbody>
+</table>
+</section>
+</div>
+</div>
+</section>
+</section>
+<section id="valuation-of-stock-index-options" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="valuation-of-stock-index-options"><span class="header-section-number">10.2</span> Valuation of Stock Index Options</h2>
+<p>The valuation of European stock index options hinges on the understanding of asset price dynamics under different conditions. The probability distribution of the asset price at maturity <span class="math inline">\(T\)</span> remains consistent in two distinct scenarios: 1. When the asset originates at a price <span class="math inline">\(S_0\)</span> with a yield of <span class="math inline">\(q\)</span>. 2. When the asset starts at a discounted price of <span class="math inline">\(S_0e^{-qT}\)</span>, assuming it yields no income.</p>
+<p>By utilizing this equivalence, we simplify the valuation process for European options. Instead of accounting for dividends directly, we <strong>adjust the initial stock price</strong> to <span class="math inline">\(S_0e^{-qT}\)</span> and <strong>proceed with the valuation as if the stock pays no dividends</strong>. This approach effectively streamlines the calculation by isolating the impact of yields and focusing on pure price movements.</p>
+<section id="extending-lower-bounds-and-put-call-parity" class="level3" data-number="10.2.1">
+<h3 data-number="10.2.1" class="anchored" data-anchor-id="extending-lower-bounds-and-put-call-parity"><span class="header-section-number">10.2.1</span> Extending Lower Bounds and Put-Call Parity</h3>
+<p>The intrinsic value forms the lower bound for option prices, ensuring that the option price does not fall below its immediate exercise value. These bounds are critical in preventing arbitrage opportunities.</p>
+<ul>
+<li><p><strong>Lower Bound for Call Options:</strong> <span class="math display">\[c \geq \max (S_0 e^{-qT} - Ke^{-rT}, 0)\]</span></p></li>
+<li><p><strong>Lower Bound for Put Options:</strong> <span class="math display">\[p \geq \max (Ke^{-rT} - S_0 e^{-qT}, 0)\]</span></p></li>
+</ul>
+<p>Put-call parity establishes a risk-neutral relationship between the prices of European put and call options with identical strike prices and expirations.</p>
+<ul>
+<li><strong>Put-Call Parity</strong> <span class="math display">\[c + Ke^{-rT} = p + S_0 e^{-qT}\]</span></li>
+</ul>
+</section>
+<section id="extending-black-scholes-model" class="level3" data-number="10.2.2">
+<h3 data-number="10.2.2" class="anchored" data-anchor-id="extending-black-scholes-model"><span class="header-section-number">10.2.2</span> Extending Black-Scholes Model</h3>
+<p>The Black-Scholes formula for pricing European options underlies much of modern financial derivatives trading. This extedned version considers the adjusted stock price that accounts for divid yield (<span class="math inline">\(q\)</span>). The formulas for calls and puts are as follows:</p>
+<ul>
+<li><strong>Call Option Price:</strong> <span class="math display">\[c = S_0 e^{-qT} N(d_1) - K e^{-rT} N(d_2)\]</span></li>
+<li><strong>Put Option Price:</strong> <span class="math display">\[p = K e^{-rT} N(-d_2) - S_0 e^{-qT} N(-d_1)\]</span></li>
+</ul>
+<p>Where: <span class="math display">\[d_1 = \frac{\ln (S_0 / K) + (r - q + \sigma^2 / 2)T}{\sigma \sqrt{T}}\]</span> <span class="math display">\[d_2 = d_1 - \sigma \sqrt{T}\]</span></p>
+</section>
+<section id="alternative-formulas-using-forward-prices" class="level3" data-number="10.2.3">
+<h3 data-number="10.2.3" class="anchored" data-anchor-id="alternative-formulas-using-forward-prices"><span class="header-section-number">10.2.3</span> Alternative Formulas Using Forward Prices</h3>
+<p>The valuation of European options can also be efficiently conducted using forward prices, which simplifies the treatment of dividends and risk-free rates. This approach directly incorporates the expected future price of the asset, eliminating the need to adjust the current price for dividends and rates separately.</p>
+<ul>
+<li><strong>Call Option Price:</strong> <span class="math display">\[c = e^{-rT}[F_0 N(d_1) - K N(d_2)]\]</span></li>
+<li><strong>Put Option Price:</strong> <span class="math display">\[p = e^{-rT}[K N(-d_2) - F_0 N(-d_1)]\]</span></li>
+</ul>
+<p>Where <span class="math inline">\(F_0\)</span> is the forward price of the asset, representing the expected price at time <span class="math inline">\(T\)</span>, adjusted for the risk-free rate <span class="math inline">\(r\)</span> and the dividend yield <span class="math inline">\(q\)</span>. The terms <span class="math inline">\(d_1\)</span> and <span class="math inline">\(d_2\)</span> in these formulas are modified to incorporate the forward price:</p>
+<p><span class="math display">\[d_1 = \frac{\ln (F_0 / K) + \sigma^2 T / 2}{\sigma \sqrt{T}}\]</span> <span class="math display">\[d_2 = d_1 - \sigma \sqrt{T}\]</span></p>
+<ul>
+<li><p>The forward price <span class="math inline">\(F_0 = S_0 e^{(r-q)T}\)</span> effectively encapsulates the expected growth of the asset price due to the net effect of interest rates and dividend yields.</p></li>
+<li><p>This methodology is particularly useful for valuing options on assets that pay dividends, as it directly uses the futures or forward index price, which corresponds to a contract maturing at the same time as the option.</p></li>
+</ul>
+</section>
+<section id="implied-forward-prices-and-dividend-yields" class="level3" data-number="10.2.4">
+<h3 data-number="10.2.4" class="anchored" data-anchor-id="implied-forward-prices-and-dividend-yields"><span class="header-section-number">10.2.4</span> Implied Forward Prices and Dividend Yields</h3>
+<p>Forward prices and dividend yields can also be derived from market prices of European calls and puts, enabling a deeper understanding of market expectations and assisting in strategic investment decisions.</p>
+<ul>
+<li><p><strong>Implied Forward Price:</strong> <span class="math display">\[F_0 = K + (c - p) e^{rT}\]</span> This formula calculates the implied forward price from the current prices of European calls and puts with the same strike price and time to maturity. It reflects the market’s expectation of the asset price at the option’s expiry.</p></li>
+<li><p><strong>Implied Dividend Yield:</strong> <span class="math display">\[q = -\frac{1}{T} \ln \frac{c - p + K e^{-rT}}{S_0}\]</span> This expression estimates the average dividend yield expected during the life of the option, derived from the observed prices of calls and puts.</p></li>
+<li><p>These calculations are essential for estimating term structures of forward prices and dividend yields, particularly relevant in over-the-counter (OTC) European options.</p></li>
+<li><p>For American options, which can be exercised at any point up to and including the date of expiration, understanding the term structure of dividend yields is crucial due to their potential impact on early exercise decisions.</p></li>
+</ul>
+</section>
+</section>
+<section id="currency-options" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="currency-options"><span class="header-section-number">10.3</span> Currency Options</h2>
+<p>Currency options are financial instruments that provide an essential hedging mechanism against foreign exchange risk, utilized predominantly by corporations with international exposure. These options are traded on structured exchanges such as NASDAQ OMX and extensively in the over-the-counter (OTC) market, reflecting their importance in financial risk management.</p>
+<p>Currency as an asset class behaves similarly to stocks that provide a yield, with the yield in this case being the foreign interest rate, <span class="math inline">\(r_f\)</span>. This similarity allows the application of stock option pricing methods to currency options, considering <span class="math inline">\(r_f\)</span> as analogous to the dividend yield in stock options.</p>
+<section id="range-forward-contracts" class="level3" data-number="10.3.1">
+<h3 data-number="10.3.1" class="anchored" data-anchor-id="range-forward-contracts"><span class="header-section-number">10.3.1</span> Range Forward Contracts</h3>
+<p>Range forward contracts are bespoke financial agreements that help manage currency risk by setting bounds on the exchange rate fluctuations:</p>
+<ul>
+<li><p>When expecting to pay currency, one typically sells a put option with a lower strike price, <span class="math inline">\(K_1\)</span>, and buys a call option with a higher strike price, <span class="math inline">\(K_2\)</span> (<span class="math inline">\(K_2 &gt; K_1\)</span>). This structure ensures that the exchange rate remains between <span class="math inline">\(K_1\)</span> and <span class="math inline">\(K_2\)</span>.</p></li>
+<li><p>Conversely, when expecting to receive currency, one buys a put option at <span class="math inline">\(K_1\)</span> and sells a call option at <span class="math inline">\(K_2\)</span>.</p></li>
+<li><p>The cost of the put typically offsets the premium received for the call, balancing the overall cost of the contract.</p></li>
+</ul>
+<p><img src="images/09-3-range-forwards.png" class="img-fluid"></p>
+<p>These contracts are particularly advantageous for businesses that seek to mitigate the risk of adverse currency movements while retaining some potential for benefiting from favorable movements within a predetermined range.</p>
+</section>
+<section id="extending-black-scholes-model-1" class="level3" data-number="10.3.2">
+<h3 data-number="10.3.2" class="anchored" data-anchor-id="extending-black-scholes-model-1"><span class="header-section-number">10.3.2</span> Extending Black-Scholes Model</h3>
+<p>Using the Black-Scholes model adjusted for currencies, we derive the following formulas:</p>
+<ul>
+<li><p><strong>Call Option Price:</strong> <span class="math display">\[c = S_0 e^{-r_f T} N(d_1) - K e^{-rT} N(d_2)\]</span></p></li>
+<li><p><strong>Put Option Price:</strong> <span class="math display">\[p = K e^{-rT} N(-d_2) - S_0 e^{-r_f T} N(-d_1)\]</span></p></li>
+</ul>
+<p>Where: <span class="math display">\[d_1 = \frac{\ln (S_0 / K) + (r - r_f + \sigma^2 / 2)T}{\sigma \sqrt{T}}\]</span> <span class="math display">\[d_2 = d_1 - \sigma \sqrt{T}\]</span></p>
+</section>
+<section id="alternative-formulas-using-forward-prices-1" class="level3" data-number="10.3.3">
+<h3 data-number="10.3.3" class="anchored" data-anchor-id="alternative-formulas-using-forward-prices-1"><span class="header-section-number">10.3.3</span> Alternative Formulas Using Forward Prices</h3>
+<p>The use of forward prices further simplifies the valuation by incorporating expectations about future exchange rates:</p>
+<ul>
+<li><strong>Call Option Price:</strong> <span class="math display">\[c = e^{-rT}[F_0 N(d_1) - K N(d_2) ]\]</span></li>
+<li><strong>Put Option Price:</strong> <span class="math display">\[p = e^{-rT} [K N(-d_2) - F_0 N(-d_1)]\]</span></li>
+</ul>
+<p>Where: <span class="math display">\[d_1 = \frac{\ln (F_0 / K) + \sigma^2 T / 2}{\sigma \sqrt{T}}\]</span> <span class="math display">\[d_2 = d_1 - \sigma \sqrt{T}\]</span></p>
+<p>Where <span class="math inline">\(F_0 = S_0 e^{(r-r_f)T}\)</span> represents the forward exchange rate, adjusted for the interest rate differential between the two currencies. This model encapsulates the market’s expectations of future exchange rates, reducing the need for separate adjustments for interest rates and foreign yields in the pricing formulas.</p>
+</section>
+</section>
+<section id="options-on-futures-and-blacks-model" class="level2" data-number="10.4">
+<h2 data-number="10.4" class="anchored" data-anchor-id="options-on-futures-and-blacks-model"><span class="header-section-number">10.4</span> Options on Futures and Black’s Model</h2>
+<p>Options on futures are derivatives that confer the right, but not the obligation, to enter into a futures contract at a predetermined price before a specified expiration date. These options are categorized by the maturity month of the underlying futures contract. Typically, these options are American-style, meaning they can be exercised at any time up to and including the expiration day, which usually aligns with or occurs a few days before the earliest delivery date of the underlying futures contract.</p>
+<section id="mechanics-of-futures-options" class="level3" data-number="10.4.1">
+<h3 data-number="10.4.1" class="anchored" data-anchor-id="mechanics-of-futures-options"><span class="header-section-number">10.4.1</span> Mechanics of Futures Options</h3>
+<section id="call-options" class="level4">
+<h4 class="anchored" data-anchor-id="call-options">Call Options</h4>
+<p>When a call option on a futures contract is exercised, the holder assumes a <strong>long position in the futures contract</strong>. Additionally, the holder receives a cash amount equivalent to the difference between the futures price at the most recent settlement and the strike price of the option.</p>
+<ul>
+<li><strong>Example:</strong>
+<ul>
+<li>A September call option on copper futures has a strike price of 320 cents per pound.</li>
+<li>The option is exercised when the futures price is 331 cents, with the most recent settlement price at 330 cents.</li>
+<li>Each contract represents 25,000 pounds of copper.</li>
+<li>Upon exercising, the trader receives a long position in the September futures contract and a cash payout of <span class="math inline">\(25,000 \times 10 \text{ cents} = \$2,500\)</span>.</li>
+<li>If desired, the position in the futures contract can be closed out immediately to get <span class="math inline">\(25,000 \times (331 - 330) \text{ cents} = \$250\)</span>.</li>
+<li>The total payoff from exercising the option is $2,750.</li>
+</ul></li>
+</ul>
+</section>
+<section id="put-options" class="level4">
+<h4 class="anchored" data-anchor-id="put-options">Put Options</h4>
+<p>Conversely, when a put futures option is exercised, the holder gains a <strong>short position in the futures contract</strong>. Similar to the call option, there is a cash payout which in this case is the difference between the strike price and the futures price at the most recent settlement.</p>
+<ul>
+<li><strong>Example:</strong>
+<ul>
+<li>A December put option on corn futures has a strike price of 600 cents per bushel.</li>
+<li>The option is exercised when the futures price is 580 cents per bushel, with the most recent settlement price at 579 cents per bushel.</li>
+<li>Each contract covers 5,000 bushels.</li>
+<li>The trader receives a short position in the December futures contract and a cash payout of <span class="math inline">\(5,000 \times (600 - 579) \text{ cents} = \$1,050\)</span>.</li>
+<li>If desired, the position in the futures contract can be closed out immediately to get <span class="math inline">\(5,000 \times (579 - 580) \text{ cents} = -\$50\)</span>.</li>
+<li>The total payoff from exercising the option is $1,000.</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="payoffs-of-futures-options" class="level3" data-number="10.4.2">
+<h3 data-number="10.4.2" class="anchored" data-anchor-id="payoffs-of-futures-options"><span class="header-section-number">10.4.2</span> Payoffs of Futures Options</h3>
+<p>The payoff for futures options, if the position in the futures contract is closed out immediately after exercising the option, is straightforward:</p>
+<ul>
+<li><p><strong>Call Option Payoff:</strong> <span class="math display">\[ \text{Payoff} = F - K \]</span> Where <span class="math inline">\(F\)</span> is the futures price at the time of exercise, and <span class="math inline">\(K\)</span> is the strike price of the option.</p></li>
+<li><p><strong>Put Option Payoff:</strong> <span class="math display">\[ \text{Payoff} = K - F \]</span> Again, <span class="math inline">\(F\)</span> represents the futures price at the time of exercise.</p></li>
+</ul>
+</section>
+<section id="potential-advantages-of-futures-options-over-spot-options" class="level3" data-number="10.4.3">
+<h3 data-number="10.4.3" class="anchored" data-anchor-id="potential-advantages-of-futures-options-over-spot-options"><span class="header-section-number">10.4.3</span> Potential Advantages of Futures Options over Spot Options</h3>
+<p>Futures options offer several distinct advantages over spot options under certain conditions:</p>
+<ol type="1">
+<li><strong>Equivalence with Spot Options:</strong>
+<ul>
+<li>European futures options and European spot options are equivalent in value when the futures contract matures concurrently with the option’s expiration. This equivalence arises because both types of options will reflect the same underlying economic exposures at expiration.</li>
+</ul></li>
+<li><strong>Market Liquidity:</strong>
+<ul>
+<li>Futures contracts often enjoy greater liquidity compared to many underlying assets, particularly in markets where the underlying assets are large or illiquid by nature (e.g., commodities, certain financial instruments). This increased liquidity generally makes it easier and potentially less costly to trade futures options.</li>
+</ul></li>
+<li><strong>Settlement Characteristics:</strong>
+<ul>
+<li>Upon exercising a futures option, the holder acquires a position in the futures contract rather than the immediate delivery of the underlying asset. This feature can be particularly advantageous in markets where physical delivery is less desirable or practical.</li>
+</ul></li>
+<li><strong>Unified Trading Platforms:</strong>
+<ul>
+<li>Futures options and the underlying futures contracts typically trade on the same exchange. This unification can simplify access, monitoring, and execution for traders and investors, enhancing market efficiency.</li>
+</ul></li>
+<li><strong>Cost Efficiency:</strong>
+<ul>
+<li>The transaction costs associated with trading futures options can be lower than those for trading spot options, largely due to standardized contract terms and centralized trading venues which foster more competitive pricing.</li>
+</ul></li>
+</ol>
+</section>
+<section id="put-call-parity-and-lower-bounds-for-european-futures-options" class="level3" data-number="10.4.4">
+<h3 data-number="10.4.4" class="anchored" data-anchor-id="put-call-parity-and-lower-bounds-for-european-futures-options"><span class="header-section-number">10.4.4</span> Put-Call Parity and Lower Bounds for European Futures Options</h3>
+<section id="put-call-parity" class="level4">
+<h4 class="anchored" data-anchor-id="put-call-parity">Put-Call Parity</h4>
+<p>Consider the following two portfolios:</p>
+<ol type="1">
+<li>European call plus <span class="math inline">\(Ke^{-rT}\)</span> of cash.</li>
+<li>European put plus long futures plus cash equal to <span class="math inline">\(F_0 e^{-rT}\)</span>.</li>
+</ol>
+<p>Both portfolios must be worth the same at time <span class="math inline">\(T\)</span>. Therfore, for European futures options, the put-call parity condition is expressed as:</p>
+<p><span class="math display">\[c + Ke^{-rT} = p + F_0e^{-rT}\]</span></p>
+<p>Here, <span class="math inline">\(c\)</span> and <span class="math inline">\(p\)</span> represent the prices of the European call and put options, respectively, <span class="math inline">\(K\)</span> is the strike price, <span class="math inline">\(F_0\)</span> is the current futures price, and <span class="math inline">\(r\)</span> is the risk-free interest rate. This equation ensures that no arbitrage opportunities exist between buying a call and selling a put when adjusted for the present value of the strike price and the futures price.</p>
+</section>
+<section id="lower-bounds" class="level4">
+<h4 class="anchored" data-anchor-id="lower-bounds">Lower Bounds</h4>
+<p>The lower bounds for the prices of futures options reflect the minimum value these options must hold to prevent arbitrage:</p>
+<ul>
+<li><p><strong>Call Option Lower Bound:</strong> <span class="math display">\[c \geq (F_0 - K)e^{-rT}\]</span></p></li>
+<li><p><strong>Put Option Lower Bound:</strong> <span class="math display">\[p \geq (K - F_0)e^{-rT}\]</span></p></li>
+</ul>
+</section>
+</section>
+<section id="blacks-model-for-valuing-futures-options" class="level3" data-number="10.4.5">
+<h3 data-number="10.4.5" class="anchored" data-anchor-id="blacks-model-for-valuing-futures-options"><span class="header-section-number">10.4.5</span> Black’s Model for Valuing Futures Options</h3>
+<p>In the pricing of futures contracts, a pivotal assumption is that no initial investment is required, leading to a <strong>zero expected return in a risk-neutral environment</strong>. This implies that the expected growth rate of the futures price is also zero, essentially treating the futures price as equivalent to a stock paying a continuous dividend yield equal to the risk-free rate <span class="math inline">\(r\)</span>. This approach simplifies the valuation by aligning the futures price dynamics with those of a dividend-paying stock.</p>
+<p>Black’s model extends the classic Black-Scholes framework to futures options, incorporating unique aspects of futures pricing:</p>
+<ul>
+<li><strong>Model Parameters:</strong>
+<ul>
+<li><span class="math inline">\(S_0\)</span>, the current futures price, is denoted by <span class="math inline">\(F_0\)</span>.</li>
+<li><span class="math inline">\(q\)</span>, typically representing the dividend yield in stock options, is set to the domestic risk-free rate <span class="math inline">\(r\)</span> in the context of futures. This setting neutralizes the expected growth of the futures price, maintaining the risk-neutral valuation framework.</li>
+</ul></li>
+<li><strong>Historical Context:</strong>
+<ul>
+<li>The model was first proposed by Fischer Black in 1976 and is specifically adapted for European options on futures, providing a practical solution that sidesteps the complexities of estimating income on the underlying asset.</li>
+</ul></li>
+</ul>
+</section>
+<section id="pricing-formulas" class="level3" data-number="10.4.6">
+<h3 data-number="10.4.6" class="anchored" data-anchor-id="pricing-formulas"><span class="header-section-number">10.4.6</span> Pricing Formulas</h3>
+<p>The formulas for valuing European futures options using Black’s model are derived as follows:</p>
+<ul>
+<li><strong>Call Option Price:</strong> <span class="math display">\[ c = e^{-rT}[F_0 N(d_1) - K N(d_2) ] \]</span></li>
+<li><strong>Put Option Price:</strong> <span class="math display">\[ p = e^{-rT} [K N(-d_2) - F_0 N(-d_1)] \]</span></li>
+</ul>
+<p>Where: <span class="math display">\[ d_1 = \frac{\ln (F_0 / K) + \sigma^2 T / 2}{\sigma \sqrt{T}} \]</span> <span class="math display">\[ d_2 = d_1 - \sigma \sqrt{T} \]</span></p>
+</section>
+<section id="futures-option-price-vs.-spot-option-price" class="level3" data-number="10.4.7">
+<h3 data-number="10.4.7" class="anchored" data-anchor-id="futures-option-price-vs.-spot-option-price"><span class="header-section-number">10.4.7</span> Futures Option Price vs.&nbsp;Spot Option Price</h3>
+<p>Comparing futures options to spot options under different market conditions reveals nuanced valuation dynamics:</p>
+<ul>
+<li><strong>Normal Market Conditions (Contango):</strong>
+<ul>
+<li>If futures prices are higher than spot prices, an American call option on futures is typically more valuable than a similar call option on the spot market. Conversely, an American put option on futures is less valuable than its spot counterpart.</li>
+</ul></li>
+<li><strong>Inverted Market Conditions (Backwardation):</strong>
+<ul>
+<li>In situations where futures prices are lower than spot prices, the value relationships reverse: American calls on futures become less valuable, whereas puts on futures gain in relative value.</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="practice-questions-and-problems" class="level2" data-number="10.5">
+<h2 data-number="10.5" class="anchored" data-anchor-id="practice-questions-and-problems"><span class="header-section-number">10.5</span> Practice Questions and Problems</h2>
+<section id="index-options" class="level3" data-number="10.5.1">
+<h3 data-number="10.5.1" class="anchored" data-anchor-id="index-options"><span class="header-section-number">10.5.1</span> Index Options</h3>
+<ol type="1">
+<li>A stock index is currently 300, the dividend yield on the index is 3% per annum, and the risk-free interest rate is 8% per annum. What is a lower bound for the price of a six- month European call option on the index when the strike price is 290?</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Lower bound = 16.90</p>
+</div>
+</div>
+</div>
+<ol start="2" type="1">
+<li>Consider a stock index currently standing at 250. The dividend yield on the index is 4% per annum, and the risk-free rate is 6% per annum. A three-month European call option on the index with a strike price of 245 is currently worth $10. What is the value of a three-month put option on the index with a strike price of 245?</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Put option value = 3.84</p>
+</div>
+</div>
+</div>
+<ol start="3" type="1">
+<li>Calculate the value of a three-month at-the-money European call option on a stock index when the index is at 250, the risk-free interest rate is 10% per annum, the volatility of the index is 18% per annum, and the dividend yield on the index is 3% per annum.</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Call option value = 11.15</p>
+</div>
+</div>
+</div>
+<ol start="4" type="1">
+<li>An index currently stands at 696 and has a volatility of 30% per annum. The risk-free rate of interest is 7% per annum and the index provides a dividend yield of 4% per annum. Calculate the value of a three-month European put with an exercise price of 700.</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Put option value = 40.6</p>
+</div>
+</div>
+</div>
+</section>
+<section id="currency-options-1" class="level3" data-number="10.5.2">
+<h3 data-number="10.5.2" class="anchored" data-anchor-id="currency-options-1"><span class="header-section-number">10.5.2</span> Currency Options</h3>
+<ol type="1">
+<li>A foreign currency is currently worth $1.50. The domestic and foreign risk-free interest rates are 5% and 9%, respectively. Calculate a lower bound for the value of a six-month call option on the currency with a strike price of $1.40 if it is (a) European and (b) American.</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Lower bound European = 0.069 Lower bound American = 0.10</p>
+</div>
+</div>
+</div>
+<ol start="2" type="1">
+<li>Calculate the value of an eight-month European put option on a currency with a strike price of 0.50. The current exchange rate is 0.52, the volatility of the exchange rate is 12%, the domestic risk-free interest rate is 4% per annum, and the foreign risk-free interest rate is 8% per annum.</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Put option value = 0.0162</p>
+</div>
+</div>
+</div>
+<ol start="3" type="1">
+<li>A currency is currently worth $0.80 and has a volatility of 12%. The domestic and foreign risk-free interest rates are 6% and 8%, respectively. Use a two-step binomial tree to value (a) a European four-month call option with a strike price of 0.79 and (b) an American four-month call option with the same strike price.</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li>European Option Value: $0.0235</li>
+<li>American Option Value: $0.0250</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="futures-options" class="level3" data-number="10.5.3">
+<h3 data-number="10.5.3" class="anchored" data-anchor-id="futures-options"><span class="header-section-number">10.5.3</span> Futures Options</h3>
+<ol type="1">
+<li>Consider a two-month futures call option with a strike price of 40 when the risk-free interest rate is 10% per annum. The current futures price is 47. What is a lower bound for the value of the futures option if it is (a) European and (b) American?</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Lower bound European = 6.88 Lower bound American = 7</p>
+</div>
+</div>
+</div>
+<ol start="2" type="1">
+<li>Consider a four-month futures put option with a strike price of 50 when the risk-free interest rate is 10% per annum. The current futures price is 47. What is a lower bound for the value of the futures option if it is (a) European and (b) American?</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Lower bound European = 2.90 Lower bound American = 3</p>
+</div>
+</div>
+</div>
+<ol start="3" type="1">
+<li>Calculate the value of a five-month European futures put option when the futures price is $19, the strike price is $20, the risk-free interest rate is 12% per annum, and the volatility of the futures price is 20% per annum.</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Put option value = 1.50</p>
+</div>
+</div>
+</div>
+<ol start="4" type="1">
+<li>A futures price is currently 25, its volatility is 30% per annum, and the risk-free interest rate is 10% per annum. What is the value of a nine-month European call on the futures with a strike price of 26?</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Call option value = 2.01</p>
+</div>
+</div>
+</div>
+<ol start="5" type="1">
+<li>A futures price is currently 60 and its volatility is 30%. The risk-free interest rate is 8% per annum. Use a two-step binomial tree to calculate the value of a six-month European call option on the futures with a strike price of 60. If the call were American, would it ever be worth exercising it early?</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li>European Option Value: <span class="math inline">\(4.3155\)</span></li>
+<li>American Option Value: <span class="math inline">\(4.4026\)</span></li>
+</ul>
+</div>
+</div>
+</div>
+<ol start="6" type="1">
+<li>Suppose that a one-year futures price is currently 35. A one-year European call option and a one-year European put option on the futures with a strike price of 34 are both priced at 2 in the market. The risk-free interest rate is 10% per annum. Identify an arbitrage opportunity.</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Arbitrage profit = $1</p>
+</div>
+</div>
+</div>
+</section>
+<section id="strategic-considerations" class="level3" data-number="10.5.4">
+<h3 data-number="10.5.4" class="anchored" data-anchor-id="strategic-considerations"><span class="header-section-number">10.5.4</span> Strategic Considerations</h3>
+<ol type="1">
+<li><p>Would you expect the volatility of a stock index to be greater or less than the volatility of a typical stock? Explain your answer.</p></li>
+<li><p>Does the cost of portfolio insurance increase or decrease as the beta of a portfolio increases? Explain your answer.</p></li>
+<li><p>Explain how corporations can use range forward contracts to hedge their foreign exchange risk when they are due to receive a certain amount of a foreign currency in the future.</p></li>
+<li><p>An index currently stands at 1,500. European call and put options with a strike price of 1,400 and time to maturity of six months have market prices of 154.00 and 34.25, respectively. The six-month risk-free rate is 5%. What is the implied dividend yield?</p></li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-17" class="callout-17-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Implied dividend yield = 1.99%</p>
+</div>
+</div>
+</div>
+<ol start="5" type="1">
+<li>Consider an American futures call option where the futures contract and the option contract expire at the same time. Under what circumstances is the futures option worth more than the corresponding American option on the underlying asset?</li>
+</ol>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -726,8 +1440,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./week_11.html" class="pagination-link" aria-label="Options on Stock Indices, Currencies, and Futures">
-        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Options on Stock Indices, Currencies, and Futures</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./week_11.html" class="pagination-link" aria-label="Greeks">
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Greeks</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
