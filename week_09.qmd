@@ -429,17 +429,37 @@ stock with a strike price of \$50 when the current stock price is \$50, the risk
 interest rate is 10\% per annum, and the volatility is 30\% per annum. (Tip: Use Excel
 function NORMDIST to calculate $N(x)$)
 
+:::{.callout-note collapse="true"}
+# Solution
+Put option price = 2.37
+:::
+
 4. What difference does it make to your calculations in the previous Problem if a
 dividend of \$1.50 is expected in two months? (Tip: Use Excel function NORMDIST to
 calculate $N(x)$)
+
+:::{.callout-note collapse="true"}
+# Solution
+Put option price = 3.03
+:::
 
 5. What is the price of a European call option on a non-dividend-paying stock when the
 stock price is \$52, the strike price is \$50, the risk-free interest rate is 12\% per
 annum, the volatility is 30\% per annum, and the time to maturity is three months?
 
+:::{.callout-note collapse="true"}
+# Solution
+Call option price = 5.06
+:::
+
 6. What is the price of a European put option on a non-dividend-paying stock when the
 stock price is \$69, the strike price is \$70, the risk-free interest rate is 5\% per
 annum, the volatility is 35\% per annum, and the time to maturity is six months?
+
+:::{.callout-note collapse="true"}
+# Solution
+Put option price = 6.40
+:::
 
 7. Consider an option on a non-dividend-paying stock when the stock price is \$30, the
 exercise price is \$29, the risk-free interest rate is 5\% per annum, the volatility is
@@ -449,23 +469,29 @@ exercise price is \$29, the risk-free interest rate is 5\% per annum, the volati
     c. What is the price of the option if it is a European put? 
     d. Verify that put–call parity holds.
 
-8. Calculate the value of a three-month at-the-money European call option on a stock
-index when the index is at 250, the risk-free interest rate is 10\% per annum, the
-volatility of the index is 18\% per annum, and the dividend yield on the index is 3\%
-per annum.
+:::{.callout-note collapse="true"}
+# Solution
+European call = 2.52
+European put = 1.05
+:::
 
-9. Calculate the value of an eight-month European put option on a currency with a strike
-price of 0.50. The current exchange rate is 0.52, the volatility of the exchange rate is
-12\%, the domestic risk-free interest rate is 4\% per annum, and the foreign risk-free
-interest rate is 8\% per annum.
+8. What is implied volatility? How can it be calculated?
 
-10. What is implied volatility? How can it be calculated?
-
-11. The volatility of a stock price is 30\% per annum. What is the standard deviation of
+9. The volatility of a stock price is 30\% per annum. What is the standard deviation of
 the percentage price change in one trading day?
 
-12. What is the actual implied volatility of the S\&P 500? Try to interpret the value.
+:::{.callout-note collapse="true"}
+# Solution
+1-day std. = 1.9\%
+:::
 
-13. A call option on a non-dividend-paying stock has a market price of \$2.50.  The
+10. What is the actual implied volatility of the S\&P 500? Try to interpret the value.
+
+11. A call option on a non-dividend-paying stock has a market price of \$2.50. The
 stock price is \$15, the exercise price is \$13, the time to maturity is three months,
 and the risk-free interest rate is 5\% perannum. What is the implied volatility?
+
+:::{.callout-note collapse="true"}
+# Solution
+Implied volatility = 39.6\%
+:::
