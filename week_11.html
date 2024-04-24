@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.552">
+<meta name="generator" content="quarto-1.4.553">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Financial Derivatives - 11&nbsp; Greeks</title>
+<title>Financial Derivatives - 11&nbsp; The Greek Letters</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -69,6 +69,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -81,7 +110,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week_11.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Greeks</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week_11.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">The Greek Letters</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -214,7 +243,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./week_11.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Greeks</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">The Greek Letters</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -258,14 +287,46 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#case-study" id="toc-case-study" class="nav-link active" data-scroll-target="#case-study"><span class="header-section-number">11.1</span> Case Study</a>
+  <ul class="collapse">
+  <li><a href="#naked-position" id="toc-naked-position" class="nav-link" data-scroll-target="#naked-position"><span class="header-section-number">11.1.1</span> Naked Position</a></li>
+  <li><a href="#covered-position" id="toc-covered-position" class="nav-link" data-scroll-target="#covered-position"><span class="header-section-number">11.1.2</span> Covered Position</a></li>
+  <li><a href="#dynamic-hedging-stop-loss-strategy" id="toc-dynamic-hedging-stop-loss-strategy" class="nav-link" data-scroll-target="#dynamic-hedging-stop-loss-strategy"><span class="header-section-number">11.1.3</span> Dynamic Hedging: Stop-Loss Strategy</a></li>
+  </ul></li>
+  <li><a href="#the-greek-letters" id="toc-the-greek-letters" class="nav-link" data-scroll-target="#the-greek-letters"><span class="header-section-number">11.2</span> The Greek Letters</a>
+  <ul class="collapse">
+  <li><a href="#description-of-key-greeks" id="toc-description-of-key-greeks" class="nav-link" data-scroll-target="#description-of-key-greeks"><span class="header-section-number">11.2.1</span> Description of Key Greeks</a></li>
+  </ul></li>
+  <li><a href="#understanding-delta-delta" id="toc-understanding-delta-delta" class="nav-link" data-scroll-target="#understanding-delta-delta"><span class="header-section-number">11.3</span> Understanding Delta (<span class="math inline">\(\Delta\)</span>)</a>
+  <ul class="collapse">
+  <li><a href="#delta-hedging-principles-and-practices" id="toc-delta-hedging-principles-and-practices" class="nav-link" data-scroll-target="#delta-hedging-principles-and-practices"><span class="header-section-number">11.3.1</span> Delta Hedging: Principles and Practices</a></li>
+  <li><a href="#hedging-cost-scenarios-from-case-study" id="toc-hedging-cost-scenarios-from-case-study" class="nav-link" data-scroll-target="#hedging-cost-scenarios-from-case-study"><span class="header-section-number">11.3.2</span> Hedging Cost Scenarios from Case Study</a></li>
+  </ul></li>
+  <li><a href="#understanding-gamma-gamma" id="toc-understanding-gamma-gamma" class="nav-link" data-scroll-target="#understanding-gamma-gamma"><span class="header-section-number">11.4</span> Understanding Gamma (<span class="math inline">\(\Gamma\)</span>)</a>
+  <ul class="collapse">
+  <li><a href="#gamma-and-hedging-dynamics" id="toc-gamma-and-hedging-dynamics" class="nav-link" data-scroll-target="#gamma-and-hedging-dynamics"><span class="header-section-number">11.4.1</span> Gamma and Hedging Dynamics</a></li>
+  </ul></li>
+  <li><a href="#understanding-theta-theta" id="toc-understanding-theta-theta" class="nav-link" data-scroll-target="#understanding-theta-theta"><span class="header-section-number">11.5</span> Understanding Theta (<span class="math inline">\(\Theta\)</span>)</a></li>
+  <li><a href="#understanding-vega-nu" id="toc-understanding-vega-nu" class="nav-link" data-scroll-target="#understanding-vega-nu"><span class="header-section-number">11.6</span> Understanding Vega (<span class="math inline">\(\nu\)</span>)</a></li>
+  <li><a href="#understanding-rho" id="toc-understanding-rho" class="nav-link" data-scroll-target="#understanding-rho"><span class="header-section-number">11.7</span> Understanding Rho</a></li>
+  <li><a href="#strategic-management-of-delta-gamma-and-vega" id="toc-strategic-management-of-delta-gamma-and-vega" class="nav-link" data-scroll-target="#strategic-management-of-delta-gamma-and-vega"><span class="header-section-number">11.8</span> Strategic Management of Delta, Gamma, and Vega</a>
+  <ul class="collapse">
+  <li><a href="#hedging-in-practice" id="toc-hedging-in-practice" class="nav-link" data-scroll-target="#hedging-in-practice"><span class="header-section-number">11.8.1</span> Hedging in Practice</a></li>
+  </ul></li>
+  <li><a href="#practice-questions-and-problems" id="toc-practice-questions-and-problems" class="nav-link" data-scroll-target="#practice-questions-and-problems"><span class="header-section-number">11.9</span> Practice Questions and Problems</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Greeks</span></h1>
+<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">The Greek Letters</span></h1>
 </div>
 
 
@@ -295,19 +356,431 @@ References
 <ul>
 <li>HULL, John. Options, futures, and other derivatives. Ninth edition. Harlow: Pearson, 2018. ISBN 978-1-292-21289-0.
 <ul>
-<li>Chapter 1 - Introduction</li>
-<li>Chapter 4 - Interest Rates</li>
+<li>Chapter 19 - The Greek Letters</li>
 </ul></li>
 <li>PIRIE, Wendy L. Derivatives. Hoboken: Wiley, 2017. CFA institute investment series. ISBN 978-1-119-38181-5.
 <ul>
-<li>Chapter 1 - Derivative Markets and Instruments</li>
+<li>Chapter 4 - Valuation of Contingent Claims</li>
 </ul></li>
 </ul>
 </div>
 </div>
 <p><strong>Learning Outcomes:</strong></p>
+<ul>
+<li>Identify and describe the Greek letters used in options trading.</li>
+<li>Explain the concept of Delta and its importance in hedging strategies.</li>
+<li>Understand Gamma and its impact on the curvature of the options price relative to the stock price.</li>
+<li>Comprehend Theta and how time decay affects the value of options.</li>
+<li>Explore Vega and its relationship with volatility in the pricing of options.</li>
+<li>Recognize Rho and its sensitivity to changes in interest rates.</li>
+<li>Develop strategies for managing Delta, Gamma, and Vega to optimize risk and return in options portfolios.</li>
+</ul>
+<section id="case-study" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="case-study"><span class="header-section-number">11.1</span> Case Study</h2>
+<ul>
+<li>A bank sells a European call option for $300,000, covering 100,000 shares of a stock that does not pay dividends.</li>
+<li><strong>Initial Stock Price (<span class="math inline">\(S_0\)</span>)</strong>: $49</li>
+<li><strong>Strike Price (<span class="math inline">\(K\)</span>)</strong>: $50</li>
+<li><strong>Risk-Free Rate (<span class="math inline">\(r\)</span>)</strong>: 5%</li>
+<li><strong>Volatility (<span class="math inline">\(\sigma\)</span>)</strong>: 20%</li>
+<li><strong>Time to Expiration (<span class="math inline">\(T\)</span>)</strong>: 20 weeks</li>
+<li><strong>Expected Return (<span class="math inline">\(\mu\)</span>)</strong>: 13%</li>
+<li><strong>Black-Scholes-Merton Valuation</strong>: $240,000</li>
+<li><strong>Objective</strong>: Determine how the bank can hedge its risk to secure a $60,000 profit.</li>
+</ul>
+<section id="naked-position" class="level3" data-number="11.1.1">
+<h3 data-number="11.1.1" class="anchored" data-anchor-id="naked-position"><span class="header-section-number">11.1.1</span> Naked Position</h3>
+<ul>
+<li><strong>Description</strong>: The bank takes no protective action against the position’s exposure.</li>
+<li><strong>Risk Analysis</strong>: This strategy leaves the position fully exposed to market fluctuations, with potential unlimited losses if the stock price rises significantly.</li>
+</ul>
+</section>
+<section id="covered-position" class="level3" data-number="11.1.2">
+<h3 data-number="11.1.2" class="anchored" data-anchor-id="covered-position"><span class="header-section-number">11.1.2</span> Covered Position</h3>
+<ul>
+<li><strong>Description</strong>: The bank purchases 100,000 shares immediately.</li>
+<li><strong>Risk Analysis</strong>: Although this strategy can mitigate the risk if the stock’s price increases above the strike price, it requires significant capital investment and is exposed to loss if the stock price declines.</li>
+</ul>
+</section>
+<section id="dynamic-hedging-stop-loss-strategy" class="level3" data-number="11.1.3">
+<h3 data-number="11.1.3" class="anchored" data-anchor-id="dynamic-hedging-stop-loss-strategy"><span class="header-section-number">11.1.3</span> Dynamic Hedging: Stop-Loss Strategy</h3>
+<ul>
+<li><p><strong>Buy</strong>: 100,000 shares are purchased when the stock price hits $50.</p></li>
+<li><p><strong>Sell</strong>: 100,000 shares are sold when the stock price drops below $50.</p></li>
+<li><p><strong>Risk</strong>: This approach attempts to limit losses by dynamically adjusting the position based on stock price movements. However, it may lead to high transaction costs and potential slippage; the actual transaction price may not always align with the trigger price due to market volatility.</p></li>
+</ul>
+<p><img src="images/11-1-stop-loss.png" class="img-fluid"></p>
+<p>The most efficient way to hedge would be to use <strong>Greek letters.</strong></p>
+</section>
+</section>
+<section id="the-greek-letters" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="the-greek-letters"><span class="header-section-number">11.2</span> The Greek Letters</h2>
+<p>Greek letters are vital tools in options trading, providing a quantitative understanding of the sensitivity of an option’s price to various factors. These metrics are crucial for effective risk management and strategic decision-making in trading portfolios.</p>
+<ul>
+<li>The Greeks are typically calculated using the Black-Scholes-Merton (BSM) model, a foundational tool in financial mathematics for valuing options.</li>
+<li>The Greek letters are the partial derivatives with respect to the model parameters that are liable to change.</li>
+<li>In practice, the volatility parameter in the BSM model is set to the implied volatility of the option, a modification often referred to as the “practitioner Black-Scholes” model.</li>
+<li>The discussion here pertains primarily to European options on non-dividend-paying stocks.</li>
+</ul>
+<section id="description-of-key-greeks" class="level3" data-number="11.2.1">
+<h3 data-number="11.2.1" class="anchored" data-anchor-id="description-of-key-greeks"><span class="header-section-number">11.2.1</span> Description of Key Greeks</h3>
+<p>The Greeks measure the sensitivity of the option’s price to one of the underlying parameters, <strong>holding all other parameters constant</strong>. Each Greek addresses a different risk factor:</p>
+<ul>
+<li><p><strong>Delta (<span class="math inline">\(\Delta\)</span>)</strong>: Measures the rate of <strong>change of the option’s price</strong> with respect to changes in the underlying asset’s price. Specifically, delta is the first derivative of the option’s price with respect to the stock’s price. For instance, a delta of 0.6 suggests the option’s price will move approximately $0.60 for every $1.00 movement in the underlying stock.</p></li>
+<li><p><strong>Gamma (<span class="math inline">\(\Gamma\)</span>)</strong>: Represents the rate of <strong>change of delta</strong> with respect to changes in the underlying asset’s price. Gamma helps assess the stability of an option’s delta, providing insight into how delta might change as the stock price varies. High gamma values indicate that delta is highly sensitive to changes in the stock price.</p></li>
+<li><p><strong>Theta (<span class="math inline">\(\Theta\)</span>)</strong>: Measures the sensitivity of the option’s price to <strong>the passage of time</strong>, known as “time decay.” Theta indicates the expected rate of change in the option’s price for a one-day decrease in its time to expiration. This is particularly important as the option approaches its expiry date.</p></li>
+<li><p><strong>Vega (<span class="math inline">\(\nu\)</span>)</strong>: Quantifies the sensitivity of the option’s price to <strong>changes in the volatility</strong> of the underlying asset. A vega of 1.5 suggests that the option’s price is expected to change by $1.50 for every 1% change in the implied volatility of the underlying stock.</p></li>
+<li><p><strong>Rho (<span class="math inline">\(\rho\)</span>)</strong>: Measures the sensitivity of the option’s price to <strong>changes in the risk-free interest rate</strong>. For instance, a rho of 0.05 indicates that the option’s price will change by $0.05 for every 1% change in interest rates.</p></li>
+</ul>
+</section>
+</section>
+<section id="understanding-delta-delta" class="level2" data-number="11.3">
+<h2 data-number="11.3" class="anchored" data-anchor-id="understanding-delta-delta"><span class="header-section-number">11.3</span> Understanding Delta (<span class="math inline">\(\Delta\)</span>)</h2>
+<p>Delta is a measure of an option’s price sensitivity relative to changes in the price of the underlying asset. It’s expressed as the amount an option’s price is expected to move for a one-unit change in the price of the underlying asset.</p>
+<p><img src="images/11-2-calculation-delta.png" class="img-fluid"></p>
+<p>The followint graph showing how delta varies with stock price for call and put options.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/11-3-delta-vs-stock.png" class="img-fluid figure-img"></p>
+<figcaption>Variation of Delta With Stock Price (K=50)</figcaption>
+</figure>
+</div>
+<ul>
+<li><p><strong>Call Option (a)</strong>: Delta increases as the stock price rises, peaking near 1 as the option goes deep in-the-money.</p></li>
+<li><p><strong>Put Option (b)</strong>: Delta decreases (becomes more negative) as the stock price drops, indicating increased sensitivity as the option moves further in-the-money.</p></li>
+</ul>
+<p>The next graph showing how delta changes as time to maturity decreases.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/11-4-delta-time.png" class="img-fluid figure-img"></p>
+<figcaption>Variation of Delta with Time to Maturity</figcaption>
+</figure>
+</div>
+<p>Delta’s sensitivity to time decay depends on the moneyness of the option. For options that are exactly at-the-money, delta converges to 0.5. For out-of-the-money options, it approaches zero because such options are likely to expire worthless, whereas for in-the-money options, delta converges to 1.</p>
+<section id="delta-hedging-principles-and-practices" class="level3" data-number="11.3.1">
+<h3 data-number="11.3.1" class="anchored" data-anchor-id="delta-hedging-principles-and-practices"><span class="header-section-number">11.3.1</span> Delta Hedging: Principles and Practices</h3>
+<p>Delta hedging is a strategy used to mitigate risk in option trading by setting up a position in the underlying asset. The position’s size is determined by the option’s delta, aiming to neutralize the effect of small price movements of the underlying asset.</p>
+<p>To achieve delta neutrality, the required number of units to hedge, <span class="math inline">\(N_H\)</span>, is calculated using the formula: <span class="math display">\[N_H = -\left(\frac{\text{Portfolio delta}}{\text{Delta of the hedging instrument}} \right)\]</span></p>
+<p>A delta-neutral portfolio implies a total delta of zero, indicating no sensitivity to small price movements in the underlying stock. Note that the <strong>delta of the stock itself is always 1</strong>.</p>
+<ul>
+<li><p><strong>Rebalancing</strong>: Delta values change as the stock price fluctuates and as time passes, necessitating periodic rebalancing of the hedge (buy high, sell low).</p></li>
+<li><p><strong>Delta for Calls and Puts</strong>: The delta of a European call option on a non-dividend paying stock is represented by <span class="math inline">\(N(d_1)\)</span>, whereas for a put, it’s <span class="math inline">\(N(d_1) - 1\)</span>.</p></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example: Delta Hedging I
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Consider an investor who holds a short position in 1,000 call options, each with a delta of -0.6. Create a delta-neutral portfolio to shield against small price movements.</p>
+<ul>
+<li><p><strong>Current Delta</strong>: <span class="math inline">\(1,000 \times -0.6 = -600\)</span></p></li>
+<li><p><strong>Hedging Action</strong>: Purchase 600 shares of the stock (since each stock has a delta of 1).</p></li>
+</ul>
+<p>This strategy ensures that any gain or loss on the options is countered by a corresponding loss or gain in the stock holdings.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example: Delta Hedging II
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Consider a portfolio comprising 1,000 shares of a non-dividend-paying stock. Each share contributes a delta of 1 to the portfolio, resulting in a total portfolio delta of 1,000.</p>
+<p>To achieve delta neutrality using call options with a delta of 0.40, we calculate the required number of calls to sell:</p>
+<p><span class="math display">\[N_H = -\left(\frac{1,000}{0.40}\right) = -2,500\]</span></p>
+<p>This means selling 2,500 call options ensures that the positive delta from the stock holdings is exactly offset by the negative delta contribution from the short call positions.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example: Delta Hedging III
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Consider a scenario where you have a short position in 10,000 shares of a non-dividend-paying stock:</p>
+<section id="using-call-options-for-hedging" class="level4">
+<h4 class="anchored" data-anchor-id="using-call-options-for-hedging">Using Call Options for Hedging:</h4>
+<ul>
+<li><strong>Option Delta (<span class="math inline">\(\Delta_c\)</span>)</strong>: 0.668</li>
+<li>To neutralize the negative delta of -10,000 from the short stock position, you would need to purchase call options to increase delta:</li>
+</ul>
+<p><span class="math display">\[N_H = -\left(\frac{-10,000}{0.668}\right) = 14,970\]</span></p>
+<p>Purchasing 14,970 call options will add a positive delta, balancing out the negative delta from the short stock position.</p>
+</section>
+<section id="using-put-options-for-hedging" class="level4">
+<h4 class="anchored" data-anchor-id="using-put-options-for-hedging">Using Put Options for Hedging:</h4>
+<ul>
+<li><strong>Option Delta (<span class="math inline">\(\Delta_p\)</span>)</strong>: -0.332</li>
+<li>To balance the negative delta, you can use put options which inherently have a negative delta:</li>
+</ul>
+<p><span class="math display">\[N_H = -\left(\frac{-10,000}{-0.332}\right) = -30,120\]</span></p>
+<p>Selling 30,120 put options would counteract the negative delta from the short stock position, achieving neutrality.</p>
+</section>
+</div>
+</div>
+</section>
+<section id="hedging-cost-scenarios-from-case-study" class="level3" data-number="11.3.2">
+<h3 data-number="11.3.2" class="anchored" data-anchor-id="hedging-cost-scenarios-from-case-study"><span class="header-section-number">11.3.2</span> Hedging Cost Scenarios from Case Study</h3>
+<p>The following table presents a simulation of hedging dynamics when the option expires in-the-money, with total hedging costs amounting to $263,300:</p>
+<p><img src="images/11-5-delta-simulation.png" class="img-fluid"></p>
+<ul>
+<li><p>The cost reflects the higher intrinsic value and sensitivity (delta) as the option gains worth.</p></li>
+<li><p>If the option expires out-of-the-money, the costs should be slightly lower, as reduced delta correlates with a decreased likelihood of the option finishing in-the-money.</p></li>
+</ul>
+</section>
+</section>
+<section id="understanding-gamma-gamma" class="level2" data-number="11.4">
+<h2 data-number="11.4" class="anchored" data-anchor-id="understanding-gamma-gamma"><span class="header-section-number">11.4</span> Understanding Gamma (<span class="math inline">\(\Gamma\)</span>)</h2>
+<p>Gamma (<span class="math inline">\(\Gamma\)</span>) is the second derivative of the option’s price with respect to the underlying asset’s price. It measures the rate of change of delta (<span class="math inline">\(\Delta\)</span>) and is crucial for understanding the curvature or the convexity of the option’s value in relation to the stock price. It’s crucial for assessing the stability of an option’s delta, thus influencing how often a delta-hedged portfolio needs rebalancing. Here are some key characteristics of gamma:</p>
+<ul>
+<li><strong>Zero for Stocks</strong>: Gamma for a long or short position in a single share of stock is zero because a stock’s delta does not change.</li>
+<li><strong>Symmetry for Calls and Puts</strong>: Gamma is identical for both call and put options.</li>
+<li><strong>Non-negativity</strong>: Gamma is always non-negative. It reaches its highest value when an option is at-the-money, highlighting increased sensitivity at this point.</li>
+<li><strong>Risk Measurement</strong>: Gamma quantifies the non-linearity risk—risk that remains in a delta-neutral portfolio due to price movements of the underlying asset.</li>
+</ul>
+<p><img src="images/11-9-gamma-interpretation.png" class="img-fluid"></p>
+<section id="gamma-and-hedging-dynamics" class="level3" data-number="11.4.1">
+<h3 data-number="11.4.1" class="anchored" data-anchor-id="gamma-and-hedging-dynamics"><span class="header-section-number">11.4.1</span> Gamma and Hedging Dynamics</h3>
+<p>Gamma plays a critical role in addressing potential errors in delta hedging, particularly when stock prices exhibit significant movement:</p>
+<ul>
+<li><strong>Small Changes</strong>: For minor fluctuations in stock price, delta hedging generally performs well.</li>
+<li><strong>Larger Shifts</strong>: For more substantial stock price movements, delta-plus-gamma hedging provides greater accuracy, accommodating the curvature in the relationship between an option’s price and the stock price.</li>
+<li><strong>Gamma Risk</strong>: This term refers to the risk arising from sudden, significant movements in stock prices—often referred to as jumps—which can leave a previously well-hedged position exposed. Gamma risk is particularly relevant in markets characterized by high volatility or discontinuous price movements.</li>
+<li><strong>Theta and Gamma Interaction</strong>: Typically, when theta is large and positive, indicating substantial time decay benefits, gamma tends to be large and negative. This inverse relationship highlights the trade-offs between potential profitability from time decay and the risk from larger price movements.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/11-10-gamma-stock.png" class="img-fluid figure-img"></p>
+<figcaption>Gamma variation with stock price</figcaption>
+</figure>
+</div>
+<p>This chart demonstrates how gamma peaks when an option is at-the-money and diminishes as the option moves deeper into or out of the money. This pattern underscores the heightened sensitivity and potential risk/reward near the at-the-money point.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/11-11-gamma-time.png" class="img-fluid figure-img"></p>
+<figcaption>Gamma variation over time</figcaption>
+</figure>
+</div>
+<p>Gamma increases as the option approaches expiration, particularly for at-the-money options. This increase reflects growing sensitivity to stock price movements as time to exercise decreases, emphasizing the importance of precise hedging strategies in the final days before an option’s expiration.</p>
+</section>
+</section>
+<section id="understanding-theta-theta" class="level2" data-number="11.5">
+<h2 data-number="11.5" class="anchored" data-anchor-id="understanding-theta-theta"><span class="header-section-number">11.5</span> Understanding Theta (<span class="math inline">\(\Theta\)</span>)</h2>
+<p>Theta (<span class="math inline">\(\Theta\)</span>) represents the sensitivity of the price of an option or a portfolio of derivatives to the passage of time, assuming all other factors remain constant. It is a critical component in options pricing, reflecting the temporal decay of an option’s value.</p>
+<ul>
+<li><strong>Directionality</strong>: Theta is typically negative for both calls and puts. This reflects the loss in time value as options approach their expiration date.</li>
+<li><strong>Non-applicability to Stocks</strong>: Since stocks do not have an expiration date, they inherently have a theta of zero.</li>
+<li><strong>Impact on Options</strong>: Each day closer to expiration decreases the option’s time value, reducing its price if other conditions remain unchanged.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/11-7-theta-stock.png" class="img-fluid figure-img"></p>
+<figcaption>Theta variation with stock price</figcaption>
+</figure>
+</div>
+<p>The graph illustrates how theta behaves relative to the stock price for a call option. Notably, theta becomes increasingly negative as the option moves around at-the-money.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/11-8-theta-time.png" class="img-fluid figure-img"></p>
+<figcaption>Theta variation over time</figcaption>
+</figure>
+</div>
+<p>This visualization shows theta’s behavior as the option nears its expiry. Theta typically becomes more negative as expiration approaches, indicating an acceleration in the rate of time value decay. This is most pronounced for at-the-money options, where the uncertainty about finishing in-the-money is highest.</p>
+<ul>
+<li><strong>Theta vs.&nbsp;Hedge Parameters</strong>: Unlike delta, which can be hedged, theta represents a guaranteed decline in value over time and is not a hedgeable risk. However, its predictability and inevitability make it a significant factor in options strategy.</li>
+<li><strong>Descriptive Utility</strong>: Despite its non-hedgeable nature, theta is considered a useful descriptive statistic for portfolios, particularly in strategies aimed at earning through time decay, such as selling options.</li>
+<li>In a delta-neutral setting, where the portfolio is insulated against small price movements in the underlying asset, theta can serve as an indirect measure of gamma exposure. This relationship arises because high gamma values, which indicate greater sensitivity to price changes, usually accompany high rates of time decay (theta). Thus, monitoring theta provides insights into potential gamma risks in the portfolio.</li>
+</ul>
+</section>
+<section id="understanding-vega-nu" class="level2" data-number="11.6">
+<h2 data-number="11.6" class="anchored" data-anchor-id="understanding-vega-nu"><span class="header-section-number">11.6</span> Understanding Vega (<span class="math inline">\(\nu\)</span>)</h2>
+<p>Vega represents the rate of change in the value of an option or a derivatives portfolio with respect to changes in volatility. This Greek is crucial in options trading, reflecting how the price of options reacts to fluctuations in the underlying asset’s volatility.</p>
+<p>Vega highlights the impact of volatility, an essential but unobservable market factor that significantly influences option pricing. Future volatility, being an estimation, adds a layer of complexity and risk in predicting option values.</p>
+<ul>
+<li><strong>Directionality</strong>: Vega is always positive. An increase in the implied volatility of the underlying asset generally leads to an increase in the value of both call and put options.</li>
+<li><strong>Symmetry</strong>: The vega of a call option is equal to the vega of a put option with the same terms.</li>
+<li><strong>Calculation</strong>: For a portfolio, vega can be understood as a weighted average of the vegas of the individual positions, reflecting the aggregate sensitivity to a uniform shift in implied volatilities across the portfolio.</li>
+<li><strong>Volatility Sensitivity</strong>: Of all the Black-Scholes-Merton (BSM) model variables (stock price, strike price, time to expiration, risk-free rate, and volatility), an option’s price is most sensitive to changes in volatility. This sensitivity makes vega a key focus in risk management and trading strategies.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/11-12-vega-stock.png" class="img-fluid figure-img"></p>
+<figcaption>Vega variation with stock price</figcaption>
+</figure>
+</div>
+<p>The chart illustrates how vega changes in relation to the stock price. Vega tends to be higher when an option is at-the-money and decreases as the option moves deeper into or out of the money. This pattern reflects the increased sensitivity to volatility changes when the option’s strike price is near the current stock price, where the uncertainty about the outcome at expiration is greatest.</p>
+</section>
+<section id="understanding-rho" class="level2" data-number="11.7">
+<h2 data-number="11.7" class="anchored" data-anchor-id="understanding-rho"><span class="header-section-number">11.7</span> Understanding Rho</h2>
+<p>Rho represents the sensitivity of an option or a derivatives portfolio’s value to changes in the risk-free interest rate. It is one of the lesser-focused Greeks but plays a crucial role in environments where interest rate fluctuations are significant.</p>
+<ul>
+<li><strong>Directionality</strong>: Rho is typically positive for call options and negative for put options. This reflects the different financial implications of options:
+<ul>
+<li><strong>Call Options</strong>: A positive Rho for call options indicates that their value increases as interest rates rise. This is because higher rates reduce the present value of the exercise price paid at expiration, making it cheaper in present terms to buy the stock at a future date.</li>
+<li><strong>Put Options</strong>: Conversely, a negative Rho for put options means their value decreases as interest rates rise. Higher rates increase the present value of the proceeds received from selling the stock in the future, thus decreasing the attractiveness of holding a put.</li>
+</ul></li>
+</ul>
+<p>The sensitivity to interest rates through Rho might seem minor compared to other Greeks like Delta or Vega, but it can become significant in certain financial environments:</p>
+<ul>
+<li><strong>High Interest Rate Volatility</strong>: In periods of significant interest rate changes, Rho becomes a more critical factor for traders, especially those dealing with long-dated options where the cumulative impact of rate changes can be substantial.</li>
+<li><strong>Portfolio Management</strong>: For portfolios that include a mix of long-dated options and bonds, understanding and managing Rho is vital to hedge interest rate risks effectively.</li>
+</ul>
+</section>
+<section id="strategic-management-of-delta-gamma-and-vega" class="level2" data-number="11.8">
+<h2 data-number="11.8" class="anchored" data-anchor-id="strategic-management-of-delta-gamma-and-vega"><span class="header-section-number">11.8</span> Strategic Management of Delta, Gamma, and Vega</h2>
+<p>Proper management of the Greek values—Delta, Gamma, and Vega—is essential for maintaining balanced options portfolios that align with specific risk management objectives. Here, we outline techniques to achieve neutrality in these Greeks through strategic positioning in options and the underlying asset.</p>
+<ul>
+<li><p><strong>Delta</strong>: This Greek can be adjusted directly by taking positions in the underlying asset. For instance, buying or selling stock can increase or decrease the portfolio’s delta.</p></li>
+<li><p><strong>Gamma and Vega</strong>: Adjustments to gamma and vega generally require engaging in positions in options or other derivatives, as these Greeks measure sensitivity to changes in the underlying asset’s price and volatility, respectively.</p></li>
+</ul>
+<p>The general approach involves <strong>first hedging vega and/or gamma</strong> using options, and then as a <strong>final step, using underlying assets</strong> to reduce delta to zero. This sequence is important because hedging vega and gamma can alter delta, whereas hedging using underlying assets does not affect vega or gamma.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example: Achieving Greek Neutrality
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;">Delta</th>
+<th style="text-align: center;">Gamma</th>
+<th style="text-align: center;">Vega</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Portfolio</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">-5000</td>
+<td style="text-align: center;">-8000</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Option 1</td>
+<td style="text-align: center;">0.6</td>
+<td style="text-align: center;">0.5</td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Option 2</td>
+<td style="text-align: center;">0.5</td>
+<td style="text-align: center;">0.8</td>
+<td style="text-align: center;">1.2</td>
+</tr>
+</tbody>
+</table>
+<ol type="1">
+<li><strong>Achieving Delta and Gamma Neutrality</strong>:
+<ul>
+<li><strong>Required Position</strong>: Long 10,000 units of Option 1 and short 6,000 units of the underlying asset.</li>
+<li><strong>Rationale</strong>: This positioning uses the delta and gamma from Option 1 to offset the existing negative gamma in the portfolio while also balancing delta.</li>
+</ul></li>
+<li><strong>Achieving Delta and Vega Neutrality</strong>:
+<ul>
+<li><strong>Required Position</strong>: Long 4,000 units of Option 1 and short 2,400 units of the underlying asset.</li>
+<li><strong>Rationale</strong>: This configuration uses Option 1’s vega to counteract the portfolio’s negative vega while adjusting the delta with a corresponding position in the underlying asset.</li>
+</ul></li>
+<li><strong>Achieving Delta, Gamma, and Vega Neutrality Across Multiple Options</strong>:
+<ul>
+<li><strong>System of Equations</strong>:
+<ul>
+<li>For Gamma: <span class="math display">\[-5000 + 0.5 w_1 + 0.8 w_2 = 0\]</span></li>
+<li>For Vega: <span class="math display">\[-8000 + 2.0 w_1 + 1.2 w_2 = 0\]</span></li>
+</ul></li>
+<li><strong>Solution</strong>: Long 400 units of Option 1 and 6,000 units of Option 2, with a short position of 3,240 units in the underlying asset to achieve complete neutrality in delta, gamma, and vega.</li>
+</ul></li>
+</ol>
+</div>
+</div>
+<section id="hedging-in-practice" class="level3" data-number="11.8.1">
+<h3 data-number="11.8.1" class="anchored" data-anchor-id="hedging-in-practice"><span class="header-section-number">11.8.1</span> Hedging in Practice</h3>
+<ul>
+<li><p><strong>Daily Delta Neutrality</strong>: Traders typically adjust their portfolios to be delta-neutral at least once per day to manage risk effectively against price movements in the underlying asset.</p></li>
+<li><p><strong>Opportunistic Gamma and Vega Adjustments</strong>: While daily adjustments for delta are common, adjustments for gamma and vega are made as opportunities arise, allowing traders to better manage the curvature and volatility risks associated with their positions.</p></li>
+<li><p><strong>Economies of Scale</strong>: As portfolios increase in size, the relative cost of hedging per option decreases, providing cost efficiencies in larger portfolios.</p></li>
+<li><p><strong>Scenario Analysis</strong>: This involves testing different market scenarios and their effects on the portfolio, considering various assumptions about asset prices and volatilities. This analysis helps in understanding potential impacts and preparing for various market conditions.</p></li>
+</ul>
+</section>
+</section>
+<section id="practice-questions-and-problems" class="level2" data-number="11.9">
+<h2 data-number="11.9" class="anchored" data-anchor-id="practice-questions-and-problems"><span class="header-section-number">11.9</span> Practice Questions and Problems</h2>
+<ol type="1">
+<li><p>Explain how a stop-loss trading rule can be implemented for the writer of an out-of-the money call option. Why does it provide a relatively poor hedge?</p></li>
+<li><p>What does it mean to assert that the delta of a call option is 0.7? How can a short position in 1,000 options be made delta neutral when the delta of each option is 0.7?</p></li>
+<li><p>What does it mean to assert that the theta of an option position is -0.1 when time is measured in years? If a trader feels that neither a stock price nor its implied volatility will change, what type of option position is appropriate?</p></li>
+<li><p>What is meant by the gamma of an option position? What are the risks in the situation where the gamma of a position is large and negative and the delta is zero?</p></li>
+<li><p>A bank’s position in options on the dollar–euro exchange rate has a delta of 30,000 and a gamma of 80,000. Explain how these numbers can be interpreted. The exchange rate (dollars per euro) is 0.90. What position would you take to make the position delta neutral? After a short period of time, the exchange rate moves to 0.93. Estimate the new delta. What additional trade is necessary to keep the position delta neutral? Assuming the bank did set up a delta-neutral position originally, has it gained or lost money from the exchange-rate movement?</p></li>
+<li><p>A financial institution has the following portfolio of stock options:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Type</th>
+<th style="text-align: center;">Position</th>
+<th style="text-align: center;">Delta</th>
+<th style="text-align: center;">Gamma</th>
+<th style="text-align: center;">Vega</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Call</td>
+<td style="text-align: center;">-1,000</td>
+<td style="text-align: center;">0.5</td>
+<td style="text-align: center;">2.2</td>
+<td style="text-align: center;">1.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Call</td>
+<td style="text-align: center;">-500</td>
+<td style="text-align: center;">0.8</td>
+<td style="text-align: center;">0.6</td>
+<td style="text-align: center;">0.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Put</td>
+<td style="text-align: center;">-2,000</td>
+<td style="text-align: center;">-0.4</td>
+<td style="text-align: center;">1.3</td>
+<td style="text-align: center;">0.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Call</td>
+<td style="text-align: center;">-500</td>
+<td style="text-align: center;">0.7</td>
+<td style="text-align: center;">1.8</td>
+<td style="text-align: center;">1.4</td>
+</tr>
+</tbody>
+</table>
+<p>A traded option is available with a delta of 0.6, a gamma of 1.5, and a vega of 0.8.</p>
+<ol type="1">
+<li>What position would make the portfolio delta neutral?</li>
+<li>What position in the traded option and in stocks would make the portfolio both gamma neutral and delta neutral?</li>
+<li>What position in the traded option and in stocks would make the portfolio both vega neutral and delta neutral?</li>
+<li>Suppose that a second traded option with a delta of 0.1, a gamma of 0.5, and a vega of 0.6 is available. How could the portfolio be made delta, gamma, and vega neutral?</li>
+</ol></li>
+</ol>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
