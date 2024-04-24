@@ -348,7 +348,7 @@ out of the money. This pattern reflects the increased sensitivity to volatility 
 when the option's strike price is near the current stock price, where the uncertainty
 about the outcome at expiration is greatest.
 
-## Understanding Rho
+## Understanding Rho ($\rho$)
 
 Rho represents the sensitivity of an option or a derivatives portfolio's value to
 changes in the risk-free interest rate. It is one of the lesser-focused Greeks but plays
