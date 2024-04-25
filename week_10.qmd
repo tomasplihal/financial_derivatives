@@ -628,9 +628,9 @@ increases? Explain your answer.
 exchange risk when they are due to receive a certain amount of a foreign currency in the
 future.
 
-4. An index currently stands at 1,500. European call and put options with a strike price
+4. An index currently stands at 1,500. Six-month European call and put options with a strike price
 of 1,400 and time to maturity of six months have market prices of 154.00 and 34.25,
-respectively. The six-month risk-free rate is 5%. What is the implied dividend yield?
+respectively. The risk-free rate is 5%. What is the implied dividend yield?
 
 :::{.callout-note collapse="true"}
 # Solution
