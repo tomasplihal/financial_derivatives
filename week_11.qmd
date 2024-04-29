@@ -260,8 +260,8 @@ between an option's price and the stock price.
 movements in stock prices—often referred to as jumps—which can leave a previously
 well-hedged position exposed. Gamma risk is particularly relevant in markets
 characterized by high volatility or discontinuous price movements.
-- **Theta and Gamma Interaction**: Typically, when theta is large and positive,
-indicating substantial time decay benefits, gamma tends to be large and negative. This
+- **Theta and Gamma Interaction**: Typically, when theta is large and negative,
+indicating substantial time decay benefits, gamma tends to be large and positive. This
 inverse relationship highlights the trade-offs between potential profitability from time
 decay and the risk from larger price movements.
 
