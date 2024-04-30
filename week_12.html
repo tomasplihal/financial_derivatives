@@ -69,6 +69,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -258,7 +287,55 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction-to-structured-products" id="toc-introduction-to-structured-products" class="nav-link active" data-scroll-target="#introduction-to-structured-products"><span class="header-section-number">12.1</span> Introduction to Structured Products</a>
+  <ul class="collapse">
+  <li><a href="#advantages-of-investing-in-structured-products" id="toc-advantages-of-investing-in-structured-products" class="nav-link" data-scroll-target="#advantages-of-investing-in-structured-products"><span class="header-section-number">12.1.1</span> Advantages of Investing in Structured Products</a></li>
+  <li><a href="#european-structured-investment-products-association-eusipa" id="toc-european-structured-investment-products-association-eusipa" class="nav-link" data-scroll-target="#european-structured-investment-products-association-eusipa"><span class="header-section-number">12.1.2</span> European Structured Investment Products Association (EUSIPA)</a></li>
+  </ul></li>
+  <li><a href="#definition-and-nature-of-structured-products-investment-certificates" id="toc-definition-and-nature-of-structured-products-investment-certificates" class="nav-link" data-scroll-target="#definition-and-nature-of-structured-products-investment-certificates"><span class="header-section-number">12.2</span> Definition and Nature of Structured Products (Investment Certificates)</a>
+  <ul class="collapse">
+  <li><a href="#credit-risk-associated-with-structured-products" id="toc-credit-risk-associated-with-structured-products" class="nav-link" data-scroll-target="#credit-risk-associated-with-structured-products"><span class="header-section-number">12.2.1</span> Credit Risk Associated with Structured Products</a></li>
+  <li><a href="#categorization-of-structured-products" id="toc-categorization-of-structured-products" class="nav-link" data-scroll-target="#categorization-of-structured-products"><span class="header-section-number">12.2.2</span> Categorization of Structured Products</a></li>
+  <li><a href="#investors-and-sellers-of-structured-products" id="toc-investors-and-sellers-of-structured-products" class="nav-link" data-scroll-target="#investors-and-sellers-of-structured-products"><span class="header-section-number">12.2.3</span> Investors and Sellers of Structured Products</a></li>
+  <li><a href="#platforms-to-find-structured-products" id="toc-platforms-to-find-structured-products" class="nav-link" data-scroll-target="#platforms-to-find-structured-products"><span class="header-section-number">12.2.4</span> Platforms to Find Structured Products</a></li>
+  <li><a href="#additional-references" id="toc-additional-references" class="nav-link" data-scroll-target="#additional-references"><span class="header-section-number">12.2.5</span> Additional References</a></li>
+  </ul></li>
+  <li><a href="#barrier-options" id="toc-barrier-options" class="nav-link" data-scroll-target="#barrier-options"><span class="header-section-number">12.3</span> Barrier Options</a>
+  <ul class="collapse">
+  <li><a href="#types-of-barrier-options" id="toc-types-of-barrier-options" class="nav-link" data-scroll-target="#types-of-barrier-options"><span class="header-section-number">12.3.1</span> Types of Barrier Options</a></li>
+  <li><a href="#pricing-dynamics" id="toc-pricing-dynamics" class="nav-link" data-scroll-target="#pricing-dynamics"><span class="header-section-number">12.3.2</span> Pricing Dynamics</a></li>
+  <li><a href="#barrier-styles" id="toc-barrier-styles" class="nav-link" data-scroll-target="#barrier-styles"><span class="header-section-number">12.3.3</span> Barrier Styles</a></li>
+  </ul></li>
+  <li><a href="#capital-protection-investment-products" id="toc-capital-protection-investment-products" class="nav-link" data-scroll-target="#capital-protection-investment-products"><span class="header-section-number">12.4</span> Capital Protection Investment Products</a>
+  <ul class="collapse">
+  <li><a href="#uncapped-capital-protection" id="toc-uncapped-capital-protection" class="nav-link" data-scroll-target="#uncapped-capital-protection"><span class="header-section-number">12.4.1</span> Uncapped Capital Protection</a></li>
+  <li><a href="#capital-protection-products-modifications" id="toc-capital-protection-products-modifications" class="nav-link" data-scroll-target="#capital-protection-products-modifications"><span class="header-section-number">12.4.2</span> Capital Protection Products Modifications</a></li>
+  <li><a href="#general-recommendations" id="toc-general-recommendations" class="nav-link" data-scroll-target="#general-recommendations"><span class="header-section-number">12.4.3</span> General Recommendations</a></li>
+  </ul></li>
+  <li><a href="#behavior-of-capital-guarantee-products---case-study" id="toc-behavior-of-capital-guarantee-products---case-study" class="nav-link" data-scroll-target="#behavior-of-capital-guarantee-products---case-study"><span class="header-section-number">12.5</span> Behavior of Capital Guarantee Products - Case Study</a>
+  <ul class="collapse">
+  <li><a href="#impact-of-volatility-and-interest-rate-variations" id="toc-impact-of-volatility-and-interest-rate-variations" class="nav-link" data-scroll-target="#impact-of-volatility-and-interest-rate-variations"><span class="header-section-number">12.5.1</span> Impact of Volatility and Interest Rate Variations</a></li>
+  <li><a href="#conclusive-insights" id="toc-conclusive-insights" class="nav-link" data-scroll-target="#conclusive-insights"><span class="header-section-number">12.5.2</span> Conclusive Insights</a></li>
+  </ul></li>
+  <li><a href="#participation-investment-products" id="toc-participation-investment-products" class="nav-link" data-scroll-target="#participation-investment-products"><span class="header-section-number">12.6</span> Participation Investment Products</a>
+  <ul class="collapse">
+  <li><a href="#tracker-certificate" id="toc-tracker-certificate" class="nav-link" data-scroll-target="#tracker-certificate"><span class="header-section-number">12.6.1</span> Tracker Certificate</a></li>
+  <li><a href="#bonus-certificate" id="toc-bonus-certificate" class="nav-link" data-scroll-target="#bonus-certificate"><span class="header-section-number">12.6.2</span> Bonus Certificate</a></li>
+  <li><a href="#twin-win-certificate" id="toc-twin-win-certificate" class="nav-link" data-scroll-target="#twin-win-certificate"><span class="header-section-number">12.6.3</span> Twin-Win Certificate</a></li>
+  <li><a href="#outperformance-certificate" id="toc-outperformance-certificate" class="nav-link" data-scroll-target="#outperformance-certificate"><span class="header-section-number">12.6.4</span> Outperformance Certificate</a></li>
+  <li><a href="#capped-outperformance-certificate" id="toc-capped-outperformance-certificate" class="nav-link" data-scroll-target="#capped-outperformance-certificate"><span class="header-section-number">12.6.5</span> Capped Outperformance Certificate</a></li>
+  </ul></li>
+  <li><a href="#behavior-of-participation-products" id="toc-behavior-of-participation-products" class="nav-link" data-scroll-target="#behavior-of-participation-products"><span class="header-section-number">12.7</span> Behavior of Participation Products</a>
+  <ul class="collapse">
+  <li><a href="#bonus-certificate---case-study" id="toc-bonus-certificate---case-study" class="nav-link" data-scroll-target="#bonus-certificate---case-study"><span class="header-section-number">12.7.1</span> Bonus Certificate - Case Study</a></li>
+  </ul></li>
+  <li><a href="#practice-questions-and-problems" id="toc-practice-questions-and-problems" class="nav-link" data-scroll-target="#practice-questions-and-problems"><span class="header-section-number">12.8</span> Practice Questions and Problems</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -293,21 +370,852 @@ References
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>HULL, John. Options, futures, and other derivatives. Ninth edition. Harlow: Pearson, 2018. ISBN 978-1-292-21289-0.
-<ul>
-<li>Chapter 1 - Introduction</li>
-<li>Chapter 4 - Interest Rates</li>
-</ul></li>
-<li>PIRIE, Wendy L. Derivatives. Hoboken: Wiley, 2017. CFA institute investment series. ISBN 978-1-119-38181-5.
-<ul>
-<li>Chapter 1 - Derivative Markets and Instruments</li>
-</ul></li>
+<li>BLÜMKE, Andreas. How to invest in structured products: a guide for investors and investment advisors. Chichester: Wiley, 2009. xvi, 374. ISBN 9780470746790.</li>
 </ul>
 </div>
 </div>
 <p><strong>Learning Outcomes:</strong></p>
+<ul>
+<li>Identify the key characteristics and benefits of structured products as investment vehicles.</li>
+<li>Describe the role and impact of the European Structured Investment Products Association (EUSIPA) in the structured products market.</li>
+<li>Differentiate between various types of structured products, including investment certificates and barrier options.</li>
+<li>Evaluate the mechanisms and behavior of capital protection and participation investment products through theoretical and case study approaches.</li>
+</ul>
+<section id="introduction-to-structured-products" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="introduction-to-structured-products"><span class="header-section-number">12.1</span> Introduction to Structured Products</h2>
+<section id="advantages-of-investing-in-structured-products" class="level3" data-number="12.1.1">
+<h3 data-number="12.1.1" class="anchored" data-anchor-id="advantages-of-investing-in-structured-products"><span class="header-section-number">12.1.1</span> Advantages of Investing in Structured Products</h3>
+<p>Structured products enjoy significant popularity across <strong>European states</strong>, primarily due to their capacity to balance risk and reward. These financial instruments offer several compelling advantages:</p>
+<ol type="1">
+<li><p><strong>Capital Protection and Market Participation</strong>: Investors are drawn to structured products because they provide a mechanism to protect all or part of the invested capital while still allowing participation in the gains of the capital markets.</p></li>
+<li><p><strong>Accessibility to Regional Markets</strong>: These products facilitate access to regional markets and asset classes that may otherwise be inaccessible through direct investments.</p></li>
+<li><p><strong>Diverse Return Profiles</strong>: Structured products can be designed with a wide array of return profiles, adapting to various investor needs and market conditions. They remain effective across different market movements—providing potential returns in rising, sideways, or falling markets.</p></li>
+<li><p><strong>Liquidity</strong>: Market makers enhance the liquidity of structured products by continuously buying and selling them, which ensures a stable market presence and availability.</p></li>
+<li><p><strong>Sophisticated Investment Strategies</strong>: Investors can implement complex investment strategies typically available to advanced traders through the acquisition of a single structured product.</p></li>
+<li><p><strong>Regulatory Oversight and Transparency</strong>: These products are often listed on official, regulated markets, adding a layer of security and transparency for investors.</p></li>
+<li><p><strong>Tax Advantages</strong>: In some jurisdictions, structured products offer favorable tax conditions, enhancing their attractiveness as investment options.</p></li>
+</ol>
+</section>
+<section id="european-structured-investment-products-association-eusipa" class="level3" data-number="12.1.2">
+<h3 data-number="12.1.2" class="anchored" data-anchor-id="european-structured-investment-products-association-eusipa"><span class="header-section-number">12.1.2</span> European Structured Investment Products Association (EUSIPA)</h3>
+<ul>
+<li>Official Website: <a href="https://eusipa.org/" target="_blank">EUSIPA</a></li>
+<li>Market Insights: <a href="https://eusipa.org/category/market-reports/" target="_blank">EUSIPA Market Reports</a></li>
+</ul>
+<p>Founded in 2009, EUSIPA represents a collective of national issuer associations from multiple European countries including Austria, France, Germany, Italy, Sweden, Belgium, the UK, Switzerland, and The Netherlands. As an international non-profit association governed under Belgian law, EUSIPA also maintains a presence in the EU transparency register.</p>
+<p>EUSIPA aims to foster transparency and establish uniform market standards across Europe. It serves as a pivotal platform for its members to engage in meaningful dialogue with European policymakers, ensuring that the voices of issuers are heard in the regulatory landscape.</p>
+</section>
+</section>
+<section id="definition-and-nature-of-structured-products-investment-certificates" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="definition-and-nature-of-structured-products-investment-certificates"><span class="header-section-number">12.2</span> Definition and Nature of Structured Products (Investment Certificates)</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition by Andreas Blümke
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Structured products are financial assets, which consist of various elemental components, combined to generate a specific risk-return profile (not replicable with stocks and bonds) adapted to an investor’s needs.</p>
+</div>
+</div>
+<p>Structured products, often referred to as investment certificates, are essentially securitized derivatives. These are complex financial contracts encapsulated within a single security that trades on exchanges similar to stocks. These instruments are crafted and issued by financial institutions and are utilized by both retail and institutional investors. They can be traded on stock exchanges or dealt directly between parties in over-the-counter (OTC) transactions.</p>
+<section id="credit-risk-associated-with-structured-products" class="level3" data-number="12.2.1">
+<h3 data-number="12.2.1" class="anchored" data-anchor-id="credit-risk-associated-with-structured-products"><span class="header-section-number">12.2.1</span> Credit Risk Associated with Structured Products</h3>
+<p>Structured products carry inherent credit risks as they <strong>are issued in the form of bearer bonds</strong>. This means the issuer’s entire assets back the liability on these products. The quality and safety of structured products are intrinsically linked to the creditworthiness of the issuer. Like traditional bonds, these products are <strong>exposed to issuer risk</strong>, which implies that in the event of issuer bankruptcy, both bonds and structured products are treated as part of the bankruptcy estate.</p>
+<p>To mitigate such risks, investors are advised to:</p>
+<ul>
+<li>Opt for products issued by financially robust institutions.</li>
+<li>Diversify their investments across various issuers.</li>
+<li>Continuously monitor the financial health of the issuers over time.</li>
+</ul>
+</section>
+<section id="categorization-of-structured-products" class="level3" data-number="12.2.2">
+<h3 data-number="12.2.2" class="anchored" data-anchor-id="categorization-of-structured-products"><span class="header-section-number">12.2.2</span> Categorization of Structured Products</h3>
+<p>Structured products do not follow a universal standard for categorization. However, common classifications are often derived from industry associations such as:</p>
+<ul>
+<li><strong>EUSIPA</strong>: European Structured Investment Products Association provides a framework for categorizing structured products within Europe.
+<ul>
+<li>View the <a href="https://eusipa.org/wp-content/uploads/23_EUROPEAN-MAP_24_01.pdf" target="_blank">EUSIPA Derivatives Map</a> for details.</li>
+</ul></li>
+<li><strong>SVSP</strong>: Swiss Structured Products Association offers an alternative categorization scheme.
+<ul>
+<li>Explore the <a href="https://sspa.ch/wp-content/uploads/2021/01/sspamap2021_en_web.pdf" target="_blank">SVSP Derivative Map</a> for comparison.</li>
+</ul></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/02-stpr-representation.svg" class="img-fluid figure-img"></p>
+<figcaption>Classical structured products representation</figcaption>
+</figure>
+</div>
+</section>
+<section id="investors-and-sellers-of-structured-products" class="level3" data-number="12.2.3">
+<h3 data-number="12.2.3" class="anchored" data-anchor-id="investors-and-sellers-of-structured-products"><span class="header-section-number">12.2.3</span> Investors and Sellers of Structured Products</h3>
+<section id="investors-private-and-institutional-buyers" class="level4">
+<h4 class="anchored" data-anchor-id="investors-private-and-institutional-buyers">Investors: Private and Institutional Buyers</h4>
+<p>Structured products attract both private and institutional investors when traditional investment avenues do not meet their specific needs. These needs might include the desire for returns higher than the risk-free rate while still benefiting from capital protection. Structured products are particularly appealing in scenarios where conventional investments either do not provide sufficient returns or fail to address <strong>specific financial goals and risk profiles</strong>.</p>
+</section>
+<section id="sellers-financial-institutions-and-their-motivations" class="level4">
+<h4 class="anchored" data-anchor-id="sellers-financial-institutions-and-their-motivations">Sellers: Financial Institutions and Their Motivations</h4>
+<p>Sellers of structured products, typically financial institutions, are driven by profit. They utilize sophisticated mathematical models to determine a ‘fair value’ of the product at issuance. This fair value is then increased by a spread which covers various costs associated with the product over its lifetime. These costs include but are not limited to:</p>
+<ul>
+<li>Secondary market activities</li>
+<li>Listing fees</li>
+<li>Production of term-sheets</li>
+<li>Settlement processes</li>
+</ul>
+<p>Among these, the most <strong>significant cost factor is hedging</strong>. Hedging expenses are challenging to predict in advance as they depend on market dynamics over the product’s life. The profit from structured products, however, is only realized at their expiry, and having a large and diverse portfolio helps in more effectively hedging as some products can offset the risks of others.</p>
+</section>
+</section>
+<section id="platforms-to-find-structured-products" class="level3" data-number="12.2.4">
+<h3 data-number="12.2.4" class="anchored" data-anchor-id="platforms-to-find-structured-products"><span class="header-section-number">12.2.4</span> Platforms to Find Structured Products</h3>
+<p>Structured products can be accessed and traded through various platforms, which serve as marketplaces for these financial instruments:</p>
+<ul>
+<li><strong>Deutsche Bank X-markets</strong>: Offers a wide range of structured products for different investment strategies.
+<ul>
+<li>Website: <a href="https://www.xmarkets.db.com/DE/ENG/Home" target="_blank">Deutsche Bank X-markets</a></li>
+</ul></li>
+<li><strong>Börse Stuttgart</strong>: Known for its user-friendly approach to trading structured products among other securities.
+<ul>
+<li>Website: <a href="https://www.boerse-stuttgart.de/en" target="_blank">Börse Stuttgart</a></li>
+</ul></li>
+<li><strong>Börse Frankfurt</strong>: One of Europe’s largest trading centers for securities, including derivatives and structured products.
+<ul>
+<li>Website: <a href="https://www.boerse-frankfurt.de/derivatives" target="_blank">Börse Frankfurt</a></li>
+</ul></li>
+</ul>
+</section>
+<section id="additional-references" class="level3" data-number="12.2.5">
+<h3 data-number="12.2.5" class="anchored" data-anchor-id="additional-references"><span class="header-section-number">12.2.5</span> Additional References</h3>
+<p>For further research and detailed insights into the market for structured products, the following resources are invaluable:</p>
+<ul>
+<li>European Structured Investment Products Association (EUSIPA): <a href="https://eusipa.org/">Website</a></li>
+<li>German Derivatives Association: <a href="https://www.derivateverband.de/ENG/Home" target="_blank">Website</a></li>
+<li>Swiss Structured Products Association (SVSP): <a href="https://www.svsp-verband.ch/en">Website</a></li>
+<li>UK Structured Products Association: <a href="https://www.ukspassociation.co.uk/" target="_blank">Website</a></li>
+<li>Italian Association of Certificates and Investment Products (ACEPI): <a href="https://www.acepi.it/en" target="_blank">Website</a></li>
+</ul>
+</section>
+</section>
+<section id="barrier-options" class="level2" data-number="12.3">
+<h2 data-number="12.3" class="anchored" data-anchor-id="barrier-options"><span class="header-section-number">12.3</span> Barrier Options</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Barrier options are exotic call or put options that include a barrier condition placed above or below the strike that, when crossed, either transfroms the exotic option into a plain vanilla option (‘in’ barriers) or cancels it altogether (‘out’ barriers).</p>
+</div>
+</div>
+<p>Barrier options are integrated into various structured financial products such as barrier reverse convertibles and bonus certificates. Recognized for their complexity, these options introduce a conditional component to the standard option mechanism, making the final payoff uncertain until the option’s maturity.</p>
+<section id="types-of-barrier-options" class="level3" data-number="12.3.1">
+<h3 data-number="12.3.1" class="anchored" data-anchor-id="types-of-barrier-options"><span class="header-section-number">12.3.1</span> Types of Barrier Options</h3>
+<p>Barrier options can be classified into four main types based on the direction of the barrier and its effect:</p>
+<ul>
+<li><p><strong>Up &amp; Out</strong>: The option becomes void if the underlying asset’s price goes above the barrier.</p></li>
+<li><p><strong>Up &amp; In</strong>: The option comes into existence when the underlying asset’s price goes above the barrier.</p></li>
+<li><p><strong>Down &amp; Out</strong>: The option becomes void if the underlying asset’s price falls below the barrier.</p></li>
+<li><p><strong>Down &amp; In</strong>: The option comes into existence when the underlying asset’s price falls below the barrier.</p></li>
+</ul>
+<p>Additionally, these options can feature a rebate, a predefined amount paid to the option holder if the barrier is breached before maturity.</p>
+</section>
+<section id="pricing-dynamics" class="level3" data-number="12.3.2">
+<h3 data-number="12.3.2" class="anchored" data-anchor-id="pricing-dynamics"><span class="header-section-number">12.3.2</span> Pricing Dynamics</h3>
+<p>Barrier options are generally more cost-effective than their plain vanilla counterparts due to the added condition of the barrier. The pricing dynamics vary significantly between ‘in’ and ‘out’ options:</p>
+<ul>
+<li><p><strong>For ‘In’ Options</strong>: As the maturity increases, the price approaches that of a plain vanilla option, especially as the price of the underlying asset approaches the barrier.</p></li>
+<li><p><strong>For ‘Out’ Options</strong>: Longer maturities reduce the price, potentially approaching zero as the asset’s price nears the barrier.</p></li>
+</ul>
+</section>
+<section id="barrier-styles" class="level3" data-number="12.3.3">
+<h3 data-number="12.3.3" class="anchored" data-anchor-id="barrier-styles"><span class="header-section-number">12.3.3</span> Barrier Styles</h3>
+<p>Structured products typically incorporate barrier options with specific monitoring styles:</p>
+<ul>
+<li><p><strong>American-style Barriers</strong>: These allow the barrier condition to be triggered at any point during the option’s life, including intraday events, and are known for continuous monitoring.</p></li>
+<li><p><strong>European-style Barriers</strong>: These restrict the barrier condition to only be checked at the maturity of the option.</p></li>
+</ul>
+<p>Although most structured products utilize American-style barriers due to cost-effectiveness, the investor focus generally lies elsewhere rather than on the barrier type itself.</p>
+<table class="table">
+<colgroup>
+<col style="width: 32%">
+<col style="width: 37%">
+<col style="width: 30%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><strong>Example</strong></th>
+<th style="text-align: center;"><strong>American Barrier (Original)</strong></th>
+<th style="text-align: center;"><strong>European Barrier</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Shark Note</td>
+<td style="text-align: center;">Barrier 131.5%, Rebate 7.5%</td>
+<td style="text-align: center;">Barrier 123%, Rebate 7.5%</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Barrier Reverse Convertible</td>
+<td style="text-align: center;">Coupon 10.4%, Barrier 75%</td>
+<td style="text-align: center;">Coupon 8.6%, Barrier 75%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Bonus Certificate</td>
+<td style="text-align: center;">Bonus 9%, Barrier 65%</td>
+<td style="text-align: center;">Bonus 2.5%, Barrier 65%</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Window-style Barriers</strong>: Situated between American and European styles, window barrier options are designed to activate or deactivate only during specific periods within the product’s life. For example, the barrier in some reverse convertibles might only be relevant during the final three months of a one-year term. Although not common, window barriers provide an opportunity for investors to avoid premature knockouts, with the value difference between American and window options typically being minimal.</li>
+</ul>
+</section>
+</section>
+<section id="capital-protection-investment-products" class="level2" data-number="12.4">
+<h2 data-number="12.4" class="anchored" data-anchor-id="capital-protection-investment-products"><span class="header-section-number">12.4</span> Capital Protection Investment Products</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Capital guaranteed products ensure the redemption of the initial capital invested at maturity, while also allowing participation to varying degrees in the performance of an underlying risky asset.</p>
+</div>
+</div>
+<p>These products are distinguished by three primary features:</p>
+<ol type="1">
+<li><p><strong>Limited Loss Potential</strong>: The potential loss is confined to the level of the capital guarantee, not accounting for the issuer’s credit risk.</p></li>
+<li><p><strong>Participation in Underlying Assets</strong>: Investors gain exposure to the performance of selected assets.</p></li>
+<li><p><strong>Minimal Guaranteed Income</strong>: Typically, these products offer low or no guaranteed income, focusing instead on capital preservation and growth through asset performance.</p></li>
+</ol>
+<p>It’s crucial to consider the <strong>opportunity costs</strong>, such as foregone dividends or the risk-free rate. While attractive at first glance, the actual benefit depends significantly on the performance of the underlying asset at maturity:</p>
+<ul>
+<li>If the asset performs well, the capital guarantee becomes redundant.</li>
+<li>If the asset performs poorly, it might have been better not to invest.</li>
+</ul>
+<p>Capital guaranteed products serve as a prudent option for investors who prefer not to remain in cash but are also uncertain about future market directions.</p>
+<section id="uncapped-capital-protection" class="level3" data-number="12.4.1">
+<h3 data-number="12.4.1" class="anchored" data-anchor-id="uncapped-capital-protection"><span class="header-section-number">12.4.1</span> Uncapped Capital Protection</h3>
+<p><img src="images/02-capital-protection-classic.svg" class="img-fluid"></p>
+<p>Classical construction of capital guaranteed products involves:</p>
+<ol type="1">
+<li>Issuing a zero-coupon bond matching the maturity of the product to ensure capital return.</li>
+<li>Purchasing a call option on the underlying risky asset to allow for profit participation.</li>
+</ol>
+<p><img src="images/02-capital-guaranteed-product-construction.svg" class="img-fluid"></p>
+<section id="discount-and-participation-formula" class="level4">
+<h4 class="anchored" data-anchor-id="discount-and-participation-formula">Discount and Participation Formula</h4>
+<p>If we consider an interest rate of 4% with a 5-year maturity: <span class="math display">\[\text{Zero-bond Price} = \frac{100\%}{(1+4\%)^5} = 82.19\%\]</span></p>
+<p>The available funds to purchase options (the discount) is: <span class="math display">\[\text{Discount} = 100\% - 82.19\% = 17.81\%\]</span></p>
+<p>Participation rate is calculated as: <span class="math display">\[\text{Participation} = \frac{\text{Discount}}{\text{Option cost}}\]</span></p>
+</section>
+<section id="factors-influencing-product-viability" class="level4">
+<h4 class="anchored" data-anchor-id="factors-influencing-product-viability">Factors Influencing Product Viability</h4>
+<p>Two critical factors affect the desirability and effectiveness of capital guaranteed products:</p>
+<ul>
+<li><p><strong>Interest Rates</strong>: Higher rates increase the discount, thereby enhancing the capacity to purchase options.</p></li>
+<li><p><strong>Volatility of the Underlying</strong>: Lower volatility reduces option costs, improving participation rates.</p></li>
+</ul>
+<p>Options for enhancing attractiveness include reducing the capital guarantee below 100%, adding caps or exotic features like knock-out barriers, and utilizing out-of-the-money options.</p>
+</section>
+</section>
+<section id="capital-protection-products-modifications" class="level3" data-number="12.4.2">
+<h3 data-number="12.4.2" class="anchored" data-anchor-id="capital-protection-products-modifications"><span class="header-section-number">12.4.2</span> Capital Protection Products Modifications</h3>
+<section id="exchangeable-certificates" class="level4">
+<h4 class="anchored" data-anchor-id="exchangeable-certificates">Exchangeable Certificates</h4>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/02-capital-protection-exchengeable.svg" class="img-fluid figure-img"></p>
+<figcaption>Exchangeable Certificates</figcaption>
+</figure>
+</div>
+<ul>
+<li><strong>Market Expectations:</strong> Rising volatility, sharply rising or falling underlying.</li>
+<li>Minimum redemption at maturity equals the capital protection (e.g., 100% of nominal).</li>
+<li>Value may fall below capital protection during the product’s life.</li>
+<li>Unlimited upside above the strike price, with possible coupon payments.</li>
+</ul>
+</section>
+<section id="capped-capital-protection" class="level4">
+<h4 class="anchored" data-anchor-id="capped-capital-protection">Capped Capital Protection</h4>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/02-capital-protection-capped.svg" class="img-fluid figure-img"></p>
+<figcaption>Capped Capital Protection</figcaption>
+</figure>
+</div>
+<ul>
+<li><strong>Market Expectations:</strong> Rising underlying, potential for sharp falls.</li>
+<li>Guaranteed minimum redemption at expiry.</li>
+<li>Participation in positive performance up to a specified cap.</li>
+<li>Limited profit potential due to the cap.</li>
+</ul>
+</section>
+<section id="capital-protection-with-knock-out-shark-note" class="level4">
+<h4 class="anchored" data-anchor-id="capital-protection-with-knock-out-shark-note">Capital Protection with Knock-Out (Shark Note)</h4>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/02-capital-protection-knock-out.svg" class="img-fluid figure-img"></p>
+<figcaption>Shark Note - Knock-Out</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/02-shark-note-construction.svg" class="img-fluid figure-img"></p>
+<figcaption>Shark Note Construction</figcaption>
+</figure>
+</div>
+<ul>
+<li><strong>Market Expectations:</strong> Rising underlying, unlikely to breach a set barrier.</li>
+<li>Full capital protection with a short- to medium-term horizon.</li>
+<li>Uses an up-and-out call option; if the barrier is touched, a rebate may be paid.</li>
+<li>Participation in performance until a barrier is hit; if breached, participation ends and a rebate might be paid.</li>
+</ul>
+<p><strong>Redemption Scenarios:</strong></p>
+<ul>
+<li>If the underlying is below 100% of its initial value at maturity: 100% capital guarantee.</li>
+<li>If above 100% without touching the barrier: 100% + participation.</li>
+<li>If the barrier is touched: 100% + rebate.</li>
+</ul>
+<p><strong>Strategic Use:</strong></p>
+<ul>
+<li>Set a high barrier to minimize knock-out risk or a high rebate to enhance returns if knock-out occurs.</li>
+<li>Autocall feature allows early redemption if the barrier is breached, suitable for reinvestment without waiting for product maturity.</li>
+</ul>
+</section>
+<section id="capital-protection-with-coupon" class="level4">
+<h4 class="anchored" data-anchor-id="capital-protection-with-coupon">Capital Protection with Coupon</h4>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/02-capital-protection-coupon.svg" class="img-fluid figure-img"></p>
+<figcaption>Capital Protection with Coupon</figcaption>
+</figure>
+</div>
+<ul>
+<li><strong>Market Expectations:</strong> Rising underlying, potential sharp falls.</li>
+<li>Guaranteed capital protection at maturity.</li>
+<li>Periodic coupon payments linked to the performance of the underlying.</li>
+<li>Limited upside potential.</li>
+</ul>
+</section>
+</section>
+<section id="general-recommendations" class="level3" data-number="12.4.3">
+<h3 data-number="12.4.3" class="anchored" data-anchor-id="general-recommendations"><span class="header-section-number">12.4.3</span> General Recommendations</h3>
+<ul>
+<li>Match the product with your investment horizon; the capital guarantee is effective only at maturity.</li>
+<li>Avoid products with lower capital guarantee than 90% (e.g., 90% guarantee means that underlying must perform by more than 10% to be break even, not considering any opportunity cost).</li>
+<li>Ensure the participation rate is at least 80%.</li>
+<li>Verify the issuer’s credit rating.</li>
+<li>Prefer shorter maturity periods for products like Shark Notes to reduce risk (no more than two or three years).</li>
+</ul>
+</section>
+</section>
+<section id="behavior-of-capital-guarantee-products---case-study" class="level2" data-number="12.5">
+<h2 data-number="12.5" class="anchored" data-anchor-id="behavior-of-capital-guarantee-products---case-study"><span class="header-section-number">12.5</span> Behavior of Capital Guarantee Products - Case Study</h2>
+<table class="table">
+<colgroup>
+<col style="width: 67%">
+<col style="width: 32%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><strong>Characteristic</strong></th>
+<th style="text-align: center;"><strong>Details</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><strong>Underlying Risky Asset</strong></td>
+<td style="text-align: center;">Eurostoxx50 Index</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>Maturity</strong></td>
+<td style="text-align: center;">4 years</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>Implied Volatility</strong></td>
+<td style="text-align: center;">23%</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>Asset’s Dividend Yield (p.a.)</strong></td>
+<td style="text-align: center;">4%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>Interest Rate Level (4-year swap rate, p.a.)</strong></td>
+<td style="text-align: center;">4.5%</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>Capital Guarantee Level</strong></td>
+<td style="text-align: center;">100%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>Initial Participation</strong></td>
+<td style="text-align: center;">100%</td>
+</tr>
+</tbody>
+</table>
+<p>Key Variables:</p>
+<ul>
+<li><p><strong>Interest Rate:</strong> A primary determinant of the price of the zero-coupon bond component of the product.</p></li>
+<li><p><strong>Volatility:</strong> Crucial for the valuation of the call option embedded in the product. High volatility increases the potential upside, impacting the option’s price more significantly when the asset is at-the-money.</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/03-capital-guarantee-1.svg" class="img-fluid figure-img"></p>
+<figcaption>Spot price variations for classical capital guaranteed products</figcaption>
+</figure>
+</div>
+<p>This graph demonstrates the relationship between the spot price of the underlying asset and the price of the capital guaranteed product. The slope of the line, particularly when it approaches a 45-degree angle, indicates a delta of 100%, where the product’s price moves one-to-one with the underlying asset.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/03-capital-guarantee-2.svg" class="img-fluid figure-img"></p>
+<figcaption>Price as a function of maturity</figcaption>
+</figure>
+</div>
+<p>The slope of this graph illustrates how the delta of the product changes with time. Typically, the product’s participation at inception ranges from 40%-60% of its maturity level, reflecting the initial risk profile and pricing.</p>
+<p><strong>Note:</strong> Capital guarantee is contingent on purchasing the product at par and is valid <em>only at maturity, not before. The guarantee level remains constant throughout the </em>product’s life.</p>
+<section id="impact-of-volatility-and-interest-rate-variations" class="level3" data-number="12.5.1">
+<h3 data-number="12.5.1" class="anchored" data-anchor-id="impact-of-volatility-and-interest-rate-variations"><span class="header-section-number">12.5.1</span> Impact of Volatility and Interest Rate Variations</h3>
+<ul>
+<li><strong>Implied Volatility Fluctuations:</strong>
+<ul>
+<li>An increase in implied volatility (e.g., from 23% to 33%) can enhance the value of the call option component, as shown in the corresponding graph.</li>
+<li>A decrease (e.g., from 23% to 13%) typically lowers the call option’s value due to reduced potential for high returns.</li>
+</ul></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/03-capital-guarantee-4.svg" class="img-fluid figure-img"></p>
+<figcaption>Implied volatility increase (from 23% to 33%)</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/03-capital-guarantee-5.svg" class="img-fluid figure-img"></p>
+<figcaption>Implied volatility decrease (from 23% to 13%)</figcaption>
+</figure>
+</div>
+<p>Volatility is more influential when the product is at-the-money and can mitigate some losses through increased option premiums during downturns in the asset’s price.</p>
+<ul>
+<li><strong>Interest Rate Impact:</strong>
+<ul>
+<li>Rising interest rates lead to lower prices for the zero-coupon bond component, influencing the overall valuation negatively, especially if the underlying asset’s price falls simultaneously.</li>
+<li>Conversely, falling interest rates increase the bond’s value, cushioning any adverse effects from a drop in the underlying asset’s price.</li>
+</ul></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/03-capital-guarantee-6.svg" class="img-fluid figure-img"></p>
+<figcaption>Interest rate increase (from 4.5% to 6.5%)</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/03-capital-guarantee-7.svg" class="img-fluid figure-img"></p>
+<figcaption>Interest rate decrease (from 4.5% to 2.5%)</figcaption>
+</figure>
+</div>
+</section>
+<section id="conclusive-insights" class="level3" data-number="12.5.2">
+<h3 data-number="12.5.2" class="anchored" data-anchor-id="conclusive-insights"><span class="header-section-number">12.5.2</span> Conclusive Insights</h3>
+<ul>
+<li>Shifts in implied volatility influence the capital guaranteed product most when <strong><em>at-the-money</em></strong>.</li>
+<li>An <strong><em>increase in volatility</em></strong> tends to <strong><em>increase the value</em></strong> of the product.</li>
+<li>A positive shift in <strong><em>interest rates lowers the value</em></strong> of the product most when the embedded call is <strong><em>out-of-the-money</em></strong>.</li>
+<li>When the call is deep in-the-money, an interest rate shift has less impact.</li>
+<li>Everything else held equal, <strong><em>the passing of time</em></strong> (without movement on the spot) <strong><em>is positive for the value</em></strong> of the product over time, since the time value lost on the call is more than offset by the gain in the zero bond value.</li>
+</ul>
+</section>
+</section>
+<section id="participation-investment-products" class="level2" data-number="12.6">
+<h2 data-number="12.6" class="anchored" data-anchor-id="participation-investment-products"><span class="header-section-number">12.6</span> Participation Investment Products</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Participation products are investment vehicles that link returns directly to the performance of their underlying assets, sometimes featuring conditional downside protection or a leveraged upside.</p>
+</div>
+</div>
+<p>Key Characteristics:</p>
+<ul>
+<li><strong>Risk Profile:</strong> Generally higher risk compared to capital protection and yield enhancement products due to the absence of capital guarantees.</li>
+<li><strong>Underlying Assets:</strong> Typically stocks or stock indices, but can also include commodities, real estate, and more exotic assets.</li>
+<li><strong>Liquidity and Efficiency:</strong> Often very liquid, these products compete directly with ETFs in providing exposure to specific markets, themes, or regions.</li>
+</ul>
+<section id="tracker-certificate" class="level3" data-number="12.6.1">
+<h3 data-number="12.6.1" class="anchored" data-anchor-id="tracker-certificate"><span class="header-section-number">12.6.1</span> Tracker Certificate</h3>
+<ul>
+<li><strong>Function:</strong> Mirrors the performance of one or more underlying assets. Commonly tracks excess returns (excluding dividends/yields).</li>
+<li><strong>Structure:</strong> Comprised of a zero-strike call option, which values the asset minus any discounted dividends or yields.</li>
+</ul>
+<p><img src="images/02-tracker-certificate.svg" class="img-fluid"></p>
+<p><strong>Advantages:</strong></p>
+<ul>
+<li><strong>Access to Difficult Markets:</strong> Allows investment in markets or assets that are otherwise inaccessible via traditional instruments, such as private equity or certain commodities.</li>
+<li><strong>Tax Efficiency:</strong> May offer favorable tax treatments compared to direct investments in the underlying assets.</li>
+</ul>
+</section>
+<section id="bonus-certificate" class="level3" data-number="12.6.2">
+<h3 data-number="12.6.2" class="anchored" data-anchor-id="bonus-certificate"><span class="header-section-number">12.6.2</span> Bonus Certificate</h3>
+<ul>
+<li><strong>Function:</strong> Combines the features of a tracker certificate with conditional downside protection.</li>
+<li><strong>Structure:</strong> Includes a zero-strike call option and a long down-and-out put option.</li>
+</ul>
+<p><img src="images/02-bonus-certificate.svg" class="img-fluid"></p>
+<p><strong>Key Parameters:</strong></p>
+<ul>
+<li><strong>Participation Level:</strong> Degree to which the investor gains from positive performance of the underlying.</li>
+<li><strong>Bonus Level:</strong> Additional return offered if the underlying performs above a certain threshold without breaching a downside barrier.</li>
+<li><strong>Barrier Level:</strong> The price level below which the downside protection is activated.</li>
+<li><strong>Maturity:</strong> Typically short, recommended no longer than two to three years.</li>
+</ul>
+</section>
+<section id="twin-win-certificate" class="level3" data-number="12.6.3">
+<h3 data-number="12.6.3" class="anchored" data-anchor-id="twin-win-certificate"><span class="header-section-number">12.6.3</span> Twin-Win Certificate</h3>
+<ul>
+<li><strong>Function:</strong> Provides positive participation in both the upside and downside movements of the underlying asset.</li>
+<li><strong>Structure:</strong> Consists of a long zero-strike call and double down-and-out put options.</li>
+</ul>
+<p><img src="images/02-twin-win-certificate.svg" class="img-fluid"></p>
+</section>
+<section id="outperformance-certificate" class="level3" data-number="12.6.4">
+<h3 data-number="12.6.4" class="anchored" data-anchor-id="outperformance-certificate"><span class="header-section-number">12.6.4</span> Outperformance Certificate</h3>
+<ul>
+<li><strong>Function:</strong> Designed for aggressive investment strategies, providing enhanced returns if the underlying outperforms expected dividends.</li>
+<li><strong>Structure:</strong> Combines a zero-strike call with multiple long at-the-money calls, funded by dividends.</li>
+</ul>
+<p><img src="images/02-outperformance-certificate.svg" class="img-fluid"></p>
+<ul>
+<li><strong>Volatility and Dividends:</strong> Optimal conditions include low volatility (for cheaper options) and high dividend yields.</li>
+</ul>
+</section>
+<section id="capped-outperformance-certificate" class="level3" data-number="12.6.5">
+<h3 data-number="12.6.5" class="anchored" data-anchor-id="capped-outperformance-certificate"><span class="header-section-number">12.6.5</span> Capped Outperformance Certificate</h3>
+<ul>
+<li><strong>Function:</strong> Provides leveraged exposure to the underlying asset up to a capped level.</li>
+<li><strong>Structure:</strong> A zero-strike call combined with a long at-the-money call and two short calls at higher strikes.</li>
+</ul>
+<p><img src="images/02-turbo-certificate.svg" class="img-fluid"></p>
+<ul>
+<li><strong>Scenario Planning:</strong> Best utilized in a moderately bullish scenario with falling volatility.</li>
+<li><strong>Timing and Maturity:</strong> Critical due to the short duration of the product, typically 3-9 months.</li>
+</ul>
+</section>
+</section>
+<section id="behavior-of-participation-products" class="level2" data-number="12.7">
+<h2 data-number="12.7" class="anchored" data-anchor-id="behavior-of-participation-products"><span class="header-section-number">12.7</span> Behavior of Participation Products</h2>
+<p>Participation products such as bonus, turbo, airbag, and outperformance certificates are heavily influenced by factors like implied volatility, dividend yields, and interest rates. These factors shape the product’s performance and its strategic suitability for different market conditions.</p>
+<section id="bonus-certificate---case-study" class="level3" data-number="12.7.1">
+<h3 data-number="12.7.1" class="anchored" data-anchor-id="bonus-certificate---case-study"><span class="header-section-number">12.7.1</span> Bonus Certificate - Case Study</h3>
+<table class="table">
+<colgroup>
+<col style="width: 31%">
+<col style="width: 43%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><strong>Factor (Increase)</strong></th>
+<th style="text-align: center;"><strong>Impact on Product’s Price</strong></th>
+<th style="text-align: center;"><strong>Effect Level</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Spot Price</td>
+<td style="text-align: center;">Positive</td>
+<td style="text-align: center;">Maximum</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Implied Volatility</td>
+<td style="text-align: center;">Variable</td>
+<td style="text-align: center;">High</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Implied Correlation</td>
+<td style="text-align: center;">Positive</td>
+<td style="text-align: center;">Medium-Low</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Interest Rates</td>
+<td style="text-align: center;">Negative</td>
+<td style="text-align: center;">Low</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Dividends</td>
+<td style="text-align: center;">Negative</td>
+<td style="text-align: center;">Medium</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Initial Sensitivity:</strong> At issuance, the delta of a bonus certificate is approximately 1, meaning its price moves almost one-for-one with the underlying asset. However, this sensitivity decreases if the spot price approaches the barrier.</li>
+<li><strong>Price Stability:</strong> Bonus certificates tend to underperform during market downturns due to the drop in market value, despite their protective features.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/03-bonus-certificate-1.svg" class="img-fluid figure-img"></p>
+<figcaption>Price as a function of maturity</figcaption>
+</figure>
+</div>
+<ul>
+<li><strong>Maturity:</strong> Shorter maturities are preferable to reduce exposure to prolonged market volatility.</li>
+<li><strong>Barrier Level:</strong> The barrier should be set considering the worst-case market scenario to ensure effective downside protection.</li>
+<li><strong>Leverage and Sensitivity:</strong> As the spot price nears the barrier, the certificate’s delta becomes highly volatile, which can lead to significant price swings.</li>
+</ul>
+<section id="impact-of-implied-volatility" class="level4">
+<h4 class="anchored" data-anchor-id="impact-of-implied-volatility">Impact of Implied Volatility</h4>
+<ul>
+<li><strong>Initial Conditions:</strong> High implied volatility at issuance allows for better pricing of protective options.</li>
+<li><strong>Post-Issuance Volatility:</strong> A decrease in implied volatility post-issuance generally benefits the mark-to-market value of the certificate.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/03-bonus-certificate-2.svg" class="img-fluid figure-img"></p>
+<figcaption>Increase in implied volatility (from 23% to 33%)</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/03-bonus-certificate-3.svg" class="img-fluid figure-img"></p>
+<figcaption>Decrease in implied volatility (from 23% to 13%)</figcaption>
+</figure>
+</div>
+</section>
+</section>
+</section>
+<section id="practice-questions-and-problems" class="level2" data-number="12.8">
+<h2 data-number="12.8" class="anchored" data-anchor-id="practice-questions-and-problems"><span class="header-section-number">12.8</span> Practice Questions and Problems</h2>
+<ol type="1">
+<li>What is the value of the capital guarantee certificate at maturity if the value of the underlying asset ends at 120, the strike price of the certificate is 100, level of guarantee 100%, and participation 80%?</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>116</p>
+</div>
+</div>
+</div>
+<ol start="2" type="1">
+<li>What is the value of the capital guarantee certificate at maturity if the value of the underlying asset ends at 90, the strike price of the certificate is 100, level of guarantee 100%, and participation 80%?</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>100</p>
+</div>
+</div>
+</div>
+<ol start="3" type="1">
+<li>What is the value of the capital guarantee certificate at maturity if the value of the underlying asset ends at 63, the strike price of the certificate is 40, the cap is 50, level of guarantee 100%, and participation 130%?</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>53</p>
+</div>
+</div>
+</div>
+<ol start="4" type="1">
+<li>What is the value of the capital guarantee certificate with knock-out at maturity if the value of the underlying asset ends at 50, the strike price of the certificate is 55, the knock-out barrier is 67, level of guarantee 100%, and participation 110%? The highest value of the underlying asset during maturity was 70.</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>55</p>
+</div>
+</div>
+</div>
+<ol start="5" type="1">
+<li>What is the value of the capital guarantee certificate with knock-out at maturity if the value of the underlying asset ends at 63, the strike price of the certificate is 55, the knock-out barrier is 67, level of guarantee 100%, and participation 110%? The highest value of the underlying asset during maturity was 65.</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>63.8</p>
+</div>
+</div>
+</div>
+<ol start="6" type="1">
+<li>What is the value of the outperformance certificate at maturity if the value of the underlying asset ends at 56, the strike price of the certificate is 40, and the participation is 170%?</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>67.2</p>
+</div>
+</div>
+</div>
+<ol start="7" type="1">
+<li>What is the value of the outperformance certificate at maturity if the value of the underlying asset ends at 77, the strike price of the certificate is 40, the cap is 70, and the participation is 130%?</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>79</p>
+</div>
+</div>
+</div>
+<ol start="8" type="1">
+<li>What is the value of the bonus certificate at maturity if the value of the underlying asset ends at 35, the strike price of the certificate is 40, the knock-out barrier is 30? The lowest value of the underlying asset during maturity was 35.</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>40</p>
+</div>
+</div>
+</div>
+<ol start="9" type="1">
+<li>What is the value of the bonus certificate at maturity if the value of the underlying asset ends at 35, the strike price of the certificate is 40, the knock-out barrier is 30? The lowest value of the underlying asset during maturity was 25.</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>35</p>
+</div>
+</div>
+</div>
+<ol start="10" type="1">
+<li>What is the value of the twin-win certificate at maturity if the value of the underlying asset ends at 44, the strike price of the certificate is 50, the knock-out barrier is 40? The lowest value of the underlying asset during maturity was 35.</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>44</p>
+</div>
+</div>
+</div>
+<ol start="11" type="1">
+<li>What is the value of the twin-win certificate at maturity if the value of the underlying asset ends at 44, the strike price of the certificate is 50, the knock-out barrier is 40? The lowest value of the underlying asset during maturity was 41.</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>56</p>
+</div>
+</div>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
