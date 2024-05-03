@@ -485,3 +485,12 @@ from the exchange-rate movement?
     4. Suppose that a second traded option with a delta of 0.1, a gamma of 0.5, and a
     vega of 0.6 is available. How could the portfolio be made delta, gamma, and vega
     neutral?
+
+:::{.callout-note collapse="true"}
+# Solution
+
+1. Long 450 stocks.
+2. Long 4,000 options and short 1,950 stocks.
+3. Long 5,000 options and short 2,550 stocks.
+4. Long 3,200 options 1, long 2,400 options 2, and short 1,710 stocks.
+:::
