@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.554">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Financial Derivatives - 2&nbsp; Forwards and Futures</title>
+<title>2&nbsp; Forwards and Futures – Financial Derivatives</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -105,24 +105,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
-<script type="text/javascript">
-window.PlotlyConfig = {MathJaxConfig: 'local'};
-if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
-if (typeof require !== 'undefined') {
-require.undef("plotly");
-requirejs.config({
-    paths: {
-        'plotly': ['https://cdn.plot.ly/plotly-2.32.0.min']
-    }
-});
-require(['plotly'], function(Plotly) {
-    window._Plotly = Plotly;
-});
-}
-</script>
 
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -160,13 +144,13 @@ window.Quarto = {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week_02.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Forwards and Futures</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -184,34 +168,34 @@ window.Quarto = {
       <a href="./">Financial Derivatives</a> 
         <div class="sidebar-tools-main">
     <div class="dropdown">
-      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download"><i class="bi bi-download"></i></a>
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Download"><i class="bi bi-download"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="./Financial-Derivatives.pdf">
-              <i class="bi bi-bi-file-pdf pe-1"></i>
+              <i class="bi bi-file-pdf pe-1"></i>
             Download PDF
             </a>
           </li>
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="./Financial-Derivatives.epub">
-              <i class="bi bi-bi-journal pe-1"></i>
+              <i class="bi bi-journal pe-1"></i>
             Download ePub
             </a>
           </li>
       </ul>
     </div>
     <div class="dropdown">
-      <a href="" title="Share" id="quarto-navigation-tool-dropdown-1" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-1" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Share"><i class="bi bi-share"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-1">
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
-              <i class="bi bi-bi-twitter pe-1"></i>
+              <i class="bi bi-twitter pe-1"></i>
             Twitter
             </a>
           </li>
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
-              <i class="bi bi-bi-facebook pe-1"></i>
+              <i class="bi bi-facebook pe-1"></i>
             Facebook
             </a>
           </li>
@@ -313,9 +297,9 @@ window.Quarto = {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -343,44 +327,17 @@ window.Quarto = {
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
-  <ul>
+  <ul class="collapse">
   <li><a href="#forwards-and-futures-characteristics" id="toc-forwards-and-futures-characteristics" class="nav-link active" data-scroll-target="#forwards-and-futures-characteristics"><span class="header-section-number">2.1</span> Forwards and Futures Characteristics</a></li>
   <li><a href="#payoff-from-a-forward-contract" id="toc-payoff-from-a-forward-contract" class="nav-link" data-scroll-target="#payoff-from-a-forward-contract"><span class="header-section-number">2.2</span> Payoff From a Forward Contract</a></li>
-  <li><a href="#exchange-markets" id="toc-exchange-markets" class="nav-link" data-scroll-target="#exchange-markets"><span class="header-section-number">2.3</span> Exchange Markets</a>
-  <ul class="collapse">
-  <li><a href="#delivery-mechanisms" id="toc-delivery-mechanisms" class="nav-link" data-scroll-target="#delivery-mechanisms"><span class="header-section-number">2.3.1</span> Delivery Mechanisms</a></li>
-  <li><a href="#understanding-market-quotes" id="toc-understanding-market-quotes" class="nav-link" data-scroll-target="#understanding-market-quotes"><span class="header-section-number">2.3.2</span> Understanding Market Quotes</a></li>
-  <li><a href="#daily-settlement-process-and-margins" id="toc-daily-settlement-process-and-margins" class="nav-link" data-scroll-target="#daily-settlement-process-and-margins"><span class="header-section-number">2.3.3</span> Daily Settlement Process and Margins</a></li>
-  </ul></li>
-  <li><a href="#otc-markets" id="toc-otc-markets" class="nav-link" data-scroll-target="#otc-markets"><span class="header-section-number">2.4</span> OTC Markets</a>
-  <ul class="collapse">
-  <li><a href="#regulatory-evolution" id="toc-regulatory-evolution" class="nav-link" data-scroll-target="#regulatory-evolution"><span class="header-section-number">2.4.1</span> Regulatory Evolution</a></li>
-  <li><a href="#collateral-requirements" id="toc-collateral-requirements" class="nav-link" data-scroll-target="#collateral-requirements"><span class="header-section-number">2.4.2</span> Collateral Requirements</a></li>
-  <li><a href="#clearing-mechanisms" id="toc-clearing-mechanisms" class="nav-link" data-scroll-target="#clearing-mechanisms"><span class="header-section-number">2.4.3</span> Clearing Mechanisms</a></li>
-  </ul></li>
+  <li><a href="#exchange-markets" id="toc-exchange-markets" class="nav-link" data-scroll-target="#exchange-markets"><span class="header-section-number">2.3</span> Exchange Markets</a></li>
+  <li><a href="#otc-markets" id="toc-otc-markets" class="nav-link" data-scroll-target="#otc-markets"><span class="header-section-number">2.4</span> OTC Markets</a></li>
   <li><a href="#forward-vs.-futures-contracts-summary" id="toc-forward-vs.-futures-contracts-summary" class="nav-link" data-scroll-target="#forward-vs.-futures-contracts-summary"><span class="header-section-number">2.5</span> Forward vs.&nbsp;Futures Contracts Summary</a></li>
   <li><a href="#introduction-to-hedging-with-futures" id="toc-introduction-to-hedging-with-futures" class="nav-link" data-scroll-target="#introduction-to-hedging-with-futures"><span class="header-section-number">2.6</span> Introduction to Hedging with Futures</a></li>
   <li><a href="#hedging-and-basis-risk" id="toc-hedging-and-basis-risk" class="nav-link" data-scroll-target="#hedging-and-basis-risk"><span class="header-section-number">2.7</span> Hedging and Basis Risk</a></li>
-  <li><a href="#cross-hedging" id="toc-cross-hedging" class="nav-link" data-scroll-target="#cross-hedging"><span class="header-section-number">2.8</span> Cross Hedging</a>
-  <ul class="collapse">
-  <li><a href="#daily-settlement-and-tailing-adjustment-in-hedging" id="toc-daily-settlement-and-tailing-adjustment-in-hedging" class="nav-link" data-scroll-target="#daily-settlement-and-tailing-adjustment-in-hedging"><span class="header-section-number">2.8.1</span> Daily Settlement and Tailing Adjustment in Hedging</a></li>
-  </ul></li>
-  <li><a href="#stock-index-futures" id="toc-stock-index-futures" class="nav-link" data-scroll-target="#stock-index-futures"><span class="header-section-number">2.9</span> Stock Index Futures</a>
-  <ul class="collapse">
-  <li><a href="#hedging-portfolio" id="toc-hedging-portfolio" class="nav-link" data-scroll-target="#hedging-portfolio"><span class="header-section-number">2.9.1</span> Hedging Portfolio</a></li>
-  <li><a href="#adjusting-portfolio-beta" id="toc-adjusting-portfolio-beta" class="nav-link" data-scroll-target="#adjusting-portfolio-beta"><span class="header-section-number">2.9.2</span> Adjusting Portfolio Beta</a></li>
-  <li><a href="#additional-notes-about-hedging" id="toc-additional-notes-about-hedging" class="nav-link" data-scroll-target="#additional-notes-about-hedging"><span class="header-section-number">2.9.3</span> Additional Notes About Hedging</a></li>
-  </ul></li>
-  <li><a href="#practice-questions-and-problems" id="toc-practice-questions-and-problems" class="nav-link" data-scroll-target="#practice-questions-and-problems"><span class="header-section-number">2.10</span> Practice Questions and Problems</a>
-  <ul class="collapse">
-  <li><a href="#fundamentals-of-futures-trading" id="toc-fundamentals-of-futures-trading" class="nav-link" data-scroll-target="#fundamentals-of-futures-trading"><span class="header-section-number">2.10.1</span> Fundamentals of Futures Trading</a></li>
-  <li><a href="#open-interest-and-trading-volume" id="toc-open-interest-and-trading-volume" class="nav-link" data-scroll-target="#open-interest-and-trading-volume"><span class="header-section-number">2.10.2</span> Open Interest and Trading Volume</a></li>
-  <li><a href="#margin-mechanics-in-futures-trading" id="toc-margin-mechanics-in-futures-trading" class="nav-link" data-scroll-target="#margin-mechanics-in-futures-trading"><span class="header-section-number">2.10.3</span> Margin Mechanics in Futures Trading</a></li>
-  <li><a href="#basics-of-hedging-with-futures" id="toc-basics-of-hedging-with-futures" class="nav-link" data-scroll-target="#basics-of-hedging-with-futures"><span class="header-section-number">2.10.4</span> Basics of Hedging with Futures</a></li>
-  <li><a href="#advanced-hedging-scenarios-and-strategies" id="toc-advanced-hedging-scenarios-and-strategies" class="nav-link" data-scroll-target="#advanced-hedging-scenarios-and-strategies"><span class="header-section-number">2.10.5</span> Advanced Hedging Scenarios and Strategies</a></li>
-  <li><a href="#practical-concerns-and-risk-management" id="toc-practical-concerns-and-risk-management" class="nav-link" data-scroll-target="#practical-concerns-and-risk-management"><span class="header-section-number">2.10.6</span> Practical Concerns and Risk Management</a></li>
-  <li><a href="#hedging-with-stock-and-commodity-futures" id="toc-hedging-with-stock-and-commodity-futures" class="nav-link" data-scroll-target="#hedging-with-stock-and-commodity-futures"><span class="header-section-number">2.10.7</span> Hedging with Stock and Commodity Futures</a></li>
-  </ul></li>
+  <li><a href="#cross-hedging" id="toc-cross-hedging" class="nav-link" data-scroll-target="#cross-hedging"><span class="header-section-number">2.8</span> Cross Hedging</a></li>
+  <li><a href="#stock-index-futures" id="toc-stock-index-futures" class="nav-link" data-scroll-target="#stock-index-futures"><span class="header-section-number">2.9</span> Stock Index Futures</a></li>
+  <li><a href="#practice-questions-and-problems" id="toc-practice-questions-and-problems" class="nav-link" data-scroll-target="#practice-questions-and-problems"><span class="header-section-number">2.10</span> Practice Questions and Problems</a></li>
   </ul>
 </nav>
     </div>
@@ -472,7 +429,7 @@ Definition
 </ul></li>
 <li><p><strong>Settlement:</strong> Futures contracts often settle daily based on market price changes, a process known as “marking to market.” Forwards, however, usually settle at the end of the contract term, with the final payment reflecting the difference between the forward price and the underlying asset’s price at maturity.</p></li>
 </ul>
-<div id="b0c5196c" class="cell" data-execution_count="1">
+<div id="25b4de3d" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.graph_objects <span class="im">as</span> go</span>
@@ -525,9 +482,18 @@ Definition
 <span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<div>                            <div id="97cbbafc-e26e-437e-97b6-9c3a4af19158" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("97cbbafc-e26e-437e-97b6-9c3a4af19158")) {                    Plotly.newPlot(                        "97cbbafc-e26e-437e-97b6-9c3a4af19158",                        [{"hovertemplate":"Long Position\u003cbr\u003eSpot Price: %{x:.0f}\u003cbr\u003ePayoff: %{y:.0f}\u003cextra\u003e\u003c\u002fextra\u003e","line":{"width":3},"mode":"lines","name":"Long Position","x":[80.0,80.4040404040404,80.8080808080808,81.21212121212122,81.61616161616162,82.02020202020202,82.42424242424242,82.82828282828282,83.23232323232324,83.63636363636364,84.04040404040404,84.44444444444444,84.84848484848484,85.25252525252526,85.65656565656566,86.06060606060606,86.46464646464646,86.86868686868686,87.27272727272727,87.67676767676768,88.08080808080808,88.48484848484848,88.88888888888889,89.29292929292929,89.6969696969697,90.1010101010101,90.5050505050505,90.9090909090909,91.31313131313131,91.71717171717171,92.12121212121212,92.52525252525253,92.92929292929293,93.33333333333333,93.73737373737373,94.14141414141415,94.54545454545455,94.94949494949495,95.35353535353535,95.75757575757575,96.16161616161617,96.56565656565657,96.96969696969697,97.37373737373737,97.77777777777777,98.18181818181819,98.58585858585859,98.98989898989899,99.39393939393939,99.79797979797979,100.20202020202021,100.60606060606061,101.01010101010101,101.41414141414141,101.81818181818181,102.22222222222223,102.62626262626263,103.03030303030303,103.43434343434343,103.83838383838383,104.24242424242425,104.64646464646465,105.05050505050505,105.45454545454545,105.85858585858585,106.26262626262627,106.66666666666667,107.07070707070707,107.47474747474747,107.87878787878788,108.28282828282829,108.68686868686868,109.0909090909091,109.4949494949495,109.8989898989899,110.3030303030303,110.7070707070707,111.11111111111111,111.51515151515152,111.91919191919192,112.32323232323233,112.72727272727272,113.13131313131314,113.53535353535354,113.93939393939394,114.34343434343435,114.74747474747474,115.15151515151516,115.55555555555556,115.95959595959596,116.36363636363636,116.76767676767676,117.17171717171718,117.57575757575758,117.97979797979798,118.38383838383838,118.78787878787878,119.1919191919192,119.5959595959596,120.0],"y":[-20.0,-19.5959595959596,-19.191919191919197,-18.787878787878782,-18.38383838383838,-17.97979797979798,-17.575757575757578,-17.171717171717177,-16.76767676767676,-16.36363636363636,-15.959595959595958,-15.555555555555557,-15.151515151515156,-14.74747474747474,-14.343434343434339,-13.939393939393938,-13.535353535353536,-13.131313131313135,-12.727272727272734,-12.323232323232318,-11.919191919191917,-11.515151515151516,-11.111111111111114,-10.707070707070713,-10.303030303030297,-9.898989898989896,-9.494949494949495,-9.090909090909093,-8.686868686868692,-8.28282828282829,-7.878787878787875,-7.474747474747474,-7.070707070707073,-6.666666666666671,-6.26262626262627,-5.858585858585855,-5.454545454545453,-5.050505050505052,-4.646464646464651,-4.242424242424249,-3.838383838383834,-3.4343434343434325,-3.030303030303031,-2.62626262626263,-2.2222222222222285,-1.818181818181813,-1.4141414141414117,-1.0101010101010104,-0.6060606060606091,-0.20202020202020776,0.20202020202020776,0.6060606060606091,1.0101010101010104,1.4141414141414117,1.818181818181813,2.2222222222222285,2.62626262626263,3.030303030303031,3.4343434343434325,3.838383838383834,4.242424242424249,4.646464646464651,5.050505050505052,5.454545454545453,5.858585858585855,6.26262626262627,6.666666666666671,7.070707070707073,7.474747474747474,7.878787878787875,8.28282828282829,8.686868686868678,9.090909090909093,9.494949494949495,9.898989898989896,10.303030303030297,10.707070707070699,11.111111111111114,11.515151515151516,11.919191919191917,12.323232323232332,12.72727272727272,13.131313131313135,13.535353535353536,13.939393939393938,14.343434343434353,14.74747474747474,15.151515151515156,15.555555555555557,15.959595959595958,16.36363636363636,16.76767676767676,17.171717171717177,17.575757575757578,17.97979797979798,18.38383838383838,18.787878787878782,19.191919191919197,19.5959595959596,20.0],"type":"scatter"},{"hovertemplate":"Short Position\u003cbr\u003eSpot Price: %{x:.0f}\u003cbr\u003ePayoff: %{y:.0f}\u003cextra\u003e\u003c\u002fextra\u003e","line":{"width":3},"mode":"lines","name":"Short Position","x":[80.0,80.4040404040404,80.8080808080808,81.21212121212122,81.61616161616162,82.02020202020202,82.42424242424242,82.82828282828282,83.23232323232324,83.63636363636364,84.04040404040404,84.44444444444444,84.84848484848484,85.25252525252526,85.65656565656566,86.06060606060606,86.46464646464646,86.86868686868686,87.27272727272727,87.67676767676768,88.08080808080808,88.48484848484848,88.88888888888889,89.29292929292929,89.6969696969697,90.1010101010101,90.5050505050505,90.9090909090909,91.31313131313131,91.71717171717171,92.12121212121212,92.52525252525253,92.92929292929293,93.33333333333333,93.73737373737373,94.14141414141415,94.54545454545455,94.94949494949495,95.35353535353535,95.75757575757575,96.16161616161617,96.56565656565657,96.96969696969697,97.37373737373737,97.77777777777777,98.18181818181819,98.58585858585859,98.98989898989899,99.39393939393939,99.79797979797979,100.20202020202021,100.60606060606061,101.01010101010101,101.41414141414141,101.81818181818181,102.22222222222223,102.62626262626263,103.03030303030303,103.43434343434343,103.83838383838383,104.24242424242425,104.64646464646465,105.05050505050505,105.45454545454545,105.85858585858585,106.26262626262627,106.66666666666667,107.07070707070707,107.47474747474747,107.87878787878788,108.28282828282829,108.68686868686868,109.0909090909091,109.4949494949495,109.8989898989899,110.3030303030303,110.7070707070707,111.11111111111111,111.51515151515152,111.91919191919192,112.32323232323233,112.72727272727272,113.13131313131314,113.53535353535354,113.93939393939394,114.34343434343435,114.74747474747474,115.15151515151516,115.55555555555556,115.95959595959596,116.36363636363636,116.76767676767676,117.17171717171718,117.57575757575758,117.97979797979798,118.38383838383838,118.78787878787878,119.1919191919192,119.5959595959596,120.0],"y":[20.0,19.5959595959596,19.191919191919197,18.787878787878782,18.38383838383838,17.97979797979798,17.575757575757578,17.171717171717177,16.76767676767676,16.36363636363636,15.959595959595958,15.555555555555557,15.151515151515156,14.74747474747474,14.343434343434339,13.939393939393938,13.535353535353536,13.131313131313135,12.727272727272734,12.323232323232318,11.919191919191917,11.515151515151516,11.111111111111114,10.707070707070713,10.303030303030297,9.898989898989896,9.494949494949495,9.090909090909093,8.686868686868692,8.28282828282829,7.878787878787875,7.474747474747474,7.070707070707073,6.666666666666671,6.26262626262627,5.858585858585855,5.454545454545453,5.050505050505052,4.646464646464651,4.242424242424249,3.838383838383834,3.4343434343434325,3.030303030303031,2.62626262626263,2.2222222222222285,1.818181818181813,1.4141414141414117,1.0101010101010104,0.6060606060606091,0.20202020202020776,-0.20202020202020776,-0.6060606060606091,-1.0101010101010104,-1.4141414141414117,-1.818181818181813,-2.2222222222222285,-2.62626262626263,-3.030303030303031,-3.4343434343434325,-3.838383838383834,-4.242424242424249,-4.646464646464651,-5.050505050505052,-5.454545454545453,-5.858585858585855,-6.26262626262627,-6.666666666666671,-7.070707070707073,-7.474747474747474,-7.878787878787875,-8.28282828282829,-8.686868686868678,-9.090909090909093,-9.494949494949495,-9.898989898989896,-10.303030303030297,-10.707070707070699,-11.111111111111114,-11.515151515151516,-11.919191919191917,-12.323232323232332,-12.72727272727272,-13.131313131313135,-13.535353535353536,-13.939393939393938,-14.343434343434353,-14.74747474747474,-15.151515151515156,-15.555555555555557,-15.959595959595958,-16.36363636363636,-16.76767676767676,-17.171717171717177,-17.575757575757578,-17.97979797979798,-18.38383838383838,-18.787878787878782,-19.191919191919197,-19.5959595959596,-20.0],"type":"scatter"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30}}},"shapes":[{"line":{"color":"black","dash":"solid","width":0.7},"type":"line","x0":0,"x1":1,"xref":"x domain","y0":0,"y1":0,"yref":"y"}],"title":{"text":"Payoff from a Futures Contract"},"xaxis":{"title":{"text":"Spot Price at Expiration"}},"yaxis":{"title":{"text":"Payoff"}},"legend":{"title":{"text":"Position"}}},                        {"responsive": true}                    ).then(function(){
+        <script type="text/javascript">
+        window.PlotlyConfig = {MathJaxConfig: 'local'};
+        if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
+        </script>
+        <script type="module">import "https://cdn.plot.ly/plotly-3.0.0.min"</script>
+        
+</div>
+<div class="cell-output cell-output-display">
+<div>            <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG"></script><script type="text/javascript">if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}</script>                <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.0.0.min.js"></script>                <div id="344145cb-67c7-491f-88ce-d266e47b73fb" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("344145cb-67c7-491f-88ce-d266e47b73fb")) {                    Plotly.newPlot(                        "344145cb-67c7-491f-88ce-d266e47b73fb",                        [{"hovertemplate":"Long Position\u003cbr\u003eSpot Price: %{x:.0f}\u003cbr\u003ePayoff: %{y:.0f}\u003cextra\u003e\u003c\u002fextra\u003e","line":{"width":3},"mode":"lines","name":"Long Position","x":{"dtype":"f8","bdata":"AAAAAAAAVEBvZ0jM2xlUQN7OkJi3M1RATjbZZJNNVEC9nSExb2dUQCwFav1KgVRAm2yyySabVEAK1PqVArVUQHo7Q2LezlRA6aKLLrroVEBYCtT6lQJVQMdxHMdxHFVANtlkk002VUCmQK1fKVBVQBWo9SsFalVAhA8++OCDVUDzdobEvJ1VQGLezpCYt1VA0UUXXXTRVUBBrV8pUOtVQLAUqPUrBVZAH3zwwQcfVkCO4ziO4zhWQP1KgVq\u002fUlZAbbLJJptsVkDcGRLzdoZWQEuBWr9SoFZAuuiiiy66VkApUOtXCtRWQJi3MyTm7VZACB988MEHV0B3hsS8nSFXQObtDIl5O1dAVVVVVVVVV0DEvJ0hMW9XQDQk5u0MiVdAo4suuuiiV0AS83aGxLxXQIFav1Kg1ldA8MEHH3zwV0BgKVDrVwpYQM+QmLczJFhAPvjggw8+WECtXylQ61dYQBzHcRzHcVhAjC666KKLWED7lQK1fqVYQGr9SoFav1hA2WSTTTbZWEBIzNsZEvNYQLgzJObtDFlAJ5tssskmWUCWArV+pUBZQAVq\u002fUqBWllAdNFFF110WUDkOI7jOI5ZQFOg1q8UqFlAwgcffPDBWUAxb2dIzNtZQKDWrxSo9VlAED744IMPWkB\u002fpUCtXylaQO4MiXk7Q1pAXXTRRRddWkDM2xkS83ZaQDxDYt7OkFpAq6qqqqqqWkAaEvN2hsRaQIl5O0Ni3lpA+OCDDz74WkBoSMzbGRJbQNavFKj1K1tARhdddNFFW0C1fqVArV9bQCTm7QyJeVtAk0022WSTW0ACtX6lQK1bQHIcx3Ecx1tA4YMPPvjgW0BQ61cK1PpbQMBSoNavFFxALrrooosuXECeITFvZ0hcQA2JeTtDYlxAfPDBBx98XEDsVwrU+pVcQFq\u002fUqDWr1xAyiabbLLJXEA5juM4juNcQKj1KwVq\u002fVxAF1100UUXXUCGxLydITFdQPYrBWr9Sl1AZZNNNtlkXUDU+pUCtX5dQENi3s6QmF1Asskmm2yyXUAiMW9nSMxdQJGYtzMk5l1AAAAAAAAAXkA="},"y":{"dtype":"f8","bdata":"AAAAAAAANMBEYt7OkJgzwIjEvJ0hMTPAyCabbLLJMsAMiXk7Q2IywFDrVwrU+jHAlE022WSTMcDYrxSo9SsxwBgS83aGxDDAXHTRRRddMMBArV8pUOsvwMhxHMdxHC\u002fAUDbZZJNNLsDQ+pUCtX4twFi\u002fUqDWryzA4IMPPvjgK8BoSMzbGRIrwPAMiXk7QyrAeNFFF110KcD4lQK1fqUowIBav1Kg1ifACB988MEHJ8CQ4ziO4zgmwBio9SsFaiXAmGyyySabJMAgMW9nSMwjwKj1KwVq\u002fSLAMLrooosuIsC4fqVArV8hwEBDYt7OkCDAgA8++OCDH8CQmLczJOYdwKAhMW9nSBzAsKqqqqqqGsDAMyTm7QwZwMC8nSExbxfA0EUXXXTRFcDgzpCYtzMUwPBXCtT6lRLAAOGDDz74EMAA1PqVArUOwCDm7QyJeQvAQPjggw8+CMBgCtT6lQIFwIAcx3EcxwHAAF100UUX\u002fb9AgVq\u002fUqD2v4ClQK1fKfC\u002fgJNNNtlk478AcGdIzNvJvwBwZ0jM28k\u002fgJNNNtlk4z+ApUCtXynwP0CBWr9SoPY\u002fAF100UUX\u002fT+AHMdxHMcBQGAK1PqVAgVAQPjggw8+CEAg5u0MiXkLQADU+pUCtQ5AAOGDDz74EEDwVwrU+pUSQODOkJi3MxRA0EUXXXTRFUDAvJ0hMW8XQMAzJObtDBlAsKqqqqqqGkCgITFvZ0gcQJCYtzMk5h1AgA8++OCDH0BAQ2LezpAgQLB+pUCtXyFAMLrooosuIkCo9SsFav0iQCAxb2dIzCNAmGyyySabJEAQqPUrBWolQJDjOI7jOCZACB988MEHJ0CAWr9SoNYnQACWArV+pShAcNFFF110KUDwDIl5O0MqQGhIzNsZEitA4IMPPvjgK0Bgv1Kg1q8sQND6lQK1fi1AUDbZZJNNLkDIcRzHcRwvQECtXylQ6y9AXHTRRRddMEAYEvN2hsQwQNivFKj1KzFAlE022WSTMUBQ61cK1PoxQAyJeTtDYjJAyCabbLLJMkCIxLydITEzQERi3s6QmDNAAAAAAAAANEA="},"type":"scatter"},{"hovertemplate":"Short Position\u003cbr\u003eSpot Price: %{x:.0f}\u003cbr\u003ePayoff: %{y:.0f}\u003cextra\u003e\u003c\u002fextra\u003e","line":{"width":3},"mode":"lines","name":"Short Position","x":{"dtype":"f8","bdata":"AAAAAAAAVEBvZ0jM2xlUQN7OkJi3M1RATjbZZJNNVEC9nSExb2dUQCwFav1KgVRAm2yyySabVEAK1PqVArVUQHo7Q2LezlRA6aKLLrroVEBYCtT6lQJVQMdxHMdxHFVANtlkk002VUCmQK1fKVBVQBWo9SsFalVAhA8++OCDVUDzdobEvJ1VQGLezpCYt1VA0UUXXXTRVUBBrV8pUOtVQLAUqPUrBVZAH3zwwQcfVkCO4ziO4zhWQP1KgVq\u002fUlZAbbLJJptsVkDcGRLzdoZWQEuBWr9SoFZAuuiiiy66VkApUOtXCtRWQJi3MyTm7VZACB988MEHV0B3hsS8nSFXQObtDIl5O1dAVVVVVVVVV0DEvJ0hMW9XQDQk5u0MiVdAo4suuuiiV0AS83aGxLxXQIFav1Kg1ldA8MEHH3zwV0BgKVDrVwpYQM+QmLczJFhAPvjggw8+WECtXylQ61dYQBzHcRzHcVhAjC666KKLWED7lQK1fqVYQGr9SoFav1hA2WSTTTbZWEBIzNsZEvNYQLgzJObtDFlAJ5tssskmWUCWArV+pUBZQAVq\u002fUqBWllAdNFFF110WUDkOI7jOI5ZQFOg1q8UqFlAwgcffPDBWUAxb2dIzNtZQKDWrxSo9VlAED744IMPWkB\u002fpUCtXylaQO4MiXk7Q1pAXXTRRRddWkDM2xkS83ZaQDxDYt7OkFpAq6qqqqqqWkAaEvN2hsRaQIl5O0Ni3lpA+OCDDz74WkBoSMzbGRJbQNavFKj1K1tARhdddNFFW0C1fqVArV9bQCTm7QyJeVtAk0022WSTW0ACtX6lQK1bQHIcx3Ecx1tA4YMPPvjgW0BQ61cK1PpbQMBSoNavFFxALrrooosuXECeITFvZ0hcQA2JeTtDYlxAfPDBBx98XEDsVwrU+pVcQFq\u002fUqDWr1xAyiabbLLJXEA5juM4juNcQKj1KwVq\u002fVxAF1100UUXXUCGxLydITFdQPYrBWr9Sl1AZZNNNtlkXUDU+pUCtX5dQENi3s6QmF1Asskmm2yyXUAiMW9nSMxdQJGYtzMk5l1AAAAAAAAAXkA="},"y":{"dtype":"f8","bdata":"AAAAAAAANEBEYt7OkJgzQIjEvJ0hMTNAyCabbLLJMkAMiXk7Q2IyQFDrVwrU+jFAlE022WSTMUDYrxSo9SsxQBgS83aGxDBAXHTRRRddMEBArV8pUOsvQMhxHMdxHC9AUDbZZJNNLkDQ+pUCtX4tQFi\u002fUqDWryxA4IMPPvjgK0BoSMzbGRIrQPAMiXk7QypAeNFFF110KUD4lQK1fqUoQIBav1Kg1idACB988MEHJ0CQ4ziO4zgmQBio9SsFaiVAmGyyySabJEAgMW9nSMwjQKj1KwVq\u002fSJAMLrooosuIkC4fqVArV8hQEBDYt7OkCBAgA8++OCDH0CQmLczJOYdQKAhMW9nSBxAsKqqqqqqGkDAMyTm7QwZQMC8nSExbxdA0EUXXXTRFUDgzpCYtzMUQPBXCtT6lRJAAOGDDz74EEAA1PqVArUOQCDm7QyJeQtAQPjggw8+CEBgCtT6lQIFQIAcx3EcxwFAAF100UUX\u002fT9AgVq\u002fUqD2P4ClQK1fKfA\u002fgJNNNtlk4z8AcGdIzNvJPwBwZ0jM28m\u002fgJNNNtlk47+ApUCtXynwv0CBWr9SoPa\u002fAF100UUX\u002fb+AHMdxHMcBwGAK1PqVAgXAQPjggw8+CMAg5u0MiXkLwADU+pUCtQ7AAOGDDz74EMDwVwrU+pUSwODOkJi3MxTA0EUXXXTRFcDAvJ0hMW8XwMAzJObtDBnAsKqqqqqqGsCgITFvZ0gcwJCYtzMk5h3AgA8++OCDH8BAQ2LezpAgwLB+pUCtXyHAMLrooosuIsCo9SsFav0iwCAxb2dIzCPAmGyyySabJMAQqPUrBWolwJDjOI7jOCbACB988MEHJ8CAWr9SoNYnwACWArV+pSjAcNFFF110KcDwDIl5O0MqwGhIzNsZEivA4IMPPvjgK8Bgv1Kg1q8swND6lQK1fi3AUDbZZJNNLsDIcRzHcRwvwECtXylQ6y\u002fAXHTRRRddMMAYEvN2hsQwwNivFKj1KzHAlE022WSTMcBQ61cK1PoxwAyJeTtDYjLAyCabbLLJMsCIxLydITEzwERi3s6QmDPAAAAAAAAANMA="},"type":"scatter"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30}}},"shapes":[{"line":{"color":"black","dash":"solid","width":0.7},"type":"line","x0":0,"x1":1,"xref":"x domain","y0":0,"y1":0,"yref":"y"}],"title":{"text":"Payoff from a Futures Contract"},"xaxis":{"title":{"text":"Spot Price at Expiration"}},"yaxis":{"title":{"text":"Payoff"}},"legend":{"title":{"text":"Position"}}},                        {"responsive": true}                    ).then(function(){
                             
-var gd = document.getElementById('97cbbafc-e26e-437e-97b6-9c3a4af19158');
+var gd = document.getElementById('344145cb-67c7-491f-88ce-d266e47b73fb');
 var x = new MutationObserver(function (mutations, observer) {{
         var display = window.getComputedStyle(gd).display;
         if (!display || display === 'none') {{
@@ -549,7 +515,7 @@ if (outputEl) {{
     x.observe(outputEl, {childList: true});
 }}
 
-                        })                };                });            </script>        </div>
+                        })                };            </script>        </div>
 </div>
 </div>
 </section>
@@ -598,16 +564,16 @@ Example: Gold Purchase Agreement
 <li><p><strong>Regulation:</strong> In the United States, the Commodity Futures Trading Commission (CFTC) oversees the futures markets, aiming to protect market participants and maintain market integrity.</p></li>
 <li><p><strong>Futures Contract Specifications:</strong> Futures contracts are highly standardized, with detailed specifications, e.g., <a href="https://www.cmegroup.com/markets/metals/precious/gold.quotes.html">CME Group’s Gold Futures</a>.</p></li>
 </ul>
-<section id="delivery-mechanisms" class="level3" data-number="2.3.1">
-<h3 data-number="2.3.1" class="anchored" data-anchor-id="delivery-mechanisms"><span class="header-section-number">2.3.1</span> Delivery Mechanisms</h3>
+<section id="delivery-mechanisms" class="level3">
+<h3 class="anchored" data-anchor-id="delivery-mechanisms">Delivery Mechanisms</h3>
 <ul>
 <li><strong>Contract Settlement:</strong> Most futures contracts are closed out before maturity, avoiding physical delivery. Instead, positions are settled by entering into an offsetting transaction.</li>
 <li><strong>Delivery Options:</strong> For contracts requiring physical delivery, specifications outline the deliverable commodities, delivery locations, and timelines. The short position holder usually determines the delivery specifics.</li>
 <li><strong>Cash Settlement:</strong> Certain contracts, such as those for stock indices, settle in cash instead of physical delivery.</li>
 </ul>
 </section>
-<section id="understanding-market-quotes" class="level3" data-number="2.3.2">
-<h3 data-number="2.3.2" class="anchored" data-anchor-id="understanding-market-quotes"><span class="header-section-number">2.3.2</span> Understanding Market Quotes</h3>
+<section id="understanding-market-quotes" class="level3">
+<h3 class="anchored" data-anchor-id="understanding-market-quotes">Understanding Market Quotes</h3>
 <ul>
 <li><strong>Settlement Price:</strong> This is the closing price used for the daily settlement process.</li>
 <li><strong>Open Interest:</strong> Represents the total number of open contracts, equal to either the number of long or short positions.</li>
@@ -646,8 +612,8 @@ Example of Open Interest and Trading Volume
 </div>
 </div>
 </section>
-<section id="daily-settlement-process-and-margins" class="level3" data-number="2.3.3">
-<h3 data-number="2.3.3" class="anchored" data-anchor-id="daily-settlement-process-and-margins"><span class="header-section-number">2.3.3</span> Daily Settlement Process and Margins</h3>
+<section id="daily-settlement-process-and-margins" class="level3">
+<h3 class="anchored" data-anchor-id="daily-settlement-process-and-margins">Daily Settlement Process and Margins</h3>
 <p>The clearinghouse calculates the settlement price daily, adjusting traders’ margin accounts based on market movements:</p>
 <ul>
 <li><strong>Mark-to-Market:</strong> Daily gains or losses are reflected in the margin account, ensuring that the account balance accurately represents the market value of the position.</li>
@@ -715,23 +681,23 @@ Some Useful Links
 <section id="otc-markets" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="otc-markets"><span class="header-section-number">2.4</span> OTC Markets</h2>
 <p>Over-the-Counter (OTC) markets facilitate the trading of forward contracts and other financial instruments directly between two parties without the intermediation of exchanges. These markets offer flexibility and customization in the contracts traded but historically lacked the transparency and regulation of their exchange-traded counterparts.</p>
-<section id="regulatory-evolution" class="level3" data-number="2.4.1">
-<h3 data-number="2.4.1" class="anchored" data-anchor-id="regulatory-evolution"><span class="header-section-number">2.4.1</span> Regulatory Evolution</h3>
+<section id="regulatory-evolution" class="level3">
+<h3 class="anchored" data-anchor-id="regulatory-evolution">Regulatory Evolution</h3>
 <ul>
 <li><p><strong>Pre-Crisis Era:</strong> Prior to the 2007–2008 financial crisis, the OTC market operated with minimal regulatory oversight. This lack of regulation contributed to systemic risks, as evidenced by the crisis.</p></li>
 <li><p><strong>Post-Crisis Reforms:</strong> In response to the financial crisis, significant regulatory measures were introduced globally to increase transparency, reduce systemic risk, and improve market stability. These include the Dodd-Frank Act in the United States and the European Market Infrastructure Regulation (EMIR) in the EU, mandating the reporting of OTC transactions and the use of central clearing parties for certain classes of derivatives.</p></li>
 </ul>
 </section>
-<section id="collateral-requirements" class="level3" data-number="2.4.2">
-<h3 data-number="2.4.2" class="anchored" data-anchor-id="collateral-requirements"><span class="header-section-number">2.4.2</span> Collateral Requirements</h3>
+<section id="collateral-requirements" class="level3">
+<h3 class="anchored" data-anchor-id="collateral-requirements">Collateral Requirements</h3>
 <p>To mitigate counterparty risk, collateral requirements were introduced, including:</p>
 <ul>
 <li><p><strong>Initial Margin:</strong> An upfront deposit required to enter into a contract, intended to cover potential future exposure in the period immediately following a default.</p></li>
 <li><p><strong>Variational Margin (or Variation Margin):</strong> Additional funds that must be deposited to cover adverse price movements, ensuring the value of the collateral matches the exposure at the end of each trading day.</p></li>
 </ul>
 </section>
-<section id="clearing-mechanisms" class="level3" data-number="2.4.3">
-<h3 data-number="2.4.3" class="anchored" data-anchor-id="clearing-mechanisms"><span class="header-section-number">2.4.3</span> Clearing Mechanisms</h3>
+<section id="clearing-mechanisms" class="level3">
+<h3 class="anchored" data-anchor-id="clearing-mechanisms">Clearing Mechanisms</h3>
 <ul>
 <li><p><strong>Bilateral Clearing:</strong> Traditionally, OTC markets relied on bilateral clearing, where each transaction is a separate agreement between two parties. This method allows for customization but lacks centralized risk management, making it harder to monitor and mitigate systemic risk.</p></li>
 <li><p><strong>Central Clearing:</strong> The introduction of a <strong>Central Counterparty (CCP)</strong> for clearing OTC trades represents a significant shift. The CCP acts as a buyer to every seller and a seller to every buyer, reducing counterparty risk and increasing market transparency. Central clearing houses also enforce margin requirements and perform regular mark-to-market adjustments to manage risk. While OTC contracts are customized, CCPs have facilitated a move towards some level of standardization, especially in the processes for managing risk and settling trades.</p></li>
@@ -740,7 +706,7 @@ Some Useful Links
 </section>
 <section id="forward-vs.-futures-contracts-summary" class="level2" data-number="2.5">
 <h2 data-number="2.5" class="anchored" data-anchor-id="forward-vs.-futures-contracts-summary"><span class="header-section-number">2.5</span> Forward vs.&nbsp;Futures Contracts Summary</h2>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 31%">
 <col style="width: 33%">
@@ -932,8 +898,8 @@ Example: Hedging Jet Fuel with Heating Oil Futures
 </div>
 </div>
 </div>
-<section id="daily-settlement-and-tailing-adjustment-in-hedging" class="level3" data-number="2.8.1">
-<h3 data-number="2.8.1" class="anchored" data-anchor-id="daily-settlement-and-tailing-adjustment-in-hedging"><span class="header-section-number">2.8.1</span> Daily Settlement and Tailing Adjustment in Hedging</h3>
+<section id="daily-settlement-and-tailing-adjustment-in-hedging" class="level3">
+<h3 class="anchored" data-anchor-id="daily-settlement-and-tailing-adjustment-in-hedging">Daily Settlement and Tailing Adjustment in Hedging</h3>
 <p>The daily settlement process and the concept of tailing adjustments are crucial for refining the hedging strategy, particularly in the context of futures markets. These adjustments are necessary to account for the nuances of daily price changes and the mechanics of futures contracts.</p>
 <p>The optimal hedge ratio, <strong>adjusted for daily settlement</strong>, is given by:</p>
 <p><span class="math display">\[\hat{h} = \hat{\rho} \frac{\hat{\sigma_S}}{\hat{\sigma_F}}\]</span></p>
@@ -996,8 +962,8 @@ Example: Hedging with Tailing Adjustments
 <section id="stock-index-futures" class="level2" data-number="2.9">
 <h2 data-number="2.9" class="anchored" data-anchor-id="stock-index-futures"><span class="header-section-number">2.9</span> Stock Index Futures</h2>
 <p>Stock index futures are a powerful tool for hedging the risk in a portfolio. By taking positions in these futures, investors can manage exposure to market fluctuations without the need to alter the composition of their portfolio.</p>
-<section id="hedging-portfolio" class="level3" data-number="2.9.1">
-<h3 data-number="2.9.1" class="anchored" data-anchor-id="hedging-portfolio"><span class="header-section-number">2.9.1</span> Hedging Portfolio</h3>
+<section id="hedging-portfolio" class="level3">
+<h3 class="anchored" data-anchor-id="hedging-portfolio">Hedging Portfolio</h3>
 <p>The formula to determine the number of contracts to short for hedging purposes is:</p>
 <p><span class="math display">\[\beta \times \frac{V_A}{V_F}\]</span></p>
 <ul>
@@ -1031,8 +997,8 @@ Example: Stock Index Futures Hedging
 </div>
 </div>
 </section>
-<section id="adjusting-portfolio-beta" class="level3" data-number="2.9.2">
-<h3 data-number="2.9.2" class="anchored" data-anchor-id="adjusting-portfolio-beta"><span class="header-section-number">2.9.2</span> Adjusting Portfolio Beta</h3>
+<section id="adjusting-portfolio-beta" class="level3">
+<h3 class="anchored" data-anchor-id="adjusting-portfolio-beta">Adjusting Portfolio Beta</h3>
 <p>To modify the beta of a portfolio, the formula is:</p>
 <p><span class="math display">\[(\beta^{*} - \beta) \times \frac{V_A}{V_F}\]</span></p>
 <ul>
@@ -1066,8 +1032,8 @@ Example: Adjusting Portfolio Beta
 </div>
 </div>
 </section>
-<section id="additional-notes-about-hedging" class="level3" data-number="2.9.3">
-<h3 data-number="2.9.3" class="anchored" data-anchor-id="additional-notes-about-hedging"><span class="header-section-number">2.9.3</span> Additional Notes About Hedging</h3>
+<section id="additional-notes-about-hedging" class="level3">
+<h3 class="anchored" data-anchor-id="additional-notes-about-hedging">Additional Notes About Hedging</h3>
 <section id="why-hedge-equity-returns" class="level4">
 <h4 class="anchored" data-anchor-id="why-hedge-equity-returns">Why Hedge Equity Returns?</h4>
 <p>Hedging with stock index futures is advantageous for several reasons:</p>
@@ -1120,8 +1086,8 @@ Warning
 </section>
 <section id="practice-questions-and-problems" class="level2" data-number="2.10">
 <h2 data-number="2.10" class="anchored" data-anchor-id="practice-questions-and-problems"><span class="header-section-number">2.10</span> Practice Questions and Problems</h2>
-<section id="fundamentals-of-futures-trading" class="level3" data-number="2.10.1">
-<h3 data-number="2.10.1" class="anchored" data-anchor-id="fundamentals-of-futures-trading"><span class="header-section-number">2.10.1</span> Fundamentals of Futures Trading</h3>
+<section id="fundamentals-of-futures-trading" class="level3">
+<h3 class="anchored" data-anchor-id="fundamentals-of-futures-trading">Fundamentals of Futures Trading</h3>
 <ol type="1">
 <li>What are the most important aspects of the design of a new futures contract?</li>
 <li>The party with a short position in a futures contract sometimes has options as to the precise asset that will be delivered, where delivery will take place, when delivery will take place, and so on. Do these options increase or decrease the futures price? Explain your reasoning.</li>
@@ -1129,16 +1095,16 @@ Warning
 <li>“Speculation in futures markets is pure gambling. It is not in the public interest to allow speculators to trade on a futures exchange.” Discuss this viewpoint.</li>
 </ol>
 </section>
-<section id="open-interest-and-trading-volume" class="level3" data-number="2.10.2">
-<h3 data-number="2.10.2" class="anchored" data-anchor-id="open-interest-and-trading-volume"><span class="header-section-number">2.10.2</span> Open Interest and Trading Volume</h3>
+<section id="open-interest-and-trading-volume" class="level3">
+<h3 class="anchored" data-anchor-id="open-interest-and-trading-volume">Open Interest and Trading Volume</h3>
 <ol type="1">
 <li>Distinguish between the terms open interest and trading volume.</li>
 <li>“When a futures contract is traded on the floor of the exchange, it may be the case that the open interest increases by one, stays the same, or decreases by one.” Explain this statement.</li>
 <li>Why does the open interest usually decline during the month preceding the delivery month? On a particular day, there were 2,000 trades in a particular futures contract. This means that there were 2000 buyers (going long) and 2000 sellers (going short). Of the 2,000 buyers, 1,400 were closing out positions and 600 were entering into new positions. Of the 2,000 sellers, 1,200 were closing out positions and 800 were entering into new positions. What is the impact of the day’s trading on open interest?</li>
 </ol>
 </section>
-<section id="margin-mechanics-in-futures-trading" class="level3" data-number="2.10.3">
-<h3 data-number="2.10.3" class="anchored" data-anchor-id="margin-mechanics-in-futures-trading"><span class="header-section-number">2.10.3</span> Margin Mechanics in Futures Trading</h3>
+<section id="margin-mechanics-in-futures-trading" class="level3">
+<h3 class="anchored" data-anchor-id="margin-mechanics-in-futures-trading">Margin Mechanics in Futures Trading</h3>
 <ol type="1">
 <li>Explain how margin accounts protect investors against the possibility of default.</li>
 <li>Suppose that you enter into a short futures contract to sell July silver for $17.20 per ounce. The size of the contract is 5,000 ounces. The initial margin is $4,000, and the maintenance margin is $3,000. What change in the futures price will lead to a margin call? What happens if you do not meet the margin call?</li>
@@ -1198,8 +1164,8 @@ Solution
 </div>
 </div>
 </section>
-<section id="basics-of-hedging-with-futures" class="level3" data-number="2.10.4">
-<h3 data-number="2.10.4" class="anchored" data-anchor-id="basics-of-hedging-with-futures"><span class="header-section-number">2.10.4</span> Basics of Hedging with Futures</h3>
+<section id="basics-of-hedging-with-futures" class="level3">
+<h3 class="anchored" data-anchor-id="basics-of-hedging-with-futures">Basics of Hedging with Futures</h3>
 <ol type="1">
 <li>Under what circumstances are (a) a short hedge and (b) a long hedge appropriate?</li>
 <li>Explain what is meant by basis risk when futures contracts are used for hedging.</li>
@@ -1208,8 +1174,8 @@ Solution
 <li>“For an asset where futures prices for contracts on the asset are usually less than spot prices, long hedges are likely to be particularly attractive.” Explain this statement.</li>
 </ol>
 </section>
-<section id="advanced-hedging-scenarios-and-strategies" class="level3" data-number="2.10.5">
-<h3 data-number="2.10.5" class="anchored" data-anchor-id="advanced-hedging-scenarios-and-strategies"><span class="header-section-number">2.10.5</span> Advanced Hedging Scenarios and Strategies</h3>
+<section id="advanced-hedging-scenarios-and-strategies" class="level3">
+<h3 class="anchored" data-anchor-id="advanced-hedging-scenarios-and-strategies">Advanced Hedging Scenarios and Strategies</h3>
 <ol type="1">
 <li>Sixty futures contracts are used to hedge an exposure to the price of silver. Each futures contract is on 5,000 ounces of silver. At the time the hedge is closed out, the basis is $0.20 per ounce. What is the effect of the basis on the hedger’s financial position if (a) the trader is hedging the purchase of silver and (b) the trader is hedging the sale of silver?</li>
 <li>In the corn futures contract, the following delivery months are available: March, May, July, September, and December. State the contract that should be used for hedging when the expiration of the hedge is in a) June, b) July, and c) January.</li>
@@ -1251,8 +1217,8 @@ Solution
 </div>
 </div>
 </section>
-<section id="practical-concerns-and-risk-management" class="level3" data-number="2.10.6">
-<h3 data-number="2.10.6" class="anchored" data-anchor-id="practical-concerns-and-risk-management"><span class="header-section-number">2.10.6</span> Practical Concerns and Risk Management</h3>
+<section id="practical-concerns-and-risk-management" class="level3">
+<h3 class="anchored" data-anchor-id="practical-concerns-and-risk-management">Practical Concerns and Risk Management</h3>
 <ol type="1">
 <li>Give three reasons why the treasurer of a company might not hedge the company’s exposure to a particular risk.</li>
 <li>A corn farmer argues “I do not use futures contracts for hedging. My real risk is not the price of corn. It is that my whole crop gets wiped out by the weather.” Discuss this viewpoint. Should the farmer estimate his or her expected production of corn and hedge to try to lock in a price for expected production?</li>
@@ -1260,8 +1226,8 @@ Solution
 <li>A futures contract is used for hedging. Explain why the daily settlement of the contract can give rise to cash flow problems.</li>
 </ol>
 </section>
-<section id="hedging-with-stock-and-commodity-futures" class="level3" data-number="2.10.7">
-<h3 data-number="2.10.7" class="anchored" data-anchor-id="hedging-with-stock-and-commodity-futures"><span class="header-section-number">2.10.7</span> Hedging with Stock and Commodity Futures</h3>
+<section id="hedging-with-stock-and-commodity-futures" class="level3">
+<h3 class="anchored" data-anchor-id="hedging-with-stock-and-commodity-futures">Hedging with Stock and Commodity Futures</h3>
 <ol type="1">
 <li>A company has a $20 million portfolio with a beta of 1.2. It would like to use futures contracts on a stock index to hedge its risk. The index futures is currently standing at 1080, and each contract is for delivery of $250 times the index. What is the hedge that minimizes risk? What should the company do if it wants to reduce the beta of the portfolio to 0.6? What should the company do if it wants to increase the beta of the portfolio to 1.5?</li>
 </ol>
@@ -1348,18 +1314,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1391,7 +1346,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -1399,7 +1376,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {

@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.554">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Financial Derivatives - 5&nbsp; Options</title>
+<title>5&nbsp; Options – Financial Derivatives</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -105,24 +105,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
-<script type="text/javascript">
-window.PlotlyConfig = {MathJaxConfig: 'local'};
-if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
-if (typeof require !== 'undefined') {
-require.undef("plotly");
-requirejs.config({
-    paths: {
-        'plotly': ['https://cdn.plot.ly/plotly-2.32.0.min']
-    }
-});
-require(['plotly'], function(Plotly) {
-    window._Plotly = Plotly;
-});
-}
-</script>
 
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -160,13 +144,13 @@ window.Quarto = {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week_05.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Options</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -184,34 +168,34 @@ window.Quarto = {
       <a href="./">Financial Derivatives</a> 
         <div class="sidebar-tools-main">
     <div class="dropdown">
-      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download"><i class="bi bi-download"></i></a>
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Download"><i class="bi bi-download"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="./Financial-Derivatives.pdf">
-              <i class="bi bi-bi-file-pdf pe-1"></i>
+              <i class="bi bi-file-pdf pe-1"></i>
             Download PDF
             </a>
           </li>
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="./Financial-Derivatives.epub">
-              <i class="bi bi-bi-journal pe-1"></i>
+              <i class="bi bi-journal pe-1"></i>
             Download ePub
             </a>
           </li>
       </ul>
     </div>
     <div class="dropdown">
-      <a href="" title="Share" id="quarto-navigation-tool-dropdown-1" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-1" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Share"><i class="bi bi-share"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-1">
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
-              <i class="bi bi-bi-twitter pe-1"></i>
+              <i class="bi bi-twitter pe-1"></i>
             Twitter
             </a>
           </li>
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
-              <i class="bi bi-bi-facebook pe-1"></i>
+              <i class="bi bi-facebook pe-1"></i>
             Facebook
             </a>
           </li>
@@ -313,9 +297,9 @@ window.Quarto = {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -343,48 +327,15 @@ window.Quarto = {
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
-  <ul>
+  <ul class="collapse">
   <li><a href="#understanding-options" id="toc-understanding-options" class="nav-link active" data-scroll-target="#understanding-options"><span class="header-section-number">5.1</span> Understanding Options</a></li>
-  <li><a href="#option-payoffs-and-profits" id="toc-option-payoffs-and-profits" class="nav-link" data-scroll-target="#option-payoffs-and-profits"><span class="header-section-number">5.2</span> Option Payoffs and Profits</a>
-  <ul class="collapse">
-  <li><a href="#understanding-option-payoffs" id="toc-understanding-option-payoffs" class="nav-link" data-scroll-target="#understanding-option-payoffs"><span class="header-section-number">5.2.1</span> Understanding Option Payoffs</a></li>
-  <li><a href="#calculating-option-profit" id="toc-calculating-option-profit" class="nav-link" data-scroll-target="#calculating-option-profit"><span class="header-section-number">5.2.2</span> Calculating Option Profit</a></li>
-  </ul></li>
-  <li><a href="#other-option-characteristics-adjustments-and-related-assets" id="toc-other-option-characteristics-adjustments-and-related-assets" class="nav-link" data-scroll-target="#other-option-characteristics-adjustments-and-related-assets"><span class="header-section-number">5.3</span> Other Option Characteristics, Adjustments, and Related Assets</a>
-  <ul class="collapse">
-  <li><a href="#other-option-characteristics" id="toc-other-option-characteristics" class="nav-link" data-scroll-target="#other-option-characteristics"><span class="header-section-number">5.3.1</span> Other Option Characteristics</a></li>
-  <li><a href="#dividends-and-stock-splits-adjustments" id="toc-dividends-and-stock-splits-adjustments" class="nav-link" data-scroll-target="#dividends-and-stock-splits-adjustments"><span class="header-section-number">5.3.2</span> Dividends and Stock Splits Adjustments</a></li>
-  <li><a href="#related-assets" id="toc-related-assets" class="nav-link" data-scroll-target="#related-assets"><span class="header-section-number">5.3.3</span> Related Assets</a></li>
-  </ul></li>
-  <li><a href="#understanding-the-dynamics-of-option-pricing" id="toc-understanding-the-dynamics-of-option-pricing" class="nav-link" data-scroll-target="#understanding-the-dynamics-of-option-pricing"><span class="header-section-number">5.4</span> Understanding the Dynamics of Option Pricing</a>
-  <ul class="collapse">
-  <li><a href="#comparative-analysis-of-american-and-european-options" id="toc-comparative-analysis-of-american-and-european-options" class="nav-link" data-scroll-target="#comparative-analysis-of-american-and-european-options"><span class="header-section-number">5.4.1</span> Comparative Analysis of American and European Options</a></li>
-  </ul></li>
-  <li><a href="#upper-and-lower-bounds-for-option-prices" id="toc-upper-and-lower-bounds-for-option-prices" class="nav-link" data-scroll-target="#upper-and-lower-bounds-for-option-prices"><span class="header-section-number">5.5</span> Upper and Lower Bounds for Option Prices</a>
-  <ul class="collapse">
-  <li><a href="#upper-boundaries-for-option-prices" id="toc-upper-boundaries-for-option-prices" class="nav-link" data-scroll-target="#upper-boundaries-for-option-prices"><span class="header-section-number">5.5.1</span> Upper Boundaries for Option Prices</a></li>
-  <li><a href="#lower-boundaries-for-option-prices" id="toc-lower-boundaries-for-option-prices" class="nav-link" data-scroll-target="#lower-boundaries-for-option-prices"><span class="header-section-number">5.5.2</span> Lower Boundaries for Option Prices</a></li>
-  <li><a href="#american-options-and-early-exercise-decision" id="toc-american-options-and-early-exercise-decision" class="nav-link" data-scroll-target="#american-options-and-early-exercise-decision"><span class="header-section-number">5.5.3</span> American Options and Early Exercise Decision</a></li>
-  <li><a href="#summary-of-price-boundaries" id="toc-summary-of-price-boundaries" class="nav-link" data-scroll-target="#summary-of-price-boundaries"><span class="header-section-number">5.5.4</span> Summary of Price Boundaries</a></li>
-  </ul></li>
-  <li><a href="#put-call-parity" id="toc-put-call-parity" class="nav-link" data-scroll-target="#put-call-parity"><span class="header-section-number">5.6</span> Put-Call Parity</a>
-  <ul class="collapse">
-  <li><a href="#put-call-parity-for-non-dividend-paying-stocks" id="toc-put-call-parity-for-non-dividend-paying-stocks" class="nav-link" data-scroll-target="#put-call-parity-for-non-dividend-paying-stocks"><span class="header-section-number">5.6.1</span> Put-Call Parity for Non-dividend Paying Stocks</a></li>
-  <li><a href="#arbitrage-opportunities-via-put-call-parity" id="toc-arbitrage-opportunities-via-put-call-parity" class="nav-link" data-scroll-target="#arbitrage-opportunities-via-put-call-parity"><span class="header-section-number">5.6.2</span> Arbitrage Opportunities via Put-Call Parity</a></li>
-  <li><a href="#extension-to-american-options" id="toc-extension-to-american-options" class="nav-link" data-scroll-target="#extension-to-american-options"><span class="header-section-number">5.6.3</span> Extension to American Options</a></li>
-  </ul></li>
-  <li><a href="#effect-of-dividends-on-options" id="toc-effect-of-dividends-on-options" class="nav-link" data-scroll-target="#effect-of-dividends-on-options"><span class="header-section-number">5.7</span> Effect of Dividends on Options</a>
-  <ul class="collapse">
-  <li><a href="#adjusting-lower-bound-valuations-for-dividends" id="toc-adjusting-lower-bound-valuations-for-dividends" class="nav-link" data-scroll-target="#adjusting-lower-bound-valuations-for-dividends"><span class="header-section-number">5.7.1</span> Adjusting Lower Bound Valuations for Dividends</a></li>
-  <li><a href="#revising-put-call-parity-with-dividends" id="toc-revising-put-call-parity-with-dividends" class="nav-link" data-scroll-target="#revising-put-call-parity-with-dividends"><span class="header-section-number">5.7.2</span> Revising Put-Call Parity with Dividends</a></li>
-  </ul></li>
-  <li><a href="#practice-questions-and-problems" id="toc-practice-questions-and-problems" class="nav-link" data-scroll-target="#practice-questions-and-problems"><span class="header-section-number">5.8</span> Practice Questions and Problems</a>
-  <ul class="collapse">
-  <li><a href="#option-profitability-and-exercise-conditions" id="toc-option-profitability-and-exercise-conditions" class="nav-link" data-scroll-target="#option-profitability-and-exercise-conditions"><span class="header-section-number">5.8.1</span> Option Profitability and Exercise Conditions</a></li>
-  <li><a href="#margin-requirements-market-choices-and-contract-adjustments" id="toc-margin-requirements-market-choices-and-contract-adjustments" class="nav-link" data-scroll-target="#margin-requirements-market-choices-and-contract-adjustments"><span class="header-section-number">5.8.2</span> Margin Requirements, Market Choices, and Contract Adjustments</a></li>
-  <li><a href="#option-pricing-bounds" id="toc-option-pricing-bounds" class="nav-link" data-scroll-target="#option-pricing-bounds"><span class="header-section-number">5.8.3</span> Option Pricing Bounds</a></li>
-  <li><a href="#early-exercise-and-put-call-parity" id="toc-early-exercise-and-put-call-parity" class="nav-link" data-scroll-target="#early-exercise-and-put-call-parity"><span class="header-section-number">5.8.4</span> Early Exercise and Put-Call Parity</a></li>
-  </ul></li>
+  <li><a href="#option-payoffs-and-profits" id="toc-option-payoffs-and-profits" class="nav-link" data-scroll-target="#option-payoffs-and-profits"><span class="header-section-number">5.2</span> Option Payoffs and Profits</a></li>
+  <li><a href="#other-option-characteristics-adjustments-and-related-assets" id="toc-other-option-characteristics-adjustments-and-related-assets" class="nav-link" data-scroll-target="#other-option-characteristics-adjustments-and-related-assets"><span class="header-section-number">5.3</span> Other Option Characteristics, Adjustments, and Related Assets</a></li>
+  <li><a href="#understanding-the-dynamics-of-option-pricing" id="toc-understanding-the-dynamics-of-option-pricing" class="nav-link" data-scroll-target="#understanding-the-dynamics-of-option-pricing"><span class="header-section-number">5.4</span> Understanding the Dynamics of Option Pricing</a></li>
+  <li><a href="#upper-and-lower-bounds-for-option-prices" id="toc-upper-and-lower-bounds-for-option-prices" class="nav-link" data-scroll-target="#upper-and-lower-bounds-for-option-prices"><span class="header-section-number">5.5</span> Upper and Lower Bounds for Option Prices</a></li>
+  <li><a href="#put-call-parity" id="toc-put-call-parity" class="nav-link" data-scroll-target="#put-call-parity"><span class="header-section-number">5.6</span> Put-Call Parity</a></li>
+  <li><a href="#effect-of-dividends-on-options" id="toc-effect-of-dividends-on-options" class="nav-link" data-scroll-target="#effect-of-dividends-on-options"><span class="header-section-number">5.7</span> Effect of Dividends on Options</a></li>
+  <li><a href="#practice-questions-and-problems" id="toc-practice-questions-and-problems" class="nav-link" data-scroll-target="#practice-questions-and-problems"><span class="header-section-number">5.8</span> Practice Questions and Problems</a></li>
   </ul>
 </nav>
     </div>
@@ -461,7 +412,7 @@ Definition
 <ul>
 <li><strong>Call Option</strong>: Grants the holder the right to purchase an asset at the strike price by the expiration date. It is a bullish bet, with the buyer anticipating an increase in the asset’s price.</li>
 </ul>
-<div id="19a858c3" class="cell" data-execution_count="1">
+<div id="52427918" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.graph_objects <span class="im">as</span> go</span>
@@ -515,9 +466,18 @@ Definition
 <span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<div>                            <div id="be45e7e4-4783-4cd9-8871-becc85c98514" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("be45e7e4-4783-4cd9-8871-becc85c98514")) {                    Plotly.newPlot(                        "be45e7e4-4783-4cd9-8871-becc85c98514",                        [{"hovertemplate":"Long Call\u003cbr\u003eSpot Price: %{x:.0f}\u003cbr\u003eProfit: %{y:.0f}\u003cextra\u003e\u003c\u002fextra\u003e","line":{"width":3},"mode":"lines","name":"Long Call","x":[80.0,80.4040404040404,80.8080808080808,81.21212121212122,81.61616161616162,82.02020202020202,82.42424242424242,82.82828282828282,83.23232323232324,83.63636363636364,84.04040404040404,84.44444444444444,84.84848484848484,85.25252525252526,85.65656565656566,86.06060606060606,86.46464646464646,86.86868686868686,87.27272727272727,87.67676767676768,88.08080808080808,88.48484848484848,88.88888888888889,89.29292929292929,89.6969696969697,90.1010101010101,90.5050505050505,90.9090909090909,91.31313131313131,91.71717171717171,92.12121212121212,92.52525252525253,92.92929292929293,93.33333333333333,93.73737373737373,94.14141414141415,94.54545454545455,94.94949494949495,95.35353535353535,95.75757575757575,96.16161616161617,96.56565656565657,96.96969696969697,97.37373737373737,97.77777777777777,98.18181818181819,98.58585858585859,98.98989898989899,99.39393939393939,99.79797979797979,100.20202020202021,100.60606060606061,101.01010101010101,101.41414141414141,101.81818181818181,102.22222222222223,102.62626262626263,103.03030303030303,103.43434343434343,103.83838383838383,104.24242424242425,104.64646464646465,105.05050505050505,105.45454545454545,105.85858585858585,106.26262626262627,106.66666666666667,107.07070707070707,107.47474747474747,107.87878787878788,108.28282828282829,108.68686868686868,109.0909090909091,109.4949494949495,109.8989898989899,110.3030303030303,110.7070707070707,111.11111111111111,111.51515151515152,111.91919191919192,112.32323232323233,112.72727272727272,113.13131313131314,113.53535353535354,113.93939393939394,114.34343434343435,114.74747474747474,115.15151515151516,115.55555555555556,115.95959595959596,116.36363636363636,116.76767676767676,117.17171717171718,117.57575757575758,117.97979797979798,118.38383838383838,118.78787878787878,119.1919191919192,119.5959595959596,120.0],"y":[-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-4.797979797979792,-4.393939393939391,-3.9898989898989896,-3.5858585858585883,-3.181818181818187,-2.7777777777777715,-2.37373737373737,-1.9696969696969688,-1.5656565656565675,-1.1616161616161662,-0.7575757575757507,-0.3535353535353494,0.05050505050505194,0.45454545454545325,0.8585858585858546,1.26262626262627,1.6666666666666714,2.0707070707070727,2.474747474747474,2.8787878787878753,3.282828282828291,3.686868686868678,4.0909090909090935,4.494949494949495,4.898989898989896,5.303030303030297,5.707070707070699,6.111111111111114,6.515151515151516,6.919191919191917,7.323232323232332,7.7272727272727195,8.131313131313135,8.535353535353536,8.939393939393938,9.343434343434353,9.74747474747474,10.151515151515156,10.555555555555557,10.959595959595958,11.36363636363636,11.767676767676761,12.171717171717177,12.575757575757578,12.97979797979798,13.38383838383838,13.787878787878782,14.191919191919197,14.595959595959599,15.0],"type":"scatter"},{"hovertemplate":"Short Call\u003cbr\u003eSpot Price: %{x:.0f}\u003cbr\u003eProfit: %{y:.0f}\u003cextra\u003e\u003c\u002fextra\u003e","line":{"width":3},"mode":"lines","name":"Short Call","x":[80.0,80.4040404040404,80.8080808080808,81.21212121212122,81.61616161616162,82.02020202020202,82.42424242424242,82.82828282828282,83.23232323232324,83.63636363636364,84.04040404040404,84.44444444444444,84.84848484848484,85.25252525252526,85.65656565656566,86.06060606060606,86.46464646464646,86.86868686868686,87.27272727272727,87.67676767676768,88.08080808080808,88.48484848484848,88.88888888888889,89.29292929292929,89.6969696969697,90.1010101010101,90.5050505050505,90.9090909090909,91.31313131313131,91.71717171717171,92.12121212121212,92.52525252525253,92.92929292929293,93.33333333333333,93.73737373737373,94.14141414141415,94.54545454545455,94.94949494949495,95.35353535353535,95.75757575757575,96.16161616161617,96.56565656565657,96.96969696969697,97.37373737373737,97.77777777777777,98.18181818181819,98.58585858585859,98.98989898989899,99.39393939393939,99.79797979797979,100.20202020202021,100.60606060606061,101.01010101010101,101.41414141414141,101.81818181818181,102.22222222222223,102.62626262626263,103.03030303030303,103.43434343434343,103.83838383838383,104.24242424242425,104.64646464646465,105.05050505050505,105.45454545454545,105.85858585858585,106.26262626262627,106.66666666666667,107.07070707070707,107.47474747474747,107.87878787878788,108.28282828282829,108.68686868686868,109.0909090909091,109.4949494949495,109.8989898989899,110.3030303030303,110.7070707070707,111.11111111111111,111.51515151515152,111.91919191919192,112.32323232323233,112.72727272727272,113.13131313131314,113.53535353535354,113.93939393939394,114.34343434343435,114.74747474747474,115.15151515151516,115.55555555555556,115.95959595959596,116.36363636363636,116.76767676767676,117.17171717171718,117.57575757575758,117.97979797979798,118.38383838383838,118.78787878787878,119.1919191919192,119.5959595959596,120.0],"y":[5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,4.797979797979792,4.393939393939391,3.9898989898989896,3.5858585858585883,3.181818181818187,2.7777777777777715,2.37373737373737,1.9696969696969688,1.5656565656565675,1.1616161616161662,0.7575757575757507,0.3535353535353494,-0.05050505050505194,-0.45454545454545325,-0.8585858585858546,-1.26262626262627,-1.6666666666666714,-2.0707070707070727,-2.474747474747474,-2.8787878787878753,-3.282828282828291,-3.686868686868678,-4.0909090909090935,-4.494949494949495,-4.898989898989896,-5.303030303030297,-5.707070707070699,-6.111111111111114,-6.515151515151516,-6.919191919191917,-7.323232323232332,-7.7272727272727195,-8.131313131313135,-8.535353535353536,-8.939393939393938,-9.343434343434353,-9.74747474747474,-10.151515151515156,-10.555555555555557,-10.959595959595958,-11.36363636363636,-11.767676767676761,-12.171717171717177,-12.575757575757578,-12.97979797979798,-13.38383838383838,-13.787878787878782,-14.191919191919197,-14.595959595959599,-15.0],"type":"scatter"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30}}},"shapes":[{"line":{"color":"black","dash":"solid","width":0.7},"type":"line","x0":0,"x1":1,"xref":"x domain","y0":0,"y1":0,"yref":"y"}],"title":{"text":"Profit from Call Option, K = 100, c = 5"},"xaxis":{"title":{"text":"Spot Price at Expiration"}},"yaxis":{"title":{"text":"Profit"}},"legend":{"title":{"text":"Position"}}},                        {"responsive": true}                    ).then(function(){
+        <script type="text/javascript">
+        window.PlotlyConfig = {MathJaxConfig: 'local'};
+        if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
+        </script>
+        <script type="module">import "https://cdn.plot.ly/plotly-3.0.0.min"</script>
+        
+</div>
+<div class="cell-output cell-output-display">
+<div>            <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG"></script><script type="text/javascript">if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}</script>                <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.0.0.min.js"></script>                <div id="20461140-59e3-45cd-a7e4-7d10cd780bbf" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("20461140-59e3-45cd-a7e4-7d10cd780bbf")) {                    Plotly.newPlot(                        "20461140-59e3-45cd-a7e4-7d10cd780bbf",                        [{"hovertemplate":"Long Call\u003cbr\u003eSpot Price: %{x:.0f}\u003cbr\u003eProfit: %{y:.0f}\u003cextra\u003e\u003c\u002fextra\u003e","line":{"width":3},"mode":"lines","name":"Long Call","x":{"dtype":"f8","bdata":"AAAAAAAAVEBvZ0jM2xlUQN7OkJi3M1RATjbZZJNNVEC9nSExb2dUQCwFav1KgVRAm2yyySabVEAK1PqVArVUQHo7Q2LezlRA6aKLLrroVEBYCtT6lQJVQMdxHMdxHFVANtlkk002VUCmQK1fKVBVQBWo9SsFalVAhA8++OCDVUDzdobEvJ1VQGLezpCYt1VA0UUXXXTRVUBBrV8pUOtVQLAUqPUrBVZAH3zwwQcfVkCO4ziO4zhWQP1KgVq\u002fUlZAbbLJJptsVkDcGRLzdoZWQEuBWr9SoFZAuuiiiy66VkApUOtXCtRWQJi3MyTm7VZACB988MEHV0B3hsS8nSFXQObtDIl5O1dAVVVVVVVVV0DEvJ0hMW9XQDQk5u0MiVdAo4suuuiiV0AS83aGxLxXQIFav1Kg1ldA8MEHH3zwV0BgKVDrVwpYQM+QmLczJFhAPvjggw8+WECtXylQ61dYQBzHcRzHcVhAjC666KKLWED7lQK1fqVYQGr9SoFav1hA2WSTTTbZWEBIzNsZEvNYQLgzJObtDFlAJ5tssskmWUCWArV+pUBZQAVq\u002fUqBWllAdNFFF110WUDkOI7jOI5ZQFOg1q8UqFlAwgcffPDBWUAxb2dIzNtZQKDWrxSo9VlAED744IMPWkB\u002fpUCtXylaQO4MiXk7Q1pAXXTRRRddWkDM2xkS83ZaQDxDYt7OkFpAq6qqqqqqWkAaEvN2hsRaQIl5O0Ni3lpA+OCDDz74WkBoSMzbGRJbQNavFKj1K1tARhdddNFFW0C1fqVArV9bQCTm7QyJeVtAk0022WSTW0ACtX6lQK1bQHIcx3Ecx1tA4YMPPvjgW0BQ61cK1PpbQMBSoNavFFxALrrooosuXECeITFvZ0hcQA2JeTtDYlxAfPDBBx98XEDsVwrU+pVcQFq\u002fUqDWr1xAyiabbLLJXEA5juM4juNcQKj1KwVq\u002fVxAF1100UUXXUCGxLydITFdQPYrBWr9Sl1AZZNNNtlkXUDU+pUCtX5dQENi3s6QmF1Asskmm2yyXUAiMW9nSMxdQJGYtzMk5l1AAAAAAAAAXkA="},"y":{"dtype":"f8","bdata":"AAAAAAAAFMAAAAAAAAAUwAAAAAAAABTAAAAAAAAAFMAAAAAAAAAUwAAAAAAAABTAAAAAAAAAFMAAAAAAAAAUwAAAAAAAABTAAAAAAAAAFMAAAAAAAAAUwAAAAAAAABTAAAAAAAAAFMAAAAAAAAAUwAAAAAAAABTAAAAAAAAAFMAAAAAAAAAUwAAAAAAAABTAAAAAAAAAFMAAAAAAAAAUwAAAAAAAABTAAAAAAAAAFMAAAAAAAAAUwAAAAAAAABTAAAAAAAAAFMAAAAAAAAAUwAAAAAAAABTAAAAAAAAAFMAAAAAAAAAUwAAAAAAAABTAAAAAAAAAFMAAAAAAAAAUwAAAAAAAABTAAAAAAAAAFMAAAAAAAAAUwAAAAAAAABTAAAAAAAAAFMAAAAAAAAAUwAAAAAAAABTAAAAAAAAAFMAAAAAAAAAUwAAAAAAAABTAAAAAAAAAFMAAAAAAAAAUwAAAAAAAABTAAAAAAAAAFMAAAAAAAAAUwAAAAAAAABTAAAAAAAAAFMAAAAAAAAAUwIDEvJ0hMRPAkE022WSTEcBArV8pUOsPwGC\u002fUqDWrwzAgNFFF110CcCA4ziO4zgGwKD1KwVq\u002fQLAgA8++OCD\u002f7\u002fAMyTm7Qz5vwBYCtT6lfK\u002fAPjggw8+6L8AgVq\u002fUqDWvwBwZ0jM26k\u002fAF100UUX3T8A5u0MiXnrPwDPkJi3M\u002fQ\u002fwKqqqqqq+j9AQ2LezpAAQCAxb2dIzANAAB988MEHB0AADYl5O0MKQMD6lQK1fg1AYHTRRRddEEBQ61cK1PoRQEBi3s6QmBNAMNlkk002FUAgUOtXCtQWQCDHcRzHcRhAED744IMPGkAAtX6lQK0bQAAsBWr9Sh1A4KKLLrroHkDwDIl5O0MgQGhIzNsZEiFA4IMPPvjgIUBgv1Kg1q8iQND6lQK1fiNAUDbZZJNNJEDIcRzHcRwlQECtXylQ6yVAuOiiiy66JkAwJObtDIknQLBfKVDrVyhAKJtssskmKUCg1q8UqPUpQBgS83aGxCpAkE022WSTK0AQiXk7Q2IsQIjEvJ0hMS1AAAAAAAAALkA="},"type":"scatter"},{"hovertemplate":"Short Call\u003cbr\u003eSpot Price: %{x:.0f}\u003cbr\u003eProfit: %{y:.0f}\u003cextra\u003e\u003c\u002fextra\u003e","line":{"width":3},"mode":"lines","name":"Short Call","x":{"dtype":"f8","bdata":"AAAAAAAAVEBvZ0jM2xlUQN7OkJi3M1RATjbZZJNNVEC9nSExb2dUQCwFav1KgVRAm2yyySabVEAK1PqVArVUQHo7Q2LezlRA6aKLLrroVEBYCtT6lQJVQMdxHMdxHFVANtlkk002VUCmQK1fKVBVQBWo9SsFalVAhA8++OCDVUDzdobEvJ1VQGLezpCYt1VA0UUXXXTRVUBBrV8pUOtVQLAUqPUrBVZAH3zwwQcfVkCO4ziO4zhWQP1KgVq\u002fUlZAbbLJJptsVkDcGRLzdoZWQEuBWr9SoFZAuuiiiy66VkApUOtXCtRWQJi3MyTm7VZACB988MEHV0B3hsS8nSFXQObtDIl5O1dAVVVVVVVVV0DEvJ0hMW9XQDQk5u0MiVdAo4suuuiiV0AS83aGxLxXQIFav1Kg1ldA8MEHH3zwV0BgKVDrVwpYQM+QmLczJFhAPvjggw8+WECtXylQ61dYQBzHcRzHcVhAjC666KKLWED7lQK1fqVYQGr9SoFav1hA2WSTTTbZWEBIzNsZEvNYQLgzJObtDFlAJ5tssskmWUCWArV+pUBZQAVq\u002fUqBWllAdNFFF110WUDkOI7jOI5ZQFOg1q8UqFlAwgcffPDBWUAxb2dIzNtZQKDWrxSo9VlAED744IMPWkB\u002fpUCtXylaQO4MiXk7Q1pAXXTRRRddWkDM2xkS83ZaQDxDYt7OkFpAq6qqqqqqWkAaEvN2hsRaQIl5O0Ni3lpA+OCDDz74WkBoSMzbGRJbQNavFKj1K1tARhdddNFFW0C1fqVArV9bQCTm7QyJeVtAk0022WSTW0ACtX6lQK1bQHIcx3Ecx1tA4YMPPvjgW0BQ61cK1PpbQMBSoNavFFxALrrooosuXECeITFvZ0hcQA2JeTtDYlxAfPDBBx98XEDsVwrU+pVcQFq\u002fUqDWr1xAyiabbLLJXEA5juM4juNcQKj1KwVq\u002fVxAF1100UUXXUCGxLydITFdQPYrBWr9Sl1AZZNNNtlkXUDU+pUCtX5dQENi3s6QmF1Asskmm2yyXUAiMW9nSMxdQJGYtzMk5l1AAAAAAAAAXkA="},"y":{"dtype":"f8","bdata":"AAAAAAAAFEAAAAAAAAAUQAAAAAAAABRAAAAAAAAAFEAAAAAAAAAUQAAAAAAAABRAAAAAAAAAFEAAAAAAAAAUQAAAAAAAABRAAAAAAAAAFEAAAAAAAAAUQAAAAAAAABRAAAAAAAAAFEAAAAAAAAAUQAAAAAAAABRAAAAAAAAAFEAAAAAAAAAUQAAAAAAAABRAAAAAAAAAFEAAAAAAAAAUQAAAAAAAABRAAAAAAAAAFEAAAAAAAAAUQAAAAAAAABRAAAAAAAAAFEAAAAAAAAAUQAAAAAAAABRAAAAAAAAAFEAAAAAAAAAUQAAAAAAAABRAAAAAAAAAFEAAAAAAAAAUQAAAAAAAABRAAAAAAAAAFEAAAAAAAAAUQAAAAAAAABRAAAAAAAAAFEAAAAAAAAAUQAAAAAAAABRAAAAAAAAAFEAAAAAAAAAUQAAAAAAAABRAAAAAAAAAFEAAAAAAAAAUQAAAAAAAABRAAAAAAAAAFEAAAAAAAAAUQAAAAAAAABRAAAAAAAAAFEAAAAAAAAAUQIDEvJ0hMRNAkE022WSTEUBArV8pUOsPQGC\u002fUqDWrwxAgNFFF110CUCA4ziO4zgGQKD1KwVq\u002fQJAgA8++OCD\u002fz\u002fAMyTm7Qz5PwBYCtT6lfI\u002fAPjggw8+6D8AgVq\u002fUqDWPwBwZ0jM26m\u002fAF100UUX3b8A5u0MiXnrvwDPkJi3M\u002fS\u002fwKqqqqqq+r9AQ2LezpAAwCAxb2dIzAPAAB988MEHB8AADYl5O0MKwMD6lQK1fg3AYHTRRRddEMBQ61cK1PoRwEBi3s6QmBPAMNlkk002FcAgUOtXCtQWwCDHcRzHcRjAED744IMPGsAAtX6lQK0bwAAsBWr9Sh3A4KKLLrroHsDwDIl5O0MgwGhIzNsZEiHA4IMPPvjgIcBgv1Kg1q8iwND6lQK1fiPAUDbZZJNNJMDIcRzHcRwlwECtXylQ6yXAuOiiiy66JsAwJObtDIknwLBfKVDrVyjAKJtssskmKcCg1q8UqPUpwBgS83aGxCrAkE022WSTK8AQiXk7Q2IswIjEvJ0hMS3AAAAAAAAALsA="},"type":"scatter"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30}}},"shapes":[{"line":{"color":"black","dash":"solid","width":0.7},"type":"line","x0":0,"x1":1,"xref":"x domain","y0":0,"y1":0,"yref":"y"}],"title":{"text":"Profit from Call Option, K = 100, c = 5"},"xaxis":{"title":{"text":"Spot Price at Expiration"}},"yaxis":{"title":{"text":"Profit"}},"legend":{"title":{"text":"Position"}}},                        {"responsive": true}                    ).then(function(){
                             
-var gd = document.getElementById('be45e7e4-4783-4cd9-8871-becc85c98514');
+var gd = document.getElementById('20461140-59e3-45cd-a7e4-7d10cd780bbf');
 var x = new MutationObserver(function (mutations, observer) {{
         var display = window.getComputedStyle(gd).display;
         if (!display || display === 'none') {{
@@ -539,13 +499,13 @@ if (outputEl) {{
     x.observe(outputEl, {childList: true});
 }}
 
-                        })                };                });            </script>        </div>
+                        })                };            </script>        </div>
 </div>
 </div>
 <ul>
 <li><strong>Put Option</strong>: Provides the holder the right to sell an asset at the strike price by the expiration date. It represents a bearish outlook, where the buyer expects the asset’s price to decline.</li>
 </ul>
-<div id="d405c757" class="cell" data-execution_count="2">
+<div id="fd3d5513" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters</span></span>
@@ -596,9 +556,10 @@ if (outputEl) {{
 <span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<div>                            <div id="f15d152d-44dd-49f7-a548-d48c500514e9" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("f15d152d-44dd-49f7-a548-d48c500514e9")) {                    Plotly.newPlot(                        "f15d152d-44dd-49f7-a548-d48c500514e9",                        [{"hovertemplate":"Long Put\u003cbr\u003eSpot Price: %{x:.0f}\u003cbr\u003eProfit: %{y:.0f}\u003cextra\u003e\u003c\u002fextra\u003e","line":{"width":3},"mode":"lines","name":"Long Put","x":[80.0,80.4040404040404,80.8080808080808,81.21212121212122,81.61616161616162,82.02020202020202,82.42424242424242,82.82828282828282,83.23232323232324,83.63636363636364,84.04040404040404,84.44444444444444,84.84848484848484,85.25252525252526,85.65656565656566,86.06060606060606,86.46464646464646,86.86868686868686,87.27272727272727,87.67676767676768,88.08080808080808,88.48484848484848,88.88888888888889,89.29292929292929,89.6969696969697,90.1010101010101,90.5050505050505,90.9090909090909,91.31313131313131,91.71717171717171,92.12121212121212,92.52525252525253,92.92929292929293,93.33333333333333,93.73737373737373,94.14141414141415,94.54545454545455,94.94949494949495,95.35353535353535,95.75757575757575,96.16161616161617,96.56565656565657,96.96969696969697,97.37373737373737,97.77777777777777,98.18181818181819,98.58585858585859,98.98989898989899,99.39393939393939,99.79797979797979,100.20202020202021,100.60606060606061,101.01010101010101,101.41414141414141,101.81818181818181,102.22222222222223,102.62626262626263,103.03030303030303,103.43434343434343,103.83838383838383,104.24242424242425,104.64646464646465,105.05050505050505,105.45454545454545,105.85858585858585,106.26262626262627,106.66666666666667,107.07070707070707,107.47474747474747,107.87878787878788,108.28282828282829,108.68686868686868,109.0909090909091,109.4949494949495,109.8989898989899,110.3030303030303,110.7070707070707,111.11111111111111,111.51515151515152,111.91919191919192,112.32323232323233,112.72727272727272,113.13131313131314,113.53535353535354,113.93939393939394,114.34343434343435,114.74747474747474,115.15151515151516,115.55555555555556,115.95959595959596,116.36363636363636,116.76767676767676,117.17171717171718,117.57575757575758,117.97979797979798,118.38383838383838,118.78787878787878,119.1919191919192,119.5959595959596,120.0],"y":[15.0,14.595959595959599,14.191919191919197,13.787878787878782,13.38383838383838,12.97979797979798,12.575757575757578,12.171717171717177,11.767676767676761,11.36363636363636,10.959595959595958,10.555555555555557,10.151515151515156,9.74747474747474,9.343434343434339,8.939393939393938,8.535353535353536,8.131313131313135,7.727272727272734,7.323232323232318,6.919191919191917,6.515151515151516,6.111111111111114,5.707070707070713,5.303030303030297,4.898989898989896,4.494949494949495,4.0909090909090935,3.686868686868692,3.282828282828291,2.8787878787878753,2.474747474747474,2.0707070707070727,1.6666666666666714,1.26262626262627,0.8585858585858546,0.45454545454545325,0.05050505050505194,-0.3535353535353494,-0.7575757575757507,-1.1616161616161662,-1.5656565656565675,-1.9696969696969688,-2.37373737373737,-2.7777777777777715,-3.181818181818187,-3.5858585858585883,-3.9898989898989896,-4.393939393939391,-4.797979797979792,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0,-5.0],"type":"scatter"},{"hovertemplate":"Short Put\u003cbr\u003eSpot Price: %{x:.0f}\u003cbr\u003eProfit: %{y:.0f}\u003cextra\u003e\u003c\u002fextra\u003e","line":{"width":3},"mode":"lines","name":"Short Put","x":[80.0,80.4040404040404,80.8080808080808,81.21212121212122,81.61616161616162,82.02020202020202,82.42424242424242,82.82828282828282,83.23232323232324,83.63636363636364,84.04040404040404,84.44444444444444,84.84848484848484,85.25252525252526,85.65656565656566,86.06060606060606,86.46464646464646,86.86868686868686,87.27272727272727,87.67676767676768,88.08080808080808,88.48484848484848,88.88888888888889,89.29292929292929,89.6969696969697,90.1010101010101,90.5050505050505,90.9090909090909,91.31313131313131,91.71717171717171,92.12121212121212,92.52525252525253,92.92929292929293,93.33333333333333,93.73737373737373,94.14141414141415,94.54545454545455,94.94949494949495,95.35353535353535,95.75757575757575,96.16161616161617,96.56565656565657,96.96969696969697,97.37373737373737,97.77777777777777,98.18181818181819,98.58585858585859,98.98989898989899,99.39393939393939,99.79797979797979,100.20202020202021,100.60606060606061,101.01010101010101,101.41414141414141,101.81818181818181,102.22222222222223,102.62626262626263,103.03030303030303,103.43434343434343,103.83838383838383,104.24242424242425,104.64646464646465,105.05050505050505,105.45454545454545,105.85858585858585,106.26262626262627,106.66666666666667,107.07070707070707,107.47474747474747,107.87878787878788,108.28282828282829,108.68686868686868,109.0909090909091,109.4949494949495,109.8989898989899,110.3030303030303,110.7070707070707,111.11111111111111,111.51515151515152,111.91919191919192,112.32323232323233,112.72727272727272,113.13131313131314,113.53535353535354,113.93939393939394,114.34343434343435,114.74747474747474,115.15151515151516,115.55555555555556,115.95959595959596,116.36363636363636,116.76767676767676,117.17171717171718,117.57575757575758,117.97979797979798,118.38383838383838,118.78787878787878,119.1919191919192,119.5959595959596,120.0],"y":[-15.0,-14.595959595959599,-14.191919191919197,-13.787878787878782,-13.38383838383838,-12.97979797979798,-12.575757575757578,-12.171717171717177,-11.767676767676761,-11.36363636363636,-10.959595959595958,-10.555555555555557,-10.151515151515156,-9.74747474747474,-9.343434343434339,-8.939393939393938,-8.535353535353536,-8.131313131313135,-7.727272727272734,-7.323232323232318,-6.919191919191917,-6.515151515151516,-6.111111111111114,-5.707070707070713,-5.303030303030297,-4.898989898989896,-4.494949494949495,-4.0909090909090935,-3.686868686868692,-3.282828282828291,-2.8787878787878753,-2.474747474747474,-2.0707070707070727,-1.6666666666666714,-1.26262626262627,-0.8585858585858546,-0.45454545454545325,-0.05050505050505194,0.3535353535353494,0.7575757575757507,1.1616161616161662,1.5656565656565675,1.9696969696969688,2.37373737373737,2.7777777777777715,3.181818181818187,3.5858585858585883,3.9898989898989896,4.393939393939391,4.797979797979792,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0],"type":"scatter"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30}}},"shapes":[{"line":{"color":"black","dash":"solid","width":0.7},"type":"line","x0":0,"x1":1,"xref":"x domain","y0":0,"y1":0,"yref":"y"}],"title":{"text":"Profit from Put Option, K = 100, p = 5"},"xaxis":{"title":{"text":"Spot Price at Expiration"}},"yaxis":{"title":{"text":"Profit"}},"legend":{"title":{"text":"Position"}}},                        {"responsive": true}                    ).then(function(){
+<div>            <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG"></script><script type="text/javascript">if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}</script>                <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.0.0.min.js"></script>                <div id="be6f984f-b4d1-4f7d-8891-d7da58093255" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("be6f984f-b4d1-4f7d-8891-d7da58093255")) {                    Plotly.newPlot(                        "be6f984f-b4d1-4f7d-8891-d7da58093255",                        [{"hovertemplate":"Long Put\u003cbr\u003eSpot Price: %{x:.0f}\u003cbr\u003eProfit: %{y:.0f}\u003cextra\u003e\u003c\u002fextra\u003e","line":{"width":3},"mode":"lines","name":"Long Put","x":{"dtype":"f8","bdata":"AAAAAAAAVEBvZ0jM2xlUQN7OkJi3M1RATjbZZJNNVEC9nSExb2dUQCwFav1KgVRAm2yyySabVEAK1PqVArVUQHo7Q2LezlRA6aKLLrroVEBYCtT6lQJVQMdxHMdxHFVANtlkk002VUCmQK1fKVBVQBWo9SsFalVAhA8++OCDVUDzdobEvJ1VQGLezpCYt1VA0UUXXXTRVUBBrV8pUOtVQLAUqPUrBVZAH3zwwQcfVkCO4ziO4zhWQP1KgVq\u002fUlZAbbLJJptsVkDcGRLzdoZWQEuBWr9SoFZAuuiiiy66VkApUOtXCtRWQJi3MyTm7VZACB988MEHV0B3hsS8nSFXQObtDIl5O1dAVVVVVVVVV0DEvJ0hMW9XQDQk5u0MiVdAo4suuuiiV0AS83aGxLxXQIFav1Kg1ldA8MEHH3zwV0BgKVDrVwpYQM+QmLczJFhAPvjggw8+WECtXylQ61dYQBzHcRzHcVhAjC666KKLWED7lQK1fqVYQGr9SoFav1hA2WSTTTbZWEBIzNsZEvNYQLgzJObtDFlAJ5tssskmWUCWArV+pUBZQAVq\u002fUqBWllAdNFFF110WUDkOI7jOI5ZQFOg1q8UqFlAwgcffPDBWUAxb2dIzNtZQKDWrxSo9VlAED744IMPWkB\u002fpUCtXylaQO4MiXk7Q1pAXXTRRRddWkDM2xkS83ZaQDxDYt7OkFpAq6qqqqqqWkAaEvN2hsRaQIl5O0Ni3lpA+OCDDz74WkBoSMzbGRJbQNavFKj1K1tARhdddNFFW0C1fqVArV9bQCTm7QyJeVtAk0022WSTW0ACtX6lQK1bQHIcx3Ecx1tA4YMPPvjgW0BQ61cK1PpbQMBSoNavFFxALrrooosuXECeITFvZ0hcQA2JeTtDYlxAfPDBBx98XEDsVwrU+pVcQFq\u002fUqDWr1xAyiabbLLJXEA5juM4juNcQKj1KwVq\u002fVxAF1100UUXXUCGxLydITFdQPYrBWr9Sl1AZZNNNtlkXUDU+pUCtX5dQENi3s6QmF1Asskmm2yyXUAiMW9nSMxdQJGYtzMk5l1AAAAAAAAAXkA="},"y":{"dtype":"f8","bdata":"AAAAAAAALkCIxLydITEtQBCJeTtDYixAkE022WSTK0AYEvN2hsQqQKDWrxSo9SlAKJtssskmKUCwXylQ61coQDAk5u0MiSdAuOiiiy66JkBArV8pUOslQMhxHMdxHCVAUDbZZJNNJEDQ+pUCtX4jQFi\u002fUqDWryJA4IMPPvjgIUBoSMzbGRIhQPAMiXk7QyBA8KKLLrroHkDwKwVq\u002fUodQAC1fqVArRtAED744IMPGkAgx3Ecx3EYQDBQ61cK1BZAMNlkk002FUBAYt7OkJgTQFDrVwrU+hFAYHTRRRddEEDg+pUCtX4NQAANiXk7QwpAAB988MEHB0AgMW9nSMwDQEBDYt7OkABAwKqqqqqq+j8Az5CYtzP0PwDm7QyJees\u002fAF100UUX3T8AcGdIzNupPwCBWr9SoNa\u002fAPjggw8+6L8AWArU+pXyv8AzJObtDPm\u002fgA8++OCD\u002f7+g9SsFav0CwIDjOI7jOAbAgNFFF110CcBgv1Kg1q8MwECtXylQ6w\u002fAkE022WSTEcCAxLydITETwAAAAAAAABTAAAAAAAAAFMAAAAAAAAAUwAAAAAAAABTAAAAAAAAAFMAAAAAAAAAUwAAAAAAAABTAAAAAAAAAFMAAAAAAAAAUwAAAAAAAABTAAAAAAAAAFMAAAAAAAAAUwAAAAAAAABTAAAAAAAAAFMAAAAAAAAAUwAAAAAAAABTAAAAAAAAAFMAAAAAAAAAUwAAAAAAAABTAAAAAAAAAFMAAAAAAAAAUwAAAAAAAABTAAAAAAAAAFMAAAAAAAAAUwAAAAAAAABTAAAAAAAAAFMAAAAAAAAAUwAAAAAAAABTAAAAAAAAAFMAAAAAAAAAUwAAAAAAAABTAAAAAAAAAFMAAAAAAAAAUwAAAAAAAABTAAAAAAAAAFMAAAAAAAAAUwAAAAAAAABTAAAAAAAAAFMAAAAAAAAAUwAAAAAAAABTAAAAAAAAAFMAAAAAAAAAUwAAAAAAAABTAAAAAAAAAFMAAAAAAAAAUwAAAAAAAABTAAAAAAAAAFMAAAAAAAAAUwAAAAAAAABTAAAAAAAAAFMA="},"type":"scatter"},{"hovertemplate":"Short Put\u003cbr\u003eSpot Price: %{x:.0f}\u003cbr\u003eProfit: %{y:.0f}\u003cextra\u003e\u003c\u002fextra\u003e","line":{"width":3},"mode":"lines","name":"Short Put","x":{"dtype":"f8","bdata":"AAAAAAAAVEBvZ0jM2xlUQN7OkJi3M1RATjbZZJNNVEC9nSExb2dUQCwFav1KgVRAm2yyySabVEAK1PqVArVUQHo7Q2LezlRA6aKLLrroVEBYCtT6lQJVQMdxHMdxHFVANtlkk002VUCmQK1fKVBVQBWo9SsFalVAhA8++OCDVUDzdobEvJ1VQGLezpCYt1VA0UUXXXTRVUBBrV8pUOtVQLAUqPUrBVZAH3zwwQcfVkCO4ziO4zhWQP1KgVq\u002fUlZAbbLJJptsVkDcGRLzdoZWQEuBWr9SoFZAuuiiiy66VkApUOtXCtRWQJi3MyTm7VZACB988MEHV0B3hsS8nSFXQObtDIl5O1dAVVVVVVVVV0DEvJ0hMW9XQDQk5u0MiVdAo4suuuiiV0AS83aGxLxXQIFav1Kg1ldA8MEHH3zwV0BgKVDrVwpYQM+QmLczJFhAPvjggw8+WECtXylQ61dYQBzHcRzHcVhAjC666KKLWED7lQK1fqVYQGr9SoFav1hA2WSTTTbZWEBIzNsZEvNYQLgzJObtDFlAJ5tssskmWUCWArV+pUBZQAVq\u002fUqBWllAdNFFF110WUDkOI7jOI5ZQFOg1q8UqFlAwgcffPDBWUAxb2dIzNtZQKDWrxSo9VlAED744IMPWkB\u002fpUCtXylaQO4MiXk7Q1pAXXTRRRddWkDM2xkS83ZaQDxDYt7OkFpAq6qqqqqqWkAaEvN2hsRaQIl5O0Ni3lpA+OCDDz74WkBoSMzbGRJbQNavFKj1K1tARhdddNFFW0C1fqVArV9bQCTm7QyJeVtAk0022WSTW0ACtX6lQK1bQHIcx3Ecx1tA4YMPPvjgW0BQ61cK1PpbQMBSoNavFFxALrrooosuXECeITFvZ0hcQA2JeTtDYlxAfPDBBx98XEDsVwrU+pVcQFq\u002fUqDWr1xAyiabbLLJXEA5juM4juNcQKj1KwVq\u002fVxAF1100UUXXUCGxLydITFdQPYrBWr9Sl1AZZNNNtlkXUDU+pUCtX5dQENi3s6QmF1Asskmm2yyXUAiMW9nSMxdQJGYtzMk5l1AAAAAAAAAXkA="},"y":{"dtype":"f8","bdata":"AAAAAAAALsCIxLydITEtwBCJeTtDYizAkE022WSTK8AYEvN2hsQqwKDWrxSo9SnAKJtssskmKcCwXylQ61cowDAk5u0MiSfAuOiiiy66JsBArV8pUOslwMhxHMdxHCXAUDbZZJNNJMDQ+pUCtX4jwFi\u002fUqDWryLA4IMPPvjgIcBoSMzbGRIhwPAMiXk7QyDA8KKLLrroHsDwKwVq\u002fUodwAC1fqVArRvAED744IMPGsAgx3Ecx3EYwDBQ61cK1BbAMNlkk002FcBAYt7OkJgTwFDrVwrU+hHAYHTRRRddEMDg+pUCtX4NwAANiXk7QwrAAB988MEHB8AgMW9nSMwDwEBDYt7OkADAwKqqqqqq+r8Az5CYtzP0vwDm7QyJeeu\u002fAF100UUX3b8AcGdIzNupvwCBWr9SoNY\u002fAPjggw8+6D8AWArU+pXyP8AzJObtDPk\u002fgA8++OCD\u002fz+g9SsFav0CQIDjOI7jOAZAgNFFF110CUBgv1Kg1q8MQECtXylQ6w9AkE022WSTEUCAxLydITETQAAAAAAAABRAAAAAAAAAFEAAAAAAAAAUQAAAAAAAABRAAAAAAAAAFEAAAAAAAAAUQAAAAAAAABRAAAAAAAAAFEAAAAAAAAAUQAAAAAAAABRAAAAAAAAAFEAAAAAAAAAUQAAAAAAAABRAAAAAAAAAFEAAAAAAAAAUQAAAAAAAABRAAAAAAAAAFEAAAAAAAAAUQAAAAAAAABRAAAAAAAAAFEAAAAAAAAAUQAAAAAAAABRAAAAAAAAAFEAAAAAAAAAUQAAAAAAAABRAAAAAAAAAFEAAAAAAAAAUQAAAAAAAABRAAAAAAAAAFEAAAAAAAAAUQAAAAAAAABRAAAAAAAAAFEAAAAAAAAAUQAAAAAAAABRAAAAAAAAAFEAAAAAAAAAUQAAAAAAAABRAAAAAAAAAFEAAAAAAAAAUQAAAAAAAABRAAAAAAAAAFEAAAAAAAAAUQAAAAAAAABRAAAAAAAAAFEAAAAAAAAAUQAAAAAAAABRAAAAAAAAAFEAAAAAAAAAUQAAAAAAAABRAAAAAAAAAFEA="},"type":"scatter"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30}}},"shapes":[{"line":{"color":"black","dash":"solid","width":0.7},"type":"line","x0":0,"x1":1,"xref":"x domain","y0":0,"y1":0,"yref":"y"}],"title":{"text":"Profit from Put Option, K = 100, p = 5"},"xaxis":{"title":{"text":"Spot Price at Expiration"}},"yaxis":{"title":{"text":"Profit"}},"legend":{"title":{"text":"Position"}}},                        {"responsive": true}                    ).then(function(){
                             
-var gd = document.getElementById('f15d152d-44dd-49f7-a548-d48c500514e9');
+var gd = document.getElementById('be6f984f-b4d1-4f7d-8891-d7da58093255');
 var x = new MutationObserver(function (mutations, observer) {{
         var display = window.getComputedStyle(gd).display;
         if (!display || display === 'none') {{
@@ -620,7 +581,7 @@ if (outputEl) {{
     x.observe(outputEl, {childList: true});
 }}
 
-                        })                };                });            </script>        </div>
+                        })                };            </script>        </div>
 </div>
 </div>
 </section>
@@ -634,8 +595,8 @@ if (outputEl) {{
 </section>
 <section id="option-payoffs-and-profits" class="level2" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="option-payoffs-and-profits"><span class="header-section-number">5.2</span> Option Payoffs and Profits</h2>
-<section id="understanding-option-payoffs" class="level3" data-number="5.2.1">
-<h3 data-number="5.2.1" class="anchored" data-anchor-id="understanding-option-payoffs"><span class="header-section-number">5.2.1</span> Understanding Option Payoffs</h3>
+<section id="understanding-option-payoffs" class="level3">
+<h3 class="anchored" data-anchor-id="understanding-option-payoffs">Understanding Option Payoffs</h3>
 <ul>
 <li><strong><span class="math inline">\(S_T\)</span></strong>: Represents the price of the underlying asset at the expiration date <span class="math inline">\(T\)</span>.</li>
 <li><strong><span class="math inline">\(K\)</span></strong>: Denotes the exercise or strike price of the option.</li>
@@ -667,8 +628,8 @@ Example: Option Payoff
 <li>The put option is <strong>out of the money</strong>, resulting in zero payoff, indicating that exercising the option is not advantageous.</li>
 </ul>
 </section>
-<section id="calculating-option-profit" class="level3" data-number="5.2.2">
-<h3 data-number="5.2.2" class="anchored" data-anchor-id="calculating-option-profit"><span class="header-section-number">5.2.2</span> Calculating Option Profit</h3>
+<section id="calculating-option-profit" class="level3">
+<h3 class="anchored" data-anchor-id="calculating-option-profit">Calculating Option Profit</h3>
 <p>The profit from an option trade must account for the option premium paid upfront (<span class="math inline">\(c_0\)</span> for calls and <span class="math inline">\(p_0\)</span> for puts). Thus, profit formulas are adjusted as follows:</p>
 <ul>
 <li><strong>Profit for Call Buyer</strong>: <span class="math inline">\(\Pi_{call} = \max(0, S_T - K) - c_0\)</span></li>
@@ -699,8 +660,8 @@ Example: Option Profit
 </section>
 <section id="other-option-characteristics-adjustments-and-related-assets" class="level2" data-number="5.3">
 <h2 data-number="5.3" class="anchored" data-anchor-id="other-option-characteristics-adjustments-and-related-assets"><span class="header-section-number">5.3</span> Other Option Characteristics, Adjustments, and Related Assets</h2>
-<section id="other-option-characteristics" class="level3" data-number="5.3.1">
-<h3 data-number="5.3.1" class="anchored" data-anchor-id="other-option-characteristics"><span class="header-section-number">5.3.1</span> Other Option Characteristics</h3>
+<section id="other-option-characteristics" class="level3">
+<h3 class="anchored" data-anchor-id="other-option-characteristics">Other Option Characteristics</h3>
 <p>Options are versatile financial instruments with various characteristics that cater to different investment strategies and risk profiles. They can be based on a wide range of underlying assets and come with specific features that define their contractual terms.</p>
 <ul>
 <li>Selling options requires posting margin due to the potential obligation to fulfill the contract.</li>
@@ -737,8 +698,8 @@ Example: Option Profit
 </ul>
 </section>
 </section>
-<section id="dividends-and-stock-splits-adjustments" class="level3" data-number="5.3.2">
-<h3 data-number="5.3.2" class="anchored" data-anchor-id="dividends-and-stock-splits-adjustments"><span class="header-section-number">5.3.2</span> Dividends and Stock Splits Adjustments</h3>
+<section id="dividends-and-stock-splits-adjustments" class="level3">
+<h3 class="anchored" data-anchor-id="dividends-and-stock-splits-adjustments">Dividends and Stock Splits Adjustments</h3>
 <ul>
 <li><p><strong>Cash Dividends</strong>: Typically, option contracts are not adjusted for cash dividends. The reasoning behind this is that cash dividends are expected events, and their potential impact is already factored into the option’s price through market mechanisms.</p></li>
 <li><p><strong>Stock Splits and Stock Dividends</strong>: These corporate actions directly affect the company’s stock price and, consequently, the value of options on that stock. To preserve the value of existing options, adjustments are made to both the strike price (<span class="math inline">\(K\)</span>) and the number of options (<span class="math inline">\(N\)</span>) held.</p></li>
@@ -782,8 +743,8 @@ Examples: Option Adjustments
 </div>
 </div>
 </section>
-<section id="related-assets" class="level3" data-number="5.3.3">
-<h3 data-number="5.3.3" class="anchored" data-anchor-id="related-assets"><span class="header-section-number">5.3.3</span> Related Assets</h3>
+<section id="related-assets" class="level3">
+<h3 class="anchored" data-anchor-id="related-assets">Related Assets</h3>
 <section id="warrants" class="level4">
 <h4 class="anchored" data-anchor-id="warrants">Warrants</h4>
 <ul>
@@ -810,7 +771,7 @@ Examples: Option Adjustments
 <section id="understanding-the-dynamics-of-option-pricing" class="level2" data-number="5.4">
 <h2 data-number="5.4" class="anchored" data-anchor-id="understanding-the-dynamics-of-option-pricing"><span class="header-section-number">5.4</span> Understanding the Dynamics of Option Pricing</h2>
 <p>In the realm of financial derivatives, stock options are pivotal instruments whose valuation intricately hinges on multiple underlying factors. The valuation dynamics of these options can be dissected into several key variables, each exerting a distinct influence under the ceteris paribus (all else equal) assumption. Herein, we delineate the impact of these variables on the prices of European and American options, using the following notations to denote directional influences: a positive (<span class="math inline">\(+\)</span>) impact suggests that an increase in the variable elevates the option’s price, a negative (<span class="math inline">\(-\)</span>) impact denotes a price decrease, and an uncertain (<span class="math inline">\(?\)</span>) relationship indicates an ambiguous effect.</p>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 34%">
 <col style="width: 17%">
@@ -886,8 +847,8 @@ Examples: Option Adjustments
 <li><span class="math inline">\(D\)</span>: Present value of dividends disbursed during the option’s life</li>
 <li><span class="math inline">\(r\)</span>: Risk-free interest rate with continuous compounding over maturity <span class="math inline">\(T\)</span></li>
 </ul>
-<section id="comparative-analysis-of-american-and-european-options" class="level3" data-number="5.4.1">
-<h3 data-number="5.4.1" class="anchored" data-anchor-id="comparative-analysis-of-american-and-european-options"><span class="header-section-number">5.4.1</span> Comparative Analysis of American and European Options</h3>
+<section id="comparative-analysis-of-american-and-european-options" class="level3">
+<h3 class="anchored" data-anchor-id="comparative-analysis-of-american-and-european-options">Comparative Analysis of American and European Options</h3>
 <p>A pivotal aspect of option theory is the intrinsic value comparison between American and European options. American options, characterized by their flexibility of exercise prior to expiration, inherently command a value that is not less than their European counterparts, which are exercisable only at maturity. This valuation principle is succinctly encapsulated in the following inequalities:</p>
 <p><span class="math display">\[ C \geq c \]</span> <span class="math display">\[ P \geq p \]</span></p>
 <p>These relations underscore a fundamental valuation floor for American options, driven by their enhanced exercise flexibility. This comparative analysis not only enriches our understanding of option pricing dynamics but also accentuates the critical role of exercise timing in option valuation.</p>
@@ -895,8 +856,8 @@ Examples: Option Adjustments
 </section>
 <section id="upper-and-lower-bounds-for-option-prices" class="level2" data-number="5.5">
 <h2 data-number="5.5" class="anchored" data-anchor-id="upper-and-lower-bounds-for-option-prices"><span class="header-section-number">5.5</span> Upper and Lower Bounds for Option Prices</h2>
-<section id="upper-boundaries-for-option-prices" class="level3" data-number="5.5.1">
-<h3 data-number="5.5.1" class="anchored" data-anchor-id="upper-boundaries-for-option-prices"><span class="header-section-number">5.5.1</span> Upper Boundaries for Option Prices</h3>
+<section id="upper-boundaries-for-option-prices" class="level3">
+<h3 class="anchored" data-anchor-id="upper-boundaries-for-option-prices">Upper Boundaries for Option Prices</h3>
 <section id="call-options" class="level4">
 <h4 class="anchored" data-anchor-id="call-options">Call Options</h4>
 <p>For both American and European call options, the principle that an option’s value cannot exceed the current price of the underlying stock is fundamental. Mathematically, this is represented as: <span class="math display">\[ c \leq S_0 \text{ and } C \leq S_0 \]</span></p>
@@ -911,8 +872,8 @@ Examples: Option Adjustments
 </ul>
 </section>
 </section>
-<section id="lower-boundaries-for-option-prices" class="level3" data-number="5.5.2">
-<h3 data-number="5.5.2" class="anchored" data-anchor-id="lower-boundaries-for-option-prices"><span class="header-section-number">5.5.2</span> Lower Boundaries for Option Prices</h3>
+<section id="lower-boundaries-for-option-prices" class="level3">
+<h3 class="anchored" data-anchor-id="lower-boundaries-for-option-prices">Lower Boundaries for Option Prices</h3>
 <section id="european-call-options" class="level4">
 <h4 class="anchored" data-anchor-id="european-call-options">European Call Options</h4>
 <p>For a European call option on a stock that does not pay dividends, the price floor is determined by the difference between the stock’s current price and the present value of the strike price: <span class="math display">\[c \geq S_0 - K e^{-rT}\]</span></p>
@@ -966,8 +927,8 @@ Example
 </div>
 </section>
 </section>
-<section id="american-options-and-early-exercise-decision" class="level3" data-number="5.5.3">
-<h3 data-number="5.5.3" class="anchored" data-anchor-id="american-options-and-early-exercise-decision"><span class="header-section-number">5.5.3</span> American Options and Early Exercise Decision</h3>
+<section id="american-options-and-early-exercise-decision" class="level3">
+<h3 class="anchored" data-anchor-id="american-options-and-early-exercise-decision">American Options and Early Exercise Decision</h3>
 <section id="american-call-options-on-non-dividend-paying-stocks" class="level4">
 <h4 class="anchored" data-anchor-id="american-call-options-on-non-dividend-paying-stocks">American Call Options on Non-dividend Paying Stocks</h4>
 <p>The conventional wisdom suggests that <strong>it is suboptimal to exercise an American call option on a non-dividend paying stock before expiration</strong>. Consider an American call option with the following parameters: <span class="math inline">\(S_0 = 100\)</span>, <span class="math inline">\(T = 0.25\)</span>, <span class="math inline">\(K = 60\)</span>, and <span class="math inline">\(D = 0\)</span>. The dilemma of whether to exercise the option immediately hinges on the anticipated utility from holding the stock versus the option.</p>
@@ -999,8 +960,8 @@ Example
 <p><span class="math display">\[P \geq \max(K - S_0, 0)\]</span></p>
 </section>
 </section>
-<section id="summary-of-price-boundaries" class="level3" data-number="5.5.4">
-<h3 data-number="5.5.4" class="anchored" data-anchor-id="summary-of-price-boundaries"><span class="header-section-number">5.5.4</span> Summary of Price Boundaries</h3>
+<section id="summary-of-price-boundaries" class="level3">
+<h3 class="anchored" data-anchor-id="summary-of-price-boundaries">Summary of Price Boundaries</h3>
 <p>The upper and lower price limits for options serve as critical indicators for arbitrage strategies and investment analysis. They are succinctly summarized as follows:</p>
 <section id="call-options-1" class="level4">
 <h4 class="anchored" data-anchor-id="call-options-1">Call Options</h4>
@@ -1030,15 +991,15 @@ Example
 <section id="put-call-parity" class="level2" data-number="5.6">
 <h2 data-number="5.6" class="anchored" data-anchor-id="put-call-parity"><span class="header-section-number">5.6</span> Put-Call Parity</h2>
 <p>The principle of put-call parity is a cornerstone in the theoretical framework of financial derivatives, providing a fundamental relationship between the prices of European call and put options. This parity underlines the equilibrium that must exist between these options when they have identical strike prices and expiration dates. Below, we delve deeper into the concept, illustrating its implications for both non-dividend and dividend-paying stocks, and extend the discussion to American options.</p>
-<section id="put-call-parity-for-non-dividend-paying-stocks" class="level3" data-number="5.6.1">
-<h3 data-number="5.6.1" class="anchored" data-anchor-id="put-call-parity-for-non-dividend-paying-stocks"><span class="header-section-number">5.6.1</span> Put-Call Parity for Non-dividend Paying Stocks</h3>
+<section id="put-call-parity-for-non-dividend-paying-stocks" class="level3">
+<h3 class="anchored" data-anchor-id="put-call-parity-for-non-dividend-paying-stocks">Put-Call Parity for Non-dividend Paying Stocks</h3>
 <p>Consider two distinct portfolios, A and B, each composed of different financial instruments but constructed to have equivalent values at the expiration of the options involved:</p>
 <ul>
 <li><strong>Portfolio A</strong> consists of a European call option and a zero-coupon bond paying <span class="math inline">\(K\)</span> (the strike price) at time <span class="math inline">\(T\)</span> (expiration).</li>
 <li><strong>Portfolio B</strong> includes a European put option and the underlying stock itself.</li>
 </ul>
 <p>The table below presents the values of these portfolios at option expiration under two scenarios: when the stock price at expiration, <span class="math inline">\(S_T\)</span>, is above or below the strike price, <span class="math inline">\(K\)</span>.</p>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 14%">
 <col style="width: 21%">
@@ -1095,10 +1056,10 @@ Example
 <p>Given their identical payouts at maturity, both portfolios must have the same present value, leading to the foundational put-call parity equation:</p>
 <p><span class="math display">\[c + K e^{-rT} = p + S_0\]</span></p>
 </section>
-<section id="arbitrage-opportunities-via-put-call-parity" class="level3" data-number="5.6.2">
-<h3 data-number="5.6.2" class="anchored" data-anchor-id="arbitrage-opportunities-via-put-call-parity"><span class="header-section-number">5.6.2</span> Arbitrage Opportunities via Put-Call Parity</h3>
+<section id="arbitrage-opportunities-via-put-call-parity" class="level3">
+<h3 class="anchored" data-anchor-id="arbitrage-opportunities-via-put-call-parity">Arbitrage Opportunities via Put-Call Parity</h3>
 <p>Consider an example where <span class="math inline">\(S_0 = \$31\)</span>, <span class="math inline">\(r = 10\%\)</span>, the call option price <span class="math inline">\(c = \$3\)</span>, and the strike price <span class="math inline">\(K = \$30\)</span>. The table outlines potential arbitrage strategies based on discrepancies in put option pricing, illustrating the mechanism for securing risk-free profits by leveraging the put-call parity principle.</p>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
 <col style="width: 50%">
@@ -1173,8 +1134,8 @@ Example
 </tbody>
 </table>
 </section>
-<section id="extension-to-american-options" class="level3" data-number="5.6.3">
-<h3 data-number="5.6.3" class="anchored" data-anchor-id="extension-to-american-options"><span class="header-section-number">5.6.3</span> Extension to American Options</h3>
+<section id="extension-to-american-options" class="level3">
+<h3 class="anchored" data-anchor-id="extension-to-american-options">Extension to American Options</h3>
 <p>While put-call parity directly applies to European options, its principles offer insight into the valuation boundaries of American options, which can be exercised at any time before expiration. In the absence of dividends, the relationship between American call and put prices can be expressed as:</p>
 <p><span class="math display">\[ S_0 - K \leq C - P \leq S_0 - Ke^{-rT} \]</span></p>
 <p>This range provides a basis for evaluating the relative pricing of American calls and puts, emphasizing the influence of early exercise rights and the absence of dividend payments on option valuation.</p>
@@ -1186,16 +1147,16 @@ Example
 <p>When dividends are anticipated during the option’s term, they must be factored into the option’s present value. We denote the present value of expected dividends during the option’s life as <span class="math inline">\(D\)</span>. The ex-dividend date marks the occasion for these adjustments, impacting the strategic exercise decisions for American call options.</p>
 <p>The prospect of dividends alters the conventional wisdom that American call options should not be exercised early. Specifically, it may become optimal to exercise these options just before the ex-dividend date to capture the dividend payout.</p>
 <p><strong>Crucial Point:</strong> Apart from the period just before the ex-dividend date, early exercise of a call option remains suboptimal.</p>
-<section id="adjusting-lower-bound-valuations-for-dividends" class="level3" data-number="5.7.1">
-<h3 data-number="5.7.1" class="anchored" data-anchor-id="adjusting-lower-bound-valuations-for-dividends"><span class="header-section-number">5.7.1</span> Adjusting Lower Bound Valuations for Dividends</h3>
+<section id="adjusting-lower-bound-valuations-for-dividends" class="level3">
+<h3 class="anchored" data-anchor-id="adjusting-lower-bound-valuations-for-dividends">Adjusting Lower Bound Valuations for Dividends</h3>
 <p>The introduction of dividends necessitates a revision of the lower bound calculations for both call and put option prices:</p>
 <ul>
 <li><p><strong>For Call Options:</strong> The lower bound formula adjusts to account for the dividend’s negative impact on the option’s value, reflecting the loss of dividend income upon early exercise: <span class="math display">\[c \geq S_0 - D - K e^{-rT}\]</span></p></li>
 <li><p><strong>For Put Options:</strong> Conversely, the lower bound for put options incorporates dividends positively, indicating an increase in value due to the potential decrease in the underlying stock’s price upon dividend payout: <span class="math display">\[p \geq D + K e^{-rT} - S_0\]</span></p></li>
 </ul>
 </section>
-<section id="revising-put-call-parity-with-dividends" class="level3" data-number="5.7.2">
-<h3 data-number="5.7.2" class="anchored" data-anchor-id="revising-put-call-parity-with-dividends"><span class="header-section-number">5.7.2</span> Revising Put-Call Parity with Dividends</h3>
+<section id="revising-put-call-parity-with-dividends" class="level3">
+<h3 class="anchored" data-anchor-id="revising-put-call-parity-with-dividends">Revising Put-Call Parity with Dividends</h3>
 <p>The presence of dividends also modifies the put-call parity relationship, a fundamental principle in options pricing:</p>
 <ul>
 <li><p><strong>European Options with Dividends:</strong> The parity formula integrates <span class="math inline">\(D\)</span> to balance the equation, highlighting the direct impact of dividends on the call option’s lower valuation compared to its put counterpart: <span class="math display">\[c + D + K e^{-rT} = p + S_0\]</span></p></li>
@@ -1206,8 +1167,8 @@ Example
 </section>
 <section id="practice-questions-and-problems" class="level2" data-number="5.8">
 <h2 data-number="5.8" class="anchored" data-anchor-id="practice-questions-and-problems"><span class="header-section-number">5.8</span> Practice Questions and Problems</h2>
-<section id="option-profitability-and-exercise-conditions" class="level3" data-number="5.8.1">
-<h3 data-number="5.8.1" class="anchored" data-anchor-id="option-profitability-and-exercise-conditions"><span class="header-section-number">5.8.1</span> Option Profitability and Exercise Conditions</h3>
+<section id="option-profitability-and-exercise-conditions" class="level3">
+<h3 class="anchored" data-anchor-id="option-profitability-and-exercise-conditions">Option Profitability and Exercise Conditions</h3>
 <ol type="1">
 <li>Suppose that a European call option to buy a share for $100.00 costs $5.00 and is held until maturity. Under what circumstances will the holder of the option make a profit? Under what circumstances will the option be exercised? Draw a diagram illustrating how the profit from a long position in the option depends on the stock price at maturity of the option.</li>
 <li>An investor sells a European call on a share for $4. The stock price is $47 and the strike price is $50. Under what circumstances does the investor make a profit? Under what circumstances will the option be exercised? Draw a diagram showing the variation of the investor’s profit with the stock price at the maturity of the option.</li>
@@ -1215,8 +1176,8 @@ Example
 <li>Suppose that a European put option to sell a share for $60 costs $8 and is held until maturity. Under what circumstances will the seller of the option (the party with the short position) make a profit? Under what circumstances will the option be exercised? Draw a diagram illustrating how the profit from a short position in the option depends on the stock price at maturity of the option.</li>
 </ol>
 </section>
-<section id="margin-requirements-market-choices-and-contract-adjustments" class="level3" data-number="5.8.2">
-<h3 data-number="5.8.2" class="anchored" data-anchor-id="margin-requirements-market-choices-and-contract-adjustments"><span class="header-section-number">5.8.2</span> Margin Requirements, Market Choices, and Contract Adjustments</h3>
+<section id="margin-requirements-market-choices-and-contract-adjustments" class="level3">
+<h3 class="anchored" data-anchor-id="margin-requirements-market-choices-and-contract-adjustments">Margin Requirements, Market Choices, and Contract Adjustments</h3>
 <ol start="5" type="1">
 <li>Explain why margin accounts are required when clients write options but not when they buy options.</li>
 <li>A corporate treasurer is designing a hedging program involving foreign currency options. What are the pros and cons of using (a) the NASDAQ OMX and (b) the over-the-counter market for trading?</li>
@@ -1229,8 +1190,8 @@ Example
 </ol></li>
 </ol>
 </section>
-<section id="option-pricing-bounds" class="level3" data-number="5.8.3">
-<h3 data-number="5.8.3" class="anchored" data-anchor-id="option-pricing-bounds"><span class="header-section-number">5.8.3</span> Option Pricing Bounds</h3>
+<section id="option-pricing-bounds" class="level3">
+<h3 class="anchored" data-anchor-id="option-pricing-bounds">Option Pricing Bounds</h3>
 <ol start="9" type="1">
 <li>Explain why an American option is always worth at least as much as a European option on the same asset with the same strike price and exercise date.</li>
 <li>Explain why an American option is always worth at least as much as its intrinsic value.</li>
@@ -1238,8 +1199,8 @@ Example
 <li>What is a lower bound for the price of a one-month European put option on a non-dividend paying stock when the stock price is $12, the strike price is $15, and the risk-free interest rate is 6% per annum?</li>
 </ol>
 </section>
-<section id="early-exercise-and-put-call-parity" class="level3" data-number="5.8.4">
-<h3 data-number="5.8.4" class="anchored" data-anchor-id="early-exercise-and-put-call-parity"><span class="header-section-number">5.8.4</span> Early Exercise and Put-Call Parity</h3>
+<section id="early-exercise-and-put-call-parity" class="level3">
+<h3 class="anchored" data-anchor-id="early-exercise-and-put-call-parity">Early Exercise and Put-Call Parity</h3>
 <ol start="13" type="1">
 <li>Give at least two reasons that the early exercise of an American call option on a non-dividend-paying stock is not optimal.</li>
 <li>The early exercise of an American put is a trade-off between the time value of money and the insurance value of a put. Explain this statement.</li>
@@ -1287,18 +1248,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1330,7 +1280,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -1338,7 +1310,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {

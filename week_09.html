@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.554">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Financial Derivatives - 9&nbsp; Option Pricing - Black-Scholes Model</title>
+<title>9&nbsp; Option Pricing - Black-Scholes Model – Financial Derivatives</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -69,7 +69,7 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -107,13 +107,13 @@ window.Quarto = {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week_09.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Option Pricing - Black-Scholes Model</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -131,34 +131,34 @@ window.Quarto = {
       <a href="./">Financial Derivatives</a> 
         <div class="sidebar-tools-main">
     <div class="dropdown">
-      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download"><i class="bi bi-download"></i></a>
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Download"><i class="bi bi-download"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="./Financial-Derivatives.pdf">
-              <i class="bi bi-bi-file-pdf pe-1"></i>
+              <i class="bi bi-file-pdf pe-1"></i>
             Download PDF
             </a>
           </li>
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="./Financial-Derivatives.epub">
-              <i class="bi bi-bi-journal pe-1"></i>
+              <i class="bi bi-journal pe-1"></i>
             Download ePub
             </a>
           </li>
       </ul>
     </div>
     <div class="dropdown">
-      <a href="" title="Share" id="quarto-navigation-tool-dropdown-1" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-1" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Share"><i class="bi bi-share"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-1">
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
-              <i class="bi bi-bi-twitter pe-1"></i>
+              <i class="bi bi-twitter pe-1"></i>
             Twitter
             </a>
           </li>
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
-              <i class="bi bi-bi-facebook pe-1"></i>
+              <i class="bi bi-facebook pe-1"></i>
             Facebook
             </a>
           </li>
@@ -260,9 +260,9 @@ window.Quarto = {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -290,36 +290,13 @@ window.Quarto = {
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
-  <ul>
-  <li><a href="#black-scholes-merton-model" id="toc-black-scholes-merton-model" class="nav-link active" data-scroll-target="#black-scholes-merton-model"><span class="header-section-number">9.1</span> Black-Scholes-Merton Model</a>
   <ul class="collapse">
-  <li><a href="#model-assumptions" id="toc-model-assumptions" class="nav-link" data-scroll-target="#model-assumptions"><span class="header-section-number">9.1.1</span> Model Assumptions</a></li>
-  <li><a href="#the-black-scholes-merton-formulas-for-options-pricing" id="toc-the-black-scholes-merton-formulas-for-options-pricing" class="nav-link" data-scroll-target="#the-black-scholes-merton-formulas-for-options-pricing"><span class="header-section-number">9.1.2</span> The Black-Scholes-Merton Formulas for Options Pricing</a></li>
-  <li><a href="#the-nx-function" id="toc-the-nx-function" class="nav-link" data-scroll-target="#the-nx-function"><span class="header-section-number">9.1.3</span> The <span class="math inline">\(N(x)\)</span> Function</a></li>
-  </ul></li>
-  <li><a href="#interpretation-of-nd_1-and-nd_2" id="toc-interpretation-of-nd_1-and-nd_2" class="nav-link" data-scroll-target="#interpretation-of-nd_1-and-nd_2"><span class="header-section-number">9.2</span> Interpretation of <span class="math inline">\(N(d_1)\)</span> and <span class="math inline">\(N(d_2)\)</span></a>
-  <ul class="collapse">
-  <li><a href="#interpretation-1" id="toc-interpretation-1" class="nav-link" data-scroll-target="#interpretation-1"><span class="header-section-number">9.2.1</span> Interpretation #1</a></li>
-  <li><a href="#interpretation-2" id="toc-interpretation-2" class="nav-link" data-scroll-target="#interpretation-2"><span class="header-section-number">9.2.2</span> Interpretation #2</a></li>
-  </ul></li>
+  <li><a href="#black-scholes-merton-model" id="toc-black-scholes-merton-model" class="nav-link active" data-scroll-target="#black-scholes-merton-model"><span class="header-section-number">9.1</span> Black-Scholes-Merton Model</a></li>
+  <li><a href="#interpretation-of-nd_1-and-nd_2" id="toc-interpretation-of-nd_1-and-nd_2" class="nav-link" data-scroll-target="#interpretation-of-nd_1-and-nd_2"><span class="header-section-number">9.2</span> Interpretation of <span class="math inline">\(N(d_1)\)</span> and <span class="math inline">\(N(d_2)\)</span></a></li>
   <li><a href="#properties-of-the-black-scholes-formula" id="toc-properties-of-the-black-scholes-formula" class="nav-link" data-scroll-target="#properties-of-the-black-scholes-formula"><span class="header-section-number">9.3</span> Properties of the Black-Scholes Formula</a></li>
-  <li><a href="#risk-neutral-valuation" id="toc-risk-neutral-valuation" class="nav-link" data-scroll-target="#risk-neutral-valuation"><span class="header-section-number">9.4</span> Risk-Neutral Valuation</a>
-  <ul class="collapse">
-  <li><a href="#key-points-of-risk-neutral-valuation" id="toc-key-points-of-risk-neutral-valuation" class="nav-link" data-scroll-target="#key-points-of-risk-neutral-valuation"><span class="header-section-number">9.4.1</span> Key Points of Risk-Neutral Valuation</a></li>
-  <li><a href="#application-of-risk-neutral-valuation" id="toc-application-of-risk-neutral-valuation" class="nav-link" data-scroll-target="#application-of-risk-neutral-valuation"><span class="header-section-number">9.4.2</span> Application of Risk-Neutral Valuation</a></li>
-  </ul></li>
-  <li><a href="#the-effect-of-dividends" id="toc-the-effect-of-dividends" class="nav-link" data-scroll-target="#the-effect-of-dividends"><span class="header-section-number">9.5</span> The Effect of Dividends</a>
-  <ul class="collapse">
-  <li><a href="#valuing-european-options-on-dividend-paying-stocks" id="toc-valuing-european-options-on-dividend-paying-stocks" class="nav-link" data-scroll-target="#valuing-european-options-on-dividend-paying-stocks"><span class="header-section-number">9.5.1</span> Valuing European Options on Dividend-Paying Stocks</a></li>
-  <li><a href="#american-calls-on-dividend-paying-stocks" id="toc-american-calls-on-dividend-paying-stocks" class="nav-link" data-scroll-target="#american-calls-on-dividend-paying-stocks"><span class="header-section-number">9.5.2</span> American Calls on Dividend-Paying Stocks</a></li>
-  <li><a href="#blacks-approximation-for-american-call-options-with-dividends" id="toc-blacks-approximation-for-american-call-options-with-dividends" class="nav-link" data-scroll-target="#blacks-approximation-for-american-call-options-with-dividends"><span class="header-section-number">9.5.3</span> Black’s Approximation for American Call Options with Dividends</a></li>
-  </ul></li>
-  <li><a href="#volatility-in-financial-markets" id="toc-volatility-in-financial-markets" class="nav-link" data-scroll-target="#volatility-in-financial-markets"><span class="header-section-number">9.6</span> Volatility in Financial Markets</a>
-  <ul class="collapse">
-  <li><a href="#historical-volatility" id="toc-historical-volatility" class="nav-link" data-scroll-target="#historical-volatility"><span class="header-section-number">9.6.1</span> Historical Volatility</a></li>
-  <li><a href="#nature-of-volatility" id="toc-nature-of-volatility" class="nav-link" data-scroll-target="#nature-of-volatility"><span class="header-section-number">9.6.2</span> Nature of Volatility</a></li>
-  <li><a href="#implied-volatility" id="toc-implied-volatility" class="nav-link" data-scroll-target="#implied-volatility"><span class="header-section-number">9.6.3</span> Implied Volatility</a></li>
-  </ul></li>
+  <li><a href="#risk-neutral-valuation" id="toc-risk-neutral-valuation" class="nav-link" data-scroll-target="#risk-neutral-valuation"><span class="header-section-number">9.4</span> Risk-Neutral Valuation</a></li>
+  <li><a href="#the-effect-of-dividends" id="toc-the-effect-of-dividends" class="nav-link" data-scroll-target="#the-effect-of-dividends"><span class="header-section-number">9.5</span> The Effect of Dividends</a></li>
+  <li><a href="#volatility-in-financial-markets" id="toc-volatility-in-financial-markets" class="nav-link" data-scroll-target="#volatility-in-financial-markets"><span class="header-section-number">9.6</span> Volatility in Financial Markets</a></li>
   <li><a href="#practice-questions-and-problems" id="toc-practice-questions-and-problems" class="nav-link" data-scroll-target="#practice-questions-and-problems"><span class="header-section-number">9.7</span> Practice Questions and Problems</a></li>
   </ul>
 </nav>
@@ -382,8 +359,8 @@ References
 <h2 data-number="9.1" class="anchored" data-anchor-id="black-scholes-merton-model"><span class="header-section-number">9.1</span> Black-Scholes-Merton Model</h2>
 <p>The Black-Scholes model, developed by Fischer Black and Myron Scholes in 1973, is a groundbreaking mathematical framework for valuing European options. It provides a closed-form solution for the price of a European call or put option based on stock volatility, the risk-free rate, the strike price, and the time to expiration. The model assumes a lognormal distribution of stock prices, continuous trading, and no dividends, among other factors.</p>
 <p>The Binomial Option Pricing Model, introduced by Cox, Ross, and Rubinstein in 1979, offers a more flexible approach to option valuation, accommodating American options and dividends. It constructs a discrete-time (binomial) lattice for asset price movements, allowing for an iterative calculation of option prices. This model can be viewed as a simplified, discrete approximation of the continuous processes underlying the Black-Scholes model. As the number of steps in the binomial model increases, its results converge to those of the Black-Scholes formula, illustrating their intrinsic relationship. The binomial model’s adaptability to different types of options and its intuitive framework make it a vital complement to the Black-Scholes model in financial theory.</p>
-<section id="model-assumptions" class="level3" data-number="9.1.1">
-<h3 data-number="9.1.1" class="anchored" data-anchor-id="model-assumptions"><span class="header-section-number">9.1.1</span> Model Assumptions</h3>
+<section id="model-assumptions" class="level3">
+<h3 class="anchored" data-anchor-id="model-assumptions">Model Assumptions</h3>
 <p>The Black-Scholes-Merton model is predicated on several key assumptions to facilitate the derivation of a closed-form solution for pricing European options. These assumptions include:</p>
 <ol type="1">
 <li><strong>European-style Options:</strong> The model is applicable to European options, which can only be exercised at expiration.</li>
@@ -397,8 +374,8 @@ References
 <li><strong>Continuous Trading and Liquidity:</strong> Trading is possible at any moment during market hours, and the asset is perfectly liquid, allowing for immediate buy and sell transactions.</li>
 </ol>
 </section>
-<section id="the-black-scholes-merton-formulas-for-options-pricing" class="level3" data-number="9.1.2">
-<h3 data-number="9.1.2" class="anchored" data-anchor-id="the-black-scholes-merton-formulas-for-options-pricing"><span class="header-section-number">9.1.2</span> The Black-Scholes-Merton Formulas for Options Pricing</h3>
+<section id="the-black-scholes-merton-formulas-for-options-pricing" class="level3">
+<h3 class="anchored" data-anchor-id="the-black-scholes-merton-formulas-for-options-pricing">The Black-Scholes-Merton Formulas for Options Pricing</h3>
 <p>The model provides explicit formulas to compute the price of call and put options, defined as follows:</p>
 <ul>
 <li><span class="math inline">\(c\)</span> = price of a European call option</li>
@@ -415,8 +392,8 @@ References
 <p>Where:</p>
 <p><span class="math display">\[d_1 = \frac{\ln (S_0 / K) + (r + \sigma^2 / 2)T}{\sigma \sqrt{T}}\]</span> <span class="math display">\[d_2 = d_1 - \sigma \sqrt{T}\]</span></p>
 </section>
-<section id="the-nx-function" class="level3" data-number="9.1.3">
-<h3 data-number="9.1.3" class="anchored" data-anchor-id="the-nx-function"><span class="header-section-number">9.1.3</span> The <span class="math inline">\(N(x)\)</span> Function</h3>
+<section id="the-nx-function" class="level3">
+<h3 class="anchored" data-anchor-id="the-nx-function">The <span class="math inline">\(N(x)\)</span> Function</h3>
 <p>The function <span class="math inline">\(N(x)\)</span> is pivotal in calculating the probabilities essential for the Black-Scholes-Merton formula. It quantifies the likelihood that a random draw from a standard normal distribution falls below a specific value <span class="math inline">\(x\)</span>. For practical computations, one may refer to statistical tables or the NORM.DIST function in Excel.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -460,16 +437,16 @@ Example: Black-Scholes-Merton Model
 <section id="interpretation-of-nd_1-and-nd_2" class="level2" data-number="9.2">
 <h2 data-number="9.2" class="anchored" data-anchor-id="interpretation-of-nd_1-and-nd_2"><span class="header-section-number">9.2</span> Interpretation of <span class="math inline">\(N(d_1)\)</span> and <span class="math inline">\(N(d_2)\)</span></h2>
 <p>Understanding the terms <span class="math inline">\(N(d_1)\)</span> and <span class="math inline">\(N(d_2)\)</span> within the Black-Scholes formula is fundamental for grasping the model’s insights into option pricing dynamics. These terms provide a probabilistic interpretation that enriches the model’s application and theoretical comprehension.</p>
-<section id="interpretation-1" class="level3" data-number="9.2.1">
-<h3 data-number="9.2.1" class="anchored" data-anchor-id="interpretation-1"><span class="header-section-number">9.2.1</span> Interpretation #1</h3>
+<section id="interpretation-1" class="level3">
+<h3 class="anchored" data-anchor-id="interpretation-1">Interpretation #1</h3>
 <ul>
 <li><p><strong><span class="math inline">\(N(d_2)\)</span>:</strong> This term represents the probability that the option will be exercised at maturity. It quantifies the likelihood that the stock price at maturity will exceed the strike price, making it beneficial for the holder to exercise the option.</p></li>
 <li><p><strong><span class="math inline">\(S_0 e^{rT} N(d_1)\)</span>:</strong> This expression estimates the expected stock price at maturity in a risk-neutral world, adjusting for instances when the stock price falls below the strike price, which are considered as zero value. This adjustment mirrors the option’s payoff structure, where only in-the-money scenarios contribute to the expected payoff.</p></li>
 <li><p><strong>Expected Payoff and Present Value:</strong> The expected payoff of holding a call option can be expressed as <span class="math inline">\(S_0 e^{rT} N(d_1) - K N(d_2)\)</span>. To derive the option’s current value, we discount this expected payoff to the present, yielding the Black-Scholes call option pricing formula: <span class="math inline">\(c = S_0 N(d_1) - K e^{-rT} N(d_2)\)</span>.</p></li>
 </ul>
 </section>
-<section id="interpretation-2" class="level3" data-number="9.2.2">
-<h3 data-number="9.2.2" class="anchored" data-anchor-id="interpretation-2"><span class="header-section-number">9.2.2</span> Interpretation #2</h3>
+<section id="interpretation-2" class="level3">
+<h3 class="anchored" data-anchor-id="interpretation-2">Interpretation #2</h3>
 <p>Another lens to view the call option pricing formula is:</p>
 <p><span class="math display">\[c = e^{-rT} N(d_2) \left( S_0 e^{rT} N(d_1) / N(d_2) - K \right)\]</span></p>
 <ul>
@@ -501,16 +478,16 @@ Example: Black-Scholes-Merton Model
 <p>The concept of Risk-Neutral Valuation is a cornerstone in the field of financial derivatives, offering a powerful framework for option pricing, particularly within the Black-Scholes-Merton model. This approach simplifies valuation by assuming that all investors are indifferent to risk, thereby pricing assets solely based on the risk-free rate rather than the expected return under actual market conditions.</p>
 <p>In the derivation of the Black-Scholes-Merton differential equation, an intriguing observation is that the expected return of the underlying asset, denoted by <span class="math inline">\(\mu\)</span>, does not influence the equation. This omission signifies that the equation—and by extension, the option’s price—is not affected by investors’ risk preferences. The remarkable outcome is that the solution to this differential equation remains consistent whether we consider a risk-neutral world or the real, risk-averse world. This observation leads to the principle of risk-neutral valuation, which posits that under certain conditions, the market can be modeled as if all investors were risk-neutral.</p>
 <p>This methodological approach allows the valuation of options and other derivatives in a theoretically consistent manner, abstracting away from the complexities introduced by varying risk preferences among investors. The elegance and simplicity of risk-neutral valuation underpin its widespread application in financial economics and the pricing of derivatives.</p>
-<section id="key-points-of-risk-neutral-valuation" class="level3" data-number="9.4.1">
-<h3 data-number="9.4.1" class="anchored" data-anchor-id="key-points-of-risk-neutral-valuation"><span class="header-section-number">9.4.1</span> Key Points of Risk-Neutral Valuation</h3>
+<section id="key-points-of-risk-neutral-valuation" class="level3">
+<h3 class="anchored" data-anchor-id="key-points-of-risk-neutral-valuation">Key Points of Risk-Neutral Valuation</h3>
 <ul>
 <li><p><strong>Indifference to Risk:</strong> In a risk-neutral world, investors expect to earn the risk-free rate on all investments, regardless of the risk involved. This assumption is purely theoretical but facilitates the practical application of option pricing models.</p></li>
 <li><p><strong>Exclusion of <span class="math inline">\(\mu\)</span>:</strong> The fact that the differential equation does not incorporate the expected return <span class="math inline">\(\mu\)</span> indicates the irrelevance of personal risk preferences in pricing derivatives through this model.</p></li>
 <li><p><strong>Universal Pricing Principle:</strong> The risk-neutral valuation framework suggests that the price of a derivative is determined by the expected payoff under risk neutrality, discounted at the risk-free rate.</p></li>
 </ul>
 </section>
-<section id="application-of-risk-neutral-valuation" class="level3" data-number="9.4.2">
-<h3 data-number="9.4.2" class="anchored" data-anchor-id="application-of-risk-neutral-valuation"><span class="header-section-number">9.4.2</span> Application of Risk-Neutral Valuation</h3>
+<section id="application-of-risk-neutral-valuation" class="level3">
+<h3 class="anchored" data-anchor-id="application-of-risk-neutral-valuation">Application of Risk-Neutral Valuation</h3>
 <p>Applying risk-neutral valuation to price options involves a straightforward three-step process:</p>
 <ol type="1">
 <li><p><strong>Assumption of Risk-Free Returns:</strong> Initially, it is assumed that the expected return on the stock (or the underlying asset) is equal to the risk-free rate. This simplification aligns the future stock price dynamics with a risk-neutral perspective, where all assets are expected to grow at this rate.</p></li>
@@ -535,15 +512,15 @@ Example: Risk-Neutral Valuation of a Call Option
 <section id="the-effect-of-dividends" class="level2" data-number="9.5">
 <h2 data-number="9.5" class="anchored" data-anchor-id="the-effect-of-dividends"><span class="header-section-number">9.5</span> The Effect of Dividends</h2>
 <p>The inclusion of dividends in the valuation of options introduces additional complexity, as dividends can significantly affect option prices. The adjustment for dividends in the Black-Scholes model and considerations for American call options are pivotal for accurate pricing.</p>
-<section id="valuing-european-options-on-dividend-paying-stocks" class="level3" data-number="9.5.1">
-<h3 data-number="9.5.1" class="anchored" data-anchor-id="valuing-european-options-on-dividend-paying-stocks"><span class="header-section-number">9.5.1</span> Valuing European Options on Dividend-Paying Stocks</h3>
+<section id="valuing-european-options-on-dividend-paying-stocks" class="level3">
+<h3 class="anchored" data-anchor-id="valuing-european-options-on-dividend-paying-stocks">Valuing European Options on Dividend-Paying Stocks</h3>
 <p>To accommodate dividends in the Black-Scholes model, <strong>the stock price is adjusted by subtracting the present value of dividends expected to be paid during the life of the option</strong>. This adjustment reflects the reduction in stock price that typically occurs on the ex-dividend date, thereby affecting the option’s intrinsic value. It’s crucial to include only those dividends that are expected to be paid before the option expires, as these are the ones that will impact the option holder.</p>
 <p>For a dividend-paying stock, the adjusted stock price <span class="math inline">\(S_{adj}\)</span> in the Black-Scholes formula becomes:</p>
 <p><span class="math display">\[S_{adj} = S_0 - PV(\text{dividends})\]</span></p>
 <p>where <span class="math inline">\(PV(\text{dividends})\)</span> is the present value of dividends paid during the option’s life. This adjustment aims to capture the expected drop in the stock price due to dividend payouts, ensuring the option valuation accurately reflects this anticipated decrease.</p>
 </section>
-<section id="american-calls-on-dividend-paying-stocks" class="level3" data-number="9.5.2">
-<h3 data-number="9.5.2" class="anchored" data-anchor-id="american-calls-on-dividend-paying-stocks"><span class="header-section-number">9.5.2</span> American Calls on Dividend-Paying Stocks</h3>
+<section id="american-calls-on-dividend-paying-stocks" class="level3">
+<h3 class="anchored" data-anchor-id="american-calls-on-dividend-paying-stocks">American Calls on Dividend-Paying Stocks</h3>
 <p>The traditional wisdom that American call options should not be exercised early due to their time value does not always hold in the presence of dividends. The possibility of early exercise becomes relevant when the stock pays dividends.</p>
 <section id="criteria-for-early-exercise" class="level4">
 <h4 class="anchored" data-anchor-id="criteria-for-early-exercise">Criteria for Early Exercise</h4>
@@ -552,8 +529,8 @@ Example: Risk-Neutral Valuation of a Call Option
 <p>Here, <span class="math inline">\(K\)</span> is the strike price, <span class="math inline">\(r\)</span> is the risk-free rate, and <span class="math inline">\(t_i\)</span> to <span class="math inline">\(t_{i+1}\)</span> represents the interval between dividend payments. This condition evaluates whether the immediate gain from capturing the dividend outweighs the potential benefits of holding the option for its time value.</p>
 </section>
 </section>
-<section id="blacks-approximation-for-american-call-options-with-dividends" class="level3" data-number="9.5.3">
-<h3 data-number="9.5.3" class="anchored" data-anchor-id="blacks-approximation-for-american-call-options-with-dividends"><span class="header-section-number">9.5.3</span> Black’s Approximation for American Call Options with Dividends</h3>
+<section id="blacks-approximation-for-american-call-options-with-dividends" class="level3">
+<h3 class="anchored" data-anchor-id="blacks-approximation-for-american-call-options-with-dividends">Black’s Approximation for American Call Options with Dividends</h3>
 <p>Black’s Approximation offers a pragmatic method for approximating the price of American call options on dividend-paying stocks. This approximation involves comparing two European call option prices:</p>
 <ol type="1">
 <li><strong>First European Price:</strong> This is calculated for a European call option with the same expiration date as the American option, incorporating the adjusted stock price for dividends.</li>
@@ -572,23 +549,23 @@ Example: Risk-Neutral Valuation of a Call Option
 <li><strong>Impact on Options:</strong> The value of an option is exceptionally sensitive to changes in volatility. Since options are derivatives based on the underlying asset, increased volatility translates to higher option premiums, all else being equal.</li>
 <li><strong>Observability:</strong> Unlike direct observables like stock prices, volatility is not directly observable and must be estimated. Historical volatility is derived from past market prices, while implied volatility is inferred from current market prices of options.</li>
 </ul>
-<section id="historical-volatility" class="level3" data-number="9.6.1">
-<h3 data-number="9.6.1" class="anchored" data-anchor-id="historical-volatility"><span class="header-section-number">9.6.1</span> Historical Volatility</h3>
+<section id="historical-volatility" class="level3">
+<h3 class="anchored" data-anchor-id="historical-volatility">Historical Volatility</h3>
 <ul>
 <li><strong>Calculation:</strong> Historical volatility is the standard deviation of the continuously compounded returns of an asset over a specified period, typically annualized. This measure provides a backward-looking estimate of volatility based on actual market data.</li>
 <li><strong>Daily Volatility Example:</strong> For a stock priced at $30 with an annual volatility of 25%, the standard deviation of the stock’s price change over one day (<span class="math inline">\(\Delta t\)</span>) can be approximated as <span class="math inline">\(25\% \times \sqrt{\frac{1}{252}} = 1.57\%\)</span>, assuming 252 trading days in a year. This calculation aids in understanding daily price variability.</li>
 <li><strong>Annualization:</strong> By annualizing the standard deviation of daily returns (multiplied by <span class="math inline">\(\sqrt{252}\)</span>), investors can compare volatility across assets with different time frames.</li>
 </ul>
 </section>
-<section id="nature-of-volatility" class="level3" data-number="9.6.2">
-<h3 data-number="9.6.2" class="anchored" data-anchor-id="nature-of-volatility"><span class="header-section-number">9.6.2</span> Nature of Volatility</h3>
+<section id="nature-of-volatility" class="level3">
+<h3 class="anchored" data-anchor-id="nature-of-volatility">Nature of Volatility</h3>
 <ul>
 <li><strong>Market Hours:</strong> Volatility tends to be higher during trading hours compared to when the market is closed, reflecting the immediate impact of news and events on asset prices.</li>
 <li><strong>Trading Days:</strong> For options valuation, time is measured in trading days, not calendar days, acknowledging the fact that price changes are primarily driven by market activity. This convention ensures that the time to maturity for options reflects actual market exposure.</li>
 </ul>
 </section>
-<section id="implied-volatility" class="level3" data-number="9.6.3">
-<h3 data-number="9.6.3" class="anchored" data-anchor-id="implied-volatility"><span class="header-section-number">9.6.3</span> Implied Volatility</h3>
+<section id="implied-volatility" class="level3">
+<h3 class="anchored" data-anchor-id="implied-volatility">Implied Volatility</h3>
 <ul>
 <li><strong>Definition:</strong> Implied volatility is the volatility implied by the market price of an option, based on the Black-Scholes-Merton model. It represents the market’s expectation of future volatility over the life of the option.</li>
 <li><strong>VIX Index:</strong> The VIX S&amp;P 500 Volatility Index is a widely recognized measure of market expectation of near-term volatility conveyed by S&amp;P 500 stock index option prices. <a href="https://www.cboe.com/tradable_products/vix/">The VIX S&amp;P 500 Volatility Index.</a></li>
@@ -794,18 +771,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -837,7 +803,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -845,7 +833,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {

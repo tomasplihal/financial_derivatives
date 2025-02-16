@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.554">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Financial Derivatives - 12&nbsp; Structured Products I</title>
+<title>12&nbsp; Structured Products I – Financial Derivatives</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -69,7 +69,7 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -107,13 +107,13 @@ window.Quarto = {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week_12.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Structured Products I</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -131,34 +131,34 @@ window.Quarto = {
       <a href="./">Financial Derivatives</a> 
         <div class="sidebar-tools-main">
     <div class="dropdown">
-      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download"><i class="bi bi-download"></i></a>
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Download"><i class="bi bi-download"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="./Financial-Derivatives.pdf">
-              <i class="bi bi-bi-file-pdf pe-1"></i>
+              <i class="bi bi-file-pdf pe-1"></i>
             Download PDF
             </a>
           </li>
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="./Financial-Derivatives.epub">
-              <i class="bi bi-bi-journal pe-1"></i>
+              <i class="bi bi-journal pe-1"></i>
             Download ePub
             </a>
           </li>
       </ul>
     </div>
     <div class="dropdown">
-      <a href="" title="Share" id="quarto-navigation-tool-dropdown-1" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-1" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Share"><i class="bi bi-share"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-1">
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
-              <i class="bi bi-bi-twitter pe-1"></i>
+              <i class="bi bi-twitter pe-1"></i>
             Twitter
             </a>
           </li>
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
-              <i class="bi bi-bi-facebook pe-1"></i>
+              <i class="bi bi-facebook pe-1"></i>
             Facebook
             </a>
           </li>
@@ -260,9 +260,9 @@ window.Quarto = {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -290,49 +290,14 @@ window.Quarto = {
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
-  <ul>
-  <li><a href="#introduction-to-structured-products" id="toc-introduction-to-structured-products" class="nav-link active" data-scroll-target="#introduction-to-structured-products"><span class="header-section-number">12.1</span> Introduction to Structured Products</a>
   <ul class="collapse">
-  <li><a href="#advantages-of-investing-in-structured-products" id="toc-advantages-of-investing-in-structured-products" class="nav-link" data-scroll-target="#advantages-of-investing-in-structured-products"><span class="header-section-number">12.1.1</span> Advantages of Investing in Structured Products</a></li>
-  <li><a href="#european-structured-investment-products-association-eusipa" id="toc-european-structured-investment-products-association-eusipa" class="nav-link" data-scroll-target="#european-structured-investment-products-association-eusipa"><span class="header-section-number">12.1.2</span> European Structured Investment Products Association (EUSIPA)</a></li>
-  </ul></li>
-  <li><a href="#definition-and-nature-of-structured-products-investment-certificates" id="toc-definition-and-nature-of-structured-products-investment-certificates" class="nav-link" data-scroll-target="#definition-and-nature-of-structured-products-investment-certificates"><span class="header-section-number">12.2</span> Definition and Nature of Structured Products (Investment Certificates)</a>
-  <ul class="collapse">
-  <li><a href="#credit-risk-associated-with-structured-products" id="toc-credit-risk-associated-with-structured-products" class="nav-link" data-scroll-target="#credit-risk-associated-with-structured-products"><span class="header-section-number">12.2.1</span> Credit Risk Associated with Structured Products</a></li>
-  <li><a href="#categorization-of-structured-products" id="toc-categorization-of-structured-products" class="nav-link" data-scroll-target="#categorization-of-structured-products"><span class="header-section-number">12.2.2</span> Categorization of Structured Products</a></li>
-  <li><a href="#investors-and-sellers-of-structured-products" id="toc-investors-and-sellers-of-structured-products" class="nav-link" data-scroll-target="#investors-and-sellers-of-structured-products"><span class="header-section-number">12.2.3</span> Investors and Sellers of Structured Products</a></li>
-  <li><a href="#platforms-to-find-structured-products" id="toc-platforms-to-find-structured-products" class="nav-link" data-scroll-target="#platforms-to-find-structured-products"><span class="header-section-number">12.2.4</span> Platforms to Find Structured Products</a></li>
-  <li><a href="#additional-references" id="toc-additional-references" class="nav-link" data-scroll-target="#additional-references"><span class="header-section-number">12.2.5</span> Additional References</a></li>
-  </ul></li>
-  <li><a href="#barrier-options" id="toc-barrier-options" class="nav-link" data-scroll-target="#barrier-options"><span class="header-section-number">12.3</span> Barrier Options</a>
-  <ul class="collapse">
-  <li><a href="#types-of-barrier-options" id="toc-types-of-barrier-options" class="nav-link" data-scroll-target="#types-of-barrier-options"><span class="header-section-number">12.3.1</span> Types of Barrier Options</a></li>
-  <li><a href="#pricing-dynamics" id="toc-pricing-dynamics" class="nav-link" data-scroll-target="#pricing-dynamics"><span class="header-section-number">12.3.2</span> Pricing Dynamics</a></li>
-  <li><a href="#barrier-styles" id="toc-barrier-styles" class="nav-link" data-scroll-target="#barrier-styles"><span class="header-section-number">12.3.3</span> Barrier Styles</a></li>
-  </ul></li>
-  <li><a href="#capital-protection-investment-products" id="toc-capital-protection-investment-products" class="nav-link" data-scroll-target="#capital-protection-investment-products"><span class="header-section-number">12.4</span> Capital Protection Investment Products</a>
-  <ul class="collapse">
-  <li><a href="#uncapped-capital-protection" id="toc-uncapped-capital-protection" class="nav-link" data-scroll-target="#uncapped-capital-protection"><span class="header-section-number">12.4.1</span> Uncapped Capital Protection</a></li>
-  <li><a href="#capital-protection-products-modifications" id="toc-capital-protection-products-modifications" class="nav-link" data-scroll-target="#capital-protection-products-modifications"><span class="header-section-number">12.4.2</span> Capital Protection Products Modifications</a></li>
-  <li><a href="#general-recommendations" id="toc-general-recommendations" class="nav-link" data-scroll-target="#general-recommendations"><span class="header-section-number">12.4.3</span> General Recommendations</a></li>
-  </ul></li>
-  <li><a href="#behavior-of-capital-guarantee-products---case-study" id="toc-behavior-of-capital-guarantee-products---case-study" class="nav-link" data-scroll-target="#behavior-of-capital-guarantee-products---case-study"><span class="header-section-number">12.5</span> Behavior of Capital Guarantee Products - Case Study</a>
-  <ul class="collapse">
-  <li><a href="#impact-of-volatility-and-interest-rate-variations" id="toc-impact-of-volatility-and-interest-rate-variations" class="nav-link" data-scroll-target="#impact-of-volatility-and-interest-rate-variations"><span class="header-section-number">12.5.1</span> Impact of Volatility and Interest Rate Variations</a></li>
-  <li><a href="#conclusive-insights" id="toc-conclusive-insights" class="nav-link" data-scroll-target="#conclusive-insights"><span class="header-section-number">12.5.2</span> Conclusive Insights</a></li>
-  </ul></li>
-  <li><a href="#participation-investment-products" id="toc-participation-investment-products" class="nav-link" data-scroll-target="#participation-investment-products"><span class="header-section-number">12.6</span> Participation Investment Products</a>
-  <ul class="collapse">
-  <li><a href="#tracker-certificate" id="toc-tracker-certificate" class="nav-link" data-scroll-target="#tracker-certificate"><span class="header-section-number">12.6.1</span> Tracker Certificate</a></li>
-  <li><a href="#bonus-certificate" id="toc-bonus-certificate" class="nav-link" data-scroll-target="#bonus-certificate"><span class="header-section-number">12.6.2</span> Bonus Certificate</a></li>
-  <li><a href="#twin-win-certificate" id="toc-twin-win-certificate" class="nav-link" data-scroll-target="#twin-win-certificate"><span class="header-section-number">12.6.3</span> Twin-Win Certificate</a></li>
-  <li><a href="#outperformance-certificate" id="toc-outperformance-certificate" class="nav-link" data-scroll-target="#outperformance-certificate"><span class="header-section-number">12.6.4</span> Outperformance Certificate</a></li>
-  <li><a href="#capped-outperformance-certificate" id="toc-capped-outperformance-certificate" class="nav-link" data-scroll-target="#capped-outperformance-certificate"><span class="header-section-number">12.6.5</span> Capped Outperformance Certificate</a></li>
-  </ul></li>
-  <li><a href="#behavior-of-participation-products" id="toc-behavior-of-participation-products" class="nav-link" data-scroll-target="#behavior-of-participation-products"><span class="header-section-number">12.7</span> Behavior of Participation Products</a>
-  <ul class="collapse">
-  <li><a href="#bonus-certificate---case-study" id="toc-bonus-certificate---case-study" class="nav-link" data-scroll-target="#bonus-certificate---case-study"><span class="header-section-number">12.7.1</span> Bonus Certificate - Case Study</a></li>
-  </ul></li>
+  <li><a href="#introduction-to-structured-products" id="toc-introduction-to-structured-products" class="nav-link active" data-scroll-target="#introduction-to-structured-products"><span class="header-section-number">12.1</span> Introduction to Structured Products</a></li>
+  <li><a href="#definition-and-nature-of-structured-products-investment-certificates" id="toc-definition-and-nature-of-structured-products-investment-certificates" class="nav-link" data-scroll-target="#definition-and-nature-of-structured-products-investment-certificates"><span class="header-section-number">12.2</span> Definition and Nature of Structured Products (Investment Certificates)</a></li>
+  <li><a href="#barrier-options" id="toc-barrier-options" class="nav-link" data-scroll-target="#barrier-options"><span class="header-section-number">12.3</span> Barrier Options</a></li>
+  <li><a href="#capital-protection-investment-products" id="toc-capital-protection-investment-products" class="nav-link" data-scroll-target="#capital-protection-investment-products"><span class="header-section-number">12.4</span> Capital Protection Investment Products</a></li>
+  <li><a href="#behavior-of-capital-guarantee-products---case-study" id="toc-behavior-of-capital-guarantee-products---case-study" class="nav-link" data-scroll-target="#behavior-of-capital-guarantee-products---case-study"><span class="header-section-number">12.5</span> Behavior of Capital Guarantee Products - Case Study</a></li>
+  <li><a href="#participation-investment-products" id="toc-participation-investment-products" class="nav-link" data-scroll-target="#participation-investment-products"><span class="header-section-number">12.6</span> Participation Investment Products</a></li>
+  <li><a href="#behavior-of-participation-products" id="toc-behavior-of-participation-products" class="nav-link" data-scroll-target="#behavior-of-participation-products"><span class="header-section-number">12.7</span> Behavior of Participation Products</a></li>
   <li><a href="#practice-questions-and-problems" id="toc-practice-questions-and-problems" class="nav-link" data-scroll-target="#practice-questions-and-problems"><span class="header-section-number">12.8</span> Practice Questions and Problems</a></li>
   </ul>
 </nav>
@@ -383,8 +348,8 @@ References
 </ul>
 <section id="introduction-to-structured-products" class="level2" data-number="12.1">
 <h2 data-number="12.1" class="anchored" data-anchor-id="introduction-to-structured-products"><span class="header-section-number">12.1</span> Introduction to Structured Products</h2>
-<section id="advantages-of-investing-in-structured-products" class="level3" data-number="12.1.1">
-<h3 data-number="12.1.1" class="anchored" data-anchor-id="advantages-of-investing-in-structured-products"><span class="header-section-number">12.1.1</span> Advantages of Investing in Structured Products</h3>
+<section id="advantages-of-investing-in-structured-products" class="level3">
+<h3 class="anchored" data-anchor-id="advantages-of-investing-in-structured-products">Advantages of Investing in Structured Products</h3>
 <p>Structured products enjoy significant popularity across <strong>European states</strong>, primarily due to their capacity to balance risk and reward. These financial instruments offer several compelling advantages:</p>
 <ol type="1">
 <li><p><strong>Capital Protection and Market Participation</strong>: Investors are drawn to structured products because they provide a mechanism to protect all or part of the invested capital while still allowing participation in the gains of the capital markets.</p></li>
@@ -396,8 +361,8 @@ References
 <li><p><strong>Tax Advantages</strong>: In some jurisdictions, structured products offer favorable tax conditions, enhancing their attractiveness as investment options.</p></li>
 </ol>
 </section>
-<section id="european-structured-investment-products-association-eusipa" class="level3" data-number="12.1.2">
-<h3 data-number="12.1.2" class="anchored" data-anchor-id="european-structured-investment-products-association-eusipa"><span class="header-section-number">12.1.2</span> European Structured Investment Products Association (EUSIPA)</h3>
+<section id="european-structured-investment-products-association-eusipa" class="level3">
+<h3 class="anchored" data-anchor-id="european-structured-investment-products-association-eusipa">European Structured Investment Products Association (EUSIPA)</h3>
 <ul>
 <li>Official Website: <a href="https://eusipa.org/" target="_blank">EUSIPA</a></li>
 <li>Market Insights: <a href="https://eusipa.org/category/market-reports/" target="_blank">EUSIPA Market Reports</a></li>
@@ -422,8 +387,8 @@ Definition by Andreas Blümke
 </div>
 </div>
 <p>Structured products, often referred to as investment certificates, are essentially securitized derivatives. These are complex financial contracts encapsulated within a single security that trades on exchanges similar to stocks. These instruments are crafted and issued by financial institutions and are utilized by both retail and institutional investors. They can be traded on stock exchanges or dealt directly between parties in over-the-counter (OTC) transactions.</p>
-<section id="credit-risk-associated-with-structured-products" class="level3" data-number="12.2.1">
-<h3 data-number="12.2.1" class="anchored" data-anchor-id="credit-risk-associated-with-structured-products"><span class="header-section-number">12.2.1</span> Credit Risk Associated with Structured Products</h3>
+<section id="credit-risk-associated-with-structured-products" class="level3">
+<h3 class="anchored" data-anchor-id="credit-risk-associated-with-structured-products">Credit Risk Associated with Structured Products</h3>
 <p>Structured products carry inherent credit risks as they <strong>are issued in the form of bearer bonds</strong>. This means the issuer’s entire assets back the liability on these products. The quality and safety of structured products are intrinsically linked to the creditworthiness of the issuer. Like traditional bonds, these products are <strong>exposed to issuer risk</strong>, which implies that in the event of issuer bankruptcy, both bonds and structured products are treated as part of the bankruptcy estate.</p>
 <p>To mitigate such risks, investors are advised to:</p>
 <ul>
@@ -432,8 +397,8 @@ Definition by Andreas Blümke
 <li>Continuously monitor the financial health of the issuers over time.</li>
 </ul>
 </section>
-<section id="categorization-of-structured-products" class="level3" data-number="12.2.2">
-<h3 data-number="12.2.2" class="anchored" data-anchor-id="categorization-of-structured-products"><span class="header-section-number">12.2.2</span> Categorization of Structured Products</h3>
+<section id="categorization-of-structured-products" class="level3">
+<h3 class="anchored" data-anchor-id="categorization-of-structured-products">Categorization of Structured Products</h3>
 <p>Structured products do not follow a universal standard for categorization. However, common classifications are often derived from industry associations such as:</p>
 <ul>
 <li><strong>EUSIPA</strong>: European Structured Investment Products Association provides a framework for categorizing structured products within Europe.
@@ -452,8 +417,8 @@ Definition by Andreas Blümke
 </figure>
 </div>
 </section>
-<section id="investors-and-sellers-of-structured-products" class="level3" data-number="12.2.3">
-<h3 data-number="12.2.3" class="anchored" data-anchor-id="investors-and-sellers-of-structured-products"><span class="header-section-number">12.2.3</span> Investors and Sellers of Structured Products</h3>
+<section id="investors-and-sellers-of-structured-products" class="level3">
+<h3 class="anchored" data-anchor-id="investors-and-sellers-of-structured-products">Investors and Sellers of Structured Products</h3>
 <section id="investors-private-and-institutional-buyers" class="level4">
 <h4 class="anchored" data-anchor-id="investors-private-and-institutional-buyers">Investors: Private and Institutional Buyers</h4>
 <p>Structured products attract both private and institutional investors when traditional investment avenues do not meet their specific needs. These needs might include the desire for returns higher than the risk-free rate while still benefiting from capital protection. Structured products are particularly appealing in scenarios where conventional investments either do not provide sufficient returns or fail to address <strong>specific financial goals and risk profiles</strong>.</p>
@@ -470,8 +435,8 @@ Definition by Andreas Blümke
 <p>Among these, the most <strong>significant cost factor is hedging</strong>. Hedging expenses are challenging to predict in advance as they depend on market dynamics over the product’s life. The profit from structured products, however, is only realized at their expiry, and having a large and diverse portfolio helps in more effectively hedging as some products can offset the risks of others.</p>
 </section>
 </section>
-<section id="platforms-to-find-structured-products" class="level3" data-number="12.2.4">
-<h3 data-number="12.2.4" class="anchored" data-anchor-id="platforms-to-find-structured-products"><span class="header-section-number">12.2.4</span> Platforms to Find Structured Products</h3>
+<section id="platforms-to-find-structured-products" class="level3">
+<h3 class="anchored" data-anchor-id="platforms-to-find-structured-products">Platforms to Find Structured Products</h3>
 <p>Structured products can be accessed and traded through various platforms, which serve as marketplaces for these financial instruments:</p>
 <ul>
 <li><strong>Deutsche Bank X-markets</strong>: Offers a wide range of structured products for different investment strategies.
@@ -488,8 +453,8 @@ Definition by Andreas Blümke
 </ul></li>
 </ul>
 </section>
-<section id="additional-references" class="level3" data-number="12.2.5">
-<h3 data-number="12.2.5" class="anchored" data-anchor-id="additional-references"><span class="header-section-number">12.2.5</span> Additional References</h3>
+<section id="additional-references" class="level3">
+<h3 class="anchored" data-anchor-id="additional-references">Additional References</h3>
 <p>For further research and detailed insights into the market for structured products, the following resources are invaluable:</p>
 <ul>
 <li>European Structured Investment Products Association (EUSIPA): <a href="https://eusipa.org/">Website</a></li>
@@ -516,8 +481,8 @@ Definition
 </div>
 </div>
 <p>Barrier options are integrated into various structured financial products such as barrier reverse convertibles and bonus certificates. Recognized for their complexity, these options introduce a conditional component to the standard option mechanism, making the final payoff uncertain until the option’s maturity.</p>
-<section id="types-of-barrier-options" class="level3" data-number="12.3.1">
-<h3 data-number="12.3.1" class="anchored" data-anchor-id="types-of-barrier-options"><span class="header-section-number">12.3.1</span> Types of Barrier Options</h3>
+<section id="types-of-barrier-options" class="level3">
+<h3 class="anchored" data-anchor-id="types-of-barrier-options">Types of Barrier Options</h3>
 <p>Barrier options can be classified into four main types based on the direction of the barrier and its effect:</p>
 <ul>
 <li><p><strong>Up &amp; Out</strong>: The option becomes void if the underlying asset’s price goes above the barrier.</p></li>
@@ -527,23 +492,23 @@ Definition
 </ul>
 <p>Additionally, these options can feature a rebate, a predefined amount paid to the option holder if the barrier is breached before maturity.</p>
 </section>
-<section id="pricing-dynamics" class="level3" data-number="12.3.2">
-<h3 data-number="12.3.2" class="anchored" data-anchor-id="pricing-dynamics"><span class="header-section-number">12.3.2</span> Pricing Dynamics</h3>
+<section id="pricing-dynamics" class="level3">
+<h3 class="anchored" data-anchor-id="pricing-dynamics">Pricing Dynamics</h3>
 <p>Barrier options are generally more cost-effective than their plain vanilla counterparts due to the added condition of the barrier. The pricing dynamics vary significantly between ‘in’ and ‘out’ options:</p>
 <ul>
 <li><p><strong>For ‘In’ Options</strong>: As the maturity increases, the price approaches that of a plain vanilla option, especially as the price of the underlying asset approaches the barrier.</p></li>
 <li><p><strong>For ‘Out’ Options</strong>: Longer maturities reduce the price, potentially approaching zero as the asset’s price nears the barrier.</p></li>
 </ul>
 </section>
-<section id="barrier-styles" class="level3" data-number="12.3.3">
-<h3 data-number="12.3.3" class="anchored" data-anchor-id="barrier-styles"><span class="header-section-number">12.3.3</span> Barrier Styles</h3>
+<section id="barrier-styles" class="level3">
+<h3 class="anchored" data-anchor-id="barrier-styles">Barrier Styles</h3>
 <p>Structured products typically incorporate barrier options with specific monitoring styles:</p>
 <ul>
 <li><p><strong>American-style Barriers</strong>: These allow the barrier condition to be triggered at any point during the option’s life, including intraday events, and are known for continuous monitoring.</p></li>
 <li><p><strong>European-style Barriers</strong>: These restrict the barrier condition to only be checked at the maturity of the option.</p></li>
 </ul>
 <p>Although most structured products utilize American-style barriers due to cost-effectiveness, the investor focus generally lies elsewhere rather than on the barrier type itself.</p>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 32%">
 <col style="width: 37%">
@@ -606,8 +571,8 @@ Definition
 <li>If the asset performs poorly, it might have been better not to invest.</li>
 </ul>
 <p>Capital guaranteed products serve as a prudent option for investors who prefer not to remain in cash but are also uncertain about future market directions.</p>
-<section id="uncapped-capital-protection" class="level3" data-number="12.4.1">
-<h3 data-number="12.4.1" class="anchored" data-anchor-id="uncapped-capital-protection"><span class="header-section-number">12.4.1</span> Uncapped Capital Protection</h3>
+<section id="uncapped-capital-protection" class="level3">
+<h3 class="anchored" data-anchor-id="uncapped-capital-protection">Uncapped Capital Protection</h3>
 <p><img src="images/02-capital-protection-classic.svg" class="img-fluid"></p>
 <p>Classical construction of capital guaranteed products involves:</p>
 <ol type="1">
@@ -631,8 +596,8 @@ Definition
 <p>Options for enhancing attractiveness include reducing the capital guarantee below 100%, adding caps or exotic features like knock-out barriers, and utilizing out-of-the-money options.</p>
 </section>
 </section>
-<section id="capital-protection-products-modifications" class="level3" data-number="12.4.2">
-<h3 data-number="12.4.2" class="anchored" data-anchor-id="capital-protection-products-modifications"><span class="header-section-number">12.4.2</span> Capital Protection Products Modifications</h3>
+<section id="capital-protection-products-modifications" class="level3">
+<h3 class="anchored" data-anchor-id="capital-protection-products-modifications">Capital Protection Products Modifications</h3>
 <section id="exchangeable-certificates" class="level4">
 <h4 class="anchored" data-anchor-id="exchangeable-certificates">Exchangeable Certificates</h4>
 <div class="quarto-figure quarto-figure-center">
@@ -711,8 +676,8 @@ Definition
 </ul>
 </section>
 </section>
-<section id="general-recommendations" class="level3" data-number="12.4.3">
-<h3 data-number="12.4.3" class="anchored" data-anchor-id="general-recommendations"><span class="header-section-number">12.4.3</span> General Recommendations</h3>
+<section id="general-recommendations" class="level3">
+<h3 class="anchored" data-anchor-id="general-recommendations">General Recommendations</h3>
 <ul>
 <li>Match the product with your investment horizon; the capital guarantee is effective only at maturity.</li>
 <li>Avoid products with lower capital guarantee than 90% (e.g., 90% guarantee means that underlying must perform by more than 10% to be break even, not considering any opportunity cost).</li>
@@ -724,7 +689,7 @@ Definition
 </section>
 <section id="behavior-of-capital-guarantee-products---case-study" class="level2" data-number="12.5">
 <h2 data-number="12.5" class="anchored" data-anchor-id="behavior-of-capital-guarantee-products---case-study"><span class="header-section-number">12.5</span> Behavior of Capital Guarantee Products - Case Study</h2>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 67%">
 <col style="width: 32%">
@@ -786,8 +751,8 @@ Definition
 </div>
 <p>The slope of this graph illustrates how the delta of the product changes with time. Typically, the product’s participation at inception ranges from 40%-60% of its maturity level, reflecting the initial risk profile and pricing.</p>
 <p><strong>Note:</strong> Capital guarantee is contingent on purchasing the product at par and is valid <em>only at maturity, not before. The guarantee level remains constant throughout the </em>product’s life.</p>
-<section id="impact-of-volatility-and-interest-rate-variations" class="level3" data-number="12.5.1">
-<h3 data-number="12.5.1" class="anchored" data-anchor-id="impact-of-volatility-and-interest-rate-variations"><span class="header-section-number">12.5.1</span> Impact of Volatility and Interest Rate Variations</h3>
+<section id="impact-of-volatility-and-interest-rate-variations" class="level3">
+<h3 class="anchored" data-anchor-id="impact-of-volatility-and-interest-rate-variations">Impact of Volatility and Interest Rate Variations</h3>
 <ul>
 <li><strong>Implied Volatility Fluctuations:</strong>
 <ul>
@@ -828,8 +793,8 @@ Definition
 </figure>
 </div>
 </section>
-<section id="conclusive-insights" class="level3" data-number="12.5.2">
-<h3 data-number="12.5.2" class="anchored" data-anchor-id="conclusive-insights"><span class="header-section-number">12.5.2</span> Conclusive Insights</h3>
+<section id="conclusive-insights" class="level3">
+<h3 class="anchored" data-anchor-id="conclusive-insights">Conclusive Insights</h3>
 <ul>
 <li>Shifts in implied volatility influence the capital guaranteed product most when <strong><em>at-the-money</em></strong>.</li>
 <li>An <strong><em>increase in volatility</em></strong> tends to <strong><em>increase the value</em></strong> of the product.</li>
@@ -860,8 +825,8 @@ Definition
 <li><strong>Underlying Assets:</strong> Typically stocks or stock indices, but can also include commodities, real estate, and more exotic assets.</li>
 <li><strong>Liquidity and Efficiency:</strong> Often very liquid, these products compete directly with ETFs in providing exposure to specific markets, themes, or regions.</li>
 </ul>
-<section id="tracker-certificate" class="level3" data-number="12.6.1">
-<h3 data-number="12.6.1" class="anchored" data-anchor-id="tracker-certificate"><span class="header-section-number">12.6.1</span> Tracker Certificate</h3>
+<section id="tracker-certificate" class="level3">
+<h3 class="anchored" data-anchor-id="tracker-certificate">Tracker Certificate</h3>
 <ul>
 <li><strong>Function:</strong> Mirrors the performance of one or more underlying assets. Commonly tracks excess returns (excluding dividends/yields).</li>
 <li><strong>Structure:</strong> Comprised of a zero-strike call option, which values the asset minus any discounted dividends or yields.</li>
@@ -873,8 +838,8 @@ Definition
 <li><strong>Tax Efficiency:</strong> May offer favorable tax treatments compared to direct investments in the underlying assets.</li>
 </ul>
 </section>
-<section id="bonus-certificate" class="level3" data-number="12.6.2">
-<h3 data-number="12.6.2" class="anchored" data-anchor-id="bonus-certificate"><span class="header-section-number">12.6.2</span> Bonus Certificate</h3>
+<section id="bonus-certificate" class="level3">
+<h3 class="anchored" data-anchor-id="bonus-certificate">Bonus Certificate</h3>
 <ul>
 <li><strong>Function:</strong> Combines the features of a tracker certificate with conditional downside protection.</li>
 <li><strong>Structure:</strong> Includes a zero-strike call option and a long down-and-out put option.</li>
@@ -888,16 +853,16 @@ Definition
 <li><strong>Maturity:</strong> Typically short, recommended no longer than two to three years.</li>
 </ul>
 </section>
-<section id="twin-win-certificate" class="level3" data-number="12.6.3">
-<h3 data-number="12.6.3" class="anchored" data-anchor-id="twin-win-certificate"><span class="header-section-number">12.6.3</span> Twin-Win Certificate</h3>
+<section id="twin-win-certificate" class="level3">
+<h3 class="anchored" data-anchor-id="twin-win-certificate">Twin-Win Certificate</h3>
 <ul>
 <li><strong>Function:</strong> Provides positive participation in both the upside and downside movements of the underlying asset.</li>
 <li><strong>Structure:</strong> Consists of a long zero-strike call and double down-and-out put options.</li>
 </ul>
 <p><img src="images/02-twin-win-certificate.svg" class="img-fluid"></p>
 </section>
-<section id="outperformance-certificate" class="level3" data-number="12.6.4">
-<h3 data-number="12.6.4" class="anchored" data-anchor-id="outperformance-certificate"><span class="header-section-number">12.6.4</span> Outperformance Certificate</h3>
+<section id="outperformance-certificate" class="level3">
+<h3 class="anchored" data-anchor-id="outperformance-certificate">Outperformance Certificate</h3>
 <ul>
 <li><strong>Function:</strong> Designed for aggressive investment strategies, providing enhanced returns if the underlying outperforms expected dividends.</li>
 <li><strong>Structure:</strong> Combines a zero-strike call with multiple long at-the-money calls, funded by dividends.</li>
@@ -907,8 +872,8 @@ Definition
 <li><strong>Volatility and Dividends:</strong> Optimal conditions include low volatility (for cheaper options) and high dividend yields.</li>
 </ul>
 </section>
-<section id="capped-outperformance-certificate" class="level3" data-number="12.6.5">
-<h3 data-number="12.6.5" class="anchored" data-anchor-id="capped-outperformance-certificate"><span class="header-section-number">12.6.5</span> Capped Outperformance Certificate</h3>
+<section id="capped-outperformance-certificate" class="level3">
+<h3 class="anchored" data-anchor-id="capped-outperformance-certificate">Capped Outperformance Certificate</h3>
 <ul>
 <li><strong>Function:</strong> Provides leveraged exposure to the underlying asset up to a capped level.</li>
 <li><strong>Structure:</strong> A zero-strike call combined with a long at-the-money call and two short calls at higher strikes.</li>
@@ -923,9 +888,9 @@ Definition
 <section id="behavior-of-participation-products" class="level2" data-number="12.7">
 <h2 data-number="12.7" class="anchored" data-anchor-id="behavior-of-participation-products"><span class="header-section-number">12.7</span> Behavior of Participation Products</h2>
 <p>Participation products such as bonus, turbo, airbag, and outperformance certificates are heavily influenced by factors like implied volatility, dividend yields, and interest rates. These factors shape the product’s performance and its strategic suitability for different market conditions.</p>
-<section id="bonus-certificate---case-study" class="level3" data-number="12.7.1">
-<h3 data-number="12.7.1" class="anchored" data-anchor-id="bonus-certificate---case-study"><span class="header-section-number">12.7.1</span> Bonus Certificate - Case Study</h3>
-<table class="table">
+<section id="bonus-certificate---case-study" class="level3">
+<h3 class="anchored" data-anchor-id="bonus-certificate---case-study">Bonus Certificate - Case Study</h3>
+<table class="caption-top table">
 <colgroup>
 <col style="width: 31%">
 <col style="width: 43%">
@@ -1253,18 +1218,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1296,7 +1250,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -1304,7 +1280,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {

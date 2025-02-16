@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.554">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Financial Derivatives - Appendix B — Interest Rates</title>
+<title>Appendix B — Interest Rates – Financial Derivatives</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -68,7 +68,7 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -106,13 +106,13 @@ window.Quarto = {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./time_value.html">Appendices</a></li><li class="breadcrumb-item"><a href="./interest_rates.html"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Interest Rates</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -130,34 +130,34 @@ window.Quarto = {
       <a href="./">Financial Derivatives</a> 
         <div class="sidebar-tools-main">
     <div class="dropdown">
-      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download"><i class="bi bi-download"></i></a>
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Download"><i class="bi bi-download"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="./Financial-Derivatives.pdf">
-              <i class="bi bi-bi-file-pdf pe-1"></i>
+              <i class="bi bi-file-pdf pe-1"></i>
             Download PDF
             </a>
           </li>
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="./Financial-Derivatives.epub">
-              <i class="bi bi-bi-journal pe-1"></i>
+              <i class="bi bi-journal pe-1"></i>
             Download ePub
             </a>
           </li>
       </ul>
     </div>
     <div class="dropdown">
-      <a href="" title="Share" id="quarto-navigation-tool-dropdown-1" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-1" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Share"><i class="bi bi-share"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-1">
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
-              <i class="bi bi-bi-twitter pe-1"></i>
+              <i class="bi bi-twitter pe-1"></i>
             Twitter
             </a>
           </li>
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
-              <i class="bi bi-bi-facebook pe-1"></i>
+              <i class="bi bi-facebook pe-1"></i>
             Facebook
             </a>
           </li>
@@ -259,9 +259,9 @@ window.Quarto = {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -289,30 +289,11 @@ window.Quarto = {
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
-  <ul>
-  <li><a href="#types-of-rates" id="toc-types-of-rates" class="nav-link active" data-scroll-target="#types-of-rates"><span class="header-section-number">B.1</span> Types of Rates</a>
   <ul class="collapse">
-  <li><a href="#treasury-rate" id="toc-treasury-rate" class="nav-link" data-scroll-target="#treasury-rate"><span class="header-section-number">B.1.1</span> Treasury Rate</a></li>
-  <li><a href="#the-u.s.-fed-funds-rate" id="toc-the-u.s.-fed-funds-rate" class="nav-link" data-scroll-target="#the-u.s.-fed-funds-rate"><span class="header-section-number">B.1.2</span> The U.S. Fed Funds Rate</a></li>
-  <li><a href="#repo-rate" id="toc-repo-rate" class="nav-link" data-scroll-target="#repo-rate"><span class="header-section-number">B.1.3</span> Repo Rate</a></li>
-  <li><a href="#libor-ice-libor" id="toc-libor-ice-libor" class="nav-link" data-scroll-target="#libor-ice-libor"><span class="header-section-number">B.1.4</span> LIBOR (ICE LIBOR)</a></li>
-  </ul></li>
-  <li><a href="#alternative-reference-rates" id="toc-alternative-reference-rates" class="nav-link" data-scroll-target="#alternative-reference-rates"><span class="header-section-number">B.2</span> Alternative Reference Rates</a>
-  <ul class="collapse">
-  <li><a href="#sofr-secured-overnight-financing-rate" id="toc-sofr-secured-overnight-financing-rate" class="nav-link" data-scroll-target="#sofr-secured-overnight-financing-rate"><span class="header-section-number">B.2.1</span> SOFR (Secured Overnight Financing Rate)</a></li>
-  <li><a href="#sonia-sterling-overnight-index-average" id="toc-sonia-sterling-overnight-index-average" class="nav-link" data-scroll-target="#sonia-sterling-overnight-index-average"><span class="header-section-number">B.2.2</span> SONIA (Sterling Overnight Index Average)</a></li>
-  <li><a href="#str-or-ester-euro-short-term-rate" id="toc-str-or-ester-euro-short-term-rate" class="nav-link" data-scroll-target="#str-or-ester-euro-short-term-rate"><span class="header-section-number">B.2.3</span> €STR (or ESTER, Euro Short-Term Rate)</a></li>
-  </ul></li>
-  <li><a href="#ois-rate" id="toc-ois-rate" class="nav-link" data-scroll-target="#ois-rate"><span class="header-section-number">B.3</span> OIS Rate</a>
-  <ul class="collapse">
-  <li><a href="#the-risk-free-rate" id="toc-the-risk-free-rate" class="nav-link" data-scroll-target="#the-risk-free-rate"><span class="header-section-number">B.3.1</span> The Risk-Free Rate</a></li>
-  </ul></li>
-  <li><a href="#time-value-of-money" id="toc-time-value-of-money" class="nav-link" data-scroll-target="#time-value-of-money"><span class="header-section-number">B.4</span> Time Value of Money</a>
-  <ul class="collapse">
-  <li><a href="#compounding-frequency" id="toc-compounding-frequency" class="nav-link" data-scroll-target="#compounding-frequency"><span class="header-section-number">B.4.1</span> Compounding Frequency</a></li>
-  <li><a href="#continuous-compounding" id="toc-continuous-compounding" class="nav-link" data-scroll-target="#continuous-compounding"><span class="header-section-number">B.4.2</span> Continuous Compounding</a></li>
-  <li><a href="#conversion-formulas" id="toc-conversion-formulas" class="nav-link" data-scroll-target="#conversion-formulas"><span class="header-section-number">B.4.3</span> Conversion Formulas</a></li>
-  </ul></li>
+  <li><a href="#types-of-rates" id="toc-types-of-rates" class="nav-link active" data-scroll-target="#types-of-rates"><span class="header-section-number">B.1</span> Types of Rates</a></li>
+  <li><a href="#alternative-reference-rates" id="toc-alternative-reference-rates" class="nav-link" data-scroll-target="#alternative-reference-rates"><span class="header-section-number">B.2</span> Alternative Reference Rates</a></li>
+  <li><a href="#ois-rate" id="toc-ois-rate" class="nav-link" data-scroll-target="#ois-rate"><span class="header-section-number">B.3</span> OIS Rate</a></li>
+  <li><a href="#time-value-of-money" id="toc-time-value-of-money" class="nav-link" data-scroll-target="#time-value-of-money"><span class="header-section-number">B.4</span> Time Value of Money</a></li>
   </ul>
 </nav>
     </div>
@@ -364,14 +345,14 @@ References
 </ul>
 <section id="types-of-rates" class="level2" data-number="B.1">
 <h2 data-number="B.1" class="anchored" data-anchor-id="types-of-rates"><span class="header-section-number">B.1</span> Types of Rates</h2>
-<section id="treasury-rate" class="level3" data-number="B.1.1">
-<h3 data-number="B.1.1" class="anchored" data-anchor-id="treasury-rate"><span class="header-section-number">B.1.1</span> Treasury Rate</h3>
+<section id="treasury-rate" class="level3">
+<h3 class="anchored" data-anchor-id="treasury-rate">Treasury Rate</h3>
 <ul>
 <li>Rate on instrument issued by a government in its own currency.</li>
 </ul>
 </section>
-<section id="the-u.s.-fed-funds-rate" class="level3" data-number="B.1.2">
-<h3 data-number="B.1.2" class="anchored" data-anchor-id="the-u.s.-fed-funds-rate"><span class="header-section-number">B.1.2</span> The U.S. Fed Funds Rate</h3>
+<section id="the-u.s.-fed-funds-rate" class="level3">
+<h3 class="anchored" data-anchor-id="the-u.s.-fed-funds-rate">The U.S. Fed Funds Rate</h3>
 <ul>
 <li>Unsecured interbank overnight rate of interest.</li>
 <li>Allows banks to adjust the cash (i.e., reserves) on deposit with the Federal Reserve at the end of each day.</li>
@@ -380,16 +361,16 @@ References
 <li>Similar arrangements in other countries.</li>
 </ul>
 </section>
-<section id="repo-rate" class="level3" data-number="B.1.3">
-<h3 data-number="B.1.3" class="anchored" data-anchor-id="repo-rate"><span class="header-section-number">B.1.3</span> Repo Rate</h3>
+<section id="repo-rate" class="level3">
+<h3 class="anchored" data-anchor-id="repo-rate">Repo Rate</h3>
 <ul>
 <li>Repurchase agreement is an agreement where a financial institution that owns securities agrees to sell them for X and buy them bank in the future (usually the next day) for a slightly higher price, Y.</li>
 <li>The financial institution obtains a loan.</li>
 <li>The rate of interest is calculated from the difference between X and Y and is known as the repo rate.</li>
 </ul>
 </section>
-<section id="libor-ice-libor" class="level3" data-number="B.1.4">
-<h3 data-number="B.1.4" class="anchored" data-anchor-id="libor-ice-libor"><span class="header-section-number">B.1.4</span> LIBOR (ICE LIBOR)</h3>
+<section id="libor-ice-libor" class="level3">
+<h3 class="anchored" data-anchor-id="libor-ice-libor">LIBOR (ICE LIBOR)</h3>
 <ul>
 <li>Detailed information about LIBOR: <a href="https://www.theice.com/iba/libor" class="uri">https://www.theice.com/iba/libor</a></li>
 <li>LIBOR is the rate of interest at which a AA bank can borrow money on an <strong>unsecured</strong> basis from another bank.</li>
@@ -402,7 +383,7 @@ References
 </section>
 <section id="alternative-reference-rates" class="level2" data-number="B.2">
 <h2 data-number="B.2" class="anchored" data-anchor-id="alternative-reference-rates"><span class="header-section-number">B.2</span> Alternative Reference Rates</h2>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 42%">
 <col style="width: 30%">
@@ -443,8 +424,8 @@ References
 </tr>
 </tbody>
 </table>
-<section id="sofr-secured-overnight-financing-rate" class="level3" data-number="B.2.1">
-<h3 data-number="B.2.1" class="anchored" data-anchor-id="sofr-secured-overnight-financing-rate"><span class="header-section-number">B.2.1</span> SOFR (Secured Overnight Financing Rate)</h3>
+<section id="sofr-secured-overnight-financing-rate" class="level3">
+<h3 class="anchored" data-anchor-id="sofr-secured-overnight-financing-rate">SOFR (Secured Overnight Financing Rate)</h3>
 <ul>
 <li><a href="https://www.cmegroup.com/education/courses/introduction-to-sofr/what-is-sofr.html">CME Group Education</a></li>
 <li>Administered by Federal Reserve Bank of New York (<a href="https://apps.newyorkfed.org/markets/autorates/SOFR">link</a>)</li>
@@ -454,8 +435,8 @@ References
 <li>As such, it will reflect an economic cost of lending and borrowing relevant to the wide array of market participants active in the market.</li>
 </ul>
 </section>
-<section id="sonia-sterling-overnight-index-average" class="level3" data-number="B.2.2">
-<h3 data-number="B.2.2" class="anchored" data-anchor-id="sonia-sterling-overnight-index-average"><span class="header-section-number">B.2.2</span> SONIA (Sterling Overnight Index Average)</h3>
+<section id="sonia-sterling-overnight-index-average" class="level3">
+<h3 class="anchored" data-anchor-id="sonia-sterling-overnight-index-average">SONIA (Sterling Overnight Index Average)</h3>
 <ul>
 <li><a href="https://www.cmegroup.com/education/courses/introduction-to-sonia/what-is-sonia.html">CME Group Education</a></li>
 <li>Administered by Bank of England (<a href="https://www.bankofengland.co.uk/markets/sonia-benchmark">link</a>)</li>
@@ -465,8 +446,8 @@ References
 <li>In April 2018, the BOE introduced a series of reforms of the SONIA benchmark.</li>
 </ul>
 </section>
-<section id="str-or-ester-euro-short-term-rate" class="level3" data-number="B.2.3">
-<h3 data-number="B.2.3" class="anchored" data-anchor-id="str-or-ester-euro-short-term-rate"><span class="header-section-number">B.2.3</span> €STR (or ESTER, Euro Short-Term Rate)</h3>
+<section id="str-or-ester-euro-short-term-rate" class="level3">
+<h3 class="anchored" data-anchor-id="str-or-ester-euro-short-term-rate">€STR (or ESTER, Euro Short-Term Rate)</h3>
 <ul>
 <li>Administered by European Central Bank (<a href="https://www.ecb.europa.eu/stats/financial_markets_and_interest_rates/euro_short-term_rate/html/index.en.html">link</a>)</li>
 <li>It is based on the unsecured market segment.</li>
@@ -487,8 +468,8 @@ References
 <li>The OIS rate is a continually refreshed overnight rate.</li>
 <li>The fixed rate of OIS is typically an interest rate considered less risky than the corresponding interbank rate (LIBOR) because there is limited counterparty risk.</li>
 </ul>
-<section id="the-risk-free-rate" class="level3" data-number="B.3.1">
-<h3 data-number="B.3.1" class="anchored" data-anchor-id="the-risk-free-rate"><span class="header-section-number">B.3.1</span> The Risk-Free Rate</h3>
+<section id="the-risk-free-rate" class="level3">
+<h3 class="anchored" data-anchor-id="the-risk-free-rate">The Risk-Free Rate</h3>
 <ul>
 <li>The Treasury rate is considered to be artificially low because:
 <ul>
@@ -501,15 +482,15 @@ References
 </section>
 <section id="time-value-of-money" class="level2" data-number="B.4">
 <h2 data-number="B.4" class="anchored" data-anchor-id="time-value-of-money"><span class="header-section-number">B.4</span> Time Value of Money</h2>
-<section id="compounding-frequency" class="level3" data-number="B.4.1">
-<h3 data-number="B.4.1" class="anchored" data-anchor-id="compounding-frequency"><span class="header-section-number">B.4.1</span> Compounding Frequency</h3>
+<section id="compounding-frequency" class="level3">
+<h3 class="anchored" data-anchor-id="compounding-frequency">Compounding Frequency</h3>
 <ul>
 <li>When we compound <span class="math inline">\(m\)</span> times per year at rate <span class="math inline">\(r\)</span> an amount <span class="math inline">\(P\)</span> grows to <span class="math inline">\(P(1+r/m)^m\)</span> in one year.</li>
 <li>The compounding frequency used for an interest rate is the unit of measurement.</li>
 <li>The difference between quarterly and annual compounding is analogous to the difference between miles and kilometers.</li>
 <li>Effect of the compounding frequency on the value of $100 at the end of 1 year when the interest rate is 10% per annum.</li>
 </ul>
-<table class="table">
+<table class="caption-top table">
 <thead>
 <tr class="header">
 <th style="text-align: center;">Compounding frequency</th>
@@ -544,8 +525,8 @@ References
 </tbody>
 </table>
 </section>
-<section id="continuous-compounding" class="level3" data-number="B.4.2">
-<h3 data-number="B.4.2" class="anchored" data-anchor-id="continuous-compounding"><span class="header-section-number">B.4.2</span> Continuous Compounding</h3>
+<section id="continuous-compounding" class="level3">
+<h3 class="anchored" data-anchor-id="continuous-compounding">Continuous Compounding</h3>
 <ul>
 <li><strong>Rates used in option pricing are nearly always expressed with continuous compounding.</strong></li>
 <li>In the limit as we compound more and more frequently we obtain continuously compounded interest rates.</li>
@@ -563,8 +544,8 @@ References
 <li>USD 100 received at time <span class="math inline">\(T\)</span> discounts to <span class="math inline">\(100 \times e^{-rT}\)</span> at time zero when the continuously compounded discount rate is <span class="math inline">\(r\)</span>.</li>
 </ul>
 </section>
-<section id="conversion-formulas" class="level3" data-number="B.4.3">
-<h3 data-number="B.4.3" class="anchored" data-anchor-id="conversion-formulas"><span class="header-section-number">B.4.3</span> Conversion Formulas</h3>
+<section id="conversion-formulas" class="level3">
+<h3 class="anchored" data-anchor-id="conversion-formulas">Conversion Formulas</h3>
 <ul>
 <li><span class="math inline">\(r_c\)</span>: continuously compounded rate</li>
 <li><span class="math inline">\(r_m\)</span>: same rate with compounding <span class="math inline">\(m\)</span> times per year</li>
@@ -617,18 +598,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -660,7 +630,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -668,7 +660,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {

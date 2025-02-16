@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.554">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Financial Derivatives - 8&nbsp; Option Pricing - Binomial Trees</title>
+<title>8&nbsp; Option Pricing - Binomial Trees – Financial Derivatives</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -69,7 +69,7 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -107,13 +107,13 @@ window.Quarto = {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week_08.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Option Pricing - Binomial Trees</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -131,34 +131,34 @@ window.Quarto = {
       <a href="./">Financial Derivatives</a> 
         <div class="sidebar-tools-main">
     <div class="dropdown">
-      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download"><i class="bi bi-download"></i></a>
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Download"><i class="bi bi-download"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="./Financial-Derivatives.pdf">
-              <i class="bi bi-bi-file-pdf pe-1"></i>
+              <i class="bi bi-file-pdf pe-1"></i>
             Download PDF
             </a>
           </li>
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="./Financial-Derivatives.epub">
-              <i class="bi bi-bi-journal pe-1"></i>
+              <i class="bi bi-journal pe-1"></i>
             Download ePub
             </a>
           </li>
       </ul>
     </div>
     <div class="dropdown">
-      <a href="" title="Share" id="quarto-navigation-tool-dropdown-1" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-1" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Share"><i class="bi bi-share"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-1">
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
-              <i class="bi bi-bi-twitter pe-1"></i>
+              <i class="bi bi-twitter pe-1"></i>
             Twitter
             </a>
           </li>
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
-              <i class="bi bi-bi-facebook pe-1"></i>
+              <i class="bi bi-facebook pe-1"></i>
             Facebook
             </a>
           </li>
@@ -260,9 +260,9 @@ window.Quarto = {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -290,33 +290,12 @@ window.Quarto = {
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
-  <ul>
-  <li><a href="#a-one-step-binomial-model" id="toc-a-one-step-binomial-model" class="nav-link active" data-scroll-target="#a-one-step-binomial-model"><span class="header-section-number">8.1</span> A One-Step Binomial Model</a>
   <ul class="collapse">
-  <li><a href="#a-simple-binomial-model-for-a-call-option" id="toc-a-simple-binomial-model-for-a-call-option" class="nav-link" data-scroll-target="#a-simple-binomial-model-for-a-call-option"><span class="header-section-number">8.1.1</span> A Simple Binomial Model for a Call Option</a></li>
-  <li><a href="#generalized-framework-for-binomial-option-pricing" id="toc-generalized-framework-for-binomial-option-pricing" class="nav-link" data-scroll-target="#generalized-framework-for-binomial-option-pricing"><span class="header-section-number">8.1.2</span> Generalized Framework for Binomial Option Pricing</a></li>
-  <li><a href="#key-formulas-in-binomial-option-pricing" id="toc-key-formulas-in-binomial-option-pricing" class="nav-link" data-scroll-target="#key-formulas-in-binomial-option-pricing"><span class="header-section-number">8.1.3</span> Key Formulas in Binomial Option Pricing</a></li>
-  </ul></li>
-  <li><a href="#risk-neutral-valuation-framework" id="toc-risk-neutral-valuation-framework" class="nav-link" data-scroll-target="#risk-neutral-valuation-framework"><span class="header-section-number">8.2</span> Risk-Neutral Valuation Framework</a>
-  <ul class="collapse">
-  <li><a href="#core-concept" id="toc-core-concept" class="nav-link" data-scroll-target="#core-concept"><span class="header-section-number">8.2.1</span> Core Concept</a></li>
-  <li><a href="#the-irrelevance-of-the-stocks-expected-real-world-return" id="toc-the-irrelevance-of-the-stocks-expected-real-world-return" class="nav-link" data-scroll-target="#the-irrelevance-of-the-stocks-expected-real-world-return"><span class="header-section-number">8.2.2</span> The Irrelevance of the Stock’s Expected Real-World Return</a></li>
-  </ul></li>
-  <li><a href="#two-step-binomial-trees" id="toc-two-step-binomial-trees" class="nav-link" data-scroll-target="#two-step-binomial-trees"><span class="header-section-number">8.3</span> Two-Step Binomial Trees</a>
-  <ul class="collapse">
-  <li><a href="#valuing-a-call-option" id="toc-valuing-a-call-option" class="nav-link" data-scroll-target="#valuing-a-call-option"><span class="header-section-number">8.3.1</span> Valuing a Call Option</a></li>
-  <li><a href="#valuing-a-put-option" id="toc-valuing-a-put-option" class="nav-link" data-scroll-target="#valuing-a-put-option"><span class="header-section-number">8.3.2</span> Valuing a Put Option</a></li>
-  <li><a href="#what-happens-when-the-put-option-is-american" id="toc-what-happens-when-the-put-option-is-american" class="nav-link" data-scroll-target="#what-happens-when-the-put-option-is-american"><span class="header-section-number">8.3.3</span> What Happens When the Put Option is American?</a></li>
-  </ul></li>
-  <li><a href="#choosing-u-and-d-for-binomial-models" id="toc-choosing-u-and-d-for-binomial-models" class="nav-link" data-scroll-target="#choosing-u-and-d-for-binomial-models"><span class="header-section-number">8.4</span> Choosing <span class="math inline">\(u\)</span> and <span class="math inline">\(d\)</span> for Binomial Models</a>
-  <ul class="collapse">
-  <li><a href="#cox-ross-and-rubinstein-crr-methodology" id="toc-cox-ross-and-rubinstein-crr-methodology" class="nav-link" data-scroll-target="#cox-ross-and-rubinstein-crr-methodology"><span class="header-section-number">8.4.1</span> Cox, Ross, and Rubinstein (CRR) Methodology</a></li>
-  </ul></li>
-  <li><a href="#the-binomial-tree-model-summary" id="toc-the-binomial-tree-model-summary" class="nav-link" data-scroll-target="#the-binomial-tree-model-summary"><span class="header-section-number">8.5</span> The Binomial Tree Model Summary</a>
-  <ul class="collapse">
-  <li><a href="#core-formulas" id="toc-core-formulas" class="nav-link" data-scroll-target="#core-formulas"><span class="header-section-number">8.5.1</span> Core Formulas</a></li>
-  <li><a href="#application-to-various-assets" id="toc-application-to-various-assets" class="nav-link" data-scroll-target="#application-to-various-assets"><span class="header-section-number">8.5.2</span> Application to Various Assets</a></li>
-  </ul></li>
+  <li><a href="#a-one-step-binomial-model" id="toc-a-one-step-binomial-model" class="nav-link active" data-scroll-target="#a-one-step-binomial-model"><span class="header-section-number">8.1</span> A One-Step Binomial Model</a></li>
+  <li><a href="#risk-neutral-valuation-framework" id="toc-risk-neutral-valuation-framework" class="nav-link" data-scroll-target="#risk-neutral-valuation-framework"><span class="header-section-number">8.2</span> Risk-Neutral Valuation Framework</a></li>
+  <li><a href="#two-step-binomial-trees" id="toc-two-step-binomial-trees" class="nav-link" data-scroll-target="#two-step-binomial-trees"><span class="header-section-number">8.3</span> Two-Step Binomial Trees</a></li>
+  <li><a href="#choosing-u-and-d-for-binomial-models" id="toc-choosing-u-and-d-for-binomial-models" class="nav-link" data-scroll-target="#choosing-u-and-d-for-binomial-models"><span class="header-section-number">8.4</span> Choosing <span class="math inline">\(u\)</span> and <span class="math inline">\(d\)</span> for Binomial Models</a></li>
+  <li><a href="#the-binomial-tree-model-summary" id="toc-the-binomial-tree-model-summary" class="nav-link" data-scroll-target="#the-binomial-tree-model-summary"><span class="header-section-number">8.5</span> The Binomial Tree Model Summary</a></li>
   <li><a href="#practice-questions-and-problems" id="toc-practice-questions-and-problems" class="nav-link" data-scroll-target="#practice-questions-and-problems"><span class="header-section-number">8.6</span> Practice Questions and Problems</a></li>
   </ul>
 </nav>
@@ -378,8 +357,8 @@ References
 <h2 data-number="8.1" class="anchored" data-anchor-id="a-one-step-binomial-model"><span class="header-section-number">8.1</span> A One-Step Binomial Model</h2>
 <p>This section provides an overview of a fundamental financial derivative pricing method using a simplified binomial model. The model offers an intuitive approach to option pricing, grounded in the concept of constructing a riskless portfolio and applying arbitrage-free pricing principles.</p>
 <p>This generalized model provides a foundational approach for valuing derivatives using discrete-time, binomial frameworks. It not only clarifies the mechanics of risk-neutral valuation but also lays the groundwork for understanding more complex derivatives and pricing methods in continuous-time models.</p>
-<section id="a-simple-binomial-model-for-a-call-option" class="level3" data-number="8.1.1">
-<h3 data-number="8.1.1" class="anchored" data-anchor-id="a-simple-binomial-model-for-a-call-option"><span class="header-section-number">8.1.1</span> A Simple Binomial Model for a Call Option</h3>
+<section id="a-simple-binomial-model-for-a-call-option" class="level3">
+<h3 class="anchored" data-anchor-id="a-simple-binomial-model-for-a-call-option">A Simple Binomial Model for a Call Option</h3>
 <p><strong>Option Characteristics:</strong></p>
 <ul>
 <li>3-month call option on a stock.</li>
@@ -422,8 +401,8 @@ References
 </ul>
 </section>
 </section>
-<section id="generalized-framework-for-binomial-option-pricing" class="level3" data-number="8.1.2">
-<h3 data-number="8.1.2" class="anchored" data-anchor-id="generalized-framework-for-binomial-option-pricing"><span class="header-section-number">8.1.2</span> Generalized Framework for Binomial Option Pricing</h3>
+<section id="generalized-framework-for-binomial-option-pricing" class="level3">
+<h3 class="anchored" data-anchor-id="generalized-framework-for-binomial-option-pricing">Generalized Framework for Binomial Option Pricing</h3>
 <p>This section extends the simple binomial model to a more general framework, illustrating how option prices can be systematically derived under varying market conditions. This generalization leverages the fundamental concepts of arbitrage-free pricing and the construction of a synthetic, risk-free portfolio.</p>
 <section id="core-principles" class="level4">
 <h4 class="anchored" data-anchor-id="core-principles">Core Principles</h4>
@@ -462,8 +441,8 @@ References
 </ul>
 </section>
 </section>
-<section id="key-formulas-in-binomial-option-pricing" class="level3" data-number="8.1.3">
-<h3 data-number="8.1.3" class="anchored" data-anchor-id="key-formulas-in-binomial-option-pricing"><span class="header-section-number">8.1.3</span> Key Formulas in Binomial Option Pricing</h3>
+<section id="key-formulas-in-binomial-option-pricing" class="level3">
+<h3 class="anchored" data-anchor-id="key-formulas-in-binomial-option-pricing">Key Formulas in Binomial Option Pricing</h3>
 <p>The binomial model provides a straightforward method for determining the price of an option using a discrete-time framework. The central formulas include:</p>
 <ul>
 <li><strong>Option Price Calculation:</strong> This formula represents the present value of the expected payoff of the option, adjusted for risk neutrality.</li>
@@ -515,8 +494,8 @@ Example: Binomial Option Pricing
 <section id="risk-neutral-valuation-framework" class="level2" data-number="8.2">
 <h2 data-number="8.2" class="anchored" data-anchor-id="risk-neutral-valuation-framework"><span class="header-section-number">8.2</span> Risk-Neutral Valuation Framework</h2>
 <p>Risk-neutral valuation is a pivotal concept in financial mathematics, offering a streamlined and theoretically robust method for pricing derivatives. This approach is grounded in the notion that the expected return on the underlying asset can be assumed to be the risk-free rate when valuing derivatives. Here, we elaborate on this principle and its practical implications, using a binomial model as the illustrative framework.</p>
-<section id="core-concept" class="level3" data-number="8.2.1">
-<h3 data-number="8.2.1" class="anchored" data-anchor-id="core-concept"><span class="header-section-number">8.2.1</span> Core Concept</h3>
+<section id="core-concept" class="level3">
+<h3 class="anchored" data-anchor-id="core-concept">Core Concept</h3>
 <ul>
 <li><p><strong>Expected Stock Price Dynamics:</strong> In a binomial model where the probability of upward and downward movements are denoted by <span class="math inline">\(p\)</span> and <span class="math inline">\(1-p\)</span> respectively, the expected stock price at time <span class="math inline">\(T\)</span>, discounted back to the present, is mathematically equivalent to the stock’s initial price compounded at the risk-free rate, <span class="math inline">\(S_0e^{rT}\)</span>. This equivalence underscores the principle that, under risk-neutral valuation, the stock is assumed to grow at the risk-free rate over time.</p></li>
 <li><p><strong>Binomial Trees and Derivative Pricing:</strong> The use of binomial trees in financial modeling demonstrates a general principle: to value a derivative, it is sufficient to assume that the underlying asset yields a return equal to the risk-free rate, and similarly, the discount rate applied to future payoffs is the risk-free rate. This methodology, known as risk-neutral valuation, simplifies the derivative pricing process by abstracting away from the actual expected return of the underlying asset.</p></li>
@@ -548,8 +527,8 @@ Example Revisited
 </div>
 </div>
 </section>
-<section id="the-irrelevance-of-the-stocks-expected-real-world-return" class="level3" data-number="8.2.2">
-<h3 data-number="8.2.2" class="anchored" data-anchor-id="the-irrelevance-of-the-stocks-expected-real-world-return"><span class="header-section-number">8.2.2</span> The Irrelevance of the Stock’s Expected Real-World Return</h3>
+<section id="the-irrelevance-of-the-stocks-expected-real-world-return" class="level3">
+<h3 class="anchored" data-anchor-id="the-irrelevance-of-the-stocks-expected-real-world-return">The Irrelevance of the Stock’s Expected Real-World Return</h3>
 <ul>
 <li>A key insight from risk-neutral valuation is the irrelevance of the real-world probabilities of the underlying asset’s future price movements when valuing options.</li>
 <li>Since <strong>the current stock price embeds these real-world probabilities</strong>, derivative pricing can proceed without needing to account for them again.</li>
@@ -561,8 +540,8 @@ Example Revisited
 <section id="two-step-binomial-trees" class="level2" data-number="8.3">
 <h2 data-number="8.3" class="anchored" data-anchor-id="two-step-binomial-trees"><span class="header-section-number">8.3</span> Two-Step Binomial Trees</h2>
 <p>Two-step binomial trees extend the single-period model to allow for a more detailed examination of option pricing over multiple periods. This method can value both call and put options by simulating possible paths the underlying asset’s price might take and then discounting expected payoffs back to the present value.</p>
-<section id="valuing-a-call-option" class="level3" data-number="8.3.1">
-<h3 data-number="8.3.1" class="anchored" data-anchor-id="valuing-a-call-option"><span class="header-section-number">8.3.1</span> Valuing a Call Option</h3>
+<section id="valuing-a-call-option" class="level3">
+<h3 class="anchored" data-anchor-id="valuing-a-call-option">Valuing a Call Option</h3>
 <p>Consider a call option with a strike price (<span class="math inline">\(K\)</span>) of $21, where each time step represents 3 months. The annual risk-free rate (<span class="math inline">\(r\)</span>) is 4%, with up (<span class="math inline">\(u\)</span>) and down (<span class="math inline">\(d\)</span>) factors of 1.1 and 0.9, respectively, and the risk-neutral probability (<span class="math inline">\(p\)</span>) is 0.5503.</p>
 <p><img src="images/07-16-valuing-call-option.png" class="img-fluid"></p>
 <ul>
@@ -578,8 +557,8 @@ Example Revisited
 </ul></li>
 </ul>
 </section>
-<section id="valuing-a-put-option" class="level3" data-number="8.3.2">
-<h3 data-number="8.3.2" class="anchored" data-anchor-id="valuing-a-put-option"><span class="header-section-number">8.3.2</span> Valuing a Put Option</h3>
+<section id="valuing-a-put-option" class="level3">
+<h3 class="anchored" data-anchor-id="valuing-a-put-option">Valuing a Put Option</h3>
 <p>For a put option with a strike price (<span class="math inline">\(K\)</span>) of $52 and a time step of 1 year, the parameters are: <span class="math inline">\(r = 5\%\)</span>, <span class="math inline">\(u = 1.2\)</span>, <span class="math inline">\(d = 0.8\)</span>, and <span class="math inline">\(p = 0.6282\)</span>.</p>
 <p><img src="images/07-17-valuing-put-option.png" class="img-fluid"></p>
 <ul>
@@ -591,8 +570,8 @@ Example Revisited
 </ul></li>
 </ul>
 </section>
-<section id="what-happens-when-the-put-option-is-american" class="level3" data-number="8.3.3">
-<h3 data-number="8.3.3" class="anchored" data-anchor-id="what-happens-when-the-put-option-is-american"><span class="header-section-number">8.3.3</span> What Happens When the Put Option is American?</h3>
+<section id="what-happens-when-the-put-option-is-american" class="level3">
+<h3 class="anchored" data-anchor-id="what-happens-when-the-put-option-is-american">What Happens When the Put Option is American?</h3>
 <p>American options allow for early exercise, affecting their valuation. Specifically, for the previous example with a put option:</p>
 <ul>
 <li><p>The exercising early increases the option’s value at node <span class="math inline">\(C\)</span> to <span class="math inline">\(\$12\)</span>.</p></li>
@@ -611,8 +590,8 @@ Example Revisited
 <section id="choosing-u-and-d-for-binomial-models" class="level2" data-number="8.4">
 <h2 data-number="8.4" class="anchored" data-anchor-id="choosing-u-and-d-for-binomial-models"><span class="header-section-number">8.4</span> Choosing <span class="math inline">\(u\)</span> and <span class="math inline">\(d\)</span> for Binomial Models</h2>
 <p>In binomial option pricing models, accurately modeling the underlying asset’s price dynamics is crucial. One effective approach to align these models with the asset’s volatility—a key measure of its price fluctuations—is to set the up (<span class="math inline">\(u\)</span>) and down (<span class="math inline">\(d\)</span>) factors based on volatility. This method ensures that the model captures the essence of the asset’s risk and return characteristics over the specified time steps.</p>
-<section id="cox-ross-and-rubinstein-crr-methodology" class="level3" data-number="8.4.1">
-<h3 data-number="8.4.1" class="anchored" data-anchor-id="cox-ross-and-rubinstein-crr-methodology"><span class="header-section-number">8.4.1</span> Cox, Ross, and Rubinstein (CRR) Methodology</h3>
+<section id="cox-ross-and-rubinstein-crr-methodology" class="level3">
+<h3 class="anchored" data-anchor-id="cox-ross-and-rubinstein-crr-methodology">Cox, Ross, and Rubinstein (CRR) Methodology</h3>
 <p>Cox, Ross, and Rubinstein’s seminal work in 1979 introduced a practical and widely adopted method for setting <span class="math inline">\(u\)</span> and <span class="math inline">\(d\)</span>, which directly ties these parameters to the asset’s volatility (<span class="math inline">\(\sigma\)</span>) and the length of the model’s time step (<span class="math inline">\(\Delta t\)</span>):</p>
 <p><span class="math display">\[u = e^{\sigma \sqrt{\Delta t}}\]</span></p>
 <p><span class="math display">\[d = \frac{1}{u} = e^{-\sigma \sqrt{\Delta t}}\]</span></p>
@@ -638,8 +617,8 @@ Implications of Girsanov’s Theorem
 </section>
 <section id="the-binomial-tree-model-summary" class="level2" data-number="8.5">
 <h2 data-number="8.5" class="anchored" data-anchor-id="the-binomial-tree-model-summary"><span class="header-section-number">8.5</span> The Binomial Tree Model Summary</h2>
-<section id="core-formulas" class="level3" data-number="8.5.1">
-<h3 data-number="8.5.1" class="anchored" data-anchor-id="core-formulas"><span class="header-section-number">8.5.1</span> Core Formulas</h3>
+<section id="core-formulas" class="level3">
+<h3 class="anchored" data-anchor-id="core-formulas">Core Formulas</h3>
 <section id="price-movement-factors" class="level4">
 <h4 class="anchored" data-anchor-id="price-movement-factors">Price Movement Factors</h4>
 <p>The magnitude of up (<span class="math inline">\(u\)</span>) and down (<span class="math inline">\(d\)</span>) movements in the asset’s price is modeled to reflect the asset’s volatility (<span class="math inline">\(\sigma\)</span>) and the length of the time step (<span class="math inline">\(\Delta t\)</span>):</p>
@@ -660,8 +639,8 @@ Implications of Girsanov’s Theorem
 <p>where <span class="math inline">\(f_u\)</span> and <span class="math inline">\(f_d\)</span> are the option’s payoffs in the event of an up or down move, respectively, and <span class="math inline">\(T\)</span> is the total time to maturity.</p>
 </section>
 </section>
-<section id="application-to-various-assets" class="level3" data-number="8.5.2">
-<h3 data-number="8.5.2" class="anchored" data-anchor-id="application-to-various-assets"><span class="header-section-number">8.5.2</span> Application to Various Assets</h3>
+<section id="application-to-various-assets" class="level3">
+<h3 class="anchored" data-anchor-id="application-to-various-assets">Application to Various Assets</h3>
 <p>While the basic binomial tree structure remains constant, adjustments to the calculation of <span class="math inline">\(p\)</span> accommodate different types of underlying assets, reflecting their unique characteristics.</p>
 <ul>
 <li><strong>Nondividend Paying Stocks:</strong>
@@ -840,18 +819,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -883,7 +851,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -891,7 +881,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {

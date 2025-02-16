@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.554">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Financial Derivatives - 4&nbsp; Swaps</title>
+<title>4&nbsp; Swaps – Financial Derivatives</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -69,7 +69,7 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -107,13 +107,13 @@ window.Quarto = {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week_04.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Swaps</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -131,34 +131,34 @@ window.Quarto = {
       <a href="./">Financial Derivatives</a> 
         <div class="sidebar-tools-main">
     <div class="dropdown">
-      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download"><i class="bi bi-download"></i></a>
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Download"><i class="bi bi-download"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="./Financial-Derivatives.pdf">
-              <i class="bi bi-bi-file-pdf pe-1"></i>
+              <i class="bi bi-file-pdf pe-1"></i>
             Download PDF
             </a>
           </li>
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="./Financial-Derivatives.epub">
-              <i class="bi bi-bi-journal pe-1"></i>
+              <i class="bi bi-journal pe-1"></i>
             Download ePub
             </a>
           </li>
       </ul>
     </div>
     <div class="dropdown">
-      <a href="" title="Share" id="quarto-navigation-tool-dropdown-1" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-1" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Share"><i class="bi bi-share"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-1">
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
-              <i class="bi bi-bi-twitter pe-1"></i>
+              <i class="bi bi-twitter pe-1"></i>
             Twitter
             </a>
           </li>
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
-              <i class="bi bi-bi-facebook pe-1"></i>
+              <i class="bi bi-facebook pe-1"></i>
             Facebook
             </a>
           </li>
@@ -260,9 +260,9 @@ window.Quarto = {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -290,41 +290,16 @@ window.Quarto = {
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
-  <ul>
+  <ul class="collapse">
   <li><a href="#nature-of-swaps" id="toc-nature-of-swaps" class="nav-link active" data-scroll-target="#nature-of-swaps"><span class="header-section-number">4.1</span> Nature of Swaps</a></li>
-  <li><a href="#interest-rate-swaps" id="toc-interest-rate-swaps" class="nav-link" data-scroll-target="#interest-rate-swaps"><span class="header-section-number">4.2</span> Interest Rate Swaps</a>
-  <ul class="collapse">
-  <li><a href="#typical-applications-of-interest-rate-swaps" id="toc-typical-applications-of-interest-rate-swaps" class="nav-link" data-scroll-target="#typical-applications-of-interest-rate-swaps"><span class="header-section-number">4.2.1</span> Typical Applications of Interest Rate Swaps</a></li>
-  <li><a href="#insights-from-a-swap-market-maker-citigroup" id="toc-insights-from-a-swap-market-maker-citigroup" class="nav-link" data-scroll-target="#insights-from-a-swap-market-maker-citigroup"><span class="header-section-number">4.2.2</span> Insights from a Swap Market Maker (Citigroup)</a></li>
-  </ul></li>
-  <li><a href="#the-comparative-advantage-argument" id="toc-the-comparative-advantage-argument" class="nav-link" data-scroll-target="#the-comparative-advantage-argument"><span class="header-section-number">4.3</span> The Comparative-Advantage Argument</a>
-  <ul class="collapse">
-  <li><a href="#the-case-study-aaacorp-and-bbbcorp" id="toc-the-case-study-aaacorp-and-bbbcorp" class="nav-link" data-scroll-target="#the-case-study-aaacorp-and-bbbcorp"><span class="header-section-number">4.3.1</span> The Case Study: AAACorp and BBBCorp</a></li>
-  <li><a href="#critical-analysis-of-the-comparative-advantage-argument" id="toc-critical-analysis-of-the-comparative-advantage-argument" class="nav-link" data-scroll-target="#critical-analysis-of-the-comparative-advantage-argument"><span class="header-section-number">4.3.2</span> Critical Analysis of the Comparative Advantage Argument</a></li>
-  </ul></li>
-  <li><a href="#valuation-of-interest-rate-swaps" id="toc-valuation-of-interest-rate-swaps" class="nav-link" data-scroll-target="#valuation-of-interest-rate-swaps"><span class="header-section-number">4.4</span> Valuation of Interest Rate Swaps</a>
-  <ul class="collapse">
-  <li><a href="#valuation-framework" id="toc-valuation-framework" class="nav-link" data-scroll-target="#valuation-framework"><span class="header-section-number">4.4.1</span> Valuation Framework</a></li>
-  </ul></li>
-  <li><a href="#currency-swaps" id="toc-currency-swaps" class="nav-link" data-scroll-target="#currency-swaps"><span class="header-section-number">4.5</span> Currency Swaps</a>
-  <ul class="collapse">
-  <li><a href="#case-study-british-petroleum-and-barclays-swap-agreement" id="toc-case-study-british-petroleum-and-barclays-swap-agreement" class="nav-link" data-scroll-target="#case-study-british-petroleum-and-barclays-swap-agreement"><span class="header-section-number">4.5.1</span> Case Study: British Petroleum and Barclays Swap Agreement</a></li>
-  <li><a href="#typical-applications-of-currency-swaps" id="toc-typical-applications-of-currency-swaps" class="nav-link" data-scroll-target="#typical-applications-of-currency-swaps"><span class="header-section-number">4.5.2</span> Typical Applications of Currency Swaps</a></li>
-  <li><a href="#comparative-advantage-in-currency-swaps" id="toc-comparative-advantage-in-currency-swaps" class="nav-link" data-scroll-target="#comparative-advantage-in-currency-swaps"><span class="header-section-number">4.5.3</span> Comparative Advantage in Currency Swaps</a></li>
-  </ul></li>
+  <li><a href="#interest-rate-swaps" id="toc-interest-rate-swaps" class="nav-link" data-scroll-target="#interest-rate-swaps"><span class="header-section-number">4.2</span> Interest Rate Swaps</a></li>
+  <li><a href="#the-comparative-advantage-argument" id="toc-the-comparative-advantage-argument" class="nav-link" data-scroll-target="#the-comparative-advantage-argument"><span class="header-section-number">4.3</span> The Comparative-Advantage Argument</a></li>
+  <li><a href="#valuation-of-interest-rate-swaps" id="toc-valuation-of-interest-rate-swaps" class="nav-link" data-scroll-target="#valuation-of-interest-rate-swaps"><span class="header-section-number">4.4</span> Valuation of Interest Rate Swaps</a></li>
+  <li><a href="#currency-swaps" id="toc-currency-swaps" class="nav-link" data-scroll-target="#currency-swaps"><span class="header-section-number">4.5</span> Currency Swaps</a></li>
   <li><a href="#valuation-of-fixed-for-fixed-currency-swaps" id="toc-valuation-of-fixed-for-fixed-currency-swaps" class="nav-link" data-scroll-target="#valuation-of-fixed-for-fixed-currency-swaps"><span class="header-section-number">4.6</span> Valuation of Fixed-for-Fixed Currency Swaps</a></li>
-  <li><a href="#other-currency-swaps" id="toc-other-currency-swaps" class="nav-link" data-scroll-target="#other-currency-swaps"><span class="header-section-number">4.7</span> Other Currency Swaps</a>
-  <ul class="collapse">
-  <li><a href="#fixed-for-floating-currency-swaps" id="toc-fixed-for-floating-currency-swaps" class="nav-link" data-scroll-target="#fixed-for-floating-currency-swaps"><span class="header-section-number">4.7.1</span> Fixed-for-Floating Currency Swaps</a></li>
-  <li><a href="#floating-for-floating-currency-swaps" id="toc-floating-for-floating-currency-swaps" class="nav-link" data-scroll-target="#floating-for-floating-currency-swaps"><span class="header-section-number">4.7.2</span> Floating-for-Floating Currency Swaps</a></li>
-  </ul></li>
+  <li><a href="#other-currency-swaps" id="toc-other-currency-swaps" class="nav-link" data-scroll-target="#other-currency-swaps"><span class="header-section-number">4.7</span> Other Currency Swaps</a></li>
   <li><a href="#other-types-of-swaps" id="toc-other-types-of-swaps" class="nav-link" data-scroll-target="#other-types-of-swaps"><span class="header-section-number">4.8</span> Other Types of Swaps</a></li>
-  <li><a href="#practice-questions-and-problems" id="toc-practice-questions-and-problems" class="nav-link" data-scroll-target="#practice-questions-and-problems"><span class="header-section-number">4.9</span> Practice Questions and Problems</a>
-  <ul class="collapse">
-  <li><a href="#the-basic-usage-of-swaps-in-risk-management" id="toc-the-basic-usage-of-swaps-in-risk-management" class="nav-link" data-scroll-target="#the-basic-usage-of-swaps-in-risk-management"><span class="header-section-number">4.9.1</span> The Basic Usage of Swaps in Risk Management</a></li>
-  <li><a href="#comparative-advantage-and-swap-structuring" id="toc-comparative-advantage-and-swap-structuring" class="nav-link" data-scroll-target="#comparative-advantage-and-swap-structuring"><span class="header-section-number">4.9.2</span> Comparative Advantage and Swap Structuring</a></li>
-  <li><a href="#swap-valuation" id="toc-swap-valuation" class="nav-link" data-scroll-target="#swap-valuation"><span class="header-section-number">4.9.3</span> Swap Valuation</a></li>
-  </ul></li>
+  <li><a href="#practice-questions-and-problems" id="toc-practice-questions-and-problems" class="nav-link" data-scroll-target="#practice-questions-and-problems"><span class="header-section-number">4.9</span> Practice Questions and Problems</a></li>
   </ul>
 </nav>
     </div>
@@ -400,7 +375,7 @@ References
 <ul>
 <li><strong>Cash Flow Dynamics</strong>: The table provided outlines potential outcomes for a modified scenario where the swap duration is two years, retaining the $100 million notional principal. It details the exchange rates, corresponding cash flows, and net outcomes for Apple across several dates. This table exemplifies the variability in net cash flow resulting from fluctuations in the SOFR rate, with Apple’s position oscillating between receiving and paying funds based on these rates.</li>
 </ul>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 11%">
 <col style="width: 11%">
@@ -476,8 +451,8 @@ References
 </tr>
 </tbody>
 </table>
-<section id="typical-applications-of-interest-rate-swaps" class="level3" data-number="4.2.1">
-<h3 data-number="4.2.1" class="anchored" data-anchor-id="typical-applications-of-interest-rate-swaps"><span class="header-section-number">4.2.1</span> Typical Applications of Interest Rate Swaps</h3>
+<section id="typical-applications-of-interest-rate-swaps" class="level3">
+<h3 class="anchored" data-anchor-id="typical-applications-of-interest-rate-swaps">Typical Applications of Interest Rate Swaps</h3>
 <p>Interest rate swaps serve as versatile financial instruments, facilitating strategic adjustments to both liabilities and assets. Entities utilize these swaps to modify their interest rate exposure, transitioning between fixed and floating rates as per their financial strategies or market outlook.</p>
 <ul>
 <li>Apple Transforms a <strong>Liability</strong> from Floating to Fixed:</li>
@@ -496,12 +471,12 @@ References
 </ul>
 <p><img src="images/05-7-intel-citi-3.png" class="img-fluid"></p>
 </section>
-<section id="insights-from-a-swap-market-maker-citigroup" class="level3" data-number="4.2.2">
-<h3 data-number="4.2.2" class="anchored" data-anchor-id="insights-from-a-swap-market-maker-citigroup"><span class="header-section-number">4.2.2</span> Insights from a Swap Market Maker (Citigroup)</h3>
+<section id="insights-from-a-swap-market-maker-citigroup" class="level3">
+<h3 class="anchored" data-anchor-id="insights-from-a-swap-market-maker-citigroup">Insights from a Swap Market Maker (Citigroup)</h3>
 <ul>
 <li><strong>Market Quotations</strong>: This section offers a glimpse into the swap market’s dynamics, presenting Citigroup’s bid and offer rates for fixed-rate swaps with varying maturities. The bid-offer spread, typically ranging from three to four basis points, reflects the market maker’s pricing strategy and the liquidity of swap contracts across different terms.</li>
 </ul>
-<table class="table">
+<table class="caption-top table">
 <thead>
 <tr class="header">
 <th style="text-align: center;">Maturity (years)</th>
@@ -554,10 +529,10 @@ References
 <section id="the-comparative-advantage-argument" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="the-comparative-advantage-argument"><span class="header-section-number">4.3</span> The Comparative-Advantage Argument</h2>
 <p>The comparative-advantage argument forms a foundational concept in the realm of financial swaps, particularly illuminating why and how companies engage in interest rate swaps to optimize their borrowing costs. At the heart of this argument is the strategic alignment of borrowing preferences with market conditions to leverage comparative advantages.</p>
-<section id="the-case-study-aaacorp-and-bbbcorp" class="level3" data-number="4.3.1">
-<h3 data-number="4.3.1" class="anchored" data-anchor-id="the-case-study-aaacorp-and-bbbcorp"><span class="header-section-number">4.3.1</span> The Case Study: AAACorp and BBBCorp</h3>
+<section id="the-case-study-aaacorp-and-bbbcorp" class="level3">
+<h3 class="anchored" data-anchor-id="the-case-study-aaacorp-and-bbbcorp">The Case Study: AAACorp and BBBCorp</h3>
 <p>Consider two hypothetical entities: AAACorp, which prefers to borrow using floating interest rates, and BBBCorp, which opts for fixed-rate borrowing. Their respective borrowing rates are tabled below, illustrating the differential costs of borrowing in fixed versus floating rate markets:</p>
-<table class="table">
+<table class="caption-top table">
 <thead>
 <tr class="header">
 <th style="text-align: center;">Entity</th>
@@ -587,8 +562,8 @@ References
 </ul>
 <p><img src="images/05-11-swap-indirectly.png" class="img-fluid"></p>
 </section>
-<section id="critical-analysis-of-the-comparative-advantage-argument" class="level3" data-number="4.3.2">
-<h3 data-number="4.3.2" class="anchored" data-anchor-id="critical-analysis-of-the-comparative-advantage-argument"><span class="header-section-number">4.3.2</span> Critical Analysis of the Comparative Advantage Argument</h3>
+<section id="critical-analysis-of-the-comparative-advantage-argument" class="level3">
+<h3 class="anchored" data-anchor-id="critical-analysis-of-the-comparative-advantage-argument">Critical Analysis of the Comparative Advantage Argument</h3>
 <p>While the comparative-advantage argument underpins the financial logic for interest rate swaps, it is not without criticism, particularly when scrutinizing the underlying rates’ term structure:</p>
 <ul>
 <li><p><strong>Rate Term Disparity</strong>: The fixed rates quoted (4.0% for AAACorp and 5.2% for BBBCorp) pertain to 5-year borrowing, whereas the floating rates (Floating - 0.1% for AAACorp and Floating + 0.6% for BBBCorp) are based on 6-month terms. This discrepancy in rate terms introduces complexities in directly comparing and assessing the advantages of one type of rate over the other.</p></li>
@@ -599,8 +574,8 @@ References
 <section id="valuation-of-interest-rate-swaps" class="level2" data-number="4.4">
 <h2 data-number="4.4" class="anchored" data-anchor-id="valuation-of-interest-rate-swaps"><span class="header-section-number">4.4</span> Valuation of Interest Rate Swaps</h2>
 <p>Interest rate swaps are sophisticated financial instruments utilized to manage interest rate exposure. Initially, their valuation is approximately zero, reflecting an equitable initiation of terms. As market conditions evolve, their value can fluctuate significantly. This dynamic nature requires a detailed understanding of valuation techniques, notably through the lens of Forward Rate Agreements (FRAs).</p>
-<section id="valuation-framework" class="level3" data-number="4.4.1">
-<h3 data-number="4.4.1" class="anchored" data-anchor-id="valuation-framework"><span class="header-section-number">4.4.1</span> Valuation Framework</h3>
+<section id="valuation-framework" class="level3">
+<h3 class="anchored" data-anchor-id="valuation-framework">Valuation Framework</h3>
 <p>The valuation process encompasses several steps, designed to ascertain the present value of the swap’s anticipated cash flows:</p>
 <ol type="1">
 <li><p><strong>Floating Forward Rates Calculation</strong>: This initial step involves projecting future interest rates based on current market data, which will determine the floating rate payments of the swap.</p></li>
@@ -636,7 +611,7 @@ Example: Swap Valuation
 <section id="cash-flow-valuation" class="level4">
 <h4 class="anchored" data-anchor-id="cash-flow-valuation">Cash Flow Valuation</h4>
 <p>The valuation process meticulously calculates the fixed and floating cash flows, their net impact, and their present values as detailed in the table below. These calculations employ the forward SOFR rates and discount them using the corresponding OIS rates to ascertain the swap’s current value.</p>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 8%">
 <col style="width: 17%">
@@ -708,15 +683,15 @@ Example: Swap Valuation
 <section id="currency-swaps" class="level2" data-number="4.5">
 <h2 data-number="4.5" class="anchored" data-anchor-id="currency-swaps"><span class="header-section-number">4.5</span> Currency Swaps</h2>
 <p>Currency swaps are intricate financial instruments that facilitate the exchange of principal and interest payments in different currencies between two parties. A fixed-for-fixed currency swap involves exchanging fixed interest rate payments in one currency for fixed interest rate payments in another currency, alongside the exchange of principal amounts at both the start and end of the agreement.</p>
-<section id="case-study-british-petroleum-and-barclays-swap-agreement" class="level3" data-number="4.5.1">
-<h3 data-number="4.5.1" class="anchored" data-anchor-id="case-study-british-petroleum-and-barclays-swap-agreement"><span class="header-section-number">4.5.1</span> Case Study: British Petroleum and Barclays Swap Agreement</h3>
+<section id="case-study-british-petroleum-and-barclays-swap-agreement" class="level3">
+<h3 class="anchored" data-anchor-id="case-study-british-petroleum-and-barclays-swap-agreement">Case Study: British Petroleum and Barclays Swap Agreement</h3>
 <ul>
 <li><strong>Agreement Overview</strong>: British Petroleum enters into a five-year currency swap with Barclays, where British Petroleum agrees to pay a fixed interest rate of 3% in U.S. dollars and receives a fixed interest rate of 4% in British pounds sterling.</li>
 <li><strong>Principal Exchange</strong>: The principal amounts involved are USD 15 million and GBP 10 million, exchanged at the inception and conclusion of the swap term.</li>
 <li><strong>Interest Payment Schedule</strong>: Interest is paid annually, reflecting the fixed rates agreed upon in both currencies.</li>
 </ul>
 <p>The table below outlines the yearly cash flows resulting from this swap, highlighting the exchange of principal and interest payments between British Petroleum and Barclays:</p>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 23%">
 <col style="width: 37%">
@@ -763,22 +738,22 @@ Example: Swap Valuation
 </tbody>
 </table>
 </section>
-<section id="typical-applications-of-currency-swaps" class="level3" data-number="4.5.2">
-<h3 data-number="4.5.2" class="anchored" data-anchor-id="typical-applications-of-currency-swaps"><span class="header-section-number">4.5.2</span> Typical Applications of Currency Swaps</h3>
+<section id="typical-applications-of-currency-swaps" class="level3">
+<h3 class="anchored" data-anchor-id="typical-applications-of-currency-swaps">Typical Applications of Currency Swaps</h3>
 <p>Currency swaps serve versatile functions in global finance, including but not limited to:</p>
 <ul>
 <li><p><strong>Liability Management</strong>: They enable entities to convert liabilities from one currency to another, aligning with their currency exposure preferences or expectations.</p></li>
 <li><p><strong>Investment Optimization</strong>: Similarly, currency swaps can convert investments from one currency to another, facilitating global investment strategies that match investors’ risk and return profiles.</p></li>
 </ul>
 </section>
-<section id="comparative-advantage-in-currency-swaps" class="level3" data-number="4.5.3">
-<h3 data-number="4.5.3" class="anchored" data-anchor-id="comparative-advantage-in-currency-swaps"><span class="header-section-number">4.5.3</span> Comparative Advantage in Currency Swaps</h3>
+<section id="comparative-advantage-in-currency-swaps" class="level3">
+<h3 class="anchored" data-anchor-id="comparative-advantage-in-currency-swaps">Comparative Advantage in Currency Swaps</h3>
 <p>Comparative advantage in currency swaps can emerge from various factors, including the differential impact of taxation on borrowing costs across different currencies.</p>
 <ul>
 <li><p><strong>Scenario</strong>: General Electric seeks to borrow in Australian dollars (AUD), while Qantas Airways aims to borrow in U.S. dollars (USD).</p></li>
 <li><p><strong>Borrowing Costs</strong>: After tax adjustments, the borrowing costs for each entity in their non-preferred currencies reveal a potential for mutual benefit through a currency swap.</p></li>
 </ul>
-<table class="table">
+<table class="caption-top table">
 <thead>
 <tr class="header">
 <th style="text-align: center;"></th>
@@ -826,7 +801,7 @@ Example: Valuation of Currency Swap
 <li><strong>Swap Duration</strong>: The swap has a remaining life of 3 years.</li>
 <li><strong>Current Exchange Rate</strong>: The spot exchange rate is 110 yen per dollar.</li>
 </ul>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 7%">
 <col style="width: 15%">
@@ -910,8 +885,8 @@ Example: Valuation of Currency Swap
 </section>
 <section id="other-currency-swaps" class="level2" data-number="4.7">
 <h2 data-number="4.7" class="anchored" data-anchor-id="other-currency-swaps"><span class="header-section-number">4.7</span> Other Currency Swaps</h2>
-<section id="fixed-for-floating-currency-swaps" class="level3" data-number="4.7.1">
-<h3 data-number="4.7.1" class="anchored" data-anchor-id="fixed-for-floating-currency-swaps"><span class="header-section-number">4.7.1</span> Fixed-for-Floating Currency Swaps</h3>
+<section id="fixed-for-floating-currency-swaps" class="level3">
+<h3 class="anchored" data-anchor-id="fixed-for-floating-currency-swaps">Fixed-for-Floating Currency Swaps</h3>
 <p>A fixed-for-floating currency swap is a hybrid financial instrument that combines elements of a fixed-for-fixed currency swap with a fixed-for-floating interest rate swap. This type of swap involves the exchange of fixed interest payments in one currency for floating interest payments in another currency.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -931,8 +906,8 @@ Example
 </div>
 </div>
 </section>
-<section id="floating-for-floating-currency-swaps" class="level3" data-number="4.7.2">
-<h3 data-number="4.7.2" class="anchored" data-anchor-id="floating-for-floating-currency-swaps"><span class="header-section-number">4.7.2</span> Floating-for-Floating Currency Swaps</h3>
+<section id="floating-for-floating-currency-swaps" class="level3">
+<h3 class="anchored" data-anchor-id="floating-for-floating-currency-swaps">Floating-for-Floating Currency Swaps</h3>
 <p>Floating-for-floating currency swaps involve the exchange of floating interest payments in two different currencies. This type of swap is essentially a combination of a fixed-for-fixed currency swap and two floating interest rate swaps.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -974,18 +949,18 @@ Example
 </section>
 <section id="practice-questions-and-problems" class="level2" data-number="4.9">
 <h2 data-number="4.9" class="anchored" data-anchor-id="practice-questions-and-problems"><span class="header-section-number">4.9</span> Practice Questions and Problems</h2>
-<section id="the-basic-usage-of-swaps-in-risk-management" class="level3" data-number="4.9.1">
-<h3 data-number="4.9.1" class="anchored" data-anchor-id="the-basic-usage-of-swaps-in-risk-management"><span class="header-section-number">4.9.1</span> The Basic Usage of Swaps in Risk Management</h3>
+<section id="the-basic-usage-of-swaps-in-risk-management" class="level3">
+<h3 class="anchored" data-anchor-id="the-basic-usage-of-swaps-in-risk-management">The Basic Usage of Swaps in Risk Management</h3>
 <p><strong>1)</strong> A bank finds that its assets are not matched with its liabilities. It is taking floating-rate deposits and making fixed-rate loans. How can swaps be used to offset the risk?</p>
 <p><strong>2)</strong> Explain the difference between the credit risk and the market risk in a financial contract.</p>
 <p><strong>3)</strong> Explain why a bank is subject to credit risk when it enters into two offsetting swap contracts.</p>
 <p><strong>4)</strong> Why is the expected loss from a default on a swap less than the expected loss from the default on a loan to the same counterparty with the same principal?</p>
 </section>
-<section id="comparative-advantage-and-swap-structuring" class="level3" data-number="4.9.2">
-<h3 data-number="4.9.2" class="anchored" data-anchor-id="comparative-advantage-and-swap-structuring"><span class="header-section-number">4.9.2</span> Comparative Advantage and Swap Structuring</h3>
+<section id="comparative-advantage-and-swap-structuring" class="level3">
+<h3 class="anchored" data-anchor-id="comparative-advantage-and-swap-structuring">Comparative Advantage and Swap Structuring</h3>
 <p><strong>5)</strong> A corporate treasurer tells you that he has just negotiated a five-year loan at a competitive fixed rate of interest of 5.2%. The treasurer explains that he achieved the 5.2% rate by borrowing at six-month LIBOR plus 150 basis points and swapping LIBOR for 3.7%. He goes on to say that this was possible because his company has a comparative advantage in the floating-rate market. What has the treasurer overlooked?</p>
 <p><strong>6)</strong> Companies A and B have been offered the following rates per annum on a $20 million five-year loan:</p>
-<table class="table">
+<table class="caption-top table">
 <thead>
 <tr class="header">
 <th style="text-align: center;"></th>
@@ -1008,7 +983,7 @@ Example
 </table>
 <p>Company A requires a floating-rate loan; company B requires a fixed-rate loan. Design a swap that will net a bank, acting as intermediary, 0.1% per annum and that will appear equally attractive to both companies.</p>
 <p><strong>7)</strong> Company X wishes to borrow U.S. dollars at a fixed rate of interest. Company Y wishes to borrow Japanese yen at a fixed rate of interest. The amounts required by the two companies are roughly the same at the current exchange rate. The companies have been quoted the following interest rates, which have been adjusted for the impact of taxes:</p>
-<table class="table">
+<table class="caption-top table">
 <thead>
 <tr class="header">
 <th style="text-align: center;"></th>
@@ -1031,7 +1006,7 @@ Example
 </table>
 <p>Design a swap that will net a bank, acting as intermediary, 50 basis points per annum. Make the swap equally attractive to the two companies and ensure that all foreign exchange risk is assumed by the bank.</p>
 <p><strong>8)</strong> Companies X and Y have been offered the following rates per annum on a $5 million 10-year investment:</p>
-<table class="table">
+<table class="caption-top table">
 <thead>
 <tr class="header">
 <th style="text-align: center;"></th>
@@ -1054,8 +1029,8 @@ Example
 </table>
 <p>Company X requires a fixed-rate investment; company Y requires a floating-rate investment. Design a swap that will net a bank, acting as intermediary, 0.2% per annum and will appear equally attractive to X and Y.</p>
 </section>
-<section id="swap-valuation" class="level3" data-number="4.9.3">
-<h3 data-number="4.9.3" class="anchored" data-anchor-id="swap-valuation"><span class="header-section-number">4.9.3</span> Swap Valuation</h3>
+<section id="swap-valuation" class="level3">
+<h3 class="anchored" data-anchor-id="swap-valuation">Swap Valuation</h3>
 <p><strong>9)</strong> A $100 million interest rate swap has a remaining life of 10 months. Under the terms of the swap, six-month LIBOR is exchanged for 7% per annum (compounded semiannually). The average of the bid-offer rate being exchanged for six-month LIBOR in swaps of all maturities is currently 5% per annum with continuous compounding (5.063% with semi-annual compounding). The six-month LIBOR rate was 4.6% per annum two months ago. What is the current value of the swap to the party paying floating? What is its value to the party paying fixed?</p>
 <p><strong>10)</strong> A currency swap has a remaining life of 15 months. It involves exchanging interest at 10% on 20 million GBP for interest at 6% on 30 million USD once a year. The term structure of interest rates in both the United Kingdom and the United States is currently flat, and if the swap were negotiated today the interest rates exchanged would be 4% in dollars and 7% in sterling. All interest rates are quoted with annual compounding (the continuously compounded interest rates in sterling and dollars are 6.766% per annum and 3.922% per annum). The current exchange rate (dollars per pound sterling) is 1.5500. What is the value of the swap to the party paying sterling? What is the value of the swap to the party paying dollars?</p>
 
@@ -1099,18 +1074,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1142,7 +1106,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -1150,7 +1136,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
