@@ -4,7 +4,7 @@ project:
 book:
   title: "Financial Derivatives"
   author: "Tomáš Plíhal"
-  date: "2024-02-19"
+  date: "2025-02-16"
   search: true
   page-navigation: true
   downloads: [pdf, epub]
@@ -33,6 +33,8 @@ book:
 format:
   html:
     theme: materia
-    number-depth: 3
+    number-depth: 2
+    toc: true
+    toc-depth: 2
   pdf:
     documentclass: scrreprt
