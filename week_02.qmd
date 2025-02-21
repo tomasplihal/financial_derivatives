@@ -69,14 +69,12 @@ a set price on a future date.
 price with the final market price.
 
 ```{python}
-import plotly.graph_objects as go
 import numpy as np
-import plotly.io as pio
-pio.renderers.default = "svg"
+import matplotlib.pyplot as plt
 
 # Parameters
 F = 100  # Futures price
-Q = 1  # Quantity of the asset
+Q = 1    # Quantity of the asset
 spot_prices = np.linspace(80, 120, 100)  # Range of spot prices
 
 # Payoff calculations
@@ -84,41 +82,23 @@ long_payoff = (spot_prices - F) * Q
 short_payoff = (F - spot_prices) * Q
 
 # Create the figure
-fig = go.Figure()
+plt.figure(figsize=(8, 6))
 
-# Add traces for long and short positions
-fig.add_trace(
-    go.Scatter(
-        x=spot_prices,
-        y=long_payoff,
-        mode="lines",
-        name="Long Position",
-        line=dict(width=3),
-        hovertemplate="Long Position<br>Spot Price: %{x:.0f}<br>Payoff: %{y:.0f}<extra></extra>",
-    )
-)
-fig.add_trace(
-    go.Scatter(
-        x=spot_prices,
-        y=short_payoff,
-        mode="lines",
-        name="Short Position",
-        line=dict(width=3),
-        hovertemplate="Short Position<br>Spot Price: %{x:.0f}<br>Payoff: %{y:.0f}<extra></extra>",
-    )
-)
-fig.add_hline(y=0, line_dash="solid", line_color="black", line=dict(width=0.7))
+# Plot long and short positions
+plt.plot(spot_prices, long_payoff, label="Long Position", linewidth=3)
+plt.plot(spot_prices, short_payoff, label="Short Position", linewidth=3)
 
-# Layout
-fig.update_layout(
-    title="Payoff from a Futures Contract",
-    xaxis_title="Spot Price at Expiration",
-    yaxis_title="Payoff",
-    legend_title="Position",
-)
+# Add horizontal line at y=0
+plt.axhline(0, color="black", linewidth=0.7)
+
+# Add title and labels
+plt.title("Payoff from a Futures Contract")
+plt.xlabel("Spot Price at Expiration")
+plt.ylabel("Payoff")
+plt.legend(title="Position")
 
 # Show the figure
-fig.show()
+plt.show()
 ``` 
 
 ## Payoff From a Forward Contract
