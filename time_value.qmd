@@ -35,7 +35,7 @@ time between successive interest payments)
 | :------: | :----------: | :-------: | :-----: | :----: | :-----: |
 |  $m=1$   |    $m=2$     |   $m=4$   | $m=12$  | $m=52$ | $m=365$ |
 
-- $t = $ Term of investment (in years)
+- $t =$ Term of investment (in years)
 
 ### Simple Interest
 
