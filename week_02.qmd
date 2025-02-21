@@ -2,6 +2,9 @@
 format:
   html:
     code-fold: true
+    self-contained: true
+execute:
+  echo: false
 jupyter: python3
 ---
 
@@ -28,51 +31,48 @@ functionalities and distinctions.
 hedging techniques.
 - Explore the role of stock index futures in portfolio risk management and speculation.
 
-## Forwards and Futures Characteristics
+##  Forwards and Futures Characteristics
 
 ::: {.callout-tip}
 # Definition
 
-Forwards and futures are derivative contracts **obligating** two parties to exchange an
-asset at a predetermined future date and price.
+Forwards and futures are agreements where two parties **commit to** exchange an asset at
+a set price on a future date.
 :::
 
-- **Forward/Futures Price:** This is the agreed-upon price at which the underlying asset
-will be exchanged in the future. It's important to note that this price is determined at
-the contract's inception and may vary across contracts with different expiration dates,
-reflecting the market's expectations of future price movements.
+**Forward/Futures Price:**  
 
-- **Positioning:** 
-  - A **long position** signifies the buyer's **commitment to purchase** the underlying
-  asset. The buyer stands to benefit from a rise in the asset's price over time but also
-  bears the risk of a potential decrease.
-  - A **short position** represents the seller's **obligation to sell** the asset. While
-  the seller can profit from a decline in the asset's price, there is also the risk of
-  unlimited loss if the asset's price increases substantially.
+- The agreed-upon price is fixed when the contract starts.
+- Different expiration dates can lead to different prices based on market expectations.
 
-- **Risk Exposure:** 
-  - The potential loss for the holder of a **long position** can extend up to the full
-  contract price, emphasizing the risk of a total loss if the asset's value drops to
-  zero.
-  - Conversely, the **short position** holder faces potentially unlimited loss, as there
-  is no upper limit to how high an asset's price can climb.
+**Positions:**  
 
-- **Contract Specifications:**
-  - **Deliverable Assets:** Clearly defines the asset or assets that can be delivered
-  under the contract, including any standards or grades if applicable.
-  - **Delivery Location:** Specifies where the asset will be delivered, which can
-  significantly impact logistics and costs.
-  - **Delivery Time:** Outlines when delivery of the asset is expected, providing a
-  timeframe within which the contract must be settled.
+- **Long Position:** The buyer promises to purchase the asset.  
+  - Benefits if the asset's price goes up.
+- **Short Position:** The seller promises to sell the asset.  
+  - Benefits if the asset's price goes down.
 
-- **Settlement:** Futures contracts often settle daily based on market price changes, a
-process known as "marking to market." Forwards, however, usually settle at the end of
-the contract term, with the final payment reflecting the difference between the forward
-price and the underlying asset's price at maturity.
+**Risk Exposure:**  
+
+- **Long Position:** Loss can be large if the asset's price drops significantly.
+- **Short Position:** Loss can be unlimited if the asset's price rises dramatically.
+
+**Contract Details:**  
+
+- **Asset Specification:** What asset is being traded and any quality standards.
+- **Delivery Terms:** Where and when the asset will be delivered.
+
+**Settlement Methods:**  
+
+- **Futures Contracts:** Settled daily (marking to market).
+- **Forward Contracts:** Settled at the end of the contract term by comparing the agreed
+price with the final market price.
 
 ```{python}
 import plotly.graph_objects as go
 import numpy as np
+import plotly.io as pio
+pio.renderers.default = "svg"
 
 # Parameters
 F = 100  # Futures price
@@ -119,179 +119,129 @@ fig.update_layout(
 
 # Show the figure
 fig.show()
-```
+``` 
 
 ## Payoff From a Forward Contract
 
-When discussing forward contracts, it's essential to understand the setup:
+- **Start of Contract:** Time = $0$, with an initial spot price $S_0$.
+- **End of Contract:** Time = $T$, with a final spot price $S_T$.
+- **Forward Price:**  The fixed price agreed upon, $F_0$.
 
-- **Initiation Time:** The contract begins at $t = 0$
-- **Expiration Time:** The contract ends at $t = T$
-- **Initial Spot Price:** The price of the underlying asset at start, denoted as $S_0$
-- **Final Spot Price:** The price of the underlying asset at expiration, $S_T$
-- **Forward Price:** Agreed upon price for the asset, represented as $F_0$
+**Long Position (Buyer):**  
 
-Forward contracts involve two parties with contrasting positions:
+- Profit if $S_T$ is higher than $F_0$; loss if it is lower.
 
-- The **long position** commits to purchasing the asset at $F_0$, seeking to profit from
-an increase in $S_T$.
-- The **short position** commits to selling the asset at $F_0$, benefiting if $S_T$
-decreases.
+$$ \text{Payoff}_\text{Long} = S_T - F_0 $$
 
-Payoff from a forward contract is then calculated as:
+**Short Position (Seller):**  
 
-- **Long Party Payoff at Expiration:** $S_T - F_0$
-- **Short Party Payoff at Expiration:** $-[S_T - F_0]$
+- Profit if $S_T$ is lower than $F_0$; loss if it is higher.
 
-::: {.callout-note}
+$$ \text{Payoff}_\text{Short} = - (S_T - F_0) $$
+
+::: {.callout-note collapse="true"}
 # Example: Gold Purchase Agreement
 
 Barbara Nix agreed to buy 1 kilogram of gold at a price of \$38,000 per kilo from Metals
 Inc. in 90 days. After 90 days, the spot price of gold reached \$38,500 per kilo. What
 is the payoff for each party?
 
-- **For Nix (Long Party):** The gain is \$500, calculated as 
+- **For the Long Party (Barbara Nix):** The gain is \$500, calculated as 
 $$S_T - F_0 = \$38,500 - \$38,000 = \$500$$
-- **For PM Metals Inc. (Short Party):** The loss is \$500
+
+- **For the Short Party (Metals Inc.):** The loss is \$500
+$$-(S_T - F_0) = - (\$38,500 - \$38,000) = -\$500$$
 :::
 
-## Exchange Markets
+## Exchange Markets (Futures)
 
-Exchange markets facilitate the trading of futures contracts, allowing participants to
-hedge against price changes or speculate on market movements. Key characteristics
-include the standardized nature of contracts and the regulatory oversight provided to
-ensure market integrity.
+Exchange markets provide a regulated, **standardized** environment for trading futures
+contracts. They enable participants to hedge risks or speculate on market movements.
 
-- **Regulation:** In the United States, the Commodity Futures Trading Commission (CFTC)
-oversees the futures markets, aiming to protect market participants and maintain market
-integrity.
+- **Regulation:**  
+  The Commodity Futures Trading Commission (CFTC) in the U.S. oversees these markets to
+  protect participants and ensure fair trading.
 
-- **Futures Contract Specifications:** Futures contracts are highly standardized, with
-detailed specifications, e.g., [CME Group's Gold Futures](https://www.cmegroup.com/markets/metals/precious/gold.quotes.html).
+- **Contract Specifications:**  
+  Futures contracts are standardized, clearly defining the asset, quality, delivery
+  location, and date. For example, see [CME Group's Gold
+  Futures](https://www.cmegroup.com/markets/metals/precious/gold.quotes.html).
 
-### Delivery Mechanisms
+- **Settlement:**  
+  Most futures contracts are closed out before maturity, avoiding physical delivery
+  through offsetting trades.
+  - **Physical Delivery:** When required, contracts specify the deliverable asset,
+  delivery location, and timeframe. Typically, the short (seller) sets the delivery
+  details.  
+  - **Cash Settlement:** Some contracts, such as stock index futures, settle in cash
+  rather than through the physical delivery of assets.
 
-- **Contract Settlement:** Most futures contracts are closed out before maturity,
-avoiding physical delivery. Instead, positions are settled by entering into an
-offsetting transaction.
-- **Delivery Options:** For contracts requiring physical delivery, specifications
-outline the deliverable commodities, delivery locations, and timelines. The short
-position holder usually determines the delivery specifics.
-- **Cash Settlement:** Certain contracts, such as those for stock indices, settle in
-cash instead of physical delivery.
+### Market Quotes and Trading Activity
 
-### Understanding Market Quotes
-
-- **Settlement Price:** This is the closing price used for the daily settlement process.
-- **Open Interest:** Represents the total number of open contracts, equal to either the
-number of long or short positions.
-- **Trading Volume:** Indicates the total number of contracts traded in a day, which can
-exceed the open interest.
+- **Settlement Price:** The closing price used for daily settlements.  
+- **Open Interest:** The total number of outstanding contracts (either long or short),
+reflecting market liquidity.  
+- **Trading Volume:** The total number of contracts traded during a day, regardless of
+changes in open interest.
 
 ::: {.callout-note collapse="true"}
 # Example of Open Interest and Trading Volume
 
-Imagine a futures market for wheat. At the start of the trading day, there are 1,000
-open contracts for December Wheat futures. Throughout the day, traders conduct the
-following transactions:
+Imagine a wheat futures market that starts the day with **1,000 open contracts**. During
+the day, the following transactions occur:
 
-1. **Transaction 1:** A new buyer and a new seller enter the market, agreeing on a
-contract. This transaction increases the open interest by 1 contract, bringing the total
-open interest to 1,001.
-2. **Transaction 2:** An existing holder of a long position sells to a new participant.
-This transaction does not change the open interest since one new party replaces another
-in the open position count, keeping the open interest at 1,001.
-3. **Transaction 3:** Two new participants (a buyer and a seller) enter the market with
-5 new contracts. This increases the open interest by 5, making it 1,006.
-4. **Transaction 4:** An existing buyer and an existing seller close out their position
-by entering into an offsetting contract. This transaction decreases the open interest by
-1, bringing it down to 1,005.
+1. **Transaction 1:** A new buyer and a new seller agree on a contract.  
+   - **Open Interest:** Increases by 1 (total: 1,001).
+   - **Trading Volume:** +1 contract.
 
-By the end of the day, the open interest in December Wheat futures is 1,005, indicating
-the total number of active contracts.
+2. **Transaction 2:** An existing long position is sold to a new participant.  
+   - **Open Interest:** Remains at 1,001 (one party is simply replaced).
+   - **Trading Volume:** +1 contract.
+3. **Transaction 3:** Two new participants (a buyer and a seller) enter with 5 new
+contracts.  
+   - **Open Interest:** Increases by 5 (total: 1,006).
+   - **Trading Volume:** +5 contracts.
+4. **Transaction 4:** An existing buyer and seller close their positions with an
+offsetting contract.  
+   - **Open Interest:** Decreases by 1 (total: 1,005).
+   - **Trading Volume:** +1 contract.
 
-The **trading volume** for the day is calculated by adding up all the new contracts
-traded, regardless of whether they increase, decrease, or leave open interest unchanged.
-For the day's transactions:
+Final Totals:
 
-- **Transaction 1:** Adds 1 to the trading volume.
-- **Transaction 2:** Adds 1 to the trading volume (although it doesn't affect open
-interest).
-- **Transaction 3:** Adds 5 to the trading volume.
-- **Transaction 4:** Adds 1 to the trading volume (as it involves the exchange of
-contracts, despite decreasing open interest).
+- **Open Interest:** 1,005 contracts (active positions at the end of the day).  
+- **Trading Volume:** 8 contracts traded throughout the day.
 
-Therefore, the total trading volume for the day is 8 contracts.
-
-This example illustrates how open interest and trading volume provide different insights
-into market activity. Open interest shows the total number of outstanding contracts,
-indicating market liquidity and potential future activity. Trading volume measures the
-number of contracts traded within a day, offering insights into the market's current
-activity level.
+This example shows that **open interest** reflects the number of active contracts, while
+**trading volume** is the total number of contracts exchanged during the day.
 :::
 
-### Daily Settlement Process and Margins
+### Daily Settlement and Margins
 
-The clearinghouse calculates the settlement price daily, adjusting traders' margin
-accounts based on market movements:
+- **Mark-to-Market:**  
+  The clearinghouse adjusts each trader's margin account daily to reflect gains or
+  losses based on the settlement price.
 
-- **Mark-to-Market:** Daily gains or losses are reflected in the margin account,
-ensuring that the account balance accurately represents the market value of the
-position.
-
-Margins are crucial for managing credit risk in futures trading:
-
-- **Initial Margin:** The upfront deposit required to open a position.
-- **Maintenance Margin:** A lower threshold that must be maintained; falling below
-triggers a margin call, requiring the account to be topped up to the initial margin
-level again.
-- **Margin Calls:** If an account falls below the maintenance margin, additional funds
-must be deposited to meet the initial margin requirement.
+- **Margin Requirements:**  
+  - **Initial Margin:** The deposit required to open a position.  
+  - **Maintenance Margin:** The minimum balance that must be maintained. Falling below
+  this triggers a **margin call** (additional funds must be deposited to meet the
+  initial margin requirement).
+.
 
 ::: {.callout-note collapse="true"}
-# Example of Margin, Maintenance Margin, and Margin Call
+# Example: Margin and Margin Call
 
-Let's consider an investor, Alex, who wants to enter into a futures contract for crude
-oil. The price of one contract (representing 1,000 barrels) is \$60 per barrel, making
-the total value of the contract \$60,000.
+Alex enters a crude oil futures contract valued at \$60,000.  
 
-#### Initial Margin
+- **Initial Margin (5%):** \$3,000  
+- **Maintenance Margin (3%):** \$1,800  
 
-The exchange requires an **initial margin** of 5% to open a position. Therefore, Alex
-must deposit:
+If the contract value drops to \$58,000, Alex loses \$2,000, reducing his margin account
+to \$1,000—below the maintenance margin. He then receives a margin call and must deposit
+an additional \$2,000 to restore his account to \$3,000.
 
-$$5\% \times \$60,000 = \$3,000$$
-
-This deposit is a security against potential losses on the position.
-
-#### Maintenance Margin
-
-The exchange sets a **maintenance margin** at 3% of the contract value, which is the
-minimum amount that must be maintained in the margin account. For Alex, this is:
-
-$$3\% \times \$60,000 = \$1,800$$
-
-#### Margin Call
-
-Assume the price of crude oil drops to \$58 per barrel, decreasing the value of Alex's
-futures contract to:
-
-$$1,000 \text{ barrels} \times \$58 = \$58,000$$
-
-This decrease results in a loss of \$2,000 on Alex's position, reducing his margin
-account to \$1,000 (\$3,000 initial margin - \$2,000 loss), which is below the
-maintenance margin of \$1,800. As a result, Alex receives a **margin call** from his
-broker, requiring him to deposit additional funds to bring his margin account back up to
-the initial margin level of \$3,000.
-
-To meet the margin call, Alex must deposit an additional \$2,000 into his margin
-account. If Alex fails to meet the margin call, his position may be closed out by the
-broker to limit further losses.
-
-This example illustrates the concepts of initial margin, maintenance margin, and margin
-calls within the context of futures trading. These mechanisms protect both the investor
-and the broker from the volatility and potential losses associated with leveraged
-positions in the futures market.
+If Alex fails to meet the margin call, his position may be closed out by the broker to
+limit further losses.
 :::
 
 ::: {.callout-tip}
@@ -302,370 +252,306 @@ positions in the futures market.
 - [Understanding Futures Margin](https://www.schwab.com/learn/story/understanding-futures-margin)
 :::
 
-## OTC Markets
+## OTC Markets (Forwards)
 
-Over-the-Counter (OTC) markets facilitate the trading of forward contracts and other
-financial instruments directly between two parties without the intermediation of
-exchanges. These markets offer flexibility and customization in the contracts traded but
-historically lacked the transparency and regulation of their exchange-traded
-counterparts.
+Over-the-Counter (OTC) markets allow forward contracts and other derivatives to be
+traded directly between two parties without an exchange. This setup offers **flexibility
+and customization** but traditionally lacks the transparency and regulation found in
+exchange-traded markets.
 
-### Regulatory Evolution
+**Pre-Crisis Era:**  
 
-- **Pre-Crisis Era:** Prior to the 2007–2008 financial crisis, the OTC market operated
-with minimal regulatory oversight. This lack of regulation contributed to systemic
-risks, as evidenced by the crisis.
+- OTC markets operated with minimal oversight, contributing to systemic risk before the
+2007–2008 financial crisis.
+  
+**Post-Crisis Reforms:**  
 
-- **Post-Crisis Reforms:** In response to the financial crisis, significant regulatory
-measures were introduced globally to increase transparency, reduce systemic risk, and
-improve market stability. These include the Dodd-Frank Act in the United States and the
-European Market Infrastructure Regulation (EMIR) in the EU, mandating the reporting of
-OTC transactions and the use of central clearing parties for certain classes of
-derivatives.
+- In response to the crisis, regulations such as the Dodd-Frank Act (U.S.) and EMIR (EU)
+were introduced.  
+- These reforms require reporting OTC transactions and often mandate central clearing to
+enhance transparency and reduce risk.
 
 ### Collateral Requirements
 
-To mitigate counterparty risk, collateral requirements were introduced, including:
+To manage counterparty risk in OTC markets, collateral is required:
 
-- **Initial Margin:** An upfront deposit required to enter into a contract, intended to
-cover potential future exposure in the period immediately following a default.
-
-- **Variational Margin (or Variation Margin):** Additional funds that must be deposited
-to cover adverse price movements, ensuring the value of the collateral matches the
-exposure at the end of each trading day.
+- **Initial Margin:**  
+  - An upfront deposit to cover potential losses immediately after a default.
+  
+- **Variation Margin:**  
+  - Additional funds required to adjust for daily price changes, ensuring the collateral
+  always matches the current exposure.
 
 ### Clearing Mechanisms
 
-- **Bilateral Clearing:** Traditionally, OTC markets relied on bilateral clearing, where
-each transaction is a separate agreement between two parties. This method allows for
-customization but lacks centralized risk management, making it harder to monitor and
-mitigate systemic risk.
+**Bilateral Clearing:**  
 
-- **Central Clearing:** The introduction of a **Central Counterparty (CCP)** for
-clearing OTC trades represents a significant shift. The CCP acts as a buyer to every
-seller and a seller to every buyer, reducing counterparty risk and increasing market
-transparency.  Central clearing houses also enforce margin requirements and perform
-regular mark-to-market adjustments to manage risk. While OTC contracts are customized,
-CCPs have facilitated a move towards some level of standardization, especially in the
-processes for managing risk and settling trades.
+- Each transaction is settled directly between the two parties.  
+- This method allows customization but lacks centralized risk management.
 
-## Forward vs. Futures Contracts Summary
+**Central Clearing:**  
 
-| **Characteristics**                             | **Forward Contracts**                               | **Futures Contracts**                                  |
-|-------------------------------------------------|-----------------------------------------------------|-------------------------------------------------------|
-| **Market Type**                                 | Over-the-Counter (OTC)                              | Exchange-Traded                                       |
-| **Standardization**                             | Customized features to suit parties' needs          | Standardized in terms of contract size and expiration |
-| **Delivery Date**                               | Typically one specified date                        | Range of specified dates allowing flexibility         |
-| **Settlement of Gains and Losses**              | At contract maturity                                | Daily, via marking to market                          |
-| **Settlement Method**                           | Physical delivery or cash settlement                | Often closed out before maturity, usually cash settled|
-| **Credit Risk**                                 | Present, due to lack of central clearing             | Mitigated by the clearinghouse's guarantee            |
-| **Regulation and Transparency**                 | Limited, due to private nature                      | High, due to regulatory oversight and transparency    |
-| **Liquidity and Market Depth**                  | Varies, often lower due to customization            | Higher, facilitated by standardization and exchange   |
+- A Central Counterparty (CCP) steps in between the buyer and seller, reducing
+counterparty risk by standardizing margin requirements and daily mark-to-market
+adjustments.
+- Although OTC contracts are customized, central clearing helps bring some uniformity to
+risk management and settlement processes.
 
-## Introduction to Hedging with Futures
+## Hedging with Futures and Managing Basis Risk
 
-Hedging using futures contracts is a risk management strategy that allows individuals
-and corporations to stabilize the price of assets they intend to purchase or sell in the
-future. This technique is critical for managing the volatility associated with commodity
-prices, foreign exchange rates, interest rates, and other financial variables.
+Hedging with futures is a strategy used to lock in prices for assets you plan to buy or
+sell in the future, helping to manage price volatility in commodities, currencies,
+interest rates, and more.
 
-- **Long Futures Hedge:** Used when anticipating the purchase of an asset in the future.
-A long hedge allows the buyer to lock in a purchase price, mitigating the risk of rising
-prices.
+- **Long Futures Hedge:**  
+  Used when you expect to purchase an asset. Locking in a price now protects against
+  future price increases.
+  
+- **Short Futures Hedge:**  
+  Used when you plan to sell an asset. Locking in a price now protects against future
+  price decreases.
 
-- **Short Futures Hedge:** Employed when planning to sell an asset in the future. It
-enables the seller to secure a selling price, protecting against falling prices.
+**Advantages of hedging:**
 
-#### Arguments in Favor of Hedging
+- **Business Focus:** Reduces exposure to market risks, allowing companies to
+concentrate on their core activities.
+- **Cost Predictability:** Helps with budgeting by stabilizing costs and revenues.
+- **Risk Management:** Mitigates risks from volatile market factors.
 
-- **Business Focus:** Hedging allows companies to concentrate on their core business
-activities by reducing exposure to financial market risks.
-- **Cost Predictability:** It provides predictability in costs and revenues, which is
-beneficial for budgeting and financial planning.
-- **Risk Management:** Effectively manages risks related to fluctuations in interest
-rates, exchange rates, and commodity prices.
+**Disadvantages of hedging:**
 
-#### Arguments Against Hedging
+- **Shareholder Autonomy:** Some argue that shareholders can manage risks through
+personal diversification.
+- **Competitive Dynamics:** Hedging may add extra risk if competitors do not hedge.
+- **Complexity:** Hedges can be difficult to implement and explain, especially if
+outcomes differ from expectations.
 
-- **Shareholder Autonomy:** Critics argue that shareholders can diversify their
-portfolios independently and undertake personal hedging strategies if desired.
-- **Competitive Risk:** There's a belief that hedging could introduce additional risk,
-especially if competitors choose not to hedge, potentially affecting market dynamics and
-competitive positioning.
-- **Complexity and Perception:** Hedging can be complex to implement and explain,
-especially in scenarios where the hedge results in a loss while the underlying asset
-gains in value, which might confuse stakeholders.
+### Understanding Basis Risk
 
-## Hedging and Basis Risk
+::: {.callout-tip}
+# Definition
 
-Basis risk is a critical concept in the realm of financial hedging, referring to the
-risk that the difference between the spot price and the futures price (the basis) will
-not behave as anticipated when the hedge is unwound. This discrepancy can lead to less
-effective hedges and unexpected financial outcomes.
+Basis risk is the uncertainty that the difference between the current (spot) price and
+the futures price will not behave as expected when the hedge is closed.
+:::
 
-Basis risk arises due to several factors:
+This risk arises from:
+  
+1. **Asset Mismatch:** The asset being hedged may not exactly match the underlying asset
+of the futures contract.
+2. **Timing Uncertainty:** Variations in the timing of the actual purchase or sale can
+affect the hedge.
+3. **Early Contract Closure:** Exiting a futures contract before its delivery date can
+alter the expected price difference.
 
-1. **Asset Mismatch:** Often, the asset being hedged does not perfectly match the asset
-underlying the futures contract, introducing a discrepancy in price movements.
-2. **Timing Uncertainty:** The exact timing of when an asset will be bought or sold can
-add uncertainty, affecting the effectiveness of the hedge.
-3. **Early Contract Closure:** Sometimes, it is necessary to close out a futures
-contract before its delivery month, which can influence the basis and the outcome of the
-hedge.
+Mitigation Strategies:
 
-To mitigate basis risk, selecting an appropriate futures contract is vital:
+- **Delivery Month Selection:** Choose a contract with a delivery month as close as
+possible to, but after, your expected transaction date.
+- **Cross Hedging:** If a direct futures contract isn’t available, use a contract with a
+price that closely correlates with the asset’s price.
 
-- **Delivery Month:** Opt for a contract with a delivery month as close as possible to
-but after the anticipated end of the hedge to minimize the time gap's impact on the
-basis.
-- **Cross Hedging:** When direct futures contracts for the asset are unavailable, choose
-a contract with a price highly correlated to the asset's price. This approach, known as
-cross hedging, can help manage the risk despite the asset mismatch.
+### Hedging Examples
 
-:::{.callout-note collapse="true"}
+::: {.callout-note collapse="true"}
 # Long Hedge Example for Asset Purchase
 
-- Initial Futures Price ($F_1$): $88.0$
-- Futures Price at Purchase ($F_2$): $89.1$
-- Spot Price at Purchase ($S_2$): $90.0$
-- Basis at Purchase ($b_2$): $0.9$ (calculated as $S_2 - F_2$)
+- Initial Futures Price ($F_1$): $88.0$  
+- Futures Price at Purchase ($F_2$): $89.1$  
+- Spot Price at Purchase ($S_2$): $90.0$  
+- Basis at Purchase ($b_2$): $S_2 - F_2 = 0.9$  
 
-**Hedging Outcome:**
+**Outcome:**
 
-- The asset's cost is $90.0$.
-- The gain from futures is $1.1$ ($F_2 - F_1$).
-- The net amount paid effectively becomes $88.9$, considering the gain from futures and
-the basis at purchase.
+- Asset cost: $\$90.0$  
+- Gain from futures: $F_2 - F_1 = 1.1$  
+- **Net cost:** $\$90.0 - \$1.1 = \$88.9$
 :::
 
-:::{.callout-note collapse="true"}
+::: {.callout-note collapse="true"}
 # Short Hedge Example for Asset Sale
 
-- Initial Futures Price ($F_1$): $0.98$
-- Futures Price at Sale ($F_2$): $0.925$
-- Spot Price at Sale ($S_2$): $0.92$
-- Basis at Sale ($b_2$): $-0.005$ (calculated as $S_2 - F_2$)
+- Initial Futures Price ($F_1$): $0.98$ 
+- Futures Price at Sale ($F_2$): $0.925$  
+- Spot Price at Sale ($S_2$): $0.92$  
+- Basis at Sale ($b_2$): $S_2 - F_2 = -0.005$   
 
-**Hedging Outcome:**
+**Outcome:**
 
-- The asset's sale price is $0.92$.
-- The gain from futures is $0.055$ ($F_1 - F_2$).
-- The net amount received effectively becomes $0.975$, factoring in the gain from
-futures and the basis at sale.
+- Asset sale price: $\$0.92$  
+- Gain from futures: $F_1 - F_2 = 0.055$  
+- **Net sale price:** $\$0.92 + \$0.055 = \$0.975$
 :::
 
-## Cross Hedging
+## Cross Hedging and Tailing Adjustments
 
-Cross hedging involves using futures contracts of a commodity or asset that is different
-from, but correlated to, the asset being hedged. It is particularly useful when no
-futures market exists for the specific asset in question. The effectiveness of a cross
-hedge depends on the correlation between the price movements of the hedged asset and the
-futures contract used for hedging.
+:::{.callout-tip}
+# Definition
 
-The **optimal hedge ratio** (proportion of exposure to be hedged), denoted as $h^{*}$,
-is calculated using the formula:
+**Cross hedging** is used when no futures market exists for the asset you want to hedge.
+Instead, you use a futures contract on a correlated asset. The effectiveness of a cross
+hedge depends on how closely the prices of the two assets move together.
+:::
 
-$$h^{*} = \rho \frac{\sigma_S}{\sigma_F}$$
+### Optimal Hedge Ratio and Number of Contracts
 
-- $\rho$ is the coefficient of correlation between $\Delta S$ and $\Delta F$, indicating
-how closely the futures prices move in relation to the spot prices of the hedged asset.
-- $\sigma_S$ is the standard deviation of $\Delta S$, representing the change in the
-spot price of the asset being hedged over the hedging period.
-- $\sigma_F$ is the standard deviation of $\Delta F$, representing the change in the
-futures price over the hedging period.
+The **optimal hedge ratio** ($h^*$) without daily settlement adjustments is given by:
 
-To determine the **optimal number of futures contracts** ($N^{*}$) required for the
-hedge, **without adjusting for daily settlement**, is:
+$$
+h^{*} = \rho \frac{\sigma_S}{\sigma_F}
+$$
 
-$$N^{*} = h^{*} \times \frac{Q_A}{Q_F}$$
+- $\rho$ is the correlation coefficient between changes in the spot price ($\Delta S$)
+and the futures price ($\Delta F$).
+- $\sigma_S$ is the standard deviation of the changes in the spot price.
+- $\sigma_F$ is the standard deviation of the changes in the futures price.
 
-- $Q_A$ represents the size of the position being hedged, measured in units.
-- $Q_F$ denotes the size of one futures contract, also in units.
+Once $h^*$ is determined, the **optimal number of futures contracts** ($N^*$) needed is
+calculated as:
 
-:::{.callout-note collapse="true"}
+$$
+N^* = h^* \times \frac{Q_A}{Q_F}
+$$
+
+- $Q_A$ is the size of the position being hedged (in units).
+- $Q_F$ is the size of one futures contract (in units).
+
+::: {.callout-note collapse="true"}
 # Example: Hedging Jet Fuel with Heating Oil Futures
 
-Consider an airline that anticipates purchasing 2 million gallons of jet fuel in one
-month and decides to hedge the price risk using heating oil futures, based on their
-historical price movements and correlation:
+An airline plans to purchase 2 million gallons of jet fuel in one month and decides to
+hedge using heating oil futures.  
 
-- Historical data provides $\sigma_F = 0.0313$, $\sigma_S = 0.0263$, and $\rho = 0.928$.
-- Applying the formula for $h^{*}$:
-
-$$h^{*} = 0.928 \times \frac{0.0263}{0.0313} = 0.78$$
-
-- Given that one heating oil futures contract covers 42,000 gallons, the optimal number
-of contracts to hedge the airline's exposure is calculated as:
-
-$$0.78 \times \frac{2,000,000}{42,000} \approx 37$$
-
-Thus, to optimally hedge against the price risk of jet fuel, the airline should purchase
-approximately 37 heating oil futures contracts.
+- $\sigma_F = 0.0313$, $\sigma_S = 0.0263$, and $\rho = 0.928$  
+- Compute the hedge ratio:  
+  $$
+  h^* = 0.928 \times \frac{0.0263}{0.0313} \approx 0.78
+  $$
+- One heating oil futures contract covers 42,000 gallons.  
+- Optimal number of contracts:  
+  $$
+  N^* = 0.78 \times \frac{2,000,000}{42,000} \approx 37
+  $$
+Thus, the airline should use about 37 heating oil futures contracts.
 :::
 
-### Daily Settlement and Tailing Adjustment in Hedging
+### Daily Settlement and Tailing Adjustments
 
-The daily settlement process and the concept of tailing adjustments are crucial for
-refining the hedging strategy, particularly in the context of futures markets. These
-adjustments are necessary to account for the nuances of daily price changes and the
-mechanics of futures contracts.
+Futures contracts are settled daily, which can affect the hedge's performance. To
+account for these daily changes, we use an **adjusted optimal hedge ratio**
+($\hat{h}$):
 
-The optimal hedge ratio, **adjusted for daily settlement**, is given by:
+$$
+\hat{h} = \hat{\rho} \frac{\hat{\sigma_S}}{\hat{\sigma_F}}
+$$
 
-$$\hat{h} = \hat{\rho} \frac{\hat{\sigma_S}}{\hat{\sigma_F}}$$
+- $\hat{\rho}$ is the correlation between the daily percentage changes in spot and
+futures prices.
+- $\hat{\sigma_S}$ and $\hat{\sigma_F}$ are the standard deviations of these daily
+percentage changes.
 
-- $\hat{\rho}$ represents the correlation between percentage daily changes in the spot
-and futures prices. This measures how closely the futures prices move in relation to the
-spot prices on a day-to-day basis.
-- $\hat{\sigma_S}$ is the standard deviation of the percentage daily changes in the spot
-price, quantifying the daily price volatility of the spot asset.
-- $\hat{\sigma_F}$ is the standard deviation of the percentage daily changes in the
-futures price, indicating the daily volatility in the futures market.
+Using $\hat{h}$, the adjusted **optimal number of futures contracts** is:
 
-The **optimal number of futures contracts**, incorporating tailing adjustments for daily
-settlement, can be calculated as follows:
+$$
+N^* = \hat{h} \times \frac{V_A}{V_F}
+$$
 
-$$N^{*} = \hat{h} \times \frac{V_A}{V_F}$$
+- $V_A$ is the total value of the position being hedged (spot price $\times$ quantity).
+- $V_F$ is the value of one futures contract (futures price $\times$ contract size).
 
-- $V_A$ represents the total value of the position being hedged, calculated as the spot
-price multiplied by the quantity of the asset ($Q_A$).
-- $V_F$ denotes the value of one futures contract, determined by the futures price
-multiplied by the quantity specified in one futures contract ($Q_F$).
-
-This adjustment, often referred to as "tailing the hedge," modifies the hedge ratio to
-account for the impact of daily settlements on the futures position. It ensures that the
-hedge remains effective in offsetting the price risk of the underlying asset over the
-hedging period.
-
-:::{.callout-note collapse="true"}
+::: {.callout-note collapse="true"}
 # Example: Hedging with Tailing Adjustments
 
-A transportation company, "TransCo," needs to purchase 500,000 gallons of diesel fuel in
-one month. However, there are no futures contracts available for diesel. TransCo decides
-to use heating oil futures as a hedge because heating oil prices are highly correlated
-with diesel prices. Each heating oil futures contract covers 42,000 gallons.
+A transportation company, TransCo, needs to purchase 500,000 gallons of diesel in one
+month. With no diesel futures available, it hedges using heating oil futures (each
+covering 42,000 gallons).  
 
-- Current diesel price (spot price): \$3.00 per gallon
-- Current heating oil futures price for next month's delivery: \$2.90 per gallon
-- Correlation between daily percentage changes in diesel and heating oil prices
-($\hat{\rho}$): 0.9
-- Standard deviation of daily percentage changes in diesel prices ($\hat{\sigma_S}$):
-1.5%
-- Standard deviation of daily percentage changes in heating oil futures prices
-($\hat{\sigma_F}$): 1.8%
+- Diesel spot price: $\$3.00$ per gallon  
+- Heating oil futures price: $\$2.90$ per gallon  
+- Correlation of daily changes, $\hat{\rho}$: $0.9$  
+- Daily volatility: $\hat{\sigma_S} = 1.5\%$ for diesel, $\hat{\sigma_F} = 1.8\%$ for
+heating oil  
+ 
+**Step 1: Calculate the adjusted hedge ratio**  
+$$
+\hat{h} = 0.9 \times \frac{0.015}{0.018} = 0.75
+$$
+ 
+**Step 2: Determine the values**  
+$$
+V_A = \$3.00 \times 500,000 = \$1,500,000
+$$
+$$
+V_F = \$2.90 \times 42,000 = \$121,800
+$$
+ 
+**Step 3: Calculate the optimal number of contracts**  
+$$
+N^* = 0.75 \times \frac{1,500,000}{121,800} \approx 9.23
+$$
 
-#### Solution
-
-- Calculate the optimal hedge ratio
-
-$$\hat{h} = \hat{\rho} \frac{\hat{\sigma_S}}{\hat{\sigma_F}} = 0.9 \times
-\frac{0.015}{0.018} = 0.75$$
-
-- Determine the $V_A$ and $V_F$
-
-$$V_A = \$3.00 \times 500,000 = \$1,500,000$$
-$$V_F = \$2.90 \times 42,000 = \$121,800$$
-
-- Calculate the optimal number of futures contracts
-
-$$N^{*} = \hat{h} \times \frac{V_A}{V_F} = 0.75 \times \frac{1,500,000}{121,800} \approx
-9.23$$
-
-Given that partial contracts cannot be purchased, TransCo would need to round to the
-nearest whole number. In practice, the company might choose to hedge with 9 contracts to
-avoid over-hedging, understanding that this leaves a slight unhedged exposure.
-
-By purchasing 9 heating oil futures contracts, TransCo effectively hedges against the
-risk of rising diesel prices. The chosen hedge ratio of 0.75, derived from the
-correlation and volatility (standard deviation) differences between diesel and heating
-oil prices, optimizes the hedge despite the imperfect match between the two commodities.
-This example illustrates how cross-hedging can be applied when direct hedging
-instruments are not available, using tailing adjustments to fine-tune the hedge for
-daily settlement impacts.
+Since partial contracts aren't possible, TransCo would hedge with 9 contracts to avoid
+over-hedging.
 :::
 
 ## Stock Index Futures
 
-Stock index futures are a powerful tool for hedging the risk in a portfolio. By taking
-positions in these futures, investors can manage exposure to market fluctuations without
-the need to alter the composition of their portfolio.
+Stock index futures are powerful tools for managing portfolio risk. They allow investors
+to hedge against market fluctuations or adjust their portfolio's sensitivity to market
+movements without altering its actual composition.
 
-### Hedging Portfolio
+To determine the number of futures contracts needed, use:
 
-The formula to determine the number of contracts to short for hedging purposes is:
+$$
+N^* = (\beta^* - \beta) \times \frac{V_A}{V_F}
+$$
 
-$$\beta \times \frac{V_A}{V_F}$$
+- $V_A$: Portfolio value.
+- $\beta$: Current portfolio beta.
+- $\beta^*$: Target beta (if fully hedging, $\beta^* = 0$).
+- $V_F$: Value of one futures contract (e.g., futures price multiplied by the contract
+multiplier).
+- A negative $N^*$ means shorting futures; a positive value means going long.
 
-- **$V_A$** is the value of the portfolio being hedged.
-- **$\beta$** measures the portfolio's sensitivity to market movements. A beta of 1
-indicates that the portfolio moves in line with the market.
-- **$V_F$** is the value of one futures contract, calculated as the futures price
-multiplied by a specified multiplier (e.g., \$250 times the index for S&P 500 futures).
+This approach allows investors to either fully hedge their portfolio ($\beta^* = 0$) or
+fine-tune their market exposure based on strategic objectives.
 
 :::{.callout-note collapse="true"}
-# Example: Stock Index Futures Hedging
+# Example: Hedging a Portfolio
 
-Consider a portfolio with the following characteristics:
+A portfolio valued at \$5 million has a beta of 1.5. Using S&P 500 futures, where each
+contract is worth \$250,000, to fully hedge ($\beta^* = 0$):
 
-- S&P 500 futures price: 1,000 points
-- Portfolio value: \$5 million
-- Portfolio beta: 1.5
-- Value of one futures contract: \$250,000 (\$250 times the index)
+$$
+N^* = (0 - 1.5) \times \frac{5,000,000}{250,000} = -30
+$$
 
-Necessary position in S&P 500 futures to hedge the portfolio:
-
-$$1.5 \times \frac{5,000,000}{250,000} = 30$$
-
-Thus, to hedge the portfolio against market movements, it would be necessary to short 30
-S&P 500 futures contracts.
+Shorting 30 futures contracts would hedge the portfolio against market fluctuations.
 :::
-
-### Adjusting Portfolio Beta
-
-To modify the beta of a portfolio, the formula is:
-
-$$(\beta^{*} - \beta) \times \frac{V_A}{V_F}$$
-
-- **$\beta^{*}$** is the desired new beta level.
-- A negative outcome suggests shorting futures to decrease beta, while a positive value
-indicates going long on futures to increase beta.
 
 :::{.callout-note collapse="true"}
 # Example: Adjusting Portfolio Beta
 
-A portfolio manager seeks to adjust the beta of a \$10 million portfolio. The current
-beta of the portfolio is 1.2, but due to a bearish market outlook, the manager wishes to
-decrease the portfolio's beta to 0.8 to reduce exposure to market volatility. The
-futures contract used for hedging is based on an index that is currently priced at 3,000
-points, with each contract representing \$250 times the index value.
+A portfolio manager wants to lower a \$10 million portfolio's beta from 1.2 to 0.8.
+Using an index futures contract priced at 3,000 points with a multiplier of \$250 (thus,
+$V_F = 250 \times 3,000 = \$750,000$):
 
-- Current portfolio value ($V_A$): \$10,000,000
-- Current portfolio beta ($\beta$): 1.2
-- Desired portfolio beta ($\beta^{*}$): 0.8
-- Index futures price: 3,000 points
-- Value of one futures contract ($V_F$): \$250 \times 3,000 = \$750,000
+$$
+N^* = (0.8 - 1.2) \times \frac{10,000,000}{750,000} = -0.4 \times 13.33 \approx -5.33
+$$
 
-Calculate the number of futures contracts needed to adjust the portfolio's beta to 0.8.
-
-$$N^{*} = -0.4 \times \frac{10,000,000}{750,000} = -0.4 \times 13.33 \approx -5.33$$
-
-Since we cannot trade a fraction of a contract, we'll need to round to the nearest whole
-number. In this case, rounding to -5 suggests that the portfolio manager should short 5
-futures contracts to achieve the desired beta adjustment.
+Rounding to -5 indicates shorting 5 contracts to reduce the portfolio beta.
 :::
 
-### Additional Notes About Hedging
+### Additional Hedging Considerations
 
-#### Why Hedge Equity Returns?
+#### Why Hedge with Stock Index Futures?
 
-Hedging with stock index futures is advantageous for several reasons:
-
-- **Market Timing:** Allows investors to effectively "exit" the market without selling
-assets, ideal for avoiding transaction costs and capital gains taxes.
-- **Risk Management:** Enables precise control over the portfolio's exposure to market
-risk.
-- **Performance:** Ensures returns are based on the specific selection and performance
-of portfolio assets, beyond the general market movements.
+- **Market Timing:** Allows an exit from market exposure without selling underlying
+assets, avoiding transaction costs and capital gains taxes.
+- **Risk Management:** Offers precise control over market risk.
+- **Performance Focus:** Helps ensure returns are driven by the performance of selected
+assets rather than broad market movements.
 
 :::{.callout-tip}
 Imagine your portfolio's stocks have an average beta of 1.0, aligning their performance
@@ -677,31 +563,20 @@ ensuring your portfolio's gains are primarily due to your stock selection skills
 
 #### Stack and Roll Strategy
 
-This approach involves rolling futures contracts forward to manage future exposures:
+This strategy involves rolling futures contracts forward to maintain continuous hedging:
 
-- Start with futures contracts hedging up to a certain time horizon.
-- Before these contracts mature, close them out and replace them with new contracts for
-the next period.
-- This method allows continuous hedging over time, adjusting as market conditions and
-portfolio needs change.
-
-However, it's crucial to be mindful of the liquidity risks and potential for realized
-losses.
-
-- **Realized vs. Unrealized Gains/Losses:** Hedging can lead to scenarios where losses
-on the hedge are realized while corresponding gains in the underlying assets are
-unrealized, potentially causing liquidity issues.
+- **Process:**  
+  - Initiate futures contracts for a specific time horizon.
+  - Before maturity, close out the contracts and replace them with new ones.
+- **Risks:**  
+  - Liquidity issues and the possibility of realizing losses on the hedge while gains in
+  the underlying assets remain unrealized.
 
 :::{.callout-warning}
-The Metallgesellschaft (MG) case in the early 1990s serves as a cautionary example of
-how rolling forward hedges can lead to significant cash flow problems. MG sold long-term
-fixed-price contracts for heating oil and gasoline, hedging its exposure with
-short-dated long futures that were regularly rolled over. When oil prices dropped, MG
-faced substantial margin calls, creating severe short-term liquidity issues. Despite the
-hedging strategy's long-term rationale, the immediate financial strain alarmed the
-company's management and bankers. Ultimately, MG had to close out its hedge positions
-and cancel the fixed-price contracts with customers, resulting in a staggering loss of
-\$1.33 billion.
+The Metallgesellschaft (MG) case in the early 1990s is a reminder that rolling hedges
+can lead to severe liquidity issues. MG's strategy of hedging long-term exposure with
+short-dated futures resulted in massive margin calls and a \$1.33 billion loss when oil
+prices dropped, forcing the closure of hedge positions.
 :::
 
 ## Practice Questions and Problems
@@ -725,11 +600,12 @@ allow speculators to trade on a futures exchange." Discuss this viewpoint.
 that the open interest increases by one, stays the same, or decreases by one." Explain
 this statement.
 3. Why does the open interest usually decline during the month preceding the delivery
-month? On a particular day, there were 2,000 trades in a particular futures contract.
-This means that there were 2000 buyers (going long) and 2000 sellers (going short). Of
-the 2,000 buyers, 1,400 were closing out positions and 600 were entering into new
-positions. Of the 2,000 sellers, 1,200 were closing out positions and 800 were entering
-into new positions. What is the impact of the day's trading on open interest?
+month?
+4. On a particular day, there were 2,000 trades in a particular futures contract. This
+means that there were 2000 buyers (going long) and 2000 sellers (going short). Of the
+2,000 buyers, 1,400 were closing out positions and 600 were entering into new positions.
+Of the 2,000 sellers, 1,200 were closing out positions and 800 were entering into new
+positions. What is the impact of the day's trading on open interest?
 
 ### Margin Mechanics in Futures Trading
 
