@@ -292,14 +292,13 @@ window.Quarto = {
    
   <ul class="collapse">
   <li><a href="#pricing-and-valuation-of-forwardfutures-contracts" id="toc-pricing-and-valuation-of-forwardfutures-contracts" class="nav-link active" data-scroll-target="#pricing-and-valuation-of-forwardfutures-contracts"><span class="header-section-number">3.1</span> Pricing and Valuation of Forward/Futures Contracts</a></li>
-  <li><a href="#pricing-and-valuation-methodology" id="toc-pricing-and-valuation-methodology" class="nav-link" data-scroll-target="#pricing-and-valuation-methodology"><span class="header-section-number">3.2</span> Pricing and Valuation Methodology</a></li>
-  <li><a href="#forward-price-for-an-investment-asset" id="toc-forward-price-for-an-investment-asset" class="nav-link" data-scroll-target="#forward-price-for-an-investment-asset"><span class="header-section-number">3.3</span> Forward Price for an Investment Asset</a></li>
-  <li><a href="#valuing-a-forward-contract" id="toc-valuing-a-forward-contract" class="nav-link" data-scroll-target="#valuing-a-forward-contract"><span class="header-section-number">3.4</span> Valuing a Forward Contract</a></li>
-  <li><a href="#forward-vs.-futures-prices" id="toc-forward-vs.-futures-prices" class="nav-link" data-scroll-target="#forward-vs.-futures-prices"><span class="header-section-number">3.5</span> Forward vs.&nbsp;Futures Prices</a></li>
-  <li><a href="#forward-price-for-specific-assets" id="toc-forward-price-for-specific-assets" class="nav-link" data-scroll-target="#forward-price-for-specific-assets"><span class="header-section-number">3.6</span> Forward Price for Specific Assets</a></li>
-  <li><a href="#futures-prices-and-expected-spot-prices" id="toc-futures-prices-and-expected-spot-prices" class="nav-link" data-scroll-target="#futures-prices-and-expected-spot-prices"><span class="header-section-number">3.7</span> Futures Prices and Expected Spot Prices</a></li>
-  <li><a href="#forward-rate-agreement-fra" id="toc-forward-rate-agreement-fra" class="nav-link" data-scroll-target="#forward-rate-agreement-fra"><span class="header-section-number">3.8</span> Forward Rate Agreement (FRA)</a></li>
-  <li><a href="#practice-questions-and-problems" id="toc-practice-questions-and-problems" class="nav-link" data-scroll-target="#practice-questions-and-problems"><span class="header-section-number">3.9</span> Practice Questions and Problems</a></li>
+  <li><a href="#forward-price-for-an-investment-asset" id="toc-forward-price-for-an-investment-asset" class="nav-link" data-scroll-target="#forward-price-for-an-investment-asset"><span class="header-section-number">3.2</span> Forward Price for an Investment Asset</a></li>
+  <li><a href="#valuing-a-forward-contract" id="toc-valuing-a-forward-contract" class="nav-link" data-scroll-target="#valuing-a-forward-contract"><span class="header-section-number">3.3</span> Valuing a Forward Contract</a></li>
+  <li><a href="#forward-vs.-futures-prices" id="toc-forward-vs.-futures-prices" class="nav-link" data-scroll-target="#forward-vs.-futures-prices"><span class="header-section-number">3.4</span> Forward vs.&nbsp;Futures Prices</a></li>
+  <li><a href="#forward-price-for-specific-assets" id="toc-forward-price-for-specific-assets" class="nav-link" data-scroll-target="#forward-price-for-specific-assets"><span class="header-section-number">3.5</span> Forward Price for Specific Assets</a></li>
+  <li><a href="#futures-prices-and-expected-spot-prices" id="toc-futures-prices-and-expected-spot-prices" class="nav-link" data-scroll-target="#futures-prices-and-expected-spot-prices"><span class="header-section-number">3.6</span> Futures Prices and Expected Spot Prices</a></li>
+  <li><a href="#forward-rate-agreement-fra" id="toc-forward-rate-agreement-fra" class="nav-link" data-scroll-target="#forward-rate-agreement-fra"><span class="header-section-number">3.7</span> Forward Rate Agreement (FRA)</a></li>
+  <li><a href="#practice-questions-and-problems" id="toc-practice-questions-and-problems" class="nav-link" data-scroll-target="#practice-questions-and-problems"><span class="header-section-number">3.8</span> Practice Questions and Problems</a></li>
   </ul>
 </nav>
     </div>
@@ -358,163 +357,217 @@ References
 <section id="pricing-and-valuation-of-forwardfutures-contracts" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="pricing-and-valuation-of-forwardfutures-contracts"><span class="header-section-number">3.1</span> Pricing and Valuation of Forward/Futures Contracts</h2>
 <ul>
-<li><p><strong>Pricing</strong> of forward/futures contracts entails determining the fair market price or rate at the <strong>initiation</strong> of the contract. This process ensures that the contract’s initial value is neutral, aligning the interests of both parties without giving an undue advantage to either side.</p></li>
-<li><p><strong>Valuation</strong>, on the other hand, is the process of assessing the contract’s current value <strong>after its initiation</strong>. The value fluctuates based on market conditions, reflecting the gain or loss to the contract holder.</p></li>
+<li><p><strong>Pricing</strong> determines the fair market rate at contract <strong>initiation</strong>, ensuring neutrality for both parties.</p></li>
+<li><p><strong>Valuation</strong> assesses the contract’s value <strong>after initiation</strong>, fluctuating based on market conditions.</p></li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Example: Forward Price vs.&nbsp;Value
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ul>
-<li>An investor enters a long position in a December Gold futures contract on 2 November, agreeing to a price of $1,250/oz. Initially, the contract’s value is set to $0, indicating a fair agreement based on current market expectations.</li>
-<li>Post-initiation, the contract’s value is subject to change due to market dynamics. For instance, if on 3 November, the market price for December Gold futures falls to $1,225/oz, the value of the investor’s long position declines, rendering a <strong>negative value</strong> to their investment.</li>
+<li>On November 2, an investor takes a <strong>long position</strong> in a December Gold futures contract at <strong>$1,250/oz</strong>. At initiation, the contract.s value is <strong>$0</strong> (fair market agreement).<br>
+</li>
+<li>On November 3, if the market price drops to <strong>$1,225/oz</strong>, the contract’s value turns <strong>negative</strong>, reflecting a loss for the investor.</li>
 </ul>
 </div>
 </div>
-</section>
-<section id="pricing-and-valuation-methodology" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="pricing-and-valuation-methodology"><span class="header-section-number">3.2</span> Pricing and Valuation Methodology</h2>
+</div>
 <ul>
 <li><p><strong>Risk Aversion:</strong> Investors require compensation for taking on additional risk, reflecting the principle that higher risk should be rewarded with higher potential returns.</p></li>
 <li><p><strong>Risk-Neutral Pricing:</strong> Under this approach, it’s assumed that investors are indifferent to risk. The pricing of derivatives through arbitrage opportunities ensures that the portfolio, combining the derivative and its underlying asset, yields the risk-free rate of return.</p></li>
 <li><p><strong>Arbitrage-Free Pricing:</strong> This methodology prices derivatives based on the assumption that the market operates under risk-neutral conditions and is free of arbitrage opportunities, ensuring no risk-free profits can be made from market inefficiencies.</p></li>
-</ul>
-<p>The framework for pricing and valuation operates on the principle that market prices adjust to preclude arbitrage profits. The <strong>Law of One Price</strong> asserts that identical cash flows must have the same price, irrespective of future outcomes.</p>
-<p>Arbitrageurs follow two cardinal rules:</p>
+<li><p><strong>Law of One Price:</strong> asserts that identical cash flows must have the same price, irrespective of future outcomes.</p></li>
+<li><p><strong>Arbitrage Principles:</strong></p>
 <ol type="1">
 <li>Do not use your own money.</li>
 <li>Do not take any price risk.</li>
-</ol>
-<section id="short-selling" class="level3">
-<h3 class="anchored" data-anchor-id="short-selling">Short Selling</h3>
-<p>Short selling entails the sale of securities not owned by the seller, typically facilitated by borrowing these securities from a broker. The seller aims to buy back the securities at a lower price to profit from the difference. Obligations include covering dividends and possibly a borrowing fee.</p>
+</ol></li>
+<li><p><strong>Short Selling:</strong> Short selling involves selling borrowed securities, aiming to repurchase them at a lower price. Sellers must cover dividends and borrowing fees.</p></li>
+</ul>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Example: Short Selling
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Assuming you short sell 100 shares at $100 each and close out the short position three months later at $90, while a $3 per share dividend is issued during this period:</p>
+<p>Short 100 shares at <strong>$100 each</strong> and close the position at <strong>$90</strong>, while a <strong>$3/share</strong> dividend is issued:</p>
 <ul>
-<li>Your profit would be the difference in share prices minus the dividends paid, highlighting the risks and rewards of short selling.</li>
+<li><strong>Profit Calculation:</strong><br>
+<span class="math display">\[
+100 \times (100 - 90 - 3) = 700
+\]</span></li>
+<li>If instead you buy 100 shares, a price drop results in a loss:<br>
+<span class="math display">\[
+100 \times (90 - 100 + 3) = -700
+\]</span></li>
 </ul>
-<p><span class="math display">\[100 \times (100 - 90 - 3) = \$700\]</span></p>
-<ul>
-<li>Conversely, buying 100 shares would result in a loss if the share price decreases.</li>
-</ul>
-<p><span class="math display">\[100 \times (90 - 100 + 3) = \$-700\]</span></p>
 </div>
 </div>
-</section>
-<section id="consumption-vs.-investment-assets" class="level3">
-<h3 class="anchored" data-anchor-id="consumption-vs.-investment-assets">Consumption vs.&nbsp;Investment Assets</h3>
+</div>
 <ul>
-<li><p><strong>Investment Assets:</strong> These are assets like gold, stocks, and bonds, held primarily for their potential to appreciate in value over time.</p></li>
-<li><p><strong>Consumption Assets:</strong> Assets such as copper or oil are classified as consumption assets, held mainly for their utility in production or consumption rather than for investment.</p></li>
+<li><p><strong>Investment Assets:</strong> Held for potential value appreciation over time (e.g., gold, stocks, bonds).</p></li>
+<li><p><strong>Consumption Assets:</strong> Used in production or consumption (e.g., oil, copper).</p></li>
 </ul>
 </section>
-</section>
-<section id="forward-price-for-an-investment-asset" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="forward-price-for-an-investment-asset"><span class="header-section-number">3.3</span> Forward Price for an Investment Asset</h2>
-<section id="assumptions-and-notation" class="level3">
-<h3 class="anchored" data-anchor-id="assumptions-and-notation">Assumptions and Notation</h3>
-<section id="assumptions" class="level4">
-<h4 class="anchored" data-anchor-id="assumptions">Assumptions</h4>
+<section id="forward-price-for-an-investment-asset" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="forward-price-for-an-investment-asset"><span class="header-section-number">3.2</span> Forward Price for an Investment Asset</h2>
+<p><strong>Assumptions:</strong></p>
 <ol type="1">
-<li>Market participants incur no transaction costs when trading.</li>
-<li>All net trading profits are taxed at the same rate for market participants.</li>
-<li>Market participants can borrow and lend money at the identical risk-free interest rate.</li>
-<li>Arbitrage opportunities are exploited immediately by market participants.</li>
+<li>No transaction costs in trading.<br>
+</li>
+<li>All net trading profits are taxed equally.<br>
+</li>
+<li>Borrowing and lending occur at the same <strong>risk-free interest rate</strong>.<br>
+</li>
+<li>Arbitrage opportunities are <strong>immediately</strong> exploited.</li>
 </ol>
-</section>
-<section id="notation" class="level4">
-<h4 class="anchored" data-anchor-id="notation">Notation</h4>
+<p><strong>Notation:</strong></p>
 <ul>
 <li><span class="math inline">\(S_0\)</span>: Current spot price of the asset.</li>
 <li><span class="math inline">\(F_0\)</span>: Today’s futures or forward price of the asset.</li>
-<li><span class="math inline">\(T\)</span>: Time to the delivery date of the contract (in years).</li>
-<li><span class="math inline">\(r\)</span>: Annualized risk-free interest rate over the period <span class="math inline">\(T\)</span>.</li>
+<li><span class="math inline">\(T\)</span>: Time to contract maturity (in years).</li>
+<li><span class="math inline">\(r\)</span>: Annualized risk-free interest rate over <span class="math inline">\(T\)</span>.</li>
 </ul>
-</section>
-</section>
 <section id="arbitrage-example" class="level3">
 <h3 class="anchored" data-anchor-id="arbitrage-example">Arbitrage Example</h3>
-<p>Consider an asset that provides no income, with a current price of $40, subject to an annual interest rate of 5%, and associated with a forward contract that has a maturity of 3 months.</p>
+<p>Consider an asset that provides with <strong>no income</strong>, priced at <strong>$40</strong>, with a <strong>5% annual interest rate</strong> and a <strong>3-month forward contract</strong>.</p>
 <section id="case-1-forward-price-43" class="level4">
-<h4 class="anchored" data-anchor-id="case-1-forward-price-43">Case 1: Forward Price = $43</h4>
+<h4 class="anchored" data-anchor-id="case-1-forward-price-43">Case 1: Forward Price = /$43</h4>
 <ul>
-<li><strong>Action now:</strong> Borrow $40 at 5% annual interest for 3 months. Purchase one unit of the asset and enter into a forward contract to sell it in 3 months at $43.</li>
-<li><strong>Action in 3 months:</strong> Sell the asset at the forward price of $43. Repay the loan, which amounts to $40.50 with interest.</li>
-<li><strong>Profit realized:</strong> $2.50.</li>
+<li><strong>Now</strong>: Borrow $40, buy the asset, and enter a forward contract to sell at $43.<br>
+</li>
+<li><strong>In 3 months</strong>: Sell at $43, repay the loan ($40.50 with interest).<br>
+</li>
+<li><strong>Profit</strong>: $2.50.</li>
 </ul>
 </section>
 <section id="case-2-forward-price-39" class="level4">
 <h4 class="anchored" data-anchor-id="case-2-forward-price-39">Case 2: Forward Price = $39</h4>
 <ul>
-<li><strong>Action now:</strong> Short sell one unit of the asset for $40. Invest the proceeds at 5% annual interest for 3 months. Enter into a forward contract to buy the asset in 3 months at $39.</li>
-<li><strong>Action in 3 months:</strong> Buy back the asset at the forward price of $39. Close the short position and retrieve $40.50 from the investment.</li>
-<li><strong>Profit realized:</strong> $1.50.</li>
+<li><strong>Now</strong>: Short sell the asset for $40, invest the proceeds at 5% interest, and enter a forward contract to buy at $39.<br>
+</li>
+<li><strong>In 3 months</strong>: Buy back at $39, close the short position, and receive $40.50 from the investment.<br>
+</li>
+<li><strong>Profit</strong>: $1.50.</li>
 </ul>
 </section>
 </section>
-<section id="the-forward-price-formula" class="level3">
-<h3 class="anchored" data-anchor-id="the-forward-price-formula">The Forward Price Formula</h3>
-<p>The forward price <span class="math inline">\(F_0\)</span> for an investment asset that does not provide income and is deliverable in <span class="math inline">\(T\)</span> years is given by the following formula, where <span class="math inline">\(r\)</span> is the annualized risk-free interest rate for the period <span class="math inline">\(T\)</span>.</p>
-<p><span class="math display">\[F_0 = S_0 e^{rT}\]</span></p>
-<p>In the given example, with <span class="math inline">\(S_0 = 40\)</span>, <span class="math inline">\(T = 0.25\)</span> (3 months), and <span class="math inline">\(r = 0.05\)</span> (5%), the forward price is calculated as:</p>
-<p><span class="math display">\[F_0 = 40 e^{0.05 \times 0.25} = 40.50\]</span></p>
-<p>This calculation demonstrates that the no-arbitrage forward price aligns with the theoretical value, preventing arbitrage opportunities under these conditions.</p>
-</section>
-<section id="adjustments-for-known-income-or-yield" class="level3">
-<h3 class="anchored" data-anchor-id="adjustments-for-known-income-or-yield">Adjustments for Known Income or Yield</h3>
-<p>When the asset provides a known income or yield, the forward price adjusts to account for this. For an asset generating a known income <span class="math inline">\(I\)</span> (expressed as the present value of the income) over the contract’s life, the formula modifies to:</p>
-<p><span class="math display">\[F_0 = (S_0 - I)e^{rT}\]</span></p>
-<p>For assets providing a yield <span class="math inline">\(q\)</span> (expressed as a continuous compounding rate), the forward price formula adjusts to:</p>
-<p><span class="math display">\[F_0 = S_0 e^{(r-q)T}\]</span></p>
-</section>
-</section>
-<section id="valuing-a-forward-contract" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="valuing-a-forward-contract"><span class="header-section-number">3.4</span> Valuing a Forward Contract</h2>
-<p>Initially, a forward contract’s value is zero, except for potential impacts from the bid-offer spread. This neutrality in value reflects the agreement’s fairness based on current market conditions.</p>
-<p>As time progresses, the value of the forward contract can become positive or negative, reflecting changes in market conditions and the underlying asset’s price relative to the contract’s terms.</p>
-<p>Let <span class="math inline">\(K\)</span> represent the agreed-upon delivery price in the contract, and <span class="math inline">\(F_0\)</span> denote the forward price for a contract negotiated today for future delivery.</p>
-<p>The valuation of forward contracts can be understood by comparing contracts with different delivery prices. This comparison reveals:</p>
-<ul>
-<li><p>The value of being in a long position in a forward contract, where one has agreed to buy the asset, is <span class="math inline">\((F_0 - K) e^{-rT}\)</span>. This formula represents the present value of the profit from the contract if the forward price <span class="math inline">\(F_0\)</span> set today is higher than the contract’s delivery price <span class="math inline">\(K\)</span>.</p></li>
-<li><p>Conversely, the value of a short forward contract, where one has agreed to sell the asset, is <span class="math inline">\((K - F_0) e^{-rT}\)</span>. This expresses the present value of the profit from the contract if the delivery price <span class="math inline">\(K\)</span> exceeds today’s forward price <span class="math inline">\(F_0\)</span>.</p></li>
-</ul>
-<p>These valuations underscore the importance of the risk-free rate <span class="math inline">\(r\)</span> and the time to delivery <span class="math inline">\(T\)</span> in determining the present value of future contract profits or losses.</p>
-</section>
-<section id="forward-vs.-futures-prices" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="forward-vs.-futures-prices"><span class="header-section-number">3.5</span> Forward vs.&nbsp;Futures Prices</h2>
-<p>While forward and futures contracts are similar in their function of agreeing to buy or sell an asset at a future date, their pricing can diverge under certain conditions, despite the common assumption that they are equal when the maturity and asset prices coincide. One notable exception is Eurodollar futures, which often exhibit pricing anomalies due to their specific market characteristics.</p>
-<p>The theoretical distinction in pricing between forwards and futures arises primarily from the volatility and uncertainty of interest rates:</p>
-<ul>
-<li><p>When there is a strong positive correlation between interest rates and the asset’s price, futures prices tend to be slightly higher than forward prices. This is because the daily settlement of futures can lead to a net gain in environments where rising interest rates accompany rising asset prices, due to the reinvestment of gains at higher rates.</p></li>
-<li><p>Conversely, a strong negative correlation between interest rates and the asset’s price suggests that forward prices may exceed futures prices. In such scenarios, the absence of daily settlement in forward contracts avoids the potential loss from having to reinvest at lower interest rates.</p></li>
-</ul>
-</section>
-<section id="forward-price-for-specific-assets" class="level2" data-number="3.6">
-<h2 data-number="3.6" class="anchored" data-anchor-id="forward-price-for-specific-assets"><span class="header-section-number">3.6</span> Forward Price for Specific Assets</h2>
-<section id="stock-index" class="level3">
-<h3 class="anchored" data-anchor-id="stock-index">Stock Index</h3>
-<p>A stock index can be regarded as an investment asset that effectively pays a dividend yield, analogous to the income generated by holding the underlying stocks.</p>
-<p>The relationship between the futures price (<span class="math inline">\(F_0\)</span>) and the spot price (<span class="math inline">\(S_0\)</span>) of the index is captured by the formula:</p>
-<p><span class="math display">\[F_0 = S_0 e^{(r-q)T}\]</span></p>
-<p>Here, <span class="math inline">\(q\)</span> represents the average dividend yield of the portfolio reflected by the index over the contract’s life.</p>
-<p>This formula assumes the index acts as a tradable investment asset, with changes in the index mirroring changes in the value of a corresponding tradable portfolio. For instance, the Nikkei 225, when viewed purely as a numerical value without considering its underlying assets, does not qualify as an investment asset in this context.</p>
+<section id="forward-price-formula" class="level3">
+<h3 class="anchored" data-anchor-id="forward-price-formula">Forward Price Formula</h3>
+<p>For an <strong>investment asset</strong> with <strong>no income</strong>, the no-arbitrage forward price is:</p>
+<p><span class="math display">\[
+F_0 = S_0 e^{rT}
+\]</span></p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example: Eliminate arbitrage
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Using <span class="math inline">\(S_0 = 40\)</span>, <span class="math inline">\(T = 0.25\)</span> (3 months), and <span class="math inline">\(r = 0.05\)</span> (5%):</p>
+<p><span class="math display">\[
+F_0 = 40 e^{0.05 \times 0.25} = 40.50
+\]</span></p>
+<p>This aligns with the <strong>theoretical fair price</strong>, ensuring no arbitrage.</p>
+</div>
+</div>
+</div>
+<ul>
+<li>If the asset generates a <strong>known income</strong> <span class="math inline">\(I\)</span> (expressed as the present value of the income), the formula adjusts to:</li>
+</ul>
+<p><span class="math display">\[
+F_0 = (S_0 - I)e^{rT}
+\]</span></p>
+<ul>
+<li>If the asset provides a <strong>yield</strong> <span class="math inline">\(q\)</span> (expressed as a continuously compounded annualized rate):</li>
+</ul>
+<p><span class="math display">\[
+F_0 = S_0 e^{(r - q)T}
+\]</span></p>
+</section>
+</section>
+<section id="valuing-a-forward-contract" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="valuing-a-forward-contract"><span class="header-section-number">3.3</span> Valuing a Forward Contract</h2>
+<p>At initiation, a forward contract has <strong>zero value</strong>, ensuring fairness for both parties (excluding bid-offer spreads). Over time, its value can become <strong>positive or negative</strong> as market conditions change.</p>
+<p>Let:</p>
+<ul>
+<li><span class="math inline">\(K\)</span> = <strong>Agreed delivery price</strong> in the contract.<br>
+</li>
+<li><span class="math inline">\(F_0\)</span> = <strong>Forward price</strong> for a contract negotiated today.</li>
+</ul>
+<p>The value of a forward contract depends on the difference between the agreed <strong>delivery price</strong> and the current <strong>forward price</strong>, discounted at the risk-free rate:</p>
+<ul>
+<li><p><strong>Long position (buying the asset):</strong><br>
+<span class="math display">\[
+V_{\text{long}} = (F_0 - K) e^{-rT}
+\]</span></p></li>
+<li><p><strong>Short position (selling the asset):</strong><br>
+<span class="math display">\[
+V_{\text{short}} = - (F_0 - K) e^{-rT}
+\]</span></p></li>
+</ul>
+<p>These formulas show how the <strong>risk-free rate <span class="math inline">\(r\)</span></strong> and <strong>time to maturity <span class="math inline">\(T\)</span></strong> impact the present value of expected gains or losses.</p>
+</section>
+<section id="forward-vs.-futures-prices" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="forward-vs.-futures-prices"><span class="header-section-number">3.4</span> Forward vs.&nbsp;Futures Prices</h2>
+<p>Although <strong>forward</strong> and <strong>futures</strong> contracts both involve agreeing to buy/sell an asset at a future date, their prices may diverge due to <strong>interest rate volatility</strong>.</p>
+<ul>
+<li>If interest rates and asset prices are <strong>positively correlated</strong> <span class="math inline">\(\rightarrow\)</span> <strong>Futures price</strong> &gt; <strong>Forward price</strong>
+<ul>
+<li>Daily settlement allows gains to be reinvested at <strong>higher rates</strong>.</li>
+</ul></li>
+<li>If interest rates and asset prices are <strong>negatively correlated</strong> <span class="math inline">\(\rightarrow\)</span> <strong>Futures price</strong> &lt; <strong>Forward price</strong>
+<ul>
+<li>No daily settlement avoids reinvesting at <strong>lower rates</strong>.</li>
+</ul></li>
+</ul>
+<p>One notable example is <strong>Eurodollar futures</strong>, where pricing anomalies arise due to unique market characteristics.</p>
+</section>
+<section id="forward-price-for-specific-assets" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="forward-price-for-specific-assets"><span class="header-section-number">3.5</span> Forward Price for Specific Assets</h2>
+<section id="stock-index" class="level3">
+<h3 class="anchored" data-anchor-id="stock-index">Stock Index</h3>
+<p>A <strong>stock index</strong> is an <strong>investment asset</strong> that effectively pays a <strong>dividend yield</strong>, similar to the income generated by holding its underlying stocks.</p>
+<p>The relationship between the <strong>futures price</strong> (<span class="math inline">\(F_0\)</span>) and the <strong>spot price</strong> (<span class="math inline">\(S_0\)</span>) is:</p>
+<p><span class="math display">\[
+F_0 = S_0 e^{(r-q)T}
+\]</span></p>
+<p>where, <span class="math inline">\(q\)</span> represents the average dividend yield of the portfolio reflected by the index over the contract’s life.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This formula assumes the index represents a <strong>tradable investment asset</strong>. However, a purely numerical index (e.g., <strong>Nikkei 225</strong> without its underlying assets) does not qualify as a true investment asset.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -523,21 +576,27 @@ Index Arbitrage
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Index arbitrage exploits discrepancies between the futures price and the spot price adjusted for the dividend yield and risk-free rate. When <span class="math inline">\(F_0\)</span> exceeds <span class="math inline">\(S_0 e^{(r-q)T}\)</span>, arbitrageurs purchase the underlying stocks of the index while selling futures. Conversely, if <span class="math inline">\(F_0 &lt; S_0 e^{(r-q)T}\)</span>, they buy futures and short sell the index’s underlying stocks.</p>
-<p>This strategy requires executing trades in futures and various stocks simultaneously, often facilitated by computer algorithms to manage the complexity and timing. However, real-world frictions sometimes prevent perfect execution, leading to temporary deviations from the theoretical no-arbitrage relationship.</p>
+<p>Arbitrageurs exploit price discrepancies between <strong>futures</strong> and <strong>spot prices</strong> adjusted for dividend yield and the risk-free rate:</p>
+<ul>
+<li>If <span class="math inline">\(F_0 &gt; S_0 e^{(r-q)T} \rightarrow\)</span> Buy the underlying stocks, sell futures.<br>
+</li>
+<li>If <span class="math inline">\(F_0 &lt; S_0 e^{(r-q)T} \rightarrow\)</span> Buy futures, short-sell the index’s underlying stocks.</li>
+</ul>
+<p>High-frequency trading algorithms often execute these strategies. However, <strong>real-world frictions</strong> (e.g., execution delays, transaction costs) may prevent perfect arbitrage.</p>
 </div>
 </div>
 </div>
 </section>
 <section id="exchange-rates" class="level3">
 <h3 class="anchored" data-anchor-id="exchange-rates">Exchange Rates</h3>
-<p>A foreign currency functions similarly to a security that yields interest, where the yield is the foreign country’s risk-free interest rate.</p>
-<p>Given <span class="math inline">\(r_f\)</span> as the foreign risk-free interest rate, the forward exchange rate formula is:</p>
-<p><span class="math display">\[F_0 = S_0 e^{(r-r_f)T}\]</span></p>
+<p>A <strong>foreign currency</strong> behaves like a security yielding <strong>interest</strong>, where the yield is the <strong>foreign risk-free rate</strong> (<span class="math inline">\(r_f\)</span>). The forward exchange rate is given by:</p>
+<p><span class="math display">\[
+F_0 = S_0 e^{(r - r_f)T}
+\]</span></p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -546,54 +605,85 @@ Exchange Rate Arbitrage
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Consider two strategies for converting 1,000 units of a foreign currency into dollars by time <span class="math inline">\(T\)</span>, where <span class="math inline">\(S_0\)</span> represents the current spot exchange rate, <span class="math inline">\(F_0\)</span> the forward exchange rate, and <span class="math inline">\(r\)</span> and <span class="math inline">\(r_f\)</span> the domestic and foreign risk-free interest rates, respectively.</p>
-<ul>
-<li><p><strong>Strategy 1:</strong> Convert the 1,000 units of foreign currency into dollars at the future time <span class="math inline">\(T\)</span> by initially investing these units at the foreign risk-free rate <span class="math inline">\(r_f\)</span>. Then, agree to a forward contract to sell the resulting amount for dollars at time <span class="math inline">\(T\)</span>.</p></li>
-<li><p><strong>Strategy 2:</strong> Immediately exchange the 1,000 units of foreign currency for dollars at the current spot rate <span class="math inline">\(S_0\)</span>, then invest this dollar amount at the domestic risk-free rate <span class="math inline">\(r\)</span> until time <span class="math inline">\(T\)</span>.</p></li>
-</ul>
-<p>The principle of no arbitrage implies that both strategies must yield the same outcome in dollar terms to prevent free profit opportunities. This condition leads to the following equation:</p>
-<p><span class="math display">\[1,000 \times e^{r_f \times T} \times F_0 = 1,000 \times S_0 \times e^{r \times T}\]</span></p>
-<p>Simplifying this equation provides the formula for the forward exchange rate:</p>
-<p><span class="math display">\[F_0 = S_0 e^{(r-r_f)T}\]</span></p>
+<p>Consider two equivalent strategies for converting <strong>1,000 units</strong> of a foreign currency into dollars by time <span class="math inline">\(T\)</span>:</p>
+<ol type="1">
+<li><strong>Invest in the foreign currency</strong> at rate <span class="math inline">\(r_f\)</span>, then convert at the forward rate <span class="math inline">\(F_0\)</span>.<br>
+</li>
+<li><strong>Convert immediately</strong> at spot rate <span class="math inline">\(S_0\)</span>, then invest in dollars at rate <span class="math inline">\(r\)</span>.</li>
+</ol>
+<p>No-arbitrage implies both must yield the same result, leading to:</p>
+<p><span class="math display">\[
+1,000 \times e^{r_f T} \times F_0 = 1,000 \times S_0 \times e^{rT}
+\]</span></p>
+<p>Solving for <span class="math inline">\(F_0\)</span> confirms the forward rate formula:</p>
+<p><span class="math display">\[
+F_0 = S_0 e^{(r - r_f)T}
+\]</span></p>
 </div>
 </div>
 </div>
 </section>
 <section id="commodities" class="level3">
 <h3 class="anchored" data-anchor-id="commodities">Commodities</h3>
-<p>For <strong>consumption assets</strong> like commodities, storage costs represent a form of negative income, impacting the forward price:</p>
-<p><span class="math display">\[F_0 \leq S_0 e^{(r+u)T}\]</span></p>
-<p>Here, <span class="math inline">\(u\)</span> stands for the storage cost per unit time as a percentage of the asset’s value. Alternatively, incorporating the present value of storage costs <span class="math inline">\(U\)</span>:</p>
-<p><span class="math display">\[F_0 \leq (S_0 +U) e^{rT}\]</span></p>
+<p>For <strong>consumption assets</strong> (e.g., oil, wheat, copper), <strong>storage costs</strong> act as <strong>negative income</strong>, affecting forward pricing:</p>
+<p><span class="math display">\[
+F_0 \leq S_0 e^{(r + u)T}
+\]</span></p>
+<p>where:</p>
+<ul>
+<li><span class="math inline">\(u\)</span> = <strong>Storage cost per unit time</strong> as a percentage of the asset’s value.</li>
+</ul>
+<p>Alternatively, if <span class="math inline">\(U\)</span> represents the <strong>present value</strong> of storage costs:</p>
+<p><span class="math display">\[
+F_0 \leq (S_0 + U) e^{rT}
+\]</span></p>
 <p>These formulas accommodate the costs associated with holding and storing physical commodities, from agricultural products to metals, affecting their forward pricing.</p>
 </section>
 <section id="the-cost-of-carry" class="level3">
 <h3 class="anchored" data-anchor-id="the-cost-of-carry">The Cost of Carry</h3>
-<p>The cost of carry (<span class="math inline">\(c\)</span>) combines storage costs, interest expenses, and any income earned. For investment assets, the forward price formula simplifies to:</p>
-<p><span class="math display">\[F_0 = S_0 e^{cT}\]</span></p>
-<p>In contrast, for consumption assets, the formula accounts for potential lower bounds due to additional costs, hence:</p>
-<p><span class="math display">\[F_0 \leq S_0 e^{cT}\]</span></p>
-<p>The concept of a <strong>convenience yield</strong> (<span class="math inline">\(y\)</span>) is introduced for consumption assets, acknowledging the benefits from holding the physical asset as opposed to a derivative position. It’s defined such that:</p>
-<p><span class="math display">\[F_0 = S_0 e^{(c-y)T}\]</span></p>
-</section>
-</section>
-<section id="futures-prices-and-expected-spot-prices" class="level2" data-number="3.7">
-<h2 data-number="3.7" class="anchored" data-anchor-id="futures-prices-and-expected-spot-prices"><span class="header-section-number">3.7</span> Futures Prices and Expected Spot Prices</h2>
-<p>When analyzing futures contracts, we consider the expected return required by investors, denoted as <span class="math inline">\(k\)</span>. This expected return plays a critical role in determining the futures price <span class="math inline">\(F_0\)</span> relative to the expected spot price at maturity <span class="math inline">\(E(S_T)\)</span>.</p>
-<p>An investment strategy involving futures contracts can be described as follows:</p>
+<p>The <strong>cost of carry</strong> (<span class="math inline">\(c\)</span>) represents the total cost of holding an asset, including:</p>
 <ul>
-<li><p>By investing an amount <span class="math inline">\(F_0 e^{-rT}\)</span> at the risk-free rate <span class="math inline">\(r\)</span> and entering a long futures contract, an investor can secure a cash inflow of <span class="math inline">\(S_T\)</span> at maturity.</p></li>
-<li><p>The present value (PV) of this investment strategy is calculated as <span class="math inline">\(-F_0 e^{-rT} +
-E(S_T) e^{-kT}\)</span>, where <span class="math inline">\(E\)</span> denotes the expected value.</p></li>
+<li>Storage costs</li>
+<li>Financing costs</li>
+<li>Income earned (e.g., dividends, yields)</li>
 </ul>
-<p>In efficient markets, investments are typically priced to yield a zero net present value (NPV). This principle leads to the fundamental pricing relation for futures contracts: <span class="math display">\[F_0 = E(S_T)e^{(r-k)T}\]</span></p>
-<p>The relationship between futures prices and expected future spot prices varies with the underlying asset’s systematic risk:</p>
+<p>For <strong>investment assets</strong>, the forward price follows:</p>
+<p><span class="math display">\[
+F_0 = S_0 e^{cT}
+\]</span></p>
+<p>For <strong>consumption assets</strong>, storage and financing costs may create <strong>lower price bounds</strong>:</p>
+<p><span class="math display">\[
+F_0 \leq S_0 e^{cT}
+\]</span></p>
+<p>A <strong>convenience yield</strong> (<span class="math inline">\(y\)</span>) represents the <strong>benefit of physically holding</strong> a consumption asset rather than a derivative. The forward price adjusts to:</p>
+<p><span class="math display">\[
+F_0 = S_0 e^{(c - y)T}
+\]</span></p>
+<p>where <span class="math inline">\(y\)</span> reflects <strong>scarcity, supply-chain security, and non-financial benefits</strong> of physical possession.</p>
+</section>
+</section>
+<section id="futures-prices-and-expected-spot-prices" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="futures-prices-and-expected-spot-prices"><span class="header-section-number">3.6</span> Futures Prices and Expected Spot Prices</h2>
 <ul>
-<li><strong>No Systematic Risk</strong>: When the asset carries no systematic risk, the expected return from the asset <span class="math inline">\(k\)</span> equals the risk-free rate <span class="math inline">\(r\)</span>, leading to <span class="math inline">\(F_0 = E(S_T)\)</span>.</li>
-<li><strong>Positive Systematic Risk</strong>: For assets with positive systematic risk, such as stock indices, <span class="math inline">\(k &gt; r\)</span> implies that futures prices will be lower than the expected spot prices <span class="math inline">\(F_0 &lt; E(S_T)\)</span>.</li>
-<li><strong>Negative Systematic Risk</strong>: Conversely, assets like gold, which may exhibit negative systematic risk during certain periods, have <span class="math inline">\(k &lt; r\)</span>, resulting in futures prices exceeding expected spot prices <span class="math inline">\(F_0 &gt; E(S_T)\)</span>.</li>
+<li><strong>Contango</strong> (<span class="math inline">\(F_t &gt; S_t\)</span>): Futures prices are higher than the current or expected future spot price.
+<ul>
+<li>Occurs when carrying costs (storage, interest) exceed convenience yield.<br>
+</li>
+<li>Common in gold, silver, natural gas, and agricultural commodities.<br>
+</li>
+<li>Contango is more common across most futures markets due to carrying costs.</li>
+</ul></li>
+<li><strong>Backwardation</strong> (<span class="math inline">\(F_t &lt; S_t\)</span>): Futures prices are lower than the expected future spot price.
+<ul>
+<li>Happens when convenience yield is high (scarcity or strong demand for immediate delivery).<br>
+</li>
+<li>Common in crude oil, perishable goods, and equity index futures.</li>
+</ul></li>
+<li><strong>Futures prices are poor predictors of future spot prices.</strong> Empirical evidence shows biases due to risk premia and market inefficiencies. Speculative demand, liquidity constraints, and irrational expectations can further distort pricing.<br>
+</li>
+<li>While futures prices provide useful signals, they should not be relied upon as perfect forecasts of future spot prices.</li>
 </ul>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -601,82 +691,83 @@ E(S_T) e^{-kT}\)</span>, where <span class="math inline">\(E\)</span> denotes th
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Contango and Backwardation
+Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><p><a href="https://www.cmegroup.com/education/courses/introduction-to-ferrous-metals/what-is-contango-and-backwardation.html">CME Institute</a></p></li>
-<li><p><strong>Backwardation</strong>: This market condition occurs when futures prices are below the expected future spot prices, often observed in markets expecting lower future prices.</p></li>
-<li><p><strong>Contango</strong>: In contrast, a contango market condition is characterized by futures prices that exceed expected future spot prices, typically occurring in markets where future prices are anticipated to rise.</p></li>
+<li><a href="https://www.cmegroup.com/education/courses/introduction-to-ferrous-metals/what-is-contango-and-backwardation.html">What is Contango and Backwardation - CME Institute</a></li>
 </ul>
 </div>
 </div>
 </section>
-<section id="forward-rate-agreement-fra" class="level2" data-number="3.8">
-<h2 data-number="3.8" class="anchored" data-anchor-id="forward-rate-agreement-fra"><span class="header-section-number">3.8</span> Forward Rate Agreement (FRA)</h2>
-<p>An FRA is a financial contract that allows parties to exchange a fixed interest rate for a floating rate (often based on LIBOR, SOFR, or SONIA) at a future date, applied to a specified principal amount. The agreement does not involve the exchange of principal but rather the difference in interest payments based on the agreed rates. The value of an FRA at inception is zero, as the fixed rate equals the forward rate. The value changes as the forward rate changes over time.</p>
+<section id="forward-rate-agreement-fra" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="forward-rate-agreement-fra"><span class="header-section-number">3.7</span> Forward Rate Agreement (FRA)</h2>
+<p>An <strong>FRA</strong> is a financial contract where parties exchange a <strong>fixed interest rate</strong> for a <strong>floating rate</strong> (e.g., LIBOR, SOFR, SONIA) at a future date, based on a specified <strong>notional principal</strong>.</p>
+<ul>
+<li>No principal exchange occurs—only the difference in interest payments is settled.<br>
+</li>
+<li>The <strong>initial value</strong> of an FRA is <strong>zero</strong> since the fixed rate equals the forward rate at inception.<br>
+</li>
+<li>As the forward rate changes over time, the FRA’s value fluctuates.</li>
+</ul>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Example: FRA
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Consider an FRA where Party A and Party B agree to exchange a fixed rate of 3% for three-month SOFR on a principal of $100 million in two years. The interest rates are compounded quarterly.</p>
+<p>Party A and Party B agree to exchange a fixed rate of 3% for the three-month SOFR on a $100 million notional in two years (compounded quarterly).</p>
 <ul>
-<li><strong>Position of Parties:</strong> Party A will pay the floating SOFR rate and receive a fixed 3%. Party B takes the opposite position.</li>
-<li><strong>Outcome:</strong> If the three-month SOFR rate is 3.5% in two years, Party A receives a net payment from Party B calculated as follows:</li>
+<li><strong>Party A</strong> pays floating SOFR and receives a fixed 3%.<br>
+</li>
+<li><strong>Party B</strong> takes the opposite position.</li>
 </ul>
-<p><span class="math display">\[ \$100,000,000 \times (0.035 - 0.030) \times 0.25 = \$125,000 \]</span></p>
-<p>This amount would ideally be paid at 2.25 years. However, considering the advance determination of SOFR, the actual payment is adjusted to its present value and made at the 2-year mark (discounted for three months at 3.5%).</p>
+<p>If in two years the SOFR rate is 3.5%, Party A receives a payment from Party B:</p>
+<p><span class="math display">\[
+100,000,000 \times (0.035 - 0.030) \times 0.25 = 125,000
+\]</span></p>
+<p>This amount is discounted for three months at <strong>3.5%</strong>, since payments are made at the two-year mark.</p>
 </div>
 </div>
+</div>
 <ul>
-<li><strong>Zero Rates</strong>: The n-year zero rate (or spot rate) is the interest rate for an investment lasting n years, with interest and principal paid at the end of the term. No intermediate payments are made.</li>
+<li><p>A <strong>zero rate</strong> is the interest rate for an investment lasting <span class="math inline">\(n\)</span> years, with interest and principal paid at maturity (no intermediate payments).</p></li>
+<li><p>A <strong>forward rate</strong> represents the future interest rate implied by current zero rates for future periods. It reflects the cost of borrowing/lending at a future time.</p></li>
 </ul>
+<p>For a forward rate between <span class="math inline">\(T_1\)</span> and <span class="math inline">\(T_2\)</span>, given zero rate <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span>:</p>
+<p><span class="math display">\[
+R_F = \frac{R_2 T_2 - R_1 T_1}{T_2 - T_1}
+\]</span></p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Example: Zero Rate
+Example: Forward Rate Calculation
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div class="callout-body-container callout-body">
-<p>A 5-year zero rate of 5% per annum, under continuous compounding, means $100 grows to $128.40 over 5 years, calculated as <span class="math inline">\(100 \times e^{0.05 \times 5}\)</span>.</p>
-</div>
-</div>
-<ul>
-<li><strong>Forward Rates</strong>: Forward rates represent the future interest rates implied by current zero rates for future periods. Derived from zero rates for various maturities, indicating the cost of borrowing or lending money in the future, as implied by today’s rates.</li>
-</ul>
-<p>For calculating a forward rate between times <span class="math inline">\(T_1\)</span> and <span class="math inline">\(T_2\)</span>, given zero rates <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span> for these times, the forward rate, <span class="math inline">\(R_F\)</span>, is:</p>
-<p><span class="math display">\[R_F = \frac{R_2 T_2 - R_1 T_1}{T_2 - T_1}\]</span></p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Example: Forward Rate
-</div>
-</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <table class="caption-top table">
 <colgroup>
-<col style="width: 6%">
-<col style="width: 51%">
-<col style="width: 42%">
+<col style="width: 8%">
+<col style="width: 33%">
+<col style="width: 57%">
 </colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: center;">Year</th>
-<th style="text-align: center;">Zero rate for an n-year investment (% per annum)</th>
-<th style="text-align: center;">Forward rate for nth year (% per annum)</th>
+<th style="text-align: center;">Zero Rate (% per annum)</th>
+<th style="text-align: center;">Forward Rate for nth Year (% per annum)</th>
 </tr>
 </thead>
 <tbody>
@@ -707,57 +798,32 @@ Example: Forward Rate
 </tr>
 </tbody>
 </table>
-<p>To illustrate, consider calculating the forward rate for the fourth year using the data provided in the Table. Assuming <span class="math inline">\(T_1 = 3\)</span>, <span class="math inline">\(T_2 = 4\)</span>, <span class="math inline">\(R_1 = 4.6\%\)</span>, and <span class="math inline">\(R_2 = 5.0\%\)</span>, the forward rate, <span class="math inline">\(R_F\)</span>, is calculated as follows:</p>
-<p><span class="math display">\[ R_F = \frac{0.05 \times 4 - 0.046 \times 3}{4 - 3} = 6.2\% \]</span></p>
-<p>This result indicates the forward rate for the fourth year is 6.2% per annum, which is higher than the zero rate for the same period due to the upward sloping yield curve.</p>
-</div>
-</div>
-<p>The value of an FRA at inception is zero since the fixed rate typically equals the forward rate for the reference rate at that time. However, the value can change over time as the forward rate fluctuates. The valuation of an FRA can be determined by comparing the difference between the agreed fixed rate (<span class="math inline">\(R_K\)</span>) and the current forward rate (<span class="math inline">\(R_F\)</span>) over the contract period (<span class="math inline">\(t\)</span>), discounted back to the present value.</p>
-</section>
-<section id="practice-questions-and-problems" class="level2" data-number="3.9">
-<h2 data-number="3.9" class="anchored" data-anchor-id="practice-questions-and-problems"><span class="header-section-number">3.9</span> Practice Questions and Problems</h2>
-<section id="basics-of-forward-and-futures-contracts" class="level3">
-<h3 class="anchored" data-anchor-id="basics-of-forward-and-futures-contracts">Basics of Forward and Futures Contracts</h3>
-<ol type="1">
-<li>Explain what happens when an investor shorts a certain share.</li>
-<li>What is the difference between the forward price and the value of a forward contract?</li>
-<li>What is meant by (a) an investment asset and (b) a consumption asset. Why is the distinction between investment and consumption assets important in the determination of forward and futures prices?</li>
-<li>Explain carefully why the futures price of gold can be calculated from its spot price and other observable variables whereas the futures price of copper cannot.</li>
-<li>Explain carefully the meaning of the terms convenience yield and cost of carry. What is the relationship between futures price, spot price, convenience yield, and cost of carry?</li>
-<li>What is the cost of carry for (a) a non-dividend-paying stock, (b) a stock index, (c) a commodity with storage costs, and (d) a foreign currency?</li>
-</ol>
-</section>
-<section id="calculation-of-forward-and-futures-prices" class="level3">
-<h3 class="anchored" data-anchor-id="calculation-of-forward-and-futures-prices">Calculation of Forward and Futures Prices</h3>
-<ol start="7" type="1">
-<li>Suppose that you enter into a three-month forward contract on a non-dividend-paying stock when the stock price is $108 and the risk-free interest rate (with continuous compounding) is 4% per annum. What is the forward price?</li>
-</ol>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-10" class="callout-10-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p><span class="math inline">\(F_0 = 109.085\)</span></p>
+<p>For <strong>year 4</strong>, given <span class="math inline">\(T_1 = 3\)</span>, <span class="math inline">\(T_2 = 4\)</span>, <span class="math inline">\(R_1 = 4.6\%\)</span>, and <span class="math inline">\(R_2 = 5.0\%\)</span>:</p>
+<p><span class="math display">\[
+R_F = \frac{0.05 \times 4 - 0.046 \times 3}{4 - 3} = 6.2\%
+\]</span></p>
+<p>This forward rate (<strong>6.2%</strong>) is higher than the <strong>zero rate (5.0%)</strong>, reflecting an <strong>upward-sloping yield curve</strong>.</p>
 </div>
 </div>
 </div>
-<ol start="8" type="1">
-<li>A four-months long forward contract on a non-dividend-paying stock is entered into when the stock price is $150 and the risk-free rate of interest is 5.7% per annum with continuous compounding.
+<p>The <strong>value of an FRA</strong> is determined by:</p>
 <ul>
-<li><ol type="a">
-<li>What are the forward price and the initial value of the forward contract?</li>
-</ol></li>
-<li><ol start="2" type="a">
-<li>Two months later, the price of the stock is $168 and the risk-free interest rate is still 5.7%. What are the forward price and the value of the forward contract?</li>
-</ol></li>
-</ul></li>
+<li>The difference between the <strong>agreed fixed rate</strong> (<span class="math inline">\(R_K\)</span>) and the <strong>current forward rate</strong> (<span class="math inline">\(R_F\)</span>).<br>
+</li>
+<li>The <strong>contract period</strong> (<span class="math inline">\(t\)</span>).<br>
+</li>
+<li>Discounting the difference to <strong>present value</strong>.</li>
+</ul>
+</section>
+<section id="practice-questions-and-problems" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="practice-questions-and-problems"><span class="header-section-number">3.8</span> Practice Questions and Problems</h2>
+<ol type="1">
+<li><p>Explain what happens when an investor shorts a certain share.</p></li>
+<li><p>What is the difference between the forward price and the value of a forward contract?</p></li>
+<li><p>Explain carefully why the futures price of gold can be calculated from its spot price and other observable variables whereas the futures price of copper cannot.</p></li>
+<li><p>Explain carefully the meaning of the terms convenience yield and cost of carry. What is the relationship between futures price, spot price, convenience yield, and cost of carry?</p></li>
+<li><p>What is the cost of carry for (a) a non-dividend-paying stock, (b) a stock index, (c) a commodity with storage costs, and (d) a foreign currency?</p></li>
+<li><p>Suppose that you enter into a three-month forward contract on a non-dividend-paying stock when the stock price is $108 and the risk-free interest rate (with continuous compounding) is 4% per annum. What is the forward price?</p></li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
@@ -771,12 +837,20 @@ Solution
 </div>
 <div id="callout-11" class="callout-11-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Forward price <span class="math inline">\(F_0 = 152.88\)</span>; initial value <span class="math inline">\(0\)</span>; final value <span class="math inline">\(169.6\)</span></p>
+<p><span class="math inline">\(F_0 = 109.085\)</span></p>
 </div>
 </div>
 </div>
-<ol start="9" type="1">
-<li>The risk-free rate of interest is 4.1% per annum with continuous compounding, and the dividend yield on a stock index is 6.2% per annum. The current value of the index is 2445. What is the one-month futures price?</li>
+<ol start="7" type="1">
+<li>A four-months long forward contract on a non-dividend-paying stock is entered into when the stock price is $150 and the risk-free rate of interest is 5.7% per annum with continuous compounding.
+<ul>
+<li><ol type="a">
+<li>What are the forward price and the initial value of the forward contract?</li>
+</ol></li>
+<li><ol start="2" type="a">
+<li>Two months later, the price of the stock is $168 and the risk-free interest rate is still 5.7%. What are the forward price and the value of the forward contract?</li>
+</ol></li>
+</ul></li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
@@ -790,12 +864,12 @@ Solution
 </div>
 <div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><span class="math inline">\(F_0 = 2440.725\)</span></p>
+<p>Forward price <span class="math inline">\(F_0 = 152.88\)</span>; initial value <span class="math inline">\(0\)</span>; final value <span class="math inline">\(169.6\)</span></p>
 </div>
 </div>
 </div>
-<ol start="10" type="1">
-<li>A stock index currently stands at 725. The risk-free interest rate is 7.6% per annum (with continuous compounding) and the dividend yield on the index is 1.8% per annum. What should the futures price for a three-month contract be?</li>
+<ol start="8" type="1">
+<li>The risk-free rate of interest is 4.1% per annum with continuous compounding, and the dividend yield on a stock index is 6.2% per annum. The current value of the index is 2445. What is the one-month futures price?</li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
@@ -809,12 +883,12 @@ Solution
 </div>
 <div id="callout-13" class="callout-13-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><span class="math inline">\(F_0 = 735.589\)</span></p>
+<p><span class="math inline">\(F_0 = 2440.725\)</span></p>
 </div>
 </div>
 </div>
-<ol start="11" type="1">
-<li>An index is 550. The three-month risk-free rate is 4.60% per annum and the dividend yield over the next three months is 5.80% per annum. The six-month risk-free rate is 5.34% per annum and the dividend yield over the next six months is 4.93% per annum. Estimate the futures price of the index for three-month and six-month contracts. All interest rates and dividend yields are continuously compounded.</li>
+<ol start="9" type="1">
+<li>A stock index currently stands at 725. The risk-free interest rate is 7.6% per annum (with continuous compounding) and the dividend yield on the index is 1.8% per annum. What should the futures price for a three-month contract be?</li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
@@ -828,12 +902,12 @@ Solution
 </div>
 <div id="callout-14" class="callout-14-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>3-month <span class="math inline">\(F_0 = 548.352\)</span>; 6-month <span class="math inline">\(F_0 = 551.129\)</span></p>
+<p><span class="math inline">\(F_0 = 735.589\)</span></p>
 </div>
 </div>
 </div>
-<ol start="12" type="1">
-<li>The spot price of silver is $11 per ounce. The storage costs are $0.25 per ounce payable quarterly in advance. Assuming that interest rates are 1.80% per annum for all maturities, calculate the futures price of silver for delivery in nine months.</li>
+<ol start="10" type="1">
+<li>An index is 550. The three-month risk-free rate is 4.60% per annum and the dividend yield over the next three months is 5.80% per annum. The six-month risk-free rate is 5.34% per annum and the dividend yield over the next six months is 4.93% per annum. Estimate the futures price of the index for three-month and six-month contracts. All interest rates and dividend yields are continuously compounded.</li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
@@ -847,12 +921,12 @@ Solution
 </div>
 <div id="callout-15" class="callout-15-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><span class="math inline">\(F_0 = 11.91\)</span></p>
+<p>3-month <span class="math inline">\(F_0 = 548.352\)</span>; 6-month <span class="math inline">\(F_0 = 551.129\)</span></p>
 </div>
 </div>
 </div>
-<ol start="13" type="1">
-<li>The spot price of oil is $39 per barrel and the cost of storing a barrel of oil for one year is $1.2, payable at the end of the year. The risk-free interest rate is 8.60% per annum, continuously compounded. What is an upper bound for the one-year futures price of oil?</li>
+<ol start="11" type="1">
+<li>The spot price of silver is $11 per ounce. The storage costs are $0.25 per ounce payable quarterly in advance. Assuming that interest rates are 1.80% per annum for all maturities, calculate the futures price of silver for delivery in nine months.</li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
@@ -866,15 +940,12 @@ Solution
 </div>
 <div id="callout-16" class="callout-16-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><span class="math inline">\(F_0 = 43.70\)</span></p>
+<p><span class="math inline">\(F_0 = 11.91\)</span></p>
 </div>
 </div>
 </div>
-</section>
-<section id="arbitrage-and-risk-management" class="level3">
-<h3 class="anchored" data-anchor-id="arbitrage-and-risk-management">Arbitrage and Risk Management</h3>
-<ol start="14" type="1">
-<li>Suppose that the risk-free interest rate is 3.00% per annum with continuous compounding and that the dividend yield on a stock index is 0.60% per annum. The index is standing at 3646, and the futures price for a contract deliverable in ten months is 3701. What arbitrage opportunities does this create?</li>
+<ol start="12" type="1">
+<li>The spot price of oil is $39 per barrel and the cost of storing a barrel of oil for one year is $1.2, payable at the end of the year. The risk-free interest rate is 8.60% per annum, continuously compounded. What is an upper bound for the one-year futures price of oil?</li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
@@ -888,12 +959,12 @@ Solution
 </div>
 <div id="callout-17" class="callout-17-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><span class="math inline">\(F_0 = 3719.654\)</span></p>
+<p><span class="math inline">\(F_0 = 43.70\)</span></p>
 </div>
 </div>
 </div>
-<ol start="15" type="1">
-<li>The eight-month interest rates in Switzerland and the United States are, respectively, 3.60% and 5.40% per annum with continuous compounding. The spot price of the Swiss franc is $0.9. The futures price for a contract deliverable in two months is also $0.9. What arbitrage opportunities does this create?</li>
+<ol start="13" type="1">
+<li>Suppose that the risk-free interest rate is 3.00% per annum with continuous compounding and that the dividend yield on a stock index is 0.60% per annum. The index is standing at 3646, and the futures price for a contract deliverable in ten months is 3701. What arbitrage opportunities does this create?</li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
@@ -907,11 +978,30 @@ Solution
 </div>
 <div id="callout-18" class="callout-18-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
+<p><span class="math inline">\(F_0 = 3719.654\)</span></p>
+</div>
+</div>
+</div>
+<ol start="14" type="1">
+<li>The eight-month interest rates in Switzerland and the United States are, respectively, 3.60% and 5.40% per annum with continuous compounding. The spot price of the Swiss franc is $0.9. The futures price for a contract deliverable in two months is also $0.9. What arbitrage opportunities does this create?</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-19" class="callout-19-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <p><span class="math inline">\(F_0 = 0.911\)</span></p>
 </div>
 </div>
 </div>
-<ol start="16" type="1">
+<ol start="15" type="1">
 <li>When a known future cash outflow in a foreign currency is hedged by a company using a forward contract, there is no foreign exchange risk. When it is hedged using futures contracts, the daily settlement process does leave the company exposed to some risk. Explain the nature of this risk. Assume that the forward price equals the futures price. In particular, consider whether the company is better off using a futures contract or a forward contract when
 <ul>
 <li><ol type="a">
@@ -930,7 +1020,6 @@ Solution
 </ol>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
