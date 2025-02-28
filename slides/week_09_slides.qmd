@@ -1,8 +1,0 @@
----
-title: "Introduction to Financial Derivatives"
-format:
-  revealjs:
-    center: true
-    incremental: true
-    embed-resources: true
----
