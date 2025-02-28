@@ -206,7 +206,6 @@ This example shows that **open interest** reflects the number of active contract
   - **Maintenance Margin:** The minimum balance that must be maintained. Falling below
   this triggers a **margin call** (additional funds must be deposited to meet the
   initial margin requirement).
-.
 
 ::: {.callout-note collapse="true"}
 # Example: Margin and Margin Call
