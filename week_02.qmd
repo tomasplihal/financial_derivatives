@@ -2,7 +2,6 @@
 format:
   html:
     code-fold: true
-    self-contained: true
 execute:
   echo: false
 jupyter: python3
