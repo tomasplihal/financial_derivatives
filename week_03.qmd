@@ -30,7 +30,7 @@ market conditions.
 # Example: Forward Price vs. Value
 
 - On November 2, an investor takes a **long position** in a December Gold futures
-contract at **$1,250/oz**. At initiation, the contract.s value is **$0** (fair market
+contract at **$1,250/oz**. At initiation, the contract's value is **$0** (fair market
 agreement).  
 - On November 3, if the market price drops to **$1,225/oz**, the contract's value turns
 **negative**, reflecting a loss for the investor.
@@ -102,7 +102,7 @@ stocks, bonds).
 Consider an asset that provides with **no income**, priced at **\$40**, with a **5%
 annual interest rate** and a **3-month forward contract**.
 
-#### Case 1: Forward Price = /$43  
+#### Case 1: Forward Price = \$43  
 
 - **Now**: Borrow \$40, buy the asset, and enter a forward contract to sell at \$43.  
 - **In 3 months**: Sell at \$43, repay the loan (\$40.50 with interest).  
