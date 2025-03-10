@@ -380,8 +380,8 @@ Definiton
 <h2 data-number="4.2" class="anchored" data-anchor-id="interest-rate-swaps"><span class="header-section-number">4.2</span> Interest Rate Swaps</h2>
 <p>This section explores a <strong>Plain Vanilla Interest Rate Swap</strong>, using a transaction between <strong>Apple and Citigroup</strong> as an example. The swap spans three years and demonstrates the core mechanics of interest rate swaps.</p>
 <ul>
-<li><p>Apple agrees to pay Citigroup a <strong>fixed 3% annual interest rate</strong>, with biannual payments based on a <strong>notional principal of $100 million</strong>.</p></li>
-<li><p>In return, Citigroup pays Apple interest at the <strong>six-month SOFR rate</strong>, calculated on the same principal.</p></li>
+<li><p>Apple agrees to pay Citigroup a <strong>fixed 3% annual interest rate</strong>, with quarterly payments based on a <strong>notional principal of $100 million</strong>.</p></li>
+<li><p>In return, Citigroup pays Apple interest at the <strong>three-month LIBOR rate</strong>, calculated on the same principal.</p></li>
 <li><p>Apple is the fixed-rate payer, while Citigroup is the floating-rate payer.</p></li>
 </ul>
 <br>
@@ -389,7 +389,7 @@ Definiton
 <img src="images/05-2-apple-citi-1.png" width="600px">
 </center>
 <p><br></p>
-<p>The table below illustrates potential cash flow outcomes, maintaining the <strong>$100 million notional principal</strong>. The net cash flow for Apple varies due to SOFR fluctuations, sometimes resulting in payments and other times in receipts.</p>
+<p>The table below illustrates potential cash flow outcomes, maintaining the <strong>$100 million notional principal</strong>. The net cash flow for Apple varies due to LIBOR fluctuations, sometimes resulting in payments and other times in receipts.</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 13%">
@@ -657,11 +657,11 @@ Definiton
 <thead>
 <tr class="header">
 <th style="text-align: center;">Time (years)</th>
-<th style="text-align: center;">Fixed Cash Flow (<span class="math inline">\(M) | Floating Cash Flow (\)</span>M)</th>
-<th style="text-align: center;">Net Cash Flow (<span class="math inline">\(M) | Discount Factor | Present Value (\)</span>M)</th>
-<th style="text-align: center;"></th>
-<th style="text-align: center;"></th>
-<th style="text-align: center;"></th>
+<th style="text-align: center;">Fixed Cash Flow ($M)</th>
+<th style="text-align: center;">Floating Cash Flow ($M)</th>
+<th style="text-align: center;">Net Cash Flow ($M)</th>
+<th style="text-align: center;">Discount Factor</th>
+<th style="text-align: center;">Present Value ($M)</th>
 </tr>
 </thead>
 <tbody>
@@ -770,7 +770,7 @@ Case Study: British Petroleum and Barclays Swap Agreement
 </section>
 <section id="yearly-cash-flow-summary" class="level4">
 <h4 class="anchored" data-anchor-id="yearly-cash-flow-summary">Yearly Cash Flow Summary</h4>
-<p>The table below illustrates the cash flows for Barclays exchanged over the swap’s duration:</p>
+<p>The table below illustrates the cash flows for British Petroleum exchanged over the swap’s duration:</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 24%">
@@ -848,7 +848,7 @@ Case Study: General Electric &amp; Qantas Airways
 <ul>
 <li>General Electric (GE) wants to borrow in Australian dollars (AUD).<br>
 </li>
-<li>Qantas Airways wants to borrow in **U.S. dollars (USD).</li>
+<li>Qantas Airways wants to borrow in U.S. dollars (USD).</li>
 </ul></li>
 <li><strong>Borrowing Costs (after tax adjustments)</strong>:</li>
 </ul>
