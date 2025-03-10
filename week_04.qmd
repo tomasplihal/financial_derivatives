@@ -50,11 +50,11 @@ This section explores a **Plain Vanilla Interest Rate Swap**, using a transactio
 between **Apple and Citigroup** as an example. The swap spans three years and
 demonstrates the core mechanics of interest rate swaps.
 
-- Apple agrees to pay Citigroup a **fixed 3% annual interest rate**, with biannual
-payments based on a **notional principal of $100 million**.  
+- Apple agrees to pay Citigroup a **fixed 3% annual interest rate**, with quarterly
+payments based on a **notional principal of \$100 million**.  
 
-- In return, Citigroup pays Apple interest at the **six-month SOFR rate**, calculated on
-the same principal.  
+- In return, Citigroup pays Apple interest at the **three-month LIBOR rate**, calculated
+on the same principal.  
 
 - Apple is the fixed-rate payer, while Citigroup is the floating-rate payer.
 
@@ -64,9 +64,9 @@ the same principal.
 </center>
 <br>
 
-The table below illustrates potential cash flow outcomes, maintaining the **$100 million
-notional principal**. The net cash flow for Apple varies due to SOFR fluctuations,
-sometimes resulting in payments and other times in receipts.
+The table below illustrates potential cash flow outcomes, maintaining the **\$100
+million notional principal**. The net cash flow for Apple varies due to LIBOR
+fluctuations, sometimes resulting in payments and other times in receipts.
 
 | Date          | SOFR Rate (%) | Floating Cash Flow Received (\$'000s) | Fixed Cash Flow Paid (\$'000s) | Net Cash Flow (\$'000s) |
 |--------------|-------------|-----------------------------------|----------------------------|-----------------|
@@ -223,7 +223,7 @@ semi-annually on a \$100 million principal.
 The table below details the swap's fixed and floating cash flows, their net impact, and
 their **present value** after discounting.
 
-| Time (years) | Fixed Cash Flow ($M) | Floating Cash Flow ($M) | Net Cash Flow ($M) | Discount Factor | Present Value ($M) |
+| Time (years) | Fixed Cash Flow (\$M) | Floating Cash Flow (\$M) | Net Cash Flow (\$M) | Discount Factor | Present Value (\$M) |
 |:------------:|:--------------------:|:-----------------------:|:------------------:|:---------------:|:------------------:|
 | 0.2          | -1.500               | +1.258                  | -0.242             | 0.9944          | -0.241             |
 | 0.7          | -1.500               | +1.694                  | +0.194             | 0.9778          | +0.190             |
@@ -247,7 +247,7 @@ $$
 
 - **Final Swap Value**:  
   The sum of all present values across time points, resulting in a swap valuation of
-  **$0.292 million**.  
+  **\$0.292 million**.  
 
 - This valuation assumes **simplifications** (e.g., ignoring holiday calendars and day
 count conventions), which may affect precise cash flows.  
@@ -289,8 +289,8 @@ to access favorable interest rates or hedge against currency fluctuations.
 
 #### Yearly Cash Flow Summary
 
-The table below illustrates the cash flows for Barclays exchanged over the swap's
-duration:  
+The table below illustrates the cash flows for British Petroleum exchanged over the
+swap's duration:  
 
 |       Date      | USD Cash Flow (millions) | GBP Cash Flow (millions) |
 |:---------------:|:------------------------:|:------------------------:|
@@ -320,7 +320,7 @@ financial benefits.
 
 - **Scenario**:  
   - General Electric (GE) wants to borrow in Australian dollars (AUD).  
-  - Qantas Airways wants to borrow in **U.S. dollars (USD).  
+  - Qantas Airways wants to borrow in U.S. dollars (USD).  
 
 - **Borrowing Costs (after tax adjustments)**:  
 
