@@ -517,14 +517,17 @@ held until maturity. Under what circumstances will the holder of the option make
 profit? Under what circumstances will the option be exercised? Draw a diagram
 illustrating how the profit from a long position in the option depends on the stock
 price at maturity of the option.
+
 2. An investor sells a European call on a share for \$4. The stock price is \$47 and the
 strike price is \$50. Under what circumstances does the investor make a profit? Under
 what circumstances will the option be exercised? Draw a diagram showing the variation of
 the investor's profit with the stock price at the maturity of the option.
+
 3. An investor buys a European put on a share for \$3. The stock price is \$42 and the
 strike price is \$40. Under what circumstances does the investor make a profit? Under
 what circumstances will the option be exercised? Draw a diagram showing the variation of
 the investor's profit with the stock price at the maturity of the option.
+
 4. Suppose that a European put option to sell a share for \$60 costs \$8 and is held
 until maturity. Under what circumstances will the seller of the option (the party with
 the short position) make a profit? Under what circumstances will the option be
@@ -535,12 +538,15 @@ option depends on the stock price at maturity of the option.
 
 5. Explain why margin accounts are required when clients write options but not when they
 buy options.
+
 6. A corporate treasurer is designing a hedging program involving foreign currency
 options. What are the pros and cons of using (a) the NASDAQ OMX and (b) the
 over-the-counter market for trading?
+
 7. The treasurer of a corporation is trying to choose between options and forward
 contracts to hedge the corporation's foreign exchange risk. Discuss the advantages and
 disadvantages of each.
+
 8. Consider an exchange-traded call option contract to buy 500 shares with a strike
 price of \$40 and maturity in four months. Explain how the terms of the option contract
 change when there is
@@ -552,11 +558,14 @@ change when there is
 
 9. Explain why an American option is always worth at least as much as a European option
 on the same asset with the same strike price and exercise date.
+
 10. Explain why an American option is always worth at least as much as its intrinsic
 value.
+
 11. What is a lower bound for the price of a four-month call option on a
 non-dividend-paying stock when the stock price is \$28, the strike price is \$25, and
 the risk-free interest rate is 8\% per annum?
+
 12. What is a lower bound for the price of a one-month European put option on a
 non-dividend paying stock when the stock price is \$12, the strike price is \$15, and
 the risk-free interest rate is 6\% per annum?
@@ -565,10 +574,13 @@ the risk-free interest rate is 6\% per annum?
 
 13. Give at least two reasons that the early exercise of an American call option on a
 non-dividend-paying stock is not optimal.
+
 14. The early exercise of an American put is a trade-off between the time value of money
 and the insurance value of a put. Explain this statement.
+
 15. The price of a non-dividend paying stock is \$19 and the price of a three-month
-European call option on the stock with a strike price of \$20 is
-\$1. The risk-free rate is 4\% per annum. What is the price of a three-month European
-put option with a strike price of \$20?
+European call option on the stock with a strike price of \$20 is \$1. The risk-free rate
+is 4\% per annum. What is the price of a three-month European put option with a strike
+price of \$20?
+
 16. List and explain the six factors affecting stock option prices.
