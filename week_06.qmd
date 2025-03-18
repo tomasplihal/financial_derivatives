@@ -2,6 +2,8 @@
 format:
   html:
     code-fold: true
+execute:
+  echo: false
 jupyter: python3
 ---
 
@@ -42,64 +44,66 @@ import plotly.graph_objects as go
 import numpy as np
 ```
 
+
 ## Principal Protected Note
 
-Principal Protected Notes (PPNs) enable investors to engage in potentially high-reward
-investments without the fear of losing their principal amount. This dual-feature
-mechanism is facilitated through a blend of a zero-coupon bond and a derivative
-instrument, typically a call option.
+Principal Protected Note (PPN) allow investors to participate in high-reward
+opportunities while safeguarding their principal. This is achieved through a combination
+of a zero-coupon bond and a derivative, typically a call option.
 
 :::{.callout-note}
-# Example: PPN
+# Example: PPN Structure
 
-Consider an investment in a PPN valued at \$1,000, structured as follows:
+Consider a \$1,000 PPN structured as follows:
 
 1. **Zero-Coupon Bond Component**: A 3-year zero-coupon bond with a face value of
-\$1,000 ensures the principal protection. Given a continuous compounding interest rate
-of 6%, the present value of this bond is calculated as:
-    $$ PV = \$1,000 \times e^{-0.06 \times 3} = \$835.27 $$
-    This calculation confirms that an initial investment of \$835.27 will mature to
-    \$1,000 over 3 years, effectively protecting the principal.
+\$1,000 ensures principal protection. Assuming a continuously compounded interest rate
+of 6%, its present value is:  
+$$
+PV = 1,000 \times e^{-0.06 \times 3} = 835.27
+$$
+This confirms that an initial investment of \$835.27 will grow to \$1,000 in 3 years,
+ensuring capital protection.
 
-2. **Call Option Component**: The remaining funds, amounting to \$164.73 (\$1,000 -
-\$835.27), are utilized to purchase a 3-year at-the-money call option on a stock
-portfolio. This option provides the upside potential.
+2. **Call Option Component**: The remaining \$164.73 (\$1,000 - \$835.27) is used to buy
+a 3-year at-the-money call option on a stock portfolio, providing upside potential.
 :::
 
-The feasibility of structuring a PPN profitably hinges on several market conditions:
+Key Factors Affecting PPN Feasibility:
 
-- **Dividend Levels**: Higher dividends reduce the attractiveness of the call option
-component.
-- **Interest Rates**: The zero-coupon bond's cost is inversely related to interest
-rates; higher rates make principal protection cheaper.
-- **Portfolio Volatility**: Higher volatility increases the price of the call option,
-but enhancing the investment's upside potential.
+- **Dividends**: High dividend yields reduce the appeal of the call option component.  
+- **Interest Rates**: Higher rates lower the cost of the zero-coupon bond, making
+principal protection cheaper.  
+- **Volatility**: Increased volatility raises the option price but enhances upside
+potential.  
 
-To cater to diverse investor preferences, PPNs can be customized with various features:
+PPNs can be tailored to different investor needs through:  
 
-- **Strike Price Adjustments**: Options may be set out of the money to increase
-potential returns.
-- **Return Caps**: Limits may be imposed on the maximum return to reduce the cost of the
-call option.
-- **Structural Innovations**: Features like knock-outs, averaging mechanisms, etc., can
-be incorporated to tailor risk and return profiles.
+- **Strike Price Adjustments**: Setting options out of the money for higher potential
+returns.  
+- **Return Caps**: Imposing limits on maximum gains to reduce option costs.  
+- **Structural Features**: Incorporating knock-outs, averaging mechanisms, and other
+innovations to refine risk-return profiles.  
 
-## Combining Underlying and Option
+## Combining Underlying and Options  
 
-Combining positions in the underlying stock with options can create tailored risk/reward
-profiles that suit various investment strategies and market views. Two popular
-strategies that illustrate this principle are the protective put and the covered call.
+Integrating stock positions with options allows for customized risk/reward profiles
+suited to different market views. Two key strategies illustrating this approach are the
+**protective put** and **covered call**.  
 
-### Protective Put
+### Protective Put  
 
-A protective put strategy involves buying a stock (or holding a currently owned stock)
-and buying a put option for the same stock. This strategy is used to protect against a
-decline in the stock's price while allowing for participation in any upside. It
-guarantees a minimum selling price (the strike price of the put) for the stock until the
-put's expiration, effectively setting a floor on the potential losses without capping
-the potential gains.
+A **protective put** involves holding a stock while purchasing a put option on the same
+stock. This strategy:  
+
+- **Protects against downside risk** by setting a minimum selling price (the put’s
+strike price).  
+- **Preserves upside potential**, as gains are uncapped beyond the strike price.  
 
 ```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
 # Parameters for the protective put strategy
 spot_prices = np.linspace(80, 120, 100)  # Range of spot prices
 S0 = 100  # Initial stock price
@@ -113,65 +117,37 @@ put_option_profit = np.maximum(K - spot_prices, 0) - premium_put  # Profit from 
 protective_put_profit = stock_profit + put_option_profit  # Total profit from the protective put strategy
 
 # Create the figure
-fig = go.Figure()
+plt.figure(figsize=(8, 6))
 
-# Add traces for the individual components' profits
-fig.add_trace(
-    go.Scatter(
-        x=spot_prices,
-        y=stock_profit,
-        mode="lines",
-        name="Stock Profit",
-        line=dict(width=2, dash='dot'),
-        hovertemplate="Spot Price: %{x:.0f}<br>Profit: %{y:.0f}<extra></extra>",
-    )
-)
-fig.add_trace(
-    go.Scatter(
-        x=spot_prices,
-        y=put_option_profit,
-        mode="lines",
-        name="Put Option Profit",
-        line=dict(width=2, dash='dot'),
-        hovertemplate="Spot Price: %{x:.0f}<br>Profit: %{y:.0f}<extra></extra>",
-    )
-)
+# Plot the individual components' profits
+plt.plot(spot_prices, stock_profit, linestyle='dotted', linewidth=2, label="Stock Profit")
+plt.plot(spot_prices, put_option_profit, linestyle='dotted', linewidth=2, label="Put Option Profit")
 
-# Add trace for the protective put net profit
-fig.add_trace(
-    go.Scatter(
-        x=spot_prices,
-        y=protective_put_profit,
-        mode="lines",
-        name="Protective Put",
-        line=dict(width=4),
-        hovertemplate="Spot Price: %{x:.0f}<br>Net Profit: %{y:.0f}<extra></extra>",
-    )
-)
+# Plot the protective put net profit
+plt.plot(spot_prices, protective_put_profit, linewidth=3, label="Protective Put", color='black')
 
-# Horizontal line at profit = 0 for reference, adjusted for the initial investment
-fig.add_hline(y=0, line_dash="dash", line_color="black")
+# Horizontal line at profit = 0 for reference
+plt.axhline(y=0, color='gray', linestyle='dashed')
 
-# Layout adjustments for clarity
-fig.update_layout(
-    title="Protective Put Strategy",
-    xaxis_title="Spot Price at Expiration",
-    yaxis_title="Profit",
-    legend_title="Component",
-)
+# Labels and title
+plt.title("Protective Put Strategy")
+plt.xlabel("Spot Price at Expiration")
+plt.ylabel("Profit")
+plt.legend()
 
-# Show the figure
-fig.show()
+# Show the plot
+plt.show()
 ```
 
-### Covered Call
+### Covered Call  
 
-A covered call strategy involves owning a stock and selling a call option on that stock.
-This strategy is aimed at generating additional income from the option premium, which
-can enhance the overall returns on the stock, especially in flat or slightly bullish
-markets. It limits the upside potential to the strike price of the sold call but
-provides premium income that offers some protection against a decline in the stock's
-price.
+A **covered call** involves owning a stock and selling a call option on it. This
+strategy:  
+
+- **Generates income** from the option premium, boosting returns in flat or slightly
+bullish markets.  
+- **Limits upside potential** to the call's strike price but provides partial downside
+protection through premium income.  
 
 ```{python}
 # Parameters for the covered call strategy
@@ -186,77 +162,46 @@ call_option_profit = np.where(spot_prices > K, K - spot_prices, 0) + premium_cal
 covered_call_profit = stock_profit + call_option_profit  # Total profit from the covered call strategy
 
 # Create the figure
-fig = go.Figure()
+plt.figure(figsize=(8, 6))
 
-# Add traces for the individual components' profits
-fig.add_trace(
-    go.Scatter(
-        x=spot_prices,
-        y=stock_profit,
-        mode="lines",
-        name="Stock Profit",
-        line=dict(width=2, dash='dot'),
-        hovertemplate="Spot Price: %{x:.0f}<br>Profit: %{y:.0f}<extra></extra>",
-    )
-)
-fig.add_trace(
-    go.Scatter(
-        x=spot_prices,
-        y=call_option_profit,
-        mode="lines",
-        name="Call Option Profit",
-        line=dict(width=2, dash='dot'),
-        hovertemplate="Spot Price: %{x:.0f}<br>Profit: %{y:.0f}<extra></extra>",
-    )
-)
+# Plot the individual components' profits
+plt.plot(spot_prices, stock_profit, linestyle='dotted', linewidth=2, label="Stock Profit")
+plt.plot(spot_prices, call_option_profit, linestyle='dotted', linewidth=2, label="Call Option Profit")
 
-# Add trace for the covered call net profit
-fig.add_trace(
-    go.Scatter(
-        x=spot_prices,
-        y=covered_call_profit,
-        mode="lines",
-        name="Covered Call",
-        line=dict(width=4),
-        hovertemplate="Spot Price: %{x:.0f}<br>Net Profit: %{y:.0f}<extra></extra>",
-    )
-)
+# Plot the covered call net profit
+plt.plot(spot_prices, covered_call_profit, linewidth=3, label="Covered Call", color='black')
 
 # Horizontal line at profit = 0 for reference
-fig.add_hline(y=0, line_dash="dash", line_color="black")
+plt.axhline(y=0, color='gray', linestyle='dashed')
 
-# Layout adjustments for clarity
-fig.update_layout(
-    title="Covered Call Strategy",
-    xaxis_title="Spot Price at Expiration",
-    yaxis_title="Profit",
-    legend_title="Component",
-)
+# Labels and title
+plt.title("Covered Call Strategy")
+plt.xlabel("Spot Price at Expiration")
+plt.ylabel("Profit")
+plt.legend()
 
-# Show the figure
-fig.show()
+# Show the plot
+plt.show()
 ```
 
-## Option Spreads
+## Option Spreads  
 
-Option spread strategies involve holding two or more options of the same type
-simultaneously to capitalize on movements in the underlying asset's price. These
-strategies can be tailored to reflect various market outlooks, from bullish to bearish
-or even neutral.
+Option spreads involve holding multiple options of the same type to structure
+risk/reward profiles based on market expectations. These strategies range from bullish
+to bearish or neutral.  
 
-### Bull Spread Strategy
+### Bull Spread  
 
-A bull spread is a strategy used when an investor expects a moderate increase in the
-price of the underlying asset. It can be constructed using either calls or puts.
+A **bull spread** profits from a moderate price increase and can be constructed using
+calls or puts.  
 
-#### Using Calls (Call Bull Spread)
+#### Call Bull Spread  
 
-- **Position**: Buy a call option with a lower strike price and sell another call option
-with a higher strike price. Both options share the same expiration date.
-- **Profit Potential**: Maximum profit is limited to the difference between the two
-strike prices minus the net premium paid.
-- **Risk**: Limited to the net premium paid for the spread.
-- **Break-even Point**: Lower strike price + net premium paid.
+- **Position**: Buy a call at a lower strike price, sell a call at a higher strike price
+(same expiration).  
+- **Profit**: Limited to the difference between strike prices minus the net premium paid.  
+- **Risk**: Limited to the net premium paid.  
+- **Break-even**: Lower strike price + net premium paid.  
 
 ```{python}
 # Parameters for the bull spread strategy
@@ -272,65 +217,35 @@ short_call_profit = -(np.maximum(spot_prices - K2, 0) - premium_short)
 bull_spread_profit = long_call_profit + short_call_profit  # Net profit of the bull spread
 
 # Create the figure
-fig = go.Figure()
+plt.figure(figsize=(8, 6))
 
-# Add traces for the individual option profits
-fig.add_trace(
-    go.Scatter(
-        x=spot_prices,
-        y=long_call_profit,
-        mode="lines",
-        name="Long Call",
-        line=dict(width=3, dash='dot'),
-        hovertemplate="Spot Price: %{x:.0f}<br>Profit: %{y:.0f}<extra></extra>",
-    )
-)
-fig.add_trace(
-    go.Scatter(
-        x=spot_prices,
-        y=short_call_profit,
-        mode="lines",
-        name="Short Call",
-        line=dict(width=3, dash='dot'),
-        hovertemplate="Spot Price: %{x:.0f}<br>Profit: %{y:.0f}<extra></extra>",
-    )
-)
+# Plot the individual option profits
+plt.plot(spot_prices, long_call_profit, linestyle='dotted', linewidth=2, label="Long Call")
+plt.plot(spot_prices, short_call_profit, linestyle='dotted', linewidth=2, label="Short Call")
 
-# Add trace for the bull spread net profit
-fig.add_trace(
-    go.Scatter(
-        x=spot_prices,
-        y=bull_spread_profit,
-        mode="lines",
-        name="Bull Spread",
-        line=dict(width=4),
-        hovertemplate="Spot Price: %{x:.0f}<br>Net Profit: %{y:.0f}<extra></extra>",
-    )
-)
+# Plot the bull spread net profit
+plt.plot(spot_prices, bull_spread_profit, linewidth=3, label="Bull Spread", color='black')
 
 # Horizontal line at profit = 0 for reference
-fig.add_hline(y=0, line_dash="dash", line_color="black")
+plt.axhline(y=0, color='gray', linestyle='dashed')
 
-# Layout adjustments for clarity
-fig.update_layout(
-    title="Bull Spread Using Call Options",
-    xaxis_title="Spot Price at Expiration",
-    yaxis_title="Profit",
-    legend_title="Component",
-)
+# Labels and title
+plt.title("Bull Spread Using Call Options")
+plt.xlabel("Spot Price at Expiration")
+plt.ylabel("Profit")
+plt.legend()
 
-# Show the figure
-fig.show()
+# Show the plot
+plt.show()
 ```
 
-#### Using Puts (Put Bull Spread)
+#### Put Bull Spread  
 
-- **Position**: Buy a put option with a higher strike price and sell another put option
-with a lower strike price, both having the same expiration date.
-- **Profit Potential**: Maximum profit is limited to the difference between the strike
-prices minus the net premium paid.
-- **Risk**: Limited to the net premium paid for the spread.
-- **Break-even Point**: Higher strike price - net premium paid.
+- **Position**: Buy a put at a higher strike price, sell a put at a lower strike price
+(same expiration).  
+- **Profit**: Limited to the difference between strike prices minus the net premium paid.  
+- **Risk**: Limited to the net premium paid.  
+- **Break-even**: Higher strike price - net premium paid.  
 
 ```{python}
 # Parameters for the bull spread strategy using put options
@@ -346,71 +261,41 @@ short_put_profit = -(np.maximum(K2 - spot_prices, 0) - premium_short)
 bull_spread_profit = long_put_profit + short_put_profit  # Net profit of the bull spread using put options
 
 # Create the figure
-fig = go.Figure()
+plt.figure(figsize=(8, 6))
 
-# Add traces for the individual option profits
-fig.add_trace(
-    go.Scatter(
-        x=spot_prices,
-        y=long_put_profit,
-        mode="lines",
-        name="Long Put",
-        line=dict(width=3, dash='dot'),
-        hovertemplate="Spot Price: %{x:.0f}<br>Profit: %{y:.0f}<extra></extra>",
-    )
-)
-fig.add_trace(
-    go.Scatter(
-        x=spot_prices,
-        y=short_put_profit,
-        mode="lines",
-        name="Short Put",
-        line=dict(width=3, dash='dot'),
-        hovertemplate="Spot Price: %{x:.0f}<br>Profit: %{y:.0f}<extra></extra>",
-    )
-)
+# Plot the individual option profits
+plt.plot(spot_prices, long_put_profit, linestyle='dotted', linewidth=2, label="Long Put")
+plt.plot(spot_prices, short_put_profit, linestyle='dotted', linewidth=2, label="Short Put")
 
-# Add trace for the bull spread net profit
-fig.add_trace(
-    go.Scatter(
-        x=spot_prices,
-        y=bull_spread_profit,
-        mode="lines",
-        name="Bull Spread",
-        line=dict(width=4),
-        hovertemplate="Spot Price: %{x:.0f}<br>Net Profit: %{y:.0f}<extra></extra>",
-    )
-)
+# Plot the bull spread net profit
+plt.plot(spot_prices, bull_spread_profit, linewidth=3, label="Bull Spread", color='black')
 
 # Horizontal line at profit = 0 for reference
-fig.add_hline(y=0, line_dash="dash", line_color="black")
+plt.axhline(y=0, color='gray', linestyle='dashed')
 
-# Layout adjustments for clarity
-fig.update_layout(
-    title="Bull Spread Using Put Options",
-    xaxis_title="Spot Price at Expiration",
-    yaxis_title="Profit",
-    legend_title="Component",
-)
+# Labels and title
+plt.title("Bull Spread Using Put Options")
+plt.xlabel("Spot Price at Expiration")
+plt.ylabel("Profit")
+plt.legend()
 
-# Show the figure
-fig.show()
+# Show the plot
+plt.show()
 ```
 
-### Bear Spread Strategy
+### Bear Spread  
 
-A bear spread is used when an investor expects a moderate decline in the price of the
-underlying asset. Similar to the bull spread, it can be executed using calls or puts.
+A **bear spread** profits from a moderate price decline and can also be constructed
+using calls or puts.  
 
-#### Using Calls (Call Bear Spread)
+#### Call Bear Spread  
 
-- **Position**: Buy a call option with a higher strike price and sell another call
-option with a lower strike price, both having the same expiration date.
-- **Profit Potential**: Maximum profit is limited to the net premium received for the
-spread.
-- **Risk**: Limited to the difference between the strike prices minus the net premium
-received.
-- **Break-even Point**: Lower strike price + net premium received.
+- **Position**: Buy a call at a higher strike price, sell a call at a lower strike price
+(same expiration).  
+- **Profit**: Limited to the net premium received.  
+- **Risk**: Limited to the difference between strike prices minus the net premium
+received.  
+- **Break-even**: Lower strike price + net premium received.  
 
 ```{python}
 # Parameters for the bear spread strategy using call options
@@ -426,66 +311,36 @@ long_call_profit = np.maximum(spot_prices - K2, 0) - premium_long
 bear_spread_profit = short_call_profit + long_call_profit  # Net profit of the bear spread
 
 # Create the figure
-fig = go.Figure()
+plt.figure(figsize=(8, 6))
 
-# Add traces for the individual option profits
-fig.add_trace(
-    go.Scatter(
-        x=spot_prices,
-        y=short_call_profit,
-        mode="lines",
-        name="Short Call",
-        line=dict(width=3, dash='dot'),
-        hovertemplate="Spot Price: %{x:.0f}<br>Profit: %{y:.0f}<extra></extra>",
-    )
-)
-fig.add_trace(
-    go.Scatter(
-        x=spot_prices,
-        y=long_call_profit,
-        mode="lines",
-        name="Long Call",
-        line=dict(width=3, dash='dot'),
-        hovertemplate="Spot Price: %{x:.0f}<br>Profit: %{y:.0f}<extra></extra>",
-    )
-)
+# Plot the individual option profits
+plt.plot(spot_prices, short_call_profit, linestyle='dotted', linewidth=2, label="Short Call")
+plt.plot(spot_prices, long_call_profit, linestyle='dotted', linewidth=2, label="Long Call")
 
-# Add trace for the bear spread net profit
-fig.add_trace(
-    go.Scatter(
-        x=spot_prices,
-        y=bear_spread_profit,
-        mode="lines",
-        name="Bear Spread",
-        line=dict(width=4),
-        hovertemplate="Spot Price: %{x:.0f}<br>Net Profit: %{y:.0f}<extra></extra>",
-    )
-)
+# Plot the bear spread net profit
+plt.plot(spot_prices, bear_spread_profit, linewidth=3, label="Bear Spread", color='black')
 
 # Horizontal line at profit = 0 for reference
-fig.add_hline(y=0, line_dash="dash", line_color="black")
+plt.axhline(y=0, color='gray', linestyle='dashed')
 
-# Layout adjustments for clarity
-fig.update_layout(
-    title="Bear Spread Using Call Options",
-    xaxis_title="Spot Price at Expiration",
-    yaxis_title="Profit",
-    legend_title="Component",
-)
+# Labels and title
+plt.title("Bear Spread Using Call Options")
+plt.xlabel("Spot Price at Expiration")
+plt.ylabel("Profit")
+plt.legend()
 
-# Show the figure
-fig.show()
+# Show the plot
+plt.show()
 ```
 
-#### Using Puts (Put Bear Spread)
+#### Put Bear Spread  
 
-- **Position**: Buy a put option with a higher strike price and sell another put option
-with a lower strike price, both having the same expiration date.
-- **Profit Potential**: Maximum profit is limited to the net premium received for the
-spread.
-- **Risk**: Limited to the difference between the strike prices minus the net premium
-received.
-- **Break-even Point**: Higher strike price - net premium received.
+- **Position**: Buy a put at a higher strike price, sell a put at a lower strike price
+(same expiration).  
+- **Profit**: Limited to the net premium received.  
+- **Risk**: Limited to the difference between strike prices minus the net premium
+received.  
+- **Break-even**: Higher strike price - net premium received.  
 
 ```{python}
 # Parameters for the bear spread strategy using put options
@@ -501,79 +356,46 @@ short_put_profit = -(np.maximum(K2 - spot_prices, 0) - premium_short)
 bear_spread_profit = long_put_profit + short_put_profit  # Net profit of the bear spread
 
 # Create the figure
-fig = go.Figure()
+plt.figure(figsize=(8, 6))
 
-# Add traces for the individual option profits
-fig.add_trace(
-    go.Scatter(
-        x=spot_prices,
-        y=long_put_profit,
-        mode="lines",
-        name="Long Put",
-        line=dict(width=3, dash='dot'),
-        hovertemplate="Spot Price: %{x:.0f}<br>Profit: %{y:.0f}<extra></extra>",
-    )
-)
-fig.add_trace(
-    go.Scatter(
-        x=spot_prices,
-        y=short_put_profit,
-        mode="lines",
-        name="Short Put",
-        line=dict(width=3, dash='dot'),
-        hovertemplate="Spot Price: %{x:.0f}<br>Profit: %{y:.0f}<extra></extra>",
-    )
-)
+# Plot the individual option profits
+plt.plot(spot_prices, long_put_profit, linestyle='dotted', linewidth=2, label="Long Put")
+plt.plot(spot_prices, short_put_profit, linestyle='dotted', linewidth=2, label="Short Put")
 
-# Add trace for the bear spread net profit
-fig.add_trace(
-    go.Scatter(
-        x=spot_prices,
-        y=bear_spread_profit,
-        mode="lines",
-        name="Bear Spread",
-        line=dict(width=4),
-        hovertemplate="Spot Price: %{x:.0f}<br>Net Profit: %{y:.0f}<extra></extra>",
-    )
-)
+# Plot the bear spread net profit
+plt.plot(spot_prices, bear_spread_profit, linewidth=3, label="Bear Spread", color='black')
 
 # Horizontal line at profit = 0 for reference
-fig.add_hline(y=0, line_dash="dash", line_color="black")
+plt.axhline(y=0, color='gray', linestyle='dashed')
 
-# Layout adjustments for clarity
-fig.update_layout(
-    title="Bear Spread Using Put Options",
-    xaxis_title="Spot Price at Expiration",
-    yaxis_title="Profit",
-    legend_title="Component",
-)
+# Labels and title
+plt.title("Bear Spread Using Put Options")
+plt.xlabel("Spot Price at Expiration")
+plt.ylabel("Profit")
+plt.legend()
 
-# Show the figure
-fig.show()
+# Show the plot
+plt.show()
 ```
 
-### Butterfly Spread Strategy
+### Butterfly Spread  
 
-The butterfly spread is a neutral option strategy that is used when an investor expects
-little to no movement in the underlying asset's price. It can be constructed using
-either calls or puts and involves both buying and selling options at three different
-strike prices.
+A **butterfly spread** is a neutral strategy used when minimal price movement is
+expected. It involves three strike prices and can be structured with calls or puts.  
 
-#### Using Calls (Call Butterfly Spread)
+#### Call Butterfly Spread  
 
-- **Position**: 
-   - Buy one call option at a lower strike price (A).
-   - Sell two call options at a middle strike price (B).
-   - Buy one call option at a higher strike price (C).
-   - All options have the same expiration date, and the strike prices are equidistant.
-- **Profit Potential**: Maximum profit is achieved if the underlying asset's price is
-equal to the middle strike price at expiration. The profit is the difference between the
-middle and lower (or higher) strike prices minus the net premium paid.
-- **Risk**: Limited to the net premium paid to establish the spread.
-- **Break-even Points**: There are two break-even points:
-   - Lower break-even: Lower strike price (A) + net premium paid.
-   - Upper break-even: Higher strike price (C) - net premium paid.
-
+- **Position**:  
+  - Buy 1 call at a lower strike price (A).  
+  - Sell 2 calls at a middle strike price (B).  
+  - Buy 1 call at a higher strike price (C).  
+  - All options share the same expiration and have equidistant strike prices.  
+- **Profit**: Maximum when the underlying price equals the middle strike price at
+expiration.  
+- **Risk**: Limited to the net premium paid.  
+- **Break-even points**:  
+  - Lower: $A + \text{net premium paid}$  
+  - Upper: $C - \text{net premium paid}$  
 
 ```{python}
 # Parameters for the butterfly spread strategy using call options
@@ -592,79 +414,39 @@ long_call2_profit = np.maximum(spot_prices - K3, 0) - premium_long2
 butterfly_spread_profit = long_call1_profit + short_call_profit + long_call2_profit  # Net profit of the butterfly spread
 
 # Create the figure
-fig = go.Figure()
+plt.figure(figsize=(8, 6))
 
-# Add traces for the individual option profits
-fig.add_trace(
-    go.Scatter(
-        x=spot_prices,
-        y=long_call1_profit,
-        mode="lines",
-        name="Long Call 1",
-        line=dict(width=2, dash='dot'),
-        hovertemplate="Spot Price: %{x:.0f}<br>Profit: %{y:.0f}<extra></extra>",
-    )
-)
-fig.add_trace(
-    go.Scatter(
-        x=spot_prices,
-        y=short_call_profit,
-        mode="lines",
-        name="Short Call (2x)",
-        line=dict(width=2, dash='dot'),
-        hovertemplate="Spot Price: %{x:.0f}<br>Profit: %{y:.0f}<extra></extra>",
-    )
-)
-fig.add_trace(
-    go.Scatter(
-        x=spot_prices,
-        y=long_call2_profit,
-        mode="lines",
-        name="Long Call 2",
-        line=dict(width=2, dash='dot'),
-        hovertemplate="Spot Price: %{x:.0f}<br>Profit: %{y:.0f}<extra></extra>",
-    )
-)
+# Plot the individual option profits
+plt.plot(spot_prices, long_call1_profit, linestyle='dotted', linewidth=2, label="Long Call 1")
+plt.plot(spot_prices, short_call_profit, linestyle='dotted', linewidth=2, label="Short Call (2x)")
+plt.plot(spot_prices, long_call2_profit, linestyle='dotted', linewidth=2, label="Long Call 2")
 
-# Add trace for the butterfly spread net profit
-fig.add_trace(
-    go.Scatter(
-        x=spot_prices,
-        y=butterfly_spread_profit,
-        mode="lines",
-        name="Butterfly Spread",
-        line=dict(width=4),
-        hovertemplate="Spot Price: %{x:.0f}<br>Net Profit: %{y:.0f}<extra></extra>",
-    )
-)
+# Plot the butterfly spread net profit
+plt.plot(spot_prices, butterfly_spread_profit, linewidth=3, label="Butterfly Spread", color='black')
 
 # Horizontal line at profit = 0 for reference
-fig.add_hline(y=0, line_dash="dash", line_color="black")
+plt.axhline(y=0, color='gray', linestyle='dashed')
 
-# Layout adjustments for clarity
-fig.update_layout(
-    title="Butterfly Spread Using Call Options",
-    xaxis_title="Spot Price at Expiration",
-    yaxis_title="Profit",
-    legend_title="Component",
-)
+# Labels and title
+plt.title("Butterfly Spread Using Call Options")
+plt.xlabel("Spot Price at Expiration")
+plt.ylabel("Profit")
+plt.legend()
 
-# Show the figure
-fig.show()
+# Show the plot
+plt.show()
 ```
 
-#### Using Puts (Put Butterfly Spread)
+#### Put Butterfly Spread  
 
-- **Position**: 
-   - Buy one put option at a higher strike price (A).
-   - Sell two put options at a middle strike price (B).
-   - Buy one put option at a lower strike price (C).
-   - All options have the same expiration date, and the strike prices are equidistant.
-- **Profit Potential**: Maximum profit is similar to the call butterfly and is achieved
-if the underlying's price equals the middle strike price at expiration.
-- **Risk**: Limited to the net premium paid for the spread.
-- **Break-even Points**: Identical in concept to the call butterfly, adjusted for the
-put options' strike prices.
+- **Position**:  
+  - Buy 1 put at a higher strike price (A).  
+  - Sell 2 puts at a middle strike price (B).  
+  - Buy 1 put at a lower strike price (C).  
+  - Same expiration and equidistant strikes.  
+- **Profit/Risk**: Similar to the call butterfly spread.  
+- **Break-even points**: Identical to the call butterfly but adjusted for put strike
+prices.  
 
 ```{python}
 # Parameters for the butterfly spread strategy using put options
@@ -683,123 +465,75 @@ long_put2_profit = np.maximum(K3 - spot_prices, 0) - premium_long2
 butterfly_spread_profit = long_put1_profit + short_put_profit + long_put2_profit  # Net profit of the butterfly spread
 
 # Create the figure
-fig = go.Figure()
+plt.figure(figsize=(8, 6))
 
-# Add traces for the individual option profits
-fig.add_trace(
-    go.Scatter(
-        x=spot_prices,
-        y=long_put1_profit,
-        mode="lines",
-        name="Long Put 1",
-        line=dict(width=2, dash='dot'),
-        hovertemplate="Spot Price: %{x:.0f}<br>Profit: %{y:.0f}<extra></extra>",
-    )
-)
-fig.add_trace(
-    go.Scatter(
-        x=spot_prices,
-        y=short_put_profit,
-        mode="lines",
-        name="Short Put (2x)",
-        line=dict(width=2, dash='dot'),
-        hovertemplate="Spot Price: %{x:.0f}<br>Profit: %{y:.0f}<extra></extra>",
-    )
-)
-fig.add_trace(
-    go.Scatter(
-        x=spot_prices,
-        y=long_put2_profit,
-        mode="lines",
-        name="Long Put 2",
-        line=dict(width=2, dash='dot'),
-        hovertemplate="Spot Price: %{x:.0f}<br>Profit: %{y:.0f}<extra></extra>",
-    )
-)
+# Plot the individual option profits
+plt.plot(spot_prices, long_put1_profit, linestyle='dotted', linewidth=2, label="Long Put 1")
+plt.plot(spot_prices, short_put_profit, linestyle='dotted', linewidth=2, label="Short Put (2x)")
+plt.plot(spot_prices, long_put2_profit, linestyle='dotted', linewidth=2, label="Long Put 2")
 
-# Add trace for the butterfly spread net profit
-fig.add_trace(
-    go.Scatter(
-        x=spot_prices,
-        y=butterfly_spread_profit,
-        mode="lines",
-        name="Butterfly Spread",
-        line=dict(width=4),
-        hovertemplate="Spot Price: %{x:.0f}<br>Net Profit: %{y:.0f}<extra></extra>",
-    )
-)
+# Plot the butterfly spread net profit
+plt.plot(spot_prices, butterfly_spread_profit, linewidth=3, label="Butterfly Spread", color='black')
 
 # Horizontal line at profit = 0 for reference
-fig.add_hline(y=0, line_dash="dash", line_color="black")
+plt.axhline(y=0, color='gray', linestyle='dashed')
 
-# Layout adjustments for clarity
-fig.update_layout(
-    title="Butterfly Spread Using Put Options",
-    xaxis_title="Spot Price at Expiration",
-    yaxis_title="Profit",
-    legend_title="Component",
-)
+# Labels and title
+plt.title("Butterfly Spread Using Put Options")
+plt.xlabel("Spot Price at Expiration")
+plt.ylabel("Profit")
+plt.legend()
 
-# Show the figure
-fig.show()
+# Show the plot
+plt.show()
 ```
 
-### Key Characteristics of Option Spreads
+### Key Features of Option Spreads  
 
-- **Market Outlook**: Bull spreads are used when expecting a moderate price increase,
-while bear spreads are for a moderate price decrease. Butterfly spread is best suited
-for markets expected to be stable or within a specific range.
-
-- **Risk and Reward**: Bull and bear spreads strategies offer limited risk and reward,
-making them attractive for traders with a specific market view and risk tolerance.
-Butterfly spreado ffers a high reward-to-risk ratio if the market remains stable but
-with limited profit potential outside the narrow price range.
-
-- **Cost Efficiency**: Spreads can be cost-effective ways to gain market exposure
-compared to outright option purchases.
-
-- **Flexibility**: Investors can adjust the width of the spread and the strike prices to
-manage the risk-reward ratio according to their market outlook and risk appetite.
+- **Market Outlook**: Bull spreads suit moderate price increases, bear spreads fit
+moderate declines, and butterfly spreads work best in stable markets.  
+- **Risk & Reward**: Bull and bear spreads offer defined risk and reward, while
+butterfly spreads provide a high reward-to-risk ratio in low-volatility conditions.  
+- **Cost Efficiency**: Spreads are often more cost-effective than outright option
+positions.  
+- **Flexibility**: Investors can adjust spread width and strike prices to tailor risk
+exposure.  
 
 :::{.callout-tip}
-# Calendar Spreads
+# Calendar Spreads  
 
-Calendar spreads, also known as time or horizontal spreads, involve options of the same
-underlying asset, strike price, but **different expiration dates**. They capitalize on
-the difference in time decay rates (theta) between options. Typically, a calendar spread
-is constructed by selling a short-term option and buying a longer-term option of the
-same type (call or put).
+**Calendar spreads** (also called time or horizontal spreads) involve options with the
+same underlying and strike price but **different expiration dates**. They capitalize on
+differences in time decay (theta). A typical calendar spread consists of selling a
+short-term option and buying a longer-term option of the same type (call or put).  
 
-For more information check, e.g.,
-[tastylive](https://www.tastylive.com/concepts-strategies/calendar-spread)
-:::
+For more details, see [tastylive](https://www.tastylive.com/concepts-strategies/calendar-spread).  
+:::  
 
-## Option Combinations
+## Option Combinations  
 
-Option combinations involve two or more options of different types. It allow traders and
-investors to express complex market views and hedge positions in ways that single option
-positions cannot. This section covers four popular option combination strategies:
-straddles, strangles, strips, and straps.
+Option combinations involve two or more options of different types, allowing traders to
+express complex market views and hedge risks beyond single-option positions. Key
+strategies include **straddles, strangles, strips, and straps**.  
 
-### Straddles
+### Straddles  
 
-A straddle involves buying or selling both a call and a put option with the same strike
-price and expiration date.
+A **straddle** consists of buying or selling both a **call and a put** with the **same
+strike price** and expiration.  
 
-#### Long Straddle
+#### Long Straddle  
 
-A long straddle is created by buying both a call and a put option. It is a bet on
-volatility without taking a directional stance. Traders expect the underlying asset to
-move significantly, but they are unsure in which direction. The maximum loss is limited
-to the total premium paid for both options, while the profit potential is unlimited if
-the underlying moves significantly in either direction.
+- **Buy a call and a put** at the same strike price.  
+- Profits from **high volatility**, regardless of direction.  
+- **Max loss**: Total premium paid.  
+- **Max profit**: Unlimited if the asset moves significantly.  
 
 ```{python}
 # Parameters for the long straddle strategy
 spot_prices = np.linspace(80, 120, 100)  # Range of spot prices
 K = 100  # Strike price for both the call and put options
 premium_call = 5  # Premium paid for the call option
-premium_put = 5 # Premium paid for the put option
+premium_put = 5  # Premium paid for the put option
 
 # Profit calculations for long straddle
 call_profit = np.maximum(spot_prices - K, 0) - premium_call
@@ -807,64 +541,34 @@ put_profit = np.maximum(K - spot_prices, 0) - premium_put
 long_straddle_profit = call_profit + put_profit  # Net profit of the long straddle
 
 # Create the figure
-fig = go.Figure()
+plt.figure(figsize=(8, 6))
 
-# Add traces for the individual option profits
-fig.add_trace(
-    go.Scatter(
-        x=spot_prices,
-        y=call_profit,
-        mode="lines",
-        name="Call Option",
-        line=dict(width=2, dash='dot'),
-        hovertemplate="Spot Price: %{x:.0f}<br>Profit: %{y:.0f}<extra></extra>",
-    )
-)
-fig.add_trace(
-    go.Scatter(
-        x=spot_prices,
-        y=put_profit,
-        mode="lines",
-        name="Put Option",
-        line=dict(width=2, dash='dot'),
-        hovertemplate="Spot Price: %{x:.0f}<br>Profit: %{y:.0f}<extra></extra>",
-    )
-)
+# Plot the individual option profits
+plt.plot(spot_prices, call_profit, linestyle='dotted', linewidth=2, label="Call Option")
+plt.plot(spot_prices, put_profit, linestyle='dotted', linewidth=2, label="Put Option")
 
-# Add trace for the long straddle net profit
-fig.add_trace(
-    go.Scatter(
-        x=spot_prices,
-        y=long_straddle_profit,
-        mode="lines",
-        name="Long Straddle",
-        line=dict(width=4),
-        hovertemplate="Spot Price: %{x:.0f}<br>Net Profit: %{y:.0f}<extra></extra>",
-    )
-)
+# Plot the long straddle net profit
+plt.plot(spot_prices, long_straddle_profit, linewidth=3, label="Long Straddle", color='black')
 
 # Horizontal line at profit = 0 for reference
-fig.add_hline(y=0, line_dash="dash", line_color="black")
+plt.axhline(y=0, color='gray', linestyle='dashed')
 
-# Layout adjustments for clarity
-fig.update_layout(
-    title="Long Straddle Strategy",
-    xaxis_title="Spot Price at Expiration",
-    yaxis_title="Profit",
-    legend_title="Component",
-)
+# Labels and title
+plt.title("Long Straddle Strategy")
+plt.xlabel("Spot Price at Expiration")
+plt.ylabel("Profit")
+plt.legend()
 
-# Show the figure
-fig.show()
+# Show the plot
+plt.show()
 ```
 
-#### Short Straddle
+#### Short Straddle  
 
-Conversely, a short straddle involves selling a call and a put option. This strategy
-bets on low market volatility, with the trader expecting the underlying asset to remain
-stable. The maximum profit is limited to the premiums received, while the risk is
-theoretically unlimited, as the underlying asset can move significantly in either
-direction.
+- **Sell a call and a put** at the same strike price.  
+- Profits from **low volatility**, expecting price stability.  
+- **Max profit**: Premiums received.  
+- **Max risk**: Unlimited if the asset moves significantly.  
 
 ```{python}
 # Parameters for the short straddle strategy
@@ -879,68 +583,39 @@ put_profit = np.minimum(spot_prices - K, 0) + premium_put
 short_straddle_profit = call_profit + put_profit  # Net profit of the short straddle
 
 # Create the figure
-fig = go.Figure()
+plt.figure(figsize=(8, 6))
 
-# Add traces for the individual option profits
-fig.add_trace(
-    go.Scatter(
-        x=spot_prices,
-        y=call_profit,
-        mode="lines",
-        name="Call Option",
-        line=dict(width=2, dash='dot'),
-        hovertemplate="Spot Price: %{x:.0f}<br>Profit: %{y:.0f}<extra></extra>",
-    )
-)
-fig.add_trace(
-    go.Scatter(
-        x=spot_prices,
-        y=put_profit,
-        mode="lines",
-        name="Put Option",
-        line=dict(width=2, dash='dot'),
-        hovertemplate="Spot Price: %{x:.0f}<br>Profit: %{y:.0f}<extra></extra>",
-    )
-)
+# Plot the individual option profits
+plt.plot(spot_prices, call_profit, linestyle='dotted', linewidth=2, label="Call Option")
+plt.plot(spot_prices, put_profit, linestyle='dotted', linewidth=2, label="Put Option")
 
-# Add trace for the short straddle net profit
-fig.add_trace(
-    go.Scatter(
-        x=spot_prices,
-        y=short_straddle_profit,
-        mode="lines",
-        name="Short Straddle",
-        line=dict(width=4),
-        hovertemplate="Spot Price: %{x:.0f}<br>Net Profit: %{y:.0f}<extra></extra>",
-    )
-)
+# Plot the short straddle net profit
+plt.plot(spot_prices, short_straddle_profit, linewidth=3, label="Short Straddle", color='black')
 
 # Horizontal line at profit = 0 for reference
-fig.add_hline(y=0, line_dash="dash", line_color="black")
+plt.axhline(y=0, color='gray', linestyle='dashed')
 
-# Layout adjustments for clarity
-fig.update_layout(
-    title="Short Straddle Strategy",
-    xaxis_title="Spot Price at Expiration",
-    yaxis_title="Profit",
-    legend_title="Component",
-)
+# Labels and title
+plt.title("Short Straddle Strategy")
+plt.xlabel("Spot Price at Expiration")
+plt.ylabel("Profit")
+plt.legend()
 
-# Show the figure
-fig.show()
+# Show the plot
+plt.show()
 ```
 
-### Strangles
+### Strangles  
 
-A strangle is similar to a straddle but involves options with different strike prices.
-Typically, the call option has a higher strike price than the put.
+A **strangle** is similar to a straddle but uses **different strike prices** (call
+strike > put strike).  
 
-#### Long Strangle
+#### Long Strangle  
 
-A long strangle is less expensive than a long straddle due to the options being out of
-the money. It requires a larger move in the underlying asset's price to be profitable
-but still benefits from significant volatility without a clear directional bias. The
-maximum loss is limited to the total premium paid.
+- **Buy an OTM call and an OTM put**.  
+- Cheaper than a straddle but requires a larger price move to profit.  
+- **Max loss**: Total premium paid.  
+- **Max profit**: Unlimited on large price moves.  
 
 ```{python}
 # Parameters for the long strangle strategy
@@ -956,62 +631,34 @@ put_profit = np.maximum(K_put - spot_prices, 0) - premium_put
 long_strangle_profit = call_profit + put_profit  # Net profit of the long strangle
 
 # Create the figure
-fig = go.Figure()
+plt.figure(figsize=(8, 6))
 
-# Add traces for the individual option profits
-fig.add_trace(
-    go.Scatter(
-        x=spot_prices,
-        y=call_profit,
-        mode="lines",
-        name="Call Option",
-        line=dict(width=2, dash='dot'),
-        hovertemplate="Spot Price: %{x:.0f}<br>Profit: %{y:.0f}<extra></extra>",
-    )
-)
-fig.add_trace(
-    go.Scatter(
-        x=spot_prices,
-        y=put_profit,
-        mode="lines",
-        name="Put Option",
-        line=dict(width=2, dash='dot'),
-        hovertemplate="Spot Price: %{x:.0f}<br>Profit: %{y:.0f}<extra></extra>",
-    )
-)
+# Plot the individual option profits
+plt.plot(spot_prices, call_profit, linestyle='dotted', linewidth=2, label="Call Option")
+plt.plot(spot_prices, put_profit, linestyle='dotted', linewidth=2, label="Put Option")
 
-# Add trace for the long strangle net profit
-fig.add_trace(
-    go.Scatter(
-        x=spot_prices,
-        y=long_strangle_profit,
-        mode="lines",
-        name="Long Strangle",
-        line=dict(width=4),
-        hovertemplate="Spot Price: %{x:.0f}<br>Net Profit: %{y:.0f}<extra></extra>",
-    )
-)
+# Plot the long strangle net profit
+plt.plot(spot_prices, long_strangle_profit, linewidth=3, label="Long Strangle", color='black')
 
 # Horizontal line at profit = 0 for reference
-fig.add_hline(y=0, line_dash="dash", line_color="black")
+plt.axhline(y=0, color='gray', linestyle='dashed')
 
-# Layout adjustments for clarity
-fig.update_layout(
-    title="Long Strangle Strategy",
-    xaxis_title="Spot Price at Expiration",
-    yaxis_title="Profit",
-    legend_title="Component",
-)
+# Labels and title
+plt.title("Long Strangle Strategy")
+plt.xlabel("Spot Price at Expiration")
+plt.ylabel("Profit")
+plt.legend()
 
-# Show the figure
-fig.show()
+# Show the plot
+plt.show()
 ```
 
-#### Short Strangle
+#### Short Strangle  
 
-Selling a strangle involves selling an OTM call and an OTM put. This strategy profits
-from low volatility and time decay. The risk is significant if the underlying moves
-dramatically, as one of the sold options could become deeply in the money.
+- **Sell an OTM call and an OTM put**.  
+- Profits from **low volatility and time decay**.  
+- **Max profit**: Premiums received.  
+- **Max risk**: Large if the asset moves significantly.  
 
 ```{python}
 # Parameters for the short strangle strategy
@@ -1027,105 +674,75 @@ put_profit = np.minimum(spot_prices - K_put, 0) + premium_put
 short_strangle_profit = call_profit + put_profit  # Net profit of the short strangle
 
 # Create the figure
-fig = go.Figure()
+plt.figure(figsize=(8, 6))
 
-# Add traces for the individual option profits
-fig.add_trace(
-    go.Scatter(
-        x=spot_prices,
-        y=call_profit,
-        mode="lines",
-        name="Call Option",
-        line=dict(width=2, dash='dot'),
-        hovertemplate="Spot Price: %{x:.0f}<br>Profit: %{y:.0f}<extra></extra>",
-    )
-)
-fig.add_trace(
-    go.Scatter(
-        x=spot_prices,
-        y=put_profit,
-        mode="lines",
-        name="Put Option",
-        line=dict(width=2, dash='dot'),
-        hovertemplate="Spot Price: %{x:.0f}<br>Profit: %{y:.0f}<extra></extra>",
-    )
-)
+# Plot the individual option profits
+plt.plot(spot_prices, call_profit, linestyle='dotted', linewidth=2, label="Call Option")
+plt.plot(spot_prices, put_profit, linestyle='dotted', linewidth=2, label="Put Option")
 
-# Add trace for the short strangle net profit
-fig.add_trace(
-    go.Scatter(
-        x=spot_prices,
-        y=short_strangle_profit,
-        mode="lines",
-        name="Short Strangle",
-        line=dict(width=4),
-        hovertemplate="Spot Price: %{x:.0f}<br>Net Profit: %{y:.0f}<extra></extra>",
-    )
-)
+# Plot the short strangle net profit
+plt.plot(spot_prices, short_strangle_profit, linewidth=3, label="Short Strangle", color='black')
 
 # Horizontal line at profit = 0 for reference
-fig.add_hline(y=0, line_dash="dash", line_color="black")
+plt.axhline(y=0, color='gray', linestyle='dashed')
 
-# Layout adjustments for clarity
-fig.update_layout(
-    title="Short Strangle Strategy",
-    xaxis_title="Spot Price at Expiration",
-    yaxis_title="Profit",
-    legend_title="Component",
-)
+# Labels and title
+plt.title("Short Strangle Strategy")
+plt.xlabel("Spot Price at Expiration")
+plt.ylabel("Profit")
+plt.legend()
 
-# Show the figure
-fig.show()
+# Show the plot
+plt.show()
 ```
 
-### Strips and Straps
+### Strips and Straps  
 
-Strips and straps are modifications of the straddle strategy, offering a directional
-bias while still betting on volatility.
+These are variations of the **straddle**, introducing a directional bias while still
+benefiting from volatility.  
 
-- **Strip**: A strip consists of buying one call option and two put options with the
-same strike price and expiration. This strategy bets on volatility but with a bearish
-outlook, as the additional put provides extra profit if the underlying asset's price
-falls.
+- **Strip** (Bearish bias): **Buy 1 call and 2 puts** at the same strike price. More
+profitable if the price drops.  
+- **Strap** (Bullish bias): **Buy 2 calls and 1 put** at the same strike price. More
+profitable if the price rises.  
 
-- **Strap**: A strap involves buying two call options and one put option with the same
-strike price and expiration. It is similar to a strip but with a bullish outlook,
-benefiting from an upward move in the underlying asset's price.
+### Key Characteristics  
 
-### Key Characteristics of Option Combinations
-
-- **Volatility Sensitivity**: All these strategies are sensitive to changes in implied
-volatility. Long positions in straddles, strangles, strips, and straps benefit from an
-increase in volatility, while short positions benefit from a decrease.
-
-- **Directional Bias**: Straddles and strangles are primarily non-directional strategies
-that profit from significant price movements in either direction. Strips and straps
-introduce a directional bias, offering asymmetric payoffs based on the underlying
-asset's movement.
-
-- **Risk and Reward**: The risk-reward profile varies significantly between these
-strategies. Long positions have limited risk and potentially unlimited reward, while
-short positions offer limited profit potential with significant risk.
-
-- **Breakeven Points**: These strategies have two breakeven points, one on each side of
-the underlying asset's price at entry. The underlying must move beyond these points for
-long strategies to profit.
+- **Volatility Sensitivity**: Long positions (straddles, strangles, strips, straps)
+**benefit from increased volatility**, while short positions profit from **low
+volatility**.  
+- **Directional Bias**: Straddles and strangles are **neutral**, while strips and straps
+have a **directional tilt**.  
+- **Risk & Reward**:  
+  - **Long** positions: Limited risk (premium paid), unlimited reward.  
+  - **Short** positions: Limited profit, significant risk if the price moves sharply.  
+- **Breakeven Points**:  
+  - Each strategy has **two breakeven points**, requiring significant price movement for
+  profitability in long strategies.  
 
 ## Practice Questions and Problems
 
 1. What is meant by a protective put? What position in call options is equivalent to a
 protective put?
+
 2. Explain two ways in which a bear spread can be created.
+
 3. When is it appropriate for an investor to purchase a butterfly spread?
+
 4. What trading strategy creates a reverse calendar spread?
+
 5. What is the difference between a strangle and a straddle?
+
 6. A call option with a strike price of \$50 costs \$2. A put option with a strike price
 of \$45 costs \$3. Explain how a strangle can be created from these two options. What is
 the pattern of profits from the strangle?
+
 7. Explain how an aggressive bear spread can be created using put options.
+
 8. Suppose that put options on a stock with strike prices \$30 and \$35 cost \$4 and
 \$7, respectively. How can the options be used to create (a) a bull spread and (b) a
 bear spread? Draw and explain profit/loss.
+
 9. An investor believes that there will be a big jump in a stock price, but is uncertain
 as to the direction. Identify six different strategies the investor can follow and
 explain the differences among them.
