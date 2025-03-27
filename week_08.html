@@ -347,123 +347,138 @@ References
 </div>
 <p><strong>Learning Outcomes:</strong></p>
 <ul>
-<li>Understand the basic principles of the one-step binomial model for option pricing, including how to set up a riskless portfolio and calculate the option’s value.</li>
-<li>Grasp the concept of risk-neutral valuation and its application in simplifying the pricing of derivatives by focusing on discounting expected payoffs at the risk-free rate.</li>
-<li>Learn how to extend the binomial model to two steps, including calculating the option value at each node and understanding the implications for option pricing.</li>
-<li>Comprehend the methodology for choosing the up (<span class="math inline">\(u\)</span>) and down (<span class="math inline">\(d\)</span>) factors in binomial models, based on the asset’s volatility and the length of the time step, as per the Cox, Ross, and Rubinstein (CRR) model.</li>
-<li>Gain insights into how the binomial model can be adapted for different types of assets, including nondividend paying stocks, stock indices, currencies, and futures contracts.</li>
+<li>Understand the one-step binomial model for option pricing, including how to construct a riskless portfolio and compute option value.</li>
+<li>Grasp risk-neutral valuation and how it simplifies derivative pricing by discounting expected payoffs at the risk-free rate.</li>
+<li>Learn how to extend the binomial model to two steps and calculate option values at each node.</li>
+<li>Understand how to choose the up (<span class="math inline">\(u\)</span>) and down (<span class="math inline">\(d\)</span>) factors based on volatility and time step length, following the Cox-Ross-Rubinstein (CRR) model.</li>
+<li>Explore how the binomial model adapts to various assets, including non-dividend-paying stocks, indices, currencies, and futures.</li>
 </ul>
 <section id="a-one-step-binomial-model" class="level2" data-number="8.1">
 <h2 data-number="8.1" class="anchored" data-anchor-id="a-one-step-binomial-model"><span class="header-section-number">8.1</span> A One-Step Binomial Model</h2>
-<p>This section provides an overview of a fundamental financial derivative pricing method using a simplified binomial model. The model offers an intuitive approach to option pricing, grounded in the concept of constructing a riskless portfolio and applying arbitrage-free pricing principles.</p>
-<p>This generalized model provides a foundational approach for valuing derivatives using discrete-time, binomial frameworks. It not only clarifies the mechanics of risk-neutral valuation but also lays the groundwork for understanding more complex derivatives and pricing methods in continuous-time models.</p>
+<p>This section introduces a fundamental method for pricing derivatives using a simple binomial model. It provides an intuitive approach to option pricing based on constructing a riskless portfolio and applying no-arbitrage principles.</p>
+<p>The binomial model forms the foundation for understanding discrete-time derivative pricing and risk-neutral valuation, paving the way for more advanced continuous-time models.</p>
 <section id="a-simple-binomial-model-for-a-call-option" class="level3">
 <h3 class="anchored" data-anchor-id="a-simple-binomial-model-for-a-call-option">A Simple Binomial Model for a Call Option</h3>
 <p><strong>Option Characteristics:</strong></p>
 <ul>
-<li>3-month call option on a stock.</li>
-<li>The option’s strike price is $21.</li>
-<li>Currently, the stock is priced at $20.</li>
-<li>In three months, the stock’s price can either rise to $22 or fall to $18.</li>
-<li>Risk-free rate of interest is 4%.</li>
+<li>3-month call option on a stock</li>
+<li>Strike price: $21<br>
+</li>
+<li>Current stock price: $20<br>
+</li>
+<li>In 3 months, stock can rise to $22 or fall to $18<br>
+</li>
+<li>Risk-free rate: 4%</li>
 </ul>
-<p><img src="images/07-13-simple-binomial-model.png" class="img-fluid"></p>
-<section id="option-pricing" class="level4">
-<h4 class="anchored" data-anchor-id="option-pricing">Option Pricing</h4>
+<br>
+<center>
+<img src="images/07-13-simple-binomial-model.png" width="600px">
+</center>
+<p><br></p>
+<section id="option-pricing-steps" class="level4">
+<h4 class="anchored" data-anchor-id="option-pricing-steps">Option Pricing Steps</h4>
 <ol type="1">
-<li><strong>Constructing a Riskless Portfolio:</strong></li>
+<li><strong>Constructing a Riskless Portfolio</strong>
+<ul>
+<li>Long <span class="math inline">\(\Delta\)</span> shares, short 1 call option.</li>
+<li>Make the portfolio value identical in both scenarios:
+<ul>
+<li>If stock rises to $22: <span class="math inline">\(\$22\Delta - 1\)</span></li>
+<li>If stock falls to $18: <span class="math inline">\(\$18\Delta\)</span></li>
+</ul></li>
+<li>Solving <span class="math inline">\(\$22\Delta - 1 = \$18\Delta\)</span> gives <span class="math inline">\(\Delta = 0.25\)</span>.</li>
+</ul></li>
+<li><strong>Valuing the Riskless Portfolio</strong>
+<ul>
+<li>Future value of the portfolio: <span class="math inline">\(\$22 \times 0.25 - 1 = \$18 \times 0.25 = \$4.50\)</span>.</li>
+<li>Present value: <span class="math inline">\(4.50 \times e^{-0.04 \times 0.25} = \$4.455\)</span></li>
+</ul></li>
+<li><strong>Determining the Option’s Value</strong>
+<ul>
+<li>Value of 0.25 shares: <span class="math inline">\(0.25 \times 20 = \$5\)</span></li>
+<li>Option price: <span class="math inline">\(\$5 - \$4.455 = \$0.545\)</span></li>
+</ul></li>
 </ol>
+</section>
+</section>
+<section id="general-binomial-option-pricing-framework" class="level3">
+<h3 class="anchored" data-anchor-id="general-binomial-option-pricing-framework">General Binomial Option Pricing Framework</h3>
+<p>This generalization shows how to price options systematically using a binomial approach, grounded in arbitrage-free pricing and synthetic replication.</p>
+<section id="core-concepts" class="level4">
+<h4 class="anchored" data-anchor-id="core-concepts">Core Concepts</h4>
 <ul>
-<li>The portfolio consists of being long <span class="math inline">\(\Delta\)</span> shares of the stock and short 1 call option.</li>
-<li>To keep the portfolio risk-free over the option’s life, we find <span class="math inline">\(\Delta\)</span> such that the portfolio’s value is independent of the stock’s final price:
+<li><p>Portfolio value:</p>
 <ul>
-<li>At stock price $22: Portfolio value = <span class="math inline">\(\$22 \Delta - 1\)</span> (assuming the option is exercised).</li>
-<li>At stock price $18: Portfolio value = <span class="math inline">\(\$18 \Delta - 0\)</span> (the option expires worthless).</li>
-<li>Setting these values equal to each other yields <span class="math inline">\(\Delta = 0.25\)</span>.</li>
-<li>Thus, a riskless portfolio entails being long 0.25 shares of the stock and short 1 call option.</li>
+<li>Up move: <span class="math inline">\(S_0 u \Delta - f_u\)</span></li>
+<li>Down move: <span class="math inline">\(S_0 d \Delta - f_d\)</span></li>
+</ul></li>
+<li><p><strong>Delta to eliminate risk:</strong></p>
+<p><span class="math display">\[
+\Delta = \frac{f_u - f_d}{S_0 (u - d)}
+\]</span></p>
+<p>Delta reflects the option’s sensitivity to changes in the underlying price.</p></li>
+<li><p><strong>No-Arbitrage Pricing:</strong></p>
+<ul>
+<li>A riskless portfolio must grow at the risk-free rate.</li>
 </ul></li>
 </ul>
-<ol start="2" type="1">
-<li><strong>Valuing the Riskless Portfolio:</strong></li>
-</ol>
+</section>
+<section id="analytical-derivation" class="level4">
+<h4 class="anchored" data-anchor-id="analytical-derivation">Analytical Derivation</h4>
+<br>
+<center>
+<img src="images/07-14-generalization.png" width="600px">
+</center>
+<p><br></p>
 <ul>
-<li>With a risk-free rate of 4%, we calculate the portfolio’s present value.</li>
-<li>Future value of the portfolio in 3 months: <span class="math inline">\(\$22 \times 0.25 - 1 = \$18 \times 0.25 = \$4.50\)</span>.</li>
-<li>Discounting this back to the present yields: <span class="math inline">\(4.50 \times e^{-0.04 \times 0.25} = \$4.455\)</span>.</li>
+<li>Future value: <span class="math inline">\(S_0 u \Delta - f_u\)</span></li>
+<li>Present value: <span class="math inline">\((S_0 u \Delta - f_u)e^{-rT}\)</span></li>
+<li>Initial cost: <span class="math inline">\(S_0 \Delta - f\)</span></li>
 </ul>
-<ol start="3" type="1">
-<li><strong>Determining the Call Option’s Value:</strong></li>
-</ol>
+<p>Set initial cost equal to discounted future value:</p>
+<p><span class="math display">\[
+f = S_0 \Delta - (S_0 u \Delta - f_u)e^{-rT}
+\]</span></p>
+<p>Substitute <span class="math inline">\(\Delta\)</span> to get the pricing formula:</p>
+<p><span class="math display">\[
+f = [pf_u + (1 - p)f_d]e^{-rT}
+\]</span></p>
+<p>with <strong>risk-neutral probability</strong> of an upward price movement:</p>
+<p><span class="math display">\[
+p = \frac{e^{rT} - d}{u - d}
+\]</span></p>
 <ul>
-<li>The portfolio, consisting of long 0.25 shares and short 1 option, is valued today at $4.455.</li>
-<li>The current value of 0.25 shares is <span class="math inline">\(0.25 \times \$20 = \$5\)</span>.</li>
-<li>Subtracting the portfolio’s value from the shares’ value gives the option’s price: <span class="math inline">\(\$5 - \$4.455 = \$0.545\)</span>.</li>
+<li><span class="math inline">\(p\)</span> and <span class="math inline">\(1 - p\)</span> represent the probabilities of up and down moves in a <strong>risk-neutral world</strong>.</li>
+<li>In this world, expected payoffs are discounted at the risk-free rate—capturing the core idea of derivative pricing in arbitrage-free markets.</li>
 </ul>
 </section>
 </section>
-<section id="generalized-framework-for-binomial-option-pricing" class="level3">
-<h3 class="anchored" data-anchor-id="generalized-framework-for-binomial-option-pricing">Generalized Framework for Binomial Option Pricing</h3>
-<p>This section extends the simple binomial model to a more general framework, illustrating how option prices can be systematically derived under varying market conditions. This generalization leverages the fundamental concepts of arbitrage-free pricing and the construction of a synthetic, risk-free portfolio.</p>
-<section id="core-principles" class="level4">
-<h4 class="anchored" data-anchor-id="core-principles">Core Principles</h4>
+<section id="key-binomial-option-pricing-formulas" class="level3">
+<h3 class="anchored" data-anchor-id="key-binomial-option-pricing-formulas">Key Binomial Option Pricing Formulas</h3>
 <ul>
-<li><p>The ending value of a portfolio that contains <span class="math inline">\(\Delta\)</span> shares of stock and one short call option can vary based on the stock’s final price movement:</p>
-<ul>
-<li>Following an upward movement, the value is <span class="math inline">\(S_0u\Delta - f_u\)</span>.</li>
-<li>Following a downward movement, the value is <span class="math inline">\(S_0d\Delta - f_d\)</span>.</li>
-</ul></li>
-<li><p><strong>Creation of a Riskless Portfolio:</strong> To eliminate risk, the values from both upward and downward movements must be equalized, leading to the determination of <span class="math inline">\(\Delta\)</span>:</p>
-<p><span class="math display">\[\Delta = \frac{f_u - f_d}{S_0 (u - d)}\]</span></p>
-<p>This equation highlights that <span class="math inline">\(\Delta\)</span> effectively measures the sensitivity of the option’s price to changes in the underlying stock’s price, akin to the “delta” in continuous-time models.</p></li>
-<li><p><strong>No-Arbitrage Condition:</strong> The portfolio’s risk-free nature implies it should yield returns at the risk-free rate, reinforcing the no-arbitrage principle in financial markets.</p></li>
+<li><p><strong>Option price:</strong> <span class="math display">\[
+f = [pf_u + (1 - p)f_d]e^{-rT}
+\]</span></p></li>
+<li><p><strong>Risk-neutral probability:</strong> <span class="math display">\[
+p = \frac{e^{rT} - d}{u - d}
+\]</span></p></li>
 </ul>
-</section>
-<section id="analytical-representation" class="level4">
-<h4 class="anchored" data-anchor-id="analytical-representation">Analytical Representation</h4>
-<p><img src="images/07-14-generalization.png" class="img-fluid"></p>
-<ul>
-<li>At time <span class="math inline">\(T\)</span>, the portfolio’s value is <span class="math inline">\(S_0 u \Delta - f_u\)</span>.</li>
-<li>Discounted to present value, this becomes <span class="math inline">\((S_0 u \Delta - f_u)e^{-rT}\)</span>.</li>
-<li>The initial cost, or present value, of establishing this portfolio is <span class="math inline">\(S_0 \Delta - f\)</span>.</li>
-</ul>
-<p>By equating the initial investment to the present value of the future payoff, we derive the option’s pricing formula:</p>
-<p><span class="math display">\[f = S_0 \Delta - (S_0 u \Delta - f_u)e^{-rT}\]</span></p>
-<p>Substituting <span class="math inline">\(\Delta\)</span> yields the generalized option pricing equation:</p>
-<p><span class="math display">\[f = [pf_u + (1 - p)f_d]e^{-rT}\]</span></p>
-<p>where <span class="math inline">\(p\)</span> represents the risk-neutral probability of an upward price movement:</p>
-<p><span class="math display">\[p = \frac{e^{rT} - d}{u - d}\]</span></p>
-</section>
-<section id="interpretation-of-p-as-a-probability" class="level4">
-<h4 class="anchored" data-anchor-id="interpretation-of-p-as-a-probability">Interpretation of <span class="math inline">\(p\)</span> as a Probability</h4>
-<ul>
-<li>The parameter <span class="math inline">\(p\)</span> and its complement <span class="math inline">\((1 - p)\)</span> can be interpreted as the probabilities of the stock’s upward and downward price movements, respectively.</li>
-<li>This interpretation leads to a significant insight: the value of an option, or more broadly any derivative, in this model is equivalent to its expected payoff in a “risk-neutral” world, discounted at the risk-free rate. This reflects the fundamental principle that, in an arbitrage-free market, derivative pricing must align with the expected payoff under risk neutrality.</li>
-</ul>
-</section>
-</section>
-<section id="key-formulas-in-binomial-option-pricing" class="level3">
-<h3 class="anchored" data-anchor-id="key-formulas-in-binomial-option-pricing">Key Formulas in Binomial Option Pricing</h3>
-<p>The binomial model provides a straightforward method for determining the price of an option using a discrete-time framework. The central formulas include:</p>
-<ul>
-<li><strong>Option Price Calculation:</strong> This formula represents the present value of the expected payoff of the option, adjusted for risk neutrality.</li>
-</ul>
-<p><span class="math display">\[f = [pf_u + (1 - p)f_d]e^{-rT}\]</span></p>
-<ul>
-<li><strong>Risk-neutral Probability:</strong> <span class="math inline">\(p\)</span> calculates the risk-neutral probability of the stock price moving up, crucial for determining the expected option payoff.</li>
-</ul>
-<p><span class="math display">\[p = \frac{e^{rT} - d}{u - d}\]</span></p>
 <section id="variable-definitions" class="level4">
 <h4 class="anchored" data-anchor-id="variable-definitions">Variable Definitions:</h4>
 <ul>
-<li><span class="math inline">\(f\)</span>: The current price/premium of the option.</li>
-<li><span class="math inline">\(p\)</span>: The risk-neutral probability of the stock’s price moving up (upward movement).</li>
-<li><span class="math inline">\((1-p)\)</span>: The risk-neutral probability of the stock’s price moving down (downward movement).</li>
-<li><span class="math inline">\(f_u\)</span>: The payoff from the option in the event of an up movement in the stock price.</li>
-<li><span class="math inline">\(f_d\)</span>: The payoff from the option in the event of an down movement in the stock price.</li>
-<li><span class="math inline">\(u\)</span>: The factor by which the stock price increases in the event of an upward movement. This multiplicative factor represents the potential growth of the stock’s price in the model’s “up” state.</li>
-<li><span class="math inline">\(d\)</span>: The factor by which the stock price decreases in the event of a downward movement. This multiplicative factor indicates the potential decline of the stock’s price in the model’s “down” state.</li>
-<li><span class="math inline">\(T\)</span>: The time to maturity (or expiration) of the option, expressed in years.</li>
-<li><span class="math inline">\(r\)</span>: The annualized, continuously compounded risk-free interest rate.</li>
+<li><span class="math inline">\(f\)</span>: Option price<br>
+</li>
+<li><span class="math inline">\(p\)</span>: Risk-neutral probability of up move<br>
+</li>
+<li><span class="math inline">\(1 - p\)</span>: Risk-neutral probability of down move<br>
+</li>
+<li><span class="math inline">\(f_u\)</span>, <span class="math inline">\(f_d\)</span>: Option payoffs in up/down states<br>
+</li>
+<li><span class="math inline">\(u\)</span>, <span class="math inline">\(d\)</span>: Up/down factors<br>
+</li>
+<li><span class="math inline">\(T\)</span>: Time to maturity (in years)<br>
+</li>
+<li><span class="math inline">\(r\)</span>: Risk-free interest rate (continuously compounded, annualized)</li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -471,21 +486,23 @@ References
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Example: Binomial Option Pricing
+Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Consider an option with parameters: <span class="math inline">\(u = 1.1\)</span>, <span class="math inline">\(d=0.9\)</span>, <span class="math inline">\(r=0.04\)</span>, <span class="math inline">\(T=0.25\)</span> (three months), <span class="math inline">\(f_u = 1\)</span> (payoff if the stock price increases), and <span class="math inline">\(f_d = 0\)</span> (payoff if the stock price decreases).</p>
+<p><strong>Example: Binomial Option Pricing</strong></p>
+<p>Given: <span class="math inline">\(u = 1.1\)</span>, <span class="math inline">\(d = 0.9\)</span>, <span class="math inline">\(r = 0.04\)</span>, <span class="math inline">\(T = 0.25\)</span>, <span class="math inline">\(f_u = 1\)</span>, <span class="math inline">\(f_d = 0\)</span></p>
 <ul>
-<li><strong>Calculating <span class="math inline">\(p\)</span>:</strong></li>
+<li><p><strong>Compute <span class="math inline">\(p\)</span>:</strong></p>
+<p><span class="math display">\[
+p = \frac{e^{0.04 \times 0.25} - 0.9}{1.1 - 0.9} = 0.5503
+\]</span></p></li>
+<li><p><strong>Compute <span class="math inline">\(f\)</span>:</strong></p>
+<p><span class="math display">\[
+f = e^{-0.04 \times 0.25} (0.5503 \times 1 + 0.4497 \times 0) = 0.545
+\]</span></p></li>
 </ul>
-<p><span class="math display">\[p = \frac{e^{0.04 \times 0.25} - 0.9}{1.1 - 0.9} = 0.5503\]</span></p>
-<p>This result indicates a 55.03% risk-neutral probability of the stock price increasing.</p>
-<ul>
-<li><strong>Determining <span class="math inline">\(f\)</span> (Option Price):</strong></li>
-</ul>
-<p><span class="math display">\[f = e^{-0.04 \times 0.25} (0.5503 \times 1 + 0.4497 \times 0) = 0.545\]</span></p>
-<p>The calculated option price is $0.545, reflecting the present value of the option’s expected payoff, discounted at the risk-free rate.</p>
+<p>The option’s value is $0.545—its expected payoff discounted at the risk-free rate.</p>
 </div>
 </div>
 </section>
@@ -493,12 +510,22 @@ Example: Binomial Option Pricing
 </section>
 <section id="risk-neutral-valuation-framework" class="level2" data-number="8.2">
 <h2 data-number="8.2" class="anchored" data-anchor-id="risk-neutral-valuation-framework"><span class="header-section-number">8.2</span> Risk-Neutral Valuation Framework</h2>
-<p>Risk-neutral valuation is a pivotal concept in financial mathematics, offering a streamlined and theoretically robust method for pricing derivatives. This approach is grounded in the notion that the expected return on the underlying asset can be assumed to be the risk-free rate when valuing derivatives. Here, we elaborate on this principle and its practical implications, using a binomial model as the illustrative framework.</p>
+<p>Risk-neutral valuation is a core concept in derivative pricing. It simplifies valuation by assuming the underlying asset grows at the <strong>risk-free rate</strong>, allowing us to price derivatives using <strong>expected payoffs discounted at that same rate</strong>.</p>
 <section id="core-concept" class="level3">
 <h3 class="anchored" data-anchor-id="core-concept">Core Concept</h3>
 <ul>
-<li><p><strong>Expected Stock Price Dynamics:</strong> In a binomial model where the probability of upward and downward movements are denoted by <span class="math inline">\(p\)</span> and <span class="math inline">\(1-p\)</span> respectively, the expected stock price at time <span class="math inline">\(T\)</span>, discounted back to the present, is mathematically equivalent to the stock’s initial price compounded at the risk-free rate, <span class="math inline">\(S_0e^{rT}\)</span>. This equivalence underscores the principle that, under risk-neutral valuation, the stock is assumed to grow at the risk-free rate over time.</p></li>
-<li><p><strong>Binomial Trees and Derivative Pricing:</strong> The use of binomial trees in financial modeling demonstrates a general principle: to value a derivative, it is sufficient to assume that the underlying asset yields a return equal to the risk-free rate, and similarly, the discount rate applied to future payoffs is the risk-free rate. This methodology, known as risk-neutral valuation, simplifies the derivative pricing process by abstracting away from the actual expected return of the underlying asset.</p></li>
+<li><p><strong>Expected Stock Price under Risk Neutrality:</strong><br>
+In the binomial model, with up/down probabilities <span class="math inline">\(p\)</span> and <span class="math inline">\(1 - p\)</span>, the expected stock price at time <span class="math inline">\(T\)</span>, discounted at the risk-free rate, equals the current stock price:<br>
+<span class="math display">\[
+\mathbb{E}[S_T] = S_0 e^{rT}  
+\]</span> This reflects the assumption that, in a risk-neutral world, the stock grows at rate <span class="math inline">\(r\)</span>.</p></li>
+<li><p><strong>Binomial Trees in Derivative Pricing:</strong><br>
+Binomial trees illustrate that, for pricing purposes, we can:</p>
+<ul>
+<li>Assume the stock grows at the risk-free rate,</li>
+<li>Discount future payoffs at the same rate.</li>
+</ul>
+<p>This removes the need to estimate real-world returns, focusing purely on arbitrage-free pricing in a <strong>risk-neutral world</strong>.</p></li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -510,107 +537,145 @@ Example Revisited
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Consider an option with parameters: <span class="math inline">\(u = 1.1\)</span>, <span class="math inline">\(d=0.9\)</span>, <span class="math inline">\(r=0.04\)</span>, <span class="math inline">\(T=0.25\)</span> (three months), <span class="math inline">\(f_u = 1\)</span> (payoff if the stock price increases), and <span class="math inline">\(f_d = 0\)</span> (payoff if the stock price decreases).</p>
-<p>The calculation proceeds as follows:</p>
-<p><span class="math display">\[22p + 18(1-p) = 20 e^{0.04 \times 0.25} \Rightarrow p = 0.5503\]</span></p>
-<ul>
-<li>This implies a 55.03% probability of the option being worth $1 (if the stock price increases) and a 44.97% probability of it being worth $0 (if the stock price decreases) at the end of 3 months. The expected value of the option, calculated under the risk-neutral probability, is therefore:</li>
-</ul>
-<p><span class="math display">\[0.5503 \times 1 + 0.4497 \times 0 = 0.5503\]</span></p>
-<ul>
-<li>Discounting this expected value at the risk-free rate gives the present value of the option:</li>
-</ul>
-<p><span class="math display">\[0.5503 e^{-0.04 \times 0.25} = 0.545\]</span></p>
-<ul>
-<li>Remarkably, this value aligns with the outcome obtained through no-arbitrage arguments, affirming the congruence between no-arbitrage principles and risk-neutral valuation in deriving the same pricing result for the derivative.</li>
-</ul>
+<p>Given:<br>
+<span class="math inline">\(u = 1.1\)</span>, <span class="math inline">\(d = 0.9\)</span>, <span class="math inline">\(r = 0.04\)</span>, <span class="math inline">\(T = 0.25\)</span>, <span class="math inline">\(f_u = 1\)</span>, <span class="math inline">\(f_d = 0\)</span></p>
+<ol type="1">
+<li><strong>Solve for <span class="math inline">\(p\)</span> using stock price consistency</strong>:</li>
+</ol>
+<p><span class="math display">\[
+22p + 18(1 - p) = 20e^{0.04 \times 0.25} \Rightarrow p = 0.5503
+\]</span></p>
+<ol start="2" type="1">
+<li><strong>Expected option payoff under risk-neutral probability</strong>:</li>
+</ol>
+<p><span class="math display">\[
+0.5503 \times 1 + 0.4497 \times 0 = 0.5503
+\]</span></p>
+<ol start="3" type="1">
+<li><strong>Discounting to present value</strong>:</li>
+</ol>
+<p><span class="math display">\[
+0.5503 \times e^{-0.04 \times 0.25} = 0.545
+\]</span></p>
+<p>This matches the price obtained from the no-arbitrage approach, confirming that <strong>risk-neutral valuation and no-arbitrage yield the same result</strong>.</p>
 </div>
 </div>
 </section>
-<section id="the-irrelevance-of-the-stocks-expected-real-world-return" class="level3">
-<h3 class="anchored" data-anchor-id="the-irrelevance-of-the-stocks-expected-real-world-return">The Irrelevance of the Stock’s Expected Real-World Return</h3>
+<section id="why-the-real-world-expected-return-doesnt-matter" class="level3">
+<h3 class="anchored" data-anchor-id="why-the-real-world-expected-return-doesnt-matter">Why the Real-World Expected Return Doesn’t Matter</h3>
 <ul>
-<li>A key insight from risk-neutral valuation is the irrelevance of the real-world probabilities of the underlying asset’s future price movements when valuing options.</li>
-<li>Since <strong>the current stock price embeds these real-world probabilities</strong>, derivative pricing can proceed without needing to account for them again.</li>
-<li>This perspective aligns with a broader financial theory that the expected return of the underlying asset, as anticipated in the real world, does not affect the valuation of derivatives based on that asset.</li>
-<li>The valuation hinges instead on the construct of a risk-neutral world where all assets are assumed to grow at the risk-free rate.</li>
+<li><strong>Real-world probabilities are already embedded in today’s stock price.</strong></li>
+<li>When pricing derivatives, we don’t need to model the asset’s real-world expected return.</li>
+<li>All pricing is done under the <strong>risk-neutral measure</strong>, where every asset earns the risk-free rate.</li>
 </ul>
+<p>This insight is central to modern finance: <strong>derivative prices depend on the structure of payoffs and arbitrage conditions, not the actual return expectations of the underlying asset.</strong></p>
 </section>
 </section>
 <section id="two-step-binomial-trees" class="level2" data-number="8.3">
 <h2 data-number="8.3" class="anchored" data-anchor-id="two-step-binomial-trees"><span class="header-section-number">8.3</span> Two-Step Binomial Trees</h2>
-<p>Two-step binomial trees extend the single-period model to allow for a more detailed examination of option pricing over multiple periods. This method can value both call and put options by simulating possible paths the underlying asset’s price might take and then discounting expected payoffs back to the present value.</p>
+<p>The two-step binomial tree extends the one-period model, allowing for more realistic option pricing over multiple time steps. It captures more possible paths for the underlying asset and enables valuation of both call and put options by discounting expected payoffs at each node.</p>
 <section id="valuing-a-call-option" class="level3">
 <h3 class="anchored" data-anchor-id="valuing-a-call-option">Valuing a Call Option</h3>
-<p>Consider a call option with a strike price (<span class="math inline">\(K\)</span>) of $21, where each time step represents 3 months. The annual risk-free rate (<span class="math inline">\(r\)</span>) is 4%, with up (<span class="math inline">\(u\)</span>) and down (<span class="math inline">\(d\)</span>) factors of 1.1 and 0.9, respectively, and the risk-neutral probability (<span class="math inline">\(p\)</span>) is 0.5503.</p>
-<p><img src="images/07-16-valuing-call-option.png" class="img-fluid"></p>
+<p>Consider a call option with:</p>
 <ul>
-<li><p>At the final nodes (<span class="math inline">\(D\)</span>, <span class="math inline">\(E\)</span>, <span class="math inline">\(F\)</span>), the option value simply reflects the option payoff at expiration.</p></li>
-<li><p>At nodes <span class="math inline">\(B\)</span> and <span class="math inline">\(C\)</span>, the option’s value is calculated as the present value of its expected payoff:</p>
-<ul>
-<li><span class="math inline">\(\text{Value at node } B = e^{-0.04 \times 0.25}(0.5503 \times 3.2 + 0.4497 \times 0) = \$1.7433\)</span></li>
-<li><span class="math inline">\(\text{Value at node } C = 0 + 0 = \$0\)</span></li>
-</ul></li>
-<li><p>Moving back to the initial node (<span class="math inline">\(A\)</span>), we compute the present value of the expected option payoff from nodes <span class="math inline">\(B\)</span> and <span class="math inline">\(C\)</span>:</p>
-<ul>
-<li><span class="math inline">\(\text{Value at node } A = e^{-0.04 \times 0.25}(0.5503 \times 1.7433 + 0.4497\times 0) = \$0.9497\)</span></li>
-</ul></li>
+<li>Strike price: <span class="math inline">\(K = \$21\)</span></li>
+<li>Time step: 3 months</li>
+<li>Annual risk-free rate: <span class="math inline">\(r = 4\%\)</span></li>
+<li>Up/down factors: <span class="math inline">\(u = 1.1\)</span>, <span class="math inline">\(d = 0.9\)</span></li>
+<li>Risk-neutral probability: <span class="math inline">\(p = 0.5503\)</span></li>
 </ul>
+<br>
+<center>
+<img src="images/07-16-valuing-call-option.png" width="600px">
+</center>
+<p><br></p>
+<ul>
+<li>At final nodes (<span class="math inline">\(D\)</span>, <span class="math inline">\(E\)</span>, <span class="math inline">\(F\)</span>), option values equal intrinsic payoffs.</li>
+<li>At nodes <span class="math inline">\(B\)</span> and <span class="math inline">\(C\)</span>, compute expected payoff, discounted to present:</li>
+</ul>
+<p><span class="math display">\[
+\text{Node B} = e^{-0.04 \times 0.25}(0.5503 \times 3.2 + 0.4497 \times 0) = \$1.7433
+\]</span> <span class="math display">\[
+\text{Node C} = 0 + 0 = \$0
+\]</span> <span class="math display">\[
+\text{Node A} = e^{-0.04 \times 0.25}(0.5503 \times 1.7433 + 0.4497 \times 0) = \$0.9497
+\]</span></p>
 </section>
 <section id="valuing-a-put-option" class="level3">
 <h3 class="anchored" data-anchor-id="valuing-a-put-option">Valuing a Put Option</h3>
-<p>For a put option with a strike price (<span class="math inline">\(K\)</span>) of $52 and a time step of 1 year, the parameters are: <span class="math inline">\(r = 5\%\)</span>, <span class="math inline">\(u = 1.2\)</span>, <span class="math inline">\(d = 0.8\)</span>, and <span class="math inline">\(p = 0.6282\)</span>.</p>
-<p><img src="images/07-17-valuing-put-option.png" class="img-fluid"></p>
+<p>For a put option with:</p>
 <ul>
-<li>Following the same approach and determining option values at each node from right to left, we obtain:
-<ul>
-<li><span class="math inline">\(\text{Value at node } C = e^{-0.05 \times 1}(0.6282 \times 4 + 0.3718 \times 20) = \$9.4636\)</span></li>
-<li><span class="math inline">\(\text{Value at node } B = e^{-0.05 \times 1}(0.6282 \times 0 + 0.3718 \times 4) = \$1.4147\)</span></li>
-<li><span class="math inline">\(\text{Value at node } A = e^{-0.05 \times 1}(0.6282 \times 1.4147 + 0.3718 \times 9.4636) = \$4.1923\)</span></li>
-</ul></li>
+<li>Strike price: <span class="math inline">\(K = \$52\)</span></li>
+<li>Time step: 1 year<br>
+</li>
+<li><span class="math inline">\(r = 5\%\)</span>, <span class="math inline">\(u = 1.2\)</span>, <span class="math inline">\(d = 0.8\)</span>, <span class="math inline">\(p = 0.6282\)</span></li>
 </ul>
+<br>
+<center>
+<img src="images/07-17-valuing-put-option.png" width="600px">
+</center>
+<p><br></p>
+<p>Working backward from the final nodes:</p>
+<p><span class="math display">\[
+\text{Node C} = e^{-0.05 \times 1}(0.6282 \times 4 + 0.3718 \times 20) = \$9.4636
+\]</span> <span class="math display">\[
+\text{Node B} = e^{-0.05 \times 1}(0.6282 \times 0 + 0.3718 \times 4) = \$1.4147
+\]</span> <span class="math display">\[
+\text{Node A} = e^{-0.05 \times 1}(0.6282 \times 1.4147 + 0.3718 \times 9.4636) = \$4.1923
+\]</span></p>
 </section>
-<section id="what-happens-when-the-put-option-is-american" class="level3">
-<h3 class="anchored" data-anchor-id="what-happens-when-the-put-option-is-american">What Happens When the Put Option is American?</h3>
-<p>American options allow for early exercise, affecting their valuation. Specifically, for the previous example with a put option:</p>
+<section id="impact-of-the-american-feature-on-a-put-option" class="level3">
+<h3 class="anchored" data-anchor-id="impact-of-the-american-feature-on-a-put-option">Impact of the American Feature on a Put Option</h3>
+<p>American options allow early exercise, which can increase their value.</p>
 <ul>
-<li><p>The exercising early increases the option’s value at node <span class="math inline">\(C\)</span> to <span class="math inline">\(\$12\)</span>.</p></li>
-<li><p>The recalculated value at node <span class="math inline">\(A\)</span>, incorporating the potential for early exercise, is:</p>
-<ul>
-<li><span class="math inline">\(\text{Value at node } A = e^{-0.05 \times 1}(0.6282 \times 1.4147 + 0.3718 \times 12.0000) = \$5.0894\)</span></li>
-</ul></li>
+<li>At node <span class="math inline">\(C\)</span>, early exercise yields $12, replacing the original value of $9.4636.</li>
+<li>Updating node <span class="math inline">\(A\)</span> with this new value:</li>
 </ul>
-<p><img src="images/07-18-american-put.png" class="img-fluid"></p>
+<p><span class="math display">\[
+\text{Node A} = e^{-0.05 \times 1}(0.6282 \times 1.4147 + 0.3718 \times 12.0000) = \$5.0894
+\]</span></p>
+<br>
+<center>
+<img src="images/07-18-american-put.png" width="600px">
+</center>
+<p><br></p>
 <ul>
-<li><p>The introduction of the American feature, hence, increases the put option’s value from $4.1923 to $5.0894, reflecting the added value of early exercise flexibility.</p></li>
-<li><p>The same approach applies to call options.</p></li>
+<li><p>The American feature increases the option’s value from $4.1923 to $5.0894 due to early exercise flexibility.</p></li>
+<li><p>The same logic applies to American call options, though early exercise is often less advantageous due to the time value of money.</p></li>
 </ul>
 </section>
 </section>
 <section id="choosing-u-and-d-for-binomial-models" class="level2" data-number="8.4">
 <h2 data-number="8.4" class="anchored" data-anchor-id="choosing-u-and-d-for-binomial-models"><span class="header-section-number">8.4</span> Choosing <span class="math inline">\(u\)</span> and <span class="math inline">\(d\)</span> for Binomial Models</h2>
-<p>In binomial option pricing models, accurately modeling the underlying asset’s price dynamics is crucial. One effective approach to align these models with the asset’s volatility—a key measure of its price fluctuations—is to set the up (<span class="math inline">\(u\)</span>) and down (<span class="math inline">\(d\)</span>) factors based on volatility. This method ensures that the model captures the essence of the asset’s risk and return characteristics over the specified time steps.</p>
-<section id="cox-ross-and-rubinstein-crr-methodology" class="level3">
-<h3 class="anchored" data-anchor-id="cox-ross-and-rubinstein-crr-methodology">Cox, Ross, and Rubinstein (CRR) Methodology</h3>
-<p>Cox, Ross, and Rubinstein’s seminal work in 1979 introduced a practical and widely adopted method for setting <span class="math inline">\(u\)</span> and <span class="math inline">\(d\)</span>, which directly ties these parameters to the asset’s volatility (<span class="math inline">\(\sigma\)</span>) and the length of the model’s time step (<span class="math inline">\(\Delta t\)</span>):</p>
-<p><span class="math display">\[u = e^{\sigma \sqrt{\Delta t}}\]</span></p>
-<p><span class="math display">\[d = \frac{1}{u} = e^{-\sigma \sqrt{\Delta t}}\]</span></p>
-<p>This approach ensures that the binomial model reflects the underlying asset’s volatility, allowing for a more accurate and realistic simulation of its price movements. The choice of <span class="math inline">\(u\)</span> as an exponentiation of volatility times the square root of the time step captures the log-normal distribution of stock prices over time, consistent with empirical observations.</p>
+<p>In binomial models, choosing appropriate up (<span class="math inline">\(u\)</span>) and down (<span class="math inline">\(d\)</span>) factors is key to accurately reflecting the asset’s volatility—its price fluctuation over time. A common method ties these factors directly to volatility, ensuring the model captures realistic risk and return dynamics.</p>
+<section id="cox-ross-rubinstein-crr-approach" class="level3">
+<h3 class="anchored" data-anchor-id="cox-ross-rubinstein-crr-approach">Cox-Ross-Rubinstein (CRR) Approach</h3>
+<p>Cox, Ross, and Rubinstein (1979) proposed a widely used method that links <span class="math inline">\(u\)</span> and <span class="math inline">\(d\)</span> to the asset’s volatility (<span class="math inline">\(\sigma\)</span>) and time step length (<span class="math inline">\(\Delta t\)</span>):</p>
+<p><span class="math display">\[
+u = e^{\sigma \sqrt{\Delta t}}, \quad d = \frac{1}{u} = e^{-\sigma \sqrt{\Delta t}}
+\]</span></p>
+<p>This structure:</p>
+<ul>
+<li>Reflects the log-normal nature of stock prices,</li>
+<li>Aligns the model with empirical asset behavior,</li>
+<li>Ensures symmetry: one step up followed by one down returns the price to its original level.</li>
+</ul>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Implications of Girsanov’s Theorem
+Girsanov’s Theorem and Volatility Use
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Girsanov’s Theorem provides a critical theoretical foundation for applying real-world volatility measurements within a risk-neutral pricing framework. The theorem suggests that while the expected return on an asset may differ between the real world and the risk-neutral world, the asset’s volatility (<span class="math inline">\(\sigma\)</span>) remains consistent across both.</p>
+<p>Girsanov’s Theorem underpins the use of <strong>real-world volatility</strong> in risk-neutral pricing:</p>
 <ul>
-<li><p><strong>Volatility Consistency:</strong> Girsanov’s Theorem assures us that volatility—a fundamental input in modeling asset price dynamics—is invariant whether we’re considering a real-world or risk-neutral probability measure. This invariance allows us to observe and measure volatility in the real world and then directly apply these measurements to construct a binomial tree for option pricing in the risk-neutral world.</p></li>
-<li><p><strong>Risk-Neutral Valuation:</strong> Despite the potential differences in expected returns between the real and risk-neutral worlds, the theorem supports the use of risk-neutral valuation. By ignoring risk preferences and market expectations, risk-neutral valuation simplifies the pricing of derivatives by focusing solely on the discounting of expected payoffs at the risk-free rate, underpinned by the consistent application of real-world volatility measures.</p></li>
+<li><strong>Volatility is unchanged</strong> between the real and risk-neutral worlds.</li>
+<li>This allows us to observe volatility in the real world and apply it directly in binomial models under risk-neutral valuation.</li>
 </ul>
+<p>Though expected returns differ across these worlds, volatility does not—enabling a consistent and simplified approach to option pricing focused on discounting expected payoffs at the risk-free rate.</p>
 </div>
 </div>
 </section>
@@ -620,46 +685,53 @@ Implications of Girsanov’s Theorem
 <section id="core-formulas" class="level3">
 <h3 class="anchored" data-anchor-id="core-formulas">Core Formulas</h3>
 <section id="price-movement-factors" class="level4">
-<h4 class="anchored" data-anchor-id="price-movement-factors">Price Movement Factors</h4>
-<p>The magnitude of up (<span class="math inline">\(u\)</span>) and down (<span class="math inline">\(d\)</span>) movements in the asset’s price is modeled to reflect the asset’s volatility (<span class="math inline">\(\sigma\)</span>) and the length of the time step (<span class="math inline">\(\Delta t\)</span>):</p>
-<p><span class="math display">\[u = e^{\sigma \sqrt{\Delta t}}\]</span></p>
-<p><span class="math display">\[d = \frac{1}{u} = e^{-\sigma \sqrt{\Delta t}}\]</span></p>
-<p>These factors ensure that the model captures the log-normal distribution of asset price changes, consistent with empirical observations.</p>
+<h4 class="anchored" data-anchor-id="price-movement-factors">1. Price Movement Factors</h4>
+<p>To reflect asset volatility (<span class="math inline">\(\sigma\)</span>) over a time step (<span class="math inline">\(\Delta t\)</span>), define:</p>
+<p><span class="math display">\[
+u = e^{\sigma \sqrt{\Delta t}}, \quad d = \frac{1}{u} = e^{-\sigma \sqrt{\Delta t}}
+\]</span></p>
+<p>This ensures asset prices follow a log-normal distribution, consistent with empirical behavior.</p>
 </section>
-<section id="probability-of-an-up-move" class="level4">
-<h4 class="anchored" data-anchor-id="probability-of-an-up-move">Probability of an Up Move</h4>
-<p>The risk-neutral probability (<span class="math inline">\(p\)</span>) of an upward price movement is derived as:</p>
-<p><span class="math display">\[p = \frac{a - d}{u - d}\]</span> <span class="math display">\[a = e^{r\Delta t}\]</span></p>
-<p>Here, <span class="math inline">\(a\)</span> represents the asset’s expected growth factor over a single time step under the risk-free rate (<span class="math inline">\(r\)</span>), adjusting for any dividends or interest rate differentials.</p>
+<section id="risk-neutral-probability" class="level4">
+<h4 class="anchored" data-anchor-id="risk-neutral-probability">2. Risk-Neutral Probability</h4>
+<p>The risk-neutral probability of an up move is:</p>
+<p><span class="math display">\[
+p = \frac{a - d}{u - d}, \quad \text{where } a = e^{r \Delta t}
+\]</span></p>
+<p>Here, <span class="math inline">\(a\)</span> represents the expected growth of the asset under the <strong>risk-free rate</strong> <span class="math inline">\(r\)</span>, possibly adjusted for dividends or interest differentials.</p>
 </section>
-<section id="option-value-calculation" class="level4">
-<h4 class="anchored" data-anchor-id="option-value-calculation">Option Value Calculation</h4>
-<p>The value of an option in a one-step binomial model is determined by:</p>
-<p><span class="math display">\[f = [pf_u + (1 - p)f_d]e^{-rT}\]</span></p>
-<p>where <span class="math inline">\(f_u\)</span> and <span class="math inline">\(f_d\)</span> are the option’s payoffs in the event of an up or down move, respectively, and <span class="math inline">\(T\)</span> is the total time to maturity.</p>
+<section id="option-valuation" class="level4">
+<h4 class="anchored" data-anchor-id="option-valuation">3. Option Valuation</h4>
+<p>For a one-step binomial model, the option value is:</p>
+<p><span class="math display">\[
+f = [p f_u + (1 - p) f_d] e^{-rT}
+\]</span></p>
+<p>Where: - <span class="math inline">\(f_u\)</span>, <span class="math inline">\(f_d\)</span>: payoffs in the up/down states<br>
+- <span class="math inline">\(T\)</span>: time to maturity</p>
 </section>
 </section>
-<section id="application-to-various-assets" class="level3">
-<h3 class="anchored" data-anchor-id="application-to-various-assets">Application to Various Assets</h3>
-<p>While the basic binomial tree structure remains constant, adjustments to the calculation of <span class="math inline">\(p\)</span> accommodate different types of underlying assets, reflecting their unique characteristics.</p>
+<section id="adjusting-for-different-asset-types" class="level3">
+<h3 class="anchored" data-anchor-id="adjusting-for-different-asset-types">Adjusting for Different Asset Types</h3>
+<p>The binomial framework is flexible—only the expression for <span class="math inline">\(a\)</span> changes based on the underlying asset:</p>
 <ul>
-<li><strong>Nondividend Paying Stocks:</strong>
-<ul>
-<li><span class="math inline">\(a = e^{r\Delta t}\)</span></li>
-</ul></li>
-<li><strong>Stock Indices:</strong> For indices that pay dividends, the dividend yield (<span class="math inline">\(q\)</span>) is subtracted from the risk-free rate:
-<ul>
-<li><span class="math inline">\(a = e^{(r-q)\Delta t}\)</span></li>
-</ul></li>
-<li><strong>Currencies:</strong> For options on currencies, the foreign risk-free rate (<span class="math inline">\(r_f\)</span>) is subtracted from the domestic rate:
-<ul>
-<li><span class="math inline">\(a = e^{(r - r_f) \Delta t}\)</span></li>
-</ul></li>
-<li><strong>Futures Contracts:</strong> For futures, the growth factor (<span class="math inline">\(a\)</span>) simplifies to 1 since futures prices already embody the cost-of-carry, negating the need for discounting or growth adjustments:
-<ul>
-<li><span class="math inline">\(a = 1\)</span></li>
-</ul></li>
+<li><p><strong>Nondividend-Paying Stocks:</strong></p>
+<p><span class="math display">\[
+a = e^{r \Delta t}
+\]</span></p></li>
+<li><p><strong>Stock Indices</strong> (with continuous dividend yield <span class="math inline">\(q\)</span>):</p>
+<p><span class="math display">\[
+a = e^{(r - q) \Delta t}
+\]</span></p></li>
+<li><p><strong>Currencies</strong> (domestic rate <span class="math inline">\(r\)</span>, foreign rate <span class="math inline">\(r_f\)</span>):</p>
+<p><span class="math display">\[
+a = e^{(r - r_f) \Delta t}
+\]</span></p></li>
+<li><p><strong>Futures Contracts</strong> (cost-of-carry already included in futures price):</p>
+<p><span class="math display">\[
+a = 1
+\]</span></p></li>
 </ul>
+<p>This flexibility allows the binomial model to adapt to a wide range of derivative pricing scenarios.</p>
 </section>
 </section>
 <section id="practice-questions-and-problems" class="level2" data-number="8.6">
