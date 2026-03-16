@@ -1104,7 +1104,7 @@ F_t = S_0 \times e^{(r_{USD} - r_{JPY}) \times t}
 <h2 data-number="4.7" class="anchored" data-anchor-id="other-currency-swaps"><span class="header-section-number">4.7</span> Other Currency Swaps</h2>
 <section id="fixed-for-floating-currency-swaps" class="level3">
 <h3 class="anchored" data-anchor-id="fixed-for-floating-currency-swaps">Fixed-for-Floating Currency Swaps</h3>
-<p>A fixed-for-floating currency swap combines elements of <strong>a fixed-for-fixed currency swap and a fixed-for-floating interest rate swap</strong>. In this arrangement, one party pays a fixed interest rate in one currency while receiving a floating interest rate in another currency.</p>
+<p>A fixed-for-floating currency swap combines elements of a fixed-for-fixed currency swap and a fixed-for-floating interest rate swap. In this arrangement, one party pays a fixed interest rate in one currency while receiving a floating interest rate in another currency.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -1119,33 +1119,35 @@ Example
 <div class="callout-body-container callout-body">
 <p>Consider a swap agreement where:</p>
 <ul>
-<li>A party pays a floating interest rate on GBP 7 million.<br>
+<li>A party receives a fixed 3% interest rate on USD 10 million.<br>
 </li>
-<li>The same party receives a fixed 3% interest rate on USD 10 million, with semiannual payments over 10 years.</li>
+<li>The same party pays a floating interest rate on GBP 7 million.<br>
+</li>
+<li>Payments are semiannual over 10 years.</li>
 </ul>
-<p>This swap can be broken down into two components:</p>
+<p>This swap can be decomposed into two components:</p>
 <ol type="1">
-<li><strong>Currency Swap Component</strong>:
+<li><strong>Fixed-for-Fixed Currency Swap</strong>:
 <ul>
-<li><strong>Receives</strong> 3% fixed interest on USD 10 million.<br>
+<li><strong>Receives</strong> 3% fixed on USD 10 million.<br>
 </li>
-<li><strong>Pays</strong> 4% fixed interest on GBP 7 million.</li>
+<li><strong>Pays</strong> 4% fixed on GBP 7 million.</li>
 </ul></li>
-<li><strong>Interest Rate Swap Component</strong>:
+<li><strong>Interest Rate Swap (GBP)</strong>:
 <ul>
-<li><strong>Receives</strong> 4% fixed interest.<br>
+<li><strong>Receives</strong> 4% fixed on GBP 7 million.<br>
 </li>
-<li><strong>Pays</strong> floating sterling interest on GBP 7 million.<br>
-</li>
+<li><strong>Pays</strong> floating on GBP 7 million.</li>
 </ul></li>
 </ol>
+<p><strong>Verification:</strong> The 4% fixed GBP flows cancel between the two components, leaving the party receiving 3% fixed USD and paying floating GBP — exactly the original swap.</p>
 </div>
 </div>
 </div>
 </section>
 <section id="floating-for-floating-currency-swaps" class="level3">
 <h3 class="anchored" data-anchor-id="floating-for-floating-currency-swaps">Floating-for-Floating Currency Swaps</h3>
-<p>A floating-for-floating currency swap involves exchanging <strong>floating interest payments in two different currencies</strong>. It effectively combines a fixed-for-fixed currency swap with two floating interest rate swaps.</p>
+<p>A floating-for-floating currency swap involves exchanging floating interest payments in two different currencies. It can be decomposed into a fixed-for-fixed currency swap combined with two interest rate swaps.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -1160,31 +1162,32 @@ Example
 <div class="callout-body-container callout-body">
 <p>A party exchanges:</p>
 <ul>
-<li>Sterling floating interest payments on GBP 7 million.</li>
-<li>For dollar floating interest payments on USD 10 million.</li>
+<li>Receives floating USD interest on USD 10 million.<br>
+</li>
+<li>Pays floating sterling interest on GBP 7 million.</li>
 </ul>
-<p>This structure consists of:</p>
+<p>This structure can be decomposed into three components:</p>
 <ol type="1">
-<li><strong>Base Swap</strong>:
+<li><strong>Fixed-for-Fixed Currency Swap</strong>:
 <ul>
-<li><strong>Pays</strong> 3% fixed interest on USD 10 million.<br>
+<li><strong>Receives</strong> 3% fixed on USD 10 million.<br>
 </li>
-<li><strong>Receives</strong> 4% fixed interest on GBP 7 million.</li>
+<li><strong>Pays</strong> 4% fixed on GBP 7 million.</li>
 </ul></li>
-<li><strong>Interest Rate Swap #1</strong>:
+<li><strong>Interest Rate Swap #1 (GBP)</strong>:
 <ul>
-<li><strong>Pays</strong> 4% fixed interest.<br>
+<li><strong>Receives</strong> 4% fixed on GBP 7 million.<br>
 </li>
-<li><strong>Receives</strong> floating sterling interest on GBP 7 million.</li>
+<li><strong>Pays</strong> floating on GBP 7 million.</li>
 </ul></li>
-<li><strong>Interest Rate Swap #2</strong>:
+<li><strong>Interest Rate Swap #2 (USD)</strong>:
 <ul>
-<li><strong>Pays</strong> 3% fixed interest.<br>
+<li><strong>Pays</strong> 3% fixed on USD 10 million.<br>
 </li>
-<li><strong>Receives</strong> floating USD interest on USD 10 million.<br>
-</li>
+<li><strong>Receives</strong> floating on USD 10 million.</li>
 </ul></li>
 </ol>
+<p><strong>Verification:</strong> The 4% fixed GBP cancels between components 1 and 2. The 3% fixed USD cancels between components 1 and 3. What remains is receiving floating USD and paying floating GBP — exactly the original swap.</p>
 </div>
 </div>
 </div>
