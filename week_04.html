@@ -296,10 +296,9 @@ window.Quarto = {
   <li><a href="#the-comparative-advantage-argument" id="toc-the-comparative-advantage-argument" class="nav-link" data-scroll-target="#the-comparative-advantage-argument"><span class="header-section-number">4.3</span> The Comparative-Advantage Argument</a></li>
   <li><a href="#valuation-of-interest-rate-swaps" id="toc-valuation-of-interest-rate-swaps" class="nav-link" data-scroll-target="#valuation-of-interest-rate-swaps"><span class="header-section-number">4.4</span> Valuation of Interest Rate Swaps</a></li>
   <li><a href="#currency-swaps" id="toc-currency-swaps" class="nav-link" data-scroll-target="#currency-swaps"><span class="header-section-number">4.5</span> Currency Swaps</a></li>
-  <li><a href="#valuation-of-fixed-for-fixed-currency-swaps" id="toc-valuation-of-fixed-for-fixed-currency-swaps" class="nav-link" data-scroll-target="#valuation-of-fixed-for-fixed-currency-swaps"><span class="header-section-number">4.6</span> Valuation of Fixed-for-Fixed Currency Swaps</a></li>
-  <li><a href="#other-currency-swaps" id="toc-other-currency-swaps" class="nav-link" data-scroll-target="#other-currency-swaps"><span class="header-section-number">4.7</span> Other Currency Swaps</a></li>
-  <li><a href="#other-types-of-swaps" id="toc-other-types-of-swaps" class="nav-link" data-scroll-target="#other-types-of-swaps"><span class="header-section-number">4.8</span> Other Types of Swaps</a></li>
-  <li><a href="#practice-questions-and-problems" id="toc-practice-questions-and-problems" class="nav-link" data-scroll-target="#practice-questions-and-problems"><span class="header-section-number">4.9</span> Practice Questions and Problems</a></li>
+  <li><a href="#other-currency-swaps" id="toc-other-currency-swaps" class="nav-link" data-scroll-target="#other-currency-swaps"><span class="header-section-number">4.6</span> Other Currency Swaps</a></li>
+  <li><a href="#other-types-of-swaps" id="toc-other-types-of-swaps" class="nav-link" data-scroll-target="#other-types-of-swaps"><span class="header-section-number">4.7</span> Other Types of Swaps</a></li>
+  <li><a href="#practice-questions-and-problems" id="toc-practice-questions-and-problems" class="nav-link" data-scroll-target="#practice-questions-and-problems"><span class="header-section-number">4.8</span> Practice Questions and Problems</a></li>
   </ul>
 </nav>
     </div>
@@ -579,9 +578,9 @@ Definiton
 <h3 class="anchored" data-anchor-id="valuation-framework">Valuation Framework</h3>
 <p>The swap valuation process consists of three key steps:</p>
 <ol type="1">
-<li><p><strong>Calculate Floating Forward Rates:</strong> Use market data to estimate future floating interest rates, which determine floating-rate payments.</p></li>
-<li><p><strong>Determine Swap Cash Flows:</strong> Apply calculated forward rates to estimate future cash flows for both fixed and floating legs of the swap.</p></li>
-<li><p><strong>Discount Cash Flows to Present Value:</strong> Discount future cash flows using Overnight Indexed Swap (OIS) rates, adjusting for time value and credit risk.</p></li>
+<li><p><strong>Calculate Floating Forward Rates:</strong> Use the risk-free zero curve (derived from OIS rates) to estimate future floating interest rates that determine floating-rate payments.</p></li>
+<li><p><strong>Determine Swap Cash Flows:</strong> Apply calculated forward rates (converted to semi-annual compounding) to estimate future cash flows for both fixed and floating legs of the swap.</p></li>
+<li><p><strong>Discount Cash Flows to Present Value:</strong> Discount net future cash flows using the risk-free zero rates to obtain the present value of the swap.</p></li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
@@ -598,27 +597,51 @@ Definiton
 <section id="swap-agreement-overview" class="level3">
 <h3 class="anchored" data-anchor-id="swap-agreement-overview">Swap Agreement Overview</h3>
 <ul>
-<li><strong>Structure</strong>: A swap where one party pays a fixed annual rate of 3% and receives SOFR semi-annually on a $100 million principal.<br>
+<li><strong>Structure</strong>: A financial institution pays a fixed rate of 3% per annum (semi-annual payments) and receives the SOFR six-month reference rate on a notional principal of $100 million.<br>
 </li>
-<li><strong>Remaining Term</strong>: 1.2 years, with cash flow exchanges at 0.2, 0.7, and 1.2 years.<br>
+<li><strong>Remaining Term</strong>: 1.2 years, with cash flow exchanges at <strong>0.2, 0.7, and 1.2 years</strong>.<br>
 </li>
-<li><strong>Risk-Free Rates</strong> (OIS zero rates for different maturities):
+<li><strong>Risk-Free Zero Rates</strong> (continuously compounded, derived from OIS):
 <ul>
-<li>3 months: 2.8%<br>
+<li>0.2 years: 2.8%<br>
 </li>
-<li>9 months: 3.2%<br>
+<li>0.7 years: 3.2%<br>
 </li>
-<li>15 months: 3.4%<br>
+<li>1.2 years: 3.4%<br>
 </li>
 </ul></li>
-<li><strong>Historical SOFR Rate</strong>: 2.9% (already fixed for the upcoming 3-month exchange).<br>
-</li>
-<li><strong>Projected Forward SOFR Rates</strong>:</li>
+<li><strong>Historical SOFR Rate</strong>: The continuously compounded risk-free rate observed for the last 0.3 years (which covers 60% of the days determining the exchange at 0.2 years) is <strong>2.3%</strong>.</li>
 </ul>
+</section>
+<section id="step-1-determine-floating-rates" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-determine-floating-rates">Step 1: Determine Floating Rates</h3>
+<p><strong>Exchange at 0.2 years (blended rate):</strong><br>
+The first floating rate is not a true forward rate. Part of the period has already elapsed (60%), so the rate is a weighted average of the already-observed rate and the zero rate for the remaining portion: <span class="math display">\[
+R_{0.2} = 0.6 \times 2.3\% + 0.4 \times 2.8\% = 2.50\% \quad \text{(cont. comp.)}
+\]</span></p>
+<p><strong>Exchange at 0.7 years (forward rate for 0.2 → 0.7 years):</strong><br>
+Using the formula for forward rates from the zero curve: <span class="math display">\[
+R_{0.7} = \frac{R_2 \, T_2 - R_1 \, T_1}{T_2 - T_1}
+= \frac{0.032 \times 0.7 - 0.028 \times 0.2}{0.7 - 0.2}
+= \frac{0.0224 - 0.0056}{0.5} = 3.36\% \quad \text{(cont. comp.)}
+\]</span></p>
+<p><strong>Exchange at 1.2 years (forward rate for 0.7 → 1.2 years):</strong> <span class="math display">\[
+R_{1.2} = \frac{0.034 \times 1.2 - 0.032 \times 0.7}{1.2 - 0.7}
+= \frac{0.0408 - 0.0224}{0.5} = 3.68\% \quad \text{(cont. comp.)}
+\]</span></p>
+</section>
+<section id="step-2-convert-to-semi-annual-compounding" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-convert-to-semi-annual-compounding">Step 2: Convert to Semi-Annual Compounding</h3>
+<p>Since swap payments are made semi-annually, we convert from continuous to semi-annual compounding using <span class="math inline">\(R_s = 2(e^{R_c/2} - 1)\)</span>:</p>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 33%">
+<col style="width: 35%">
+</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: center;">Time (years)</th>
+<th style="text-align: center;">Exchange at (years)</th>
 <th style="text-align: center;">Continuous Compounding</th>
 <th style="text-align: center;">Semi-Annual Compounding</th>
 </tr>
@@ -626,56 +649,64 @@ Definiton
 <tbody>
 <tr class="odd">
 <td style="text-align: center;">0.2</td>
-<td style="text-align: center;">2.50%</td>
+<td style="text-align: center;">2.500%</td>
 <td style="text-align: center;">2.516%</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">0.7</td>
-<td style="text-align: center;">3.36%</td>
+<td style="text-align: center;">3.360%</td>
 <td style="text-align: center;">3.388%</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">1.2</td>
-<td style="text-align: center;">3.68%</td>
+<td style="text-align: center;">3.680%</td>
 <td style="text-align: center;">3.714%</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="cash-flow-valuation" class="level3">
-<h3 class="anchored" data-anchor-id="cash-flow-valuation">Cash Flow Valuation</h3>
-<p>The table below details the swap’s fixed and floating cash flows, their net impact, and their <strong>present value</strong> after discounting.</p>
+<section id="step-3-calculate-and-discount-cash-flows" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-calculate-and-discount-cash-flows">Step 3: Calculate and Discount Cash Flows</h3>
+<p>Each semi-annual <strong>fixed payment</strong> is: <span class="math display">\[
+-0.5 \times 0.03 \times 100 = -1.500 \text{ million}
+\]</span></p>
+<p>Each <strong>floating payment</strong> uses the semi-annually compounded forward rate: <span class="math display">\[
++0.5 \times R_s \times 100
+\]</span></p>
+<p>The <strong>discount factor</strong> for time <span class="math inline">\(T\)</span> uses the continuously compounded zero rate <span class="math inline">\(R_T\)</span>: <span class="math display">\[
+DF(T) = e^{-R_T \times T}
+\]</span></p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 11%">
+<col style="width: 13%">
+<col style="width: 15%">
 <col style="width: 18%">
-<col style="width: 21%">
-<col style="width: 16%">
-<col style="width: 14%">
-<col style="width: 16%">
+<col style="width: 13%">
+<col style="width: 17%">
+<col style="width: 19%">
 </colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: center;">Time (years)</th>
-<th style="text-align: center;">Fixed Cash Flow ($M)</th>
-<th style="text-align: center;">Floating Cash Flow ($M)</th>
-<th style="text-align: center;">Net Cash Flow ($M)</th>
+<th style="text-align: center;">Fixed CF ($M)</th>
+<th style="text-align: center;">Floating CF ($M)</th>
+<th style="text-align: center;">Net CF ($M)</th>
 <th style="text-align: center;">Discount Factor</th>
-<th style="text-align: center;">Present Value ($M)</th>
+<th style="text-align: center;">PV of Net CF ($M)</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: center;">0.2</td>
-<td style="text-align: center;">-1.500</td>
+<td style="text-align: center;">−1.500</td>
 <td style="text-align: center;">+1.258</td>
-<td style="text-align: center;">-0.242</td>
+<td style="text-align: center;">−0.242</td>
 <td style="text-align: center;">0.9944</td>
-<td style="text-align: center;">-0.241</td>
+<td style="text-align: center;">−0.241</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">0.7</td>
-<td style="text-align: center;">-1.500</td>
+<td style="text-align: center;">−1.500</td>
 <td style="text-align: center;">+1.694</td>
 <td style="text-align: center;">+0.194</td>
 <td style="text-align: center;">0.9778</td>
@@ -683,7 +714,7 @@ Definiton
 </tr>
 <tr class="odd">
 <td style="text-align: center;">1.2</td>
-<td style="text-align: center;">-1.500</td>
+<td style="text-align: center;">−1.500</td>
 <td style="text-align: center;">+1.857</td>
 <td style="text-align: center;">+0.357</td>
 <td style="text-align: center;">0.9600</td>
@@ -699,24 +730,25 @@ Definiton
 </tr>
 </tbody>
 </table>
+</section>
+<section id="detailed-calculation-0.7-year-exchange" class="level3">
+<h3 class="anchored" data-anchor-id="detailed-calculation-0.7-year-exchange">Detailed Calculation (0.7-year exchange)</h3>
 <ul>
-<li><p><strong>Fixed Cash Flow</strong> (at 0.7 years):<br>
-<span class="math display">\[
-0.5 \times 0.03 \times 100 = -1.5 \text{ million}
-\]</span></p></li>
-<li><p><strong>Floating Cash Flow</strong> (based on 3.388% semi-annual rate for 0.7 years):<br>
-<span class="math display">\[
-0.5 \times 0.03388 \times 100 = 1.694 \text{ million}
-\]</span></p></li>
-<li><p><strong>Present Value of Net Cash Flow</strong> (discounting at OIS rate for 0.7 years):<br>
-<span class="math display">\[
-0.194 \times e^{-0.032 \times 0.7} = 0.190 \text{ million}
-\]</span></p></li>
-<li><p><strong>Final Swap Value</strong>:<br>
-The sum of all present values across time points, resulting in a swap valuation of <strong>$0.292 million</strong>.</p></li>
-<li><p>This valuation assumes <strong>simplifications</strong> (e.g., ignoring holiday calendars and day count conventions), which may affect precise cash flows.<br>
-</p></li>
+<li><strong>Fixed Cash Flow</strong>: <span class="math inline">\(-0.5 \times 0.03 \times 100 = -1.500\)</span> million<br>
+</li>
+<li><strong>Floating Cash Flow</strong>: <span class="math inline">\(+0.5 \times 0.03388 \times 100 = +1.694\)</span> million<br>
+</li>
+<li><strong>Net Cash Flow</strong>: <span class="math inline">\(-1.500 + 1.694 = +0.194\)</span> million<br>
+</li>
+<li><strong>Discount Factor</strong>: <span class="math inline">\(e^{-0.032 \times 0.7} = 0.9778\)</span><br>
+</li>
+<li><strong>Present Value</strong>: <span class="math inline">\(0.194 \times 0.9778 = +0.190\)</span> million</li>
 </ul>
+</section>
+<section id="result" class="level3">
+<h3 class="anchored" data-anchor-id="result">Result</h3>
+<p>The swap value (from the perspective of the floating-rate receiver) is <strong>+$0.292 million</strong>.</p>
+<p><em>Note: This valuation uses simplifications — it ignores holiday calendars and day count conventions, which would affect precise cash flows in practice.</em></p>
 </section>
 </div>
 </div>
@@ -882,19 +914,14 @@ Case Study: General Electric &amp; Qantas Airways
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="valuation-of-fixed-for-fixed-currency-swaps" class="level2" data-number="4.6">
-<h2 data-number="4.6" class="anchored" data-anchor-id="valuation-of-fixed-for-fixed-currency-swaps"><span class="header-section-number">4.6</span> Valuation of Fixed-for-Fixed Currency Swaps</h2>
-<p>Fixed-for-fixed currency swaps involve <strong>exchanging fixed interest payments in two different currencies</strong> over a set period, alongside an initial and final principal exchange. These swaps can be viewed as <strong>a series of forward foreign exchange contracts</strong>, where future exchange rates determine the valuation of expected cash flows.</p>
-<p>The core assumption in valuing these swaps is that <strong>forward exchange rates reflect the market’s expectations of future currency values</strong>. The valuation process, therefore, involves discounting cash flows in each currency and converting them using forward exchange rates.</p>
-<ul>
-<li><strong>Forward Exchange Rates Matter</strong>: The swap’s valuation depends on market expectations of future exchange rates.<br>
-</li>
-<li><strong>Discounting Reflects Present Value</strong>: Future cash flows must be discounted using the domestic interest rate to obtain today’s value.<br>
-</li>
-<li><strong>Principal Exchange is Crucial</strong>: The final principal repayment significantly impacts the swap’s overall valuation.</li>
-</ul>
+<p>qua ## Valuation of Fixed-for-Fixed Currency Swaps</p>
+<p>Fixed-for-fixed currency swaps involve <strong>exchanging fixed interest payments in two different currencies</strong> over a set period, alongside an initial and final principal exchange. These swaps can be viewed as a series of forward foreign exchange contracts, where future exchange rates determine the valuation of expected cash flows.</p>
+<p>The valuation process involves:</p>
+<ol type="1">
+<li><p><strong>Calculate Forward Exchange Rates:</strong> Derive forward rates from the spot rate and the interest rate differential between the two currencies.</p></li>
+<li><p><strong>Convert Foreign Cash Flows:</strong> Use forward rates to express all cash flows in a single (domestic) currency and compute net cash flows.</p></li>
+<li><p><strong>Discount to Present Value:</strong> Discount net cash flows at the domestic risk-free rate.</p></li>
+</ol>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -907,178 +934,171 @@ Case Study: General Electric &amp; Qantas Airways
 </div>
 <div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Consider a <strong>U.S. dollar (USD) - Japanese yen (JPY) swap</strong> with the following terms:</p>
+<section id="swap-agreement-overview-1" class="level3">
+<h3 class="anchored" data-anchor-id="swap-agreement-overview-1">Swap Agreement Overview</h3>
 <ul>
-<li><strong>Fixed Interest Rates</strong>:
+<li><strong>Structure</strong>: One party receives 3% per annum on JPY 1,200 million and pays 4% per annum on USD 10 million, with annual payments and principal exchange at maturity.</li>
+<li><strong>Remaining Term</strong>: 3 years, with cash flow exchanges at 1, 2, and 3 years.</li>
+<li><strong>Risk-Free Rates</strong> (continuously compounded):
 <ul>
-<li>USD: 2.5% per annum (continuous compounding).<br>
-</li>
-<li>JPY: 1.5% per annum (continuous compounding).<br>
-</li>
+<li>USD: 2.5%</li>
+<li>JPY: 1.5%</li>
 </ul></li>
-<li><strong>Swap Payments</strong>:
-<ul>
-<li>Receives 3% interest in JPY.<br>
-</li>
-<li>Pays 4% interest in USD.<br>
-</li>
-</ul></li>
-<li><strong>Principal Exchange</strong>:
-<ul>
-<li>USD 10 million exchanged for 1,200 million JPY at inception and at maturity.<br>
-</li>
-</ul></li>
-<li><strong>Remaining Swap Duration</strong>: 3 years.<br>
-</li>
-<li><strong>Current Spot Exchange Rate</strong>: 110 JPY per USD.</li>
+<li><strong>Current Spot Exchange Rate</strong>: 110 JPY per USD (i.e., <span class="math inline">\(S_0 = 1/110 = 0.009091\)</span> USD per JPY).</li>
 </ul>
-<p>The table below outlines the <strong>expected cash flows</strong> in both currencies, their conversion using forward exchange rates, and their <strong>discounted present values</strong>:</p>
+</section>
+<section id="step-1-calculate-forward-exchange-rates" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-calculate-forward-exchange-rates">Step 1: Calculate Forward Exchange Rates</h3>
+<p>Forward exchange rates (USD per JPY) are derived from the interest rate differential: <span class="math display">\[
+F_t = S_0 \times e^{(r_{USD} - r_{JPY}) \times t}
+\]</span></p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 7%">
 <col style="width: 15%">
-<col style="width: 13%">
-<col style="width: 12%">
-<col style="width: 22%">
-<col style="width: 13%">
-<col style="width: 13%">
+<col style="width: 57%">
+<col style="width: 26%">
 </colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: center;">Time (years)</th>
-<th style="text-align: center;">Dollar Cash Flow (million)</th>
-<th style="text-align: center;">Yen Cash Flow (million)</th>
-<th style="text-align: center;">Forward Exchange Rate</th>
-<th style="text-align: center;">Dollar Value of Yen Cash Flow (million)</th>
-<th style="text-align: center;">Net Cash Flow (million)</th>
-<th style="text-align: center;">Present Value (million)</th>
+<th style="text-align: center;">Calculation</th>
+<th style="text-align: center;">Forward Rate (USD/JPY)</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: center;">1</td>
-<td style="text-align: center;">-0.4</td>
-<td style="text-align: center;">+36</td>
+<td style="text-align: center;"><span class="math inline">\(0.009091 \times e^{(0.025 - 0.015) \times 1}\)</span></td>
 <td style="text-align: center;">0.009182</td>
-<td style="text-align: center;">0.3306</td>
-<td style="text-align: center;">-0.0694</td>
-<td style="text-align: center;">-0.0677</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">2</td>
-<td style="text-align: center;">-0.4</td>
-<td style="text-align: center;">+36</td>
+<td style="text-align: center;"><span class="math inline">\(0.009091 \times e^{(0.025 - 0.015) \times 2}\)</span></td>
 <td style="text-align: center;">0.009275</td>
-<td style="text-align: center;">0.3339</td>
-<td style="text-align: center;">-0.0661</td>
-<td style="text-align: center;">-0.0629</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">3</td>
-<td style="text-align: center;">-10.4</td>
-<td style="text-align: center;">+1236</td>
+<td style="text-align: center;"><span class="math inline">\(0.009091 \times e^{(0.025 - 0.015) \times 3}\)</span></td>
 <td style="text-align: center;">0.009368</td>
-<td style="text-align: center;">11.5786</td>
+</tr>
+</tbody>
+</table>
+<p>Since <span class="math inline">\(r_{USD} &gt; r_{JPY}\)</span>, the forward rates show the JPY gradually appreciating against the USD (each JPY buys more USD over time).</p>
+</section>
+<section id="step-2-determine-cash-flows-and-convert-to-usd" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-determine-cash-flows-and-convert-to-usd">Step 2: Determine Cash Flows and Convert to USD</h3>
+<p><strong>Annual cash flows:</strong></p>
+<ul>
+<li><strong>USD leg (paid):</strong> <span class="math inline">\(0.04 \times 10 = -0.4\)</span> million per year; at maturity <span class="math inline">\(-10.4\)</span> million (including principal).</li>
+<li><strong>JPY leg (received):</strong> <span class="math inline">\(0.03 \times 1{,}200 = +36\)</span> million JPY per year; at maturity <span class="math inline">\(+1{,}236\)</span> million JPY (including principal).</li>
+</ul>
+<p><strong>Convert JPY cash flows to USD using forward rates</strong>, then compute net cash flows:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 13%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Time (years)</th>
+<th style="text-align: center;">USD CF ($M)</th>
+<th style="text-align: center;">JPY CF (¥M)</th>
+<th style="text-align: center;">Fwd Rate (USD/JPY)</th>
+<th style="text-align: center;">JPY CF in USD ($M)</th>
+<th style="text-align: center;">Net CF ($M)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">−0.400</td>
+<td style="text-align: center;">+36</td>
+<td style="text-align: center;">0.009182</td>
+<td style="text-align: center;">+0.3306</td>
+<td style="text-align: center;">−0.0694</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">−0.400</td>
+<td style="text-align: center;">+36</td>
+<td style="text-align: center;">0.009275</td>
+<td style="text-align: center;">+0.3339</td>
+<td style="text-align: center;">−0.0661</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">−10.400</td>
+<td style="text-align: center;">+1,236</td>
+<td style="text-align: center;">0.009368</td>
+<td style="text-align: center;">+11.5786</td>
 <td style="text-align: center;">+1.1786</td>
+</tr>
+</tbody>
+</table>
+<p>For example, at Year 1: <span class="math inline">\(36 \times 0.009182 = 0.3306\)</span> million USD, and the net cash flow is <span class="math inline">\(0.3306 - 0.4 = -0.0694\)</span> million.</p>
+</section>
+<section id="step-3-discount-net-cash-flows" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-discount-net-cash-flows">Step 3: Discount Net Cash Flows</h3>
+<p>Discount at the USD risk-free rate (2.5%, continuously compounded):</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 15%">
+<col style="width: 44%">
+<col style="width: 23%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Time (years)</th>
+<th style="text-align: center;">Net CF ($M)</th>
+<th style="text-align: center;">Discount Factor <span class="math inline">\(e^{-0.025 \times t}\)</span></th>
+<th style="text-align: center;">PV of Net CF ($M)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">−0.0694</td>
+<td style="text-align: center;">0.9753</td>
+<td style="text-align: center;">−0.0677</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">−0.0661</td>
+<td style="text-align: center;">0.9512</td>
+<td style="text-align: center;">−0.0629</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">+1.1786</td>
+<td style="text-align: center;">0.9277</td>
 <td style="text-align: center;">+1.0934</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;"><strong>Total</strong></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
 <td style="text-align: center;"><strong>+0.9629</strong></td>
 </tr>
 </tbody>
 </table>
-<ul>
-<li><p><strong>USD Payment:</strong><br>
-<span class="math display">\[
-0.04 \times 10 = -0.4 \text{ million USD per year}
-\]</span></p></li>
-<li><p><strong>JPY Receipt:</strong><br>
-<span class="math display">\[
-1,200 \times 0.03 = +36 \text{ million JPY per year}
-\]</span></p></li>
-<li><p><strong>Principal Exchange at Maturity (Year 3):</strong></p>
-<ul>
-<li>Pays: USD 10 million<br>
-</li>
-<li>Receives: 1,200 million JPY</li>
-</ul></li>
-</ul>
-<section id="forward-exchange-rate-calculations" class="level4">
-<h4 class="anchored" data-anchor-id="forward-exchange-rate-calculations">Forward Exchange Rate Calculations</h4>
-<p>The valuation <strong>relies on forward exchange rates</strong>, derived from the interest rate differential between USD and JPY:</p>
-<p><span class="math display">\[
-F_t = S_0 \times e^{(r - r_f) \times t}
-\]</span></p>
-<ul>
-<li><span class="math inline">\(S_0 = 0.009091\)</span> (initial spot rate, 1/110 JPY per USD).<br>
-</li>
-<li><span class="math inline">\(r = 2.5\%\)</span> (USD interest rate).<br>
-</li>
-<li><span class="math inline">\(r_f = 1.5\%\)</span> (JPY interest rate).<br>
-</li>
-<li><span class="math inline">\(t\)</span> = time in years.</li>
-</ul>
 </section>
-<section id="forward-rates-for-each-year" class="level4">
-<h4 class="anchored" data-anchor-id="forward-rates-for-each-year">Forward Rates for Each Year</h4>
-<ul>
-<li><strong>Year 1</strong>:<br>
-<span class="math display">\[
-0.009091 \times e^{(0.025 - 0.015) \times 1} = 0.009182
-\]</span></li>
-<li><strong>Year 2</strong>:<br>
-<span class="math display">\[
-0.009091 \times e^{(0.025 - 0.015) \times 2} = 0.009275
-\]</span></li>
-<li><strong>Year 3</strong>:<br>
-<span class="math display">\[
-0.009091 \times e^{(0.025 - 0.015) \times 3} = 0.009368
-\]</span></li>
-</ul>
-</section>
-<section id="valuation-process" class="level4">
-<h4 class="anchored" data-anchor-id="valuation-process">Valuation Process</h4>
-<ol type="1">
-<li><strong>Convert Future JPY Cash Flows to USD Using Forward Rates</strong>
-<ul>
-<li>Example (Year 1):<br>
-<span class="math display">\[
-36 \times 0.009182 = 0.3306 \text{ million USD}
-\]</span></li>
-<li><strong>Net Cash Flow</strong> (Year 1):<br>
-<span class="math display">\[
-0.3306 - 0.4 = -0.0694 \text{ million USD}
-\]</span></li>
-</ul></li>
-<li><strong>Discount Net Cash Flows Using USD Interest Rate (2.5%)</strong>
-<ul>
-<li>Example (Year 1):<br>
-<span class="math display">\[
--0.0694 \times e^{-0.025 \times 1} = -0.0677 \text{ million USD}
-\]</span></li>
-</ul></li>
-<li><strong>Repeat for Years 2 and 3</strong>
-<ul>
-<li>The same process applies for each year’s cash flows, using the respective forward rates and discount factors.</li>
-</ul></li>
-<li><strong>Sum Present Values to Obtain Swap Valuation</strong>
-<ul>
-<li>The total present value of net cash flows is $0.9629 million USD, representing the swap’s market value.</li>
-</ul></li>
-</ol>
+<section id="result-1" class="level3">
+<h3 class="anchored" data-anchor-id="result-1">Result</h3>
+<p>The swap value (from the perspective of the JPY receiver / USD payer) is <strong>+$0.9629 million</strong>. The positive value arises primarily from the principal exchange at maturity — the JPY 1,200 million received is worth more in USD terms (at the forward rate) than the USD 10 million paid.</p>
+<p><em>Note: This valuation assumes continuous compounding throughout and ignores day count conventions and holiday calendars.</em></p>
 </section>
 </div>
 </div>
 </div>
 </section>
-<section id="other-currency-swaps" class="level2" data-number="4.7">
-<h2 data-number="4.7" class="anchored" data-anchor-id="other-currency-swaps"><span class="header-section-number">4.7</span> Other Currency Swaps</h2>
+</section>
+<section id="other-currency-swaps" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="other-currency-swaps"><span class="header-section-number">4.6</span> Other Currency Swaps</h2>
 <section id="fixed-for-floating-currency-swaps" class="level3">
 <h3 class="anchored" data-anchor-id="fixed-for-floating-currency-swaps">Fixed-for-Floating Currency Swaps</h3>
 <p>A fixed-for-floating currency swap combines elements of <strong>a fixed-for-fixed currency swap and a fixed-for-floating interest rate swap</strong>. In this arrangement, one party pays a fixed interest rate in one currency while receiving a floating interest rate in another currency.</p>
@@ -1167,8 +1187,8 @@ Example
 </div>
 </section>
 </section>
-<section id="other-types-of-swaps" class="level2" data-number="4.8">
-<h2 data-number="4.8" class="anchored" data-anchor-id="other-types-of-swaps"><span class="header-section-number">4.8</span> Other Types of Swaps</h2>
+<section id="other-types-of-swaps" class="level2" data-number="4.7">
+<h2 data-number="4.7" class="anchored" data-anchor-id="other-types-of-swaps"><span class="header-section-number">4.7</span> Other Types of Swaps</h2>
 <p>Beyond currency and interest rate swaps, financial markets offer specialized swaps tailored for <strong>risk management, investment strategies, and arbitrage opportunities</strong>.</p>
 <ul>
 <li><p><strong>Amortizing/Step-Up Swap</strong>: The notional principal gradually increases or decreases to match an underlying asset or liability.</p></li>
@@ -1183,8 +1203,8 @@ Example
 <li><p><strong>Variance Swap</strong>: A contract based on future volatility, where payments depend on the variance of an underlying asset’s price.</p></li>
 </ul>
 </section>
-<section id="practice-questions-and-problems" class="level2" data-number="4.9">
-<h2 data-number="4.9" class="anchored" data-anchor-id="practice-questions-and-problems"><span class="header-section-number">4.9</span> Practice Questions and Problems</h2>
+<section id="practice-questions-and-problems" class="level2" data-number="4.8">
+<h2 data-number="4.8" class="anchored" data-anchor-id="practice-questions-and-problems"><span class="header-section-number">4.8</span> Practice Questions and Problems</h2>
 <ol type="1">
 <li><p>A bank finds that its assets are not matched with its liabilities. It is taking floating-rate deposits and making fixed-rate loans. How can swaps be used to offset the risk?</p></li>
 <li><p>Explain the difference between the credit risk and the market risk in a financial contract.</p></li>
